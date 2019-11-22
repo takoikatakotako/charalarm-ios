@@ -1,16 +1,28 @@
-//
-//  ContentView.swift
-//  CharacterAlarm
-//
-//  Created by junpei ono on 2019/11/22.
-//  Copyright © 2019 com.swiswiswift.swiftui. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            ZStack {
+                Image("background")
+                    .resizable()
+                    .scaledToFill()
+
+                VStack {
+                    Image("normal")
+                        .resizable()
+                }
+
+                VStack {
+
+                    NavigationLink (destination: ConfigView()
+                    .navigationBarTitle("Config", displayMode: .inline)
+                    ) {
+                        Image("top-config")
+                    }
+                }
+            }.edgesIgnoringSafeArea([.top, .bottom])
+        }
     }
 }
 
