@@ -11,12 +11,13 @@ struct ContentView: View {
                 VStack {
                     Image("normal")
                         .resizable()
+                        .padding(.top, 140)
                 }
 
                 VStack {
 
                     NavigationLink (destination: ConfigView()
-                    .navigationBarTitle("Config", displayMode: .inline)
+                    .navigationBarTitle("設定", displayMode: .inline)
                     ) {
                         Image("top-config")
                     }

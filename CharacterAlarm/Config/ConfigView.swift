@@ -5,17 +5,8 @@ struct ConfigView: View {
         List {
             Section {
                 NavigationLink(destination: ProfileView()) {
-                    HStack {
-                        Image("profile")
-                            .resizable()
-                            .frame(width: 76, height: 76, alignment: .center)
-                        VStack (alignment: .leading) {
-                            Text("井上結衣")
-                            Text("旋風鬼")
-                        }
-                    }.frame(height: 80)
-
-                }
+                    ProfileHeaderView()
+                }.frame(height: 80)
             }
 
             Section(header: Text("アラーム")) {
@@ -26,8 +17,8 @@ struct ConfigView: View {
 
             Section(header: Text("キャラクター")) {
                 NavigationLink(destination: CharacterList()) {
-                Text("キャラクター")
-                    }
+                    Text("キャラクター")
+                }
             }
 
             Section(header: Text("その他")) {

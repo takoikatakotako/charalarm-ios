@@ -2,7 +2,11 @@ import SwiftUI
 
 struct AlarmListView: View {
     var body: some View {
-        Text("AlarmListView")
+        List {
+            AlarmListRow()
+            AlarmListRow()
+            AlarmListRow()
+        }.listStyle(DefaultListStyle())
     }
 }
 
