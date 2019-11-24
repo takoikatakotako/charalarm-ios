@@ -2,6 +2,9 @@ import SwiftUI
 import UIKit
 
 struct ConfigView: View {
+
+    private let viewModel: ConfigViewModel = ConfigViewModel()
+
     var body: some View {
         NavigationView {
             List {
@@ -25,30 +28,21 @@ struct ConfigView: View {
 
                 Section(header: Text("その他")) {
                     Button(action: {
-                        guard let url = URL(string: OfficialTwitterUrlString) else {
-                            return
-                        }
-                        UIApplication.shared.open(url)
+                        self.viewModel.openUrlString(string: OfficialTwitterUrlString)
                     }) {
                         Text("公式Twitter")
                             .foregroundColor(Color.black)
                     }
 
                     Button(action: {
-                        guard let url = URL(string: ContactAboutAppUrlString) else {
-                            return
-                        }
-                        UIApplication.shared.open(url)
+                       self.viewModel.openUrlString(string: ContactAboutAppUrlString)
                     }) {
                         Text("アプリについてのお問い合わせ")
                         .foregroundColor(Color.black)
                     }
 
                     Button(action: {
-                        guard let url = URL(string: ContactAbountAddCharacterUrlString) else {
-                            return
-                        }
-                        UIApplication.shared.open(url)
+                        self.viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
                     }) {
                         Text("キャラクター追加のお問い合わせ")
                         .foregroundColor(Color.black)
