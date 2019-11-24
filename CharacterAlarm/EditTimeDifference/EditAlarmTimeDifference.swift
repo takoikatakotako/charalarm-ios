@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct EditTimeDifference: View {
+struct EditAlarmTimeDifference: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("EditTimeDifference")
     }
 }
 
 struct EditTimeDifference_Previews: PreviewProvider {
     static var previews: some View {
-        EditTimeDifference()
+        EditAlarmTimeDifference()
     }
 }

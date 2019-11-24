@@ -29,10 +29,11 @@
 		8DA83A56238A6273001B5FD8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8DA83A55238A6273001B5FD8 /* Settings.bundle */; };
 		8DA83A59238A63A0001B5FD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DA83A58238A63A0001B5FD8 /* GoogleService-Info.plist */; };
 		8DA83A5B238A6477001B5FD8 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A5A238A6477001B5FD8 /* ConfigViewModel.swift */; };
-		8DA83A61238ACCB0001B5FD8 /* EditTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A60238ACCB0001B5FD8 /* EditTimeDifference.swift */; };
+		8DA83A61238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A60238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift */; };
 		8DA83A64238ACCF0001B5FD8 /* EditAlarmWeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A63238ACCF0001B5FD8 /* EditAlarmWeekDay.swift */; };
 		8DA83A66238ACD06001B5FD8 /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A65238ACD06001B5FD8 /* EditAlarmTime.swift */; };
 		8DA83A68238ACD18001B5FD8 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A67238ACD18001B5FD8 /* EditAlarmName.swift */; };
+		8DA83A6A238AE3F1001B5FD8 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A69238AE3F1001B5FD8 /* ConfigModel.swift */; };
 		8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973D823882F0700ED6DD5 /* ConfigView.swift */; };
 		8DF973DC2388387400ED6DD5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DB2388387400ED6DD5 /* ProfileView.swift */; };
 		8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */; };
@@ -95,10 +96,11 @@
 		8DA83A55238A6273001B5FD8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8DA83A58238A63A0001B5FD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8DA83A5A238A6477001B5FD8 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
-		8DA83A60238ACCB0001B5FD8 /* EditTimeDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTimeDifference.swift; sourceTree = "<group>"; };
+		8DA83A60238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTimeDifference.swift; sourceTree = "<group>"; };
 		8DA83A63238ACCF0001B5FD8 /* EditAlarmWeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmWeekDay.swift; sourceTree = "<group>"; };
 		8DA83A65238ACD06001B5FD8 /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
 		8DA83A67238ACD18001B5FD8 /* EditAlarmName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmName.swift; sourceTree = "<group>"; };
+		8DA83A69238AE3F1001B5FD8 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		8DF973D823882F0700ED6DD5 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		8DF973DB2388387400ED6DD5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
@@ -278,7 +280,7 @@
 		8DA83A5F238ACC5E001B5FD8 /* EditTimeDifference */ = {
 			isa = PBXGroup;
 			children = (
-				8DA83A60238ACCB0001B5FD8 /* EditTimeDifference.swift */,
+				8DA83A60238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift */,
 			);
 			path = EditTimeDifference;
 			sourceTree = "<group>";
@@ -294,6 +296,7 @@
 		8DF973DD2388388800ED6DD5 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				8DA83A69238AE3F1001B5FD8 /* ConfigModel.swift */,
 				8DF973D823882F0700ED6DD5 /* ConfigView.swift */,
 				8DA83A5A238A6477001B5FD8 /* ConfigViewModel.swift */,
 				8DF973EC238908FB00ED6DD5 /* View */,
@@ -605,7 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DA83A68238ACD18001B5FD8 /* EditAlarmName.swift in Sources */,
-				8DA83A61238ACCB0001B5FD8 /* EditTimeDifference.swift in Sources */,
+				8DA83A61238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift in Sources */,
 				8DA83A5B238A6477001B5FD8 /* ConfigViewModel.swift in Sources */,
 				8DF973E523883ACD00ED6DD5 /* ProfileHeader.swift in Sources */,
 				8DFCAD3123898DA100F37CC6 /* NewsView.swift in Sources */,
@@ -614,6 +617,7 @@
 				8DA83A64238ACCF0001B5FD8 /* EditAlarmWeekDay.swift in Sources */,
 				8D34C8D32388174200589375 /* AppDelegate.swift in Sources */,
 				8DA83A39238A5952001B5FD8 /* Config.swift in Sources */,
+				8DA83A6A238AE3F1001B5FD8 /* ConfigModel.swift in Sources */,
 				8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */,
 				8DF973E82388F0B500ED6DD5 /* AlarmDetailView.swift in Sources */,
 				8DA83A47238A6098001B5FD8 /* User.swift in Sources */,

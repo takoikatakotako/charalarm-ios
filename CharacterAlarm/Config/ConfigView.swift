@@ -2,8 +2,7 @@ import SwiftUI
 import UIKit
 
 struct ConfigView: View {
-
-    private let viewModel: ConfigViewModel = ConfigViewModel()
+    @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
 
     var body: some View {
         NavigationView {
@@ -53,7 +52,7 @@ struct ConfigView: View {
                     HStack {
                         Text("バージョン情報")
                         Spacer()
-                        Text("2.0.0(234)")
+                        Text(viewModel.versionString)
                     }
                     Text("ライセンス")
                 }
