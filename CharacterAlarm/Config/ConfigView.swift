@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct ConfigView: View {
     var body: some View {
@@ -23,13 +24,43 @@ struct ConfigView: View {
                 }
 
                 Section(header: Text("その他")) {
-                    Text("公式Twitter")
-                    Text("アプリについてのお問い合わせ")
-                    Text("キャラクター追加のお問い合わせ")
+                    Button(action: {
+                        guard let url = URL(string: OfficialTwitterUrlString) else {
+                            return
+                        }
+                        UIApplication.shared.open(url)
+                    }) {
+                        Text("公式Twitter")
+                            .foregroundColor(Color.black)
+                    }
+
+                    Button(action: {
+                        guard let url = URL(string: ContactAboutAppUrlString) else {
+                            return
+                        }
+                        UIApplication.shared.open(url)
+                    }) {
+                        Text("アプリについてのお問い合わせ")
+                        .foregroundColor(Color.black)
+                    }
+
+                    Button(action: {
+                        guard let url = URL(string: ContactAbountAddCharacterUrlString) else {
+                            return
+                        }
+                        UIApplication.shared.open(url)
+                    }) {
+                        Text("キャラクター追加のお問い合わせ")
+                        .foregroundColor(Color.black)
+                    }
                 }
 
                 Section(header: Text("アプリケーション情報")) {
-                    Text("バージョン情報")
+                    HStack {
+                        Text("バージョン情報")
+                        Spacer()
+                        Text("2.0.0(234)")
+                    }
                     Text("ライセンス")
                 }
 
