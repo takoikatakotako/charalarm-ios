@@ -5,8 +5,20 @@ struct AlarmListView: View {
         List {
             NavigationLink(destination: AlarmDetailView()) {
                 AlarmListRow()
+                    .frame(height: 60.0)
             }
         }.listStyle(DefaultListStyle())
+            .navigationBarItems(trailing:
+                HStack {
+                    Button("Edit") {
+                        print("Edit tapped!")
+                    }
+
+                    Button("+") {
+                        print("+ tapped!")
+                    }
+                }
+            )
     }
 }
 

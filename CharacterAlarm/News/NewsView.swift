@@ -2,7 +2,20 @@ import SwiftUI
 
 struct NewsView: View {
     var body: some View {
-        Text("NewsView")
+        NavigationView {
+            List {
+                Text("ニュースその１")
+                Text("ニュースその２")
+                Text("ニュースその３")
+                Text("ニュースその４")
+                Text("ニュースその５")
+            }.navigationBarTitle("ニュース", displayMode: .inline)
+            .navigationBarItems(leading:
+                    Button("閉じる") {
+                        print("ニュース tapped!")
+                }
+            )
+        }
     }
 }
 

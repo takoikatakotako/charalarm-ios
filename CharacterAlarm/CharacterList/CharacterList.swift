@@ -2,7 +2,26 @@ import SwiftUI
 
 struct CharacterList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+
+            NavigationLink(destination: ProfileView()) {
+                HStack {
+                    Image("profile")
+                        .resizable()
+                        .frame(width: 54, height: 54)
+                    Text("井上結衣")
+                }.frame(height: 60)
+            }
+
+            NavigationLink(destination: ProfileView()) {
+                HStack {
+                    Image("profile")
+                        .resizable()
+                        .frame(width: 54, height: 54)
+                    Text("旋風鬼鬼子")
+                }.frame(height: 60)
+            }
+        }.listStyle(DefaultListStyle())
     }
 }
 
