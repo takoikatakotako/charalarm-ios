@@ -17,6 +17,15 @@
 		8D34C8EA2388174600589375 /* CharacterAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8E92388174600589375 /* CharacterAlarmTests.swift */; };
 		8D34C8F52388174600589375 /* CharacterAlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8F42388174600589375 /* CharacterAlarmUITests.swift */; };
 		8DA83A39238A5952001B5FD8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A38238A5952001B5FD8 /* Config.swift */; };
+		8DA83A43238A6066001B5FD8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A42238A6066001B5FD8 /* Alarm.swift */; };
+		8DA83A45238A6080001B5FD8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A44238A6080001B5FD8 /* Character.swift */; };
+		8DA83A47238A6098001B5FD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A46238A6098001B5FD8 /* User.swift */; };
+		8DA83A49238A60B9001B5FD8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A48238A60B9001B5FD8 /* Profile.swift */; };
+		8DA83A4B238A60CF001B5FD8 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A4A238A60CF001B5FD8 /* News.swift */; };
+		8DA83A4E238A60F6001B5FD8 /* AlarmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A4D238A60F6001B5FD8 /* AlarmStore.swift */; };
+		8DA83A50238A6111001B5FD8 /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A4F238A6111001B5FD8 /* CharacterStore.swift */; };
+		8DA83A52238A6127001B5FD8 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A51238A6127001B5FD8 /* ProfileStore.swift */; };
+		8DA83A54238A6140001B5FD8 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A53238A6140001B5FD8 /* UserStore.swift */; };
 		8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973D823882F0700ED6DD5 /* ConfigView.swift */; };
 		8DF973DC2388387400ED6DD5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DB2388387400ED6DD5 /* ProfileView.swift */; };
 		8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */; };
@@ -67,6 +76,15 @@
 		8D34C8F42388174600589375 /* CharacterAlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAlarmUITests.swift; sourceTree = "<group>"; };
 		8D34C8F62388174600589375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DA83A38238A5952001B5FD8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8DA83A42238A6066001B5FD8 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		8DA83A44238A6080001B5FD8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		8DA83A46238A6098001B5FD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8DA83A48238A60B9001B5FD8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		8DA83A4A238A60CF001B5FD8 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		8DA83A4D238A60F6001B5FD8 /* AlarmStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStore.swift; sourceTree = "<group>"; };
+		8DA83A4F238A6111001B5FD8 /* CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStore.swift; sourceTree = "<group>"; };
+		8DA83A51238A6127001B5FD8 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
+		8DA83A53238A6140001B5FD8 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		8DF973D823882F0700ED6DD5 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		8DF973DB2388387400ED6DD5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
@@ -149,6 +167,7 @@
 				8D34C8D62388174200589375 /* ContentView.swift */,
 				8DA83A38238A5952001B5FD8 /* Config.swift */,
 				8DA83A41238A5FCD001B5FD8 /* Entity */,
+				8DA83A4C238A60DE001B5FD8 /* Domain */,
 				8DF973DE2388392F00ED6DD5 /* AlarmList */,
 				8DF973E62388F07100ED6DD5 /* AlarmDetail */,
 				8DF973E12388398200ED6DD5 /* CharacterList */,
@@ -192,8 +211,24 @@
 		8DA83A41238A5FCD001B5FD8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				8DA83A42238A6066001B5FD8 /* Alarm.swift */,
+				8DA83A44238A6080001B5FD8 /* Character.swift */,
+				8DA83A46238A6098001B5FD8 /* User.swift */,
+				8DA83A48238A60B9001B5FD8 /* Profile.swift */,
+				8DA83A4A238A60CF001B5FD8 /* News.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		8DA83A4C238A60DE001B5FD8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8DA83A4D238A60F6001B5FD8 /* AlarmStore.swift */,
+				8DA83A4F238A6111001B5FD8 /* CharacterStore.swift */,
+				8DA83A51238A6127001B5FD8 /* ProfileStore.swift */,
+				8DA83A53238A6140001B5FD8 /* UserStore.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		8DF973DA2388385A00ED6DD5 /* Profile */ = {
@@ -504,9 +539,18 @@
 				8DA83A39238A5952001B5FD8 /* Config.swift in Sources */,
 				8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */,
 				8DF973E82388F0B500ED6DD5 /* AlarmDetailView.swift in Sources */,
+				8DA83A47238A6098001B5FD8 /* User.swift in Sources */,
+				8DA83A49238A60B9001B5FD8 /* Profile.swift in Sources */,
+				8DA83A50238A6111001B5FD8 /* CharacterStore.swift in Sources */,
+				8DA83A52238A6127001B5FD8 /* ProfileStore.swift in Sources */,
+				8DA83A43238A6066001B5FD8 /* Alarm.swift in Sources */,
+				8DA83A45238A6080001B5FD8 /* Character.swift in Sources */,
 				8DF973EA2389041B00ED6DD5 /* AlarmListRow.swift in Sources */,
+				8DA83A54238A6140001B5FD8 /* UserStore.swift in Sources */,
 				8DF973DC2388387400ED6DD5 /* ProfileView.swift in Sources */,
 				8D34C8D52388174200589375 /* SceneDelegate.swift in Sources */,
+				8DA83A4E238A60F6001B5FD8 /* AlarmStore.swift in Sources */,
+				8DA83A4B238A60CF001B5FD8 /* News.swift in Sources */,
 				8D34C8D72388174200589375 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,6 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"CharacterAlarm/Preview Content\"";
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				ENABLE_PREVIEWS = YES;
@@ -682,7 +727,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.swiftui.CharacterAlarm;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.CharacterAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -695,6 +741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"CharacterAlarm/Preview Content\"";
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				ENABLE_PREVIEWS = YES;
@@ -703,7 +750,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.swiftui.CharacterAlarm;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.CharacterAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
