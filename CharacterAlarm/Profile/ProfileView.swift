@@ -1,8 +1,24 @@
 import SwiftUI
 
+
+struct ProfileIcon: View {
+    var body: some View {
+        Image("profile")
+            .resizable()
+    }
+}
+
+
 struct ProfileView: View {
     var body: some View {
-        Text("ProfileView")
+        List {
+            Section(header: ProfileIcon()) {
+                Text("XXXX")
+                Text("XXXX")
+                Text("XXXX")
+                Text("XXXX")
+            }
+        }
     }
 }
 

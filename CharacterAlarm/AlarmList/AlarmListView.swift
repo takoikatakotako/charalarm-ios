@@ -3,9 +3,9 @@ import SwiftUI
 struct AlarmListView: View {
     var body: some View {
         List {
-            AlarmListRow()
-            AlarmListRow()
-            AlarmListRow()
+            NavigationLink(destination: AlarmDetailView()) {
+                AlarmListRow()
+            }
         }.listStyle(DefaultListStyle())
     }
 }

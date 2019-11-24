@@ -1,29 +1,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showConfig: Bool = false
     var body: some View {
-        NavigationView {
-            ZStack {
-                Image("background")
+        ZStack {
+            Image("background")
+                .resizable()
+                .scaledToFill()
+
+            VStack {
+                Image("normal")
                     .resizable()
-                    .scaledToFill()
+                    .padding(.top, 140.0)
+            }
 
-                VStack {
-                    Image("normal")
-                        .resizable()
-                        .padding(.top, 140)
+            VStack {
+                Button(action: {
+                    self.showConfig = true
+                }) {
+                    Image("top-config")
+                }.sheet(isPresented: self.$showConfig) {
+                    ConfigCharacterView()
                 }
-
-                VStack {
-
-                    NavigationLink (destination: ConfigView()
-                    .navigationBarTitle("設定", displayMode: .inline)
-                    ) {
-                        Image("top-config")
-                    }
-                }
-            }.edgesIgnoringSafeArea([.top, .bottom])
-        }
+            }
+        }.edgesIgnoringSafeArea([.top, .bottom])
     }
 }
 

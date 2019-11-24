@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ProfileHeaderView: View {
+struct ProfileHeader: View {
     var body: some View {
         HStack {
             Image("profile")
@@ -22,7 +22,7 @@ struct ProfileHeaderView: View {
 
 struct ProfileHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHeaderView()
+        ProfileHeader()
             .previewLayout(.fixed(width: 300, height: 80))
     }
 }
