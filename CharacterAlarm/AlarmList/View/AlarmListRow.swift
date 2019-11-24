@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AlarmListRow: View {
+    @State private var showGreeting = true
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -10,6 +11,9 @@ struct AlarmListRow: View {
                 Text("毎日")
             }
             Spacer()
+            Toggle(isOn: $showGreeting) {
+                Text("")
+            }.padding()
         }
     }
 }

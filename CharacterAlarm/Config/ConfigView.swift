@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ConfigCharacterView: View {
+struct ConfigView: View {
     var body: some View {
         NavigationView {
             List {
@@ -49,6 +49,6 @@ struct ConfigCharacterView: View {
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigCharacterView()
+        ConfigView()
     }
 }

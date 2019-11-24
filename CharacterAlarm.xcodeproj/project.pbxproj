@@ -15,7 +15,7 @@
 		8D34C8DF2388174600589375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D34C8DD2388174600589375 /* LaunchScreen.storyboard */; };
 		8D34C8EA2388174600589375 /* CharacterAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8E92388174600589375 /* CharacterAlarmTests.swift */; };
 		8D34C8F52388174600589375 /* CharacterAlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8F42388174600589375 /* CharacterAlarmUITests.swift */; };
-		8DF973D923882F0700ED6DD5 /* ConfigCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973D823882F0700ED6DD5 /* ConfigCharacterView.swift */; };
+		8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973D823882F0700ED6DD5 /* ConfigView.swift */; };
 		8DF973DC2388387400ED6DD5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DB2388387400ED6DD5 /* ProfileView.swift */; };
 		8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */; };
 		8DF973E32388399400ED6DD5 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973E22388399400ED6DD5 /* CharacterList.swift */; };
@@ -57,7 +57,7 @@
 		8D34C8F02388174600589375 /* CharacterAlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D34C8F42388174600589375 /* CharacterAlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAlarmUITests.swift; sourceTree = "<group>"; };
 		8D34C8F62388174600589375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DF973D823882F0700ED6DD5 /* ConfigCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCharacterView.swift; sourceTree = "<group>"; };
+		8DF973D823882F0700ED6DD5 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		8DF973DB2388387400ED6DD5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		8DF973E22388399400ED6DD5 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		8DF973DD2388388800ED6DD5 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				8DF973D823882F0700ED6DD5 /* ConfigCharacterView.swift */,
+				8DF973D823882F0700ED6DD5 /* ConfigView.swift */,
 				8DF973EC238908FB00ED6DD5 /* View */,
 			);
 			path = Config;
@@ -357,7 +357,7 @@
 			files = (
 				8DF973E523883ACD00ED6DD5 /* ProfileHeader.swift in Sources */,
 				8DFCAD3123898DA100F37CC6 /* NewsView.swift in Sources */,
-				8DF973D923882F0700ED6DD5 /* ConfigCharacterView.swift in Sources */,
+				8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */,
 				8DF973E32388399400ED6DD5 /* CharacterList.swift in Sources */,
 				8D34C8D32388174200589375 /* AppDelegate.swift in Sources */,
 				8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */,

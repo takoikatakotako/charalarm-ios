@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showNews: Bool = false
     @State private var showConfig: Bool = false
     var body: some View {
         ZStack {
@@ -15,12 +16,21 @@ struct ContentView: View {
             }
 
             VStack {
+                
+                Button(action: {
+                    self.showNews = true
+                }) {
+                    Image("top-news")
+                }.sheet(isPresented: self.$showNews) {
+                    NewsView()
+                }
+                
                 Button(action: {
                     self.showConfig = true
                 }) {
                     Image("top-config")
                 }.sheet(isPresented: self.$showConfig) {
-                    ConfigCharacterView()
+                    ConfigView()
                 }
             }
         }.edgesIgnoringSafeArea([.top, .bottom])
