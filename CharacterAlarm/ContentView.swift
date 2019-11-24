@@ -16,7 +16,7 @@ struct ContentView: View {
             }
 
             VStack {
-                
+
                 Button(action: {
                     self.showNews = true
                 }) {
@@ -24,7 +24,7 @@ struct ContentView: View {
                 }.sheet(isPresented: self.$showNews) {
                     NewsView()
                 }
-                
+
                 Button(action: {
                     self.showConfig = true
                 }) {

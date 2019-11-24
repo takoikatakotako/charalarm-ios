@@ -7,7 +7,7 @@ struct ProfileHeader: View {
                 .resizable()
                 .frame(width: 76, height: 76, alignment: .center)
                 .clipShape(Circle())
-            VStack (alignment: .leading) {
+            VStack(alignment: .leading) {
                 Text("井上結衣")
                     .foregroundColor(.gray)
                     .font(Font.system(size: 24))

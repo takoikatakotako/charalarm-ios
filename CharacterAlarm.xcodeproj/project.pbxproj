@@ -26,6 +26,8 @@
 		8DA83A50238A6111001B5FD8 /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A4F238A6111001B5FD8 /* CharacterStore.swift */; };
 		8DA83A52238A6127001B5FD8 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A51238A6127001B5FD8 /* ProfileStore.swift */; };
 		8DA83A54238A6140001B5FD8 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A53238A6140001B5FD8 /* UserStore.swift */; };
+		8DA83A56238A6273001B5FD8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8DA83A55238A6273001B5FD8 /* Settings.bundle */; };
+		8DA83A59238A63A0001B5FD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DA83A58238A63A0001B5FD8 /* GoogleService-Info.plist */; };
 		8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973D823882F0700ED6DD5 /* ConfigView.swift */; };
 		8DF973DC2388387400ED6DD5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DB2388387400ED6DD5 /* ProfileView.swift */; };
 		8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */; };
@@ -85,6 +87,8 @@
 		8DA83A4F238A6111001B5FD8 /* CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStore.swift; sourceTree = "<group>"; };
 		8DA83A51238A6127001B5FD8 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		8DA83A53238A6140001B5FD8 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		8DA83A55238A6273001B5FD8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		8DA83A58238A63A0001B5FD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8DF973D823882F0700ED6DD5 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		8DF973DB2388387400ED6DD5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		8D34C8D12388174200589375 /* CharacterAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				8DA83A58238A63A0001B5FD8 /* GoogleService-Info.plist */,
 				8D34C8D22388174200589375 /* AppDelegate.swift */,
 				8D34C8D42388174200589375 /* SceneDelegate.swift */,
 				8D34C8D62388174200589375 /* ContentView.swift */,
@@ -178,6 +183,7 @@
 				8D34C8DD2388174600589375 /* LaunchScreen.storyboard */,
 				8D34C8E02388174600589375 /* Info.plist */,
 				8D34C8DA2388174600589375 /* Preview Content */,
+				8DA83A55238A6273001B5FD8 /* Settings.bundle */,
 			);
 			path = CharacterAlarm;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				8D34C8CC2388174200589375 /* Frameworks */,
 				8D34C8CD2388174200589375 /* Resources */,
 				181E75D1098CBD3C40AEB645 /* [CP] Embed Pods Frameworks */,
+				8DA83A57238A6288001B5FD8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -418,7 +425,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA83A56238A6273001B5FD8 /* Settings.bundle in Resources */,
 				8D34C8DF2388174600589375 /* LaunchScreen.storyboard in Resources */,
+				8DA83A59238A63A0001B5FD8 /* GoogleService-Info.plist in Resources */,
 				8D34C8DC2388174600589375 /* Preview Assets.xcassets in Resources */,
 				8D34C8D92388174600589375 /* Assets.xcassets in Resources */,
 			);
@@ -501,6 +510,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8DA83A57238A6288001B5FD8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\nif which \"${PODS_ROOT}/LicensePlist/license-plist\" >/dev/null; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nelse\necho \"warning: LicensePlist not installed, download from https://github.com/mono0926/LicensePlist\"\nfi\n";
 		};
 		B8EB9EF7A9140EE1AA8713D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
