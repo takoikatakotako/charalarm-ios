@@ -16,4 +16,20 @@ class ProfileStore {
             }
         }
     }
+
+    static func featchProfiles(limit: Int, completion: @escaping ([Profile], NSError?) -> Void) {
+        let db = Firestore.firestore()
+        db.collection(Profile.collectionName).limit(to: limit).getDocuments { querySnapshot, error in
+            var profiles: [Profile] = []
+            if let error = error {
+                completion(profiles, error as NSError)
+            } else {
+                for document in querySnapshot!.documents {
+                    let profile = Profile(id: document.documentID, document: document)
+                    profiles.append(profile)
+                }
+                completion(profiles, nil)
+            }
+        }
+    }
 }

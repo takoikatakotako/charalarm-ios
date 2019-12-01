@@ -2,17 +2,11 @@ import SwiftUI
 
 class CharacterListViewModel: ObservableObject {
     let model: CharacterListModel = CharacterListModel()
-    @Published var characters: [Character] = []
+    @Published var profiles: [Profile] = []
 
     init() {
-        model.featchCharacters(limit: 5) { (characters, _) in
-            self.characters = characters
-        }
-    }
-
-    func featchCharacters() {
-        model.featchCharacters(limit: 5) { (characters, _) in
-            self.characters = characters
+        model.featchProfiles(limit: 5) { (profiles, _) in
+            self.profiles = profiles
         }
     }
 }

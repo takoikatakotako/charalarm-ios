@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseFirestore
 
-struct Profile {
+struct Profile: Identifiable {
     static let collectionName = "profile"
     static let id = "id"
     static let characterId = "character_id"
@@ -30,6 +30,14 @@ struct Profile {
     var voiceName: String = ""
     var voiceUrl: String = ""
     var voiceUrlType: String = "twitter"
+
+    init() {
+        id = "sdfsdf"
+        createTime = Date()
+        updateTime = Date()
+        name = "XXXXX"
+        description = "sdfsdfsdfs"
+    }
 
     init(id: String, document: DocumentSnapshot) {
         self.id = id

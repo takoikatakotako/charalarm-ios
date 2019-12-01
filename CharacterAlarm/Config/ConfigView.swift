@@ -8,7 +8,7 @@ struct ConfigView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: ProfileView()) {
+                    NavigationLink(destination: ProfileView(profile: Profile())) {
                         ProfileHeader()
                     }.frame(height: 80)
                 }

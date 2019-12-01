@@ -8,6 +8,7 @@ struct ProfileIcon: View {
 }
 
 struct ProfileView: View {
+    let profile: Profile
     var body: some View {
         List {
             Section(header: ProfileIcon()) {
@@ -17,43 +18,43 @@ struct ProfileView: View {
                         .foregroundColor(Color.gray)
                         .padding(.top, 8)
                         .padding(.bottom, 8)
-                    Text("井上結衣")
+                    Text(profile.name)
                         .foregroundColor(Color.gray)
                         .padding(.bottom, 8)
-
+                    
                 }
-
+                
                 VStack(alignment: .leading) {
                     Text("プロフィール")
                         .font(Font.headline)
                         .foregroundColor(Color.gray)
                         .padding(.top, 8)
                         .padding(.bottom, 8)
-                    Text("色白で水色の髪と、赤い瞳を持つ細身の少女。エヴァンゲリオン零号機のパイロット（1人目の適格者＝ファーストチルドレン）。EVA零号機の起動実験の事故により重傷を負い、初登場時は包帯姿で登場する。過去の経歴は全て抹消済みであり、本作における最大のキーパーソンとして重大な役割を果たす。")
+                    Text(profile.description)
                         .foregroundColor(Color.gray)
                         .padding(.bottom, 8)
-
+                    
                 }
-
+                
                 VStack(alignment: .leading) {
                     Text("サークル名")
                         .font(Font.headline)
                         .foregroundColor(Color.gray)
                         .padding(.top, 8)
                         .padding(.bottom, 8)
-                    Text("旋風鬼")
+                    Text(profile.circleName)
                         .foregroundColor(Color.gray)
                         .padding(.bottom, 8)
-
+                    
                 }
-
+                
                 VStack(alignment: .leading) {
                     Text("CV")
                         .font(Font.headline)
                         .foregroundColor(Color.gray)
                         .padding(.top, 8)
                         .padding(.bottom, 8)
-                    Text("Mai")
+                    Text(profile.circleName)
                         .foregroundColor(Color.gray)
                         .padding(.bottom, 8)
                 }
@@ -64,6 +65,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(profile: Profile())
     }
 }

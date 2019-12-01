@@ -1,9 +1,9 @@
 import Foundation
 
 class CharacterListModel {
-    func featchCharacters(limit: Int, completion: @escaping ([Character], NSError?) -> Void) {
-        CharacterStore.featchCharacters(limit: 5) { (characters, error) in
-            completion(characters, error)
+    func featchProfiles(limit: Int, completion: @escaping ([Profile], NSError?) -> Void) {
+        ProfileStore.featchProfiles(limit: 5) { (profiles, error) in
+            completion(profiles, error)
         }
     }
 }
