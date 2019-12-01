@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseFirestore
 
-struct  Character {
+struct  Character: Identifiable {
     static let collectionName = "character"
     static let id = "id"
     static let createTime = "create_time"

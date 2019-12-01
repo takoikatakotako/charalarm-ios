@@ -20,7 +20,7 @@ struct ConfigView: View {
                 }
 
                 Section(header: Text("キャラクター")) {
-                    NavigationLink(destination: CharacterList()) {
+                    NavigationLink(destination: CharacterListView()) {
                         Text("キャラクター")
                     }
                 }
