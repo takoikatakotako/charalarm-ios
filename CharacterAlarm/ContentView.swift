@@ -16,14 +16,14 @@ struct ContentView: View {
             }
 
             VStack {
-
                 Button(action: {
                     self.showNews = true
                 }) {
                     Image("top-news")
                 }.sheet(isPresented: self.$showNews) {
                     NewsView()
-                }
+                }.frame(width: 80, height: 80, alignment: .bottomLeading)
+                    .background(Color.red)
 
                 Button(action: {
                     self.showConfig = true
@@ -31,7 +31,8 @@ struct ContentView: View {
                     Image("top-config")
                 }.sheet(isPresented: self.$showConfig) {
                     ConfigView()
-                }
+                }.frame(width: 80, height: 80, alignment: .bottomLeading)
+                .background(Color.red)
             }
         }.edgesIgnoringSafeArea([.top, .bottom])
     }

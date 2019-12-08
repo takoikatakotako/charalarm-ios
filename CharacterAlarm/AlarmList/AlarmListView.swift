@@ -10,15 +10,16 @@ struct AlarmListView: View {
         }.listStyle(DefaultListStyle())
             .navigationBarItems(trailing:
                 HStack {
-                    Button("Edit") {
-                        print("Edit tapped!")
+                    NavigationLink(destination: AlarmDetailView()) {
+                        Image(systemName: "square.and.pencil")
                     }
 
-                    Button("+") {
-                        print("+ tapped!")
+                    NavigationLink(destination: AlarmDetailView()) {
+                        Image(systemName: "plus")
                     }
+
                 }
-            )
+        )
     }
 }
 

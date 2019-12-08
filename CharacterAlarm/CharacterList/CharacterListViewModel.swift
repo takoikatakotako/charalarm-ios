@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseStorage
 
 class CharacterListViewModel: ObservableObject {
     let model: CharacterListModel = CharacterListModel()

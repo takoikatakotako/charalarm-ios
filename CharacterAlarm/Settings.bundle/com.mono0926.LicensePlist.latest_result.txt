@@ -112,6 +112,10 @@ name: SDWebImage, nameSpecified:
 body: Copyright (c) 2009-2…
 version: 5.2.5
 
+name: SDWebImageSwiftUI, nameSpecified: 
+body: Copyright (c) 2019 l…
+version: 0.7.0
+
 name: SwiftLint, nameSpecified: 
 body: The MIT License (MIT…
 version: 0.36.0

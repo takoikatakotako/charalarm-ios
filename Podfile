@@ -12,6 +12,7 @@ target 'CharacterAlarm' do
   pod 'Firebase/Auth'
   pod 'SwiftLint'
   pod 'LicensePlist'
+  pod 'SDWebImageSwiftUI'
 
   # Pods for CharacterAlarm
   target 'CharacterAlarmTests' do

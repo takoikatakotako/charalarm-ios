@@ -20,6 +20,8 @@
 		8D4C67952394030F0001792F /* CharacterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C67942394030F0001792F /* CharacterListModel.swift */; };
 		8D4C67972394213E0001792F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C67962394213E0001792F /* ProfileViewModel.swift */; };
 		8D4C6799239421730001792F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C6798239421730001792F /* ProfileModel.swift */; };
+		8D4C679B239577A80001792F /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C679A239577A80001792F /* AlarmListViewModel.swift */; };
+		8D4C679D239577F10001792F /* AlarmListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C679C239577F10001792F /* AlarmListModel.swift */; };
 		8DA83A39238A5952001B5FD8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A38238A5952001B5FD8 /* Config.swift */; };
 		8DA83A43238A6066001B5FD8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A42238A6066001B5FD8 /* Alarm.swift */; };
 		8DA83A45238A6080001B5FD8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A44238A6080001B5FD8 /* Character.swift */; };
@@ -91,6 +93,8 @@
 		8D4C67942394030F0001792F /* CharacterListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListModel.swift; sourceTree = "<group>"; };
 		8D4C67962394213E0001792F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8D4C6798239421730001792F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		8D4C679A239577A80001792F /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewModel.swift; sourceTree = "<group>"; };
+		8D4C679C239577F10001792F /* AlarmListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListModel.swift; sourceTree = "<group>"; };
 		8DA83A38238A5952001B5FD8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8DA83A42238A6066001B5FD8 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8DA83A44238A6080001B5FD8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -317,7 +321,9 @@
 		8DF973DE2388392F00ED6DD5 /* AlarmList */ = {
 			isa = PBXGroup;
 			children = (
+				8D4C679C239577F10001792F /* AlarmListModel.swift */,
 				8DF973DF2388394C00ED6DD5 /* AlarmListView.swift */,
+				8D4C679A239577A80001792F /* AlarmListViewModel.swift */,
 				8DF973EB2389084D00ED6DD5 /* View */,
 			);
 			path = AlarmList;
@@ -627,11 +633,13 @@
 				8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */,
 				8DF973E32388399400ED6DD5 /* CharacterListView.swift in Sources */,
 				8DA83A64238ACCF0001B5FD8 /* EditAlarmWeekDay.swift in Sources */,
+				8D4C679B239577A80001792F /* AlarmListViewModel.swift in Sources */,
 				8D34C8D32388174200589375 /* AppDelegate.swift in Sources */,
 				8DA83A39238A5952001B5FD8 /* Config.swift in Sources */,
 				8DA83A6A238AE3F1001B5FD8 /* ConfigModel.swift in Sources */,
 				8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */,
 				8DF973E82388F0B500ED6DD5 /* AlarmDetailView.swift in Sources */,
+				8D4C679D239577F10001792F /* AlarmListModel.swift in Sources */,
 				8DA83A47238A6098001B5FD8 /* User.swift in Sources */,
 				8DA83A49238A60B9001B5FD8 /* Profile.swift in Sources */,
 				8DA83A50238A6111001B5FD8 /* CharacterStore.swift in Sources */,
@@ -816,7 +824,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"CharacterAlarm/Preview Content\"";
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				ENABLE_PREVIEWS = YES;
@@ -839,7 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"CharacterAlarm/Preview Content\"";
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				ENABLE_PREVIEWS = YES;

@@ -1,4 +1,6 @@
 import SwiftUI
+import UIKit
+import SDWebImageSwiftUI
 
 struct CharacterListView: View {
     @ObservedObject(initialValue: CharacterListViewModel()) var viewModel: CharacterListViewModel
@@ -6,9 +8,18 @@ struct CharacterListView: View {
         List(viewModel.profiles) { profile in
             NavigationLink(destination: ProfileView(profile: profile)) {
                 HStack {
-                    Image("profile")
+                    WebImage(url: URL(string: "https://nokiatech.github.io/heif/content/images/ski_jump_1440x960.heic"))
                         .resizable()
-                        .frame(width: 54, height: 54)
+                        .placeholder {
+                            Image("profile")
+                                .resizable()
+                                .frame(width: 54, height: 54)
+                    }
+                        .animation(.easeInOut(duration: 0.5)) // Animation Duration
+                        .transition(.fade) // Fade Transition
+                        .scaledToFit()
+                        .frame(width: 54.0, height: 54, alignment: .center)
+
                     Text(profile.name)
                 }.frame(height: 60)
             }

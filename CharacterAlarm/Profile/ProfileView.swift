@@ -21,9 +21,9 @@ struct ProfileView: View {
                     Text(profile.name)
                         .foregroundColor(Color.gray)
                         .padding(.bottom, 8)
-                    
+
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("プロフィール")
                         .font(Font.headline)
@@ -33,9 +33,9 @@ struct ProfileView: View {
                     Text(profile.description)
                         .foregroundColor(Color.gray)
                         .padding(.bottom, 8)
-                    
+
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("サークル名")
                         .font(Font.headline)
@@ -45,9 +45,9 @@ struct ProfileView: View {
                     Text(profile.circleName)
                         .foregroundColor(Color.gray)
                         .padding(.bottom, 8)
-                    
+
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("CV")
                         .font(Font.headline)
