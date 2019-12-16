@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseFirestore
 
-struct Alarm: CustomStringConvertible {
+struct Alarm: CustomStringConvertible, Identifiable {
     static let collectionName = "alarm"
     static let id = "id"
     static let uid = "uid"

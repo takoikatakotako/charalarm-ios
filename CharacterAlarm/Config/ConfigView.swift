@@ -14,7 +14,7 @@ struct ConfigView: View {
                 }
 
                 Section(header: Text("アラーム")) {
-                    NavigationLink(destination: AlarmListView()) {
+                    NavigationLink(destination: AlarmListView(uid: "sdfsdf")) {
                         Text("アラーム")
                     }
                 }

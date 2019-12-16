@@ -1,8 +1,16 @@
 import SwiftUI
 
 struct AlarmListView: View {
+    let uid: String
+    @ObservedObject var viewModel: AlarmListViewModel
+
+    init(uid: String) {
+        self.uid = uid
+        viewModel = AlarmListViewModel(uid: uid)
+    }
+
     var body: some View {
-        List {
+        List(viewModel.alarms) {_ in
             NavigationLink(destination: AlarmDetailView()) {
                 AlarmListRow()
                     .frame(height: 60.0)
@@ -25,6 +33,6 @@ struct AlarmListView: View {
 
 struct AlarmListView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmListView()
+        AlarmListView(uid: "xxxx")
     }
 }
