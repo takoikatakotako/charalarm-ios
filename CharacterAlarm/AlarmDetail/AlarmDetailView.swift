@@ -1,6 +1,14 @@
 import SwiftUI
 
 struct AlarmDetailView: View {
+    let uid: String
+    @ObservedObject var viewModel: AlarmDetailViewModel
+
+    init(uid: String) {
+        self.uid = uid
+        viewModel = AlarmDetailViewModel(uid: uid)
+    }
+
     var body: some View {
         List {
             NavigationLink(destination: EditAlarmName()) {
@@ -33,7 +41,7 @@ struct AlarmDetailView: View {
         }.navigationBarItems(trailing:
                 HStack {
                     Button("Save") {
-                        print("Save tapped!")
+                        self.viewModel.saveButton()
                     }
             }
         )
@@ -42,6 +50,6 @@ struct AlarmDetailView: View {
 
 struct AlarmDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmDetailView()
+        AlarmDetailView(uid: "xxxx")
     }
 }

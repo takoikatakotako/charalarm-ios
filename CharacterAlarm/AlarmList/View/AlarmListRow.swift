@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AlarmListRow: View {
     @State private var showGreeting = true
+    let alarm: Alarm
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -20,6 +21,8 @@ struct AlarmListRow: View {
 
 struct AlarmListRow_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmListRow()
+        AlarmListRow(alarm: Alarm(uid: "uid", token: ""))
+            .previewLayout(
+                .fixed(width: 320, height: 60))
     }
 }

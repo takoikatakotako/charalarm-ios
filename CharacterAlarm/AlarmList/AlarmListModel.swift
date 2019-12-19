@@ -10,4 +10,10 @@ class AlarmListModel {
             completion(alarms, nil)
         }
     }
+
+    func deleteAlarm(uid: String, alarmId: String, completion: @escaping (NSError?) -> Void) {
+        AlarmStore.deleteAlarm(alarmId: alarmId) { error in
+            completion(error)
+        }
+    }
 }

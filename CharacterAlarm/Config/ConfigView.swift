@@ -14,7 +14,7 @@ struct ConfigView: View {
                 }
 
                 Section(header: Text("アラーム")) {
-                    NavigationLink(destination: AlarmListView(uid: "sdfsdf")) {
+                    NavigationLink(destination: AlarmListView(uid: viewModel.uid)) {
                         Text("アラーム")
                     }
                 }
@@ -34,17 +34,17 @@ struct ConfigView: View {
                     }
 
                     Button(action: {
-                       self.viewModel.openUrlString(string: ContactAboutAppUrlString)
+                        self.viewModel.openUrlString(string: ContactAboutAppUrlString)
                     }) {
                         Text("アプリについてのお問い合わせ")
-                        .foregroundColor(Color.black)
+                            .foregroundColor(Color.black)
                     }
 
                     Button(action: {
                         self.viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
                     }) {
                         Text("キャラクター追加のお問い合わせ")
-                        .foregroundColor(Color.black)
+                            .foregroundColor(Color.black)
                     }
                 }
 
@@ -63,10 +63,10 @@ struct ConfigView: View {
             }.listStyle(GroupedListStyle())
                 .navigationBarTitle("設定", displayMode: .inline)
                 .navigationBarItems(leading:
-                        Button("閉じる") {
-                            print("Help tapped!")
+                    Button("閉じる") {
+                        print("Help tapped!")
                     }
-                )
+            )
         }
     }
 }

@@ -10,24 +10,31 @@ struct AlarmListView: View {
     }
 
     var body: some View {
-        List(viewModel.alarms) {_ in
-            NavigationLink(destination: AlarmDetailView()) {
-                AlarmListRow()
-                    .frame(height: 60.0)
+        List {
+            ForEach(viewModel.alarms, id: \.self) { alarm in
+                NavigationLink(destination: AlarmDetailView(uid: self.uid)) {
+                    AlarmListRow(alarm: alarm)
+                        .frame(height: 60.0)
+                }
             }
+            .onDelete(perform: delete)
         }.listStyle(DefaultListStyle())
             .navigationBarItems(trailing:
                 HStack {
-                    NavigationLink(destination: AlarmDetailView()) {
-                        Image(systemName: "square.and.pencil")
-                    }
+                    EditButton()
 
-                    NavigationLink(destination: AlarmDetailView()) {
+                    NavigationLink(destination: AlarmDetailView(uid: uid)) {
                         Image(systemName: "plus")
                     }
-
                 }
         )
+        .onAppear {
+            self.viewModel.onAppear()
+        }
+    }
+
+    func delete(at offsets: IndexSet) {
+        viewModel.deleteAlarm(at: offsets)
     }
 }
 
