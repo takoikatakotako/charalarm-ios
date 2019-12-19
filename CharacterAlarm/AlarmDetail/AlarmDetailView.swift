@@ -4,9 +4,10 @@ struct AlarmDetailView: View {
     let uid: String
     @ObservedObject var viewModel: AlarmDetailViewModel
 
-    init(uid: String) {
+    // AlarmId を取得して、そこからフェッチした方が良い。
+    init(uid: String, alarm: Alarm) {
         self.uid = uid
-        viewModel = AlarmDetailViewModel(uid: uid)
+        viewModel = AlarmDetailViewModel(uid: uid, alarm: alarm)
     }
 
     var body: some View {
@@ -14,14 +15,14 @@ struct AlarmDetailView: View {
             NavigationLink(destination: EditAlarmName()) {
                 VStack(alignment: .leading) {
                     Text("アラーム名")
-                    Text("2019-10-06 06:10:24")
+                    Text(viewModel.alarmName)
                 }.frame(height: 60.0)
             }
 
             NavigationLink(destination: EditAlarmTime()) {
                 VStack(alignment: .leading) {
                     Text("時間")
-                    Text("16:10(GMT+9)")
+                    Text(viewModel.alarmTimeString)
                 }.frame(height: 60.0)
             }
 
@@ -50,6 +51,6 @@ struct AlarmDetailView: View {
 
 struct AlarmDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmDetailView(uid: "xxxx")
+        AlarmDetailView(uid: "xxxx", alarm: Alarm(uid: "xxx", token: "token"))
     }
 }

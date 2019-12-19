@@ -3,8 +3,16 @@ import Foundation
 class AlarmDetailViewModel: ObservableObject {
     @Published var alarm: Alarm
 
-    init(uid: String) {
-        alarm = Alarm(uid: uid, token: "")
+    var alarmName: String {
+        return alarm.name
+    }
+
+    var alarmTimeString: String {
+        return "\(alarm.hour + alarm.timeDifference):\(alarm.minute)(GMT+\(alarm.timeDifference))"
+    }
+
+    init(uid: String, alarm: Alarm) {
+        self.alarm = alarm
     }
 
     func saveButton() {

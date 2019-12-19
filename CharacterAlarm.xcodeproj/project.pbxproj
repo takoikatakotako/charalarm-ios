@@ -346,9 +346,9 @@
 		8DF973E62388F07100ED6DD5 /* AlarmDetail */ = {
 			isa = PBXGroup;
 			children = (
+				8D94F3E323A7CB3A009EE567 /* AlarmDetailModel.swift */,
 				8DF973E72388F0B500ED6DD5 /* AlarmDetailView.swift */,
 				8D94F3E123A7CAF9009EE567 /* AlarmDetailViewModel.swift */,
-				8D94F3E323A7CB3A009EE567 /* AlarmDetailModel.swift */,
 			);
 			path = AlarmDetail;
 			sourceTree = "<group>";
