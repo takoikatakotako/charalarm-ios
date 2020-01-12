@@ -1,15 +1,20 @@
 import SwiftUI
 
+protocol  EditAlarmNameDelegate {
+    func updateAlarmName(name: String)
+}
+
 struct EditAlarmName: View {
-    @State private var alarmName = ""
+    @State var alarmName: String
+    let delegate: EditAlarmNameDelegate
     var body: some View {
         VStack {
-            TextField("あなたの名前", text: $alarmName)
+            TextField("アラーム名", text: $alarmName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
 
             Button(action: {
-                print("Button Action")
+                self.delegate.updateAlarmName(name: self.alarmName)
             }, label: {
                 HStack {
                     Spacer()
@@ -25,8 +30,14 @@ struct EditAlarmName: View {
     }
 }
 
+struct MockEditAlarmNameDelegate: EditAlarmNameDelegate {
+    func updateAlarmName(name: String) {
+
+    }
+}
+
 struct EditAlarmName_Previews: PreviewProvider {
     static var previews: some View {
-        EditAlarmName()
+        EditAlarmName(alarmName: "アラーム名", delegate: MockEditAlarmNameDelegate())
     }
 }

@@ -22,4 +22,8 @@ class AlarmDetailViewModel: ObservableObject {
             }
         }
     }
+
+    func updateAlarmName(name: String) {
+        alarm.name = name
+    }
 }

@@ -12,7 +12,7 @@ struct AlarmDetailView: View {
 
     var body: some View {
         List {
-            NavigationLink(destination: EditAlarmName()) {
+            NavigationLink(destination: EditAlarmName(alarmName: viewModel.alarmName, delegate: self)) {
                 VStack(alignment: .leading) {
                     Text("アラーム名")
                     Text(viewModel.alarmName)
@@ -46,6 +46,12 @@ struct AlarmDetailView: View {
                     }
             }
         )
+    }
+}
+
+extension AlarmDetailView: EditAlarmNameDelegate {
+    func updateAlarmName(name: String) {
+        viewModel.updateAlarmName(name: name)
     }
 }
 
