@@ -26,4 +26,9 @@ class AlarmDetailViewModel: ObservableObject {
     func updateAlarmName(name: String) {
         alarm.name = name
     }
+
+    func updateAlarmTime(hour: Int, minute: Int) {
+        alarm.hour = hour
+        alarm.minute = minute
+    }
 }

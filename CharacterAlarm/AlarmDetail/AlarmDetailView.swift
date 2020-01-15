@@ -19,7 +19,7 @@ struct AlarmDetailView: View {
                 }.frame(height: 60.0)
             }
 
-            NavigationLink(destination: EditAlarmTime()) {
+            NavigationLink(destination: EditAlarmTime(delegate: self, hour: viewModel.alarm.hour, minute: viewModel.alarm.minute) ) {
                 VStack(alignment: .leading) {
                     Text("時間")
                     Text(viewModel.alarmTimeString)
@@ -40,10 +40,10 @@ struct AlarmDetailView: View {
                 }.frame(height: 60.0)
             }
         }.navigationBarItems(trailing:
-                HStack {
-                    Button("Save") {
-                        self.viewModel.saveButton()
-                    }
+            HStack {
+                Button("Save") {
+                    self.viewModel.saveButton()
+                }
             }
         )
     }
@@ -52,6 +52,12 @@ struct AlarmDetailView: View {
 extension AlarmDetailView: EditAlarmNameDelegate {
     func updateAlarmName(name: String) {
         viewModel.updateAlarmName(name: name)
+    }
+}
+
+extension AlarmDetailView: EditAlarmTimeDelegate {
+    func updateAlarmTime(hour: Int, minute: Int) {
+        viewModel.updateAlarmTime(hour: hour, minute: minute)
     }
 }
 
