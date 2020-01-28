@@ -9,7 +9,7 @@ struct ContentView: View {
                 Image("background")
                     .resizable()
                     .scaledToFill()
-                
+
                 VStack {
                     Spacer()
                     Image("normal")
@@ -17,7 +17,15 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometory.size.width, height: geometory.size.height - 100)
                 }
-                
+
+                VStack {
+                    Spacer()
+                    HStack {
+                        TopTimeView()
+                        Spacer()
+                    }
+                }                    .padding(24)
+
                 VStack {
                     Spacer()
                     HStack {
@@ -25,25 +33,20 @@ struct ContentView: View {
                         Button(action: {
                             self.showNews = true
                         }) {
-                            Image("top-news")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                            TopButtonContent(imageName: "top-news")
                         }.sheet(isPresented: self.$showNews) {
                             NewsView()
-                        }.frame(width: 60, height: 60, alignment: .bottomLeading)
-                            .background(Color.red)
-                        
+                        }
+
                         Button(action: {
                             self.showConfig = true
                         }) {
-                            Image("top-config")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                            TopButtonContent(imageName: "top-config")
                         }.sheet(isPresented: self.$showConfig) {
                             ConfigView()
-                        }.frame(width: 60, height: 60, alignment: .bottomLeading)
-                            .background(Color.red)
-                    }.padding(24)
+                        }
+                    }
+                    .padding(36)
                 }
             }
         }.edgesIgnoringSafeArea([.top, .bottom])

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8B041DD52BE096EF7FEF5F8B /* Pods_CharacterAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA2BE35A392F55128F3E8D2 /* Pods_CharacterAlarmUITests.framework */; };
+		8D14F33623E095E300C3D18C /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33523E095E300C3D18C /* TopButtonContent.swift */; };
+		8D14F33823E098D600C3D18C /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33723E098D600C3D18C /* TopTimeView.swift */; };
 		8D34C8D32388174200589375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D22388174200589375 /* AppDelegate.swift */; };
 		8D34C8D52388174200589375 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D42388174200589375 /* SceneDelegate.swift */; };
 		8D34C8D72388174200589375 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D62388174200589375 /* ContentView.swift */; };
@@ -77,6 +79,8 @@
 		33B1AD0E31BEE905B43761CD /* Pods_CharacterAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D802A6CAAEB5C83BCCF510 /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8498D61FC14F6EA4820301B7 /* Pods-CharacterAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarm.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarm/Pods-CharacterAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		8D14F33523E095E300C3D18C /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
+		8D14F33723E098D600C3D18C /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
 		8D34C8CF2388174200589375 /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D34C8D22388174200589375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D34C8D42388174200589375 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				8D34C8D22388174200589375 /* AppDelegate.swift */,
 				8D34C8D42388174200589375 /* SceneDelegate.swift */,
 				8D34C8D62388174200589375 /* ContentView.swift */,
+				8D14F33523E095E300C3D18C /* TopButtonContent.swift */,
+				8D14F33723E098D600C3D18C /* TopTimeView.swift */,
 				8DA83A38238A5952001B5FD8 /* Config.swift */,
 				8DA83A41238A5FCD001B5FD8 /* Entity */,
 				8DA83A4C238A60DE001B5FD8 /* Domain */,
@@ -660,8 +666,10 @@
 				8DF973EA2389041B00ED6DD5 /* AlarmListRow.swift in Sources */,
 				8DA83A54238A6140001B5FD8 /* UserStore.swift in Sources */,
 				8DF973DC2388387400ED6DD5 /* ProfileView.swift in Sources */,
+				8D14F33623E095E300C3D18C /* TopButtonContent.swift in Sources */,
 				8D4C67972394213E0001792F /* ProfileViewModel.swift in Sources */,
 				8D34C8D52388174200589375 /* SceneDelegate.swift in Sources */,
+				8D14F33823E098D600C3D18C /* TopTimeView.swift in Sources */,
 				8D4C6793239402C20001792F /* CharacterListViewModel.swift in Sources */,
 				8DA83A4E238A60F6001B5FD8 /* AlarmStore.swift in Sources */,
 				8DA83A4B238A60CF001B5FD8 /* News.swift in Sources */,

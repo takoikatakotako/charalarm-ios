@@ -2,7 +2,15 @@ import SwiftUI
 
 struct EditAlarmWeekDay: View {
     var body: some View {
-        Text("EditAlarmWeekDay")
+        List {
+            Text("EditAlarmWeekDay")
+            Text("EditAlarmWeekDay")
+            Text("EditAlarmWeekDay")
+            Text("EditAlarmWeekDay")
+            Text("EditAlarmWeekDay")
+            Text("EditAlarmWeekDay")
+
+        }
     }
 }
 
