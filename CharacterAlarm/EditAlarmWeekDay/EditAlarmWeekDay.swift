@@ -1,15 +1,31 @@
 import SwiftUI
 
+enum DayOfWeek: String, CaseIterable {
+    case sunday
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case Saturday
+}
+
+extension DayOfWeek: Identifiable {
+    var id: DayOfWeek { self }
+}
+
 struct EditAlarmWeekDay: View {
     var body: some View {
-        List {
-            Text("EditAlarmWeekDay")
-            Text("EditAlarmWeekDay")
-            Text("EditAlarmWeekDay")
-            Text("EditAlarmWeekDay")
-            Text("EditAlarmWeekDay")
-            Text("EditAlarmWeekDay")
-
+        List(DayOfWeek.allCases) { dayOfWeek in
+            Button(action: {
+                print(dayOfWeek.rawValue)
+            }, label: {
+                HStack {
+                    Text("\(dayOfWeek.rawValue)")
+                    Spacer()
+                    Text("✔︎")
+                }
+            })
         }
     }
 }
