@@ -17,8 +17,9 @@ struct EditAlarmTime: View {
                         Text("\($0)")
                     }
                 }.pickerStyle(WheelPickerStyle())
-                    .onReceive([self.hour].publisher.first()) { (_) in
-                        self.delegate.updateAlarmTime(hour: self.hour, minute: self.minute)
+                    .onReceive([self.hour].publisher.first()) { hour in
+                        self.hour = hour
+
                 }.labelsHidden()
                     .frame(width: geometry.size.width / 2, height: geometry.size.height)
                     .clipped()
@@ -28,19 +29,22 @@ struct EditAlarmTime: View {
                         Text("\($0)")
                     }
                 }.pickerStyle(WheelPickerStyle())
-                    .onReceive([self.minute].publisher.first()) { (_) in
-                        self.delegate.updateAlarmTime(hour: self.hour, minute: self.minute)
+                    .onReceive([self.minute].publisher.first()) { minute in
+                        self.minute = minute
+
                 }.labelsHidden()
                     .frame(width: geometry.size.width / 2, height: geometry.size.height)
                     .clipped()
             }
         }.padding()
+            .onDisappear {
+                self.delegate.updateAlarmTime(hour: self.hour, minute: self.minute)
+        }
     }
 }
 
 struct MockEditAlarmTimeDelegate: EditAlarmTimeDelegate {
-    func updateAlarmTime(hour: Int, minute: Int) {
-    }
+    func updateAlarmTime(hour: Int, minute: Int) {}
 }
 
 struct EditAlarmTime_Previews: PreviewProvider {

@@ -32,7 +32,6 @@ struct EditAlarmName: View {
 
 struct MockEditAlarmNameDelegate: EditAlarmNameDelegate {
     func updateAlarmName(name: String) {
-
     }
 }
 
