@@ -33,7 +33,7 @@ struct AlarmDetailView: View {
                 }.frame(height: 60.0)
             }
 
-            NavigationLink(destination: EditAlarmTimeDifference()) {
+            NavigationLink(destination: EditAlarmTimeDifference(delegate: self, timeDifference: viewModel.alarm.timeDifference)) {
                 VStack(alignment: .leading) {
                     Text("時差")
                     Text("GMT + 9")
@@ -58,6 +58,12 @@ extension AlarmDetailView: EditAlarmNameDelegate {
 extension AlarmDetailView: EditAlarmTimeDelegate {
     func updateAlarmTime(hour: Int, minute: Int) {
         viewModel.updateAlarmTime(hour: hour, minute: minute)
+    }
+}
+
+extension AlarmDetailView: EditAlarmTimeDifferenceDelegate {
+    func updateAlarmTimeDifference(hour: Int) {
+
     }
 }
 
