@@ -55,6 +55,16 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+           ContentView()
+              .environment(\.colorScheme, .light)
+
+            ContentView()
+               .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+               .previewDisplayName("iPhone 8")
+
+           ContentView()
+              .environment(\.colorScheme, .dark)
+        }
     }
 }

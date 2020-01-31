@@ -1,7 +1,7 @@
 import SwiftUI
 
 protocol  EditAlarmTimeDifferenceDelegate {
-    func updateAlarmTimeDifference(hour: Int)
+    func updateAlarmTimeDifference(timeDifference: Int)
 }
 
 struct EditAlarmTimeDifference: View {
@@ -14,11 +14,18 @@ struct EditAlarmTimeDifference: View {
             }
         }.pickerStyle(WheelPickerStyle())
             .labelsHidden()
+            .onReceive([self.timeDifference].publisher.first()) { timeDifference in
+                self.timeDifference = timeDifference
+
+        }
+        .onDisappear {
+            self.delegate.updateAlarmTimeDifference(timeDifference: self.timeDifference)
+        }
     }
 }
 
 struct MockEditAlarmTimeDifferenceDelegate: EditAlarmTimeDifferenceDelegate {
-    func updateAlarmTimeDifference(hour: Int) {}
+    func updateAlarmTimeDifference(timeDifference: Int) {}
 }
 
 struct EditTimeDifference_Previews: PreviewProvider {

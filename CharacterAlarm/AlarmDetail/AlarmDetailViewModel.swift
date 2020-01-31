@@ -31,4 +31,8 @@ class AlarmDetailViewModel: ObservableObject {
         alarm.hour = hour
         alarm.minute = minute
     }
+
+    func updateTimeDifference(timeDifference: Int) {
+        alarm.timeDifference = timeDifference
+    }
 }
