@@ -11,22 +11,13 @@ struct EditAlarmName: View {
         VStack {
             TextField("アラーム名", text: $alarmName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
-
-            Button(action: {
-                self.delegate.updateAlarmName(name: self.alarmName)
-            }, label: {
-                HStack {
-                    Spacer()
-                    Text("EditAlarmName")
-                        .foregroundColor(Color.white)
-                    Spacer()
-                }.frame(height: 40)
-                    .background(Color.black)
-            })
+                .padding()
             Spacer()
         }
         .padding()
+        .onDisappear {
+            self.delegate.updateAlarmName(name: self.alarmName)
+        }
     }
 }
 

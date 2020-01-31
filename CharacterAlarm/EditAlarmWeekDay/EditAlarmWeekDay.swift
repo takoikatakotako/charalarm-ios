@@ -26,6 +26,7 @@ struct EditAlarmWeekDay: View {
                     Text("✔︎")
                 }
             })
+        }.onDisappear {
         }
     }
 }
