@@ -223,7 +223,7 @@
 				8DF973DE2388392F00ED6DD5 /* AlarmList */,
 				8DF973E62388F07100ED6DD5 /* AlarmDetail */,
 				8DA83A5F238ACC5E001B5FD8 /* EditTimeDifference */,
-				8DA83A5E238ACC51001B5FD8 /* EditAlarmWeekDay */,
+				8DA83A5E238ACC51001B5FD8 /* EditAlarmDayOfWeek */,
 				8DA83A5D238ACC3D001B5FD8 /* EditAlarmTime */,
 				8DA83A5C238ACC2C001B5FD8 /* EditAlarmName */,
 				8DF973E12388398200ED6DD5 /* CharacterList */,
@@ -305,12 +305,12 @@
 			path = EditAlarmTime;
 			sourceTree = "<group>";
 		};
-		8DA83A5E238ACC51001B5FD8 /* EditAlarmWeekDay */ = {
+		8DA83A5E238ACC51001B5FD8 /* EditAlarmDayOfWeek */ = {
 			isa = PBXGroup;
 			children = (
 				8DA83A63238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift */,
 			);
-			path = EditAlarmWeekDay;
+			path = EditAlarmDayOfWeek;
 			sourceTree = "<group>";
 		};
 		8DA83A5F238ACC5E001B5FD8 /* EditTimeDifference */ = {

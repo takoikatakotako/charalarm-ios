@@ -16,7 +16,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
     static let monday = "monday"
     static let tuesday = "tuesday"
     static let wednesday = "wednesday"
-    static let thusday = "thusday"
+    static let thursday = "thursday"
     static let friday = "friday"
     static let saturday = "saturday"
 
@@ -52,6 +52,10 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
             saturday: saturday)
     }
 
+    var enableDaysString: String {
+        return (sunday ? "日, ": "") + (monday ? "月, ": "") + (tuesday ? "火, ": "") + (wednesday ? "水, ": "") + (thursday ? "木, " : "") + (friday ? "金, ": "") + (saturday ? "土, ": "")
+    }
+
     var data: [String: Any] {
         var data: [String: Any] = [:]
         data[Alarm.id] = id
@@ -67,7 +71,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
         data[Alarm.monday] = monday
         data[Alarm.tuesday] = tuesday
         data[Alarm.wednesday] = wednesday
-        data[Alarm.thusday] = thursday
+        data[Alarm.thursday] = thursday
         data[Alarm.friday] = friday
         data[Alarm.saturday] = saturday
         return data
@@ -161,7 +165,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
             self.wednesday = false
         }
 
-        if let thusday = document.get(Alarm.thusday) as? Bool {
+        if let thusday = document.get(Alarm.thursday) as? Bool {
             self.thursday = thusday
         } else {
             self.thursday = false

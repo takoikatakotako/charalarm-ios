@@ -29,7 +29,7 @@ struct AlarmDetailView: View {
             NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, enableDayOfWeek: viewModel.alarm.enableDayObWeek)) {
                 VStack(alignment: .leading) {
                     Text("曜日")
-                    Text("日, 月, 火, 水, 木, 金, 土")
+                    Text(viewModel.alarm.enableDaysString)
                 }.frame(height: 60.0)
             }
 
