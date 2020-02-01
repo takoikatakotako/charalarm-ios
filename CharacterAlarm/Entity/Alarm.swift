@@ -33,12 +33,23 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
     var monday: Bool = true
     var tuesday: Bool = true
     var wednesday: Bool = true
-    var thusday: Bool = true
+    var thursday: Bool = true
     var friday: Bool = true
     var saturday: Bool = true
 
     var description: String {
         return "\(String(format: "%02d", hour + timeDifference)):\(String(format: "%02d", minute)) (GMT+\(timeDifference))"
+    }
+
+    var enableDayObWeek: EnableDayOfWeek {
+        return EnableDayOfWeek(
+            sunday: sunday,
+            monday: monday,
+            tuesday: tuesday,
+            wednesday: wednesday,
+            thursday: thursday,
+            friday: friday,
+            saturday: saturday)
     }
 
     var data: [String: Any] {
@@ -56,7 +67,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
         data[Alarm.monday] = monday
         data[Alarm.tuesday] = tuesday
         data[Alarm.wednesday] = wednesday
-        data[Alarm.thusday] = thusday
+        data[Alarm.thusday] = thursday
         data[Alarm.friday] = friday
         data[Alarm.saturday] = saturday
         return data
@@ -151,9 +162,9 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
         }
 
         if let thusday = document.get(Alarm.thusday) as? Bool {
-            self.thusday = thusday
+            self.thursday = thusday
         } else {
-            self.thusday = false
+            self.thursday = false
         }
 
         if let friday = document.get(Alarm.friday) as? Bool {

@@ -26,7 +26,7 @@ struct AlarmDetailView: View {
                 }.frame(height: 60.0)
             }
 
-            NavigationLink(destination: EditAlarmWeekDay()) {
+            NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, enableDayOfWeek: viewModel.alarm.enableDayObWeek)) {
                 VStack(alignment: .leading) {
                     Text("曜日")
                     Text("日, 月, 火, 水, 木, 金, 土")
@@ -64,6 +64,12 @@ extension AlarmDetailView: EditAlarmTimeDelegate {
 extension AlarmDetailView: EditAlarmTimeDifferenceDelegate {
     func updateAlarmTimeDifference(timeDifference: Int) {
         viewModel.updateTimeDifference(timeDifference: timeDifference)
+    }
+}
+
+extension AlarmDetailView: EditAlarmDayOfWeekDelegate {
+    func updateDayOfWeek(enableDayOfWeek: EnableDayOfWeek) {
+        viewModel.updateDayOfWeek(enableDayOfWeek: enableDayOfWeek)
     }
 }
 

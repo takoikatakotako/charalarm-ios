@@ -6,7 +6,7 @@ struct AlarmListRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("21:30")
+                Text("\(alarm.hour + alarm.timeDifference):\(alarm.minute)")
                     .font(Font.system(size: 20))
                 Text("アラーム名")
                 Text("毎日")

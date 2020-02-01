@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8B041DD52BE096EF7FEF5F8B /* Pods_CharacterAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA2BE35A392F55128F3E8D2 /* Pods_CharacterAlarmUITests.framework */; };
+		8D14CCFD23E5964600C463F6 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14CCFC23E5964600C463F6 /* DayOfWeek.swift */; };
+		8D14CCFF23E5B83E00C463F6 /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14CCFE23E5B83E00C463F6 /* EnableDayOfWeek.swift */; };
 		8D14F33623E095E300C3D18C /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33523E095E300C3D18C /* TopButtonContent.swift */; };
 		8D14F33823E098D600C3D18C /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33723E098D600C3D18C /* TopTimeView.swift */; };
 		8D34C8D32388174200589375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D22388174200589375 /* AppDelegate.swift */; };
@@ -40,7 +42,7 @@
 		8DA83A59238A63A0001B5FD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DA83A58238A63A0001B5FD8 /* GoogleService-Info.plist */; };
 		8DA83A5B238A6477001B5FD8 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A5A238A6477001B5FD8 /* ConfigViewModel.swift */; };
 		8DA83A61238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A60238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift */; };
-		8DA83A64238ACCF0001B5FD8 /* EditAlarmWeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A63238ACCF0001B5FD8 /* EditAlarmWeekDay.swift */; };
+		8DA83A64238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A63238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift */; };
 		8DA83A66238ACD06001B5FD8 /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A65238ACD06001B5FD8 /* EditAlarmTime.swift */; };
 		8DA83A68238ACD18001B5FD8 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A67238ACD18001B5FD8 /* EditAlarmName.swift */; };
 		8DA83A6A238AE3F1001B5FD8 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A69238AE3F1001B5FD8 /* ConfigModel.swift */; };
@@ -79,6 +81,8 @@
 		33B1AD0E31BEE905B43761CD /* Pods_CharacterAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D802A6CAAEB5C83BCCF510 /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8498D61FC14F6EA4820301B7 /* Pods-CharacterAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarm.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarm/Pods-CharacterAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		8D14CCFC23E5964600C463F6 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
+		8D14CCFE23E5B83E00C463F6 /* EnableDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDayOfWeek.swift; sourceTree = "<group>"; };
 		8D14F33523E095E300C3D18C /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
 		8D14F33723E098D600C3D18C /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
 		8D34C8CF2388174200589375 /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +121,7 @@
 		8DA83A58238A63A0001B5FD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8DA83A5A238A6477001B5FD8 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		8DA83A60238ACCB0001B5FD8 /* EditAlarmTimeDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTimeDifference.swift; sourceTree = "<group>"; };
-		8DA83A63238ACCF0001B5FD8 /* EditAlarmWeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmWeekDay.swift; sourceTree = "<group>"; };
+		8DA83A63238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmDayOfWeek.swift; sourceTree = "<group>"; };
 		8DA83A65238ACD06001B5FD8 /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
 		8DA83A67238ACD18001B5FD8 /* EditAlarmName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmName.swift; sourceTree = "<group>"; };
 		8DA83A69238AE3F1001B5FD8 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
@@ -173,6 +177,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8D14CCFB23E5963100C463F6 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				8D14CCFC23E5964600C463F6 /* DayOfWeek.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		8D34C8C62388174200589375 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +217,7 @@
 				8D14F33523E095E300C3D18C /* TopButtonContent.swift */,
 				8D14F33723E098D600C3D18C /* TopTimeView.swift */,
 				8DA83A38238A5952001B5FD8 /* Config.swift */,
+				8D14CCFB23E5963100C463F6 /* Enum */,
 				8DA83A41238A5FCD001B5FD8 /* Entity */,
 				8DA83A4C238A60DE001B5FD8 /* Domain */,
 				8DF973DE2388392F00ED6DD5 /* AlarmList */,
@@ -260,6 +273,7 @@
 				8DA83A46238A6098001B5FD8 /* User.swift */,
 				8DA83A48238A60B9001B5FD8 /* Profile.swift */,
 				8DA83A4A238A60CF001B5FD8 /* News.swift */,
+				8D14CCFE23E5B83E00C463F6 /* EnableDayOfWeek.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -294,7 +308,7 @@
 		8DA83A5E238ACC51001B5FD8 /* EditAlarmWeekDay */ = {
 			isa = PBXGroup;
 			children = (
-				8DA83A63238ACCF0001B5FD8 /* EditAlarmWeekDay.swift */,
+				8DA83A63238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift */,
 			);
 			path = EditAlarmWeekDay;
 			sourceTree = "<group>";
@@ -644,11 +658,12 @@
 				8DFCAD3123898DA100F37CC6 /* NewsView.swift in Sources */,
 				8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */,
 				8DF973E32388399400ED6DD5 /* CharacterListView.swift in Sources */,
-				8DA83A64238ACCF0001B5FD8 /* EditAlarmWeekDay.swift in Sources */,
+				8DA83A64238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift in Sources */,
 				8D4C679B239577A80001792F /* AlarmListViewModel.swift in Sources */,
 				8D34C8D32388174200589375 /* AppDelegate.swift in Sources */,
 				8DA83A39238A5952001B5FD8 /* Config.swift in Sources */,
 				8DA83A6A238AE3F1001B5FD8 /* ConfigModel.swift in Sources */,
+				8D14CCFF23E5B83E00C463F6 /* EnableDayOfWeek.swift in Sources */,
 				8D94F3E423A7CB3A009EE567 /* AlarmDetailModel.swift in Sources */,
 				8DF973E02388394C00ED6DD5 /* AlarmListView.swift in Sources */,
 				8DF973E82388F0B500ED6DD5 /* AlarmDetailView.swift in Sources */,
@@ -660,6 +675,7 @@
 				8DA83A43238A6066001B5FD8 /* Alarm.swift in Sources */,
 				8D4C6799239421730001792F /* ProfileModel.swift in Sources */,
 				8D94F3E223A7CAF9009EE567 /* AlarmDetailViewModel.swift in Sources */,
+				8D14CCFD23E5964600C463F6 /* DayOfWeek.swift in Sources */,
 				8D4C67952394030F0001792F /* CharacterListModel.swift in Sources */,
 				8DA83A45238A6080001B5FD8 /* Character.swift in Sources */,
 				8DA83A66238ACD06001B5FD8 /* EditAlarmTime.swift in Sources */,

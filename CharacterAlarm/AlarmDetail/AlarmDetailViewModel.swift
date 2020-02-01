@@ -35,4 +35,14 @@ class AlarmDetailViewModel: ObservableObject {
     func updateTimeDifference(timeDifference: Int) {
         alarm.timeDifference = timeDifference
     }
+
+    func updateDayOfWeek(enableDayOfWeek: EnableDayOfWeek) {
+        alarm.sunday = enableDayOfWeek.sunday
+        alarm.monday = enableDayOfWeek.monday
+        alarm.tuesday = enableDayOfWeek.tuesday
+        alarm.wednesday = enableDayOfWeek.wednesday
+        alarm.thursday = enableDayOfWeek.thursday
+        alarm.friday = enableDayOfWeek.friday
+        alarm.saturday = enableDayOfWeek.saturday
+    }
 }
