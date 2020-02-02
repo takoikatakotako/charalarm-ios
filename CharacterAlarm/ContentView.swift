@@ -4,10 +4,12 @@ struct ContentView: View {
     @State private var showNews: Bool = false
     @State private var showConfig: Bool = false
     var body: some View {
+
         GeometryReader { geometory in
             ZStack {
                 Image("background")
                     .resizable()
+                    .frame(width: geometory.size.width, height: geometory.size.height)
                     .scaledToFill()
 
                 VStack {
@@ -15,7 +17,7 @@ struct ContentView: View {
                     Image("normal")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: geometory.size.width, height: geometory.size.height - 100)
+                        .frame(width: geometory.size.width, height: geometory.size.height - 60)
                 }
 
                 VStack {
@@ -24,7 +26,8 @@ struct ContentView: View {
                         TopTimeView()
                         Spacer()
                     }
-                }                    .padding(24)
+                }
+                .padding(24)
 
                 VStack {
                     Spacer()
@@ -45,26 +48,25 @@ struct ContentView: View {
                         }.sheet(isPresented: self.$showConfig) {
                             ConfigView()
                         }
-                    }
-                    .padding(36)
+                    }.padding(24)
                 }
             }
-        }.edgesIgnoringSafeArea([.top, .bottom])
+        }
+        .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-           ContentView()
-              .environment(\.colorScheme, .light)
-
             ContentView()
-               .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
-               .previewDisplayName("iPhone 8")
-
-           ContentView()
-              .environment(\.colorScheme, .dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+                .previewDisplayName("iPhone 11")
+                .environment(\.colorScheme, .light)
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+                .environment(\.colorScheme, .dark)
         }
     }
 }
