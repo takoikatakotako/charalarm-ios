@@ -10,9 +10,9 @@ struct TopTimeView: View {
                 .foregroundColor(.white)
             .font(Font.system(size: 28))
         }
-        .frame(width: 152, height: 152)
+        .frame(width: 160, height: 160)
         .background(Color.black)
-        .cornerRadius(76)
+        .cornerRadius(80)
         .opacity(0.9)
     }
 }
@@ -20,5 +20,6 @@ struct TopTimeView: View {
 struct TopTimeView_Previews: PreviewProvider {
     static var previews: some View {
         TopTimeView()
+        .previewLayout(.fixed(width: 160, height: 160))
     }
 }

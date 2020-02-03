@@ -26,6 +26,8 @@
 		8D4C6799239421730001792F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C6798239421730001792F /* ProfileModel.swift */; };
 		8D4C679B239577A80001792F /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C679A239577A80001792F /* AlarmListViewModel.swift */; };
 		8D4C679D239577F10001792F /* AlarmListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C679C239577F10001792F /* AlarmListModel.swift */; };
+		8D7B981123E860D6002E6BBE /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7B981023E860D6002E6BBE /* TopView.swift */; };
+		8D7B981323E86404002E6BBE /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7B981223E86404002E6BBE /* TopViewModel.swift */; };
 		8D94F3E223A7CAF9009EE567 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94F3E123A7CAF9009EE567 /* AlarmDetailViewModel.swift */; };
 		8D94F3E423A7CB3A009EE567 /* AlarmDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94F3E323A7CB3A009EE567 /* AlarmDetailModel.swift */; };
 		8DA83A39238A5952001B5FD8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA83A38238A5952001B5FD8 /* Config.swift */; };
@@ -105,6 +107,8 @@
 		8D4C6798239421730001792F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		8D4C679A239577A80001792F /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewModel.swift; sourceTree = "<group>"; };
 		8D4C679C239577F10001792F /* AlarmListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListModel.swift; sourceTree = "<group>"; };
+		8D7B981023E860D6002E6BBE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		8D7B981223E86404002E6BBE /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		8D94F3E123A7CAF9009EE567 /* AlarmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewModel.swift; sourceTree = "<group>"; };
 		8D94F3E323A7CB3A009EE567 /* AlarmDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailModel.swift; sourceTree = "<group>"; };
 		8DA83A38238A5952001B5FD8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -214,12 +218,11 @@
 				8D34C8D22388174200589375 /* AppDelegate.swift */,
 				8D34C8D42388174200589375 /* SceneDelegate.swift */,
 				8D34C8D62388174200589375 /* ContentView.swift */,
-				8D14F33523E095E300C3D18C /* TopButtonContent.swift */,
-				8D14F33723E098D600C3D18C /* TopTimeView.swift */,
 				8DA83A38238A5952001B5FD8 /* Config.swift */,
 				8D14CCFB23E5963100C463F6 /* Enum */,
 				8DA83A41238A5FCD001B5FD8 /* Entity */,
 				8DA83A4C238A60DE001B5FD8 /* Domain */,
+				8D7B980E23E86056002E6BBE /* Top */,
 				8DF973DE2388392F00ED6DD5 /* AlarmList */,
 				8DF973E62388F07100ED6DD5 /* AlarmDetail */,
 				8DA83A5F238ACC5E001B5FD8 /* EditTimeDifference */,
@@ -263,6 +266,25 @@
 				8D34C8F62388174600589375 /* Info.plist */,
 			);
 			path = CharacterAlarmUITests;
+			sourceTree = "<group>";
+		};
+		8D7B980E23E86056002E6BBE /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				8D7B981023E860D6002E6BBE /* TopView.swift */,
+				8D7B981223E86404002E6BBE /* TopViewModel.swift */,
+				8D7B980F23E860A7002E6BBE /* View */,
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		8D7B980F23E860A7002E6BBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D14F33523E095E300C3D18C /* TopButtonContent.swift */,
+				8D14F33723E098D600C3D18C /* TopTimeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8DA83A41238A5FCD001B5FD8 /* Entity */ = {
@@ -657,7 +679,9 @@
 				8DF973E523883ACD00ED6DD5 /* ProfileHeader.swift in Sources */,
 				8DFCAD3123898DA100F37CC6 /* NewsView.swift in Sources */,
 				8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */,
+				8D7B981123E860D6002E6BBE /* TopView.swift in Sources */,
 				8DF973E32388399400ED6DD5 /* CharacterListView.swift in Sources */,
+				8D7B981323E86404002E6BBE /* TopViewModel.swift in Sources */,
 				8DA83A64238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift in Sources */,
 				8D4C679B239577A80001792F /* AlarmListViewModel.swift in Sources */,
 				8D34C8D32388174200589375 /* AppDelegate.swift in Sources */,

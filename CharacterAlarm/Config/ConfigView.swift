@@ -4,7 +4,6 @@ import UIKit
 struct ConfigView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
 
     var body: some View {
