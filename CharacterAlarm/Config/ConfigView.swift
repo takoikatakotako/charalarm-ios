@@ -18,12 +18,14 @@ struct ConfigView: View {
                 Section(header: Text("アラーム")) {
                     NavigationLink(destination: AlarmListView(uid: viewModel.uid)) {
                         Text("アラーム")
+                            .foregroundColor(Color("textColor"))
                     }
                 }
 
                 Section(header: Text("キャラクター")) {
                     NavigationLink(destination: CharacterListView()) {
                         Text("キャラクター")
+                            .foregroundColor(Color("textColor"))
                     }
                 }
 
@@ -32,35 +34,39 @@ struct ConfigView: View {
                         self.viewModel.openUrlString(string: OfficialTwitterUrlString)
                     }) {
                         Text("公式Twitter")
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color("textColor"))
                     }
 
                     Button(action: {
                         self.viewModel.openUrlString(string: ContactAboutAppUrlString)
                     }) {
                         Text("アプリについてのお問い合わせ")
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color("textColor"))
                     }
 
                     Button(action: {
                         self.viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
                     }) {
                         Text("キャラクター追加のお問い合わせ")
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color("textColor"))
                     }
                 }
 
                 Section(header: Text("アプリケーション情報")) {
                     HStack {
                         Text("バージョン情報")
+                            .foregroundColor(Color("textColor"))
                         Spacer()
                         Text(viewModel.versionString)
+                            .foregroundColor(Color("textColor"))
                     }
                     Text("ライセンス")
+                        .foregroundColor(Color("textColor"))
                 }
 
                 Section(header: Text("リセット")) {
                     Text("リセット")
+                        .foregroundColor(Color("textColor"))
                 }
             }.listStyle(GroupedListStyle())
                 .navigationBarTitle("設定", displayMode: .inline)
