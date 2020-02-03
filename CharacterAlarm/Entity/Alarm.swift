@@ -22,8 +22,9 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
 
     let id: String
     let uid: String
+    var isEnable: Bool = true
     let voipToken: String
-    var createTime: Date
+    let createTime: Date
     let updateTime: Date
     var name: String
     var hour: Int

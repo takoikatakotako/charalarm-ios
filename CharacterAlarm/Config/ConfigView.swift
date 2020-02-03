@@ -2,6 +2,9 @@ import SwiftUI
 import UIKit
 
 struct ConfigView: View {
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
 
     var body: some View {
@@ -63,8 +66,7 @@ struct ConfigView: View {
             }.listStyle(GroupedListStyle())
                 .navigationBarTitle("設定", displayMode: .inline)
                 .navigationBarItems(leading:
-                    Button("閉じる") {
-                        print("Help tapped!")
+                    Button("閉じる") {                    self.presentationMode.wrappedValue.dismiss()
                     }
             )
         }

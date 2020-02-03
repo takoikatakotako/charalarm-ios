@@ -14,7 +14,7 @@ struct AlarmListView: View {
             ForEach(viewModel.alarms, id: \.self) { alarm in
                 NavigationLink(destination: AlarmDetailView(uid: self.uid, alarm: alarm)) {
                     AlarmListRow(alarm: alarm)
-                    .frame(height: 60.0)
+                        .frame(height: 60.0)
                 }
             }
             .onDelete(perform: delete)
@@ -26,9 +26,8 @@ struct AlarmListView: View {
                         Image(systemName: "plus")
                     }
                 }
-        )
-            .onAppear {
-                self.viewModel.onAppear()
+        ).onAppear {
+            self.viewModel.onAppear()
         }
     }
 
