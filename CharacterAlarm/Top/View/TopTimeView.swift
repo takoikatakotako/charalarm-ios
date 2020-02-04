@@ -1,25 +1,15 @@
 import SwiftUI
 
 struct TopTimeView: View {
-    @State private var hour: Int = 0
-//    @State var minute: Int = 0
+    @State var currentDate = Date()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
-    init() {
-        let date = Date()
-        let calendar = Calendar.current
-
-//        self.hour = 0
-        // hour = calendar.component(.hour, from: date)
-//        minute = calendar.component(.minute, from: date)
-    }
 
     var body: some View {
         VStack {
-            Text("01:29")
+            Text(getTime())
                 .foregroundColor(.white)
                 .font(Font.system(size: 40))
-            Text("01/29(W)")
+            Text(getDayAndDayOfWeek())
                 .foregroundColor(.white)
                 .font(Font.system(size: 28))
         }
@@ -27,10 +17,32 @@ struct TopTimeView: View {
         .background(Color.black)
         .cornerRadius(80)
         .opacity(0.9)
-        .onReceive(timer) { _ in
-//            self.currentDate = input
-//            print(self.currentDate)
+        .onReceive(timer) { input in
+            self.currentDate = input
         }
+    }
+
+    func getTime() -> String {
+        let calendar = Calendar(identifier: .gregorian)
+        let hour = calendar.component(.hour, from: currentDate)
+        let minute = calendar.component(.minute, from: currentDate)
+        return String(format: "%02d", hour) + ":" + String(format: "%02d", minute)
+    }
+
+    func getDayAndDayOfWeek() -> String {
+        let calendar = Calendar(identifier: .gregorian)
+        let month = calendar.component(.month, from: currentDate)
+        let day = calendar.component(.day, from: currentDate)
+        return String(format: "%02d", month) + "/" + String(format: "%02d", day) + "(" + getDayOfWeek() + ")"
+    }
+
+    func getDayOfWeek() -> String {
+        let calendar = Calendar(identifier: .gregorian)
+        let component = calendar.component(.weekday, from: currentDate)
+        let weekday = component - 1
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja")
+        return String(formatter.weekdaySymbols[weekday].prefix(1))
     }
 }
 
