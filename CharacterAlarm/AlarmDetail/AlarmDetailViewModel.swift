@@ -1,7 +1,9 @@
 import Foundation
+import SwiftUI
 
 class AlarmDetailViewModel: ObservableObject {
     @Published var alarm: Alarm
+    @Published var showingAlert = false
 
     var alarmName: String {
         return alarm.name
@@ -19,6 +21,8 @@ class AlarmDetailViewModel: ObservableObject {
         AlarmStore.save(alarm: alarm) { error in
             if let error = error {
                 print(error)
+            } else {
+                self.showingAlert = true
             }
         }
     }

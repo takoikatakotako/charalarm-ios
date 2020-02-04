@@ -4,7 +4,8 @@ struct AlarmDetailView: View {
     let uid: String
     @ObservedObject var viewModel: AlarmDetailViewModel
 
-    // AlarmId を取得して、そこからフェッチした方が良い。
+    // AlarmId を取得して、そこからフェッチした方が良い。あ
+    // マルチログインに対応する予定ないし、いらんかも
     init(uid: String, alarm: Alarm) {
         self.uid = uid
         viewModel = AlarmDetailViewModel(uid: uid, alarm: alarm)
@@ -45,7 +46,9 @@ struct AlarmDetailView: View {
                     self.viewModel.saveButton()
                 }
             }
-        )
+        ).alert(isPresented: $viewModel.showingAlert) {
+            Alert(title: Text(""), message: Text("保存が完了しました"), dismissButton: .default(Text("閉じる")))
+        }
     }
 }
 
