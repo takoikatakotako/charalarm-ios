@@ -1,6 +1,12 @@
 import SwiftUI
 
 struct NewsView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    init() {
+        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
+    }
+
     var body: some View {
         NavigationView {
             List {
@@ -10,9 +16,9 @@ struct NewsView: View {
                 Text("ニュースその４")
                 Text("ニュースその５")
             }.navigationBarTitle("ニュース", displayMode: .inline)
-            .navigationBarItems(leading:
+                .navigationBarItems(leading:
                     Button("閉じる") {
-                        print("ニュース tapped!")
+                        self.presentationMode.wrappedValue.dismiss()
                 }
             )
         }

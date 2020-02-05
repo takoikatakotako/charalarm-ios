@@ -1,10 +1,22 @@
 import SwiftUI
 import UIKit
 
+enum AssetColor: String {
+    case textColor
+
+    var color: Color {
+        return Color(self.rawValue)
+    }
+}
+
 struct ConfigView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
+
+    init() {
+        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
+    }
 
     var body: some View {
         NavigationView {
