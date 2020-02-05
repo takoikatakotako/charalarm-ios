@@ -1,9 +1,8 @@
 import SwiftUI
+import AVFoundation
 
 struct TopView: View {
     @ObservedObject(initialValue: TopViewModel()) var viewModel: TopViewModel
-    @State private var showNews: Bool = false
-    @State private var showConfig: Bool = false
     var body: some View {
 
         GeometryReader { geometory in
@@ -23,6 +22,10 @@ struct TopView: View {
 
                 Button(action: {
                     print("Action")
+                    if let sound = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") {
+                        self.viewModel.audioPlayer = try? AVAudioPlayer(data: sound.data)
+                        self.viewModel.audioPlayer?.play() // → これで音が鳴る
+                    }
                 }) {
                     Text("")
                         .frame(width: geometory.size.width, height: geometory.size.height)
@@ -42,18 +45,18 @@ struct TopView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            self.showNews = true
+                            self.viewModel.showNews = true
                         }) {
                             TopButtonContent(imageName: "top-news")
-                        }.sheet(isPresented: self.$showNews) {
+                        }.sheet(isPresented: self.$viewModel.showNews) {
                             NewsView()
                         }
 
                         Button(action: {
-                            self.showConfig = true
+                            self.viewModel.showConfig = true
                         }) {
                             TopButtonContent(imageName: "top-config")
-                        }.sheet(isPresented: self.$showConfig) {
+                        }.sheet(isPresented: self.$viewModel.showConfig) {
                             ConfigView()
                         }
                     }.padding(24)
