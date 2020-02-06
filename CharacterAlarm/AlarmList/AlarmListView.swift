@@ -13,7 +13,7 @@ struct AlarmListView: View {
         List {
             ForEach(viewModel.alarms, id: \.self) { alarm in
                 NavigationLink(destination: AlarmDetailView(uid: self.uid, alarm: alarm)) {
-                    AlarmListRow(alarm: alarm)
+                    AlarmListRow(delegate: self, alarm: alarm)
                         .frame(height: 60.0)
                 }
             }
@@ -33,6 +33,12 @@ struct AlarmListView: View {
 
     func delete(at offsets: IndexSet) {
         viewModel.deleteAlarm(at: offsets)
+    }
+}
+
+extension AlarmListView: AlarmListRowDelegate {
+    func updateAlarmEnable(alarmId: String, isEnable: Bool) {
+        viewModel.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }
 

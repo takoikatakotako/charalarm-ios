@@ -5,6 +5,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
     static let collectionName = "alarm"
     static let id = "id"
     static let uid = "uid"
+    static let isEnable = "is_enable"
     static let voipToken = "voip_token"
     static let createTime = "create_time"
     static let updateTime = "update_time"
@@ -22,7 +23,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
 
     let id: String
     let uid: String
-    var isEnable: Bool = true
+    var isEnable: Bool
     let voipToken: String
     let createTime: Date
     let updateTime: Date
@@ -61,6 +62,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
         var data: [String: Any] = [:]
         data[Alarm.id] = id
         data[Alarm.uid] = uid
+        data[Alarm.isEnable] = isEnable
         data[Alarm.voipToken] = voipToken
         data[Alarm.createTime] = createTime
         data[Alarm.updateTime] = updateTime
@@ -81,6 +83,7 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
     init(uid: String, token: String) {
         self.id = NSUUID().uuidString
         self.uid = uid
+        self.isEnable = true
         self.voipToken = token
         let date = Date()
         self.createTime = date
@@ -96,12 +99,19 @@ struct Alarm: CustomStringConvertible, Identifiable, Hashable {
         self.minute = calendar.component(.minute, from: date)
     }
 
+    // TODO: 失敗可能イニシャライザに変更したい
     init(id: String, document: DocumentSnapshot) {
         self.id = id
         if let uid = document.get(Alarm.uid) as? String {
             self.uid = uid
         } else {
             self.uid = "xxxxxx"
+        }
+
+        if let isEnable = document.get(Alarm.isEnable) as? Bool {
+            self.isEnable = isEnable
+        } else {
+            self.isEnable = false
         }
 
         if let voipToken = document.get(Alarm.voipToken) as? String {

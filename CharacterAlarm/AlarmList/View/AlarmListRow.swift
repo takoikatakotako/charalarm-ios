@@ -1,8 +1,34 @@
 import SwiftUI
 
+protocol AlarmListRowDelegate {
+    func updateAlarmEnable(alarmId: String, isEnable: Bool)
+}
+
+class AlarmListRowModel: ObservableObject {
+    let alarmId: String
+    let delegate: AlarmListRowDelegate
+    @Published var isEnable: Bool {
+        didSet {
+            self.delegate.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
+        }
+    }
+
+    init (alarmId: String, isEnable: Bool, delegate: AlarmListRowDelegate) {
+        self.alarmId = alarmId
+        self.delegate = delegate
+        self.isEnable = isEnable
+    }
+}
+
 struct AlarmListRow: View {
-    @State private var showGreeting = true
+    @ObservedObject var alarmListModel: AlarmListRowModel
     let alarm: Alarm
+
+    init(delegate: AlarmListRowDelegate, alarm: Alarm) {
+        self.alarmListModel = AlarmListRowModel(alarmId: alarm.id, isEnable: alarm.isEnable, delegate: delegate)
+        self.alarm = alarm
+    }
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -12,16 +38,20 @@ struct AlarmListRow: View {
                 Text("毎日")
             }
             Spacer()
-            Toggle(isOn: $showGreeting) {
+            Toggle(isOn: $alarmListModel.isEnable) {
                 Text("")
             }.padding()
         }
     }
 }
 
+struct MockAlarmListRowDelegate: AlarmListRowDelegate {
+    func updateAlarmEnable(alarmId: String, isEnable: Bool) {}
+}
+
 struct AlarmListRow_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmListRow(alarm: Alarm(uid: "uid", token: ""))
+        AlarmListRow(delegate: MockAlarmListRowDelegate(), alarm: Alarm(uid: "uid", token: ""))
             .previewLayout(
                 .fixed(width: 320, height: 60))
     }
