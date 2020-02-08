@@ -6,9 +6,16 @@ struct ProfileCell: View {
     let profile: Profile
     var body: some View {
         ZStack {
-            Image("profile")
+            WebImage(url: URL(string: "https://nokiatech.github.io/heif/content/images/ski_jump_1440x960.heic"))
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .placeholder {
+                    Image("profile")
+                        .resizable()
+            }
+                .animation(.easeInOut(duration: 0.5))
+                .transition(.fade) 
+                .scaledToFill()
+            
             VStack {
                 Spacer()
                 Text(profile.name)
@@ -24,36 +31,30 @@ struct ProfileCell: View {
 
 struct CharacterListView: View {
     @ObservedObject(initialValue: CharacterListViewModel()) var viewModel: CharacterListViewModel
-
+    
     private let columns: Int = 3
-
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
                 ForEach(0..<self.viewModel.profiles.count/self.columns) { rowIndex in
                     HStack {
                         ForEach(0..<self.columns) { columnIndex in
-                            NavigationLink(destination: ProfileView(profile: self.getProfile(rowIndex: rowIndex, columnIndex: columnIndex))) {
-                                ProfileCell(profile: self.getProfile(rowIndex: rowIndex, columnIndex: columnIndex))
-                                    .frame(width: self.cellWidth(width: geometry.size.width),
-                                           height: self.cellHeight(width: geometry.size.width))
-                                    .border(Color.black, width: 2)
-                                    .clipped()
-                            }
+                            self.getProfileCell(
+                                profile: self.getProfile(rowIndex: rowIndex, columnIndex: columnIndex),
+                                width: self.cellWidth(width: geometry.size.width),
+                                height: self.cellHeight(width: geometry.size.width))
                         }
                     }
                 }
-
+                
                 if (self.viewModel.profiles.count % self.columns > 0) {
                     HStack {
                         ForEach(0..<self.viewModel.profiles.count % self.columns) { lastColumnIndex in
-                            NavigationLink(destination: ProfileView(profile: self.getProfile(lastColumnIndex: lastColumnIndex))) {
-                                ProfileCell(profile: self.getProfile(lastColumnIndex: lastColumnIndex))
-                                    .frame(width: self.cellWidth(width: geometry.size.width),
-                                           height: self.cellHeight(width: geometry.size.width))
-                                    .border(Color.black, width: 2)
-                                    .clipped()
-                            }
+                            self.getProfileCell(
+                                profile: self.getProfile(lastColumnIndex: lastColumnIndex),
+                                width: self.cellWidth(width: geometry.size.width),
+                                height: self.cellHeight(width: geometry.size.width))
                         }
                         Spacer()
                     }
@@ -61,35 +62,33 @@ struct CharacterListView: View {
             }
         }.padding()
     }
-
+    
     private func getProfile(rowIndex: Int, columnIndex: Int) -> Profile {
         return viewModel.profiles[columns * rowIndex + columnIndex]
     }
-
+    
     private func getProfile(lastColumnIndex: Int) -> Profile {
         return viewModel.profiles[self.columns * (viewModel.profiles.count / columns) + lastColumnIndex]
     }
-
+    
     private func cellWidth(width: CGFloat) -> CGFloat {
         return width / CGFloat(columns)
     }
-
+    
     private func cellHeight(width: CGFloat) -> CGFloat {
         return cellWidth(width: width) * 1.5
     }
+    
+    private func getProfileCell(profile: Profile, width: CGFloat, height: CGFloat) -> AnyView {
+        return AnyView(NavigationLink(destination: ProfileView(profile: profile)) {
+            ProfileCell(profile: profile)
+                .frame(width: width, height: height)
+                .border(Color.black, width: 2)
+                .clipped()
+        }.buttonStyle(PlainButtonStyle())
+        )
+    }
 }
-
-//WebImage(url: URL(string: "https://nokiatech.github.io/heif/content/images/ski_jump_1440x960.heic"))
-//    .resizable()
-//    .placeholder {
-//        Image("profile")
-//            .resizable()
-//            .frame(width: 54, height: 54)
-//}
-//    .animation(.easeInOut(duration: 0.5)) // Animation Duration
-//    .transition(.fade) // Fade Transition
-//    .scaledToFit()
-//    .frame(width: 54.0, height: 54, alignment: .center)
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
