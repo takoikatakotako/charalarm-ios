@@ -56,31 +56,64 @@ struct CharacterListView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ScrollView(showsIndicators: false) {
-                ForEach(0..<self.viewModel.profiles.count/self.columns) { rowIndex in
-                    HStack {
-                        ForEach(0..<self.columns) { columnIndex in
-                            self.getProfileCell(
-                                profile: self.getProfile(rowIndex: rowIndex, columnIndex: columnIndex),
-                                width: self.cellWidth(width: geometry.size.width),
-                                height: self.cellHeight(width: geometry.size.width))
+            ZStack {
+                ScrollView(showsIndicators: false) {
+                    ForEach(0..<self.viewModel.profiles.count/self.columns) { rowIndex in
+                        HStack {
+                            ForEach(0..<self.columns) { columnIndex in
+                                self.getProfileCell(
+                                    profile: self.getProfile(rowIndex: rowIndex, columnIndex: columnIndex),
+                                    width: self.cellWidth(width: geometry.size.width),
+                                    height: self.cellHeight(width: geometry.size.width))
+                            }
+                        }
+                    }
+
+                    if (self.viewModel.profiles.count % self.columns > 0) {
+                        HStack {
+                            ForEach(0..<self.viewModel.profiles.count % self.columns) { lastColumnIndex in
+                                self.getProfileCell(
+                                    profile: self.getProfile(lastColumnIndex: lastColumnIndex),
+                                    width: self.cellWidth(width: geometry.size.width),
+                                    height: self.cellHeight(width: geometry.size.width))
+                            }
+                            Spacer()
                         }
                     }
                 }
 
-                if (self.viewModel.profiles.count % self.columns > 0) {
-                    HStack {
-                        ForEach(0..<self.viewModel.profiles.count % self.columns) { lastColumnIndex in
-                            self.getProfileCell(
-                                profile: self.getProfile(lastColumnIndex: lastColumnIndex),
-                                width: self.cellWidth(width: geometry.size.width),
-                                height: self.cellHeight(width: geometry.size.width))
-                        }
-                        Spacer()
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        print("xxx")
+                    }) {
+                        ZStack(alignment: .leading) {
+                            VStack {
+                                Text("PR")
+                                    .foregroundColor(Color.white)
+                                    .font(.system(size: 14))
+                                    .frame(width: 36, height: 20)
+                                    .background(Color.gray)
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color("brownColor"))
+                                Spacer()
+                            }
+
+                        }.background(Color.white)
+                            .frame(width: geometry.size.width - 32, height: 60)
+                            .padding(.bottom, 24)
                     }
                 }
             }
         }.padding()
+            .background(Color("xxxxColor"))
+            .edgesIgnoringSafeArea(.bottom)
     }
 
     private func getProfile(rowIndex: Int, columnIndex: Int) -> Profile {
@@ -103,7 +136,6 @@ struct CharacterListView: View {
         return AnyView(NavigationLink(destination: ProfileView(profile: profile)) {
             ProfileCell(profile: profile)
                 .frame(width: width, height: height)
-                .border(Color.black, width: 2)
                 .clipped()
         }.buttonStyle(PlainButtonStyle())
         )
