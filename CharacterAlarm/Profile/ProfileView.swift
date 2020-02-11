@@ -22,20 +22,18 @@ struct ProfileRow: View {
                     .padding(.bottom, 8)
                 Text(text)
                     .foregroundColor(Color.gray)
-                    .padding(.bottom, 8)
+                Divider()
             }
-            Spacer()
-        }.padding(.leading, 16)
+        }
+            .padding(.horizontal, 16)
     }
 }
 
 struct ProfileView: View {
     let profile: Profile
-    @State var showMenuItem1 = false
-    @State var showMenuItem2 = false
-    @State var showMenuItem3 = false
+    @State var showCallItem = false
+    @State var showCheckItem = false
     var body: some View {
-
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
                 ProfileIcon()
@@ -51,35 +49,33 @@ struct ProfileView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 VStack {
                     Spacer()
-                    if showMenuItem1 {
+                    if showCallItem {
                         Button(action: {
-                            print("Camera")
+                            print("Call")
                         }) {
-                            MenuItem(icon: "camera.fill")
+                            MenuItem(imageName: "profile-call")
                         }
                     }
-                    if showMenuItem2 {
+                    if showCheckItem {
                         Button(action: {
-                            print("Photo")
+                            print("Check")
                         }) {
-                            MenuItem(icon: "photo.on.rectangle")
-                        }
-                    }
-                    if showMenuItem3 {
-                        Button(action: {
-                            print("Arrow")
-                        }) {
-                            MenuItem(icon: "square.and.arrow.up.fill")
+                            MenuItem(imageName: "profile-check")
                         }
                     }
                     Button(action: {
                         self.showMenu()
                     }) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
+                        Group {
+                            Image("profile-menu-icon")
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                        }.accentColor(.white)
                             .frame(width: 80, height: 80)
-                            .foregroundColor(Color(red: 153/255, green: 102/255, blue: 255/255))
-                            .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
+                            .background(Color.black)
+                            .cornerRadius(40)
+                            .shadow(color: .black, radius: 4, x: 4, y: 4)
+                            .opacity(0.9)
                     }
                 }
                 .padding()
@@ -89,16 +85,11 @@ struct ProfileView: View {
 
     func showMenu() {
         withAnimation {
-            self.showMenuItem3.toggle()
+            self.showCheckItem.toggle()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             withAnimation {
-                self.showMenuItem2.toggle()
-            }
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-            withAnimation {
-                self.showMenuItem1.toggle()
+                self.showCallItem.toggle()
             }
         })
     }

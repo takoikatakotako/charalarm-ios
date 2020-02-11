@@ -1,25 +1,28 @@
 import SwiftUI
 
 struct MenuItem: View {
-
-    var icon: String
+    var imageName: String
 
     var body: some View {
-        ZStack {
-            Circle()
-                .foregroundColor(Color(red: 153/255, green: 102/255, blue: 255/255))
-                .frame(width: 55, height: 55)
-            Image(systemName: icon)
-                .imageScale(.large)
-                .foregroundColor(.white)
-        }
-        .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
-        .transition(.move(edge: .trailing))
+        Group {
+            Image(imageName)
+                .resizable()
+                .frame(width: 40, height: 40)
+        }.accentColor(.white)
+            .frame(width: 60, height: 60)
+            .background(Color.black)
+            .cornerRadius(30)
+            .shadow(color: .black, radius: 4, x: 4, y: 4)
+            .opacity(0.9)
     }
 }
 
 struct MenuItem_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItem(icon: "camera.fill")
+        Group {
+            MenuItem(imageName: "profile-call")
+            MenuItem(imageName: "profile-check")
+
+        }.previewLayout(.fixed(width: 60, height: 60))
     }
 }
