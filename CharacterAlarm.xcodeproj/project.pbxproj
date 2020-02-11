@@ -12,6 +12,7 @@
 		8D14CCFF23E5B83E00C463F6 /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14CCFE23E5B83E00C463F6 /* EnableDayOfWeek.swift */; };
 		8D14F33623E095E300C3D18C /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33523E095E300C3D18C /* TopButtonContent.swift */; };
 		8D14F33823E098D600C3D18C /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33723E098D600C3D18C /* TopTimeView.swift */; };
+		8D18F9D223F2D3650028E506 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18F9D123F2D3650028E506 /* MenuItem.swift */; };
 		8D34C8D32388174200589375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D22388174200589375 /* AppDelegate.swift */; };
 		8D34C8D52388174200589375 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D42388174200589375 /* SceneDelegate.swift */; };
 		8D34C8D72388174200589375 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D62388174200589375 /* ContentView.swift */; };
@@ -87,6 +88,7 @@
 		8D14CCFE23E5B83E00C463F6 /* EnableDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDayOfWeek.swift; sourceTree = "<group>"; };
 		8D14F33523E095E300C3D18C /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
 		8D14F33723E098D600C3D18C /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
+		8D18F9D123F2D3650028E506 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		8D34C8CF2388174200589375 /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D34C8D22388174200589375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D34C8D42388174200589375 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,14 @@
 				8D14CCFC23E5964600C463F6 /* DayOfWeek.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		8D18F9D323F2D3790028E506 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D18F9D123F2D3650028E506 /* MenuItem.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8D34C8C62388174200589375 = {
@@ -349,6 +359,7 @@
 				8D4C6798239421730001792F /* ProfileModel.swift */,
 				8DF973DB2388387400ED6DD5 /* ProfileView.swift */,
 				8D4C67962394213E0001792F /* ProfileViewModel.swift */,
+				8D18F9D323F2D3790028E506 /* View */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -683,6 +694,7 @@
 				8DF973E32388399400ED6DD5 /* CharacterListView.swift in Sources */,
 				8D7B981323E86404002E6BBE /* TopViewModel.swift in Sources */,
 				8DA83A64238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift in Sources */,
+				8D18F9D223F2D3650028E506 /* MenuItem.swift in Sources */,
 				8D4C679B239577A80001792F /* AlarmListViewModel.swift in Sources */,
 				8D34C8D32388174200589375 /* AppDelegate.swift in Sources */,
 				8DA83A39238A5952001B5FD8 /* Config.swift in Sources */,
