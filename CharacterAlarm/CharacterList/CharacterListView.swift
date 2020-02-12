@@ -11,7 +11,7 @@ struct ProfileCell: View {
             WebImage(url: URL(string: self.urlString))
                 .resizable()
                 .placeholder {
-                    Image("profile")
+                    Image("character-placeholder")
                         .resizable()
             }
             .animation(.easeInOut(duration: 0.5))
