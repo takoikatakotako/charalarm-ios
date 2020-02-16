@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 import Firebase
 
 @UIApplicationMain
@@ -7,6 +8,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
+            NSLog("Playback OK")
+            try AVAudioSession.sharedInstance().setActive(true)
+            NSLog("Session is Active")
+        } catch {
+            NSLog("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
+        }
+
         return true
     }
 

@@ -13,6 +13,7 @@
 		8D14F33623E095E300C3D18C /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33523E095E300C3D18C /* TopButtonContent.swift */; };
 		8D14F33823E098D600C3D18C /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33723E098D600C3D18C /* TopTimeView.swift */; };
 		8D18F9D223F2D3650028E506 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18F9D123F2D3650028E506 /* MenuItem.swift */; };
+		8D1FB99323F92B7200D60B88 /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB99223F92B7200D60B88 /* CallKitHandler.swift */; };
 		8D34C8D32388174200589375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D22388174200589375 /* AppDelegate.swift */; };
 		8D34C8D52388174200589375 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D42388174200589375 /* SceneDelegate.swift */; };
 		8D34C8D72388174200589375 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D62388174200589375 /* ContentView.swift */; };
@@ -89,6 +90,7 @@
 		8D14F33523E095E300C3D18C /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
 		8D14F33723E098D600C3D18C /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
 		8D18F9D123F2D3650028E506 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		8D1FB99223F92B7200D60B88 /* CallKitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallKitHandler.swift; sourceTree = "<group>"; };
 		8D34C8CF2388174200589375 /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D34C8D22388174200589375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D34C8D42388174200589375 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8D1FB99123F92B3100D60B88 /* CallKit */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB99223F92B7200D60B88 /* CallKitHandler.swift */,
+			);
+			path = CallKit;
+			sourceTree = "<group>";
+		};
 		8D34C8C62388174200589375 = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +239,7 @@
 				8D34C8D42388174200589375 /* SceneDelegate.swift */,
 				8D34C8D62388174200589375 /* ContentView.swift */,
 				8DA83A38238A5952001B5FD8 /* Config.swift */,
+				8D1FB99123F92B3100D60B88 /* CallKit */,
 				8D14CCFB23E5963100C463F6 /* Enum */,
 				8DA83A41238A5FCD001B5FD8 /* Entity */,
 				8DA83A4C238A60DE001B5FD8 /* Domain */,
@@ -692,6 +703,7 @@
 				8DF973D923882F0700ED6DD5 /* ConfigView.swift in Sources */,
 				8D7B981123E860D6002E6BBE /* TopView.swift in Sources */,
 				8DF973E32388399400ED6DD5 /* CharacterListView.swift in Sources */,
+				8D1FB99323F92B7200D60B88 /* CallKitHandler.swift in Sources */,
 				8D7B981323E86404002E6BBE /* TopViewModel.swift in Sources */,
 				8DA83A64238ACCF0001B5FD8 /* EditAlarmDayOfWeek.swift in Sources */,
 				8D18F9D223F2D3650028E506 /* MenuItem.swift in Sources */,

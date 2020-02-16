@@ -1,5 +1,4 @@
 import SwiftUI
-import CallKit
 
 struct ProfileIcon: View {
     var body: some View {
@@ -32,6 +31,7 @@ struct ProfileRow: View {
 
 struct ProfileView: View {
     let profile: Profile
+    @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
     @State var showCallItem = false
     @State var showCheckItem = false
     var body: some View {
@@ -53,6 +53,7 @@ struct ProfileView: View {
                     if showCallItem {
                         Button(action: {
                             print("Call")
+                            self.viewModel.call()
                         }) {
                             MenuItem(imageName: "profile-call")
                         }
