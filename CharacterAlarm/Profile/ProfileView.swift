@@ -31,14 +31,16 @@ struct ProfileRow: View {
 
 struct ProfileView: View {
     let profile: Profile
+    @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
     @State var showCallItem = false
     @State var showCheckItem = false
+
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
                 ProfileIcon()
-                ProfileRow(title: "名前", text: profile.name)
+                ProfileRow(title: "名前\(self.appState.isCalling)", text: profile.name)
                 ProfileRow(title: "プロフィール", text: profile.description)
                 ProfileRow(title: "サークル名", text: profile.circleName)
                 ProfileRow(title: "CV", text: profile.voiceName)
@@ -52,7 +54,6 @@ struct ProfileView: View {
                     Spacer()
                     if showCallItem {
                         Button(action: {
-                            print("Call")
                             self.viewModel.call()
                         }) {
                             MenuItem(imageName: "profile-call")

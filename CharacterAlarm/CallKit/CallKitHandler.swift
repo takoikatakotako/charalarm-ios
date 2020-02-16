@@ -2,7 +2,13 @@ import UIKit
 import CallKit
 import AVFoundation
 
-class CallkitHandler: NSObject, CXProviderDelegate {
+protocol CallkitHandlerDelegate: AnyObject {
+    func callAnswer()
+    func callEnd()
+}
+
+class CallKitHandler: NSObject, CXProviderDelegate {
+    weak var delegate: CallkitHandlerDelegate?
     var audioPlayer: AVAudioPlayer!
 
     func providerDidReset(_ provider: CXProvider) {
@@ -22,11 +28,13 @@ class CallkitHandler: NSObject, CXProviderDelegate {
 
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         // 開始
+        delegate?.callAnswer()
         action.fulfill()
     }
 
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         // 終了
+        delegate?.callEnd()
         action.fulfill()
     }
 }

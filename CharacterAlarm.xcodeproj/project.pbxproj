@@ -14,6 +14,8 @@
 		8D14F33823E098D600C3D18C /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D14F33723E098D600C3D18C /* TopTimeView.swift */; };
 		8D18F9D223F2D3650028E506 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18F9D123F2D3650028E506 /* MenuItem.swift */; };
 		8D1FB99323F92B7200D60B88 /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB99223F92B7200D60B88 /* CallKitHandler.swift */; };
+		8D1FB99523F9644D00D60B88 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB99423F9644D00D60B88 /* AppState.swift */; };
+		8D1FB99723F977BF00D60B88 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB99623F977BF00D60B88 /* CallingView.swift */; };
 		8D34C8D32388174200589375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D22388174200589375 /* AppDelegate.swift */; };
 		8D34C8D52388174200589375 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D42388174200589375 /* SceneDelegate.swift */; };
 		8D34C8D72388174200589375 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34C8D62388174200589375 /* ContentView.swift */; };
@@ -91,6 +93,8 @@
 		8D14F33723E098D600C3D18C /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
 		8D18F9D123F2D3650028E506 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		8D1FB99223F92B7200D60B88 /* CallKitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallKitHandler.swift; sourceTree = "<group>"; };
+		8D1FB99423F9644D00D60B88 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8D1FB99623F977BF00D60B88 /* CallingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingView.swift; sourceTree = "<group>"; };
 		8D34C8CF2388174200589375 /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D34C8D22388174200589375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D34C8D42388174200589375 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 				8D34C8D42388174200589375 /* SceneDelegate.swift */,
 				8D34C8D62388174200589375 /* ContentView.swift */,
 				8DA83A38238A5952001B5FD8 /* Config.swift */,
+				8D1FB99423F9644D00D60B88 /* AppState.swift */,
+				8D1FB99623F977BF00D60B88 /* CallingView.swift */,
 				8D1FB99123F92B3100D60B88 /* CallKit */,
 				8D14CCFB23E5963100C463F6 /* Enum */,
 				8DA83A41238A5FCD001B5FD8 /* Entity */,
@@ -710,6 +716,7 @@
 				8D4C679B239577A80001792F /* AlarmListViewModel.swift in Sources */,
 				8D34C8D32388174200589375 /* AppDelegate.swift in Sources */,
 				8DA83A39238A5952001B5FD8 /* Config.swift in Sources */,
+				8D1FB99723F977BF00D60B88 /* CallingView.swift in Sources */,
 				8DA83A6A238AE3F1001B5FD8 /* ConfigModel.swift in Sources */,
 				8D14CCFF23E5B83E00C463F6 /* EnableDayOfWeek.swift in Sources */,
 				8D94F3E423A7CB3A009EE567 /* AlarmDetailModel.swift in Sources */,
@@ -734,6 +741,7 @@
 				8D4C67972394213E0001792F /* ProfileViewModel.swift in Sources */,
 				8D34C8D52388174200589375 /* SceneDelegate.swift in Sources */,
 				8D14F33823E098D600C3D18C /* TopTimeView.swift in Sources */,
+				8D1FB99523F9644D00D60B88 /* AppState.swift in Sources */,
 				8D4C6793239402C20001792F /* CharacterListViewModel.swift in Sources */,
 				8DA83A4E238A60F6001B5FD8 /* AlarmStore.swift in Sources */,
 				8DA83A4B238A60CF001B5FD8 /* News.swift in Sources */,

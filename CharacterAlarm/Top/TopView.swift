@@ -2,6 +2,7 @@ import SwiftUI
 import AVFoundation
 
 struct TopView: View {
+    @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: TopViewModel()) var viewModel: TopViewModel
     var body: some View {
 
@@ -21,7 +22,7 @@ struct TopView: View {
                 }
 
                 Button(action: {
-                    print("Action")
+                    print("Action\(self.appState.isCalling)")
                     if let sound = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") {
                         self.viewModel.audioPlayer = try? AVAudioPlayer(data: sound.data)
                         self.viewModel.audioPlayer?.play() // → これで音が鳴る
@@ -57,7 +58,7 @@ struct TopView: View {
                         }) {
                             TopButtonContent(imageName: "top-config")
                         }.sheet(isPresented: self.$viewModel.showConfig) {
-                            ConfigView()
+                            ConfigView().environmentObject( self.appState )
                         }
                     }.padding(24)
                 }
