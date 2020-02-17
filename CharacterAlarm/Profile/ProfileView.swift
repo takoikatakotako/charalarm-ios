@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ProfileIcon: View {
     var body: some View {
-        Image("profile")
+        Image("character-placeholder")
             .resizable()
             .scaledToFill()
             .clipped()
@@ -35,6 +35,7 @@ struct ProfileView: View {
     @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
     @State var showCallItem = false
     @State var showCheckItem = false
+    @State var showSelectAlert = false
 
     var body: some View {
         ZStack {
@@ -62,6 +63,8 @@ struct ProfileView: View {
                     if showCheckItem {
                         Button(action: {
                             print("Check")
+                            self.showSelectAlert = true
+
                         }) {
                             MenuItem(imageName: "profile-check")
                         }
@@ -82,6 +85,17 @@ struct ProfileView: View {
                     }
                 }
                 .padding()
+            }.alert(isPresented: self.$showSelectAlert) {
+            Alert(
+                title: Text("キャラクター選択"),
+                message: Text("このキャラクターに電話してもらいたいですか？"),
+                primaryButton: .default(Text("閉じる")) {
+                    print("ボタンその１")
+                    // Close
+                }, secondaryButton: .default(Text("はい！！")) {
+                    // Select
+                    print("ボタンその２")
+                })
             }
         }
     }
