@@ -1,11 +1,39 @@
 import SwiftUI
+import SDWebImageSwiftUI
+import FirebaseStorage
 
 struct ProfileIcon: View {
+    let profile: Profile
+    @State var urlString: String = ""
     var body: some View {
-        Image("character-placeholder")
+        WebImage(url: URL(string: self.urlString))
             .resizable()
-            .scaledToFill()
-            .clipped()
+            .placeholder {
+                Image("character-placeholder")
+                    .resizable()
+        }
+        .animation(.easeInOut(duration: 0.5))
+        .transition(.fade)
+        .scaledToFill()
+        .onAppear {
+            self.featchImageUrl()
+        }
+    }
+
+    func featchImageUrl() {
+        let storage = Storage.storage()
+        let pathReference = storage.reference(withPath: "character/\(profile.id)/profile.png")
+        pathReference.downloadURL { url, error in
+            if let error = error {
+                // Handle any errors
+                print(error)
+            } else {
+                guard let urlString = url?.absoluteString else {
+                    return
+                }
+                self.urlString = urlString
+            }
+        }
     }
 }
 
@@ -25,7 +53,7 @@ struct ProfileRow: View {
                 Divider()
             }
         }
-            .padding(.horizontal, 16)
+        .padding(.horizontal, 16)
     }
 }
 
@@ -38,64 +66,67 @@ struct ProfileView: View {
     @State var showSelectAlert = false
 
     var body: some View {
-        ZStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                ProfileIcon()
-                ProfileRow(title: "名前\(self.appState.isCalling)", text: profile.name)
-                ProfileRow(title: "プロフィール", text: profile.description)
-                ProfileRow(title: "サークル名", text: profile.circleName)
-                ProfileRow(title: "CV", text: profile.voiceName)
-            }
-
-            ZStack(alignment: .bottomTrailing) {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                VStack {
-                    Spacer()
-                    if showCallItem {
-                        Button(action: {
-                            self.viewModel.call()
-                        }) {
-                            MenuItem(imageName: "profile-call")
-                        }
-                    }
-                    if showCheckItem {
-                        Button(action: {
-                            print("Check")
-                            self.showSelectAlert = true
-
-                        }) {
-                            MenuItem(imageName: "profile-check")
-                        }
-                    }
-                    Button(action: {
-                        self.showMenu()
-                    }) {
-                        Group {
-                            Image("profile-menu-icon")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                        }.accentColor(.white)
-                            .frame(width: 80, height: 80)
-                            .background(Color.black)
-                            .cornerRadius(40)
-                            .shadow(color: .black, radius: 4, x: 4, y: 4)
-                            .opacity(0.9)
-                    }
+        GeometryReader { geometory in
+            ZStack {
+                ScrollView(.vertical, showsIndicators: false) {
+                    ProfileIcon(profile: self.profile)
+                        .frame(width: geometory.size.width, height: geometory.size.width)
+                    ProfileRow(title: "名前\(self.appState.isCalling)", text: self.profile.name)
+                    ProfileRow(title: "プロフィール", text: self.profile.description)
+                    ProfileRow(title: "サークル名", text: self.profile.circleName)
+                    ProfileRow(title: "CV", text: self.profile.voiceName)
                 }
-                .padding()
-            }.alert(isPresented: self.$showSelectAlert) {
-            Alert(
-                title: Text("キャラクター選択"),
-                message: Text("このキャラクターに電話してもらいたいですか？"),
-                primaryButton: .default(Text("閉じる")) {
-                    print("ボタンその１")
-                    // Close
-                }, secondaryButton: .default(Text("はい！！")) {
-                    // Select
-                    print("ボタンその２")
-                })
+
+                ZStack(alignment: .bottomTrailing) {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    VStack {
+                        Spacer()
+                        if self.showCallItem {
+                            Button(action: {
+                                self.viewModel.call()
+                            }) {
+                                MenuItem(imageName: "profile-call")
+                            }
+                        }
+                        if self.showCheckItem {
+                            Button(action: {
+                                print("Check")
+                                self.showSelectAlert = true
+
+                            }) {
+                                MenuItem(imageName: "profile-check")
+                            }
+                        }
+                        Button(action: {
+                            self.showMenu()
+                        }) {
+                            Group {
+                                Image("profile-menu-icon")
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                            }.accentColor(.white)
+                                .frame(width: 80, height: 80)
+                                .background(Color.black)
+                                .cornerRadius(40)
+                                .shadow(color: .black, radius: 4, x: 4, y: 4)
+                                .opacity(0.9)
+                        }
+                    }
+                    .padding()
+                }.alert(isPresented: self.$showSelectAlert) {
+                    Alert(
+                        title: Text("キャラクター選択"),
+                        message: Text("このキャラクターに電話してもらいたいですか？"),
+                        primaryButton: .default(Text("閉じる")) {
+                            print("ボタンその１")
+                            // Close
+                        }, secondaryButton: .default(Text("はい！！")) {
+                            // Select
+                            print("ボタンその２")
+                        })
+                }
             }
         }
     }
