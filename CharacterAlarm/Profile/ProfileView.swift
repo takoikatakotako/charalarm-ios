@@ -125,6 +125,7 @@ struct ProfileView: View {
                         }, secondaryButton: .default(Text("はい！！")) {
                             // Select
                             print("ボタンその２")
+                            self.appState.characterId = self.profile.characterId
                         })
                 }
             }

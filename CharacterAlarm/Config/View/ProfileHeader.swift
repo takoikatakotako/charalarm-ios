@@ -18,7 +18,6 @@ struct ProfileHeader: View {
         self.profile = profile
         self.characterName = profile.name
         self.circleName = profile.circleName
-        self.featchImageUrl()
     }
 
     var body: some View {
@@ -34,11 +33,10 @@ struct ProfileHeader: View {
             .scaledToFill()
             .frame(width: 76, height: 76, alignment: .center)
             .clipShape(Circle())
+            .onAppear {
+                self.featchImageUrl()
+            }
 
-//            Image("profile")
-//                .resizable()
-//                .frame(width: 76, height: 76, alignment: .center)
-//                .clipShape(Circle())
             VStack(alignment: .leading) {
                 Text(self.characterName)
                     .foregroundColor(.gray)

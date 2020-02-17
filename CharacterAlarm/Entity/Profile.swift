@@ -14,6 +14,7 @@ struct Profile: Identifiable {
     static let voiceName = "voice_name"
 
     let id: String
+    let characterId: String
     let createTime: Date
     let updateTime: Date
     let name: String
@@ -33,6 +34,7 @@ struct Profile: Identifiable {
 
     init() {
         id = "sdfsdf"
+        characterId = ""
         createTime = Date()
         updateTime = Date()
         name = "XXXXX"
@@ -41,6 +43,12 @@ struct Profile: Identifiable {
 
     init(id: String, document: DocumentSnapshot) {
         self.id = id
+
+        if let characterId = document.get(Profile.characterId) as? String {
+            self.characterId = characterId
+        } else {
+            self.characterId = ""
+        }
 
         if let createTime = document.get(Profile.createTime) as? Timestamp {
             self.createTime = createTime.dateValue()
