@@ -10,9 +10,10 @@ enum AssetColor: String {
 }
 
 struct ConfigView: View {
-
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
+    @State var profile: Profile?
 
     init() {
         UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
@@ -22,9 +23,14 @@ struct ConfigView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: ProfileView(profile: Profile())) {
+                    if profile == nil {
                         ProfileHeader()
-                    }.frame(height: 80)
+                            .frame(height: 80)
+                    } else {
+                        NavigationLink(destination: ProfileView(profile: profile!)) {
+                            ProfileHeader(profile: profile!)
+                        }.frame(height: 80)
+                    }
                 }
 
                 Section(header: Text("アラーム")) {
@@ -83,9 +89,21 @@ struct ConfigView: View {
             }.listStyle(GroupedListStyle())
                 .navigationBarTitle("設定", displayMode: .inline)
                 .navigationBarItems(leading:
-                    Button("閉じる") {                    self.presentationMode.wrappedValue.dismiss()
+                    Button("閉じる") {
+                        self.presentationMode.wrappedValue.dismiss()
                     }
             )
+        }.onAppear {
+            self.featchProfile()
+        }
+    }
+
+    func featchProfile() {
+        ProfileStore.featchProfile(characterId: appState.characterId) { (profile, _) in
+            guard let profile = profile else {
+                return
+            }
+            self.profile = profile
         }
     }
 }
