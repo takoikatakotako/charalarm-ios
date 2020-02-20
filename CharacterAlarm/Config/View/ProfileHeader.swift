@@ -3,22 +3,10 @@ import SDWebImageSwiftUI
 import FirebaseStorage
 
 struct ProfileHeader: View {
-    let profile: Profile
-    let characterName: String
-    let circleName: String
+    let characterId: String
     @State var urlString: String = ""
-
-    init() {
-        self.profile = Profile()
-        self.characterName = ""
-        self.circleName = ""
-    }
-
-    init(profile: Profile) {
-        self.profile = profile
-        self.characterName = profile.name
-        self.circleName = profile.circleName
-    }
+    @State var characterName: String = ""
+    @State var circleName: String = ""
 
     var body: some View {
         HStack {
@@ -35,6 +23,7 @@ struct ProfileHeader: View {
             .clipShape(Circle())
             .onAppear {
                 self.featchImageUrl()
+                self.featchProfile()
             }
 
             VStack(alignment: .leading) {
@@ -51,7 +40,7 @@ struct ProfileHeader: View {
 
     func featchImageUrl() {
         let storage = Storage.storage()
-        let pathReference = storage.reference(withPath: "character/\(profile.id)/profile.png")
+        let pathReference = storage.reference(withPath: "character/\(self.characterId)/profile.png")
         pathReference.downloadURL { url, error in
             if let error = error {
                 // Handle any errors
@@ -64,11 +53,21 @@ struct ProfileHeader: View {
             }
         }
     }
+
+    func featchProfile() {
+        ProfileStore.featchProfile(characterId: characterId) { (profile, _) in
+            guard let profile = profile else {
+                return
+            }
+            self.characterName = profile.name
+            self.circleName = profile.circleName
+        }
+    }
 }
 
 struct ProfileHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHeader()
+        ProfileHeader(characterId: "xxxxxxxxx")
             .previewLayout(.fixed(width: 300, height: 80))
     }
 }

@@ -24,12 +24,15 @@ struct ConfigView: View {
             List {
                 Section {
                     if profile == nil {
-                        ProfileHeader()
+                        ProfileHeader(characterId: appState.characterId)
                             .frame(height: 80)
                     } else {
                         NavigationLink(destination: ProfileView(profile: profile!)) {
-                            ProfileHeader(profile: profile!)
+                            ProfileHeader(characterId: appState.characterId)
                         }.frame(height: 80)
+                            .onAppear {
+                                self.featchProfile()
+                        }
                     }
                 }
 
