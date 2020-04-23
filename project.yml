@@ -1,0 +1,40 @@
+name: CharacterAlarm
+options:
+  deploymentTarget:
+    iOS: 13.0
+targets:
+  CharacterAlarm:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources:
+      - CharacterAlarm
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
+        DEVELOPMENT_TEAM: 5GZE8DMGYT
+        CODE_SIGN_STYLE: Manual
+        INFOPLIST_FILE: CharacterAlarm/Info.plist
+        MARKETING_VERSION: 2.0.0
+        CURRENT_PROJECT_VERSION: 28
+        TARGETED_DEVICE_FAMILY: 1
+  CharacterAlarmTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - CharacterAlarmTests
+    settings:
+      base:
+        INFOPLIST_FILE: CharacterAlarmTests/Info.plist
+    dependencies:
+      - target: CharacterAlarm
+  CharacterAlarmUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - CharacterAlarmUITests
+    settings:
+      base:
+        INFOPLIST_FILE: CharacterAlarmUITests/Info.plist
+    dependencies:
+      - target: CharacterAlarm

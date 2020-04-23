@@ -49,6 +49,7 @@ bundle -v
 #### Podのインストール ####
 
 ```
+bundle config set path vendor/bundle
 bundle _2.0.2_ install --path vendor/bundle
 ```
 

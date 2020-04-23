@@ -308,7 +308,7 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - abseil
     - BoringSSL-GRPC
     - Firebase
@@ -370,4 +370,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0912173420ae80afd027acbb1bdd5679f462d50c
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.1
