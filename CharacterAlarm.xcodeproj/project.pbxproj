@@ -32,6 +32,8 @@
 		7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BBFEFA3B42B087761D385 /* CallingView.swift */; };
 		84BD6C00CEB462714E61995F /* AlarmListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFDBE7FFDAC3B8F81EC42C /* AlarmListModel.swift */; };
 		8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781C6D978162421306DEBBA /* ProfileStore.swift */; };
+		8D8DE0EA245D551700311723 /* TopAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0E9245D551700311723 /* TopAction.swift */; };
+		8D8DE0EC245D557A00311723 /* TopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0EB245D557A00311723 /* TopState.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		A4CC43333435A97034B6FC43 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33F32E49A4EC6856AD091A /* MenuItem.swift */; };
@@ -127,6 +129,8 @@
 		860FC148925FBE20C32BB4C8 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
+		8D8DE0E9245D551700311723 /* TopAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAction.swift; sourceTree = "<group>"; };
+		8D8DE0EB245D557A00311723 /* TopState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopState.swift; sourceTree = "<group>"; };
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 		827FD64372266B2FB5B2D872 /* Redux */ = {
 			isa = PBXGroup;
 			children = (
+				8D80ADCE245D5859007A6A1F /* Character */,
+				8D8DE0E8245D54BC00311723 /* Top */,
 				F298550C50D439309FFF013A /* AppState.swift */,
 				860FC148925FBE20C32BB4C8 /* AppAction.swift */,
 				5F5CE8B2A2919D2273D402A1 /* AppReducer.swift */,
@@ -410,11 +416,27 @@
 			path = EditAlarmTime;
 			sourceTree = "<group>";
 		};
+		8D80ADCE245D5859007A6A1F /* Character */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
 		8D8DE0E7245D469900311723 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8D8DE0E8245D54BC00311723 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				8D8DE0E9245D551700311723 /* TopAction.swift */,
+				8D8DE0EB245D557A00311723 /* TopState.swift */,
+			);
+			path = Top;
 			sourceTree = "<group>";
 		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
@@ -710,6 +732,7 @@
 				15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */,
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
 				7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */,
+				8D8DE0EA245D551700311723 /* TopAction.swift in Sources */,
 				B8CBFAB256F731532B226F6C /* Character.swift in Sources */,
 				F666C3009F4C9181DCC94B4A /* CharacterListModel.swift in Sources */,
 				1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */,
@@ -738,6 +761,7 @@
 				F71FB21BDF8AEE2B0BB0EBA3 /* SceneDelegate.swift in Sources */,
 				4937BCF999074C5FBAA3F498 /* TopButtonContent.swift in Sources */,
 				3D6F0DC9EA4322BF8C2E8DB1 /* TopTimeView.swift in Sources */,
+				8D8DE0EC245D557A00311723 /* TopState.swift in Sources */,
 				D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */,
 				3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */,
 				E399F47E88AAB13EBA6D4334 /* User.swift in Sources */,

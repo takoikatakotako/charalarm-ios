@@ -1,7 +1,10 @@
 import SwiftUI
 import CallKit
 
-class AppState: ObservableObject {
+protocol ObservableState: ObservableObject {
+}
+
+class AppState: ObservableState {
     @Published var isCalling: Bool = false
     @Published var characterId: String
 

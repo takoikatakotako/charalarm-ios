@@ -13,7 +13,7 @@ struct TopView: View {
                     .frame(width: geometory.size.width, height: geometory.size.height)
                     .scaledToFill()
 
-                VStack {
+                VStack(spacing: 0) {
                     Spacer()
                     Image("normal")
                         .resizable()
@@ -28,23 +28,16 @@ struct TopView: View {
                         self.viewModel.audioPlayer?.play() // → これで音が鳴る
                     }
                 }) {
-                    Text("")
+                    EmptyView()
                         .frame(width: geometory.size.width, height: geometory.size.height)
                 }
 
-                VStack {
+                VStack(spacing: 0) {
                     Spacer()
-                    HStack {
+                    HStack(alignment: .bottom, spacing: 16) {
                         TopTimeView()
                         Spacer()
-                    }
-                }
-                .padding(24)
-
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
+                        
                         Button(action: {
                             self.viewModel.showNews = true
                         }) {
@@ -60,8 +53,10 @@ struct TopView: View {
                         }.sheet(isPresented: self.$viewModel.showConfig) {
                             ConfigView().environmentObject( self.appState )
                         }
-                    }.padding(24)
+                    }
                 }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 28)
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
