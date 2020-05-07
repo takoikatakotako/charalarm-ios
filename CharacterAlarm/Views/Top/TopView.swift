@@ -3,9 +3,9 @@ import AVFoundation
 
 struct TopView: View {
     @EnvironmentObject var appState: AppState
-    @ObservedObject(initialValue: TopViewModel()) var viewModel: TopViewModel
+    @ObservedObject var viewModel = TopViewModel()
+    
     var body: some View {
-
         GeometryReader { geometory in
             ZStack {
                 Image("background")
@@ -22,13 +22,9 @@ struct TopView: View {
                 }
 
                 Button(action: {
-                    print("Action\(self.appState.isCalling)")
-                    if let sound = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") {
-                        self.viewModel.audioPlayer = try? AVAudioPlayer(data: sound.data)
-                        self.viewModel.audioPlayer?.play() // → これで音が鳴る
-                    }
+                    self.viewModel.tapped()
                 }) {
-                    EmptyView()
+                    Text("")
                         .frame(width: geometory.size.width, height: geometory.size.height)
                 }
 
@@ -60,6 +56,9 @@ struct TopView: View {
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
+        .onAppear {
+            print("ここでFireStoreのフェッチをする")
+        }
     }
 }
 

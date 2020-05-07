@@ -12,7 +12,7 @@ enum AssetColor: String {
 struct ConfigView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var appState: AppState
-    @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
+    @ObservedObject var viewModel = ConfigViewModel()
     @State var profile: Profile?
 
     init() {

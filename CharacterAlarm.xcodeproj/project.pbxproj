@@ -34,6 +34,7 @@
 		8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781C6D978162421306DEBBA /* ProfileStore.swift */; };
 		8D8DE0EA245D551700311723 /* TopAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0E9245D551700311723 /* TopAction.swift */; };
 		8D8DE0EC245D557A00311723 /* TopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0EB245D557A00311723 /* TopState.swift */; };
+		8DFA396C24646876007404B9 /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA396B24646876007404B9 /* CharacterState.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		A4CC43333435A97034B6FC43 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33F32E49A4EC6856AD091A /* MenuItem.swift */; };
@@ -131,6 +132,7 @@
 		8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
 		8D8DE0E9245D551700311723 /* TopAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAction.swift; sourceTree = "<group>"; };
 		8D8DE0EB245D557A00311723 /* TopState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopState.swift; sourceTree = "<group>"; };
+		8DFA396B24646876007404B9 /* CharacterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
@@ -245,14 +247,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		374B4DD2C913F2A4E7C608BB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				844ECD2440F7B9F508AE17B5 /* ProfileHeader.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		37BCF0E81B976D82B5B11590 /* CharacterAlarm */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,21 +288,12 @@
 			path = CharacterList;
 			sourceTree = "<group>";
 		};
-		505DD7559109F608ECC759FE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */,
-				2F97538118D3F9AF8C3D7CCD /* TopTimeView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		5273FFA3F5FB8830551F48B6 /* Top */ = {
 			isa = PBXGroup;
 			children = (
+				8DE4EF5624645CC6001C6E06 /* Components */,
 				1A83AC04135C53BCEDAC21FE /* TopView.swift */,
 				B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */,
-				505DD7559109F608ECC759FE /* View */,
 			);
 			path = Top;
 			sourceTree = "<group>";
@@ -419,6 +404,7 @@
 		8D80ADCE245D5859007A6A1F /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				8DFA396B24646876007404B9 /* CharacterState.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -437,6 +423,23 @@
 				8D8DE0EB245D557A00311723 /* TopState.swift */,
 			);
 			path = Top;
+			sourceTree = "<group>";
+		};
+		8DE4EF5624645CC6001C6E06 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */,
+				2F97538118D3F9AF8C3D7CCD /* TopTimeView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8DFA396D24646A0A007404B9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				844ECD2440F7B9F508AE17B5 /* ProfileHeader.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
@@ -489,10 +492,10 @@
 		E51383F6B01941AB09D2A8AA /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				8DFA396D24646A0A007404B9 /* Components */,
 				D70811A12EB4AF1CA1F982ED /* ConfigModel.swift */,
 				25A9200D23155D111130A0FD /* ConfigView.swift */,
 				1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */,
-				374B4DD2C913F2A4E7C608BB /* View */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */,
 				E399F47E88AAB13EBA6D4334 /* User.swift in Sources */,
 				327FB75FA4FB2D3ECB02F368 /* UserStore.swift in Sources */,
+				8DFA396C24646876007404B9 /* CharacterState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

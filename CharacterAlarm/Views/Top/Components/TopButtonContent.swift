@@ -18,5 +18,6 @@ struct TopButtonContent: View {
 struct TopButton_Previews: PreviewProvider {
     static var previews: some View {
         TopButtonContent(imageName: "top-news")
+            .previewLayout(.sizeThatFits)
     }
 }
