@@ -32,6 +32,13 @@
 		7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BBFEFA3B42B087761D385 /* CallingView.swift */; };
 		84BD6C00CEB462714E61995F /* AlarmListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFDBE7FFDAC3B8F81EC42C /* AlarmListModel.swift */; };
 		8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781C6D978162421306DEBBA /* ProfileStore.swift */; };
+		8D51E16C2465549C007C8B95 /* AlarmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16B2465549C007C8B95 /* AlarmState.swift */; };
+		8D51E16E24655731007C8B95 /* TopDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16D24655731007C8B95 /* TopDispacher.swift */; };
+		8D51E17024655E5C007C8B95 /* TopActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16F24655E5C007C8B95 /* TopActionDispacher.swift */; };
+		8D51E17224655E89007C8B95 /* TopReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17124655E89007C8B95 /* TopReducer.swift */; };
+		8D51E17624656015007C8B95 /* AlarmAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17524656015007C8B95 /* AlarmAction.swift */; };
+		8D51E17824656072007C8B95 /* AlarmActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */; };
+		8D51E17A24656187007C8B95 /* AlarmReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17924656187007C8B95 /* AlarmReducer.swift */; };
 		8D8DE0EA245D551700311723 /* TopAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0E9245D551700311723 /* TopAction.swift */; };
 		8D8DE0EC245D557A00311723 /* TopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0EB245D557A00311723 /* TopState.swift */; };
 		8DFA396C24646876007404B9 /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA396B24646876007404B9 /* CharacterState.swift */; };
@@ -130,6 +137,13 @@
 		860FC148925FBE20C32BB4C8 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
+		8D51E16B2465549C007C8B95 /* AlarmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
+		8D51E16D24655731007C8B95 /* TopDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDispacher.swift; sourceTree = "<group>"; };
+		8D51E16F24655E5C007C8B95 /* TopActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopActionDispacher.swift; sourceTree = "<group>"; };
+		8D51E17124655E89007C8B95 /* TopReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopReducer.swift; sourceTree = "<group>"; };
+		8D51E17524656015007C8B95 /* AlarmAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmAction.swift; sourceTree = "<group>"; };
+		8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmActionDispacher.swift; sourceTree = "<group>"; };
+		8D51E17924656187007C8B95 /* AlarmReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmReducer.swift; sourceTree = "<group>"; };
 		8D8DE0E9245D551700311723 /* TopAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAction.swift; sourceTree = "<group>"; };
 		8D8DE0EB245D557A00311723 /* TopState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopState.swift; sourceTree = "<group>"; };
 		8DFA396B24646876007404B9 /* CharacterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
@@ -343,7 +357,6 @@
 		75E9F94CE7B7AEC2CC79C066 /* AlarmList */ = {
 			isa = PBXGroup;
 			children = (
-				D8AFDBE7FFDAC3B8F81EC42C /* AlarmListModel.swift */,
 				1803BB1D9926421781E1451A /* AlarmListView.swift */,
 				EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */,
 				27B2403ECE0F863E805BBE07 /* View */,
@@ -383,6 +396,7 @@
 		827FD64372266B2FB5B2D872 /* Redux */ = {
 			isa = PBXGroup;
 			children = (
+				8D51E16A2465547A007C8B95 /* Alarm */,
 				8D80ADCE245D5859007A6A1F /* Character */,
 				8D8DE0E8245D54BC00311723 /* Top */,
 				F298550C50D439309FFF013A /* AppState.swift */,
@@ -399,6 +413,18 @@
 				B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */,
 			);
 			path = EditAlarmTime;
+			sourceTree = "<group>";
+		};
+		8D51E16A2465547A007C8B95 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				8D51E17524656015007C8B95 /* AlarmAction.swift */,
+				8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */,
+				8D51E16B2465549C007C8B95 /* AlarmState.swift */,
+				8D51E17924656187007C8B95 /* AlarmReducer.swift */,
+				D8AFDBE7FFDAC3B8F81EC42C /* AlarmListModel.swift */,
+			);
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		8D80ADCE245D5859007A6A1F /* Character */ = {
@@ -419,7 +445,10 @@
 		8D8DE0E8245D54BC00311723 /* Top */ = {
 			isa = PBXGroup;
 			children = (
+				8D51E16D24655731007C8B95 /* TopDispacher.swift */,
 				8D8DE0E9245D551700311723 /* TopAction.swift */,
+				8D51E16F24655E5C007C8B95 /* TopActionDispacher.swift */,
+				8D51E17124655E89007C8B95 /* TopReducer.swift */,
 				8D8DE0EB245D557A00311723 /* TopState.swift */,
 			);
 			path = Top;
@@ -719,6 +748,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D51E16E24655731007C8B95 /* TopDispacher.swift in Sources */,
 				B30E775C9F7D9CA2DC3ACA72 /* Alarm.swift in Sources */,
 				C90689CECCDC5FA156C56E03 /* AlarmDetailModel.swift in Sources */,
 				C91BFFFA83242ECFDD851E40 /* AlarmDetailView.swift in Sources */,
@@ -727,10 +757,12 @@
 				FA8FA9AE5EEB2CCD3FAD7A78 /* AlarmListRow.swift in Sources */,
 				BC15ABC1CC9174147689D5E9 /* AlarmListView.swift in Sources */,
 				64CA442F03A6ECEF0D97D799 /* AlarmListViewModel.swift in Sources */,
+				8D51E17024655E5C007C8B95 /* TopActionDispacher.swift in Sources */,
 				C1777588870B5511DC67A127 /* AlarmStore.swift in Sources */,
 				64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				1F917EA31DFAEC6585576BBD /* AppReducer.swift in Sources */,
+				8D51E17224655E89007C8B95 /* TopReducer.swift in Sources */,
 				EBB6FA2F6AF8384189623FA7 /* AppState.swift in Sources */,
 				15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */,
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
@@ -738,8 +770,10 @@
 				8D8DE0EA245D551700311723 /* TopAction.swift in Sources */,
 				B8CBFAB256F731532B226F6C /* Character.swift in Sources */,
 				F666C3009F4C9181DCC94B4A /* CharacterListModel.swift in Sources */,
+				8D51E17A24656187007C8B95 /* AlarmReducer.swift in Sources */,
 				1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */,
 				F5773CDCAC003D34C58A9714 /* CharacterListViewModel.swift in Sources */,
+				8D51E16C2465549C007C8B95 /* AlarmState.swift in Sources */,
 				F398E7E45D506CB3BF8A0DA3 /* CharacterStore.swift in Sources */,
 				5ED1355036782D8CD87178CF /* Config.swift in Sources */,
 				494F596B947E3D9B7EC1C45B /* ConfigModel.swift in Sources */,
@@ -751,8 +785,10 @@
 				99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */,
 				166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */,
 				D64AB7756DF2E90D28E71308 /* EditAlarmTimeDifference.swift in Sources */,
+				8D51E17824656072007C8B95 /* AlarmActionDispacher.swift in Sources */,
 				1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */,
 				A4CC43333435A97034B6FC43 /* MenuItem.swift in Sources */,
+				8D51E17624656015007C8B95 /* AlarmAction.swift in Sources */,
 				B48742926BCFF31C963D7B3D /* News.swift in Sources */,
 				41190B41B1100DB307A2CF75 /* NewsView.swift in Sources */,
 				B9316C7A2D5DD3B3895AF73A /* Profile.swift in Sources */,

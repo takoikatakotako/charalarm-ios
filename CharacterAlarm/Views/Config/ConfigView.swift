@@ -1,55 +1,58 @@
 import SwiftUI
 import UIKit
 
-enum AssetColor: String {
-    case textColor
+//enum AssetColor: String {
+//    case textColor
+//    
+//    var color: Color {
+//        return Color(self.rawValue)
+//    }
+//}
 
-    var color: Color {
-        return Color(self.rawValue)
-    }
+fileprivate struct Dispachers {
+    let alarmDispacher = AlarmActionDispacher()
 }
+
+fileprivate let dispachers = Dispachers()
 
 struct ConfigView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var appState: AppState
     @ObservedObject var viewModel = ConfigViewModel()
     @State var profile: Profile?
-
-    init() {
-        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
-    }
-
+    
+//    init() {
+//        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
+//    }
+    
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    if profile == nil {
-                        ProfileHeader(characterId: appState.characterId)
-                            .frame(height: 80)
-                    } else {
-                        NavigationLink(destination: ProfileView(profile: profile!)) {
-                            ProfileHeader(characterId: appState.characterId)
-                        }.frame(height: 80)
-                            .onAppear {
-                                self.featchProfile()
-                        }
+                    NavigationLink(destination: Text("xxxxxx")) {
+                        ProfileHeader(
+                            imageUrlString: appState.characterState.imageUriString, characterName: appState.characterState.name,
+                            circleName: appState.characterState.circleName)
+                    }.frame(height: 80)
+                        .onAppear {
+                            self.featchProfile()
                     }
                 }
-
+                
                 Section(header: Text("アラーム")) {
                     NavigationLink(destination: AlarmListView(uid: viewModel.uid)) {
                         Text("アラーム")
                             .foregroundColor(Color("textColor"))
                     }
                 }
-
+                
                 Section(header: Text("キャラクター")) {
                     NavigationLink(destination: CharacterListView()) {
                         Text("キャラクター")
                             .foregroundColor(Color("textColor"))
                     }
                 }
-
+                
                 Section(header: Text("その他")) {
                     Button(action: {
                         self.viewModel.openUrlString(string: OfficialTwitterUrlString)
@@ -57,14 +60,14 @@ struct ConfigView: View {
                         Text("公式Twitter")
                             .foregroundColor(Color("textColor"))
                     }
-
+                    
                     Button(action: {
                         self.viewModel.openUrlString(string: ContactAboutAppUrlString)
                     }) {
                         Text("アプリについてのお問い合わせ")
                             .foregroundColor(Color("textColor"))
                     }
-
+                    
                     Button(action: {
                         self.viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
                     }) {
@@ -72,7 +75,7 @@ struct ConfigView: View {
                             .foregroundColor(Color("textColor"))
                     }
                 }
-
+                
                 Section(header: Text("アプリケーション情報")) {
                     HStack {
                         Text("バージョン情報")
@@ -84,7 +87,7 @@ struct ConfigView: View {
                     Text("ライセンス")
                         .foregroundColor(Color("textColor"))
                 }
-
+                
                 Section(header: Text("リセット")) {
                     Text("リセット")
                         .foregroundColor(Color("textColor"))
@@ -100,7 +103,7 @@ struct ConfigView: View {
             self.featchProfile()
         }
     }
-
+    
     func featchProfile() {
         ProfileStore.featchProfile(characterId: appState.characterId) { (profile, _) in
             guard let profile = profile else {

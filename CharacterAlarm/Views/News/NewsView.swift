@@ -3,9 +3,9 @@ import SwiftUI
 struct NewsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    init() {
-        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
-    }
+//    init() {
+//        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
+//    }
 
     var body: some View {
         NavigationView {

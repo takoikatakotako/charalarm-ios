@@ -8,7 +8,7 @@ struct TopTimeView: View {
         VStack {
             Text(getTime())
                 .foregroundColor(.white)
-                .font(Font.system(size: 36))
+                .font(Font.system(size: 40))
             Text(getDayAndDayOfWeek())
                 .foregroundColor(.white)
                 .font(Font.system(size: 24))

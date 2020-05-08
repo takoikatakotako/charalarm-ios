@@ -3,14 +3,13 @@ import SDWebImageSwiftUI
 import FirebaseStorage
 
 struct ProfileHeader: View {
-    let characterId: String
-    @State var urlString: String = ""
-    @State var characterName: String = ""
-    @State var circleName: String = ""
+    let imageUrlString: String
+    let characterName: String
+    let circleName: String
 
     var body: some View {
         HStack {
-            WebImage(url: URL(string: self.urlString))
+            WebImage(url: URL(string: self.imageUrlString))
                 .resizable()
                 .placeholder {
                     Image("character-placeholder")
@@ -21,10 +20,6 @@ struct ProfileHeader: View {
             .scaledToFill()
             .frame(width: 76, height: 76, alignment: .center)
             .clipShape(Circle())
-            .onAppear {
-                self.featchImageUrl()
-                self.featchProfile()
-            }
 
             VStack(alignment: .leading) {
                 Text(self.characterName)
@@ -37,37 +32,11 @@ struct ProfileHeader: View {
             }
         }
     }
-
-    func featchImageUrl() {
-        let storage = Storage.storage()
-        let pathReference = storage.reference(withPath: "character/\(self.characterId)/profile.png")
-        pathReference.downloadURL { url, error in
-            if let error = error {
-                // Handle any errors
-                print(error)
-            } else {
-                guard let urlString = url?.absoluteString else {
-                    return
-                }
-                self.urlString = urlString
-            }
-        }
-    }
-
-    func featchProfile() {
-        ProfileStore.featchProfile(characterId: characterId) { (profile, _) in
-            guard let profile = profile else {
-                return
-            }
-            self.characterName = profile.name
-            self.circleName = profile.circleName
-        }
-    }
 }
 
 struct ProfileHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHeader(characterId: "xxxxxxxxx")
-            .previewLayout(.fixed(width: 300, height: 80))
+        ProfileHeader(imageUrlString: "https://via.placeholder.com/150x150", characterName: "井上結衣", circleName: "旋風鬼")
+            .previewLayout(.sizeThatFits)
     }
 }

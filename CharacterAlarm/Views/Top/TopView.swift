@@ -1,6 +1,12 @@
 import SwiftUI
 import AVFoundation
 
+fileprivate struct Dispachers {
+    let alarmDispacher = AlarmActionDispacher()
+}
+
+fileprivate let dispachers = Dispachers()
+
 struct TopView: View {
     @EnvironmentObject var appState: AppState
     @ObservedObject var viewModel = TopViewModel()
@@ -43,6 +49,9 @@ struct TopView: View {
                         }
 
                         Button(action: {
+                            
+                            print(self.appState.alarmState.alarms.count)
+                            
                             self.viewModel.showConfig = true
                         }) {
                             TopButtonContent(imageName: "top-config")
@@ -58,6 +67,7 @@ struct TopView: View {
         .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
             print("ここでFireStoreのフェッチをする")
+            dispachers.alarmDispacher.fetchAlarmList()
         }
     }
 }

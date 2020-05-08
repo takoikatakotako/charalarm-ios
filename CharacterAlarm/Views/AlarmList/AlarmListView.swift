@@ -4,6 +4,9 @@ struct AlarmListView: View {
     let uid: String
     @ObservedObject var viewModel: AlarmListViewModel
 
+    @EnvironmentObject var appState: AppState
+
+    
     init(uid: String) {
         self.uid = uid
         viewModel = AlarmListViewModel(uid: uid)
@@ -11,7 +14,7 @@ struct AlarmListView: View {
 
     var body: some View {
         List {
-            ForEach(viewModel.alarms, id: \.self) { alarm in
+            ForEach(appState.alarmState.alarms, id: \.self) { alarm in
                 NavigationLink(destination: AlarmDetailView(uid: self.uid, alarm: alarm)) {
                     AlarmListRow(delegate: self, alarm: alarm)
                         .frame(height: 60.0)
@@ -27,7 +30,10 @@ struct AlarmListView: View {
                     }
                 }
         ).onAppear {
-            self.viewModel.onAppear()
+//            self.viewModel.onAppear()
+            
+            print(self.appState.alarmState.alarms.count)
+            
         }
     }
 
