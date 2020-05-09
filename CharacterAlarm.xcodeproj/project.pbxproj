@@ -34,6 +34,9 @@
 		8D51E17624656015007C8B95 /* AlarmAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17524656015007C8B95 /* AlarmAction.swift */; };
 		8D51E17824656072007C8B95 /* AlarmActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */; };
 		8D51E17A24656187007C8B95 /* AlarmReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17924656187007C8B95 /* AlarmReducer.swift */; };
+		8DEA074D246776F1000D9D56 /* CharacterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA074C246776F1000D9D56 /* CharacterAction.swift */; };
+		8DEA074F246777BB000D9D56 /* CharacterActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA074E246777BB000D9D56 /* CharacterActionDispacher.swift */; };
+		8DEA0751246777F8000D9D56 /* CharacterReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA0750246777F8000D9D56 /* CharacterReducer.swift */; };
 		8DFA396C24646876007404B9 /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA396B24646876007404B9 /* CharacterState.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
@@ -133,6 +136,9 @@
 		8D51E17524656015007C8B95 /* AlarmAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmAction.swift; sourceTree = "<group>"; };
 		8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmActionDispacher.swift; sourceTree = "<group>"; };
 		8D51E17924656187007C8B95 /* AlarmReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmReducer.swift; sourceTree = "<group>"; };
+		8DEA074C246776F1000D9D56 /* CharacterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAction.swift; sourceTree = "<group>"; };
+		8DEA074E246777BB000D9D56 /* CharacterActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionDispacher.swift; sourceTree = "<group>"; };
+		8DEA0750246777F8000D9D56 /* CharacterReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterReducer.swift; sourceTree = "<group>"; };
 		8DFA396B24646876007404B9 /* CharacterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -403,7 +409,10 @@
 		8D80ADCE245D5859007A6A1F /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				8DEA074C246776F1000D9D56 /* CharacterAction.swift */,
+				8DEA074E246777BB000D9D56 /* CharacterActionDispacher.swift */,
 				8DFA396B24646876007404B9 /* CharacterState.swift */,
+				8DEA0750246777F8000D9D56 /* CharacterReducer.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -729,9 +738,11 @@
 				8D51E16C2465549C007C8B95 /* AlarmState.swift in Sources */,
 				F398E7E45D506CB3BF8A0DA3 /* CharacterStore.swift in Sources */,
 				5ED1355036782D8CD87178CF /* Config.swift in Sources */,
+				8DEA0751246777F8000D9D56 /* CharacterReducer.swift in Sources */,
 				494F596B947E3D9B7EC1C45B /* ConfigModel.swift in Sources */,
 				54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */,
 				11FDFD6A92384A68B73AF0B8 /* ConfigViewModel.swift in Sources */,
+				8DEA074D246776F1000D9D56 /* CharacterAction.swift in Sources */,
 				DB50C9F77DDC98CED9D02B2E /* ContentView.swift in Sources */,
 				3DA7A202436B3EC7F9B3B9AD /* DayOfWeek.swift in Sources */,
 				0ED99D75EC0930A133322EBA /* EditAlarmDayOfWeek.swift in Sources */,
@@ -746,6 +757,7 @@
 				41190B41B1100DB307A2CF75 /* NewsView.swift in Sources */,
 				B9316C7A2D5DD3B3895AF73A /* Profile.swift in Sources */,
 				E8FFDF1BC259FA581F252D72 /* ProfileHeader.swift in Sources */,
+				8DEA074F246777BB000D9D56 /* CharacterActionDispacher.swift in Sources */,
 				447030C21ED3E27D6E893613 /* ProfileModel.swift in Sources */,
 				8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */,
 				C4AD7B0D9C5AE42CC7C4B44F /* ProfileView.swift in Sources */,
