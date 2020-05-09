@@ -1,14 +1,19 @@
 import SwiftUI
 
+fileprivate struct Dispachers {
+    let alarmDispacher = AlarmActionDispacher()
+}
+
+fileprivate let dispachers = Dispachers()
+
+
 struct AlarmDetailView: View {
-    let uid: String
     @ObservedObject var viewModel: AlarmDetailViewModel
 
     // AlarmId を取得して、そこからフェッチした方が良い。あ
     // マルチログインに対応する予定ないし、いらんかも
-    init(uid: String, alarm: Alarm) {
-        self.uid = uid
-        viewModel = AlarmDetailViewModel(uid: uid, alarm: alarm)
+    init(alarm: Alarm) {
+        viewModel = AlarmDetailViewModel(alarm: alarm)
     }
 
     var body: some View {
@@ -43,7 +48,8 @@ struct AlarmDetailView: View {
         }.navigationBarItems(trailing:
             HStack {
                 Button("Save") {
-                    self.viewModel.saveButton()
+                    dispachers.alarmDispacher.saveAlarm(alarm: self.viewModel.alarm)
+                    self.viewModel.showingAlert = true
                 }
             }
         ).alert(isPresented: $viewModel.showingAlert) {
@@ -78,6 +84,6 @@ extension AlarmDetailView: EditAlarmDayOfWeekDelegate {
 
 struct AlarmDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmDetailView(uid: "xxxx", alarm: Alarm(uid: "xxx", token: "token"))
+        AlarmDetailView(alarm: Alarm(uid: "xxx", token: "token"))
     }
 }

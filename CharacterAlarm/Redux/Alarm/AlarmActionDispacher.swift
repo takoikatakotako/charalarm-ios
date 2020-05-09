@@ -33,6 +33,25 @@ class AlarmActionDispacher {
         }
     }
     
+    func saveAlarm(alarm: Alarm) {
+        var alarms = store.state.alarmState.alarms
+        guard let index = alarms.firstIndex(where: { $0.id == alarm.id}) else {
+            return
+        }
+        
+        alarms[index] = alarm
+        
+        // 保存
+        AlarmStore.save(alarm: alarm) { error in
+            guard let error = error else {
+                return
+            }
+            // TODO: エラーハンドリング
+            print(error)
+            self.fetchAlarmList()
+        }
+    }
+    
     func deleteAlarms(at offsets: IndexSet) {
         let oldAlarms = store.state.alarmState.alarms
         var newAlarms = oldAlarms

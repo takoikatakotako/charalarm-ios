@@ -13,19 +13,19 @@ class AlarmDetailViewModel: ObservableObject {
         return "\(alarm.hour + alarm.timeDifference):\(alarm.minute)(GMT+\(alarm.timeDifference))"
     }
 
-    init(uid: String, alarm: Alarm) {
+    init(alarm: Alarm) {
         self.alarm = alarm
     }
 
-    func saveButton() {
-        AlarmStore.save(alarm: alarm) { error in
-            if let error = error {
-                print(error)
-            } else {
-                self.showingAlert = true
-            }
-        }
-    }
+//    func saveButton() {
+//        AlarmStore.save(alarm: alarm) { error in
+//            if let error = error {
+//                print(error)
+//            } else {
+//                self.showingAlert = true
+//            }
+//        }
+//    }
 
     func updateAlarmName(name: String) {
         alarm.name = name

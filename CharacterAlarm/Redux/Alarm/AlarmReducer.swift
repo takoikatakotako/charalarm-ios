@@ -12,6 +12,8 @@ class AlarmReducer: Reducer {
             state.alarms = alarms
         case let .updateAlarmEnable(alarms):
             state.alarms = alarms
+        case let .saveAlarms(alarms):
+            state.alarms = alarms
         }
     }
 }

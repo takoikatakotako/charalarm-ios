@@ -31,14 +31,9 @@
 		7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BBFEFA3B42B087761D385 /* CallingView.swift */; };
 		8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781C6D978162421306DEBBA /* ProfileStore.swift */; };
 		8D51E16C2465549C007C8B95 /* AlarmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16B2465549C007C8B95 /* AlarmState.swift */; };
-		8D51E16E24655731007C8B95 /* TopDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16D24655731007C8B95 /* TopDispacher.swift */; };
-		8D51E17024655E5C007C8B95 /* TopActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16F24655E5C007C8B95 /* TopActionDispacher.swift */; };
-		8D51E17224655E89007C8B95 /* TopReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17124655E89007C8B95 /* TopReducer.swift */; };
 		8D51E17624656015007C8B95 /* AlarmAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17524656015007C8B95 /* AlarmAction.swift */; };
 		8D51E17824656072007C8B95 /* AlarmActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */; };
 		8D51E17A24656187007C8B95 /* AlarmReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E17924656187007C8B95 /* AlarmReducer.swift */; };
-		8D8DE0EA245D551700311723 /* TopAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0E9245D551700311723 /* TopAction.swift */; };
-		8D8DE0EC245D557A00311723 /* TopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE0EB245D557A00311723 /* TopState.swift */; };
 		8DFA396C24646876007404B9 /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA396B24646876007404B9 /* CharacterState.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
@@ -56,7 +51,6 @@
 		C4E627B8416F373BD0919357 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D784D759892964A434D0D8 /* ProfileViewModel.swift */; };
 		C589FE7D29B34FE43679E3C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */; };
 		C6E4A80588DD2297DBBEEEC4 /* Pods_CharacterAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7F668228C05307BFC8C9F6 /* Pods_CharacterAlarmTests.framework */; };
-		C90689CECCDC5FA156C56E03 /* AlarmDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22014C1037AC26E5F8E960 /* AlarmDetailModel.swift */; };
 		C91BFFFA83242ECFDD851E40 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */; };
 		D64AB7756DF2E90D28E71308 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
 		D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A83AC04135C53BCEDAC21FE /* TopView.swift */; };
@@ -136,14 +130,9 @@
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
 		8D51E16B2465549C007C8B95 /* AlarmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
-		8D51E16D24655731007C8B95 /* TopDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDispacher.swift; sourceTree = "<group>"; };
-		8D51E16F24655E5C007C8B95 /* TopActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopActionDispacher.swift; sourceTree = "<group>"; };
-		8D51E17124655E89007C8B95 /* TopReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopReducer.swift; sourceTree = "<group>"; };
 		8D51E17524656015007C8B95 /* AlarmAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmAction.swift; sourceTree = "<group>"; };
 		8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmActionDispacher.swift; sourceTree = "<group>"; };
 		8D51E17924656187007C8B95 /* AlarmReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmReducer.swift; sourceTree = "<group>"; };
-		8D8DE0E9245D551700311723 /* TopAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAction.swift; sourceTree = "<group>"; };
-		8D8DE0EB245D557A00311723 /* TopState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopState.swift; sourceTree = "<group>"; };
 		8DFA396B24646876007404B9 /* CharacterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -170,7 +159,6 @@
 		F298550C50D439309FFF013A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = ../AppState.swift; sourceTree = "<group>"; };
 		F5F44DD1EE7BA8D640D7C6F1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC22014C1037AC26E5F8E960 /* AlarmDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,14 +195,6 @@
 				9135C29D1F045424883A1AB4 /* DayOfWeek.swift */,
 			);
 			path = Enum;
-			sourceTree = "<group>";
-		};
-		27B2403ECE0F863E805BBE07 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3D122725AF70894BEB6FB7C8 /* AlarmListRow.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		28EA1F8D8A0A85749D3C78A9 /* EditAlarmDayOfWeek */ = {
@@ -353,8 +333,8 @@
 		75E9F94CE7B7AEC2CC79C066 /* AlarmList */ = {
 			isa = PBXGroup;
 			children = (
+				3D122725AF70894BEB6FB7C8 /* AlarmListRow.swift */,
 				1803BB1D9926421781E1451A /* AlarmListView.swift */,
-				27B2403ECE0F863E805BBE07 /* View */,
 			);
 			path = AlarmList;
 			sourceTree = "<group>";
@@ -393,7 +373,6 @@
 			children = (
 				8D51E16A2465547A007C8B95 /* Alarm */,
 				8D80ADCE245D5859007A6A1F /* Character */,
-				8D8DE0E8245D54BC00311723 /* Top */,
 				F298550C50D439309FFF013A /* AppState.swift */,
 				860FC148925FBE20C32BB4C8 /* AppAction.swift */,
 				5F5CE8B2A2919D2273D402A1 /* AppReducer.swift */,
@@ -436,18 +415,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		8D8DE0E8245D54BC00311723 /* Top */ = {
-			isa = PBXGroup;
-			children = (
-				8D51E16D24655731007C8B95 /* TopDispacher.swift */,
-				8D8DE0E9245D551700311723 /* TopAction.swift */,
-				8D51E16F24655E5C007C8B95 /* TopActionDispacher.swift */,
-				8D51E17124655E89007C8B95 /* TopReducer.swift */,
-				8D8DE0EB245D557A00311723 /* TopState.swift */,
-			);
-			path = Top;
-			sourceTree = "<group>";
-		};
 		8DE4EF5624645CC6001C6E06 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,7 +435,6 @@
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
 			isa = PBXGroup;
 			children = (
-				FC22014C1037AC26E5F8E960 /* AlarmDetailModel.swift */,
 				A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */,
 				CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */,
 			);
@@ -742,24 +708,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D51E16E24655731007C8B95 /* TopDispacher.swift in Sources */,
 				B30E775C9F7D9CA2DC3ACA72 /* Alarm.swift in Sources */,
-				C90689CECCDC5FA156C56E03 /* AlarmDetailModel.swift in Sources */,
 				C91BFFFA83242ECFDD851E40 /* AlarmDetailView.swift in Sources */,
 				4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */,
 				FA8FA9AE5EEB2CCD3FAD7A78 /* AlarmListRow.swift in Sources */,
 				BC15ABC1CC9174147689D5E9 /* AlarmListView.swift in Sources */,
-				8D51E17024655E5C007C8B95 /* TopActionDispacher.swift in Sources */,
 				C1777588870B5511DC67A127 /* AlarmStore.swift in Sources */,
 				64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				1F917EA31DFAEC6585576BBD /* AppReducer.swift in Sources */,
-				8D51E17224655E89007C8B95 /* TopReducer.swift in Sources */,
 				EBB6FA2F6AF8384189623FA7 /* AppState.swift in Sources */,
 				15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */,
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
 				7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */,
-				8D8DE0EA245D551700311723 /* TopAction.swift in Sources */,
 				B8CBFAB256F731532B226F6C /* Character.swift in Sources */,
 				F666C3009F4C9181DCC94B4A /* CharacterListModel.swift in Sources */,
 				8D51E17A24656187007C8B95 /* AlarmReducer.swift in Sources */,
@@ -792,7 +753,6 @@
 				F71FB21BDF8AEE2B0BB0EBA3 /* SceneDelegate.swift in Sources */,
 				4937BCF999074C5FBAA3F498 /* TopButtonContent.swift in Sources */,
 				3D6F0DC9EA4322BF8C2E8DB1 /* TopTimeView.swift in Sources */,
-				8D8DE0EC245D557A00311723 /* TopState.swift in Sources */,
 				D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */,
 				3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */,
 				E399F47E88AAB13EBA6D4334 /* User.swift in Sources */,
