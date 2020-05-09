@@ -27,10 +27,8 @@
 		54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
 		5ED1355036782D8CD87178CF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8F361447A4E0FCB38CCC1B /* Config.swift */; };
 		64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FC148925FBE20C32BB4C8 /* AppAction.swift */; };
-		64CA442F03A6ECEF0D97D799 /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */; };
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BBFEFA3B42B087761D385 /* CallingView.swift */; };
-		84BD6C00CEB462714E61995F /* AlarmListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFDBE7FFDAC3B8F81EC42C /* AlarmListModel.swift */; };
 		8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781C6D978162421306DEBBA /* ProfileStore.swift */; };
 		8D51E16C2465549C007C8B95 /* AlarmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16B2465549C007C8B95 /* AlarmState.swift */; };
 		8D51E16E24655731007C8B95 /* TopDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51E16D24655731007C8B95 /* TopDispacher.swift */; };
@@ -163,14 +161,12 @@
 		CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewModel.swift; sourceTree = "<group>"; };
 		CC8C740499E6990B3F0E3B57 /* Pods-CharacterAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D70811A12EB4AF1CA1F982ED /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
-		D8AFDBE7FFDAC3B8F81EC42C /* AlarmListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListModel.swift; sourceTree = "<group>"; };
 		DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF920625C7AABEDC943450C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DF987FCB1D6D32047350A2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E011FC95C92649B3A8B9E2E1 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDayOfWeek.swift; sourceTree = "<group>"; };
 		EE253375F853559383F7084B /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
-		EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewModel.swift; sourceTree = "<group>"; };
 		F298550C50D439309FFF013A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = ../AppState.swift; sourceTree = "<group>"; };
 		F5F44DD1EE7BA8D640D7C6F1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -358,7 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				1803BB1D9926421781E1451A /* AlarmListView.swift */,
-				EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */,
 				27B2403ECE0F863E805BBE07 /* View */,
 			);
 			path = AlarmList;
@@ -422,7 +417,6 @@
 				8D51E17724656072007C8B95 /* AlarmActionDispacher.swift */,
 				8D51E16B2465549C007C8B95 /* AlarmState.swift */,
 				8D51E17924656187007C8B95 /* AlarmReducer.swift */,
-				D8AFDBE7FFDAC3B8F81EC42C /* AlarmListModel.swift */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -753,10 +747,8 @@
 				C90689CECCDC5FA156C56E03 /* AlarmDetailModel.swift in Sources */,
 				C91BFFFA83242ECFDD851E40 /* AlarmDetailView.swift in Sources */,
 				4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */,
-				84BD6C00CEB462714E61995F /* AlarmListModel.swift in Sources */,
 				FA8FA9AE5EEB2CCD3FAD7A78 /* AlarmListRow.swift in Sources */,
 				BC15ABC1CC9174147689D5E9 /* AlarmListView.swift in Sources */,
-				64CA442F03A6ECEF0D97D799 /* AlarmListViewModel.swift in Sources */,
 				8D51E17024655E5C007C8B95 /* TopActionDispacher.swift in Sources */,
 				C1777588870B5511DC67A127 /* AlarmStore.swift in Sources */,
 				64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */,

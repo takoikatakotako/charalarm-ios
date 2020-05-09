@@ -14,6 +14,25 @@ class AlarmActionDispacher {
         }
     }
     
+    func updateAlarmEnable(alarmId: String, isEnable: Bool) {
+        var alarms = store.state.alarmState.alarms
+        guard let index = alarms.firstIndex(where: { $0.id == alarmId}) else {
+            return
+        }
+        alarms[index].isEnable = isEnable
+        self.store.dispatch(action: AlarmAction.updateAlarmEnable(alarms))
+
+        // DB も更新
+        AlarmStore.save(alarm: alarms[index]) { error in
+            guard let error = error else {
+                return
+            }
+            // TODO: エラーハンドリング
+            print(error)
+            self.fetchAlarmList()
+        }
+    }
+    
     func deleteAlarms(at offsets: IndexSet) {
         let oldAlarms = store.state.alarmState.alarms
         var newAlarms = oldAlarms

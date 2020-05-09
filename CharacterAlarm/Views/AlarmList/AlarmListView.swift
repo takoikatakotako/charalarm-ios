@@ -7,15 +7,11 @@ fileprivate struct Dispachers {
 fileprivate let dispachers = Dispachers()
 
 struct AlarmListView: View {
-    let uid: String
-    @ObservedObject var viewModel: AlarmListViewModel
-
     @EnvironmentObject var appState: AppState
-
+    let uid: String
     
     init(uid: String) {
         self.uid = uid
-        viewModel = AlarmListViewModel(uid: uid)
     }
 
     var body: some View {
@@ -47,7 +43,7 @@ struct AlarmListView: View {
 
 extension AlarmListView: AlarmListRowDelegate {
     func updateAlarmEnable(alarmId: String, isEnable: Bool) {
-        viewModel.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
+        dispachers.alarmDispacher.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }
 
