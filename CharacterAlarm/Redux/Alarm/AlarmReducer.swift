@@ -6,8 +6,10 @@ class AlarmReducer: Reducer {
     
     static func reducer(action: AlarmAction, state: inout AlarmState) {
         switch action {
-        case let .fetchAlarmList(alams):
-            state.alarms = alams
+        case let .fetchAlarmList(alarms):
+            state.alarms = alarms
+        case let .deleteAlarms(alarms):
+            state.alarms = alarms
         }
     }
 }

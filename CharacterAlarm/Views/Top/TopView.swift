@@ -66,7 +66,6 @@ struct TopView: View {
         }
         .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
-            print("ここでFireStoreのフェッチをする")
             dispachers.alarmDispacher.fetchAlarmList()
         }
     }

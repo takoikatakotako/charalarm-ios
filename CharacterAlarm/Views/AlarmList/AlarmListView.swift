@@ -1,5 +1,11 @@
 import SwiftUI
 
+fileprivate struct Dispachers {
+    let alarmDispacher = AlarmActionDispacher()
+}
+
+fileprivate let dispachers = Dispachers()
+
 struct AlarmListView: View {
     let uid: String
     @ObservedObject var viewModel: AlarmListViewModel
@@ -30,15 +36,12 @@ struct AlarmListView: View {
                     }
                 }
         ).onAppear {
-//            self.viewModel.onAppear()
-            
-            print(self.appState.alarmState.alarms.count)
-            
+            dispachers.alarmDispacher.fetchAlarmList()
         }
     }
 
     func delete(at offsets: IndexSet) {
-        viewModel.deleteAlarm(at: offsets)
+        dispachers.alarmDispacher.deleteAlarms(at: offsets)
     }
 }
 

@@ -9,24 +9,6 @@ class AlarmListViewModel: ObservableObject {
         self.model = AlarmListModel()
     }
 
-    func onAppear() {
-        model.featchAlarms(uid: "user.uid") { (alarms, _) in
-            self.alarms = alarms
-        }
-    }
-
-    func deleteAlarm(at offsets: IndexSet) {
-        for offset in offsets {
-            let alarmId = alarms[offset].id
-            model.deleteAlarm(uid: uid, alarmId: alarmId) { error in
-                if let error = error {
-                    print(error)
-                }
-            }
-        }
-        alarms.remove(atOffsets: offsets)
-    }
-
     func updateAlarmEnable(alarmId: String, isEnable: Bool) {
         guard let index = alarms.firstIndex(where: { $0.id == alarmId}) else {
             return
