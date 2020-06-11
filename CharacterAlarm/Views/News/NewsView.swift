@@ -3,18 +3,14 @@ import SwiftUI
 struct NewsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-//    init() {
-//        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
-//    }
-
     var body: some View {
         NavigationView {
             List {
-                Text("ニュースその１")
-                Text("ニュースその２")
-                Text("ニュースその３")
-                Text("ニュースその４")
-                Text("ニュースその５")
+                NewsRow(circleName: "旋風鬼", date: Date(), message: "sdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsfsfd")
+                NewsRow(circleName: "旋風鬼", date: Date(), message: "sdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsfsfd")
+                NewsRow(circleName: "旋風鬼", date: Date(), message: "sdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsfsfd")
+                NewsRow(circleName: "旋風鬼", date: Date(), message: "sdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsfsfd")
+                NewsRow(circleName: "旋風鬼", date: Date(), message: "sdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsdfsdfsfsfdsdfsdfsdfsfsfd")
             }.navigationBarTitle("ニュース", displayMode: .inline)
                 .navigationBarItems(leading:
                     Button("閉じる") {
