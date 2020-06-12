@@ -154,7 +154,7 @@
 		AD350A568E406245ABC5B0DA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
-		BB58FC93558ECD02693905FD /* CharacterAlarm.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB58FC93558ECD02693905FD /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04848E6DA790BC828920D62 /* CharacterAlarmTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77FE7757285D78CA7096C64 /* CharacterAlarmUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C781C6D978162421306DEBBA /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
@@ -602,10 +602,6 @@
 					D992EF5CEA2A2B7E43224934 = {
 						TestTargetID = ED45A90643725F716C84519F;
 					};
-					ED45A90643725F716C84519F = {
-						DevelopmentTeam = 5GZE8DMGYT;
-						ProvisioningStyle = Manual;
-					};
 				};
 			};
 			buildConfigurationList = 4070A7C660950EBBE624FC5E /* Build configuration list for PBXProject "CharacterAlarm" */;
@@ -970,10 +966,10 @@
 			baseConfigurationReference = 2F47941B56B766F19D6B7104 /* Pods-CharacterAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 28;
-				DEVELOPMENT_TEAM = 5GZE8DMGYT;
+				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = CharacterAlarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -982,6 +978,7 @@
 				);
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.CharacterAlarm;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1043,10 +1040,10 @@
 			baseConfigurationReference = 084DDC42AE11B6F5D7AAA8A7 /* Pods-CharacterAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 28;
-				DEVELOPMENT_TEAM = 5GZE8DMGYT;
+				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = CharacterAlarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1055,6 +1052,7 @@
 				);
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.CharacterAlarm;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

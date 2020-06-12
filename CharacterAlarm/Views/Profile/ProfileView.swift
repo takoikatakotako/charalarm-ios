@@ -3,10 +3,10 @@ import SDWebImageSwiftUI
 import FirebaseStorage
 
 struct ProfileIcon: View {
-    let profile: Profile
-    @State var urlString: String = ""
+
+    let characterId: String
     var body: some View {
-        WebImage(url: URL(string: self.urlString))
+        WebImage(url: URL(string: "https://charalarm.com/image/\(characterId)/thumbnail_list.png"))
             .resizable()
             .placeholder {
                 Image("character-placeholder")
@@ -15,25 +15,6 @@ struct ProfileIcon: View {
         .animation(.easeInOut(duration: 0.5))
         .transition(.fade)
         .scaledToFill()
-        .onAppear {
-            self.featchImageUrl()
-        }
-    }
-
-    func featchImageUrl() {
-        let storage = Storage.storage()
-        let pathReference = storage.reference(withPath: "character/\(profile.id)/profile.png")
-        pathReference.downloadURL { url, error in
-            if let error = error {
-                // Handle any errors
-                print(error)
-            } else {
-                guard let urlString = url?.absoluteString else {
-                    return
-                }
-                self.urlString = urlString
-            }
-        }
     }
 }
 
@@ -58,7 +39,7 @@ struct ProfileRow: View {
 }
 
 struct ProfileView: View {
-    let profile: Profile
+    let characterId: String
     @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
     @State var showCallItem = false
@@ -69,12 +50,12 @@ struct ProfileView: View {
         GeometryReader { geometory in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    ProfileIcon(profile: self.profile)
+                    ProfileIcon(characterId: self.characterId)
                         .frame(width: geometory.size.width, height: geometory.size.width)
-                    ProfileRow(title: "名前\(self.appState.isCalling)", text: self.profile.name)
-                    ProfileRow(title: "プロフィール", text: self.profile.description)
-                    ProfileRow(title: "サークル名", text: self.profile.circleName)
-                    ProfileRow(title: "CV", text: self.profile.voiceName)
+//                    ProfileRow(title: "名前\(self.appState.isCalling)", text: self.profile.name)
+//                    ProfileRow(title: "プロフィール", text: self.profile.description)
+//                    ProfileRow(title: "サークル名", text: self.profile.circleName)
+//                    ProfileRow(title: "CV", text: self.profile.voiceName)
                 }
 
                 ZStack(alignment: .bottomTrailing) {
@@ -125,7 +106,7 @@ struct ProfileView: View {
                         }, secondaryButton: .default(Text("はい！！")) {
                             // Select
                             print("ボタンその２")
-                            self.appState.characterId = self.profile.characterId
+//                            self.appState.characterId = self.profile.characterId
                         })
                 }
             }
@@ -144,8 +125,8 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView(profile: Profile())
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView(profile: Profile())
+//    }
+//}

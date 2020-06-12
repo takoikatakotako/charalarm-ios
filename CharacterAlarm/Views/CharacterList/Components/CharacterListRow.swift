@@ -5,34 +5,43 @@ import FirebaseStorage
 
 struct CharacterListRow: View {
     let character: Character2
-      @State var urlString: String = ""
-      var body: some View {
-          ZStack {
+    @State var urlString: String = ""
+    var body: some View {
+        HStack {
             WebImage(url: URL(string: "https://charalarm.com/image/\(character.id)/thumbnail_list.png"))
-                  .resizable()
-                  .placeholder {
-                      Image("character-placeholder")
-                          .resizable()
-              }
-              .animation(.easeInOut(duration: 0.5))
-              .transition(.fade)
-              .scaledToFill()
-
-              VStack {
-                  Spacer()
-                  Text(character.name)
-                      .font(Font.system(size: 20.0).bold())
-                      .frame(maxWidth: .infinity, maxHeight: 32)
-                      .background(Color.gray)
-                      .foregroundColor(Color.white)
-                      .opacity(0.8)
-              }
-          }
-      }
+                .resizable()
+                .placeholder {
+                    Image("character-placeholder")
+                        .resizable()
+            }
+            .frame(width: 80, height: 80)
+            .animation(.easeInOut(duration: 0.5))
+            .transition(.fade)
+            .scaledToFill()
+            
+            VStack(alignment: .leading) {
+                Text(character.name)
+                    .font(Font.system(size: 18.0))
+                
+                Text("旋風鬼")
+                    .font(Font.system(size: 16.0))
+                
+                Text("イラスト: 伊藤ライフ")
+                    .font(Font.system(size: 16.0))
+                
+                Text("CV: おのじゅん")
+                    .font(Font.system(size: 16.0))
+            }
+            
+            
+            Spacer()
+        }
+    }
 }
 
 struct CharacterListRow_Previews: PreviewProvider {
     static var previews: some View {
         CharacterListRow(character: Character2(id: "com.swiswiswift.charalarm.yui", name: "井上結衣"))
+            .previewLayout(.sizeThatFits)
     }
 }
