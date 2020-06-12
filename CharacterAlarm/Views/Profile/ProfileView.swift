@@ -46,16 +46,20 @@ struct ProfileView: View {
     @State var showCheckItem = false
     @State var showSelectAlert = false
 
+    
+    @State var character: Character2?
+    
     var body: some View {
         GeometryReader { geometory in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     ProfileIcon(characterId: self.characterId)
                         .frame(width: geometory.size.width, height: geometory.size.width)
-//                    ProfileRow(title: "名前\(self.appState.isCalling)", text: self.profile.name)
-//                    ProfileRow(title: "プロフィール", text: self.profile.description)
-//                    ProfileRow(title: "サークル名", text: self.profile.circleName)
-//                    ProfileRow(title: "CV", text: self.profile.voiceName)
+                    
+                    ProfileRow(title: "名前", text: self.character?.name ?? "")
+                    ProfileRow(title: "プロフィール", text: self.character?.name ?? "")
+                    ProfileRow(title: "サークル名", text: self.character?.name ?? "")
+                    ProfileRow(title: "CV", text: self.character?.name ?? "")
                 }
 
                 ZStack(alignment: .bottomTrailing) {
@@ -110,6 +114,8 @@ struct ProfileView: View {
                         })
                 }
             }
+        }.onAppear {
+            self.fetchCharacter()
         }
     }
 
@@ -123,6 +129,48 @@ struct ProfileView: View {
             }
         })
     }
+    
+    
+    func fetchCharacter() {
+          let url = URL(string: "https://charalarm.com/api/\(characterId)/character.json")!
+          
+          let task = URLSession.shared.dataTask(with: url) { data, response, error in
+              
+              // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
+              if let error = error {
+                  print("クライアントサイドエラー: \(error.localizedDescription) \n")
+                  return
+              }
+              
+              guard let data = data, let response = response as? HTTPURLResponse else {
+                  print("no data or no response")
+                  return
+              }
+              
+              if response.statusCode == 200 {
+                  print(data)
+                  
+                  guard let character = try? JSONDecoder().decode(Character2.self, from: data) else {
+                      print("パース失敗")
+                      return
+                  }
+                  
+                  DispatchQueue.main.async {
+                      self.character = character
+                      
+                  }
+                  // ...これ以降decode処理などを行い、UIのUpdateをメインスレッドで行う
+                  
+              } else {
+                  // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
+                  print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
+              }
+              
+          }
+          task.resume()
+      }
+    
+    
 }
 
 //struct ProfileView_Previews: PreviewProvider {
