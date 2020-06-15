@@ -18,29 +18,23 @@ fileprivate let dispachers = Dispachers()
 struct ConfigView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var appState: AppState
-    @ObservedObject var viewModel = ConfigViewModel()
-    @State var profile: Profile?
-    
-//    init() {
-//        UINavigationBar.appearance().tintColor = UIColor(named: AssetColor.textColor.rawValue)
-//    }
-    
+    @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
+
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: Text("xxxxxx")) {
+                    NavigationLink(destination: ProfileView(characterId: appState.characterId)) {
                         ProfileHeader(
-                            imageUrlString: appState.characterState.imageUriString, characterName: appState.characterState.name,
-                            circleName: appState.characterState.circleName)
+                            imageUrlString: "https://charalarm.com/image/\(appState.characterId)/thumbnail_list.png", characterName:self.viewModel.character?.name ?? "empty",
+                            circleName: self.viewModel.character?.name ?? "xx")
                     }.frame(height: 80)
                         .onAppear {
-                            self.featchProfile()
                     }
                 }
                 
                 Section(header: Text("アラーム")) {
-                    NavigationLink(destination: AlarmListView(uid: viewModel.uid)) {
+                    NavigationLink(destination: AlarmListView(uid: "viewModel.uid")) {
                         Text("アラーム")
                             .foregroundColor(Color("textColor"))
                     }
@@ -100,16 +94,7 @@ struct ConfigView: View {
                     }
             )
         }.onAppear {
-            self.featchProfile()
-        }
-    }
-    
-    func featchProfile() {
-        ProfileStore.featchProfile(characterId: appState.characterId) { (profile, _) in
-            guard let profile = profile else {
-                return
-            }
-            self.profile = profile
+            self.viewModel.fetchCharacter(characterId: self.appState.characterId)
         }
     }
 }
