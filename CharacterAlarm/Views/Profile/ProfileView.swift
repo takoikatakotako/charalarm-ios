@@ -2,22 +2,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 import FirebaseStorage
 
-struct ProfileIcon: View {
-
-    let characterId: String
-    var body: some View {
-        WebImage(url: URL(string: "https://charalarm.com/image/\(characterId)/thumbnail_list.png"))
-            .resizable()
-            .placeholder {
-                Image("character-placeholder")
-                    .resizable()
-        }
-        .animation(.easeInOut(duration: 0.5))
-        .transition(.fade)
-        .scaledToFill()
-    }
-}
-
 struct ProfileRow: View {
     let title: String
     let text: String
@@ -45,23 +29,32 @@ struct ProfileView: View {
     @State var showCallItem = false
     @State var showCheckItem = false
     @State var showSelectAlert = false
-
     
-    @State var character: Character2?
+    var character: Character2? {
+        return self.viewModel.character
+    }
     
     var body: some View {
         GeometryReader { geometory in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    ProfileIcon(characterId: self.characterId)
-                        .frame(width: geometory.size.width, height: geometory.size.width)
+                    WebImage(url: URL(string: "https://charalarm.com/image/\(self.characterId)/thumbnail_list.png"))
+                        .resizable()
+                        .placeholder {
+                            Image("character-placeholder")
+                                .resizable()
+                    }
+                    .animation(.easeInOut(duration: 0.5))
+                    .transition(.fade)
+                    .frame(width: geometory.size.width, height: geometory.size.width)
+                    .scaledToFill()
                     
                     ProfileRow(title: "名前", text: self.character?.name ?? "")
                     ProfileRow(title: "プロフィール", text: self.character?.name ?? "")
                     ProfileRow(title: "サークル名", text: self.character?.name ?? "")
                     ProfileRow(title: "CV", text: self.character?.name ?? "")
                 }
-
+                
                 ZStack(alignment: .bottomTrailing) {
                     Rectangle()
                         .foregroundColor(.clear)
@@ -70,16 +63,19 @@ struct ProfileView: View {
                         Spacer()
                         if self.showCallItem {
                             Button(action: {
-                                self.viewModel.call()
+                                self.viewModel.showCallView = true
                             }) {
                                 MenuItem(imageName: "profile-call")
+                            }.sheet(isPresented: self.$viewModel.showCallView) {
+                                Text("電話画面")
                             }
+
                         }
                         if self.showCheckItem {
                             Button(action: {
                                 print("Check")
                                 self.showSelectAlert = true
-
+                                
                             }) {
                                 MenuItem(imageName: "profile-check")
                             }
@@ -110,15 +106,15 @@ struct ProfileView: View {
                         }, secondaryButton: .default(Text("はい！！")) {
                             // Select
                             print("ボタンその２")
-//                            self.appState.characterId = self.profile.characterId
+                            //                            self.appState.characterId = self.profile.characterId
                         })
                 }
             }
         }.onAppear {
-            self.fetchCharacter()
+            self.viewModel.fetchCharacter(characterId: self.characterId)
         }
     }
-
+    
     func showMenu() {
         withAnimation {
             self.showCheckItem.toggle()
@@ -129,47 +125,6 @@ struct ProfileView: View {
             }
         })
     }
-    
-    
-    func fetchCharacter() {
-          let url = URL(string: "https://charalarm.com/api/\(characterId)/character.json")!
-          
-          let task = URLSession.shared.dataTask(with: url) { data, response, error in
-              
-              // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
-              if let error = error {
-                  print("クライアントサイドエラー: \(error.localizedDescription) \n")
-                  return
-              }
-              
-              guard let data = data, let response = response as? HTTPURLResponse else {
-                  print("no data or no response")
-                  return
-              }
-              
-              if response.statusCode == 200 {
-                  print(data)
-                  
-                  guard let character = try? JSONDecoder().decode(Character2.self, from: data) else {
-                      print("パース失敗")
-                      return
-                  }
-                  
-                  DispatchQueue.main.async {
-                      self.character = character
-                      
-                  }
-                  // ...これ以降decode処理などを行い、UIのUpdateをメインスレッドで行う
-                  
-              } else {
-                  // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                  print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
-              }
-              
-          }
-          task.resume()
-      }
-    
     
 }
 

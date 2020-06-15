@@ -21,7 +21,6 @@
 		3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		41190B41B1100DB307A2CF75 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30674FA19ACF2C56DBFB76E1 /* NewsView.swift */; };
 		4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
-		447030C21ED3E27D6E893613 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E011FC95C92649B3A8B9E2E1 /* ProfileModel.swift */; };
 		4937BCF999074C5FBAA3F498 /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */; };
 		494F596B947E3D9B7EC1C45B /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70811A12EB4AF1CA1F982ED /* ConfigModel.swift */; };
 		54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
@@ -29,6 +28,8 @@
 		64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FC148925FBE20C32BB4C8 /* AppAction.swift */; };
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BBFEFA3B42B087761D385 /* CallingView.swift */; };
+		8D1FB9922497CC97001F35B6 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB9912497CC97001F35B6 /* CallView.swift */; };
+		8D1FB9942497CD19001F35B6 /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB9932497CD19001F35B6 /* CallViewModel.swift */; };
 		8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781C6D978162421306DEBBA /* ProfileStore.swift */; };
 		8D43AA272491B6110073E1DE /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43AA262491B6110073E1DE /* NewsRow.swift */; };
 		8D43AA2924925FAE0073E1DE /* CharacterListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43AA2824925FAE0073E1DE /* CharacterListRow.swift */; };
@@ -134,6 +135,8 @@
 		860FC148925FBE20C32BB4C8 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8CDA04B826AADE79B5D58BBA /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
+		8D1FB9912497CC97001F35B6 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
+		8D1FB9932497CD19001F35B6 /* CallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModel.swift; sourceTree = "<group>"; };
 		8D43AA262491B6110073E1DE /* NewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRow.swift; sourceTree = "<group>"; };
 		8D43AA2824925FAE0073E1DE /* CharacterListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRow.swift; sourceTree = "<group>"; };
 		8D43AA2C249295620073E1DE /* Character2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character2.swift; sourceTree = "<group>"; };
@@ -165,7 +168,6 @@
 		DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF920625C7AABEDC943450C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DF987FCB1D6D32047350A2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E011FC95C92649B3A8B9E2E1 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDayOfWeek.swift; sourceTree = "<group>"; };
 		EE253375F853559383F7084B /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 		F298550C50D439309FFF013A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = ../AppState.swift; sourceTree = "<group>"; };
@@ -304,7 +306,6 @@
 		5654D4247A1DA8CD322C0B2E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				E011FC95C92649B3A8B9E2E1 /* ProfileModel.swift */,
 				5FB899DF9D87DF6863A9BBB6 /* ProfileView.swift */,
 				42D784D759892964A434D0D8 /* ProfileViewModel.swift */,
 				AC47A1153DD56B806DFBE9EF /* View */,
@@ -363,6 +364,7 @@
 		81E8DF6F97C5B6143187E5A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D1FB9902497CC85001F35B6 /* CallView */,
 				8D8DE0E7245D469900311723 /* Common */,
 				C8F0D0D65C40F9F5BF1B2E19 /* ContentView.swift */,
 				757BBFEFA3B42B087761D385 /* CallingView.swift */,
@@ -400,6 +402,15 @@
 				B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */,
 			);
 			path = EditAlarmTime;
+			sourceTree = "<group>";
+		};
+		8D1FB9902497CC85001F35B6 /* CallView */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB9912497CC97001F35B6 /* CallView.swift */,
+				8D1FB9932497CD19001F35B6 /* CallViewModel.swift */,
+			);
+			path = CallView;
 			sourceTree = "<group>";
 		};
 		8D43AA2E249299640073E1DE /* Components */ = {
@@ -730,6 +741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1FB9942497CD19001F35B6 /* CallViewModel.swift in Sources */,
 				B30E775C9F7D9CA2DC3ACA72 /* Alarm.swift in Sources */,
 				C91BFFFA83242ECFDD851E40 /* AlarmDetailView.swift in Sources */,
 				8D43AA2D249295620073E1DE /* Character2.swift in Sources */,
@@ -746,6 +758,7 @@
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
 				7ADE25A1DE7AC310AA61BB91 /* CallingView.swift in Sources */,
 				B8CBFAB256F731532B226F6C /* Character.swift in Sources */,
+				8D1FB9922497CC97001F35B6 /* CallView.swift in Sources */,
 				8D51E17A24656187007C8B95 /* AlarmReducer.swift in Sources */,
 				1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */,
 				F5773CDCAC003D34C58A9714 /* CharacterListViewModel.swift in Sources */,
@@ -772,7 +785,6 @@
 				B9316C7A2D5DD3B3895AF73A /* Profile.swift in Sources */,
 				E8FFDF1BC259FA581F252D72 /* ProfileHeader.swift in Sources */,
 				8DEA074F246777BB000D9D56 /* CharacterActionDispacher.swift in Sources */,
-				447030C21ED3E27D6E893613 /* ProfileModel.swift in Sources */,
 				8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */,
 				C4AD7B0D9C5AE42CC7C4B44F /* ProfileView.swift in Sources */,
 				C4E627B8416F373BD0919357 /* ProfileViewModel.swift in Sources */,
