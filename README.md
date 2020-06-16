@@ -22,7 +22,7 @@ App Store から
 brew update
 brew install rbenv ruby-build
 rbenv install -l
-rbenv install 2.6.4  # 最新版をインストール
+rbenv install 2.7.1  # 最新版をインストール
 rbenv versions  # インストール済みのバージョンを表示
 
 cd
@@ -34,14 +34,14 @@ eval "$(rbenv init -)"
 ```
 
 ```
-rbenv global 2.6.4  # 使用バージョンを設定
+rbenv global 2.7.1  # 使用バージョンを設定
 ruby -v  # 切り替わっていることを確認
 ```
 
 #### Bundlerのインストール ####
 
 ```
-gem install bundler -v 2.0.2
+gem install bundler -v 2.1.4
 gem list bundler
 bundle -v
 ```
@@ -50,7 +50,7 @@ bundle -v
 
 ```
 bundle config set path vendor/bundle
-bundle _2.0.2_ install --path vendor/bundle
+bundle _2.1.4_ install --path vendor/bundle
 ```
 
 #### セットアップ ####

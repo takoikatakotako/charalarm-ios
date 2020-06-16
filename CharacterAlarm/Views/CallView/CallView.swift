@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import SDWebImageSwiftUI
 
 struct CallView: View {
@@ -7,7 +8,7 @@ struct CallView: View {
     
     @State var overlay = true
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    @ObservedObject(initialValue: CallViewModel()) var viewModel: CallViewModel
     var body: some View {
         ZStack {
             VStack {
@@ -29,43 +30,70 @@ struct CallView: View {
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }){
-                    Text("Button")
-                }
-            }
+                    Image(systemName: "phone.fill.arrow.down.left")
+                        .resizable()
+                        .foregroundColor(Color.white)
+                        .frame(width: 40, height: 40)                }
+                    .frame(width: 80, height: 80)
+                    .background(Color("call-red"))
+                    .cornerRadius(40)
+            }                    .padding(.bottom, 60)
+            
             
             if overlay {
                 VStack {
-                    
-                    Text("ssss")
+                    Text(characterName)
+                        .font(Font.system(size: 36))
+                        .foregroundColor(Color.white)
+                        .padding(.top, 80)
                     Spacer()
-
                     
-                    HStack {
+                    HStack(spacing: 160) {
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
                         }){
-                            Text("Dissmiss")
+                            
+                            Image(systemName: "phone.fill.arrow.down.left")
+                                .resizable()
+                                .foregroundColor(Color.white)
+                                .frame(width: 40, height: 40)
                         }
-                        Spacer()
+                        .frame(width: 80, height: 80)
+                        .background(Color("call-red"))
+                        .cornerRadius(40)
+                        
+                        
                         Button(action: {
-                            print("xxx")
+                            self.viewModel.call()
                             withAnimation {
-
-                            self.overlay = false
+                                self.overlay = false
                             }
                         }){
-                            Text("Appear")
+                            Image(systemName: "phone.fill")
+                                .resizable()
+                                .foregroundColor(Color.white)
+                                .frame(width: 40, height: 40)
                         }
+                        .frame(width: 80, height: 80)
+                        .background(Color("call-green"))
+                        .cornerRadius(40)
+                        
                     }
-                }.background(Color.gray)
+                    .padding(.bottom, 60)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.gray)
             }
             
+        }.edgesIgnoringSafeArea(.bottom)
+            .onAppear {
+                self.viewModel.arrive()
         }
     }
 }
 
 struct CallView_Previews: PreviewProvider {
     static var previews: some View {
-        CallView(characterId: "xxx", characterName: "yyy")
+        CallView(characterId: "xxx", characterName: "井上結衣")
     }
 }
