@@ -84,10 +84,9 @@ struct CallView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.gray)
             }
-            
         }.edgesIgnoringSafeArea(.bottom)
             .onAppear {
-                self.viewModel.arrive()
+                self.viewModel.incoming()
         }
     }
 }

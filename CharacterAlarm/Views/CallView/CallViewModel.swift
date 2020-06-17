@@ -4,19 +4,24 @@ import AVFoundation
 
 class CallViewModel: ObservableObject {
 
-    var audioPlayer: AVAudioPlayer!
+    var incomingAudioPlayer: AVAudioPlayer!
+    var voiceAudioPlayer: AVAudioPlayer!
 
     func call() {
-        if let sound = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") {
-            audioPlayer = try? AVAudioPlayer(data: sound.data)
-            audioPlayer?.play() // → これで音が鳴る
+        incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if let sound = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") {
+                self.voiceAudioPlayer = try? AVAudioPlayer(data: sound.data)
+                self.voiceAudioPlayer?.play()
+            }
         }
     }
     
-    func arrive() {
+    func incoming() {
         if let sound = NSDataAsset(name: "harunouta") {
-            audioPlayer = try? AVAudioPlayer(data: sound.data)
-            audioPlayer?.play() // → これで音が鳴る
+            incomingAudioPlayer = try? AVAudioPlayer(data: sound.data)
+            incomingAudioPlayer?.play()
         }
     }
 }

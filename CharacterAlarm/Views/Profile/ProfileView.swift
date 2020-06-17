@@ -67,9 +67,8 @@ struct ProfileView: View {
                             }) {
                                 MenuItem(imageName: "profile-call")
                             }.sheet(isPresented: self.$viewModel.showCallView) {
-                                Text("電話画面")
+                                CallView(characterId: self.characterId, characterName: self.character?.name ?? "loading")
                             }
-
                         }
                         if self.showCheckItem {
                             Button(action: {

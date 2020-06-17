@@ -45,8 +45,7 @@ struct TopView: View {
                         }) {
                             TopButtonContent(imageName: "top-news")
                         }.sheet(isPresented: self.$viewModel.showNews) {
-                            // NewsView()
-                            CallView(characterId: "com.swiswiswift.charalarm.yui", characterName: "yui")
+                             NewsView()        
                         }
 
                         Button(action: {
