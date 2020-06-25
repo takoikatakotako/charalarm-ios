@@ -17,6 +17,7 @@
 		14C9BB5A921E3675A5725B9C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F51937A3BC073D26C839C /* ProfileHeader.swift */; };
 		15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E402A0E231E7BD7A31F674A /* AppStore.swift */; };
 		166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
+		17DCED3B24A4F21600824139 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCED3A24A4F21600824139 /* FileHandler.swift */; };
 		1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */; };
 		1F917EA31DFAEC6585576BBD /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5CE8B2A2919D2273D402A1 /* AppReducer.swift */; };
@@ -97,6 +98,7 @@
 		011B4E6465C5EE71ED362B76 /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 		040AEEDC8F6449589ED39293 /* AlarmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
 		04E57941C35B44D88F7DF506 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		17DCED3A24A4F21600824139 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
@@ -231,6 +233,14 @@
 			path = Alarm;
 			sourceTree = "<group>";
 		};
+		17DCED3924A4F20300824139 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				17DCED3A24A4F21600824139 /* FileHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
 		28EA1F8D8A0A85749D3C78A9 /* EditAlarmDayOfWeek */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +294,7 @@
 				3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */,
 				FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */,
 				6915811511BDD6501346263B /* Settings.bundle */,
+				17DCED3924A4F20300824139 /* Handler */,
 				2C3A6CBFE0EA874037556100 /* CallKit */,
 				2B8F32955F0E747B2C063CF2 /* Domain */,
 				35CE0717DB5E83C7E13D8178 /* Entity */,
@@ -483,7 +494,6 @@
 				C62E1F0A10D54149F95D1D8C /* Pods-CharacterAlarmUITests.debug.xcconfig */,
 				C220BA45D733C84E54245F70 /* Pods-CharacterAlarmUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -614,6 +624,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 			);
 			mainGroup = A769590120CB6B1811F10409;
@@ -755,6 +766,7 @@
 				B74650B04FEAB2B737EA60E5 /* CallingView.swift in Sources */,
 				B8CBFAB256F731532B226F6C /* Character.swift in Sources */,
 				CF10D9BA881F70FD045C300F /* Character2.swift in Sources */,
+				17DCED3B24A4F21600824139 /* FileHandler.swift in Sources */,
 				7DD0973FFA18C6C72462BDC3 /* CharacterAction.swift in Sources */,
 				53E89FBAAD32938C2828A3FE /* CharacterActionDispacher.swift in Sources */,
 				B080A41E07FEDC214DC3C302 /* CharacterListBanner.swift in Sources */,

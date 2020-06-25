@@ -111,6 +111,7 @@ struct ProfileView: View {
             }
         }.onAppear {
             self.viewModel.fetchCharacter(characterId: self.characterId)
+            self.viewModel.download(characterId: self.characterId)
         }
     }
     
