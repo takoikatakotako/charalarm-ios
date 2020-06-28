@@ -7,12 +7,12 @@ class CallViewModel: ObservableObject {
     var incomingAudioPlayer: AVAudioPlayer!
     var voiceAudioPlayer: AVAudioPlayer!
     
-    func call() {
+    func call(characterId: String) {
         incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
-            guard let data = try? FileHandler.readNoteJSON(directoryName: "characterId", fileName: "sample.caf") else {
+            guard let data = try? FileHandler.readNoteJSON(directoryName: characterId, fileName: "self-introduction.caf") else {
                 return
             }
             
@@ -26,5 +26,10 @@ class CallViewModel: ObservableObject {
             incomingAudioPlayer = try? AVAudioPlayer(data: sound.data)
             incomingAudioPlayer?.play()
         }
+    }
+    
+    func fadeOut() {
+        self.incomingAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
+        self.voiceAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
     }
 }

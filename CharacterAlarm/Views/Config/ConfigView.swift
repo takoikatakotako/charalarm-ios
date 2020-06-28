@@ -26,7 +26,7 @@ struct ConfigView: View {
                 Section {
                     NavigationLink(destination: ProfileView(characterId: appState.characterId)) {
                         ProfileHeader(
-                            imageUrlString: "https://charalarm.com/image/\(appState.characterId)/thumbnail_list.png", characterName:self.viewModel.character?.name ?? "empty",
+                            imageUrlString: "https://charalarm.com/image/\(appState.characterId)/thumbnail.png", characterName:self.viewModel.character?.name ?? "empty",
                             circleName: self.viewModel.character?.name ?? "xx")
                     }.frame(height: 80)
                         .onAppear {

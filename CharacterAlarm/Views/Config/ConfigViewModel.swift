@@ -15,7 +15,7 @@ class ConfigViewModel: ObservableObject {
     }
     
     func fetchCharacter(characterId: String) {
-          let url = URL(string: "https://charalarm.com/api/\(characterId)/character.json")!
+          let url = URL(string: "https://charalarm.com/api/\(characterId)/profile.json")!
           
           let task = URLSession.shared.dataTask(with: url) { data, response, error in
               
@@ -47,6 +47,10 @@ class ConfigViewModel: ObservableObject {
               } else {
                   // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
                   print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
+                print(url)
+                print(#file)
+                      print(#function)
+                      print(#line)
               }
               
           }

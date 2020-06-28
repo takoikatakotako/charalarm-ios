@@ -1,7 +1,7 @@
 import SwiftUI
 
 final class AppStore: ObservableObject {
-    @Published private(set) var state: AppState = AppState(characterId: "com.swiswiswift.charalarm.yui")
+    @Published private(set) var state: AppState = AppState(characterId: "com.charalarm.yui")
 
     public func initState(characterId: String) {
         state = AppState(characterId: characterId)

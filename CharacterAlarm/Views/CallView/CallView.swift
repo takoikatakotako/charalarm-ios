@@ -12,7 +12,7 @@ struct CallView: View {
     var body: some View {
         ZStack {
             VStack {
-                WebImage(url: URL(string: "https://charalarm.com/image/\(self.characterId)/thumbnail_list.png"))
+                WebImage(url: URL(string: "https://charalarm.com/image/\(self.characterId)/thumbnail.png"))
                     .resizable()
                     .placeholder {
                         Image("character-placeholder")
@@ -28,6 +28,7 @@ struct CallView: View {
                 Spacer()
                 
                 Button(action: {
+                    self.viewModel.fadeOut()
                     self.presentationMode.wrappedValue.dismiss()
                 }){
                     Image(systemName: "phone.fill.arrow.down.left")
@@ -50,6 +51,7 @@ struct CallView: View {
                     
                     HStack(spacing: 160) {
                         Button(action: {
+                            self.viewModel.fadeOut()
                             self.presentationMode.wrappedValue.dismiss()
                         }){
                             
@@ -64,7 +66,7 @@ struct CallView: View {
                         
                         
                         Button(action: {
-                            self.viewModel.call()
+                            self.viewModel.call(characterId: self.characterId)
                             withAnimation {
                                 self.overlay = false
                             }

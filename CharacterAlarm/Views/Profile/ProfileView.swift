@@ -38,7 +38,7 @@ struct ProfileView: View {
         GeometryReader { geometory in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    WebImage(url: URL(string: "https://charalarm.com/image/\(self.characterId)/thumbnail_list.png"))
+                    WebImage(url: URL(string: "https://charalarm.com/image/\(self.characterId)/thumbnail.png"))
                         .resizable()
                         .placeholder {
                             Image("character-placeholder")

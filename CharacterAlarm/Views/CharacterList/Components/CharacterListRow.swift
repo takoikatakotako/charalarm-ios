@@ -8,7 +8,7 @@ struct CharacterListRow: View {
     @State var urlString: String = ""
     var body: some View {
         HStack {
-            WebImage(url: URL(string: "https://charalarm.com/image/\(character.id)/thumbnail_list.png"))
+            WebImage(url: URL(string: "https://charalarm.com/image/\(character.id)/thumbnail.png"))
                 .resizable()
                 .placeholder {
                     Image("character-placeholder")
@@ -41,7 +41,7 @@ struct CharacterListRow: View {
 
 struct CharacterListRow_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListRow(character: Character2(id: "com.swiswiswift.charalarm.yui", name: "井上結衣"))
+        CharacterListRow(character: Character2(id: "com.charalarm.yui", name: "井上結衣"))
             .previewLayout(.sizeThatFits)
     }
 }

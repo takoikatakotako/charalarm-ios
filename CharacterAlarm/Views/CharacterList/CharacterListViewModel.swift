@@ -5,7 +5,7 @@ class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character2] = []
     
     func fetchCharacters() {
-        let url = URL(string: "https://charalarm.com/api/character-list.json")!
+        let url = URL(string: "https://charalarm.com/api/characters.json")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
@@ -37,6 +37,9 @@ class CharacterListViewModel: ObservableObject {
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
                 print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
+                print(#file)
+                print(#function)
+                print(#line)
             }
             
         }

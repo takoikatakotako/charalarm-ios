@@ -75,6 +75,20 @@ open CharacterAlarm.xcworkspace
 
 
 
+```
+image
+
+
+audio
+# 試しに聞く用のボイス
+- xxxx.caf
+
+
+api
+
+```
+
+
 ## 作業の流れ
 
 - issue の内容を確認する。良くわからなければ小野に質問してください。

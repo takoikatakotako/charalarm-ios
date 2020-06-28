@@ -7,7 +7,7 @@ class ProfileViewModel: ObservableObject {
     @Published var showCallView: Bool = false
     
     func fetchCharacter(characterId: String) {
-        let url = URL(string: "https://charalarm.com/api/\(characterId)/character.json")!
+        let url = URL(string: "https://charalarm.com/api/\(characterId)/profile.json")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
@@ -39,6 +39,9 @@ class ProfileViewModel: ObservableObject {
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
                 print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
+                print(#file)
+                      print(#function)
+                      print(#line)
             }
             
         }
@@ -46,7 +49,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func download(characterId: String) {
-        let url = URL(string: "https://charalarm.com/audio/com.swiswiswift.charalarm.yui/com_swiswiswift_inoue_yui_operation_1.caf")!
+        let url = URL(string: "https://charalarm.com/audio/\(characterId)/self-introduction.caf")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
             // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
@@ -65,7 +68,7 @@ class ProfileViewModel: ObservableObject {
                 
                 
                 do {
-                    try FileHandler.saveFile(directoryName: "characterId", fileName: "sample.caf", data: data)
+                    try FileHandler.saveFile(directoryName: characterId, fileName: "self-introduction.caf", data: data)
                 } catch {
                     print(error.localizedDescription)
                     print("exception")
@@ -76,6 +79,9 @@ class ProfileViewModel: ObservableObject {
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
                 print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
+                print(#file)
+                      print(#function)
+                      print(#line)
             }
         }
         task.resume()
