@@ -15,11 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainStore.initState(characterId: "com.charalarm.yui")
         let appState = mainStore.state
         
-        let contentView = ContentView()
+        let rootView = RootView()
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            rootViewController = UIHostingController(rootView: contentView.environmentObject( appState ))
+            rootViewController = UIHostingController(rootView: rootView.environmentObject( appState ))
             window.rootViewController = self.rootViewController
             self.window = window
             window.makeKeyAndVisible()

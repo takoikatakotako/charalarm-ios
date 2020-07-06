@@ -17,6 +17,16 @@
 		14C9BB5A921E3675A5725B9C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F51937A3BC073D26C839C /* ProfileHeader.swift */; };
 		15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E402A0E231E7BD7A31F674A /* AppStore.swift */; };
 		166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
+		1772CE3924B35EFC002F521B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE3824B35EFC002F521B /* RootView.swift */; };
+		1772CE3B24B35FC5002F521B /* TutorialHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE3A24B35FC5002F521B /* TutorialHolderView.swift */; };
+		1772CE3D24B361CD002F521B /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE3C24B361CD002F521B /* PageControl.swift */; };
+		1772CE3F24B36215002F521B /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE3E24B36215002F521B /* PageView.swift */; };
+		1772CE4124B3622C002F521B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4024B3622C002F521B /* PageViewController.swift */; };
+		1772CE4324B36315002F521B /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4224B36315002F521B /* TutorialView.swift */; };
+		1772CE4624B37BD4002F521B /* SettingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4524B37BD4002F521B /* SettingAction.swift */; };
+		1772CE4824B37C2F002F521B /* SettingActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4724B37C2F002F521B /* SettingActionDispacher.swift */; };
+		1772CE4A24B37C73002F521B /* SettingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4924B37C73002F521B /* SettingReducer.swift */; };
+		1772CE4C24B37D2C002F521B /* SettingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4B24B37D2C002F521B /* SettingState.swift */; };
 		17DCED3B24A4F21600824139 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCED3A24A4F21600824139 /* FileHandler.swift */; };
 		1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */; };
@@ -98,6 +108,16 @@
 		011B4E6465C5EE71ED362B76 /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 		040AEEDC8F6449589ED39293 /* AlarmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
 		04E57941C35B44D88F7DF506 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1772CE3824B35EFC002F521B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1772CE3A24B35FC5002F521B /* TutorialHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderView.swift; sourceTree = "<group>"; };
+		1772CE3C24B361CD002F521B /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		1772CE3E24B36215002F521B /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		1772CE4024B3622C002F521B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		1772CE4224B36315002F521B /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		1772CE4524B37BD4002F521B /* SettingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAction.swift; sourceTree = "<group>"; };
+		1772CE4724B37C2F002F521B /* SettingActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingActionDispacher.swift; sourceTree = "<group>"; };
+		1772CE4924B37C73002F521B /* SettingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReducer.swift; sourceTree = "<group>"; };
+		1772CE4B24B37D2C002F521B /* SettingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingState.swift; sourceTree = "<group>"; };
 		17DCED3A24A4F21600824139 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -231,6 +251,29 @@
 				040AEEDC8F6449589ED39293 /* AlarmState.swift */,
 			);
 			path = Alarm;
+			sourceTree = "<group>";
+		};
+		1772CE3724B35E3E002F521B /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				1772CE3A24B35FC5002F521B /* TutorialHolderView.swift */,
+				1772CE3C24B361CD002F521B /* PageControl.swift */,
+				1772CE3E24B36215002F521B /* PageView.swift */,
+				1772CE4024B3622C002F521B /* PageViewController.swift */,
+				1772CE4224B36315002F521B /* TutorialView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		1772CE4424B37BA4002F521B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				1772CE4524B37BD4002F521B /* SettingAction.swift */,
+				1772CE4724B37C2F002F521B /* SettingActionDispacher.swift */,
+				1772CE4924B37C73002F521B /* SettingReducer.swift */,
+				1772CE4B24B37D2C002F521B /* SettingState.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		17DCED3924A4F20300824139 /* Handler */ = {
@@ -390,6 +433,7 @@
 		81E8DF6F97C5B6143187E5A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1772CE3724B35E3E002F521B /* Tutorial */,
 				F61D0CFBD6D1625332704D67 /* CallingView.swift */,
 				AD65D969A238BEE7686DA4EE /* ContentView.swift */,
 				924C10A9304F65F081128E74 /* AlarmDetail */,
@@ -404,6 +448,7 @@
 				A80876C4BFBAEBD07EC63732 /* News */,
 				5654D4247A1DA8CD322C0B2E /* Profile */,
 				5273FFA3F5FB8830551F48B6 /* Top */,
+				1772CE3824B35EFC002F521B /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,6 +459,7 @@
 				860FC148925FBE20C32BB4C8 /* AppAction.swift */,
 				5F5CE8B2A2919D2273D402A1 /* AppReducer.swift */,
 				4E402A0E231E7BD7A31F674A /* AppStore.swift */,
+				1772CE4424B37BA4002F521B /* Setting */,
 				14208E94B10B1B24A3790989 /* Alarm */,
 				0B48C9FC473E647D21E54825 /* Character */,
 			);
@@ -747,10 +793,12 @@
 			files = (
 				B30E775C9F7D9CA2DC3ACA72 /* Alarm.swift in Sources */,
 				02588A96BC8B57EA70B0D45E /* AlarmAction.swift in Sources */,
+				1772CE3B24B35FC5002F521B /* TutorialHolderView.swift in Sources */,
 				3D814AA6F1EA26E8EE808331 /* AlarmActionDispacher.swift in Sources */,
 				C91BFFFA83242ECFDD851E40 /* AlarmDetailView.swift in Sources */,
 				4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */,
 				1312196D6C9F98340B13AB2D /* AlarmListRow.swift in Sources */,
+				1772CE3924B35EFC002F521B /* RootView.swift in Sources */,
 				BC15ABC1CC9174147689D5E9 /* AlarmListView.swift in Sources */,
 				AB0624552398C821FFC5A367 /* AlarmReducer.swift in Sources */,
 				A3C060CEBA14F32EF93F3F30 /* AlarmState.swift in Sources */,
@@ -771,6 +819,7 @@
 				53E89FBAAD32938C2828A3FE /* CharacterActionDispacher.swift in Sources */,
 				B080A41E07FEDC214DC3C302 /* CharacterListBanner.swift in Sources */,
 				63069C631D666919ADB238EC /* CharacterListRow.swift in Sources */,
+				1772CE4C24B37D2C002F521B /* SettingState.swift in Sources */,
 				1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */,
 				F5773CDCAC003D34C58A9714 /* CharacterListViewModel.swift in Sources */,
 				7E604392C48399771A6B6DC9 /* CharacterReducer.swift in Sources */,
@@ -780,22 +829,29 @@
 				54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */,
 				11FDFD6A92384A68B73AF0B8 /* ConfigViewModel.swift in Sources */,
 				11AA4CAAF5DA8F06948EDD4F /* ContentView.swift in Sources */,
+				1772CE4A24B37C73002F521B /* SettingReducer.swift in Sources */,
 				3DA7A202436B3EC7F9B3B9AD /* DayOfWeek.swift in Sources */,
+				1772CE4824B37C2F002F521B /* SettingActionDispacher.swift in Sources */,
 				0ED99D75EC0930A133322EBA /* EditAlarmDayOfWeek.swift in Sources */,
 				99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */,
 				166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */,
 				D64AB7756DF2E90D28E71308 /* EditAlarmTimeDifference.swift in Sources */,
+				1772CE4624B37BD4002F521B /* SettingAction.swift in Sources */,
 				1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */,
 				A4CC43333435A97034B6FC43 /* MenuItem.swift in Sources */,
 				B48742926BCFF31C963D7B3D /* News.swift in Sources */,
+				1772CE4124B3622C002F521B /* PageViewController.swift in Sources */,
 				CB21A6F2FB327EDD1FEE0363 /* NewsRow.swift in Sources */,
 				41190B41B1100DB307A2CF75 /* NewsView.swift in Sources */,
+				1772CE3F24B36215002F521B /* PageView.swift in Sources */,
 				B9316C7A2D5DD3B3895AF73A /* Profile.swift in Sources */,
 				14C9BB5A921E3675A5725B9C /* ProfileHeader.swift in Sources */,
 				8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */,
+				1772CE3D24B361CD002F521B /* PageControl.swift in Sources */,
 				C4AD7B0D9C5AE42CC7C4B44F /* ProfileView.swift in Sources */,
 				C4E627B8416F373BD0919357 /* ProfileViewModel.swift in Sources */,
 				F71FB21BDF8AEE2B0BB0EBA3 /* SceneDelegate.swift in Sources */,
+				1772CE4324B36315002F521B /* TutorialView.swift in Sources */,
 				FE2AA312258B9125C8F02829 /* TopButtonContent.swift in Sources */,
 				2ACC04405DCC3012C1EEC96D /* TopTimeView.swift in Sources */,
 				D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */,

@@ -11,7 +11,7 @@ class AppState: ObservableState {
     
     @Published var characterState = CharacterState()
     @Published var alarmState = AlarmState()
-    
+    @Published var settingState = SettingState()
     
     init(characterId: String) {
         self.characterId = characterId

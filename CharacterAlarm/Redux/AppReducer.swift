@@ -11,6 +11,8 @@ func appReducer(action: Action, state: inout AppState) {
     switch action {
     case let action as AlarmAction:
         AlarmReducer.reducer(action: action, state: &state.alarmState)
+    case let setting as SettingAction:
+        SettingReducer.reducer(action: setting, state: &state.settingState)
     default:
         break
     }
