@@ -27,6 +27,7 @@
 		1772CE4824B37C2F002F521B /* SettingActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4724B37C2F002F521B /* SettingActionDispacher.swift */; };
 		1772CE4A24B37C73002F521B /* SettingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4924B37C73002F521B /* SettingReducer.swift */; };
 		1772CE4C24B37D2C002F521B /* SettingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE4B24B37D2C002F521B /* SettingState.swift */; };
+		17BD85DC24B4CC26001CDF05 /* TutorialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD85DB24B4CC26001CDF05 /* TutorialType.swift */; };
 		17DCED3B24A4F21600824139 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCED3A24A4F21600824139 /* FileHandler.swift */; };
 		1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */; };
@@ -118,6 +119,7 @@
 		1772CE4724B37C2F002F521B /* SettingActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingActionDispacher.swift; sourceTree = "<group>"; };
 		1772CE4924B37C73002F521B /* SettingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReducer.swift; sourceTree = "<group>"; };
 		1772CE4B24B37D2C002F521B /* SettingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingState.swift; sourceTree = "<group>"; };
+		17BD85DB24B4CC26001CDF05 /* TutorialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialType.swift; sourceTree = "<group>"; };
 		17DCED3A24A4F21600824139 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				1772CE3E24B36215002F521B /* PageView.swift */,
 				1772CE4024B3622C002F521B /* PageViewController.swift */,
 				1772CE4224B36315002F521B /* TutorialView.swift */,
+				17BD85DB24B4CC26001CDF05 /* TutorialType.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				BC15ABC1CC9174147689D5E9 /* AlarmListView.swift in Sources */,
 				AB0624552398C821FFC5A367 /* AlarmReducer.swift in Sources */,
 				A3C060CEBA14F32EF93F3F30 /* AlarmState.swift in Sources */,
+				17BD85DC24B4CC26001CDF05 /* TutorialType.swift in Sources */,
 				C1777588870B5511DC67A127 /* AlarmStore.swift in Sources */,
 				64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
