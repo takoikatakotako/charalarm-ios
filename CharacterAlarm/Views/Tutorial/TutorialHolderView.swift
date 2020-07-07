@@ -2,11 +2,11 @@ import SwiftUI
 
 struct TutorialHolderView: View {
     @State var views = [
-        TutorialView(imageName: "sd-normal", text: "First"),
-        TutorialView(imageName: "sd-happly", text: "Second"),
-        TutorialView(imageName: "sd-sad", text: "Third"),
-        TutorialView(imageName: "sd-smile", text: "Fourth"),
-        TutorialView(tutorialType: .end,imageName: "sd-suprised", text: "First"),
+        TutorialView(imageName: "sd-normal", text: "チュートリアルだよ"),
+        TutorialView(imageName: "sd-happly", text: "チュートリアル"),
+        TutorialView(imageName: "sd-sad", text: "チュートリアル"),
+        TutorialView(imageName: "sd-smile", text: "チュートリアル"),
+        TutorialView(tutorialType: .end,imageName: "sd-suprised", text: "最後のチュートリアル"),
     ]
     
     var body: some View {

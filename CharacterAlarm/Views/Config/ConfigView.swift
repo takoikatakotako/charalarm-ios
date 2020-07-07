@@ -20,6 +20,7 @@ struct ConfigView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
+    @State private var showingResetAlert = false
     
     var body: some View {
         NavigationView {
@@ -86,10 +87,20 @@ struct ConfigView: View {
                 Section(header: Text("リセット")) {
                     Button(action: {
                         print("リセット")
-                        dispachers.settingDispacher.doneTutorial(false)
+                        self.showingResetAlert = true
                     }) {
                         Text("リセット")
                             .foregroundColor(Color("textColor"))
+                    }
+                    .alert(isPresented: $showingResetAlert) {
+                        Alert(
+                            title: Text("タイトル"),
+                            message: Text("メッセージ"),
+                            primaryButton: .default(Text("キャンセル")) {
+                                print("ボタンその１")
+                            }, secondaryButton: .destructive(Text("リセット")) {
+                                dispachers.settingDispacher.doneTutorial(false)
+                            })
                     }
                 }
             }.listStyle(GroupedListStyle())
@@ -103,6 +114,7 @@ struct ConfigView: View {
             self.viewModel.fetchCharacter(characterId: self.appState.characterId)
         }
     }
+    
 }
 
 struct ConfigView_Previews: PreviewProvider {
