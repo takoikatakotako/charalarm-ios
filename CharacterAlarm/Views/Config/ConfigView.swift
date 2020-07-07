@@ -11,6 +11,7 @@ import UIKit
 
 fileprivate struct Dispachers {
     let alarmDispacher = AlarmActionDispacher()
+    let settingDispacher = SettingActionDispacher()
 }
 
 fileprivate let dispachers = Dispachers()
@@ -19,7 +20,7 @@ struct ConfigView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
-
+    
     var body: some View {
         NavigationView {
             List {
@@ -83,8 +84,13 @@ struct ConfigView: View {
                 }
                 
                 Section(header: Text("リセット")) {
-                    Text("リセット")
-                        .foregroundColor(Color("textColor"))
+                    Button(action: {
+                        print("リセット")
+                        dispachers.settingDispacher.doneTutorial(false)
+                    }) {
+                        Text("リセット")
+                            .foregroundColor(Color("textColor"))
+                    }
                 }
             }.listStyle(GroupedListStyle())
                 .navigationBarTitle("設定", displayMode: .inline)

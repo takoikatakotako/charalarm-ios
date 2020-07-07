@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class SettingActionDispacher {
     private let store: AppStore
@@ -8,6 +8,7 @@ class SettingActionDispacher {
     }
     
     func doneTutorial(_ done: Bool) {
+        UserDefaults.standard.set(true, forKey: DONE_TUTORIAL)
         self.store.dispatch(action: SettingAction.doneTutorial(done))
     }
 }
