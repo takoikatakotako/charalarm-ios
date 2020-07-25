@@ -66,7 +66,9 @@ struct TopView: View {
         }
         .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
-            dispachers.alarmDispacher.fetchAlarmList()
+            print(self.appState.settingState.doneTutorial)
+            
+//            dispachers.alarmDispacher.fetchAlarmList()
         }
     }
 }

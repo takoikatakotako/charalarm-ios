@@ -17,3 +17,4 @@ final class AppStore: ObservableObject {
 }
 
 let mainStore = AppStore()
+

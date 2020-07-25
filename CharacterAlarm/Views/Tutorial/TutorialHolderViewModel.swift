@@ -7,8 +7,11 @@ fileprivate struct Dispachers {
 fileprivate let dispachers = Dispachers()
 
 class TutorialHolderViewModel: ObservableObject {
-    var doneSignUp: Bool = false
-    //
+    let anonymousUserName = UUID().uuidString
+    let anonymousUserPassword = UUID().uuidString
+    @Published var showingAlert = false
+    @Published var alertMessage = ""
+    
     func signUp() {
         
         let url = URL(string: BASE_URL + "/api/anonymous/auth/signup")!
@@ -18,43 +21,42 @@ class TutorialHolderViewModel: ObservableObject {
         let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
         request.allHTTPHeaderFields = header
         
-        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_ID),
-            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
-                fatalError("しゅとくできませえええええん")
-        }
-        
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
         guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
-            fatalError("しゅとくできませえええええん")
+            print("AnonymousAuthBeanのパースに失敗しました。")
+            self.showingAlert = true
+            self.alertMessage = "不明なエラーが発生しました。"
+            return
         }
         request.httpBody = httpBody
-        
-        print("****")
-        print(request.curlString)
-        print("****")
+
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
             if let error = error {
-                print("クライアントサイドエラー: \(error.localizedDescription) \n")
+                print("クライアントサイドエラー: \(error.localizedDescription)")
+                self.showingAlert = true
+                self.alertMessage = "不明なエラーが発生しました。"
                 return
             }
             
             guard let data = data, let response = response as? HTTPURLResponse else {
-                print("no data or no response")
+                print("通信に失敗しました。")
+                self.showingAlert = true
+                self.alertMessage = "通信に失敗しました。"
                 return
             }
             
             if response.statusCode == 200 {
-                print(data)
-                // dispachers.settingDispacher.doneSignUp(true)            
+                // ユーザー作成に成功
+                UserDefaults.standard.set(self.anonymousUserName, forKey: ANONYMOUS_USER_NAME)
+                UserDefaults.standard.set(self.anonymousUserPassword, forKey: ANONYMOUS_USER_PASSWORD)
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
-                print("サーバサイドエラー ステータスコード: \(response)\n")
-                print(#file)
-                print(#function)
-                print(#line)
+                print("サーバサイドエラー ステータスコード: \(response.statusCode)")
+                print("サーバサイドエラー ステータスコード: \(response)")
+                print(data)
+                self.showingAlert = true
+                self.alertMessage = "ユーザの作成に失敗しました。"
             }
         }
         task.resume()

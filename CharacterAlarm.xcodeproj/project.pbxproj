@@ -17,6 +17,10 @@
 		14C9BB5A921E3675A5725B9C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F51937A3BC073D26C839C /* ProfileHeader.swift */; };
 		15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E402A0E231E7BD7A31F674A /* AppStore.swift */; };
 		166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
+		1700ADDE24CC6CC7003E25A1 /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADDD24CC6CC7003E25A1 /* AlertAction.swift */; };
+		1700ADE024CC6CDB003E25A1 /* AlertActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADDF24CC6CDB003E25A1 /* AlertActionDispacher.swift */; };
+		1700ADE224CC6CEA003E25A1 /* AlertReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADE124CC6CEA003E25A1 /* AlertReducer.swift */; };
+		1700ADE424CC6CF8003E25A1 /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADE324CC6CF8003E25A1 /* AlertState.swift */; };
 		1772CE3924B35EFC002F521B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE3824B35EFC002F521B /* RootView.swift */; };
 		1772CE3B24B35FC5002F521B /* TutorialHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE3A24B35FC5002F521B /* TutorialHolderView.swift */; };
 		1772CE3D24B361CD002F521B /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1772CE3C24B361CD002F521B /* PageControl.swift */; };
@@ -115,6 +119,10 @@
 		011B4E6465C5EE71ED362B76 /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 		040AEEDC8F6449589ED39293 /* AlarmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
 		04E57941C35B44D88F7DF506 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1700ADDD24CC6CC7003E25A1 /* AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAction.swift; sourceTree = "<group>"; };
+		1700ADDF24CC6CDB003E25A1 /* AlertActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionDispacher.swift; sourceTree = "<group>"; };
+		1700ADE124CC6CEA003E25A1 /* AlertReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertReducer.swift; sourceTree = "<group>"; };
+		1700ADE324CC6CF8003E25A1 /* AlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertState.swift; sourceTree = "<group>"; };
 		1772CE3824B35EFC002F521B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1772CE3A24B35FC5002F521B /* TutorialHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderView.swift; sourceTree = "<group>"; };
 		1772CE3C24B361CD002F521B /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -265,6 +273,17 @@
 				040AEEDC8F6449589ED39293 /* AlarmState.swift */,
 			);
 			path = Alarm;
+			sourceTree = "<group>";
+		};
+		1700ADDC24CC6C88003E25A1 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				1700ADDD24CC6CC7003E25A1 /* AlertAction.swift */,
+				1700ADDF24CC6CDB003E25A1 /* AlertActionDispacher.swift */,
+				1700ADE124CC6CEA003E25A1 /* AlertReducer.swift */,
+				1700ADE324CC6CF8003E25A1 /* AlertState.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		1772CE3724B35E3E002F521B /* Tutorial */ = {
@@ -488,6 +507,7 @@
 				860FC148925FBE20C32BB4C8 /* AppAction.swift */,
 				5F5CE8B2A2919D2273D402A1 /* AppReducer.swift */,
 				4E402A0E231E7BD7A31F674A /* AppStore.swift */,
+				1700ADDC24CC6C88003E25A1 /* Alert */,
 				1772CE4424B37BA4002F521B /* Setting */,
 				14208E94B10B1B24A3790989 /* Alarm */,
 				0B48C9FC473E647D21E54825 /* Character */,
@@ -830,11 +850,14 @@
 				1772CE3924B35EFC002F521B /* RootView.swift in Sources */,
 				BC15ABC1CC9174147689D5E9 /* AlarmListView.swift in Sources */,
 				AB0624552398C821FFC5A367 /* AlarmReducer.swift in Sources */,
+				1700ADE424CC6CF8003E25A1 /* AlertState.swift in Sources */,
 				A3C060CEBA14F32EF93F3F30 /* AlarmState.swift in Sources */,
 				17DE255C24CC3DBD00B103DA /* AnonymousAuthBean.swift in Sources */,
+				1700ADE224CC6CEA003E25A1 /* AlertReducer.swift in Sources */,
 				17BD85DC24B4CC26001CDF05 /* TutorialType.swift in Sources */,
 				C1777588870B5511DC67A127 /* AlarmStore.swift in Sources */,
 				64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */,
+				1700ADDE24CC6CC7003E25A1 /* AlertAction.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				1F917EA31DFAEC6585576BBD /* AppReducer.swift in Sources */,
 				EBB6FA2F6AF8384189623FA7 /* AppState.swift in Sources */,
@@ -889,6 +912,7 @@
 				1777CA6E24CC3C1C00E265B7 /* Alarm2.swift in Sources */,
 				FE2AA312258B9125C8F02829 /* TopButtonContent.swift in Sources */,
 				2ACC04405DCC3012C1EEC96D /* TopTimeView.swift in Sources */,
+				1700ADE024CC6CDB003E25A1 /* AlertActionDispacher.swift in Sources */,
 				17CE710424CC62CD008BB713 /* URLRequest.swift in Sources */,
 				D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */,
 				3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */,

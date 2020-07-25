@@ -17,26 +17,26 @@ struct AlarmListView: View {
     }
 
     var body: some View {
-        Text("xxxx")
-//        List {
-//            ForEach(self.viewModel.alarms, id: \.self) { alarm in
+        List {
+            ForEach(self.viewModel.alarms, id: \.self) { alarm in
+                Text("xxx")
 //                NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
 //                    AlarmListRow(delegate: self, alarm: alarm)
 //                        .frame(height: 60.0)
 //                }
-//            }
-//            .onDelete(perform: delete)
-//        }.listStyle(DefaultListStyle())
-//            .navigationBarItems(trailing:
-//                HStack {
-//                    EditButton()
-//                    NavigationLink(destination: AlarmDetailView(alarm: Alarm(uid: uid, token: "xxx"))) {
-//                        Image(systemName: "plus")
-//                    }
-//                }
-//        ).onAppear {
-//            self.viewModel.fetchAlarms()
-//        }
+            }
+            .onDelete(perform: delete)
+        }.listStyle(DefaultListStyle())
+            .navigationBarItems(trailing:
+                HStack {
+                    EditButton()
+                    NavigationLink(destination: AlarmDetailView(alarm: Alarm2(id: "3", hour: 23, minute: 23))) {
+                        Image(systemName: "plus")
+                    }
+                }
+        ).onAppear {
+            self.viewModel.fetchAlarms()
+        }
     }
 
     func delete(at offsets: IndexSet) {

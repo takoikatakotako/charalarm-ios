@@ -13,6 +13,6 @@ class SettingActionDispacher {
     }
     
     func doneSignUp(_ done: Bool) {
-        self.store.dispatch(action: SettingAction.doneTutorial(done))
+        self.store.dispatch(action: SettingAction.doneSignUp(done))
     }
 }

@@ -2,13 +2,14 @@ import SwiftUI
 
 fileprivate struct Dispachers {
     let settingDispacher = SettingActionDispacher()
+    let alertActionDispacher = AlertActionDispacher()
 }
 
 fileprivate let dispachers = Dispachers()
 
 struct TutorialView: View {
     @EnvironmentObject var appState: AppState
-
+    
     let tutorialType: TutorialType
     let imageName: String
     let text: String
@@ -42,15 +43,16 @@ struct TutorialView: View {
             
             if tutorialType == .end {
                 Button(action: {
-                    withAnimation {
-                        if self.appState.settingState.doneSignUp {
-                            dispachers.settingDispacher.doneTutorial(true)
-                        } else {
-                            print("xxxx")
-                        }
+                    guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
+                        let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+                            return
                     }
+                    print("\(ANONYMOUS_USER_NAME): \(anonymousUserName)")
+                    print("\(ANONYMOUS_USER_PASSWORD): \(anonymousUserPassword)")
+                    dispachers.settingDispacher.doneTutorial(true)
                 }) {
-                    Text("Hello")
+                    Text("アプリを使ってみる")
+                        .foregroundColor(Color.white)
                 }
                 .background(Color.gray)
                 .edgesIgnoringSafeArea(.all)

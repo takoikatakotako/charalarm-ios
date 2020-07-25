@@ -18,6 +18,15 @@ struct TutorialHolderView: View {
             .onAppear {
                 print("onAppear")
                 self.viewModel.signUp()
+        }.alert(isPresented: self.$viewModel.showingAlert) {
+            Alert(
+                title: Text("タイトル"),
+                message: Text("メッセージ"),
+                primaryButton: .default(Text("ボタンその１")) {
+                    print("ボタンその１")
+                }, secondaryButton: .destructive(Text("ボタンその２")) {
+                    print("ボタンその２")
+                })
         }
     }
 }

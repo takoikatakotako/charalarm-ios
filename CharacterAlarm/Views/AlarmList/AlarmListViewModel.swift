@@ -4,15 +4,28 @@ class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm2] = []
     
     func fetchAlarms() {
-        let url = URL(string: "https://api.charalarm.com/api/anonymous/alarm/list")!
+        let url = URL(string: BASE_URL + "/api/anonymous/alarm/list")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-//        let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: "xxx", password: "xxx")
-//        let data = anonymousAuthBean.encode(anonymousAuthBean)
-//        request.httpBody = data
-
+        let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
+        request.allHTTPHeaderFields = header
+        
+        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
+            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+                fatalError("しゅとくできませえええええん")
+        }
+        
+        let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
+        guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
+            fatalError("しゅとくできませえええええん")
+        }
+        request.httpBody = httpBody
+        
+        print("****")
+        print(request.curlString)
+        print("****")
         
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in

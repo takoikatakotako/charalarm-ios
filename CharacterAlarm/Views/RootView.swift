@@ -10,7 +10,7 @@ struct RootView: View {
             } else {
                 TutorialHolderView()
             }
-        }.alert(isPresented: self.$appState.showingRootAlert) {
+        }.alert(isPresented: self.$appState.alertState.showingAlert) {
             Alert(
                 title: Text("タイトル"),
                 message: Text("メッセージ"),

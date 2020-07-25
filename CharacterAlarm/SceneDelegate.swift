@@ -9,15 +9,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // キャラクターID、匿名ユーザーID、匿名ユーザーパスワードを登録
         UserDefaults.standard.register(defaults: [CHARACTER_ID : DEFAULT_CHARACTER_ID])
-        UserDefaults.standard.register(defaults: [DONE_TUTORIAL : false])
-        UserDefaults.standard.register(defaults: [ANONYMOUS_USER_ID  : UUID().uuidString])
-        UserDefaults.standard.register(defaults: [ANONYMOUS_USER_PASSWORD  : UUID().uuidString])
-
+        
         guard let characterId = UserDefaults.standard.string(forKey: CHARACTER_ID) else {
-                fatalError("characterIdが取得できませんでした")
+            fatalError("characterIdが取得できませんでした")
         }
         
-        let doneTutorial = UserDefaults.standard.bool(forKey: DONE_TUTORIAL)
+        let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME)
+        let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD)
+    
+        let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
         mainStore.initState(characterId: characterId, doneTutorial: doneTutorial)
         let appState = mainStore.state
         
