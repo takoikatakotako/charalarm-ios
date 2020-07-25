@@ -2,13 +2,23 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject var appState: AppState
-
-    @ViewBuilder
+    
     var body: some View {
-        if appState.settingState.doneTutorial {
-            ContentView()
-        } else {
-            TutorialHolderView()
+        Group {
+            if appState.settingState.doneTutorial {
+                ContentView()
+            } else {
+                TutorialHolderView()
+            }
+        }.alert(isPresented: self.$appState.showingRootAlert) {
+            Alert(
+                title: Text("タイトル"),
+                message: Text("メッセージ"),
+                primaryButton: .default(Text("ボタンその１")) {
+                    print("ボタンその１")
+                }, secondaryButton: .destructive(Text("ボタンその２")) {
+                    print("ボタンその２")
+                })
         }
     }
 }

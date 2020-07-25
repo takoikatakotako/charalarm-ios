@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct TutorialHolderView: View {
+    @ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
+
     @State var views = [
         TutorialView(imageName: "sd-normal", text: "チュートリアルだよ"),
         TutorialView(imageName: "sd-happly", text: "チュートリアル"),
@@ -13,6 +15,10 @@ struct TutorialHolderView: View {
         PageView(views)
             .background(Color.gray)
             .edgesIgnoringSafeArea(.all)
+            .onAppear {
+                print("onAppear")
+                self.viewModel.signUp()
+        }
     }
 }
 

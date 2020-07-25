@@ -8,6 +8,8 @@ fileprivate let dispachers = Dispachers()
 
 struct AlarmListView: View {
     @EnvironmentObject var appState: AppState
+    @ObservedObject(initialValue: AlarmListViewModel()) var viewModel: AlarmListViewModel
+
     let uid: String
     
     init(uid: String) {
@@ -15,25 +17,26 @@ struct AlarmListView: View {
     }
 
     var body: some View {
-        List {
-            ForEach(appState.alarmState.alarms, id: \.self) { alarm in
-                NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
-                    AlarmListRow(delegate: self, alarm: alarm)
-                        .frame(height: 60.0)
-                }
-            }
-            .onDelete(perform: delete)
-        }.listStyle(DefaultListStyle())
-            .navigationBarItems(trailing:
-                HStack {
-                    EditButton()
-                    NavigationLink(destination: AlarmDetailView(alarm: Alarm(uid: uid, token: "xxx"))) {
-                        Image(systemName: "plus")
-                    }
-                }
-        ).onAppear {
-            dispachers.alarmDispacher.fetchAlarmList()
-        }
+        Text("xxxx")
+//        List {
+//            ForEach(self.viewModel.alarms, id: \.self) { alarm in
+//                NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
+//                    AlarmListRow(delegate: self, alarm: alarm)
+//                        .frame(height: 60.0)
+//                }
+//            }
+//            .onDelete(perform: delete)
+//        }.listStyle(DefaultListStyle())
+//            .navigationBarItems(trailing:
+//                HStack {
+//                    EditButton()
+//                    NavigationLink(destination: AlarmDetailView(alarm: Alarm(uid: uid, token: "xxx"))) {
+//                        Image(systemName: "plus")
+//                    }
+//                }
+//        ).onAppear {
+//            self.viewModel.fetchAlarms()
+//        }
     }
 
     func delete(at offsets: IndexSet) {

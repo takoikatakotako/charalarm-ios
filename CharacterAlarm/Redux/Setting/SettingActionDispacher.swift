@@ -11,4 +11,8 @@ class SettingActionDispacher {
         UserDefaults.standard.set(done, forKey: DONE_TUTORIAL)
         self.store.dispatch(action: SettingAction.doneTutorial(done))
     }
+    
+    func doneSignUp(_ done: Bool) {
+        self.store.dispatch(action: SettingAction.doneTutorial(done))
+    }
 }

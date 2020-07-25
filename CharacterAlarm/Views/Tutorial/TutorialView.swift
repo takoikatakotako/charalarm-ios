@@ -7,6 +7,8 @@ fileprivate struct Dispachers {
 fileprivate let dispachers = Dispachers()
 
 struct TutorialView: View {
+    @EnvironmentObject var appState: AppState
+
     let tutorialType: TutorialType
     let imageName: String
     let text: String
@@ -41,7 +43,11 @@ struct TutorialView: View {
             if tutorialType == .end {
                 Button(action: {
                     withAnimation {
-                        dispachers.settingDispacher.doneTutorial(true)
+                        if self.appState.settingState.doneSignUp {
+                            dispachers.settingDispacher.doneTutorial(true)
+                        } else {
+                            print("xxxx")
+                        }
                     }
                 }) {
                     Text("Hello")

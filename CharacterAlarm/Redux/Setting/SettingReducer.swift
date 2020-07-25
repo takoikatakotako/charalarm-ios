@@ -8,6 +8,8 @@ class SettingReducer: Reducer {
         switch action {
         case let .doneTutorial(doneTutorial):
             state.doneTutorial = doneTutorial
+        case let .doneSignUp(doneSignUp):
+            state.doneSignUp = doneSignUp
         }
     }
 }
