@@ -37,7 +37,7 @@ struct AlarmDetailView: View {
             NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, dayOfWeeks: viewModel.alarm.dayOfWeeks)) {
                 VStack(alignment: .leading) {
                     Text("曜日")
-                    Text(viewModel.enableDaysString)
+                    Text(viewModel.alarm.dayOfWeeksString)
                 }.frame(height: 60.0)
             }
 

@@ -12,7 +12,7 @@ class AlarmListViewModel: ObservableObject {
         let name = date.description
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
-        let dayOfWeeks: [DayOfWeek2] = [.MON, .THU, .WED, .THU, .FRI, .SAT, .SUN]
+        let dayOfWeeks: [DayOfWeek2] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
         return Alarm(alarmId: nil, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
     }
     

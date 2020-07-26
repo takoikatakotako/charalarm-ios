@@ -38,7 +38,7 @@ struct AlarmListRow: View {
                 Text("\(alarm.hour):\(alarm.minute)")
                     .font(Font.system(size: 20))
                 Text(alarm.name)
-                Text("毎日")
+                Text(alarm.dayOfWeeksString)
             }
             Spacer()
             Toggle(isOn: $alarmListModel.enable) {

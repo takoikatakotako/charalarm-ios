@@ -7,7 +7,7 @@ protocol  EditAlarmDayOfWeekDelegate {
 struct EditAlarmDayOfWeek: View {
     let delegate: EditAlarmDayOfWeekDelegate
     @State var dayOfWeeks: [DayOfWeek2]
-
+    
     var body: some View {
         List(DayOfWeek2.allCases) { dayOfWeek in
             Button(action: {
@@ -18,7 +18,7 @@ struct EditAlarmDayOfWeek: View {
                 }
             }, label: {
                 HStack {
-                    Text("\(dayOfWeek.rawValue)")
+                    Text(self.dayOfWeekString(dayOfWeek: dayOfWeek))
                     Spacer()
                     if self.dayOfWeeks.contains(dayOfWeek) {
                         Text("✔︎")
@@ -26,7 +26,26 @@ struct EditAlarmDayOfWeek: View {
                 }
             })
         }.onDisappear {
-             self.delegate.updateDayOfWeek(dayOfWeeks: self.dayOfWeeks)
+            self.delegate.updateDayOfWeek(dayOfWeeks: self.dayOfWeeks)
+        }
+    }
+    
+    private func dayOfWeekString(dayOfWeek: DayOfWeek2) -> String {
+        switch dayOfWeek {
+        case .MON:
+            return "月"
+        case .TUE:
+            return "火"
+        case .WED:
+            return "水"
+        case .THU:
+            return "木"
+        case .FRI:
+            return "金"
+        case .SAT:
+            return "土"
+        case .SUN:
+            return "日"
         }
     }
 }
