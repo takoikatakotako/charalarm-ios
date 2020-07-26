@@ -19,9 +19,11 @@ struct EditAlarmDayOfWeek: View {
             }, label: {
                 HStack {
                     Text(self.dayOfWeekString(dayOfWeek: dayOfWeek))
+                        .foregroundColor(Color.black)
                     Spacer()
                     if self.dayOfWeeks.contains(dayOfWeek) {
                         Text("✔︎")
+                            .foregroundColor(Color.black)
                     }
                 }
             })

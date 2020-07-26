@@ -1,6 +1,5 @@
 import SwiftUI
 import SDWebImageSwiftUI
-import FirebaseStorage
 
 struct ProfileRow: View {
     let title: String

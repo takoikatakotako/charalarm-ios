@@ -198,7 +198,7 @@
 		B2C52C1A852F945126AB592F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
 		BA51FBF61F90A06BA645545D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		BB58FC93558ECD02693905FD /* CharacterAlarm.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB58FC93558ECD02693905FD /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04848E6DA790BC828920D62 /* CharacterAlarmTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77FE7757285D78CA7096C64 /* CharacterAlarmUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C781C6D978162421306DEBBA /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };

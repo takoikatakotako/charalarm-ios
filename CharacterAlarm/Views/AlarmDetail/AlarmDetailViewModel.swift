@@ -84,7 +84,7 @@ class AlarmDetailViewModel: ObservableObject {
             if response.statusCode == 200 {
                 DispatchQueue.main.async {
                     self.showingAlert = true
-                    self.alertMessage = "アラートを保存しました。"
+                    self.alertMessage = "アラームを保存しました。"
                     return
                 }
             } else {

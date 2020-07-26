@@ -1,5 +1,4 @@
 import SwiftUI
-import FirebaseStorage
 
 class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character] = []

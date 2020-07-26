@@ -1,5 +1,4 @@
 import UIKit
-import FirebaseFirestore
 
 struct Character: Identifiable, Decodable {
     let id: String

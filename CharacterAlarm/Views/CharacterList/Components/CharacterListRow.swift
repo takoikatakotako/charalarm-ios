@@ -1,7 +1,6 @@
 import SwiftUI
 import UIKit
 import SDWebImageSwiftUI
-import FirebaseStorage
 
 struct CharacterListRow: View {
     let character: Character

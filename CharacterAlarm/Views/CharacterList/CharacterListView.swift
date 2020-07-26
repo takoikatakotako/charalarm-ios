@@ -1,7 +1,6 @@
 import SwiftUI
 import UIKit
 import SDWebImageSwiftUI
-import FirebaseStorage
 
 struct CharacterListView: View {
     @ObservedObject(initialValue: CharacterListViewModel()) var viewModel: CharacterListViewModel

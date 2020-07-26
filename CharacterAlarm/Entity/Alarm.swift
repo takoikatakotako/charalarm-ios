@@ -1,5 +1,4 @@
 import UIKit
-import FirebaseFirestore
 
 struct Alarm: Identifiable, Decodable, Hashable {
     let id = UUID()

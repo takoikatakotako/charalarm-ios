@@ -7,9 +7,6 @@ target 'CharacterAlarm' do
   inhibit_all_warnings!
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
-  pod 'Firebase/Firestore'
-  pod 'FirebaseUI/Storage'
-  pod 'Firebase/Auth'
   pod 'SwiftLint'
   pod 'LicensePlist'
   pod 'SDWebImageSwiftUI'
