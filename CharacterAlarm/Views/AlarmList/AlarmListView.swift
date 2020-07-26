@@ -18,11 +18,11 @@ struct AlarmListView: View {
 
     var body: some View {
         List {
-            ForEach(self.viewModel.alarms, id: \.self) { alarm in
+            ForEach(self.viewModel.alarms) { alarm in
                 NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
-//                     AlarmListRow(delegate: self, alarm: alarm)
-//                         .frame(height: 60.0)
-                    Text(alarm.name)
+                     AlarmListRow(delegate: self, alarm: alarm)
+                         .frame(height: 60.0)
+                    // Text(alarm.name)
                 }
             }
             .onDelete(perform: delete)
@@ -52,8 +52,8 @@ struct AlarmListView: View {
 }
 
 extension AlarmListView: AlarmListRowDelegate {
-    func updateAlarmEnable(alarmId: String, isEnable: Bool) {
-        // dispachers.alarmDispacher.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
+    func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
+        viewModel.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }
 

@@ -3,8 +3,8 @@ import FirebaseFirestore
 
 struct Alarm: Identifiable, Decodable, Hashable {
     let id = UUID()
-    let alarmId: Int?
-    let enable: Bool
+    var alarmId: Int?
+    var enable: Bool
     var name: String
     var hour: Int
     var minute: Int

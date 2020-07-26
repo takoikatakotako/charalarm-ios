@@ -37,10 +37,37 @@ class AlarmListViewModel: ObservableObject {
         }
     }
     
+    func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
+        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
+            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+                self.showingAlert = true
+                self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+                return
+        }
+        
+        guard let index = alarms.firstIndex(where: { $0.alarmId == alarmId }) else {
+            return
+        }
+        
+        alarms[index].enable = isEnable
+        let alarm = alarms[index]
+        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.showingAlert = true
+                    self.alertMessage = error.localizedDescription
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                self.showingAlert = true
+                self.alertMessage = "編集完了しました"
+            }
+        }
+    }
+    
     func deleteAlarm(alarmId: Int) {
-        guard let index = alarms.firstIndex(where: { alarm -> Bool in
-            alarm.alarmId == alarmId
-        })else {
+        guard let index = alarms.firstIndex(where: { $0.alarmId == alarmId})else {
             return
         }
         alarms.remove(at: index)

@@ -22,7 +22,7 @@ class AlarmDetailViewModel: ObservableObject {
     
     func createOrUpdateAlarm() {
         if let alarmId = alarm.alarmId {
-            updateAlarm(alarmId: alarmId)
+            editAlarm(alarmId: alarmId)
         } else {
             createAlarm()
         }
@@ -104,88 +104,27 @@ class AlarmDetailViewModel: ObservableObject {
         task.resume()
     }
     
-    private func updateAlarm(alarmId: Int) {
-        let url = URL(string: BASE_URL + "/api/anonymous/alarm/edit/\(alarmId)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
-        request.allHTTPHeaderFields = header
-        
+    private func editAlarm(alarmId: Int) {
         guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
             let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
                 self.showingAlert = true
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
         }
-        
-        let anonymousAlarmBean = AnonymousAlarmBean(
-            anonymousUserName: anonymousUserName,
-            password: anonymousUserPassword,
-            enable: self.alarm.enable,
-            name: self.alarm.name,
-            hour: self.alarm.hour,
-            minute: self.alarm.minute,
-            dayOfWeeks: self.alarm.dayOfWeeks)
-        guard let httpBody = try? JSONEncoder().encode(anonymousAlarmBean) else {
-            self.showingAlert = true
-            self.alertMessage = "不明なエラーです（パース失敗）"
-            return
-        }
-        request.httpBody = httpBody
-        
-        print("****")
-        print(request.curlString)
-        print("****")
-        
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
+
+        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { error in
             if let error = error {
-                print("クライアントサイドエラー: \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    
                     self.showingAlert = true
-                    self.alertMessage = "不明なエラーが発生しました。（クライアント）"
+                    self.alertMessage = error.localizedDescription
                 }
-                
                 return
             }
-            
-            guard let data = data, let response = response as? HTTPURLResponse else {
-                print("no data or no response")
-                DispatchQueue.main.async {
-                    
-                    self.showingAlert = true
-                    self.alertMessage = "不明なエラーが発生しました。（レスポンスが空）"
-                }
-                
-                return
-            }
-            
-            if response.statusCode == 200 {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = "アラートを保存しました。"
-                    return
-                }
-            } else {
-                // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバサイドエラー ステータスコード: \(response.statusCode)")
-                print(#file)
-                print(#function)
-                print(#line)
-                print(data)
-                
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = "不明なエラーが発生しました。（ステータスコード: \(response.statusCode)）"
-                }
+            DispatchQueue.main.async {
+                self.showingAlert = true
+                self.alertMessage = "編集完了しました"
             }
         }
-        task.resume()
     }
     
     func updateAlarmName(name: String) {
