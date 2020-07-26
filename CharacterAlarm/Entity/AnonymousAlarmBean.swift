@@ -9,5 +9,5 @@ struct AnonymousAlarmBean: Encodable {
     let name: String
     let hour: Int
     let minute: Int
-    let dayOfWeeks: [String]
+    let dayOfWeeks: [DayOfWeek2]
 }

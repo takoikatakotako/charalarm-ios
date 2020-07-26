@@ -17,6 +17,7 @@
 		14C9BB5A921E3675A5725B9C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F51937A3BC073D26C839C /* ProfileHeader.swift */; };
 		15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E402A0E231E7BD7A31F674A /* AppStore.swift */; };
 		166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
+		1700ADEA24CD27DA003E25A1 /* DayOfWeek2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADE924CD27DA003E25A1 /* DayOfWeek2.swift */; };
 		18D38BC6BF54D440B84A0B33 /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0991BEB86EE097285A9F3B13 /* AlertState.swift */; };
 		1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */; };
@@ -125,6 +126,7 @@
 		0991BEB86EE097285A9F3B13 /* AlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertState.swift; sourceTree = "<group>"; };
 		15B0ACF19C21B55C29D83E19 /* TutorialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialType.swift; sourceTree = "<group>"; };
 		16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderView.swift; sourceTree = "<group>"; };
+		1700ADE924CD27DA003E25A1 /* DayOfWeek2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek2.swift; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				442A6EE8DBA273ED06FB06F8 /* News.swift */,
 				AD350A568E406245ABC5B0DA /* Profile.swift */,
 				F5F44DD1EE7BA8D640D7C6F1 /* User.swift */,
+				1700ADE924CD27DA003E25A1 /* DayOfWeek2.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -636,7 +639,6 @@
 				0934097D0323F3B63AC4DCBD /* Pods-CharacterAlarmUITests.debug.xcconfig */,
 				9701131B249B4B81E16C57F9 /* Pods-CharacterAlarmUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -720,6 +722,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 			);
 			mainGroup = A769590120CB6B1811F10409;
@@ -857,6 +860,7 @@
 				18D38BC6BF54D440B84A0B33 /* AlertState.swift in Sources */,
 				AF5A480A9FE7D90FBAEACA9D /* AnonymousAlarmBean.swift in Sources */,
 				C7581DB59F2584A56D229578 /* AnonymousAuthBean.swift in Sources */,
+				1700ADEA24CD27DA003E25A1 /* DayOfWeek2.swift in Sources */,
 				64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				1F917EA31DFAEC6585576BBD /* AppReducer.swift in Sources */,

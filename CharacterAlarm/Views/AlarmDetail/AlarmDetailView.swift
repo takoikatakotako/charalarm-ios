@@ -19,28 +19,27 @@ struct AlarmDetailView: View {
     var body: some View {
         
         List {
-                    Text("xxx")
-//            NavigationLink(destination: EditAlarmName(alarmName: viewModel.alarmName, delegate: self)) {
-//                VStack(alignment: .leading) {
-//                    Text("アラーム名")
-//                    Text(viewModel.alarmName)
-//                }.frame(height: 60.0)
-//            }
-//
-//            NavigationLink(destination: EditAlarmTime(delegate: self, hour: viewModel.alarm.hour, minute: viewModel.alarm.minute) ) {
-//                VStack(alignment: .leading) {
-//                    Text("時間")
-//                    Text(viewModel.alarmTimeString)
-//                }.frame(height: 60.0)
-//            }
-//
-//            NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, enableDayOfWeek: viewModel.alarm.enableDayObWeek)) {
-//                VStack(alignment: .leading) {
-//                    Text("曜日")
-//                    Text(viewModel.alarm.enableDaysString)
-//                }.frame(height: 60.0)
-//            }
-//
+            NavigationLink(destination: EditAlarmName(alarmName: viewModel.alarm.name, delegate: self)) {
+                VStack(alignment: .leading) {
+                    Text("アラーム名")
+                    Text(viewModel.alarm.name)
+                }.frame(height: 60.0)
+            }
+
+            NavigationLink(destination: EditAlarmTime(delegate: self, hour: viewModel.alarm.hour, minute: viewModel.alarm.minute) ) {
+                VStack(alignment: .leading) {
+                    Text("時間")
+                    Text(viewModel.alarmTimeString)
+                }.frame(height: 60.0)
+            }
+
+            NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, dayOfWeeks: viewModel.alarm.dayOfWeeks)) {
+                VStack(alignment: .leading) {
+                    Text("曜日")
+                    Text(viewModel.enableDaysString)
+                }.frame(height: 60.0)
+            }
+
 //            NavigationLink(destination: EditAlarmTimeDifference(delegate: self, timeDifference: viewModel.alarm.timeDifference)) {
 //                VStack(alignment: .leading) {
 //                    Text("時差")
@@ -50,10 +49,7 @@ struct AlarmDetailView: View {
         }.navigationBarItems(trailing:
             HStack {
                 Button("Save") {
-                    // dispachers.alarmDispacher.saveAlarm(alarm: self.viewModel.alarm)
-                    // self.viewModel.showingAlert = true
-                    self.viewModel.createAlarm()
-                    
+                    self.viewModel.createOrUpdateAlarm()
                 }
             }
         ).alert(isPresented: $viewModel.showingAlert) {
@@ -64,7 +60,7 @@ struct AlarmDetailView: View {
 
 extension AlarmDetailView: EditAlarmNameDelegate {
     func updateAlarmName(name: String) {
-        // viewModel.updateAlarmName(name: name)
+        viewModel.updateAlarmName(name: name)
     }
 }
 
@@ -81,8 +77,8 @@ extension AlarmDetailView: EditAlarmTimeDifferenceDelegate {
 }
 
 extension AlarmDetailView: EditAlarmDayOfWeekDelegate {
-    func updateDayOfWeek(enableDayOfWeek: EnableDayOfWeek) {
-        // viewModel.updateDayOfWeek(enableDayOfWeek: enableDayOfWeek)
+    func updateDayOfWeek(dayOfWeeks: [DayOfWeek2]) {
+         viewModel.updateDayOfWeek(dayOfWeeks: dayOfWeeks)
     }
 }
 

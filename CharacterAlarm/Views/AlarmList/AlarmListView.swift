@@ -30,7 +30,7 @@ struct AlarmListView: View {
             .navigationBarItems(trailing:
                 HStack {
                     EditButton()
-                    NavigationLink(destination: AlarmDetailView(alarm: Alarm(alarmId: -1, enable: true, name: "13", hour: 24, minute: 35, dayOfWeeks: ["SUN"]))) {
+                    NavigationLink(destination: AlarmDetailView(alarm: viewModel.createNewAlarm())) {
                         Image(systemName: "plus")
                     }
                 }

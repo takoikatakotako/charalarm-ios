@@ -3,12 +3,12 @@ import FirebaseFirestore
 
 struct Alarm: Identifiable, Decodable, Hashable {
     let id = UUID()
-    let alarmId: Int
+    let alarmId: Int?
     let enable: Bool
-    let name: String
-    let hour: Int
-    let minute: Int
-    let dayOfWeeks: [String]
+    var name: String
+    var hour: Int
+    var minute: Int
+    var dayOfWeeks: [DayOfWeek2]
 }
 
 //

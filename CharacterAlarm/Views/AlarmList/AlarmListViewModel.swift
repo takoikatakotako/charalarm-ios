@@ -5,6 +5,18 @@ class AlarmListViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
+    func createNewAlarm() -> Alarm {
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let enable = true
+        let name = date.description
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        let dayOfWeeks: [DayOfWeek2] = [.MON, .THU, .WED, .THU, .FRI, .SAT, .SUN]
+        return Alarm(alarmId: nil, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+    }
+    
     func fetchAlarms() {
         let url = URL(string: BASE_URL + "/api/anonymous/alarm/list")!
         
