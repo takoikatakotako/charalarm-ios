@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PageView<Page: View>: View {
+    @EnvironmentObject var appState2: AppState2
     var viewControllers: [UIHostingController<Page>]
     @State var currentPage = 0
     
@@ -11,9 +12,24 @@ struct PageView<Page: View>: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             PageViewController(controllers: viewControllers, currentPage: $currentPage)
+                .environmentObject(appState2)
+            
             PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)
                 .padding(.trailing)
                 .padding(.bottom, 28)
+            
+            if currentPage == viewControllers.count - 1 {
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        self.appState2.doneTutorial = true
+                    }) {
+                        Text("sssssss")
+                    }
+                    Spacer()
+                }
+            }
+            
         }
     }
 }

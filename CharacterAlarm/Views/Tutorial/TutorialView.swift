@@ -49,7 +49,7 @@ struct TutorialView: View {
                     }
                     print("\(ANONYMOUS_USER_NAME): \(anonymousUserName)")
                     print("\(ANONYMOUS_USER_PASSWORD): \(anonymousUserPassword)")
-                    dispachers.settingDispacher.doneTutorial(true)
+                    self.appState.settingState.doneTutorial = true
                 }) {
                     Text("アプリを使ってみる")
                         .foregroundColor(Color.white)

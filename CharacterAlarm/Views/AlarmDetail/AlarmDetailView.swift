@@ -8,6 +8,7 @@ fileprivate let dispachers = Dispachers()
 
 
 struct AlarmDetailView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: AlarmDetailViewModel
 
     // AlarmId を取得して、そこからフェッチした方が良い。あ

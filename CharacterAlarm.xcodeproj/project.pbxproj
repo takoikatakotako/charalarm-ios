@@ -18,6 +18,8 @@
 		15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E402A0E231E7BD7A31F674A /* AppStore.swift */; };
 		166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		1700ADEA24CD27DA003E25A1 /* DayOfWeek2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADE924CD27DA003E25A1 /* DayOfWeek2.swift */; };
+		1700ADEE24CD6F04003E25A1 /* CampusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADED24CD6F04003E25A1 /* CampusError.swift */; };
+		178A524924CD80CC00FB696C /* AppState2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A524824CD80CC00FB696C /* AppState2.swift */; };
 		18D38BC6BF54D440B84A0B33 /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0991BEB86EE097285A9F3B13 /* AlertState.swift */; };
 		1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */; };
@@ -127,6 +129,8 @@
 		15B0ACF19C21B55C29D83E19 /* TutorialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialType.swift; sourceTree = "<group>"; };
 		16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderView.swift; sourceTree = "<group>"; };
 		1700ADE924CD27DA003E25A1 /* DayOfWeek2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek2.swift; sourceTree = "<group>"; };
+		1700ADED24CD6F04003E25A1 /* CampusError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusError.swift; sourceTree = "<group>"; };
+		178A524824CD80CC00FB696C /* AppState2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState2.swift; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
@@ -277,6 +281,14 @@
 			path = Alarm;
 			sourceTree = "<group>";
 		};
+		1700ADEC24CD6EF4003E25A1 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				1700ADED24CD6F04003E25A1 /* CampusError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		17654DC3F0BAF70D4595572B /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +356,7 @@
 				3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */,
 				FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */,
 				6915811511BDD6501346263B /* Settings.bundle */,
+				1700ADEC24CD6EF4003E25A1 /* Error */,
 				2C3A6CBFE0EA874037556100 /* CallKit */,
 				2B8F32955F0E747B2C063CF2 /* Domain */,
 				35CE0717DB5E83C7E13D8178 /* Entity */,
@@ -484,6 +497,7 @@
 				17654DC3F0BAF70D4595572B /* Alert */,
 				0B48C9FC473E647D21E54825 /* Character */,
 				44AA8AEF0DF2E16826B67DF2 /* Setting */,
+				178A524824CD80CC00FB696C /* AppState2.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -856,6 +870,7 @@
 				C1777588870B5511DC67A127 /* AlarmStore.swift in Sources */,
 				3E302661774D720DBFDF1EB0 /* AlertAction.swift in Sources */,
 				91A1ED7E71CC78BF63CCBB2B /* AlertActionDispacher.swift in Sources */,
+				1700ADEE24CD6F04003E25A1 /* CampusError.swift in Sources */,
 				907DF21FCF5024EDC54DCA12 /* AlertReducer.swift in Sources */,
 				18D38BC6BF54D440B84A0B33 /* AlertState.swift in Sources */,
 				AF5A480A9FE7D90FBAEACA9D /* AnonymousAlarmBean.swift in Sources */,
@@ -917,6 +932,7 @@
 				3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */,
 				6412E1FC13D5BA27AD951427 /* TutorialHolderView.swift in Sources */,
 				9F760006DD2B1D7D8315A6CA /* TutorialHolderViewModel.swift in Sources */,
+				178A524924CD80CC00FB696C /* AppState2.swift in Sources */,
 				61EE855FA474CD3EAB2530DE /* TutorialType.swift in Sources */,
 				31A3CA0969C60A3FDA183A64 /* TutorialView.swift in Sources */,
 				F3FF90B64DFA5A1FEDABF1C0 /* URLRequest.swift in Sources */,

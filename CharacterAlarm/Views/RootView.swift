@@ -2,13 +2,18 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject var appState: AppState
-    
+    @EnvironmentObject var appState2: AppState2
+
     var body: some View {
         Group {
-            if appState.settingState.doneTutorial {
+            if appState2.doneTutorial {
                 ContentView()
+                .environmentObject(appState)
+                .environmentObject(appState2)
             } else {
                 TutorialHolderView()
+                .environmentObject(appState)
+                .environmentObject(appState2)
             }
         }.alert(isPresented: self.$appState.alertState.showingAlert) {
             Alert(

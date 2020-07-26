@@ -1,18 +1,22 @@
 import SwiftUI
 
 struct TutorialHolderView: View {
+    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appState2: AppState2
     @ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
-
-    @State var views = [
+    
+    @State var views: [TutorialView] = [
         TutorialView(imageName: "sd-normal", text: "チュートリアルだよ"),
         TutorialView(imageName: "sd-happly", text: "チュートリアル"),
         TutorialView(imageName: "sd-sad", text: "チュートリアル"),
         TutorialView(imageName: "sd-smile", text: "チュートリアル"),
-        TutorialView(tutorialType: .end,imageName: "sd-suprised", text: "最後のチュートリアル"),
+        TutorialView(tutorialType: .end,imageName: "sd-suprised", text: "最後のチュートリアル")
     ]
     
     var body: some View {
         PageView(views)
+            .environmentObject(appState)
+            .environmentObject(appState2)
             .background(Color.gray)
             .edgesIgnoringSafeArea(.all)
             .onAppear {

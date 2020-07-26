@@ -1,7 +1,7 @@
 import SwiftUI
 
 final class AppStore: ObservableObject {
-    @Published private(set) var state: AppState = AppState(characterId: DEFAULT_CHARACTER_ID, doneTutorial: DEFAULT_DONE_TUTORIAL)
+    @Published var state: AppState = AppState(characterId: DEFAULT_CHARACTER_ID, doneTutorial: DEFAULT_DONE_TUTORIAL)
 
     public func initState(characterId: String, doneTutorial: Bool) {
         state = AppState(characterId: characterId, doneTutorial: doneTutorial)

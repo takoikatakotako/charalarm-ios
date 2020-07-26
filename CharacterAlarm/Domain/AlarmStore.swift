@@ -1,7 +1,112 @@
 import UIKit
-import FirebaseFirestore
 
 class AlarmStore {
+    
+    static func fetchAnonymousAlarms(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Error?, [Alarm]) -> Void) {
+        let url = URL(string: BASE_URL + "/api/anonymous/alarm/list")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
+        request.allHTTPHeaderFields = header
+        
+        let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
+        guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
+            completion(CharalarmError.clientError, [])
+            return
+        }
+        request.httpBody = httpBody
+        
+        print("****")
+        print(request.curlString)
+        print("****")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("クライアントサイドエラー: \(error.localizedDescription)")
+                completion(CharalarmError.clientError, [])
+                return
+            }
+            
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                completion(CharalarmError.serverError, [])
+                return
+            }
+            
+            if response.statusCode == 200 {
+                guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<[Alarm]>.self, from: data) else {
+                    completion(CharalarmError.parseError, [])
+                    return
+                }
+                completion(nil, jsonResponse.data)
+            } else {
+                // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
+                print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
+                print(#file)
+                print(#function)
+                print(#line)
+                completion(CharalarmError.serverError, [])
+            }
+        }
+        task.resume()
+    }
+    
+    
+    static func deleteAlarm(anonymousUserName: String, anonymousUserPassword: String, alarmId: Int, completion: @escaping (Error?) -> Void) {
+        let url = URL(string: BASE_URL + "/api/anonymous/alarm/delete/\(alarmId)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
+        request.allHTTPHeaderFields = header
+        
+        let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
+        guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
+            completion(CharalarmError.clientError)
+            return
+        }
+        request.httpBody = httpBody
+                
+        print("****")
+        print(request.curlString)
+        print("****")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
+            if let error = error {
+                print("クライアントサイドエラー: \(error.localizedDescription)")
+                completion(CharalarmError.clientError)
+                return
+            }
+            
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                completion(CharalarmError.serverError)
+                return
+            }
+            
+            if response.statusCode == 200 {
+                guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<String>.self, from: data) else {
+                    completion(CharalarmError.parseError)
+                    return
+                }
+                completion(nil)
+            } else {
+                // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
+                print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
+                print(#file)
+                print(#function)
+                print(#line)
+                completion(CharalarmError.serverError)
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
 //    static func save(alarm: Alarm, error: @escaping (NSError?) -> Void) {
 //        let db = Firestore.firestore()
 //        let ref = db.collection(Alarm.collectionName).document(alarm.id)

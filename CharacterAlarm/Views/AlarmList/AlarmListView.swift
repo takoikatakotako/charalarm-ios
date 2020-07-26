@@ -37,19 +37,17 @@ struct AlarmListView: View {
         ).onAppear {
             self.viewModel.fetchAlarms()
         }.alert(isPresented: self.$viewModel.showingAlert) {
-            Alert(
-                title: Text("エラー"),
-                message: Text(self.viewModel.alertMessage),
-                primaryButton: .default(Text("ボタンその１")) {
-                    print("ボタンその１")
-                }, secondaryButton: .destructive(Text("ボタンその２")) {
-                    print("ボタンその２")
-                })
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
         }
     }
 
     func delete(at offsets: IndexSet) {
-        dispachers.alarmDispacher.deleteAlarms(at: offsets)
+        for offset in offsets {
+            guard let alarmId = viewModel.alarms[offset].alarmId else {
+                return
+            }
+            viewModel.deleteAlarm(alarmId: alarmId)
+        }
     }
 }
 
