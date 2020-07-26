@@ -30,7 +30,7 @@ struct ProfileView: View {
     @State var showCheckItem = false
     @State var showSelectAlert = false
     
-    var character: Character2? {
+    var character: Character? {
         return self.viewModel.character
     }
     

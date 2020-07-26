@@ -12,7 +12,7 @@ struct AlarmDetailView: View {
 
     // AlarmId を取得して、そこからフェッチした方が良い。あ
     // マルチログインに対応する予定ないし、いらんかも
-    init(alarm: Alarm2) {
+    init(alarm: Alarm) {
         viewModel = AlarmDetailViewModel(alarm: alarm)
     }
 
@@ -52,10 +52,12 @@ struct AlarmDetailView: View {
                 Button("Save") {
                     // dispachers.alarmDispacher.saveAlarm(alarm: self.viewModel.alarm)
                     // self.viewModel.showingAlert = true
+                    self.viewModel.createAlarm()
+                    
                 }
             }
         ).alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text("保存が完了しました"), dismissButton: .default(Text("閉じる")))
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
         }
     }
 }

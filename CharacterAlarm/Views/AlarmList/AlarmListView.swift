@@ -19,23 +19,32 @@ struct AlarmListView: View {
     var body: some View {
         List {
             ForEach(self.viewModel.alarms, id: \.self) { alarm in
-                Text("xxx")
-//                NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
-//                    AlarmListRow(delegate: self, alarm: alarm)
-//                        .frame(height: 60.0)
-//                }
+                NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
+//                     AlarmListRow(delegate: self, alarm: alarm)
+//                         .frame(height: 60.0)
+                    Text(alarm.name)
+                }
             }
             .onDelete(perform: delete)
         }.listStyle(DefaultListStyle())
             .navigationBarItems(trailing:
                 HStack {
                     EditButton()
-                    NavigationLink(destination: AlarmDetailView(alarm: Alarm2(id: "3", hour: 23, minute: 23))) {
+                    NavigationLink(destination: AlarmDetailView(alarm: Alarm(alarmId: -1, enable: true, name: "13", hour: 24, minute: 35, dayOfWeeks: ["SUN"]))) {
                         Image(systemName: "plus")
                     }
                 }
         ).onAppear {
             self.viewModel.fetchAlarms()
+        }.alert(isPresented: self.$viewModel.showingAlert) {
+            Alert(
+                title: Text("エラー"),
+                message: Text(self.viewModel.alertMessage),
+                primaryButton: .default(Text("ボタンその１")) {
+                    print("ボタンその１")
+                }, secondaryButton: .destructive(Text("ボタンその２")) {
+                    print("ボタンその２")
+                })
         }
     }
 
@@ -46,7 +55,7 @@ struct AlarmListView: View {
 
 extension AlarmListView: AlarmListRowDelegate {
     func updateAlarmEnable(alarmId: String, isEnable: Bool) {
-        dispachers.alarmDispacher.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
+        // dispachers.alarmDispacher.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }
 

@@ -1,7 +1,9 @@
 import Foundation
 
 class AlarmListViewModel: ObservableObject {
-    @Published var alarms: [Alarm2] = []
+    @Published var alarms: [Alarm] = []
+    @Published var showingAlert = false
+    @Published var alertMessage = ""
     
     func fetchAlarms() {
         let url = URL(string: BASE_URL + "/api/anonymous/alarm/list")!
@@ -14,12 +16,16 @@ class AlarmListViewModel: ObservableObject {
         
         guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
             let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
-                fatalError("しゅとくできませえええええん")
+                self.showingAlert = true
+                self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+                return
         }
         
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
         guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
-            fatalError("しゅとくできませえええええん")
+            self.showingAlert = true
+            self.alertMessage = "不明なエラーです（パース失敗）"
+            return
         }
         request.httpBody = httpBody
         
@@ -32,27 +38,35 @@ class AlarmListViewModel: ObservableObject {
             
             // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
             if let error = error {
-                print("クライアントサイドエラー: \(error.localizedDescription) \n")
+                print("クライアントサイドエラー: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.showingAlert = true
+                    self.alertMessage = "不明なエラーが発生しました。（クライアント）"
+                }
                 return
             }
             
             guard let data = data, let response = response as? HTTPURLResponse else {
                 print("no data or no response")
+                DispatchQueue.main.async {
+                    self.showingAlert = true
+                    self.alertMessage = "不明なエラーが発生しました。（クライアント）"
+                }
                 return
             }
             
             if response.statusCode == 200 {
-                print(data)
-                
-                guard let alarms = try? JSONDecoder().decode([Alarm2].self, from: data) else {
-                    print("パース失敗")
+                guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<[Alarm]>.self, from: data) else {
+                    DispatchQueue.main.async {
+                        self.showingAlert = true
+                        self.alertMessage = "不明なエラーが発生しました。（パース失敗）"
+                    }
                     return
                 }
                 
                 DispatchQueue.main.async {
-                    self.alarms = alarms
+                    self.alarms = jsonResponse.data
                 }
-                // ...これ以降decode処理などを行い、UIのUpdateをメインスレッドで行う
                 
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
@@ -60,6 +74,11 @@ class AlarmListViewModel: ObservableObject {
                 print(#file)
                 print(#function)
                 print(#line)
+                
+                DispatchQueue.main.async {
+                    self.showingAlert = true
+                    self.alertMessage = "不明なエラーが発生しました。（パース失敗）"
+                }
             }
             
         }

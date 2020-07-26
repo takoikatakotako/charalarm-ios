@@ -1,7 +1,7 @@
 import UIKit
 
 class ConfigViewModel: ObservableObject {
-    @Published var character: Character2?
+    @Published var character: Character?
 
     var versionString: String {
         return getVersion()
@@ -33,7 +33,7 @@ class ConfigViewModel: ObservableObject {
               if response.statusCode == 200 {
                   print(data)
                   
-                  guard let character = try? JSONDecoder().decode(Character2.self, from: data) else {
+                  guard let character = try? JSONDecoder().decode(Character.self, from: data) else {
                       print("パース失敗")
                       return
                   }

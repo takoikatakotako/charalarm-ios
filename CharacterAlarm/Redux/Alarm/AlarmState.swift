@@ -1,5 +1,5 @@
 import Foundation
 
 class AlarmState: ObservableState {
-    @Published var alarms: [Alarm] = []
+    // @Published var alarms: [Alarm] = []
 }

@@ -50,7 +50,6 @@ struct TopView: View {
 
                         Button(action: {
                             
-                            print(self.appState.alarmState.alarms.count)
                             
                             self.viewModel.showConfig = true
                         }) {

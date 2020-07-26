@@ -2,7 +2,7 @@ import SwiftUI
 import FirebaseStorage
 
 class CharacterListViewModel: ObservableObject {
-    @Published var characters: [Character2] = []
+    @Published var characters: [Character] = []
     
     func fetchCharacters() {
         let url = URL(string: "https://charalarm.com/api/characters.json")!
@@ -23,7 +23,7 @@ class CharacterListViewModel: ObservableObject {
             if response.statusCode == 200 {
                 print(data)
                 
-                guard let characters = try? JSONDecoder().decode([Character2].self, from: data) else {
+                guard let characters = try? JSONDecoder().decode([Character].self, from: data) else {
                     print("パース失敗")
                     return
                 }

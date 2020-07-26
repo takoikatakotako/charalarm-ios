@@ -3,7 +3,7 @@ import CallKit
 import SwiftUI
 
 class ProfileViewModel: ObservableObject {
-    @Published var character: Character2?
+    @Published var character: Character?
     @Published var showCallView: Bool = false
     
     func fetchCharacter(characterId: String) {
@@ -25,7 +25,7 @@ class ProfileViewModel: ObservableObject {
             if response.statusCode == 200 {
                 print(data)
                 
-                guard let character = try? JSONDecoder().decode(Character2.self, from: data) else {
+                guard let character = try? JSONDecoder().decode(Character.self, from: data) else {
                     print("パース失敗")
                     return
                 }

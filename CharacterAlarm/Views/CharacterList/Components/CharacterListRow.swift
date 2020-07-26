@@ -4,7 +4,7 @@ import SDWebImageSwiftUI
 import FirebaseStorage
 
 struct CharacterListRow: View {
-    let character: Character2
+    let character: Character
     @State var urlString: String = ""
     var body: some View {
         HStack {
@@ -41,7 +41,7 @@ struct CharacterListRow: View {
 
 struct CharacterListRow_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListRow(character: Character2(id: "com.charalarm.yui", name: "井上結衣"))
+        CharacterListRow(character: Character(id: "com.charalarm.yui", name: "井上結衣"))
             .previewLayout(.sizeThatFits)
     }
 }
