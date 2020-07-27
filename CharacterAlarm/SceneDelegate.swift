@@ -9,7 +9,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // キャラクターID、匿名ユーザーID、匿名ユーザーパスワードを登録
         UserDefaults.standard.register(defaults: [CHARACTER_ID : DEFAULT_CHARACTER_ID])
-        
         guard let characterId = UserDefaults.standard.string(forKey: CHARACTER_ID) else {
             fatalError("characterIdが取得できませんでした")
         }

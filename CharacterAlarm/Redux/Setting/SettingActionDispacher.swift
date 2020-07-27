@@ -8,7 +8,6 @@ class SettingActionDispacher {
     }
     
     func doneTutorial(_ done: Bool) {
-        UserDefaults.standard.set(done, forKey: DONE_TUTORIAL)
         self.store.dispatch(action: SettingAction.doneTutorial(done))
     }
     
