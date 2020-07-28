@@ -9,7 +9,7 @@ struct CharacterListView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 List(viewModel.characters) { character in
-                    NavigationLink(destination: ProfileView(characterId: character.id)) {
+                    NavigationLink(destination: ProfileView(characterId: character.charaDomain)) {
                         CharacterListRow(character: character)
                             .frame(height: 80)
                             .clipped()
@@ -27,6 +27,8 @@ struct CharacterListView: View {
         }
         .onAppear {
             self.viewModel.fetchCharacters()
+        }.alert(isPresented: self.$viewModel.showingAlert) {
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
         }
         .edgesIgnoringSafeArea(.bottom)
     }

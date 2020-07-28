@@ -17,8 +17,9 @@ fileprivate struct Dispachers {
 fileprivate let dispachers = Dispachers()
 
 struct ConfigView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appState2: AppState2
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
     @State private var showingResetAlert = false
     
@@ -28,8 +29,10 @@ struct ConfigView: View {
                 Section {
                     NavigationLink(destination: ProfileView(characterId: appState.characterId)) {
                         ProfileHeader(
-                            imageUrlString: "https://charalarm.com/image/\(appState.characterId)/thumbnail.png", characterName:self.viewModel.character?.name ?? "empty",
-                            circleName: self.viewModel.character?.name ?? "xx")
+                            imageUrlString: "https://charalarm.com/image/\(appState.characterId)/thumbnail.png",
+                            characterName: self.appState2.charaName,
+                            circleName: self.appState2.circleName,
+                            voiceName: self.appState2.voiceName)
                     }.frame(height: 80)
                         .onAppear {
                     }
@@ -113,7 +116,12 @@ struct ConfigView: View {
                     }
             )
         }.onAppear {
-            self.viewModel.fetchCharacter(characterId: self.appState.characterId)
+            guard let characterId = UserDefaults.standard.string(forKey: CHARACTER_DOMAIN) else {
+                fatalError("characterIdが取得できませんでした")
+            }
+            self.viewModel.fetchCharacter(characterId: characterId)
+        }.alert(isPresented: self.$viewModel.showingAlert) {
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
         }
     }
     

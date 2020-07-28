@@ -8,13 +8,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // キャラクターID、匿名ユーザーID、匿名ユーザーパスワードを登録
-        UserDefaults.standard.register(defaults: [CHARACTER_ID : DEFAULT_CHARACTER_ID])
-        guard let characterId = UserDefaults.standard.string(forKey: CHARACTER_ID) else {
-            fatalError("characterIdが取得できませんでした")
-        }
+        UserDefaults.standard.register(defaults: [CHARACTER_DOMAIN : DEFAULT_CHARACTER_DOMAIN])
+        let characterId = UserDefaultsStore.getCharacterDomain()
         
-        let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME)
-        let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD)
+        let anonymousUserName = UserDefaultsStore.getAnonymousUserName()
+        let anonymousUserPassword = UserDefaultsStore.getAnonymousUserPassword()
     
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
         mainStore.initState(characterId: characterId, doneTutorial: doneTutorial)
@@ -23,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootView = RootView()
         let appState2 = AppState2()
         appState2.doneTutorial = doneTutorial
+        appState2.charaDomain = characterId
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

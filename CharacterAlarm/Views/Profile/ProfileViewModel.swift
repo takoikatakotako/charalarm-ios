@@ -5,47 +5,34 @@ import SwiftUI
 class ProfileViewModel: ObservableObject {
     @Published var character: Character?
     @Published var showCallView: Bool = false
+    @Published var showCallItem = false
+    @Published var showCheckItem = false
+    @Published var showSelectAlert = false
+    @Published var showingAlert = false
+    @Published var alertMessage = ""
     
     func fetchCharacter(characterId: String) {
-        let url = URL(string: "https://charalarm.com/api/\(characterId)/profile.json")!
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
+        CharacterStore.fetchCharacter(charaDomain: characterId) { error, character in
             if let error = error {
-                print("クライアントサイドエラー: \(error.localizedDescription) \n")
-                return
-            }
-            
-            guard let data = data, let response = response as? HTTPURLResponse else {
-                print("no data or no response")
-                return
-            }
-            
-            if response.statusCode == 200 {
-                print(data)
-                
-                guard let character = try? JSONDecoder().decode(Character.self, from: data) else {
-                    print("パース失敗")
-                    return
-                }
-                
                 DispatchQueue.main.async {
-                    self.character = character
-                    
+                    self.showingAlert = true
+                    self.alertMessage = error.localizedDescription
                 }
-                // ...これ以降decode処理などを行い、UIのUpdateをメインスレッドで行う
-                
-            } else {
-                // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
-                print(#file)
-                      print(#function)
-                      print(#line)
+                return
             }
             
+            guard let character = character else {
+                DispatchQueue.main.async {
+                    self.showingAlert = true
+                    self.alertMessage = "所得に失敗しました"
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.character = character
+            }
         }
-        task.resume()
     }
     
     func download(characterId: String) {
@@ -85,5 +72,12 @@ class ProfileViewModel: ObservableObject {
             }
         }
         task.resume()
+    }
+    
+    func selectCharacter() {
+        guard let charaDomain = character?.charaDomain else {
+            return
+        }
+        UserDefaultsStore.setCharaDomain(charaDomain: charaDomain)
     }
 }

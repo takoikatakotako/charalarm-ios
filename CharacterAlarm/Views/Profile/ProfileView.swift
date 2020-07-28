@@ -1,33 +1,10 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct ProfileRow: View {
-    let title: String
-    let text: String
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(Font.headline)
-                    .foregroundColor(Color.gray)
-                    .padding(.top, 8)
-                    .padding(.bottom, 8)
-                Text(text)
-                    .foregroundColor(Color.gray)
-                Divider()
-            }
-        }
-        .padding(.horizontal, 16)
-    }
-}
-
 struct ProfileView: View {
     let characterId: String
     @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
-    @State var showCallItem = false
-    @State var showCheckItem = false
-    @State var showSelectAlert = false
     
     var character: Character? {
         return self.viewModel.character
@@ -60,7 +37,7 @@ struct ProfileView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     VStack {
                         Spacer()
-                        if self.showCallItem {
+                        if self.viewModel.showCallItem {
                             Button(action: {
                                 self.viewModel.showCallView = true
                             }) {
@@ -69,10 +46,10 @@ struct ProfileView: View {
                                 CallView(characterId: self.characterId, characterName: self.character?.name ?? "loading")
                             }
                         }
-                        if self.showCheckItem {
+                        if self.viewModel.showCheckItem {
                             Button(action: {
                                 print("Check")
-                                self.showSelectAlert = true
+                                self.viewModel.showSelectAlert = true
                                 
                             }) {
                                 MenuItem(imageName: "profile-check")
@@ -94,33 +71,34 @@ struct ProfileView: View {
                         }
                     }
                     .padding()
-                }.alert(isPresented: self.$showSelectAlert) {
-                    Alert(
-                        title: Text("キャラクター選択"),
-                        message: Text("このキャラクターに電話してもらいたいですか？"),
-                        primaryButton: .default(Text("閉じる")) {
-                            print("ボタンその１")
-                            // Close
-                        }, secondaryButton: .default(Text("はい！！")) {
-                            // Select
-                            print("ボタンその２")
-                            //                            self.appState.characterId = self.profile.characterId
-                        })
                 }
             }
         }.onAppear {
             self.viewModel.fetchCharacter(characterId: self.characterId)
             self.viewModel.download(characterId: self.characterId)
+        }.alert(isPresented: self.$viewModel.showSelectAlert) {
+            Alert(
+                title: Text("キャラクター選択"),
+                message: Text("このキャラクターに電話してもらいたいですか？"),
+                primaryButton: .default(Text("閉じる")) {
+                    print("ボタンその１")
+                    // Close
+                }, secondaryButton: .default(Text("はい！！")) {
+                    // Select
+                    print("ボタンその２")
+                    self.viewModel.selectCharacter()
+                    //                            self.appState.characterId = self.profile.characterId
+                })
         }
     }
     
     func showMenu() {
         withAnimation {
-            self.showCheckItem.toggle()
+            self.viewModel.showCheckItem.toggle()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             withAnimation {
-                self.showCallItem.toggle()
+                self.viewModel.showCallItem.toggle()
             }
         })
     }

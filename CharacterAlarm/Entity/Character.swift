@@ -1,8 +1,15 @@
 import UIKit
 
 struct Character: Identifiable, Decodable {
-    let id: String
+    let id = UUID()
+    let charaId: Int
+    let charaDomain: String
     let name: String
+    let description: String
+    let circleName: String
+    let circleUrl: String
+    let voiceName: String
+    let voiceUrl: String
 }
 
 

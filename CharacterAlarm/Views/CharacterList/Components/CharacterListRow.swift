@@ -38,9 +38,9 @@ struct CharacterListRow: View {
     }
 }
 
-struct CharacterListRow_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterListRow(character: Character(id: "com.charalarm.yui", name: "井上結衣"))
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct CharacterListRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CharacterListRow(character: Character(id: "com.charalarm.yui", name: "井上結衣"))
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

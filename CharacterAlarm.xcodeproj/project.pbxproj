@@ -20,6 +20,8 @@
 		1700ADEA24CD27DA003E25A1 /* DayOfWeek2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADE924CD27DA003E25A1 /* DayOfWeek2.swift */; };
 		1700ADEE24CD6F04003E25A1 /* CampusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700ADED24CD6F04003E25A1 /* CampusError.swift */; };
 		178A524924CD80CC00FB696C /* AppState2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A524824CD80CC00FB696C /* AppState2.swift */; };
+		17D168D424D0488800C7E836 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D168D324D0488800C7E836 /* ProfileRow.swift */; };
+		17D168D624D069B900C7E836 /* UserDefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D168D524D069B900C7E836 /* UserDefaultsStore.swift */; };
 		18D38BC6BF54D440B84A0B33 /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0991BEB86EE097285A9F3B13 /* AlertState.swift */; };
 		1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E3C9DC485602581FE931 /* EnableDayOfWeek.swift */; };
@@ -131,6 +133,8 @@
 		1700ADE924CD27DA003E25A1 /* DayOfWeek2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek2.swift; sourceTree = "<group>"; };
 		1700ADED24CD6F04003E25A1 /* CampusError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusError.swift; sourceTree = "<group>"; };
 		178A524824CD80CC00FB696C /* AppState2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState2.swift; sourceTree = "<group>"; };
+		17D168D324D0488800C7E836 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
+		17D168D524D069B900C7E836 /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 				66B76F27D6D80AF1436C01B0 /* CharacterStore.swift */,
 				C781C6D978162421306DEBBA /* ProfileStore.swift */,
 				550CE6E3C4B6C934CD7232F4 /* UserStore.swift */,
+				17D168D524D069B900C7E836 /* UserDefaultsStore.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -413,19 +418,12 @@
 		5654D4247A1DA8CD322C0B2E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				17D168D324D0488800C7E836 /* ProfileRow.swift */,
 				5FB899DF9D87DF6863A9BBB6 /* ProfileView.swift */,
 				42D784D759892964A434D0D8 /* ProfileViewModel.swift */,
 				AC47A1153DD56B806DFBE9EF /* View */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		579CA69E621B48BC060F8911 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				D66F51937A3BC073D26C839C /* ProfileHeader.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		6B03C256EBD4A9B4093EB9D7 /* EditAlarmName */ = {
@@ -609,9 +607,9 @@
 		E51383F6B01941AB09D2A8AA /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				D66F51937A3BC073D26C839C /* ProfileHeader.swift */,
 				25A9200D23155D111130A0FD /* ConfigView.swift */,
 				1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */,
-				579CA69E621B48BC060F8911 /* Components */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -877,6 +875,7 @@
 				C7581DB59F2584A56D229578 /* AnonymousAuthBean.swift in Sources */,
 				1700ADEA24CD27DA003E25A1 /* DayOfWeek2.swift in Sources */,
 				64029BD10F38F69E192AF7C8 /* AppAction.swift in Sources */,
+				17D168D624D069B900C7E836 /* UserDefaultsStore.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				1F917EA31DFAEC6585576BBD /* AppReducer.swift in Sources */,
 				54D1E2032216889CDF96F34C /* AppState.swift in Sources */,
@@ -901,6 +900,7 @@
 				11AA4CAAF5DA8F06948EDD4F /* ContentView.swift in Sources */,
 				3DA7A202436B3EC7F9B3B9AD /* DayOfWeek.swift in Sources */,
 				0ED99D75EC0930A133322EBA /* EditAlarmDayOfWeek.swift in Sources */,
+				17D168D424D0488800C7E836 /* ProfileRow.swift in Sources */,
 				99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */,
 				166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */,
 				D64AB7756DF2E90D28E71308 /* EditAlarmTimeDifference.swift in Sources */,

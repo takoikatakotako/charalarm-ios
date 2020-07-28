@@ -9,6 +9,7 @@ fileprivate let dispachers = Dispachers()
 
 struct TopView: View {
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appState2: AppState2
     @ObservedObject var viewModel = TopViewModel()
     
     var body: some View {
@@ -18,7 +19,7 @@ struct TopView: View {
                     .resizable()
                     .frame(width: geometory.size.width, height: geometory.size.height)
                     .scaledToFill()
-
+                
                 VStack(spacing: 0) {
                     Spacer()
                     Image("normal")
@@ -26,14 +27,14 @@ struct TopView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometory.size.width, height: geometory.size.height - 60)
                 }
-
+                
                 Button(action: {
                     self.viewModel.tapped()
                 }) {
                     Text("")
                         .frame(width: geometory.size.width, height: geometory.size.height)
                 }
-
+                
                 VStack(spacing: 0) {
                     Spacer()
                     HStack(alignment: .bottom, spacing: 16) {
@@ -45,9 +46,9 @@ struct TopView: View {
                         }) {
                             TopButtonContent(imageName: "top-news")
                         }.sheet(isPresented: self.$viewModel.showNews) {
-                             NewsView()        
+                            NewsView()
                         }
-
+                        
                         Button(action: {
                             
                             
@@ -55,7 +56,9 @@ struct TopView: View {
                         }) {
                             TopButtonContent(imageName: "top-config")
                         }.sheet(isPresented: self.$viewModel.showConfig) {
-                            ConfigView().environmentObject( self.appState )
+                            ConfigView()
+                                .environmentObject( self.appState )
+                                .environmentObject( self.appState2 )
                         }
                     }
                 }
@@ -65,9 +68,11 @@ struct TopView: View {
         }
         .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
-            print(self.appState.settingState.doneTutorial)
-            
-//            dispachers.alarmDispacher.fetchAlarmList()
+            self.viewModel.featchCharacter(charaDomain: self.appState2.charaDomain) { character in
+                self.appState2.charaName = character.name
+                self.appState2.circleName = character.circleName
+                self.appState2.voiceName = character.voiceName
+            }
         }
     }
 }
