@@ -52,6 +52,7 @@
 		7DD0973FFA18C6C72462BDC3 /* CharacterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8499E1B3061B88D3F263F /* CharacterAction.swift */; };
 		7E604392C48399771A6B6DC9 /* CharacterReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D6C15138DFBCD7C09D60E3 /* CharacterReducer.swift */; };
 		8D20CCB936CC312F2985A0C0 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781C6D978162421306DEBBA /* ProfileStore.swift */; };
+		8DA2F0EE24DB75D000887A17 /* AnonymousUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2F0ED24DB75D000887A17 /* AnonymousUserStore.swift */; };
 		907DF21FCF5024EDC54DCA12 /* AlertReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CE0DDFE21CA39D5FF16254 /* AlertReducer.swift */; };
 		91A1ED7E71CC78BF63CCBB2B /* AlertActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53478B0EF079EF2D03CF4FED /* AlertActionDispacher.swift */; };
 		9236D9DC11AFCE46764F29CB /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB6D5344BFB753B79858CDA /* ProfileHeader.swift */; };
@@ -186,6 +187,7 @@
 		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		860FC148925FBE20C32BB4C8 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		8DA2F0ED24DB75D000887A17 /* AnonymousUserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousUserStore.swift; sourceTree = "<group>"; };
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9B05E6EBB87CFFAC96443849 /* Pods_CharacterAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,7 +306,7 @@
 			path = EditAlarmDayOfWeek;
 			sourceTree = "<group>";
 		};
-		2B8F32955F0E747B2C063CF2 /* Domain */ = {
+		2B8F32955F0E747B2C063CF2 /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				6DF57AAE313ED4DC5345BC02 /* AlarmStore.swift */,
@@ -312,8 +314,9 @@
 				C781C6D978162421306DEBBA /* ProfileStore.swift */,
 				DD677D79CE19CE322E1D37E0 /* UserDefaultsStore.swift */,
 				550CE6E3C4B6C934CD7232F4 /* UserStore.swift */,
+				8DA2F0ED24DB75D000887A17 /* AnonymousUserStore.swift */,
 			);
-			path = Domain;
+			path = Store;
 			sourceTree = "<group>";
 		};
 		2C3A6CBFE0EA874037556100 /* CallKit */ = {
@@ -354,7 +357,7 @@
 				FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */,
 				6915811511BDD6501346263B /* Settings.bundle */,
 				2C3A6CBFE0EA874037556100 /* CallKit */,
-				2B8F32955F0E747B2C063CF2 /* Domain */,
+				2B8F32955F0E747B2C063CF2 /* Store */,
 				35CE0717DB5E83C7E13D8178 /* Entity */,
 				133A63559F0356DA51531DDC /* Enum */,
 				3EBDC566ED9D171F6602B8AF /* Error */,
@@ -436,7 +439,6 @@
 				7FF1B910FE664CCE17DA7CF8 /* Pods-CharacterAlarmUITests.debug.xcconfig */,
 				73B6952F723D3997C682C65F /* Pods-CharacterAlarmUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -735,6 +737,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 			);
 			mainGroup = A769590120CB6B1811F10409;
@@ -879,6 +882,7 @@
 				335670CE894634768800E623 /* AppState2.swift in Sources */,
 				15BEB81C6F0392E334E83D47 /* AppStore.swift in Sources */,
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
+				8DA2F0EE24DB75D000887A17 /* AnonymousUserStore.swift in Sources */,
 				DFC46C9DE5D6CEBD8FB44F5D /* CallView.swift in Sources */,
 				148657E6F4133A78029571DC /* CallViewModel.swift in Sources */,
 				B74650B04FEAB2B737EA60E5 /* CallingView.swift in Sources */,

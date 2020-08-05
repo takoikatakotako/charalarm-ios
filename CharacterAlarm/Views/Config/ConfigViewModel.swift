@@ -40,6 +40,18 @@ class ConfigViewModel: ObservableObject {
         }
     }
     
+    func withdraw() {
+        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
+            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+                self.showingAlert = true
+                self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+                return
+        }
+        
+        UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_NAME)
+        UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_PASSWORD)
+    }
+    
     private func getVersion() -> String {
         guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
             let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else {

@@ -102,8 +102,9 @@ struct ConfigView: View {
                             primaryButton: .default(Text("キャンセル")) {
                                 print("ボタンその１")
                             }, secondaryButton: .destructive(Text("リセット")) {
-                                UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_NAME)
-                                UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_PASSWORD)
+                                
+                                self.viewModel.withdraw()
+         
                                 dispachers.settingDispacher.doneTutorial(false)
                             })
                     }
