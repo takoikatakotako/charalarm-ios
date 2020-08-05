@@ -1,7 +1,7 @@
 import UIKit
 
 class AnonymousUserStore {
-    static func fetchCharacters(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Error?) -> Void) {
+    static func signup(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Error?) -> Void) {
         
         let url = URL(string: BASE_URL + "/api/anonymous/auth/signup")!
         var request = URLRequest(url: url)
