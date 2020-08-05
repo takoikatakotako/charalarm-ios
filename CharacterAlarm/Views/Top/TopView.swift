@@ -70,7 +70,7 @@ struct TopView: View {
         .onAppear {
             self.viewModel.featchCharacter(charaDomain: self.appState2.charaDomain) { character in
                 self.appState2.charaName = character.name
-                self.appState2.circleName = character.circleName
+                self.appState2.circleName = character.illustrationName
                 self.appState2.voiceName = character.voiceName
             }
         }

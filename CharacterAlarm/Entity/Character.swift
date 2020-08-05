@@ -6,8 +6,8 @@ struct Character: Identifiable, Decodable {
     let charaDomain: String
     let name: String
     let description: String
-    let circleName: String
-    let circleUrl: String
+    let illustrationName: String
+    let illustrationUrl: String
     let voiceName: String
     let voiceUrl: String
 }
