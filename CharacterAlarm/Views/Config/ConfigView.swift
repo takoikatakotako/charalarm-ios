@@ -102,13 +102,15 @@ struct ConfigView: View {
                             primaryButton: .default(Text("キャンセル")) {
                                 print("ボタンその１")
                             }, secondaryButton: .destructive(Text("リセット")) {
-                                
-                                self.viewModel.withdraw()
-         
-                                dispachers.settingDispacher.doneTutorial(false)
+                                self.viewModel.withdraw() {
+                                    DispatchQueue.main.async {
+                                        self.appState2.doneTutorial = false
+                                    }
+                                }
                             })
                     }
                 }
+                
             }.listStyle(GroupedListStyle())
                 .navigationBarTitle("設定", displayMode: .inline)
                 .navigationBarItems(leading:

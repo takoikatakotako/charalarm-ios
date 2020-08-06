@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 class ConfigViewModel: ObservableObject {
     @Published var character: Character?
@@ -40,7 +41,7 @@ class ConfigViewModel: ObservableObject {
         }
     }
     
-    func withdraw() {
+    func withdraw(completion: @escaping () -> Void) {
         guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
             let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
                 self.showingAlert = true
@@ -48,8 +49,21 @@ class ConfigViewModel: ObservableObject {
                 return
         }
         
-        UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_NAME)
-        UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_PASSWORD)
+        
+        AnonymousUserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.showingAlert = true
+                    self.alertMessage = error.localizedDescription
+                }
+                return
+            }
+            
+            // ユーザー作成に成功
+            UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_NAME)
+            UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_PASSWORD)
+            completion()
+        }
     }
     
     private func getVersion() -> String {

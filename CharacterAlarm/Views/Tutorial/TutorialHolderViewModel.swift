@@ -15,8 +15,10 @@ class TutorialHolderViewModel: ObservableObject {
     func signUp() {
         AnonymousUserStore.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ error in
             if let error = error {
-                self.showingAlert = true
-                self.alertMessage = error.localizedDescription
+                DispatchQueue.main.async {
+                    self.showingAlert = true
+                    self.alertMessage = error.localizedDescription
+                }
                 return
             }
             
