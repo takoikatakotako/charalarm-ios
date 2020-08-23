@@ -2,7 +2,7 @@ import SwiftUI
 
 fileprivate struct Dispachers {
     let settingDispacher = SettingActionDispacher()
-    let alertActionDispacher = AlertActionDispacher()
+    // let alertActionDispacher = AlertActionDispacher()
 }
 
 fileprivate let dispachers = Dispachers()

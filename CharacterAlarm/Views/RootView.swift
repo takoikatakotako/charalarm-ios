@@ -4,6 +4,8 @@ struct RootView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var appState2: AppState2
 
+    @State var showingAlert = false
+    
     var body: some View {
         Group {
             if appState2.doneTutorial {
@@ -15,7 +17,7 @@ struct RootView: View {
                 .environmentObject(appState)
                 .environmentObject(appState2)
             }
-        }.alert(isPresented: self.$appState.alertState.showingAlert) {
+        }.alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("タイトル"),
                 message: Text("メッセージ"),

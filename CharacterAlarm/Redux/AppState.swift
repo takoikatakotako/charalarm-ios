@@ -9,7 +9,6 @@ class AppState: ObservableState {
     @Published var characterId: String
     
     @Published var settingState = SettingState()
-    @Published var alertState = AlertState()
     init(characterId: String, doneTutorial: Bool) {
         self.characterId = characterId
         self.settingState.doneTutorial = doneTutorial
