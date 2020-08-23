@@ -1,11 +1,5 @@
 import Foundation
 
-fileprivate struct Dispachers {
-    let settingDispacher = SettingActionDispacher()
-}
-
-fileprivate let dispachers = Dispachers()
-
 class TutorialHolderViewModel: ObservableObject {
     let anonymousUserName = UUID().uuidString
     let anonymousUserPassword = UUID().uuidString

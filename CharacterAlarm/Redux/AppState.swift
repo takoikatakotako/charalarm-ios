@@ -8,9 +8,9 @@ class AppState: ObservableState {
     @Published var isCalling: Bool = false
     @Published var characterId: String
     
-    @Published var settingState = SettingState()
+    // @Published var settingState = SettingState()
     init(characterId: String, doneTutorial: Bool) {
         self.characterId = characterId
-        self.settingState.doneTutorial = doneTutorial
+        // self.settingState.doneTutorial = doneTutorial
     }
 }

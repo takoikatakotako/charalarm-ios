@@ -24,13 +24,11 @@
 		2ACC04405DCC3012C1EEC96D /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D289C438B0540C4EA58400 /* TopTimeView.swift */; };
 		31A3CA0969C60A3FDA183A64 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6CF552089E0E33E384378 /* TutorialView.swift */; };
 		335670CE894634768800E623 /* AppState2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4818C4063A41ED49DF288 /* AppState2.swift */; };
-		33B5ED813D6B8C9F6D91B4EA /* SettingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CDAFC65FFAD22B3985CE75 /* SettingAction.swift */; };
 		3DA7A202436B3EC7F9B3B9AD /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135C29D1F045424883A1AB4 /* DayOfWeek.swift */; };
 		3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		41190B41B1100DB307A2CF75 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30674FA19ACF2C56DBFB76E1 /* NewsView.swift */; };
 		4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
 		48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */; };
-		4B706DF2075C6AE67F93A7DF /* SettingActionDispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B081FA02D0C73741BD7EB26B /* SettingActionDispacher.swift */; };
 		54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
 		54D1E2032216889CDF96F34C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E8F22E8FF6F62B741C1534 /* AppState.swift */; };
 		581F2983ACC75BEC557122C7 /* DayOfWeek2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB92C8DADEC6465186847F /* DayOfWeek2.swift */; };
@@ -74,9 +72,7 @@
 		CB21A6F2FB327EDD1FEE0363 /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F7C0192AAB09095D2CC7AC /* NewsRow.swift */; };
 		CB2C85E3673116531B14AB71 /* AlarmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B29305D5F25D07B732D385 /* AlarmStore.swift */; };
 		CB560F3A2166797860AA3B4A /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA03C3D8D726218234689F /* ProfileRow.swift */; };
-		CBF4663903EA4BCE9F4C6270 /* SettingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFD401F970432FF134C2974 /* SettingReducer.swift */; };
 		D64AB7756DF2E90D28E71308 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
-		D725D9FEE1D090057C69ECEE /* SettingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9F1AC5041967BF4425F43 /* SettingState.swift */; };
 		D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A83AC04135C53BCEDAC21FE /* TopView.swift */; };
 		DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		DFC46C9DE5D6CEBD8FB44F5D /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06D99BD7472813256B59778 /* CallView.swift */; };
@@ -129,7 +125,6 @@
 		25A9200D23155D111130A0FD /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27341491D953750F35AECB8E /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
-		28CDAFC65FFAD22B3985CE75 /* SettingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAction.swift; sourceTree = "<group>"; };
 		30674FA19ACF2C56DBFB76E1 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		31E702D8BFCDA316C16B15DA /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		32D289C438B0540C4EA58400 /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
@@ -170,14 +165,11 @@
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		9EFD401F970432FF134C2974 /* SettingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReducer.swift; sourceTree = "<group>"; };
 		A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
-		A1B9F1AC5041967BF4425F43 /* SettingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingState.swift; sourceTree = "<group>"; };
 		A2BFD2A8B26884043585844B /* EditAlarmName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmName.swift; sourceTree = "<group>"; };
 		A5462B9E1B807858459757CA /* CharacterAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAlarmTests.swift; sourceTree = "<group>"; };
 		AD350A568E406245ABC5B0DA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		AD65D969A238BEE7686DA4EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B081FA02D0C73741BD7EB26B /* SettingActionDispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingActionDispacher.swift; sourceTree = "<group>"; };
 		B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		B2C52C1A852F945126AB592F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
@@ -339,17 +331,6 @@
 			path = CharacterList;
 			sourceTree = "<group>";
 		};
-		44AA8AEF0DF2E16826B67DF2 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				28CDAFC65FFAD22B3985CE75 /* SettingAction.swift */,
-				B081FA02D0C73741BD7EB26B /* SettingActionDispacher.swift */,
-				9EFD401F970432FF134C2974 /* SettingReducer.swift */,
-				A1B9F1AC5041967BF4425F43 /* SettingState.swift */,
-			);
-			path = Setting;
-			sourceTree = "<group>";
-		};
 		4E8A5BC5455730F722B4EAAD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,7 +445,6 @@
 				59E8F22E8FF6F62B741C1534 /* AppState.swift */,
 				D2D4818C4063A41ED49DF288 /* AppState2.swift */,
 				4E402A0E231E7BD7A31F674A /* AppStore.swift */,
-				44AA8AEF0DF2E16826B67DF2 /* Setting */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -865,10 +845,6 @@
 				C4E627B8416F373BD0919357 /* ProfileViewModel.swift in Sources */,
 				C8069675E81448D1C68CA8A8 /* RootView.swift in Sources */,
 				F71FB21BDF8AEE2B0BB0EBA3 /* SceneDelegate.swift in Sources */,
-				33B5ED813D6B8C9F6D91B4EA /* SettingAction.swift in Sources */,
-				4B706DF2075C6AE67F93A7DF /* SettingActionDispacher.swift in Sources */,
-				CBF4663903EA4BCE9F4C6270 /* SettingReducer.swift in Sources */,
-				D725D9FEE1D090057C69ECEE /* SettingState.swift in Sources */,
 				FE2AA312258B9125C8F02829 /* TopButtonContent.swift in Sources */,
 				2ACC04405DCC3012C1EEC96D /* TopTimeView.swift in Sources */,
 				D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */,

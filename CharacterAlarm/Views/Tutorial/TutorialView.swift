@@ -1,12 +1,5 @@
 import SwiftUI
 
-fileprivate struct Dispachers {
-    let settingDispacher = SettingActionDispacher()
-    // let alertActionDispacher = AlertActionDispacher()
-}
-
-fileprivate let dispachers = Dispachers()
-
 struct TutorialView: View {
     @EnvironmentObject var appState: AppState
     
@@ -49,7 +42,7 @@ struct TutorialView: View {
                     }
                     print("\(ANONYMOUS_USER_NAME): \(anonymousUserName)")
                     print("\(ANONYMOUS_USER_PASSWORD): \(anonymousUserPassword)")
-                    self.appState.settingState.doneTutorial = true
+                    // self.appState.settingState.doneTutorial = true
                 }) {
                     Text("アプリを使ってみる")
                         .foregroundColor(Color.white)

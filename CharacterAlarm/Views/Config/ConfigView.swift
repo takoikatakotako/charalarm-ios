@@ -1,20 +1,6 @@
 import SwiftUI
 import UIKit
 
-//enum AssetColor: String {
-//    case textColor
-//    
-//    var color: Color {
-//        return Color(self.rawValue)
-//    }
-//}
-
-fileprivate struct Dispachers {
-    let settingDispacher = SettingActionDispacher()
-}
-
-fileprivate let dispachers = Dispachers()
-
 struct ConfigView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var appState2: AppState2
