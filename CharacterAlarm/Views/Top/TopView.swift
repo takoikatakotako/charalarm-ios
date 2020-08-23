@@ -2,7 +2,6 @@ import SwiftUI
 import AVFoundation
 
 struct TopView: View {
-    @EnvironmentObject var appState: AppState
     @EnvironmentObject var appState2: AppState2
     @ObservedObject var viewModel = TopViewModel()
     
@@ -51,7 +50,6 @@ struct TopView: View {
                             TopButtonContent(imageName: "top-config")
                         }.sheet(isPresented: self.$viewModel.showConfig) {
                             ConfigView()
-                                .environmentObject( self.appState )
                                 .environmentObject( self.appState2 )
                         }
                     }

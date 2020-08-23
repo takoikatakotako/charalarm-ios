@@ -15,8 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let anonymousUserPassword = UserDefaultsStore.getAnonymousUserPassword()
     
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
-        mainStore.initState(characterId: characterId, doneTutorial: doneTutorial)
-        let appState = mainStore.state
+
         
         let rootView = RootView()
         let appState2 = AppState2()
@@ -26,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            rootViewController = UIHostingController(rootView: rootView.environmentObject( appState ).environmentObject(appState2))
+            rootViewController = UIHostingController(rootView: rootView.environmentObject(appState2))
             window.rootViewController = self.rootViewController
             self.window = window
             window.makeKeyAndVisible()

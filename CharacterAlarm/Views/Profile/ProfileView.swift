@@ -3,7 +3,6 @@ import SDWebImageSwiftUI
 
 struct ProfileView: View {
     let characterId: String
-    @EnvironmentObject var appState: AppState
     @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
     
     var character: Character? {

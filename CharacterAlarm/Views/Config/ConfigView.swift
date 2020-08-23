@@ -2,7 +2,6 @@ import SwiftUI
 import UIKit
 
 struct ConfigView: View {
-    @EnvironmentObject var appState: AppState
     @EnvironmentObject var appState2: AppState2
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
@@ -12,9 +11,9 @@ struct ConfigView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: ProfileView(characterId: appState.characterId)) {
+                    NavigationLink(destination: ProfileView(characterId: appState2.charaDomain)) {
                         ProfileHeader(
-                            imageUrlString: "https://charalarm.com/image/\(appState.characterId)/thumbnail.png",
+                            imageUrlString: "https://charalarm.com/image/\(appState2.charaDomain)/thumbnail.png",
                             characterName: self.viewModel.character?.name ?? "",
                             circleName: self.appState2.circleName,
                             voiceName: self.appState2.voiceName)

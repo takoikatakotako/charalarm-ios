@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct RootView: View {
-    @EnvironmentObject var appState: AppState
     @EnvironmentObject var appState2: AppState2
 
     @State var showingAlert = false
@@ -10,11 +9,9 @@ struct RootView: View {
         Group {
             if appState2.doneTutorial {
                 ContentView()
-                .environmentObject(appState)
                 .environmentObject(appState2)
             } else {
                 TutorialHolderView()
-                .environmentObject(appState)
                 .environmentObject(appState2)
             }
         }.alert(isPresented: $showingAlert) {

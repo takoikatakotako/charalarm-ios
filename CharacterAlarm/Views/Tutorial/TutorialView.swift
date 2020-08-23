@@ -1,8 +1,6 @@
 import SwiftUI
 
-struct TutorialView: View {
-    @EnvironmentObject var appState: AppState
-    
+struct TutorialView: View {    
     let tutorialType: TutorialType
     let imageName: String
     let text: String

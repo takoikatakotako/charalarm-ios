@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct TutorialHolderView: View {
-    @EnvironmentObject var appState: AppState
     @EnvironmentObject var appState2: AppState2
     @ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
     
@@ -15,7 +14,6 @@ struct TutorialHolderView: View {
     
     var body: some View {
         PageView(views)
-            .environmentObject(appState)
             .environmentObject(appState2)
             .background(Color.gray)
             .edgesIgnoringSafeArea(.all)
