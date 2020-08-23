@@ -1,18 +1,19 @@
 import SwiftUI
 
-struct NewsView: View {
+struct NewsListView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject(initialValue: NewsViewModel()) var viewModel: NewsViewModel
-
+    @ObservedObject(initialValue: NewsListViewModel()) var viewModel: NewsListViewModel
+    
     var body: some View {
         NavigationView {
             
             List (viewModel.newsList) { news in
                 NewsRow(news: news)
-            }.navigationBarTitle("ニュース", displayMode: .inline)
-                .navigationBarItems(leading:
-                    Button("閉じる") {
-                        self.presentationMode.wrappedValue.dismiss()
+            }
+            .navigationBarTitle("ニュース", displayMode: .inline)
+            .navigationBarItems(leading:
+                Button("閉じる") {
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             )
         }.onAppear {
@@ -25,6 +26,6 @@ struct NewsView: View {
 
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView()
+        NewsListView()
     }
 }

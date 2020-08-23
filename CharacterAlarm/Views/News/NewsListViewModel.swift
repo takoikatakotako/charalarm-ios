@@ -1,7 +1,6 @@
-import UIKit
 import SwiftUI
 
-class NewsViewModel: ObservableObject {
+class NewsListViewModel: ObservableObject {
     
     @Published var newsList: [News] = []
     @Published var showingAlert = false

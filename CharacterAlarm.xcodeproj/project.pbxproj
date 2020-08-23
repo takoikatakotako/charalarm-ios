@@ -24,7 +24,7 @@
 		335670CE894634768800E623 /* AppState2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4818C4063A41ED49DF288 /* AppState2.swift */; };
 		3DA7A202436B3EC7F9B3B9AD /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135C29D1F045424883A1AB4 /* DayOfWeek.swift */; };
 		3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
-		41190B41B1100DB307A2CF75 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30674FA19ACF2C56DBFB76E1 /* NewsView.swift */; };
+		41190B41B1100DB307A2CF75 /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30674FA19ACF2C56DBFB76E1 /* NewsListView.swift */; };
 		4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
 		48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */; };
 		54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
@@ -41,7 +41,7 @@
 		76F45DCED11FB4066CE75C83 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		7C904AE6FBA1FAB4F24CBDD5 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A7B077AA099E6E395320A /* UserStore.swift */; };
-		8DBA3B7124F24797008E5A09 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3B7024F24797008E5A09 /* NewsViewModel.swift */; };
+		8DBA3B7124F24797008E5A09 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3B7024F24797008E5A09 /* NewsListViewModel.swift */; };
 		8DBA3B7324F248ED008E5A09 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3B7224F248ED008E5A09 /* NewsStore.swift */; };
 		9236D9DC11AFCE46764F29CB /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB6D5344BFB753B79858CDA /* ProfileHeader.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
@@ -123,7 +123,7 @@
 		25A9200D23155D111130A0FD /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27341491D953750F35AECB8E /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
-		30674FA19ACF2C56DBFB76E1 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		30674FA19ACF2C56DBFB76E1 /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
 		31E702D8BFCDA316C16B15DA /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		32D289C438B0540C4EA58400 /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
 		3435F7157573867044F2090B /* CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStore.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 		843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousUserStore.swift; sourceTree = "<group>"; };
 		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
-		8DBA3B7024F24797008E5A09 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		8DBA3B7024F24797008E5A09 /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		8DBA3B7224F248ED008E5A09 /* NewsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStore.swift; sourceTree = "<group>"; };
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
@@ -483,8 +483,8 @@
 			isa = PBXGroup;
 			children = (
 				61F7C0192AAB09095D2CC7AC /* NewsRow.swift */,
-				30674FA19ACF2C56DBFB76E1 /* NewsView.swift */,
-				8DBA3B7024F24797008E5A09 /* NewsViewModel.swift */,
+				30674FA19ACF2C56DBFB76E1 /* NewsListView.swift */,
+				8DBA3B7024F24797008E5A09 /* NewsListViewModel.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -824,7 +824,7 @@
 				A4CC43333435A97034B6FC43 /* MenuItem.swift in Sources */,
 				B48742926BCFF31C963D7B3D /* News.swift in Sources */,
 				CB21A6F2FB327EDD1FEE0363 /* NewsRow.swift in Sources */,
-				41190B41B1100DB307A2CF75 /* NewsView.swift in Sources */,
+				41190B41B1100DB307A2CF75 /* NewsListView.swift in Sources */,
 				759566014BCA6D3D3963E960 /* PageControl.swift in Sources */,
 				ED0F28A3D33080D0877E9B39 /* PageView.swift in Sources */,
 				614E2BEEACBACC0315D6658F /* PageViewController.swift in Sources */,
@@ -845,7 +845,7 @@
 				61EE855FA474CD3EAB2530DE /* TutorialType.swift in Sources */,
 				31A3CA0969C60A3FDA183A64 /* TutorialView.swift in Sources */,
 				F3FF90B64DFA5A1FEDABF1C0 /* URLRequest.swift in Sources */,
-				8DBA3B7124F24797008E5A09 /* NewsViewModel.swift in Sources */,
+				8DBA3B7124F24797008E5A09 /* NewsListViewModel.swift in Sources */,
 				E399F47E88AAB13EBA6D4334 /* User.swift in Sources */,
 				A69FEE2E5FB3EFB1FC5D27C1 /* UserDefaultsStore.swift in Sources */,
 				08D42C66CCFB67D3401820AE /* UserInfoView.swift in Sources */,

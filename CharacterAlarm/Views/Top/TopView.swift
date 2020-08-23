@@ -39,7 +39,7 @@ struct TopView: View {
                         }) {
                             TopButtonContent(imageName: "top-news")
                         }.sheet(isPresented: self.$viewModel.showNews) {
-                            NewsView()
+                            NewsListView()
                         }
                         
                         Button(action: {
