@@ -1,12 +1,6 @@
 import SwiftUI
 import AVFoundation
 
-fileprivate struct Dispachers {
-    let alarmDispacher = AlarmActionDispacher()
-}
-
-fileprivate let dispachers = Dispachers()
-
 struct TopView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var appState2: AppState2

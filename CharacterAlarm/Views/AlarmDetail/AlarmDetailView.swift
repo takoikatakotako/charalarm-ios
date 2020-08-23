@@ -1,12 +1,5 @@
 import SwiftUI
 
-fileprivate struct Dispachers {
-    let alarmDispacher = AlarmActionDispacher()
-}
-
-fileprivate let dispachers = Dispachers()
-
-
 struct AlarmDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: AlarmDetailViewModel

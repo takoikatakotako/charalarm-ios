@@ -10,7 +10,6 @@ import UIKit
 //}
 
 fileprivate struct Dispachers {
-    let alarmDispacher = AlarmActionDispacher()
     let settingDispacher = SettingActionDispacher()
 }
 
@@ -30,7 +29,7 @@ struct ConfigView: View {
                     NavigationLink(destination: ProfileView(characterId: appState.characterId)) {
                         ProfileHeader(
                             imageUrlString: "https://charalarm.com/image/\(appState.characterId)/thumbnail.png",
-                            characterName: self.appState2.charaName,
+                            characterName: self.viewModel.character?.name ?? "",
                             circleName: self.appState2.circleName,
                             voiceName: self.appState2.voiceName)
                     }.frame(height: 80)
@@ -48,6 +47,13 @@ struct ConfigView: View {
                 Section(header: Text("キャラクター")) {
                     NavigationLink(destination: CharacterListView()) {
                         Text("キャラクター")
+                            .foregroundColor(Color("textColor"))
+                    }
+                }
+                
+                Section(header: Text("ユーザー情報")) {
+                    NavigationLink(destination: UserInfoView()) {
+                        Text("ユーザー情報")
                             .foregroundColor(Color("textColor"))
                     }
                 }

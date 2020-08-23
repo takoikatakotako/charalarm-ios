@@ -19,7 +19,7 @@ struct CharacterListView: View {
             }
             
             Button(action: {
-                print("xxx")
+                print("キャラクター追加のお問い合わせ")
             }) {
                 CharacterListBanner()
                     .padding(.bottom, 36)
