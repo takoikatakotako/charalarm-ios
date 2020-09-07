@@ -18,12 +18,11 @@ struct TutorialHolderView: View {
             .background(Color.gray)
             .edgesIgnoringSafeArea(.all)
             .onAppear {
-                print("onAppear")
                 self.viewModel.signUp()
         }.alert(isPresented: self.$viewModel.showingAlert) {
             Alert(
-                title: Text("タイトル"),
-                message: Text("メッセージ"),
+                title: Text(""),
+                message: Text(self.viewModel.alertMessage),
                 primaryButton: .default(Text("ボタンその１")) {
                     print("ボタンその１")
                 }, secondaryButton: .destructive(Text("ボタンその２")) {

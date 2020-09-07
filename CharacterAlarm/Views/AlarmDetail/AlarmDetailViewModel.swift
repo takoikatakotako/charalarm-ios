@@ -111,7 +111,7 @@ class AlarmDetailViewModel: ObservableObject {
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
         }
-
+        
         AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { error in
             if let error = error {
                 DispatchQueue.main.async {
@@ -130,16 +130,12 @@ class AlarmDetailViewModel: ObservableObject {
     func updateAlarmName(name: String) {
         alarm.name = name
     }
-    //
-    //    func updateAlarmTime(hour: Int, minute: Int) {
-    //        alarm.hour = hour
-    //        alarm.minute = minute
-    //    }
-    //
-    //    func updateTimeDifference(timeDifference: Int) {
-    //        alarm.timeDifference = timeDifference
-    //    }
-    //
+    
+    func updateAlarmTime(hour: Int, minute: Int) {
+        alarm.hour = hour
+        alarm.minute = minute
+    }
+
     func updateDayOfWeek(dayOfWeeks: [DayOfWeek2]) {
         alarm.dayOfWeeks = dayOfWeeks
     }

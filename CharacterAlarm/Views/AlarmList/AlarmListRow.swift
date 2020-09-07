@@ -15,7 +15,7 @@ class AlarmListRowModel: ObservableObject {
             self.delegate?.updateAlarmEnable(alarmId: alarmId, isEnable: enable)
         }
     }
-
+    
     init (alarmId: Int?, enable: Bool, delegate: AlarmListRowDelegate) {
         self.enable = enable
         self.alarmId = alarmId
@@ -24,14 +24,14 @@ class AlarmListRowModel: ObservableObject {
 }
 
 struct AlarmListRow: View {
-     @ObservedObject var alarmListModel: AlarmListRowModel
+    @ObservedObject var alarmListModel: AlarmListRowModel
     let alarm: Alarm
-
+    
     init(delegate: AlarmListRowDelegate, alarm: Alarm) {
         self.alarm = alarm
         self.alarmListModel = AlarmListRowModel(alarmId: alarm.alarmId, enable: alarm.enable, delegate: delegate)
     }
-
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -40,10 +40,12 @@ struct AlarmListRow: View {
                 Text(alarm.name)
                 Text(alarm.dayOfWeeksString)
             }
+            .fixedSize(horizontal: true, vertical: false)
             Spacer()
             Toggle(isOn: $alarmListModel.enable) {
                 Text("")
-            }.padding()
+            }
+            .padding()
         }
     }
 }

@@ -60,7 +60,7 @@ extension AlarmDetailView: EditAlarmNameDelegate {
 
 extension AlarmDetailView: EditAlarmTimeDelegate {
     func updateAlarmTime(hour: Int, minute: Int) {
-        // viewModel.updateAlarmTime(hour: hour, minute: minute)
+         viewModel.updateAlarmTime(hour: hour, minute: minute)
     }
 }
 
