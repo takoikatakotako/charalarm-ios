@@ -43,6 +43,8 @@
 		7C904AE6FBA1FAB4F24CBDD5 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A7B077AA099E6E395320A /* UserStore.swift */; };
 		8DBA3B7124F24797008E5A09 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3B7024F24797008E5A09 /* NewsListViewModel.swift */; };
 		8DBA3B7324F248ED008E5A09 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3B7224F248ED008E5A09 /* NewsStore.swift */; };
+		8DDAF8C325068A4900E11E63 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDAF8C225068A4900E11E63 /* PushStore.swift */; };
+		8DDAF8C525068B5F00E11E63 /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDAF8C425068B5F00E11E63 /* AnonymousPushTokenBean.swift */; };
 		9236D9DC11AFCE46764F29CB /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB6D5344BFB753B79858CDA /* ProfileHeader.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
@@ -158,6 +160,9 @@
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8DBA3B7024F24797008E5A09 /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		8DBA3B7224F248ED008E5A09 /* NewsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStore.swift; sourceTree = "<group>"; };
+		8DDAF8C1250687DF00E11E63 /* CharacterAlarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarm.entitlements; sourceTree = "<group>"; };
+		8DDAF8C225068A4900E11E63 /* PushStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStore.swift; sourceTree = "<group>"; };
+		8DDAF8C425068B5F00E11E63 /* AnonymousPushTokenBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousPushTokenBean.swift; sourceTree = "<group>"; };
 		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -270,6 +275,7 @@
 				442A6EE8DBA273ED06FB06F8 /* News.swift */,
 				AD350A568E406245ABC5B0DA /* Profile.swift */,
 				F5F44DD1EE7BA8D640D7C6F1 /* User.swift */,
+				8DDAF8C425068B5F00E11E63 /* AnonymousPushTokenBean.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 		37BCF0E81B976D82B5B11590 /* CharacterAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				8DDAF8C1250687DF00E11E63 /* CharacterAlarm.entitlements */,
 				1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */,
 				DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */,
 				9A8F361447A4E0FCB38CCC1B /* Config.swift */,
@@ -379,6 +386,7 @@
 				99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */,
 				095A7B077AA099E6E395320A /* UserStore.swift */,
 				8DBA3B7224F248ED008E5A09 /* NewsStore.swift */,
+				8DDAF8C225068A4900E11E63 /* PushStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -811,6 +819,7 @@
 				581F2983ACC75BEC557122C7 /* DayOfWeek2.swift in Sources */,
 				0ED99D75EC0930A133322EBA /* EditAlarmDayOfWeek.swift in Sources */,
 				99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */,
+				8DDAF8C525068B5F00E11E63 /* AnonymousPushTokenBean.swift in Sources */,
 				166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */,
 				D64AB7756DF2E90D28E71308 /* EditAlarmTimeDifference.swift in Sources */,
 				1B582B9A374AB6027263ED7B /* EnableDayOfWeek.swift in Sources */,
@@ -822,6 +831,7 @@
 				CB21A6F2FB327EDD1FEE0363 /* NewsRow.swift in Sources */,
 				41190B41B1100DB307A2CF75 /* NewsListView.swift in Sources */,
 				759566014BCA6D3D3963E960 /* PageControl.swift in Sources */,
+				8DDAF8C325068A4900E11E63 /* PushStore.swift in Sources */,
 				ED0F28A3D33080D0877E9B39 /* PageView.swift in Sources */,
 				614E2BEEACBACC0315D6658F /* PageViewController.swift in Sources */,
 				B9316C7A2D5DD3B3895AF73A /* Profile.swift in Sources */,
@@ -1026,6 +1036,7 @@
 			baseConfigurationReference = 11C73D8F10AE8A5E1F0B3FFB /* Pods-CharacterAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 29;
@@ -1100,6 +1111,7 @@
 			baseConfigurationReference = E85AD43995E07AABE711D56B /* Pods-CharacterAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 29;

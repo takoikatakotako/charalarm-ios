@@ -18,16 +18,18 @@ struct TutorialHolderView: View {
             .background(Color.gray)
             .edgesIgnoringSafeArea(.all)
             .onAppear {
+                
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                    guard granted else { return }
+
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+                
                 self.viewModel.signUp()
-        }.alert(isPresented: self.$viewModel.showingAlert) {
-            Alert(
-                title: Text(""),
-                message: Text(self.viewModel.alertMessage),
-                primaryButton: .default(Text("ボタンその１")) {
-                    print("ボタンその１")
-                }, secondaryButton: .destructive(Text("ボタンその２")) {
-                    print("ボタンその２")
-                })
+            }.alert(isPresented: self.$viewModel.showingAlert) {
+                Alert(title: Text(""), message: Text("xxx"), dismissButton: .default(Text("xx")))
         }
     }
 }
