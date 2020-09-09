@@ -3,6 +3,7 @@ import AVFoundation
 import Firebase
 import UserNotifications
 import PushKit
+import CallKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,6 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
+        
+        // VoIP Push
+        // let mainQueue = DispatchQueue.main
+        let voipRegistry: PKPushRegistry = PKPushRegistry(queue: nil)
+        voipRegistry.delegate = self
+        voipRegistry.desiredPushTypes = [PKPushType.voIP]
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
@@ -40,12 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-
+// Push Notification
 extension AppDelegate {
 
-    // ③ プッシュ通知の利用登録が成功した場合
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    // プッシュ通知の利用登録が成功した場合
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
         print("Device token: \(token)")
 
@@ -60,9 +66,50 @@ extension AppDelegate {
         }
     }
 
-    // ④ プッシュ通知の利用登録が失敗した場合
-    func application(_ application: UIApplication,
-                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    // プッシュ通知の利用登録が失敗した場合
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register to APNs: \(error)")
+    }
+}
+
+// VoIP Push Notification
+extension AppDelegate: PKPushRegistryDelegate {
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
+        let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
+        guard let anonymousUserName = UserDefaultsStore.getAnonymousUserName(),
+            let anonymousUserPassword = UserDefaultsStore.getAnonymousUserPassword() else {
+            return
+        }
+        PushStore.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+        let config = CXProviderConfiguration(localizedName: "ポケモンセンター")
+//        // config.iconTemplateImageData = UIImage(named: "monster-ball")!.pngData()
+        config.ringtoneSound = "pokemon.caf"
+        config.includesCallsInRecents = true;
+        // config.supportsVideo = true;
+        let provider = CXProvider(configuration: config)
+        provider.setDelegate(self, queue: nil)
+        let update = CXCallUpdate()
+        update.remoteHandle = CXHandle(type: .generic, value: "カビゴン")
+        provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
+    }
+}
+
+extension AppDelegate: CXProviderDelegate {
+    func providerDidReset(_ provider: CXProvider) {
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
+        action.fulfill()
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        action.fulfill()
     }
 }

@@ -1,5 +1,7 @@
 import SwiftUI
 import AVFoundation
+import CallKit
+import PushKit
 
 struct TopView: View {
     @EnvironmentObject var appState2: AppState2
@@ -65,9 +67,29 @@ struct TopView: View {
                 self.appState2.circleName = character.illustrationName
                 self.appState2.voiceName = character.voiceName
             }
+            
+            // VOIP Push
         }
     }
 }
+
+
+
+
+//extension TopView: CXProviderDelegate {
+////    func providerDidReset(_ provider: CXProvider) {
+////    }
+////
+////    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
+////        action.fulfill()
+////    }
+////
+////    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+////        action.fulfill()
+////    }
+//}
+
+
 
 struct TopView_Previews: PreviewProvider {
     static var previews: some View {

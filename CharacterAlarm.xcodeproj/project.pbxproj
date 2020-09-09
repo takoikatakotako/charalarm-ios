@@ -41,6 +41,7 @@
 		76F45DCED11FB4066CE75C83 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		7C904AE6FBA1FAB4F24CBDD5 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A7B077AA099E6E395320A /* UserStore.swift */; };
+		8D3B6F542509431900636AA4 /* pokemon.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3B6F532509431800636AA4 /* pokemon.caf */; };
 		8DBA3B7124F24797008E5A09 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3B7024F24797008E5A09 /* NewsListViewModel.swift */; };
 		8DBA3B7324F248ED008E5A09 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3B7224F248ED008E5A09 /* NewsStore.swift */; };
 		8DDAF8C325068A4900E11E63 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDAF8C225068A4900E11E63 /* PushStore.swift */; };
@@ -158,6 +159,7 @@
 		843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousUserStore.swift; sourceTree = "<group>"; };
 		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		8D3B6F532509431800636AA4 /* pokemon.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.caf; sourceTree = "<group>"; };
 		8DBA3B7024F24797008E5A09 /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		8DBA3B7224F248ED008E5A09 /* NewsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStore.swift; sourceTree = "<group>"; };
 		8DDAF8C1250687DF00E11E63 /* CharacterAlarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarm.entitlements; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				D34F499DA3A438885B364999 /* Key.swift */,
 				3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */,
 				FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */,
+				8D3B6F532509431800636AA4 /* pokemon.caf */,
 				6915811511BDD6501346263B /* Settings.bundle */,
 				2C3A6CBFE0EA874037556100 /* CallKit */,
 				35CE0717DB5E83C7E13D8178 /* Entity */,
@@ -690,6 +693,7 @@
 				0907F640F2E769DF0963DFA4 /* GoogleService-Info.plist in Resources */,
 				7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */,
 				C589FE7D29B34FE43679E3C9 /* Preview Assets.xcassets in Resources */,
+				8D3B6F542509431900636AA4 /* pokemon.caf in Resources */,
 				961391AA3A13EAC26374638C /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1039,7 +1043,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = CharacterAlarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1114,7 +1118,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = CharacterAlarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
