@@ -69,6 +69,19 @@ struct TopView: View {
             }
             
             // VOIP Push
+            
+            
+            let token = "dammy-push-token"
+            guard let anonymousUserName = UserDefaultsStore.getAnonymousUserName(),
+                let anonymousUserPassword = UserDefaultsStore.getAnonymousUserPassword() else {
+                return
+            }
+            PushStore.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+            
         }
     }
 }

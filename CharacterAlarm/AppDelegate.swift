@@ -80,7 +80,7 @@ extension AppDelegate: PKPushRegistryDelegate {
             let anonymousUserPassword = UserDefaultsStore.getAnonymousUserPassword() else {
             return
         }
-        PushStore.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in
+        PushStore.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in
             if let error = error {
                 print(error.localizedDescription)
             }
