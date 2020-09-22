@@ -17,8 +17,8 @@ class TutorialHolderViewModel: ObservableObject {
             }
             
             // ユーザー作成に成功
-            UserDefaults.standard.set(self.anonymousUserName, forKey: ANONYMOUS_USER_NAME)
-            UserDefaults.standard.set(self.anonymousUserPassword, forKey: ANONYMOUS_USER_PASSWORD)
+            UserDefaultsStore.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
+            UserDefaultsStore.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
         }
     }
 }
