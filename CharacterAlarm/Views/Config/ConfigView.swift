@@ -93,8 +93,15 @@ struct ConfigView: View {
                         Text(viewModel.versionString)
                             .foregroundColor(Color("textColor"))
                     }
-                    Text("ライセンス")
-                        .foregroundColor(Color("textColor"))
+                    Button {
+                        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                            return
+                        }
+                        UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                    } label: { 
+                        Text("ライセンス")
+                            .foregroundColor(Color("textColor"))
+                    }
                 }
                 
                 Section(header: Text("リセット")) {
