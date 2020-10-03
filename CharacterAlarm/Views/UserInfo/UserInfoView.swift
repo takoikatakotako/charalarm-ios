@@ -10,13 +10,13 @@ struct UserInfoView: View {
     }
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("ユーザー情報")
+            Text("ユーザー名")
                 .font(Font.body.bold())
             Text(userName)
-
             Spacer()
         }
         .padding()
+        .navigationBarTitle("ユーザー情報", displayMode: .inline)
     }
 }
 

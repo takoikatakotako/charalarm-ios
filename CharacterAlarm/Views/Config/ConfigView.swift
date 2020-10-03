@@ -88,8 +88,8 @@ struct ConfigView: View {
                     }
                     .alert(isPresented: $showingResetAlert) {
                         Alert(
-                            title: Text("タイトル"),
-                            message: Text("メッセージ"),
+                            title: Text("リセット"),
+                            message: Text("リセットしてよろしいですか？"),
                             primaryButton: .default(Text("キャンセル")) {
                                 print("ボタンその１")
                             }, secondaryButton: .destructive(Text("リセット")) {
@@ -101,7 +101,6 @@ struct ConfigView: View {
                             })
                     }
                 }
-                
             }.listStyle(GroupedListStyle())
                 .navigationBarTitle("設定", displayMode: .inline)
                 .navigationBarItems(leading:
@@ -118,7 +117,6 @@ struct ConfigView: View {
             Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
         }
     }
-    
 }
 
 struct ConfigView_Previews: PreviewProvider {
