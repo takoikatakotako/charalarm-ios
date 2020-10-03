@@ -54,8 +54,8 @@ extension AppDelegate {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
         print("Device token: \(token)")
 
-        guard let anonymousUserName = UserDefaultsStore.getAnonymousUserName(),
-            let anonymousUserPassword = UserDefaultsStore.getAnonymousUserPassword() else {
+        guard let anonymousUserName = UserDefaultsHandler.getAnonymousUserName(),
+            let anonymousUserPassword = UserDefaultsHandler.getAnonymousUserPassword() else {
             return
         }
         PushStore.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in
@@ -75,8 +75,8 @@ extension AppDelegate {
 extension AppDelegate: PKPushRegistryDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-        guard let anonymousUserName = UserDefaultsStore.getAnonymousUserName(),
-            let anonymousUserPassword = UserDefaultsStore.getAnonymousUserPassword() else {
+        guard let anonymousUserName = UserDefaultsHandler.getAnonymousUserName(),
+            let anonymousUserPassword = UserDefaultsHandler.getAnonymousUserPassword() else {
             return
         }
         PushStore.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in

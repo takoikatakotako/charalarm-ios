@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class UserDefaultsStore {
+class UserDefaultsHandler {
     static func getCharacterDomain() -> String {
         guard let characterDomain = UserDefaults.standard.string(forKey: CHARACTER_DOMAIN) else {
             fatalError("CharacterDomainが取得できませんでした")

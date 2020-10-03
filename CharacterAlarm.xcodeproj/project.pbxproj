@@ -42,13 +42,14 @@
 		76F45DCED11FB4066CE75C83 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */; };
+		8D77889E252835E4002C87B8 /* KyechainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D77889D252835E4002C87B8 /* KyechainHandler.swift */; };
 		8DFFCFD22528240900DEAB5D /* FileHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */; };
 		90EAB01C50F16E19E3CF9087 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		9F760006DD2B1D7D8315A6CA /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
 		A4CC43333435A97034B6FC43 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33F32E49A4EC6856AD091A /* MenuItem.swift */; };
-		A69FEE2E5FB3EFB1FC5D27C1 /* UserDefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */; };
+		A69FEE2E5FB3EFB1FC5D27C1 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6A0DD7CAF95B3D986A825 /* UserDefaultsHandler.swift */; };
 		A993D1DE094919727C9FA442 /* CharacterAlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F84A5C44E2BDA0D94E2EAF0 /* CharacterAlarmUITests.swift */; };
 		AA164CCF50B843854645F232 /* JsonResponseBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8328671228E33988C6A1A51F /* JsonResponseBean.swift */; };
 		AF5A480A9FE7D90FBAEACA9D /* AnonymousAlarmBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAC34E8DC788FE824706F /* AnonymousAlarmBean.swift */; };
@@ -160,8 +161,9 @@
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8D3197B22519DCA800D99924 /* CharacterAlarmRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmRelease.entitlements; sourceTree = "<group>"; };
 		8D3197B62519DE2C00D99924 /* CharacterAlarmDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmDebug.entitlements; sourceTree = "<group>"; };
+		8D77889D252835E4002C87B8 /* KyechainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KyechainHandler.swift; sourceTree = "<group>"; };
 		8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandlerError.swift; sourceTree = "<group>"; };
-		99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
+		99B6A0DD7CAF95B3D986A825 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9C69F7400D0EA1D9F2776B02 /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E24E1C9214EAF296F0A7F0D /* pokemon.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.caf; sourceTree = "<group>"; };
@@ -361,7 +363,6 @@
 				3435F7157573867044F2090B /* CharacterStore.swift */,
 				7150449688142AF83A4F3167 /* NewsStore.swift */,
 				49AB5677E8B151AAFA7C724B /* PushStore.swift */,
-				99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -478,6 +479,8 @@
 			isa = PBXGroup;
 			children = (
 				31E702D8BFCDA316C16B15DA /* FileHandler.swift */,
+				99B6A0DD7CAF95B3D986A825 /* UserDefaultsHandler.swift */,
+				8D77889D252835E4002C87B8 /* KyechainHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				CB2C85E3673116531B14AB71 /* AlarmStore.swift in Sources */,
 				AF5A480A9FE7D90FBAEACA9D /* AnonymousAlarmBean.swift in Sources */,
 				C7581DB59F2584A56D229578 /* AnonymousAuthBean.swift in Sources */,
+				8D77889E252835E4002C87B8 /* KyechainHandler.swift in Sources */,
 				8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */,
 				48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
@@ -826,7 +830,7 @@
 				61EE855FA474CD3EAB2530DE /* TutorialType.swift in Sources */,
 				31A3CA0969C60A3FDA183A64 /* TutorialView.swift in Sources */,
 				F3FF90B64DFA5A1FEDABF1C0 /* URLRequest.swift in Sources */,
-				A69FEE2E5FB3EFB1FC5D27C1 /* UserDefaultsStore.swift in Sources */,
+				A69FEE2E5FB3EFB1FC5D27C1 /* UserDefaultsHandler.swift in Sources */,
 				08D42C66CCFB67D3401820AE /* UserInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

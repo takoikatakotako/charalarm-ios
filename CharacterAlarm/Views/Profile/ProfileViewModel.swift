@@ -78,6 +78,6 @@ class ProfileViewModel: ObservableObject {
         guard let charaDomain = character?.charaDomain else {
             return
         }
-        UserDefaultsStore.setCharaDomain(charaDomain: charaDomain)
+        UserDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
     }
 }
