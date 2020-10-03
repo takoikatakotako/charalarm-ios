@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AlarmListView: View {
-    @EnvironmentObject var appState2: AppState
+    @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: AlarmListViewModel()) var viewModel: AlarmListViewModel
     

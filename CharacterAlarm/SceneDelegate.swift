@@ -16,16 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
 
-        
         let rootView = RootView()
-        let appState2 = AppState()
-        appState2.doneTutorial = doneTutorial
-        appState2.charaDomain = characterId
+        let charalarmAppState = CharalarmAppState()
+        charalarmAppState.doneTutorial = doneTutorial
+        charalarmAppState.charaDomain = characterId
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            rootViewController = UIHostingController(rootView: rootView.environmentObject(appState2))
+            rootViewController = UIHostingController(rootView: rootView.environmentObject(charalarmAppState))
             window.rootViewController = self.rootViewController
             self.window = window
             window.makeKeyAndVisible()

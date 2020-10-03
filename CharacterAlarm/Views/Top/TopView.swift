@@ -4,7 +4,7 @@ import CallKit
 import PushKit
 
 struct TopView: View {
-    @EnvironmentObject var appState2: AppState
+    @EnvironmentObject var appState: CharalarmAppState
     @ObservedObject var viewModel = TopViewModel()
     
     var body: some View {
@@ -52,7 +52,7 @@ struct TopView: View {
                             TopButtonContent(imageName: "top-config")
                         }.sheet(isPresented: self.$viewModel.showConfig) {
                             ConfigView()
-                                .environmentObject( self.appState2 )
+                                .environmentObject( self.appState )
                         }
                     }
                 }
@@ -62,10 +62,10 @@ struct TopView: View {
         }
         .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
-            self.viewModel.featchCharacter(charaDomain: self.appState2.charaDomain) { character in
-                self.appState2.charaName = character.name
-                self.appState2.circleName = character.illustrationName
-                self.appState2.voiceName = character.voiceName
+            self.viewModel.featchCharacter(charaDomain: self.appState.charaDomain) { character in
+                self.appState.charaName = character.name
+                self.appState.circleName = character.illustrationName
+                self.appState.voiceName = character.voiceName
             }
         }
     }

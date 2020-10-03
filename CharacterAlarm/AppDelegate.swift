@@ -14,8 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
         
-        // VoIP Push
-        // let mainQueue = DispatchQueue.main
+        // VoIP Pushを要求
         let voipRegistry: PKPushRegistry = PKPushRegistry(queue: nil)
         voipRegistry.delegate = self
         voipRegistry.desiredPushTypes = [PKPushType.voIP]

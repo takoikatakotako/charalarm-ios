@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TutorialHolderView: View {
-    @EnvironmentObject var appState2: AppState
+    @EnvironmentObject var appState: CharalarmAppState
     @ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
     
     @State var views: [TutorialView] = [
@@ -14,23 +14,20 @@ struct TutorialHolderView: View {
     
     var body: some View {
         PageView(views)
-            .environmentObject(appState2)
+            .environmentObject(appState)
             .background(Color.gray)
             .edgesIgnoringSafeArea(.all)
             .onAppear {
-                
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
                     guard granted else { return }
-
                     DispatchQueue.main.async {
                         UIApplication.shared.registerForRemoteNotifications()
                     }
                 }
-                
                 self.viewModel.signUp()
             }.alert(isPresented: self.$viewModel.showingAlert) {
                 Alert(title: Text(""), message: Text("xxx"), dismissButton: .default(Text("xx")))
-        }
+            }
     }
 }
 

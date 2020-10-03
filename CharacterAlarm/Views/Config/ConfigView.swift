@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 struct ConfigView: View {
-    @EnvironmentObject var appState2: AppState
+    @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
     @State private var showingResetAlert = false
@@ -11,12 +11,12 @@ struct ConfigView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: ProfileView(characterId: appState2.charaDomain)) {
+                    NavigationLink(destination: ProfileView(characterId: appState.charaDomain)) {
                         ProfileHeader(
-                            imageUrlString: "https://charalarm.com/image/\(appState2.charaDomain)/thumbnail.png",
+                            imageUrlString: "https://charalarm.com/image/\(appState.charaDomain)/thumbnail.png",
                             characterName: self.viewModel.character?.name ?? "",
-                            circleName: self.appState2.circleName,
-                            voiceName: self.appState2.voiceName)
+                            circleName: self.appState.circleName,
+                            voiceName: self.appState.voiceName)
                     }.frame(height: 80)
                         .onAppear {
                     }
@@ -95,7 +95,7 @@ struct ConfigView: View {
                             }, secondaryButton: .destructive(Text("リセット")) {
                                 self.viewModel.withdraw() {
                                     DispatchQueue.main.async {
-                                        self.appState2.doneTutorial = false
+                                        self.appState.doneTutorial = false
                                     }
                                 }
                             })

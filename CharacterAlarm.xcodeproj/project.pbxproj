@@ -22,7 +22,7 @@
 		2472BB3E1EA6EAA017603893 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150449688142AF83A4F3167 /* NewsStore.swift */; };
 		2ACC04405DCC3012C1EEC96D /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D289C438B0540C4EA58400 /* TopTimeView.swift */; };
 		31A3CA0969C60A3FDA183A64 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6CF552089E0E33E384378 /* TutorialView.swift */; };
-		335670CE894634768800E623 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4818C4063A41ED49DF288 /* AppState.swift */; };
+		335670CE894634768800E623 /* CharalarmAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4818C4063A41ED49DF288 /* CharalarmAppState.swift */; };
 		34DFC4BE5906213F07F4DC17 /* pokemon.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9E24E1C9214EAF296F0A7F0D /* pokemon.caf */; };
 		3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
@@ -181,7 +181,7 @@
 		C77FE7757285D78CA7096C64 /* CharacterAlarmUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewModel.swift; sourceTree = "<group>"; };
 		CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderViewModel.swift; sourceTree = "<group>"; };
-		D2D4818C4063A41ED49DF288 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D2D4818C4063A41ED49DF288 /* CharalarmAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharalarmAppState.swift; sourceTree = "<group>"; };
 		D34F499DA3A438885B364999 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		D4CD5E9B6747AA9A4AC7BE3D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		35CE0717DB5E83C7E13D8178 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				D2D4818C4063A41ED49DF288 /* AppState.swift */,
+				D2D4818C4063A41ED49DF288 /* CharalarmAppState.swift */,
 				895B5510C00A352576589C74 /* Alarm.swift */,
 				457BAC34E8DC788FE824706F /* AnonymousAlarmBean.swift */,
 				42381B160AC4179E32919660 /* AnonymousAuthBean.swift */,
@@ -780,7 +780,7 @@
 				8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */,
 				48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
-				335670CE894634768800E623 /* AppState.swift in Sources */,
+				335670CE894634768800E623 /* CharalarmAppState.swift in Sources */,
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
 				DFC46C9DE5D6CEBD8FB44F5D /* CallView.swift in Sources */,
 				148657E6F4133A78029571DC /* CallViewModel.swift in Sources */,

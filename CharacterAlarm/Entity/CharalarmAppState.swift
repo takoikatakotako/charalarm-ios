@@ -1,6 +1,6 @@
 import SwiftUI
 
-class AppState: ObservableObject {
+class CharalarmAppState: ObservableObject {
     @Published var doneTutorial: Bool = false
     @Published var charaDomain: String = DEFAULT_CHARACTER_DOMAIN
     @Published var charaName: String = ""
