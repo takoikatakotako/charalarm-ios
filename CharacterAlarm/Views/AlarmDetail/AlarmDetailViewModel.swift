@@ -7,7 +7,7 @@ class AlarmDetailViewModel: ObservableObject {
     @Published var alertMessage = ""
     
     var alarmTimeString: String {
-        return "\(alarm.hour):\(alarm.minute)(GMT+\("9"))"
+        return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
     
     var enableDaysString: String {
