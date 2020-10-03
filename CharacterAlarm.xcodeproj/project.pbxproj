@@ -55,7 +55,6 @@
 		AF5A480A9FE7D90FBAEACA9D /* AnonymousAlarmBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAC34E8DC788FE824706F /* AnonymousAlarmBean.swift */; };
 		B080A41E07FEDC214DC3C302 /* CharacterListBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404262CCC1804646E1B2D0 /* CharacterListBanner.swift */; };
 		B30E775C9F7D9CA2DC3ACA72 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B5510C00A352576589C74 /* Alarm.swift */; };
-		B31B82986566BC4C5424E7FA /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E708AE89A31147EC5011EA52 /* ProfileStore.swift */; };
 		B48742926BCFF31C963D7B3D /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A6EE8DBA273ED06FB06F8 /* News.swift */; };
 		B641F5F35BC4267EC0ACBAAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */; };
 		B74650B04FEAB2B737EA60E5 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D0CFBD6D1625332704D67 /* CallingView.swift */; };
@@ -190,7 +189,6 @@
 		DED0302BB32B9EC33A3B4782 /* CallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModel.swift; sourceTree = "<group>"; };
 		DF987FCB1D6D32047350A2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E06D99BD7472813256B59778 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
-		E708AE89A31147EC5011EA52 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewModel.swift; sourceTree = "<group>"; };
 		F39074950AE4F5F973C23562 /* Pods_CharacterAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61D0CFBD6D1625332704D67 /* CallingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingView.swift; sourceTree = "<group>"; };
@@ -364,7 +362,6 @@
 				843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */,
 				3435F7157573867044F2090B /* CharacterStore.swift */,
 				7150449688142AF83A4F3167 /* NewsStore.swift */,
-				E708AE89A31147EC5011EA52 /* ProfileStore.swift */,
 				49AB5677E8B151AAFA7C724B /* PushStore.swift */,
 				99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */,
 			);
@@ -827,7 +824,6 @@
 				B9316C7A2D5DD3B3895AF73A /* Profile.swift in Sources */,
 				9236D9DC11AFCE46764F29CB /* ProfileHeader.swift in Sources */,
 				CB560F3A2166797860AA3B4A /* ProfileRow.swift in Sources */,
-				B31B82986566BC4C5424E7FA /* ProfileStore.swift in Sources */,
 				C4AD7B0D9C5AE42CC7C4B44F /* ProfileView.swift in Sources */,
 				C4E627B8416F373BD0919357 /* ProfileViewModel.swift in Sources */,
 				C8551D91CC8EA7B7BD209B96 /* PushStore.swift in Sources */,
