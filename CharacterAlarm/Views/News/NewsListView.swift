@@ -6,9 +6,17 @@ struct NewsListView: View {
     
     var body: some View {
         NavigationView {
-            
             List (viewModel.newsList) { news in
-                NewsRow(news: news)
+                Button {
+                    guard let url = URL(string: news.url) else {
+                        return
+                    }
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                } label: {
+                    NewsRow(news: news)
+                }
             }
             .navigationBarTitle("ニュース", displayMode: .inline)
             .navigationBarItems(leading:

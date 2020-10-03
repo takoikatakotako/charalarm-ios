@@ -19,7 +19,6 @@ struct CharacterListView: View {
             }
             
             Button(action: {
-                print("キャラクター追加のお問い合わせ")
                 guard let url = URL(string: "https://swiswiswift.com/") else {
                     return
                 }
