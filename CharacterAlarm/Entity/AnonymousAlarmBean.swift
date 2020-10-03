@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct AnonymousAlarmBean: Encodable {
     let anonymousUserName: String
     let password: String
@@ -9,5 +8,5 @@ struct AnonymousAlarmBean: Encodable {
     let name: String
     let hour: Int
     let minute: Int
-    let dayOfWeeks: [DayOfWeek2]
+    let dayOfWeeks: [DayOfWeek]
 }

@@ -18,19 +18,18 @@
 		166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		1829DC9BF5ECCCDC6E0E0E51 /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3435F7157573867044F2090B /* CharacterStore.swift */; };
 		1988ADD8330002E2B2E1471C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
-		239AA833FF5258D797E87AED /* CampusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8EA43767E5179EF95B85DD /* CampusError.swift */; };
+		239AA833FF5258D797E87AED /* CharalarmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8EA43767E5179EF95B85DD /* CharalarmError.swift */; };
 		2472BB3E1EA6EAA017603893 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150449688142AF83A4F3167 /* NewsStore.swift */; };
 		2ACC04405DCC3012C1EEC96D /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D289C438B0540C4EA58400 /* TopTimeView.swift */; };
 		31A3CA0969C60A3FDA183A64 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6CF552089E0E33E384378 /* TutorialView.swift */; };
 		335670CE894634768800E623 /* AppState2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4818C4063A41ED49DF288 /* AppState2.swift */; };
 		34DFC4BE5906213F07F4DC17 /* pokemon.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9E24E1C9214EAF296F0A7F0D /* pokemon.caf */; };
-		3DA7A202436B3EC7F9B3B9AD /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135C29D1F045424883A1AB4 /* DayOfWeek.swift */; };
 		3F1C4A9E685BE7C815B3333C /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
 		48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */; };
 		4E2946FAE5A39335252AB793 /* Pods_CharacterAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F39074950AE4F5F973C23562 /* Pods_CharacterAlarmUITests.framework */; };
 		54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
-		581F2983ACC75BEC557122C7 /* DayOfWeek2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB92C8DADEC6465186847F /* DayOfWeek2.swift */; };
+		581F2983ACC75BEC557122C7 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB92C8DADEC6465186847F /* DayOfWeek.swift */; };
 		5ED1355036782D8CD87178CF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8F361447A4E0FCB38CCC1B /* Config.swift */; };
 		614E2BEEACBACC0315D6658F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD5E9B6747AA9A4AC7BE3D /* PageViewController.swift */; };
 		61EE855FA474CD3EAB2530DE /* TutorialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0ACF19C21B55C29D83E19 /* TutorialType.swift */; };
@@ -43,6 +42,7 @@
 		76F45DCED11FB4066CE75C83 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */; };
+		8DFFCFD22528240900DEAB5D /* FileHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */; };
 		90EAB01C50F16E19E3CF9087 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		9236D9DC11AFCE46764F29CB /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB6D5344BFB753B79858CDA /* ProfileHeader.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
@@ -76,7 +76,6 @@
 		D86EAC411AB7E1AC831D7FF3 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A83AC04135C53BCEDAC21FE /* TopView.swift */; };
 		DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		DFC46C9DE5D6CEBD8FB44F5D /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06D99BD7472813256B59778 /* CallView.swift */; };
-		E399F47E88AAB13EBA6D4334 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F44DD1EE7BA8D640D7C6F1 /* User.swift */; };
 		ED0F28A3D33080D0877E9B39 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8591C8CA529ED187F7634502 /* PageView.swift */; };
 		F3FF90B64DFA5A1FEDABF1C0 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27341491D953750F35AECB8E /* URLRequest.swift */; };
 		F40658F7C9EF6D5B22359F3C /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F499DA3A438885B364999 /* Key.swift */; };
@@ -142,7 +141,7 @@
 		575BDABDDF3486CF12F422E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E44864A6BB7A132FEBBE5E1 /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F33F32E49A4EC6856AD091A /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		5F8EA43767E5179EF95B85DD /* CampusError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusError.swift; sourceTree = "<group>"; };
+		5F8EA43767E5179EF95B85DD /* CharalarmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharalarmError.swift; sourceTree = "<group>"; };
 		5FB899DF9D87DF6863A9BBB6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		61F7C0192AAB09095D2CC7AC /* NewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRow.swift; sourceTree = "<group>"; };
 		645E8A15A50F8B1C13488BA2 /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
@@ -163,7 +162,7 @@
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8D3197B22519DCA800D99924 /* CharacterAlarmRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmRelease.entitlements; sourceTree = "<group>"; };
 		8D3197B62519DE2C00D99924 /* CharacterAlarmDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmDebug.entitlements; sourceTree = "<group>"; };
-		9135C29D1F045424883A1AB4 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
+		8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandlerError.swift; sourceTree = "<group>"; };
 		99B6A0DD7CAF95B3D986A825 /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9C69F7400D0EA1D9F2776B02 /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,9 +193,8 @@
 		E708AE89A31147EC5011EA52 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewModel.swift; sourceTree = "<group>"; };
 		F39074950AE4F5F973C23562 /* Pods_CharacterAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5F44DD1EE7BA8D640D7C6F1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F61D0CFBD6D1625332704D67 /* CallingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingView.swift; sourceTree = "<group>"; };
-		FACB92C8DADEC6465186847F /* DayOfWeek2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek2.swift; sourceTree = "<group>"; };
+		FACB92C8DADEC6465186847F /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,14 +226,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		133A63559F0356DA51531DDC /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				9135C29D1F045424883A1AB4 /* DayOfWeek.swift */,
-			);
-			path = Enum;
-			sourceTree = "<group>";
-		};
 		278D4B3B3290805250A84DA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,11 +263,10 @@
 				42381B160AC4179E32919660 /* AnonymousAuthBean.swift */,
 				14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */,
 				4CA4CA8D022533B34EA5904B /* Character.swift */,
-				FACB92C8DADEC6465186847F /* DayOfWeek2.swift */,
+				FACB92C8DADEC6465186847F /* DayOfWeek.swift */,
 				8328671228E33988C6A1A51F /* JsonResponseBean.swift */,
 				442A6EE8DBA273ED06FB06F8 /* News.swift */,
 				AD350A568E406245ABC5B0DA /* Profile.swift */,
-				F5F44DD1EE7BA8D640D7C6F1 /* User.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -300,7 +289,6 @@
 				6915811511BDD6501346263B /* Settings.bundle */,
 				2C3A6CBFE0EA874037556100 /* CallKit */,
 				35CE0717DB5E83C7E13D8178 /* Entity */,
-				133A63559F0356DA51531DDC /* Enum */,
 				3EBDC566ED9D171F6602B8AF /* Error */,
 				CFD2089E174D62D9A6D5369F /* Extension */,
 				A86FC17B0341D60E1D5BEF39 /* Handler */,
@@ -324,7 +312,8 @@
 		3EBDC566ED9D171F6602B8AF /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				5F8EA43767E5179EF95B85DD /* CampusError.swift */,
+				5F8EA43767E5179EF95B85DD /* CharalarmError.swift */,
+				8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -794,6 +783,7 @@
 				4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */,
 				1312196D6C9F98340B13AB2D /* AlarmListRow.swift in Sources */,
 				BC15ABC1CC9174147689D5E9 /* AlarmListView.swift in Sources */,
+				8DFFCFD22528240900DEAB5D /* FileHandlerError.swift in Sources */,
 				64CA442F03A6ECEF0D97D799 /* AlarmListViewModel.swift in Sources */,
 				CB2C85E3673116531B14AB71 /* AlarmStore.swift in Sources */,
 				AF5A480A9FE7D90FBAEACA9D /* AnonymousAlarmBean.swift in Sources */,
@@ -806,7 +796,7 @@
 				DFC46C9DE5D6CEBD8FB44F5D /* CallView.swift in Sources */,
 				148657E6F4133A78029571DC /* CallViewModel.swift in Sources */,
 				B74650B04FEAB2B737EA60E5 /* CallingView.swift in Sources */,
-				239AA833FF5258D797E87AED /* CampusError.swift in Sources */,
+				239AA833FF5258D797E87AED /* CharalarmError.swift in Sources */,
 				B8CBFAB256F731532B226F6C /* Character.swift in Sources */,
 				B080A41E07FEDC214DC3C302 /* CharacterListBanner.swift in Sources */,
 				63069C631D666919ADB238EC /* CharacterListRow.swift in Sources */,
@@ -817,8 +807,7 @@
 				54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */,
 				11FDFD6A92384A68B73AF0B8 /* ConfigViewModel.swift in Sources */,
 				11AA4CAAF5DA8F06948EDD4F /* ContentView.swift in Sources */,
-				3DA7A202436B3EC7F9B3B9AD /* DayOfWeek.swift in Sources */,
-				581F2983ACC75BEC557122C7 /* DayOfWeek2.swift in Sources */,
+				581F2983ACC75BEC557122C7 /* DayOfWeek.swift in Sources */,
 				0ED99D75EC0930A133322EBA /* EditAlarmDayOfWeek.swift in Sources */,
 				99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */,
 				166B8418DD52B0191C7B694D /* EditAlarmTime.swift in Sources */,
@@ -853,7 +842,6 @@
 				61EE855FA474CD3EAB2530DE /* TutorialType.swift in Sources */,
 				31A3CA0969C60A3FDA183A64 /* TutorialView.swift in Sources */,
 				F3FF90B64DFA5A1FEDABF1C0 /* URLRequest.swift in Sources */,
-				E399F47E88AAB13EBA6D4334 /* User.swift in Sources */,
 				A69FEE2E5FB3EFB1FC5D27C1 /* UserDefaultsStore.swift in Sources */,
 				08D42C66CCFB67D3401820AE /* UserInfoView.swift in Sources */,
 			);

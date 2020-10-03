@@ -1,15 +1,15 @@
 import SwiftUI
 
 protocol  EditAlarmDayOfWeekDelegate {
-    func updateDayOfWeek(dayOfWeeks: [DayOfWeek2])
+    func updateDayOfWeek(dayOfWeeks: [DayOfWeek])
 }
 
 struct EditAlarmDayOfWeek: View {
     let delegate: EditAlarmDayOfWeekDelegate
-    @State var dayOfWeeks: [DayOfWeek2]
+    @State var dayOfWeeks: [DayOfWeek]
     
     var body: some View {
-        List(DayOfWeek2.allCases) { dayOfWeek in
+        List(DayOfWeek.allCases) { dayOfWeek in
             Button(action: {
                 if self.dayOfWeeks.contains(dayOfWeek) {
                     self.dayOfWeeks = self.dayOfWeeks.filter{ $0 != dayOfWeek }
@@ -32,7 +32,7 @@ struct EditAlarmDayOfWeek: View {
         }
     }
     
-    private func dayOfWeekString(dayOfWeek: DayOfWeek2) -> String {
+    private func dayOfWeekString(dayOfWeek: DayOfWeek) -> String {
         switch dayOfWeek {
         case .MON:
             return "月"
@@ -53,7 +53,7 @@ struct EditAlarmDayOfWeek: View {
 }
 
 struct MockEditAlarmDayOfWeekDelegate: EditAlarmDayOfWeekDelegate {
-    func updateDayOfWeek(dayOfWeeks: [DayOfWeek2]) {}
+    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {}
 }
 
 //struct EditAlarmWeekDay_Previews: PreviewProvider {

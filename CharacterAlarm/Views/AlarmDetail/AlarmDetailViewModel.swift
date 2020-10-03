@@ -136,7 +136,7 @@ class AlarmDetailViewModel: ObservableObject {
         alarm.minute = minute
     }
 
-    func updateDayOfWeek(dayOfWeeks: [DayOfWeek2]) {
+    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
         alarm.dayOfWeeks = dayOfWeeks
     }
 }

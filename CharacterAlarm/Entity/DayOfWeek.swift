@@ -1,6 +1,6 @@
 import Foundation
 
-enum DayOfWeek2: String, Codable, CaseIterable {
+enum DayOfWeek: String, Codable, CaseIterable {
     case MON = "MON"
     case TUE = "TUE"
     case WED = "WED"
@@ -10,6 +10,6 @@ enum DayOfWeek2: String, Codable, CaseIterable {
     case SUN = "SUN"
 }
 
-extension DayOfWeek2: Identifiable {
-    var id: DayOfWeek2 { self }
+extension DayOfWeek: Identifiable {
+    var id: DayOfWeek { self }
 }

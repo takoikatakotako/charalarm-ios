@@ -71,7 +71,7 @@ extension AlarmDetailView: EditAlarmTimeDifferenceDelegate {
 }
 
 extension AlarmDetailView: EditAlarmDayOfWeekDelegate {
-    func updateDayOfWeek(dayOfWeeks: [DayOfWeek2]) {
+    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
          viewModel.updateDayOfWeek(dayOfWeeks: dayOfWeeks)
     }
 }

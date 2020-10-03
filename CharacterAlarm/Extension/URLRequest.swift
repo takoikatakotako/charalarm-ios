@@ -1,7 +1,6 @@
 import Foundation
 
 extension URLRequest {
-
     /**
      Returns a cURL command representation of this URL request.
      */
@@ -31,5 +30,4 @@ extension URLRequest {
 
         return command.joined(separator: " \\\n\t")
     }
-
 }

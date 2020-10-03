@@ -5,7 +5,6 @@ struct JsonResponseBean<T: Decodable>: Decodable  {
     let errors: ExceptionErrors
 }
 
-
 struct ExceptionErrors: Decodable {
     let UserNotFoundException: String?
 }
