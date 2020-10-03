@@ -5,12 +5,6 @@ struct AlarmListView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: AlarmListViewModel()) var viewModel: AlarmListViewModel
     
-    let uid: String
-    
-    init(uid: String) {
-        self.uid = uid
-    }
-    
     var body: some View {
         List {
             ForEach(self.viewModel.alarms) { alarm in
@@ -61,6 +55,6 @@ extension AlarmListView: AlarmListRowDelegate {
 
 struct AlarmListView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmListView(uid: "xxxx")
+        AlarmListView()
     }
 }

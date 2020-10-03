@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import SDWebImageSwiftUI
 
 struct ConfigView: View {
     @EnvironmentObject var appState: CharalarmAppState
@@ -12,18 +13,36 @@ struct ConfigView: View {
             List {
                 Section {
                     NavigationLink(destination: ProfileView(characterId: appState.charaDomain)) {
-                        ProfileHeader(
-                            imageUrlString: "https://charalarm.com/image/\(appState.charaDomain)/thumbnail.png",
-                            characterName: self.viewModel.character?.name ?? "",
-                            circleName: self.appState.circleName,
-                            voiceName: self.appState.voiceName)
+                        HStack {
+                            WebImage(url: URL(string: "https://charalarm.com/image/\(appState.charaDomain)/thumbnail.png"))
+                                .resizable()
+                                .placeholder {
+                                    Image("character-placeholder")
+                                        .resizable()
+                                }
+                                .animation(.easeInOut(duration: 0.5))
+                                .transition(.fade)
+                                .scaledToFill()
+                                .frame(width: 76, height: 76, alignment: .center)
+                                .clipShape(Circle())
+                            
+                            VStack(alignment: .leading) {
+                                Text(viewModel.character?.name ?? "")
+                                    .foregroundColor(.gray)
+                                    .font(Font.system(size: 24))
+                                Text("\(appState.circleName) / \(appState.voiceName)")
+                                    .foregroundColor(.gray)
+                                    .font(Font.system(size: 18))
+                                    .padding(.top, 8)
+                            }
+                        }
                     }.frame(height: 80)
-                        .onAppear {
+                    .onAppear {
                     }
                 }
                 
                 Section(header: Text("アラーム")) {
-                    NavigationLink(destination: AlarmListView(uid: "viewModel.uid")) {
+                    NavigationLink(destination: AlarmListView()) {
                         Text("アラーム")
                             .foregroundColor(Color("textColor"))
                     }
@@ -102,11 +121,11 @@ struct ConfigView: View {
                     }
                 }
             }.listStyle(GroupedListStyle())
-                .navigationBarTitle("設定", displayMode: .inline)
-                .navigationBarItems(leading:
-                    Button("閉じる") {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
+            .navigationBarTitle("設定", displayMode: .inline)
+            .navigationBarItems(leading:
+                                    Button("閉じる") {
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    }
             )
         }.onAppear {
             guard let characterId = UserDefaults.standard.string(forKey: CHARACTER_DOMAIN) else {

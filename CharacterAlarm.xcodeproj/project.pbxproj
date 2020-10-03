@@ -44,7 +44,6 @@
 		8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */; };
 		8DFFCFD22528240900DEAB5D /* FileHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */; };
 		90EAB01C50F16E19E3CF9087 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
-		9236D9DC11AFCE46764F29CB /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB6D5344BFB753B79858CDA /* ProfileHeader.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		9F760006DD2B1D7D8315A6CA /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
@@ -176,7 +175,6 @@
 		B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
 		BA51FBF61F90A06BA645545D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BB58FC93558ECD02693905FD /* CharacterAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEB6D5344BFB753B79858CDA /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		C04848E6DA790BC828920D62 /* CharacterAlarmTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77FE7757285D78CA7096C64 /* CharacterAlarmUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewModel.swift; sourceTree = "<group>"; };
@@ -537,7 +535,6 @@
 			children = (
 				25A9200D23155D111130A0FD /* ConfigView.swift */,
 				1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */,
-				BEB6D5344BFB753B79858CDA /* ProfileHeader.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -814,7 +811,6 @@
 				ED0F28A3D33080D0877E9B39 /* PageView.swift in Sources */,
 				614E2BEEACBACC0315D6658F /* PageViewController.swift in Sources */,
 				B9316C7A2D5DD3B3895AF73A /* Profile.swift in Sources */,
-				9236D9DC11AFCE46764F29CB /* ProfileHeader.swift in Sources */,
 				CB560F3A2166797860AA3B4A /* ProfileRow.swift in Sources */,
 				C4AD7B0D9C5AE42CC7C4B44F /* ProfileView.swift in Sources */,
 				C4E627B8416F373BD0919357 /* ProfileViewModel.swift in Sources */,
