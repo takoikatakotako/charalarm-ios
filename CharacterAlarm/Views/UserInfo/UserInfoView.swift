@@ -3,7 +3,7 @@ import SwiftUI
 struct UserInfoView: View {
     
     var userName: String {
-        guard let anonymousUserName = UserDefaultsHandler.getAnonymousUserName() else {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName() else {
             return ""
         }
         return anonymousUserName

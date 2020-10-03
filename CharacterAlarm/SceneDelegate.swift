@@ -11,8 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.register(defaults: [CHARACTER_DOMAIN : DEFAULT_CHARACTER_DOMAIN])
         let characterId = UserDefaultsHandler.getCharacterDomain()
         
-        let anonymousUserName = UserDefaultsHandler.getAnonymousUserName()
-        let anonymousUserPassword = UserDefaultsHandler.getAnonymousUserPassword()
+        let anonymousUserName = KeychainHandler.getAnonymousUserName()
+        let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword()
     
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
 

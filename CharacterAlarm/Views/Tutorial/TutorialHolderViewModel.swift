@@ -17,8 +17,12 @@ class TutorialHolderViewModel: ObservableObject {
             }
             
             // ユーザー作成に成功
-            UserDefaultsHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
-            UserDefaultsHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
+            do {
+                try KeychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
+                try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
+            } catch {
+                fatalError("エラーハンドリングをきちんとする")
+            }
         }
     }
 }

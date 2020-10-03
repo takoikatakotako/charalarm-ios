@@ -10,6 +10,7 @@ target 'CharacterAlarm' do
   pod 'SwiftLint'
   pod 'LicensePlist'
   pod 'SDWebImageSwiftUI'
+  pod 'KeychainAccess'
 
   # Pods for CharacterAlarm
   target 'CharacterAlarmTests' do
