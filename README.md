@@ -88,6 +88,11 @@ api
 
 ```
 
+LicensePlistの更新
+
+```
+mint run LicensePlist license-plist --output-path CharacterAlarm/Settings.bundle
+```
 
 ## 作業の流れ
 

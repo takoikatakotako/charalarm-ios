@@ -8,7 +8,6 @@ target 'CharacterAlarm' do
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
   pod 'SwiftLint'
-  pod 'LicensePlist'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
 

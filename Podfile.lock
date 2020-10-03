@@ -57,7 +57,6 @@ PODS:
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
   - KeychainAccess (4.2.1)
-  - LicensePlist (2.16.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -75,7 +74,6 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Core
   - KeychainAccess
-  - LicensePlist
   - SDWebImageSwiftUI
   - SwiftLint
 
@@ -90,7 +88,6 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - KeychainAccess
-    - LicensePlist
     - nanopb
     - PromisesObjC
     - SDWebImage
@@ -107,13 +104,12 @@ SPEC CHECKSUMS:
   GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
-  LicensePlist: 26afd3ef32fffcc649a15b31d96fef5eded65497
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
   SDWebImageSwiftUI: 43687ffe232ddd33fe0659498b7ca9884fdd6b35
   SwiftLint: 1216c910d27c2633ade33b4f071bb6b930982e62
 
-PODFILE CHECKSUM: 3335d5513102281ead34c77333384be049513890
+PODFILE CHECKSUM: edad53f076c2fdf6dc212ce7a2bb8fc67f8e5424
 
 COCOAPODS: 1.9.3
