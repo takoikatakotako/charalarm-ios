@@ -7,21 +7,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var rootViewController: UIViewController?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // キャラクターID、匿名ユーザーID、匿名ユーザーパスワードを登録
-        UserDefaults.standard.register(defaults: [CHARACTER_DOMAIN : DEFAULT_CHARACTER_DOMAIN])
-        let characterId = UserDefaultsHandler.getCharacterDomain()
-        
+        // キャラクターの初期値のDomainを登録
+        UserDefaultsHandler.registerDefaults(defaults: [CHARACTER_DOMAIN : DEFAULT_CHARACTER_DOMAIN])
+                
+        guard let characterDomain = UserDefaultsHandler.getCharacterDomain() else {
+            fatalError("キャラクターのドメインの取得に失敗しました")
+        }
         let anonymousUserName = KeychainHandler.getAnonymousUserName()
         let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword()
     
+        // 匿名ユーザー名、パスワードが登録されていればチュートリアル完了
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
 
         let rootView = RootView()
         let charalarmAppState = CharalarmAppState()
         charalarmAppState.doneTutorial = doneTutorial
-        charalarmAppState.charaDomain = characterId
+        charalarmAppState.charaDomain = characterDomain
 
-        // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             rootViewController = UIHostingController(rootView: rootView.environmentObject(charalarmAppState))

@@ -25,6 +25,9 @@ class KeychainHandler {
     
     static private func get(key: String) -> String? {
         let keychain = Keychain()
-        return try? keychain.get(key)
+        guard let value = try? keychain.get(key), value.isNotEmpty else {
+            return nil
+        }
+        return value
     }
 }

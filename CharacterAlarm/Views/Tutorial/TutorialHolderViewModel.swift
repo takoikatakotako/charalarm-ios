@@ -9,10 +9,7 @@ class TutorialHolderViewModel: ObservableObject {
     func signUp() {
         AnonymousUserStore.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ error in
             if let error = error {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = error.localizedDescription
-                }
+                self.showErrorAlert(message: "サーバーとの通信に失敗しました\n" + error.localizedDescription)
                 return
             }
             
@@ -21,8 +18,15 @@ class TutorialHolderViewModel: ObservableObject {
                 try KeychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
                 try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
             } catch {
-                fatalError("エラーハンドリングをきちんとする")
+                self.showErrorAlert(message: "ユーザー情報の保存に設定しました\n" + error.localizedDescription)
             }
+        }
+    }
+    
+    private func showErrorAlert(message: String) {
+        DispatchQueue.main.async {
+            self.showingAlert = true
+            self.alertMessage = message
         }
     }
 }

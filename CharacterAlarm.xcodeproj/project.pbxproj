@@ -43,6 +43,8 @@
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */; };
 		8D77889E252835E4002C87B8 /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D77889D252835E4002C87B8 /* KeychainHandler.swift */; };
+		8D7788FC25285BC9002C87B8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7788FB25285BC9002C87B8 /* String.swift */; };
+		8D77894B252863BE002C87B8 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D77894A252863BE002C87B8 /* APIClient.swift */; };
 		8DFFCFD22528240900DEAB5D /* FileHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */; };
 		90EAB01C50F16E19E3CF9087 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
@@ -162,6 +164,8 @@
 		8D3197B22519DCA800D99924 /* CharacterAlarmRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmRelease.entitlements; sourceTree = "<group>"; };
 		8D3197B62519DE2C00D99924 /* CharacterAlarmDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmDebug.entitlements; sourceTree = "<group>"; };
 		8D77889D252835E4002C87B8 /* KeychainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHandler.swift; sourceTree = "<group>"; };
+		8D7788FB25285BC9002C87B8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8D77894A252863BE002C87B8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		8DFFCFD12528240900DEAB5D /* FileHandlerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandlerError.swift; sourceTree = "<group>"; };
 		99B6A0DD7CAF95B3D986A825 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 				FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */,
 				6915811511BDD6501346263B /* Settings.bundle */,
 				2C3A6CBFE0EA874037556100 /* CallKit */,
+				8D7789462528637A002C87B8 /* Network */,
 				35CE0717DB5E83C7E13D8178 /* Entity */,
 				3EBDC566ED9D171F6602B8AF /* Error */,
 				CFD2089E174D62D9A6D5369F /* Extension */,
@@ -436,6 +441,14 @@
 			path = EditAlarmTime;
 			sourceTree = "<group>";
 		};
+		8D7789462528637A002C87B8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8D77894A252863BE002C87B8 /* APIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				27341491D953750F35AECB8E /* URLRequest.swift */,
+				8D7788FB25285BC9002C87B8 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -779,6 +793,7 @@
 				C7581DB59F2584A56D229578 /* AnonymousAuthBean.swift in Sources */,
 				8D77889E252835E4002C87B8 /* KeychainHandler.swift in Sources */,
 				8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */,
+				8D7788FC25285BC9002C87B8 /* String.swift in Sources */,
 				48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				335670CE894634768800E623 /* CharalarmAppState.swift in Sources */,
@@ -811,6 +826,7 @@
 				90EAB01C50F16E19E3CF9087 /* NewsListViewModel.swift in Sources */,
 				CB21A6F2FB327EDD1FEE0363 /* NewsRow.swift in Sources */,
 				2472BB3E1EA6EAA017603893 /* NewsStore.swift in Sources */,
+				8D77894B252863BE002C87B8 /* APIClient.swift in Sources */,
 				759566014BCA6D3D3963E960 /* PageControl.swift in Sources */,
 				ED0F28A3D33080D0877E9B39 /* PageView.swift in Sources */,
 				614E2BEEACBACC0315D6658F /* PageViewController.swift in Sources */,

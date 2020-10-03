@@ -34,13 +34,7 @@ struct TutorialView: View {
             
             if tutorialType == .end {
                 Button(action: {
-                    guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
-                        let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
-                            return
-                    }
-                    print("\(ANONYMOUS_USER_NAME): \(anonymousUserName)")
-                    print("\(ANONYMOUS_USER_PASSWORD): \(anonymousUserPassword)")
-                    // self.appState.settingState.doneTutorial = true
+
                 }) {
                     Text("アプリを使ってみる")
                         .foregroundColor(Color.white)

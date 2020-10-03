@@ -37,8 +37,8 @@ class AlarmDetailViewModel: ObservableObject {
         let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
         request.allHTTPHeaderFields = header
         
-        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
-            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.showingAlert = true
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
@@ -105,8 +105,8 @@ class AlarmDetailViewModel: ObservableObject {
     }
     
     private func editAlarm(alarmId: Int) {
-        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
-            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.showingAlert = true
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return

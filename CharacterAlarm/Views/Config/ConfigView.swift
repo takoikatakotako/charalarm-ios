@@ -1,5 +1,4 @@
 import SwiftUI
-import UIKit
 import SDWebImageSwiftUI
 
 struct ConfigView: View {
@@ -134,10 +133,10 @@ struct ConfigView: View {
                                     }
             )
         }.onAppear {
-            guard let characterId = UserDefaults.standard.string(forKey: CHARACTER_DOMAIN) else {
-                fatalError("characterIdが取得できませんでした")
+            guard let characterDomain = UserDefaultsHandler.getCharacterDomain() else {
+                fatalError("CHARACTER_DOMAIN が取得できませんでした")
             }
-            self.viewModel.fetchCharacter(characterId: characterId)
+            self.viewModel.fetchCharacter(characterDomain: characterDomain)
         }.alert(isPresented: self.$viewModel.showingAlert) {
             Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
         }

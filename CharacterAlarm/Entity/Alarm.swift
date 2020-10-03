@@ -1,7 +1,7 @@
 import UIKit
 
 struct Alarm: Identifiable, Decodable, Hashable {
-    let id = UUID()
+    var id = UUID()
     var alarmId: Int?
     var enable: Bool
     var name: String

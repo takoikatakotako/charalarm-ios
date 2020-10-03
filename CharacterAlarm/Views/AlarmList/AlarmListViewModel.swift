@@ -17,8 +17,8 @@ class AlarmListViewModel: ObservableObject {
     }
     
     func fetchAlarms() {
-        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
-            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.showingAlert = true
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
@@ -38,8 +38,8 @@ class AlarmListViewModel: ObservableObject {
     }
     
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
-        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
-            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
+              let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.showingAlert = true
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
@@ -72,8 +72,8 @@ class AlarmListViewModel: ObservableObject {
         }
         alarms.remove(at: index)
         
-        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
-            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
+              let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.showingAlert = true
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return

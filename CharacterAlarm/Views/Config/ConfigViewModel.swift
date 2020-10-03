@@ -17,8 +17,8 @@ class ConfigViewModel: ObservableObject {
         UIApplication.shared.open(url)
     }
     
-    func fetchCharacter(characterId: String) {
-        CharacterStore.fetchCharacter(charaDomain: characterId) { error, character in
+    func fetchCharacter(characterDomain: String) {
+        CharacterStore.fetchCharacter(charaDomain: characterDomain) { error, character in
             if let error = error {
                 DispatchQueue.main.async {
                     self.showingAlert = true
@@ -42,27 +42,36 @@ class ConfigViewModel: ObservableObject {
     }
     
     func withdraw(completion: @escaping () -> Void) {
-        guard let anonymousUserName = UserDefaults.standard.string(forKey: ANONYMOUS_USER_NAME),
-            let anonymousUserPassword = UserDefaults.standard.string(forKey: ANONYMOUS_USER_PASSWORD) else {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.showingAlert = true
                 self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
         }
         
-        
         AnonymousUserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ error in
             if let error = error {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = error.localizedDescription
-                }
+                self.showErrorAlert(message: "退会処理に失敗しました\n\(error.localizedDescription)")
                 return
             }
             
-            // ユーザー作成に成功
-            UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_NAME)
-            UserDefaults.standard.set(nil, forKey: ANONYMOUS_USER_PASSWORD)
+            // ユーザー退会に成功
+            do {
+                try KeychainHandler.setAnonymousUserName(anonymousUserName: "")
+                try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+            } catch {
+                self.showErrorAlert(message: "ユーザー情報の削除に失敗しました\n\(error.localizedDescription)")
+                return
+            }
+
             completion()
+        }
+    }
+    
+    private func showErrorAlert(message: String) {
+        DispatchQueue.main.async {
+            self.showingAlert = true
+            self.alertMessage = message
         }
     }
     
