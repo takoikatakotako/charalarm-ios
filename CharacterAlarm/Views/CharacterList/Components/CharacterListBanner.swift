@@ -18,7 +18,13 @@ struct CharacterListBanner: View {
                     .padding(.horizontal, 44)
                     .padding(.vertical, 8)
             }
-        }.background(Color.white)
+        }
+        .background(Color.white)
+        .cornerRadius(4)
+        .overlay(
+              RoundedRectangle(cornerRadius: 4)
+                  .stroke(Color.gray, lineWidth: 1)
+          )
     }
 }
 
