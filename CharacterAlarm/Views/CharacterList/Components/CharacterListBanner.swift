@@ -11,12 +11,14 @@ struct CharacterListBanner: View {
                     .background(Color.gray)
             }
             HStack {
+                Spacer()
                 Text("あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！")
                     .multilineTextAlignment(.center)
                     .font(.system(size: 14))
                     .foregroundColor(Color("brownColor"))
                     .padding(.horizontal, 44)
                     .padding(.vertical, 8)
+                Spacer()
             }
         }
         .background(Color.white)

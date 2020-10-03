@@ -27,6 +27,7 @@ struct CharacterListView: View {
                 }
             }) {
                 CharacterListBanner()
+                    .padding(.horizontal, 16)
                     .padding(.bottom, 36)
             }
         }

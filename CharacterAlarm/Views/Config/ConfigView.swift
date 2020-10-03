@@ -98,7 +98,7 @@ struct ConfigView: View {
                             return
                         }
                         UIApplication.shared.open(settingsUrl, completionHandler: nil)
-                    } label: { 
+                    } label: {
                         Text("ライセンス")
                             .foregroundColor(Color("textColor"))
                     }
@@ -106,7 +106,6 @@ struct ConfigView: View {
                 
                 Section(header: Text("リセット")) {
                     Button(action: {
-                        print("リセット")
                         self.showingResetAlert = true
                     }) {
                         Text("リセット")
@@ -117,7 +116,7 @@ struct ConfigView: View {
                             title: Text("リセット"),
                             message: Text("リセットしてよろしいですか？"),
                             primaryButton: .default(Text("キャンセル")) {
-                                print("ボタンその１")
+                                print("リセットをキャンセルしました。")
                             }, secondaryButton: .destructive(Text("リセット")) {
                                 self.viewModel.withdraw() {
                                     DispatchQueue.main.async {
