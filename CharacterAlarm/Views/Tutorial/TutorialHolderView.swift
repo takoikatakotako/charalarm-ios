@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TutorialHolderView: View {
-    @EnvironmentObject var appState2: AppState2
+    @EnvironmentObject var appState2: AppState
     @ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
     
     @State var views: [TutorialView] = [

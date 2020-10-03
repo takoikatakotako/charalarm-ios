@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         
         let rootView = RootView()
-        let appState2 = AppState2()
+        let appState2 = AppState()
         appState2.doneTutorial = doneTutorial
         appState2.charaDomain = characterId
 

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RootView: View {
-    @EnvironmentObject var appState2: AppState2
+    @EnvironmentObject var appState2: AppState
 
     @State var showingAlert = false
     

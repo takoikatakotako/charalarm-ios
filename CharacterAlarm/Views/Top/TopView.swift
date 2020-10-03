@@ -4,7 +4,7 @@ import CallKit
 import PushKit
 
 struct TopView: View {
-    @EnvironmentObject var appState2: AppState2
+    @EnvironmentObject var appState2: AppState
     @ObservedObject var viewModel = TopViewModel()
     
     var body: some View {

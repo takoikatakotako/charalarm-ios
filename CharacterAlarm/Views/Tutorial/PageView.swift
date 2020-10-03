@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PageView<Page: View>: View {
-    @EnvironmentObject var appState2: AppState2
+    @EnvironmentObject var appState2: AppState
     var viewControllers: [UIHostingController<Page>]
     @State var currentPage = 0
     

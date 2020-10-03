@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 struct ConfigView: View {
-    @EnvironmentObject var appState2: AppState2
+    @EnvironmentObject var appState2: AppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
     @State private var showingResetAlert = false
