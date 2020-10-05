@@ -57,8 +57,11 @@ extension AppDelegate {
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
             return
         }
-        PushStore.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in
-            if let error = error {
+        PushStore.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { result in
+            switch result {
+            case .success(_):
+                break
+            case let .failure(error):
                 print(error.localizedDescription)
             }
         }
@@ -78,9 +81,12 @@ extension AppDelegate: PKPushRegistryDelegate {
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
             return
         }
-        PushStore.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { error in
-            if let error = error {
-                print(error.localizedDescription)
+        PushStore.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: token) { result in
+            switch result {
+            case .success(_):
+                break
+            case let .failure(error):
+                print(error)
             }
         }
     }

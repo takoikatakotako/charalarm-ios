@@ -7,17 +7,13 @@ class NewsListViewModel: ObservableObject {
     @Published var alertMessage = ""
     
     func fetchNews() {
-        NewsStore.fetchNews { error, newsList in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = error.localizedDescription
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.newsList = newsList
+        NewsStore.fetchNews { result in
+            switch result {
+            case let .success(news):
+                self.newsList = news
+            case let .failure(error):
+                self.alertMessage = error.localizedDescription
+                self.showingAlert = true
             }
         }
     }

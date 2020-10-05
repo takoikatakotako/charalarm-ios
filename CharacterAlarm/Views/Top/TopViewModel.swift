@@ -16,25 +16,13 @@ class TopViewModel: ObservableObject {
     }
     
     func featchCharacter(charaDomain: String, completion: @escaping (Character) -> Void) {
-        CharacterStore.fetchCharacter(charaDomain: charaDomain) { error, character in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = error.localizedDescription
-                }
-                return
-            }
-            
-            guard let character = character else {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = "所得に失敗しました"
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
+        CharacterStore.fetchCharacter(charaDomain: charaDomain) { result in
+            switch result {
+            case let .success(character):
                 completion(character)
+            case let .failure(error):
+                self.alertMessage = error.localizedDescription
+                self.showingAlert = true
             }
         }
     }

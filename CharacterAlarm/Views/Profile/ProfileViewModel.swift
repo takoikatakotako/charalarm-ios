@@ -12,25 +12,13 @@ class ProfileViewModel: ObservableObject {
     @Published var alertMessage = ""
     
     func fetchCharacter(characterId: String) {
-        CharacterStore.fetchCharacter(charaDomain: characterId) { error, character in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = error.localizedDescription
-                }
-                return
-            }
-            
-            guard let character = character else {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = "所得に失敗しました"
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
+        CharacterStore.fetchCharacter(charaDomain: characterId) { result in
+            switch result {
+            case let .success(character):
                 self.character = character
+            case let .failure(error):
+                self.alertMessage = error.localizedDescription
+                self.showingAlert = true
             }
         }
     }
@@ -67,8 +55,8 @@ class ProfileViewModel: ObservableObject {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
                 print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
                 print(#file)
-                      print(#function)
-                      print(#line)
+                print(#function)
+                print(#line)
             }
         }
         task.resume()

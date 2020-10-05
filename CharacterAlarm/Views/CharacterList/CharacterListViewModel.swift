@@ -6,16 +6,13 @@ class CharacterListViewModel: ObservableObject {
     @Published var alertMessage = ""
     
     func fetchCharacters() {
-        CharacterStore.fetchCharacters { error, characters in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = error.localizedDescription
-                }
-                return
-            }
-            DispatchQueue.main.async {
+        CharacterStore.fetchCharacters { result in
+            switch result {
+            case let .success(characters):
                 self.characters = characters
+            case let .failure(error):
+                self.alertMessage = error.localizedDescription
+                self.showingAlert = true
             }
         }
     }
