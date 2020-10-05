@@ -71,24 +71,6 @@ struct TopView: View {
     }
 }
 
-
-
-
-//extension TopView: CXProviderDelegate {
-////    func providerDidReset(_ provider: CXProvider) {
-////    }
-////
-////    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-////        action.fulfill()
-////    }
-////
-////    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
-////        action.fulfill()
-////    }
-//}
-
-
-
 struct TopView_Previews: PreviewProvider {
     static var previews: some View {
         Group {

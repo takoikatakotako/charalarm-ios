@@ -1,111 +1,37 @@
 import UIKit
 
 class AnonymousUserStore {
-    static func signup(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Error?) -> Void) {
-        
-        let url = URL(string: BASE_URL + "/api/anonymous/auth/signup")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
-        request.allHTTPHeaderFields = header
-        
+    static func signup(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let path = "/api/anonymous/auth/signup"
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
-            print("AnonymousAuthBeanのパースに失敗しました。")
-            completion(CharalarmError.decode)
-            return
-        }
-        request.httpBody = httpBody
-        
-        print("****")
-        print(request.curlString)
-        print("****")
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print(error)
-                completion(CharalarmError.clientError)
-                return
-            }
-            
-            guard let data = data, let response = response as? HTTPURLResponse else {
-                completion(CharalarmError.serverError)
-                return
-            }
-            
-            if response.statusCode == 200 {
-                // ユーザー作成に成功
-                guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<String>.self, from: data) else {
-                    completion(CharalarmError.decode)
-                    return
+        let apiRequest = APIRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let apiClient = APIClient<JsonResponseBean<String>>()
+        apiClient.request(urlRequest: apiRequest.toURLRequest()) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(response):
+                    completion(.success(response.data))
+                case let .failure(error):
+                    completion(.failure(error))
                 }
-                print(jsonResponse)
-                completion(nil)
-            } else {
-                // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                let message = """
-                サーバサイドエラー
-                ステータスコード: \(response.statusCode)
-                File: \(#file)
-                Function: \(#function)
-                Line: \(#line)
-                """
-                print(message)
-                completion(CharalarmError.serverError)
             }
         }
-        task.resume()
     }
     
-    static func withdraw(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Error?) -> Void) {
-        let url = URL(string: BASE_URL + "/api/anonymous/auth/withdraw")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        let header: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
-        request.allHTTPHeaderFields = header
-        
+    static func withdraw(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let path = "/api/anonymous/auth/withdraw"
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
-            print("AnonymousAuthBeanのパースに失敗しました。")
-            completion(CharalarmError.decode)
-            return
-        }
-        request.httpBody = httpBody
-
-        print("****")
-        print(request.curlString)
-        print("****")
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print(error)
-                completion(CharalarmError.clientError)
-                return
-            }
-            
-            guard let data = data, let response = response as? HTTPURLResponse else {
-                completion(CharalarmError.serverError)
-                return
-            }
-            
-            if response.statusCode == 200 {
-                // ユーザー作成に成功
-                guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<String>.self, from: data) else {
-                    completion(CharalarmError.decode)
-                    return
+        let apiRequest = APIRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let apiClient = APIClient<JsonResponseBean<String>>()
+        apiClient.request(urlRequest: apiRequest.toURLRequest()) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(response):
+                    completion(.success(response.data))
+                case let .failure(error):
+                    completion(.failure(error))
                 }
-                print(jsonResponse)
-                completion(nil)
-            } else {
-                // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバサイドエラー ステータスコード: \(response.statusCode)")
-                print("サーバサイドエラー ステータスコード: \(response)")
-                print(data)
-                completion(CharalarmError.serverError)
             }
         }
-        task.resume()
     }
 }

@@ -55,18 +55,3 @@ struct EditAlarmDayOfWeek: View {
 struct MockEditAlarmDayOfWeekDelegate: EditAlarmDayOfWeekDelegate {
     func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {}
 }
-
-//struct EditAlarmWeekDay_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditAlarmDayOfWeek(delegate: MockEditAlarmDayOfWeekDelegate(), enableDayOfWeek:
-//            EnableDayOfWeek(
-//                sunday: true,
-//                monday: false,
-//                tuesday: true,
-//                wednesday: false,
-//                thursday: true,
-//                friday: false,
-//                saturday: true)
-//        )
-//    }
-//}
