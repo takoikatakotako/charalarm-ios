@@ -4,9 +4,9 @@ class AlarmStore {
     static func fetchAnonymousAlarms(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<[Alarm], Error>) -> Void) {
         let path = "/api/anonymous/alarm/list"
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        let apiRequest = APIRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
         let apiClient = APIClient<JsonResponseBean<[Alarm]>>()
-        apiClient.request(urlRequest: apiRequest.toURLRequest()) { result in
+        apiClient.request(urlRequest: urlRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
@@ -21,9 +21,9 @@ class AlarmStore {
     static func deleteAlarm(anonymousUserName: String, anonymousUserPassword: String, alarmId: Int, completion: @escaping (Result<String, Error>) -> Void) {
         let path = "/api/anonymous/alarm/delete/\(alarmId)"
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        let apiRequest = APIRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
         let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: apiRequest.toURLRequest()) { result in
+        apiClient.request(urlRequest: urlRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
@@ -48,9 +48,9 @@ class AlarmStore {
             hour: alarm.hour,
             minute: alarm.minute,
             dayOfWeeks: alarm.dayOfWeeks)
-        let apiRequest = APIRequest(path: path, httpMethod: .post, requestBody: anonymousAlarmBean)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAlarmBean)
         let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: apiRequest.toURLRequest()) { result in
+        apiClient.request(urlRequest: urlRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):

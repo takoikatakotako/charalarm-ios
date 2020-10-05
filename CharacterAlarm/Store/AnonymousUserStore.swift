@@ -4,9 +4,9 @@ class AnonymousUserStore {
     static func signup(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<String, Error>) -> Void) {
         let path = "/api/anonymous/auth/signup"
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        let apiRequest = APIRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
         let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: apiRequest.toURLRequest()) { result in
+        apiClient.request(urlRequest: urlRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
@@ -21,9 +21,9 @@ class AnonymousUserStore {
     static func withdraw(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<String, Error>) -> Void) {
         let path = "/api/anonymous/auth/withdraw"
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        let apiRequest = APIRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
         let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: apiRequest.toURLRequest()) { result in
+        apiClient.request(urlRequest: urlRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
