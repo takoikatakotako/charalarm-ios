@@ -48,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // Push Notification
 extension AppDelegate {
-
     // プッシュ通知の利用登録が成功した場合
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()

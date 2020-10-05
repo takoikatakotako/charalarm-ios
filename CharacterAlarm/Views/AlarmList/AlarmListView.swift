@@ -11,7 +11,6 @@ struct AlarmListView: View {
                 NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
                     AlarmListRow(delegate: self, alarm: alarm)
                         .frame(height: 60.0)
-                    // Text(alarm.name)
                 }
             }
             .onDelete(perform: delete)
