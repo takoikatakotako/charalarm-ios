@@ -36,16 +36,20 @@ class AlarmStore {
             
             if response.statusCode == 200 {
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<[Alarm]>.self, from: data) else {
-                    completion(CharalarmError.parseError, [])
+                    completion(CharalarmError.decode, [])
                     return
                 }
                 completion(nil, jsonResponse.data)
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
-                print(#file)
-                print(#function)
-                print(#line)
+                let message = """
+                サーバサイドエラー
+                ステータスコード: \(response.statusCode)
+                File: \(#file)
+                Function: \(#function)
+                Line: \(#line)
+                """
+                print(message)
                 completion(CharalarmError.serverError, [])
             }
         }
@@ -89,7 +93,7 @@ class AlarmStore {
             
             if response.statusCode == 200 {
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<String>.self, from: data) else {
-                    completion(CharalarmError.parseError)
+                    completion(CharalarmError.decode)
                     return
                 }
                 print(jsonResponse.data)
@@ -153,7 +157,7 @@ class AlarmStore {
             
             if response.statusCode == 200 {
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<String>.self, from: data) else {
-                    completion(CharalarmError.parseError)
+                    completion(CharalarmError.decode)
                     return
                 }
                 print(jsonResponse.data)

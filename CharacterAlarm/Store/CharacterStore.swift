@@ -28,7 +28,7 @@ class CharacterStore {
             
             if response.statusCode == 200 {
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<[Character]>.self, from: data) else {
-                    completion(CharalarmError.parseError, [])
+                    completion(CharalarmError.decode, [])
                     return
                 }
                 completion(nil, jsonResponse.data)
@@ -72,7 +72,7 @@ class CharacterStore {
             
             if response.statusCode == 200 {
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<Character>.self, from: data) else {
-                    completion(CharalarmError.parseError, nil)
+                    completion(CharalarmError.decode, nil)
                     return
                 }
                 completion(nil, jsonResponse.data)

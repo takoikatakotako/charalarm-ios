@@ -28,7 +28,7 @@ class NewsStore {
             
             if response.statusCode == 200 {
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<[News]>.self, from: data) else {
-                    completion(CharalarmError.parseError, [])
+                    completion(CharalarmError.decode, [])
                     return
                 }
                 completion(nil, jsonResponse.data)

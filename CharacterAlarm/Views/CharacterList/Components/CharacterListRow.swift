@@ -4,7 +4,6 @@ import SDWebImageSwiftUI
 
 struct CharacterListRow: View {
     let character: Character
-    @State var urlString: String = ""
     var body: some View {
         HStack {
             WebImage(url: URL(string: "https://charalarm.com/image/\(character.charaDomain)/thumbnail.png"))
@@ -18,17 +17,13 @@ struct CharacterListRow: View {
             .transition(.fade)
             .scaledToFill()
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(character.name)
                     .font(Font.system(size: 18.0))
-                
-                Text("旋風鬼")
+                Text("イラスト: \(character.illustrationName)")
                     .font(Font.system(size: 16.0))
                 
-                Text("イラスト: 伊藤ライフ")
-                    .font(Font.system(size: 16.0))
-                
-                Text("CV: おのじゅん")
+                Text("CV: \(character.voiceName)")
                     .font(Font.system(size: 16.0))
             }
             

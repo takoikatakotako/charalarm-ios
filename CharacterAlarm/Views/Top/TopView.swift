@@ -12,8 +12,8 @@ struct TopView: View {
             ZStack {
                 Image("background")
                     .resizable()
-                    .frame(width: geometory.size.width, height: geometory.size.height)
                     .scaledToFill()
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 
                 VStack(spacing: 0) {
                     Spacer()

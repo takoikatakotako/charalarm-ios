@@ -13,7 +13,7 @@ class AnonymousUserStore {
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
         guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
             print("AnonymousAuthBeanのパースに失敗しました。")
-            completion(CharalarmError.parseError)
+            completion(CharalarmError.decode)
             return
         }
         request.httpBody = httpBody
@@ -37,16 +37,21 @@ class AnonymousUserStore {
             if response.statusCode == 200 {
                 // ユーザー作成に成功
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<String>.self, from: data) else {
-                    completion(CharalarmError.parseError)
+                    completion(CharalarmError.decode)
                     return
                 }
                 print(jsonResponse)
                 completion(nil)
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバサイドエラー ステータスコード: \(response.statusCode)")
-                print("サーバサイドエラー ステータスコード: \(response)")
-                print(data)
+                let message = """
+                サーバサイドエラー
+                ステータスコード: \(response.statusCode)
+                File: \(#file)
+                Function: \(#function)
+                Line: \(#line)
+                """
+                print(message)
                 completion(CharalarmError.serverError)
             }
         }
@@ -64,7 +69,7 @@ class AnonymousUserStore {
         let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
         guard let httpBody = try? JSONEncoder().encode(anonymousAuthBean) else {
             print("AnonymousAuthBeanのパースに失敗しました。")
-            completion(CharalarmError.parseError)
+            completion(CharalarmError.decode)
             return
         }
         request.httpBody = httpBody
@@ -88,7 +93,7 @@ class AnonymousUserStore {
             if response.statusCode == 200 {
                 // ユーザー作成に成功
                 guard let jsonResponse = try? JSONDecoder().decode(JsonResponseBean<String>.self, from: data) else {
-                    completion(CharalarmError.parseError)
+                    completion(CharalarmError.decode)
                     return
                 }
                 print(jsonResponse)

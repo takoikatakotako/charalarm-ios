@@ -3,7 +3,8 @@ import Foundation
 enum CharalarmError: Error {
     case clientError
     case serverError
-    case parseError
+    case decode
+    case encode
 }
 
 extension CharalarmError:LocalizedError{
@@ -13,8 +14,10 @@ extension CharalarmError:LocalizedError{
             return "クライアントエラー。ネットワークを確認してください"
         case .serverError:
             return "サーバーエラー。サーバーからのデータ取得に失敗しました。"
-        case .parseError:
-            return "クライアントエラー。データのパースに失敗しました。"
+        case .decode:
+            return "クライアントエラー。データのデコードに失敗しました。"
+        case .encode:
+            return "クライアントエラー。データのエンコードに失敗しました。"
         }
     }
 }
