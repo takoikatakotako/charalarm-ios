@@ -112,17 +112,14 @@ class AlarmDetailViewModel: ObservableObject {
                 return
         }
         
-        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { error in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.showingAlert = true
-                    self.alertMessage = error.localizedDescription
-                }
-                return
-            }
-            DispatchQueue.main.async {
-                self.showingAlert = true
+        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+            switch result {
+            case .success(_):
                 self.alertMessage = "編集完了しました"
+                self.showingAlert = true
+            case let .failure(error):
+                self.alertMessage = error.localizedDescription
+                self.showingAlert = true
             }
         }
     }

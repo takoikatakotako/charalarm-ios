@@ -1,26 +1,11 @@
 import Foundation
 
-struct APIClient {
-    func request<RequestBody: Encodable, ResponseType: Decodable>(path: String, httpMethod: HttpMethod, requestHeader: [String: String], requestBody: RequestBody, completion: @escaping (Result<ResponseType, Error>) -> Void) {
-        let url = URL(string: BASE_URL + path)!
-        var request = URLRequest(url: url)
-        request.httpMethod = httpMethod.rawValue
-        request.allHTTPHeaderFields = requestHeader
-        
-        guard let httpBody = try? JSONEncoder().encode(requestBody) else {
-            let message = """
-            エンコードエラー
-            File: \(#file)
-            Function: \(#function)
-            Line: \(#line)
-            """
-            print(message)
-            completion(.failure(CharalarmError.encode))
-            return
-        }
-        request.httpBody = httpBody
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+struct APIClient<ResponseType: Decodable> {
+    func request(urlRequest: URLRequest, completion: @escaping (Result<ResponseType, Error>) -> Void) {
+        print("====== curl =====")
+        print(urlRequest.curlString)
+        print("=================")
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 let message = """
                 クライアントエラー(\(error.localizedDescription))
@@ -72,9 +57,4 @@ struct APIClient {
         }
         task.resume()
     }
-}
-
-enum HttpMethod: String {
-    case get = "GET"
-    case post = "POST"
 }
