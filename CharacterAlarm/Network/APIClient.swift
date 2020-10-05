@@ -30,8 +30,14 @@ struct APIClient<ResponseType: Decodable> {
                 return
             }
             
+            print("====== response =====")
+            print(String(decoding: data, as: UTF8.self))
+            print("=================")
+            
             if response.statusCode == 200 {
-                guard let apiResponse: ResponseType = try? JSONDecoder().decode(ResponseType.self, from: data) else {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                guard let apiResponse: ResponseType = try? decoder.decode(ResponseType.self, from: data) else {
                     let message = """
                     デコードエラー
                     File: \(#file)

@@ -9,6 +9,14 @@ struct News: Decodable, Identifiable {
     let url: String
     let title: String
     let description: String
-    // Date でパースしたい
-    let registeredAt: String
+    let registeredAt: Date
+    
+    private enum CodingKeys: String, CodingKey {
+        case newsId
+        case siteName
+        case url
+        case title
+        case description
+        case registeredAt
+    }
 }
