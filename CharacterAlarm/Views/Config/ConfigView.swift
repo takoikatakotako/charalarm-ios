@@ -11,7 +11,7 @@ struct ConfigView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: ProfileView(characterId: appState.charaDomain)) {
+                    NavigationLink(destination: ProfileView(charaDomain: appState.charaDomain)) {
                         HStack {
                             WebImage(url: URL(string: "https://charalarm.com/image/\(appState.charaDomain)/thumbnail.png"))
                                 .resizable()

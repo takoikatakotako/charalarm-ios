@@ -2,18 +2,22 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProfileView: View {
-    let characterId: String
+    let charaDomain: String
     @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
     
     var character: Character? {
         return self.viewModel.character
     }
     
+    var charaThumbnailUrlString: String {
+        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+    }
+    
     var body: some View {
         GeometryReader { geometory in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    WebImage(url: URL(string: "https://charalarm.com/image/\(self.characterId)/thumbnail.png"))
+                    WebImage(url: URL(string: charaThumbnailUrlString))
                         .resizable()
                         .placeholder {
                             Image("character-placeholder")
@@ -26,7 +30,6 @@ struct ProfileView: View {
                     
                     ProfileRow(title: "名前", text: self.character?.name ?? "")
                     ProfileRow(title: "プロフィール", text: self.character?.name ?? "")
-                    ProfileRow(title: "サークル名", text: self.character?.name ?? "")
                     ProfileRow(title: "CV", text: self.character?.name ?? "")
                 }
                 
@@ -42,7 +45,7 @@ struct ProfileView: View {
                             }) {
                                 MenuItem(imageName: "profile-call")
                             }.sheet(isPresented: self.$viewModel.showCallView) {
-                                CallView(characterId: self.characterId, characterName: self.character?.name ?? "loading")
+                                CallView(characterId: self.charaDomain, characterName: self.character?.name ?? "loading")
                             }
                         }
                         if self.viewModel.showCheckItem {
@@ -73,8 +76,8 @@ struct ProfileView: View {
                 }
             }
         }.onAppear {
-            self.viewModel.fetchCharacter(characterId: self.characterId)
-            self.viewModel.download(characterId: self.characterId)
+            self.viewModel.fetchCharacter(characterId: self.charaDomain)
+            self.viewModel.download(characterId: self.charaDomain)
         }.alert(isPresented: self.$viewModel.showSelectAlert) {
             Alert(
                 title: Text("キャラクター選択"),

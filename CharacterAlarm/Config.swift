@@ -11,3 +11,5 @@ let ContactAbountAddCharacterUrlString = "https://docs.google.com/forms/d/e/1FAI
 
 // let BASE_URL: String = "http://localhost:8080"
 let BASE_URL: String = "https://api.charalarm.com"
+
+let RESOURCE_ENDPOINT: String = "https://charalarm.com/resource"

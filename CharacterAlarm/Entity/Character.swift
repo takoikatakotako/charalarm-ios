@@ -12,4 +12,8 @@ struct Character: Identifiable, Decodable {
     let illustrationUrl: String
     let voiceName: String
     let voiceUrl: String
+    
+    var charaThumbnailUrlString: String {
+        return "\(RESOURCE_ENDPOINT)/\(charaDomain)/image/thumbnail.png"
+    }
 }

@@ -24,7 +24,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func download(characterId: String) {
-        let url = URL(string: "https://charalarm.com/audio/\(characterId)/self-introduction.caf")!
+        let url = URL(string: ResourceHandler.getSelfIntroductionUrlString(charaDomain: characterId))!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
             // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)

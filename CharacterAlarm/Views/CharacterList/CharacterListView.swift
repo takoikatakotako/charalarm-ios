@@ -9,7 +9,7 @@ struct CharacterListView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 List(viewModel.characters) { character in
-                    NavigationLink(destination: ProfileView(characterId: character.charaDomain)) {
+                    NavigationLink(destination: ProfileView(charaDomain: character.charaDomain)) {
                         CharacterListRow(character: character)
                             .frame(height: 80)
                             .clipped()
