@@ -3,13 +3,12 @@ import UIKit
 import AVFoundation
 
 class CallViewModel: ObservableObject {
-    
     let charaDomain: String
     let charaName: String
     
     var incomingAudioPlayer: AVAudioPlayer!
     var voiceAudioPlayer: AVAudioPlayer!
-    @State var overlay = true
+    @Published var overlay = true
     
     var charaThumbnailUrlString: String {
         return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
@@ -24,11 +23,15 @@ class CallViewModel: ObservableObject {
         incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            guard let data = try? FileHandler.readNoteJSON(directoryName: self.charaDomain, fileName: "self-introduction.caf") else {
-                return
+            ResourceStore.loadSelfIntroductionData(charaDomain: self.charaDomain) { result in
+                switch result {
+                case let .success(data):
+                    self.voiceAudioPlayer = try? AVAudioPlayer(data: data)
+                    self.voiceAudioPlayer?.play()
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
             }
-            self.voiceAudioPlayer = try? AVAudioPlayer(data: data)
-            self.voiceAudioPlayer?.play()
         }
     }
     

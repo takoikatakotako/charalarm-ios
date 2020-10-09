@@ -26,7 +26,9 @@ struct CallView: View {
                 .scaledToFill()
                 
                 Text(viewModel.charaName)
-                
+                    .font(Font.system(size: 40))
+                    .foregroundColor(Color.black)
+                    .padding(.top, 40)
                 Spacer()
                 
                 Button(action: {
@@ -46,9 +48,9 @@ struct CallView: View {
             if viewModel.overlay {
                 VStack {
                     Text(viewModel.charaName)
-                        .font(Font.system(size: 36))
+                        .font(Font.system(size: 40))
                         .foregroundColor(Color.white)
-                        .padding(.top, 80)
+                        .padding(.top, 100)
                     Spacer()
                     
                     HStack(spacing: 160) {

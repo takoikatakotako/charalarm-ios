@@ -58,5 +58,14 @@ class ResourceStore {
             }
         }
         task.resume()
-    }    
+    }
+    
+    static func loadSelfIntroductionData(charaDomain: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        do {
+            let data = try FileHandler.readNoteJSON(directoryName: charaDomain, fileName: "self-introduction.caf")
+            completion(.success(data))
+        } catch {
+            completion(.failure(error))
+        }
+    }
 }
