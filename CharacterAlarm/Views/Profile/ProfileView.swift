@@ -2,22 +2,25 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProfileView: View {
-    let charaDomain: String
-    @ObservedObject(initialValue: ProfileViewModel()) var viewModel: ProfileViewModel
+    @ObservedObject var viewModel: ProfileViewModel
     
-    var character: Character? {
-        return self.viewModel.character
-    }
-    
-    var charaThumbnailUrlString: String {
-        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+//    var character: Character? {
+//        return self.viewModel.character
+//    }
+//
+//    var charaThumbnailUrlString: String {
+//        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+//    }
+//
+    init(charaDomain: String) {
+        viewModel = ProfileViewModel(charaDomain: charaDomain)
     }
     
     var body: some View {
         GeometryReader { geometory in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    WebImage(url: URL(string: charaThumbnailUrlString))
+                    WebImage(url: URL(string: viewModel.charaThumbnailUrlString))
                         .resizable()
                         .placeholder {
                             Image("character-placeholder")
@@ -28,9 +31,10 @@ struct ProfileView: View {
                     .frame(width: geometory.size.width, height: geometory.size.width)
                     .scaledToFill()
                     
-                    ProfileRow(title: "名前", text: self.character?.name ?? "")
-                    ProfileRow(title: "プロフィール", text: self.character?.name ?? "")
-                    ProfileRow(title: "CV", text: self.character?.name ?? "")
+                    ProfileRow(title: "名前", text: viewModel.character?.name ?? "")
+                    ProfileRow(title: "プロフィール", text: viewModel.character?.description ?? "")
+                    ProfileRow(title: "イラスト", text: viewModel.character?.illustrationName ?? "")
+                    ProfileRow(title: "CV", text: viewModel.character?.voiceName ?? "")
                 }
                 
                 ZStack(alignment: .bottomTrailing) {
@@ -45,7 +49,7 @@ struct ProfileView: View {
                             }) {
                                 MenuItem(imageName: "profile-call")
                             }.sheet(isPresented: self.$viewModel.showCallView) {
-                                CallView(characterId: self.charaDomain, characterName: self.character?.name ?? "loading")
+                                CallView(characterId: viewModel.charaDomain, characterName: viewModel.character?.name ?? "loading")
                             }
                         }
                         if self.viewModel.showCheckItem {
@@ -76,20 +80,15 @@ struct ProfileView: View {
                 }
             }
         }.onAppear {
-            self.viewModel.fetchCharacter(characterId: self.charaDomain)
-            self.viewModel.download(characterId: self.charaDomain)
+            self.viewModel.fetchCharacter()
+            self.viewModel.download()
         }.alert(isPresented: self.$viewModel.showSelectAlert) {
             Alert(
                 title: Text("キャラクター選択"),
                 message: Text("このキャラクターに電話してもらいたいですか？"),
                 primaryButton: .default(Text("閉じる")) {
-                    print("ボタンその１")
-                    // Close
                 }, secondaryButton: .default(Text("はい！！")) {
-                    // Select
-                    print("ボタンその２")
                     self.viewModel.selectCharacter()
-                    //                            self.appState.characterId = self.profile.characterId
                 })
         }
     }

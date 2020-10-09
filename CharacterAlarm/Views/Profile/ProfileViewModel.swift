@@ -3,6 +3,7 @@ import CallKit
 import SwiftUI
 
 class ProfileViewModel: ObservableObject {
+    let charaDomain: String
     @Published var character: Character?
     @Published var showCallView: Bool = false
     @Published var showCallItem = false
@@ -11,8 +12,16 @@ class ProfileViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
-    func fetchCharacter(characterId: String) {
-        CharacterStore.fetchCharacter(charaDomain: characterId) { result in
+    var charaThumbnailUrlString: String {
+        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+    }
+    
+    init(charaDomain: String) {
+        self.charaDomain = charaDomain
+    }
+    
+    func fetchCharacter() {
+        CharacterStore.fetchCharacter(charaDomain: charaDomain) { result in
             switch result {
             case let .success(character):
                 self.character = character
@@ -23,43 +32,16 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func download(characterId: String) {
-        let url = URL(string: ResourceHandler.getSelfIntroductionUrlString(charaDomain: characterId))!
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            // ここのエラーはクライアントサイドのエラー(ホストに接続できないなど)
-            if let error = error {
-                print("クライアントサイドエラー: \(error.localizedDescription) \n")
-                return
-            }
-            
-            guard let data = data, let response = response as? HTTPURLResponse else {
-                print("no data or no response")
-                return
-            }
-            
-            if response.statusCode == 200 {
-                print(data)
-                
-                
-                do {
-                    try FileHandler.saveFile(directoryName: characterId, fileName: "self-introduction.caf", data: data)
-                } catch {
-                    print(error.localizedDescription)
-                    print("exception")
-                }
-                
-                
-                
-            } else {
-                // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバサイドエラー ステータスコード: \(response.statusCode)\n")
-                print(#file)
-                print(#function)
-                print(#line)
+    func download() {
+        ResourceStore.downloadSelfIntroduction(charaDomain: charaDomain) { result in
+            switch result {
+            case .success(_):
+                print("自己紹介音声の保存に成功しました")
+            case let .failure(error):
+                self.alertMessage = error.localizedDescription
+                self.showingAlert = true
             }
         }
-        task.resume()
     }
     
     func selectCharacter() {

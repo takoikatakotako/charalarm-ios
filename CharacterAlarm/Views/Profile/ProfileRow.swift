@@ -13,6 +13,8 @@ struct ProfileRow: View {
                     .padding(.bottom, 8)
                 Text(text)
                     .foregroundColor(Color.gray)
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
                 Divider()
             }
         }
