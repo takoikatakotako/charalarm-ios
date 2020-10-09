@@ -50,6 +50,8 @@ class ConfigViewModel: ObservableObject {
                 do {
                     try KeychainHandler.setAnonymousUserName(anonymousUserName: "")
                     try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                    UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                    UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
                     completion()
                 } catch {
                     self.alertMessage = "ユーザー情報の削除に失敗しました\n\(error.localizedDescription)"
