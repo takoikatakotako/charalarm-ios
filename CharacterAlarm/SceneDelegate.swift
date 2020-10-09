@@ -8,11 +8,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // キャラクターの初期値のDomainを登録
-        UserDefaultsHandler.registerDefaults(defaults: [CHARACTER_DOMAIN : DEFAULT_CHARACTER_DOMAIN])
+        UserDefaultsHandler.registerDefaults(defaults: [CHARA_DOMAIN : DEFAULT_CHARA_DOMAIN, CHARA_NAME: DEFAULT_CHARA_NAME])
                 
-        guard let characterDomain = UserDefaultsHandler.getCharacterDomain() else {
+        if UserDefaultsHandler.getCharaDomain() == nil {
             fatalError("キャラクターのドメインの取得に失敗しました")
         }
+        
+        if UserDefaultsHandler.getCharaName() == nil {
+            fatalError("キャラクターの名前の取得に失敗しました")
+        }
+        
         let anonymousUserName = KeychainHandler.getAnonymousUserName()
         let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword()
     
@@ -22,7 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootView = RootView()
         let charalarmAppState = CharalarmAppState()
         charalarmAppState.doneTutorial = doneTutorial
-        charalarmAppState.charaDomain = characterDomain
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

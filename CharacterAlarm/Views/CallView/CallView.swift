@@ -3,16 +3,18 @@ import UIKit
 import SDWebImageSwiftUI
 
 struct CallView: View {
-    let characterId: String
-    let characterName: String
     
-    @State var overlay = true
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject(initialValue: CallViewModel()) var viewModel: CallViewModel
+    @ObservedObject var viewModel: CallViewModel
+    
+    init(charaDomain: String, charaName: String) {
+        self.viewModel = CallViewModel(charaDomain: charaDomain, charaName: charaName)
+    }
+    
     var body: some View {
         ZStack {
             VStack {
-                WebImage(url: URL(string: "https://charalarm.com/image/\(self.characterId)/thumbnail.png"))
+                WebImage(url: URL(string: viewModel.charaThumbnailUrlString))
                     .resizable()
                     .placeholder {
                         Image("character-placeholder")
@@ -23,7 +25,7 @@ struct CallView: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                 .scaledToFill()
                 
-                Text(characterName)
+                Text(viewModel.charaName)
                 
                 Spacer()
                 
@@ -41,9 +43,9 @@ struct CallView: View {
             }                    .padding(.bottom, 60)
             
             
-            if overlay {
+            if viewModel.overlay {
                 VStack {
-                    Text(characterName)
+                    Text(viewModel.charaName)
                         .font(Font.system(size: 36))
                         .foregroundColor(Color.white)
                         .padding(.top, 80)
@@ -66,9 +68,9 @@ struct CallView: View {
                         
                         
                         Button(action: {
-                            self.viewModel.call(characterId: self.characterId)
+                            self.viewModel.call()
                             withAnimation {
-                                self.overlay = false
+                                self.viewModel.overlay = false
                             }
                         }){
                             Image(systemName: "phone.fill")
@@ -95,6 +97,6 @@ struct CallView: View {
 
 struct CallView_Previews: PreviewProvider {
     static var previews: some View {
-        CallView(characterId: "xxx", characterName: "井上結衣")
+        CallView(charaDomain: "com.charalarm.yui", charaName: "井上結衣")
     }
 }

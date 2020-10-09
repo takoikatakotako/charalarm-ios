@@ -4,14 +4,6 @@ import SDWebImageSwiftUI
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     
-//    var character: Character? {
-//        return self.viewModel.character
-//    }
-//
-//    var charaThumbnailUrlString: String {
-//        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
-//    }
-//
     init(charaDomain: String) {
         viewModel = ProfileViewModel(charaDomain: charaDomain)
     }
@@ -45,18 +37,19 @@ struct ProfileView: View {
                         Spacer()
                         if self.viewModel.showCallItem {
                             Button(action: {
+                                guard viewModel.character?.charaDomain != nil || viewModel.character?.name != nil else {
+                                    return
+                                }
                                 self.viewModel.showCallView = true
                             }) {
                                 MenuItem(imageName: "profile-call")
                             }.sheet(isPresented: self.$viewModel.showCallView) {
-                                CallView(characterId: viewModel.charaDomain, characterName: viewModel.character?.name ?? "loading")
+                                CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
                             }
                         }
                         if self.viewModel.showCheckItem {
                             Button(action: {
-                                print("Check")
                                 self.viewModel.showSelectAlert = true
-                                
                             }) {
                                 MenuItem(imageName: "profile-check")
                             }

@@ -92,7 +92,7 @@ extension AppDelegate: PKPushRegistryDelegate {
     }
 
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
-        let config = CXProviderConfiguration(localizedName: "ポケモンセンター")
+        let config = CXProviderConfiguration(localizedName: "キャラーム")
 //        // config.iconTemplateImageData = UIImage(named: "monster-ball")!.pngData()
         config.ringtoneSound = "pokemon.caf"
         config.includesCallsInRecents = true;
@@ -100,7 +100,7 @@ extension AppDelegate: PKPushRegistryDelegate {
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)
         let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: "カビゴン")
+        update.remoteHandle = CXHandle(type: .generic, value: UserDefaultsHandler.getCharaName() ?? "キャラーム")
         provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
     }
 }

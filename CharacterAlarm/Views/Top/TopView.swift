@@ -62,11 +62,7 @@ struct TopView: View {
         }
         .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
-            self.viewModel.featchCharacter(charaDomain: self.appState.charaDomain) { character in
-                self.appState.charaName = character.name
-                self.appState.circleName = character.illustrationName
-                self.appState.voiceName = character.voiceName
-            }
+
         }
     }
 }

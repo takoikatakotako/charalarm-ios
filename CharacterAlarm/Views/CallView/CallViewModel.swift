@@ -4,18 +4,29 @@ import AVFoundation
 
 class CallViewModel: ObservableObject {
     
+    let charaDomain: String
+    let charaName: String
+    
     var incomingAudioPlayer: AVAudioPlayer!
     var voiceAudioPlayer: AVAudioPlayer!
+    @State var overlay = true
     
-    func call(characterId: String) {
+    var charaThumbnailUrlString: String {
+        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+    }
+    
+    init(charaDomain: String, charaName: String) {
+        self.charaDomain = charaDomain
+        self.charaName = charaName
+    }
+    
+    func call() {
         incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            
-            guard let data = try? FileHandler.readNoteJSON(directoryName: characterId, fileName: "self-introduction.caf") else {
+            guard let data = try? FileHandler.readNoteJSON(directoryName: self.charaDomain, fileName: "self-introduction.caf") else {
                 return
             }
-            
             self.voiceAudioPlayer = try? AVAudioPlayer(data: data)
             self.voiceAudioPlayer?.play()
         }

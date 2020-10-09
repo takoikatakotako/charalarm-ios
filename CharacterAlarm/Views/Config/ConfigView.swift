@@ -11,9 +11,9 @@ struct ConfigView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: ProfileView(charaDomain: appState.charaDomain)) {
+                    NavigationLink(destination: ProfileView(charaDomain: viewModel.charaDomain)) {
                         HStack {
-                            WebImage(url: URL(string: "https://charalarm.com/image/\(appState.charaDomain)/thumbnail.png"))
+                            WebImage(url: URL(string: viewModel.character?.charaThumbnailUrlString ?? ""))
                                 .resizable()
                                 .placeholder {
                                     Image("character-placeholder")
@@ -29,7 +29,7 @@ struct ConfigView: View {
                                 Text(viewModel.character?.name ?? "")
                                     .foregroundColor(.gray)
                                     .font(Font.system(size: 24))
-                                Text("\(appState.circleName) / \(appState.voiceName)")
+                                Text("\(viewModel.character?.illustrationName ?? "") / \(viewModel.character?.voiceName ?? "")")
                                     .foregroundColor(.gray)
                                     .font(Font.system(size: 18))
                                     .padding(.top, 8)
@@ -133,11 +133,12 @@ struct ConfigView: View {
                                     }
             )
         }.onAppear {
-            guard let characterDomain = UserDefaultsHandler.getCharacterDomain() else {
-                fatalError("CHARACTER_DOMAIN が取得できませんでした")
-            }
-            self.viewModel.fetchCharacter(characterDomain: characterDomain)
-        }.alert(isPresented: self.$viewModel.showingAlert) {
+            self.viewModel.fetchCharacter()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
+            self.viewModel.fetchCharacter()
+        }
+        .alert(isPresented: self.$viewModel.showingAlert) {
             Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
         }
     }

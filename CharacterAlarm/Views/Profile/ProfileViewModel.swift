@@ -45,9 +45,14 @@ class ProfileViewModel: ObservableObject {
     }
     
     func selectCharacter() {
-        guard let charaDomain = character?.charaDomain else {
+        guard
+            let charaDomain = character?.charaDomain,
+            let charaName = character?.name else {
             return
         }
         UserDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
+        UserDefaultsHandler.setCharaName(charaName: charaName)
+        NotificationCenter.default.post(name: NSNotification.setChara,
+                                                        object: nil, userInfo: nil)
     }
 }

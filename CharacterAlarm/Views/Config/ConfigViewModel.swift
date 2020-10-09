@@ -10,6 +10,13 @@ class ConfigViewModel: ObservableObject {
         return getVersion()
     }
     
+    var charaDomain: String {
+        guard let characterDomain = UserDefaultsHandler.getCharaDomain() else {
+            fatalError("CHARA_DOMAIN が取得できませんでした")
+        }
+        return characterDomain
+    }
+    
     func openUrlString(string: String) {
         guard let url = URL(string: string) else {
             return
@@ -17,8 +24,8 @@ class ConfigViewModel: ObservableObject {
         UIApplication.shared.open(url)
     }
     
-    func fetchCharacter(characterDomain: String) {
-        CharacterStore.fetchCharacter(charaDomain: characterDomain) { result in
+    func fetchCharacter() {
+        CharacterStore.fetchCharacter(charaDomain: charaDomain) { result in
             switch result {
             case let .success(character):
                 self.character = character
