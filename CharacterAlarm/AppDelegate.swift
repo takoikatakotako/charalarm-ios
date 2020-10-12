@@ -7,6 +7,7 @@ import CallKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var audioPlayer: AVAudioPlayer!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -111,6 +112,13 @@ extension AppDelegate: CXProviderDelegate {
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         action.fulfill()
+    }
+    
+    func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
+        if let sound = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") {
+            audioPlayer = try? AVAudioPlayer(data: sound.data)
+            audioPlayer?.play()
+        }
     }
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
