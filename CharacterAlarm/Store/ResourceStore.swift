@@ -68,4 +68,18 @@ class ResourceStore {
             completion(.failure(error))
         }
     }
+    
+    static func downloadResourceJson(charaDomain: String, completion: @escaping (Result<Resourse, Error>) -> Void) {
+        let path = "/resource/\(charaDomain)/resourse.json"
+        let urlRequest = APIRequest.createUrlRequest(baseUrl: "https://charalarm.com", path: path, httpMethod: .get)
+        let apiClient = APIClient<Resourse>()
+        apiClient.request(urlRequest: urlRequest) { result in
+            switch result {
+            case let .success(response):
+                completion(.success(response))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

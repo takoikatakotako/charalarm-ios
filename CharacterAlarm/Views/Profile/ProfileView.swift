@@ -71,6 +71,22 @@ struct ProfileView: View {
                     }
                     .padding()
                 }
+                
+                
+                if viewModel.showingDownloadingModal {
+                VStack {
+                    Text("リソースをダウンロードしています")
+                        .font(Font.system(size: 24))
+                        .foregroundColor(Color.white)
+                    
+                    Button("Cancel") {
+                        print("Cancel")
+                    }
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .background(Color.black.opacity(0.6))
+                .edgesIgnoringSafeArea(.bottom)
+                }
             }
         }.onAppear {
             self.viewModel.fetchCharacter()

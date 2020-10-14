@@ -1,7 +1,7 @@
 import Foundation
 
 // CharterAlarm公式Twitter
-let OfficialTwitterUrlString: String = "https://twitter.com/takoikatakotako"
+let OfficialTwitterUrlString: String = "https://twitter.com/chara_alarm"
 
 // アプリについてのお問い合わせ
 let ContactAboutAppUrlString: String = "https://docs.google.com/forms/d/e/1FAIpQLSeRuA47YOx33uo-_k1wjYUtbqAaqzzU3r9syGi1q2QRSba-gQ/viewform?usp=sf_link"

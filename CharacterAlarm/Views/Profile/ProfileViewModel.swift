@@ -9,6 +9,7 @@ class ProfileViewModel: ObservableObject {
     @Published var showCallItem = false
     @Published var showCheckItem = false
     @Published var showSelectAlert = false
+    @Published var showingDownloadingModal = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
@@ -50,6 +51,20 @@ class ProfileViewModel: ObservableObject {
             let charaName = character?.name else {
             return
         }
+        
+        ResourceStore.downloadResourceJson(charaDomain: charaDomain) { result in
+            switch result {
+            case let .success(resource):
+                print(resource.resource.image)
+                print(resource.resource.voice)
+                
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        showingDownloadingModal = true
+        
         UserDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
         UserDefaultsHandler.setCharaName(charaName: charaName)
         NotificationCenter.default.post(name: NSNotification.setChara,

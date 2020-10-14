@@ -6,15 +6,15 @@ enum HttpMethod: String {
 }
 
 struct APIRequest {
-    static func createUrlRequest(path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]) -> URLRequest {
-        let url = URL(string: BASE_URL + path)!
+    static func createUrlRequest(baseUrl: String = BASE_URL, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]) -> URLRequest {
+        let url = URL(string: baseUrl + path)!
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.allHTTPHeaderFields = requestHeader
         return request
     }
     
-    static func createUrlRequest<RequestBody: Encodable>(path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"], requestBody: RequestBody) -> URLRequest {
+    static func createUrlRequest<RequestBody: Encodable>(baseUrl: String = BASE_URL, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"], requestBody: RequestBody) -> URLRequest {
         let url = URL(string: BASE_URL + path)!
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
