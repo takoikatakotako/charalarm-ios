@@ -16,11 +16,11 @@ struct TopView: View {
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 
                 VStack(spacing: 0) {
-                    Spacer()
-                    Image("normal")
+                    Image("momiji")
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: geometory.size.width, height: geometory.size.height - 60)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        .scaledToFit()
+                        .padding(.top, 60)
                 }
                 
                 Button(action: {
