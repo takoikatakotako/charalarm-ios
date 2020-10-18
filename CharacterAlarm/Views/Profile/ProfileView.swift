@@ -17,11 +17,11 @@ struct ProfileView: View {
                         .placeholder {
                             Image("character-placeholder")
                                 .resizable()
-                    }
-                    .animation(.easeInOut(duration: 0.5))
-                    .transition(.fade)
-                    .frame(width: geometory.size.width, height: geometory.size.width)
-                    .scaledToFill()
+                        }
+                        .animation(.easeInOut(duration: 0.5))
+                        .transition(.fade)
+                        .frame(width: geometory.size.width, height: geometory.size.width)
+                        .scaledToFill()
                     
                     ProfileRow(title: "名前", text: viewModel.character?.name ?? "")
                     ProfileRow(title: "プロフィール", text: viewModel.character?.description ?? "")
@@ -62,11 +62,11 @@ struct ProfileView: View {
                                     .resizable()
                                     .frame(width: 60, height: 60)
                             }.accentColor(.white)
-                                .frame(width: 80, height: 80)
-                                .background(Color.black)
-                                .cornerRadius(40)
-                                .shadow(color: .black, radius: 4, x: 4, y: 4)
-                                .opacity(0.9)
+                            .frame(width: 80, height: 80)
+                            .background(Color.black)
+                            .cornerRadius(40)
+                            .shadow(color: .black, radius: 4, x: 4, y: 4)
+                            .opacity(0.9)
                         }
                     }
                     .padding()
@@ -74,18 +74,18 @@ struct ProfileView: View {
                 
                 
                 if viewModel.showingDownloadingModal {
-                VStack {
-                    Text("リソースをダウンロードしています")
-                        .font(Font.system(size: 24))
-                        .foregroundColor(Color.white)
-                    
-                    Button("Cancel") {
-                        print("Cancel")
+                    VStack {
+                        Text("リソースをダウンロードしています")
+                            .font(Font.system(size: 24))
+                            .foregroundColor(Color.white)
+                        
+                        Button("Cancel") {
+                            print("Cancel")
+                        }
                     }
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .background(Color.black.opacity(0.6))
-                .edgesIgnoringSafeArea(.bottom)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.6))
+                    .edgesIgnoringSafeArea(.bottom)
                 }
             }
         }.onAppear {

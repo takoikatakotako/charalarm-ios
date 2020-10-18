@@ -1,6 +1,7 @@
 import Foundation
 import CallKit
 import SwiftUI
+import Combine
 
 class ProfileViewModel: ObservableObject {
     let charaDomain: String
@@ -70,4 +71,10 @@ class ProfileViewModel: ObservableObject {
         NotificationCenter.default.post(name: NSNotification.setChara,
                                                         object: nil, userInfo: nil)
     }
+    
+    func xxxxx(urls: [URL]) {
+        
+    }
+    
+    
 }
