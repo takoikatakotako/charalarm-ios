@@ -78,10 +78,19 @@ struct ProfileView: View {
                         Text("リソースをダウンロードしています")
                             .font(Font.system(size: 24))
                             .foregroundColor(Color.white)
+                        Text(viewModel.progressMessage)
+                            .font(Font.system(size: 24))
+                            .foregroundColor(Color.white)
                         
-                        Button("Cancel") {
-                            print("Cancel")
+                        Button {
+                            viewModel.cancel()
+                        } label: {
+                            Text("キャンセル")
+                                .font(Font.system(size: 24))
+                                .foregroundColor(Color.white)
+                                .padding(.top, 16)
                         }
+                        
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .background(Color.black.opacity(0.6))
