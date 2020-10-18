@@ -16,7 +16,7 @@ struct TopView: View {
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 
                 VStack(spacing: 0) {
-                    Image("momiji")
+                    Image(uiImage: viewModel.charaImage)
                         .resizable()
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .scaledToFit()
@@ -61,8 +61,11 @@ struct TopView: View {
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
-        .onAppear {
-
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
+            //self.viewModel.fetchCharacter()
+            self.viewModel.setChara()
+        }.onAppear {
+            self.viewModel.setChara()
         }
     }
 }
