@@ -42,7 +42,21 @@ class ResourceStore {
         apiClient.request(urlRequest: urlRequest) { result in
             switch result {
             case let .success(response):
-                completion(.success(response))
+                do {
+                    let encoder = JSONEncoder()
+                    let data = try encoder.encode(response)
+                    try FileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
+                    completion(.success(response))
+                } catch {
+                    let message = """
+                ファイル保存に失敗
+                File: \(#file)
+                Function: \(#function)
+                Line: \(#line)
+                """
+                    print(message)
+                    completion(.failure(error))
+                }
             case let .failure(error):
                 completion(.failure(error))
             }

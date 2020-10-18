@@ -1,15 +1,15 @@
 import Foundation
 
-struct ImageList: Decodable {
+struct ImageList: Codable {
     let image: [String]
 }
 
-struct ImageAndVoiceList: Decodable {
+struct ImageAndVoiceList: Codable {
     let image: [String]
     let voice: [String]
 }
 
-struct Resourse: Decodable {
+struct Resourse: Codable {
     let version: Int
     let resource: ImageAndVoiceList
     let expression: [String: ImageAndVoiceList]
