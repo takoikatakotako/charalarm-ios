@@ -11,13 +11,19 @@ targets:
       - CharacterAlarm
     settings:
       base:
+        CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
-        DEVELOPMENT_TEAM: 5GZE8DMGYT
-        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
         MARKETING_VERSION: 2.0.0
-        CURRENT_PROJECT_VERSION: 28
+        CURRENT_PROJECT_VERSION: 50
         TARGETED_DEVICE_FAMILY: 1
+      configs:
+        Debug:
+          CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
+        Release:
+          CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
   CharacterAlarmTests:
     type: bundle.unit-test
     platform: iOS
