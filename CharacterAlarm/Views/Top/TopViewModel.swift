@@ -11,29 +11,27 @@ class TopViewModel: ObservableObject {
     
     func tapped() {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
-            return
-        }
-        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
-            return
-        }
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        guard let resource = try? decoder.decode(Resourse.self, from: data) else {
+            DispatchQueue.main.async {
+                self.alertMessage = "選択中のキャラクターの情報をを取得できませんでした"
+                self.showingAlert = true
+            }
             return
         }
         
-        guard let voices = resource.expression["normal"]?.voice else {
+        guard let resource = getResource(charaDomain: charaDomain) else {
+            DispatchQueue.main.async {
+                self.alertMessage = "リソースを取得できませんでした"
+                self.showingAlert = true
+            }
             return
         }
         
-        let voice = voices.randomElement()!
-        do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voice)
-            audioPlayer = try? AVAudioPlayer(data: data)
-            audioPlayer?.play() // → これで音が鳴る
-        } catch {
-            print(error)
+        guard let key = resource.expression.keys.randomElement() else {
+            return
         }
+
+        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
+        playCharaVoice(charaDomain: charaDomain, resource: resource, key: key)
     }
     
     func featchCharacter(charaDomain: String, completion: @escaping (Character) -> Void) {
@@ -50,30 +48,67 @@ class TopViewModel: ObservableObject {
     
     func setChara() {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+            DispatchQueue.main.async {
+                self.alertMessage = "選択中のキャラクターの情報をを取得できませんでした"
+                self.showingAlert = true
+            }
             return
         }
-        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+        
+        guard let resource = getResource(charaDomain: charaDomain) else {
+            DispatchQueue.main.async {
+                self.alertMessage = "リソースを取得できませんでした"
+                self.showingAlert = true
+            }
             return
+        }
+        
+        guard let key = resource.expression.keys.randomElement() else {
+            return
+        }
+        
+        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
+    }
+        
+    private func getResource(charaDomain: String) -> Resourse? {
+        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+            return nil
         }
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         guard let resource = try? decoder.decode(Resourse.self, from: data) else {
-            return
+            return nil
         }
-        
-        guard let images = resource.expression["normal"]?.image else {
-            return
-        }
-
-        guard let image = images.first else {
+        return resource
+    }
+    
+    private func setCharaImage(charaDomain: String, resource: Resourse, key: String) {
+        guard let imageName = resource.expression[key]?.image.randomElement() else {
             return
         }
         
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: image)
+            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: imageName)
             charaImage = UIImage(data: data)!
         } catch {
-            
+            DispatchQueue.main.async {
+                self.alertMessage = "キャラクターの画像をセットできませんでした"
+                self.showingAlert = true
+            }
+        }
+    }
+    
+    private func playCharaVoice(charaDomain: String, resource: Resourse, key: String) {
+        guard let voiceName = resource.expression[key]?.voice.randomElement() else {
+            return
+        }
+        
+        do {
+            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
+            audioPlayer = try? AVAudioPlayer(data: data)
+            audioPlayer?.play()
+        } catch {
+            print(error)
         }
     }
 }
