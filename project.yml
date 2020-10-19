@@ -13,8 +13,8 @@ targets:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
+        CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        CODE_SIGN_STYLE: Manual
         INFOPLIST_FILE: CharacterAlarm/Info.plist
         MARKETING_VERSION: 2.0.0
         CURRENT_PROJECT_VERSION: 50
