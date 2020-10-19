@@ -9,7 +9,7 @@ struct ImageAndVoiceList: Codable {
     let voice: [String]
 }
 
-struct Resourse: Codable {
+struct Resource: Codable {
     let version: Int
     let resource: ImageAndVoiceList
     let expression: [String: ImageAndVoiceList]

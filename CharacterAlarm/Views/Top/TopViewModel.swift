@@ -70,19 +70,19 @@ class TopViewModel: ObservableObject {
         setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
     }
         
-    private func getResource(charaDomain: String) -> Resourse? {
+    private func getResource(charaDomain: String) -> Resource? {
         guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
             return nil
         }
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        guard let resource = try? decoder.decode(Resourse.self, from: data) else {
+        guard let resource = try? decoder.decode(Resource.self, from: data) else {
             return nil
         }
         return resource
     }
     
-    private func setCharaImage(charaDomain: String, resource: Resourse, key: String) {
+    private func setCharaImage(charaDomain: String, resource: Resource, key: String) {
         guard let imageName = resource.expression[key]?.image.randomElement() else {
             return
         }
@@ -98,7 +98,7 @@ class TopViewModel: ObservableObject {
         }
     }
     
-    private func playCharaVoice(charaDomain: String, resource: Resourse, key: String) {
+    private func playCharaVoice(charaDomain: String, resource: Resource, key: String) {
         guard let voiceName = resource.expression[key]?.voice.randomElement() else {
             return
         }
