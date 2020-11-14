@@ -2,7 +2,7 @@ import UIKit
 
 class AlarmStore {
     static func fetchAnonymousAlarms(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<[Alarm], Error>) -> Void) {
-        let path = "/api/anonymous/alarm/list"
+        let path = "/api/alarm/list"
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
         let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
         let apiClient = APIClient<JsonResponseBean<[Alarm]>>()
@@ -18,8 +18,45 @@ class AlarmStore {
         }
     }
     
+    static func addAlarm(anonymousUserName: String, anonymousUserPassword: String, alarm: Alarm, completion: @escaping (Result<String, Error>) -> Void) {
+        let path = "/api/alarm/add"
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: alarm)
+        let apiClient = APIClient<JsonResponseBean<String>>()
+        apiClient.request(urlRequest: urlRequest) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(response):
+                    return completion(.success(response.data))
+                case let .failure(error):
+                    return completion(.failure(error))
+                }
+            }
+        }
+    }
+
+    static func editAlarm(anonymousUserName: String, anonymousUserPassword: String, alarm: Alarm, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let alarmId = alarm.alarmId else {
+            return
+        }
+        let path = "/api/alarm/edit/\(alarmId)"
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: alarm)
+        let apiClient = APIClient<JsonResponseBean<String>>()
+        apiClient.request(urlRequest: urlRequest) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(response):
+                    return completion(.success(response.data))
+                case let .failure(error):
+                    return completion(.failure(error))
+                }
+            }
+        }
+    }
+    
     static func deleteAlarm(anonymousUserName: String, anonymousUserPassword: String, alarmId: Int, completion: @escaping (Result<String, Error>) -> Void) {
-        let path = "/api/anonymous/alarm/delete/\(alarmId)"
+        let path = "/api/alarm/delete/\(alarmId)"
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
         let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
         let apiClient = APIClient<JsonResponseBean<String>>()
@@ -30,33 +67,6 @@ class AlarmStore {
                     completion(.success(response.data))
                 case let .failure(error):
                     completion(.failure(error))
-                }
-            }
-        }
-    }
-    
-    static func editAlarm(anonymousUserName: String, anonymousUserPassword: String, alarm: Alarm, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let alarmId = alarm.alarmId else {
-            return
-        }
-        let path = "/api/anonymous/alarm/edit/\(alarmId)"
-        let anonymousAlarmBean = AnonymousAlarmBean(
-            anonymousUserName: anonymousUserName,
-            password: anonymousUserPassword,
-            enable: alarm.enable,
-            name: alarm.name,
-            hour: alarm.hour,
-            minute: alarm.minute,
-            dayOfWeeks: alarm.dayOfWeeks)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAlarmBean)
-        let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    return completion(.success(response.data))
-                case let .failure(error):
-                    return completion(.failure(error))
                 }
             }
         }

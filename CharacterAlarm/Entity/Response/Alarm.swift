@@ -1,6 +1,6 @@
 import UIKit
 
-struct Alarm: Identifiable, Decodable, Hashable {
+struct Alarm: Identifiable, Decodable, Hashable, Encodable {
     var id: String {
         guard let alarmId = alarmId else {
             return name

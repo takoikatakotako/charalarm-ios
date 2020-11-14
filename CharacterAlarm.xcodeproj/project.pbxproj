@@ -45,6 +45,8 @@
 		7A1330A190334DF9895DB3D6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
 		8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */; };
 		8D6961B1255F4C6F00567E35 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961B0255F4C6F00567E35 /* APIHeader.swift */; };
+		8D6961BD255F59E700567E35 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961BC255F59E700567E35 /* Request.swift */; };
+		8D6961C5255F59F300567E35 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961C4255F59F300567E35 /* Response.swift */; };
 		90EAB01C50F16E19E3CF9087 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
@@ -166,6 +168,8 @@
 		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		8D6961B0255F4C6F00567E35 /* APIHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
+		8D6961BC255F59E700567E35 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		8D6961C4255F59F300567E35 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9B6ED94D3CA0B43E22A1E969 /* Pods-CharacterAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E24E1C9214EAF296F0A7F0D /* pokemon.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.caf; sourceTree = "<group>"; };
@@ -270,7 +274,7 @@
 		35CE0717DB5E83C7E13D8178 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				895B5510C00A352576589C74 /* Alarm.swift */,
+				8D6961BB255F59B200567E35 /* Response */,
 				457BAC34E8DC788FE824706F /* AnonymousAlarmBean.swift */,
 				14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */,
 				4CA4CA8D022533B34EA5904B /* Character.swift */,
@@ -279,6 +283,8 @@
 				8328671228E33988C6A1A51F /* JsonResponseBean.swift */,
 				442A6EE8DBA273ED06FB06F8 /* News.swift */,
 				5E18293F3BA089986BCBB52C /* Resource.swift */,
+				8D6961BC255F59E700567E35 /* Request.swift */,
+				8D6961C4255F59F300567E35 /* Response.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -459,6 +465,14 @@
 				8D6961B0255F4C6F00567E35 /* APIHeader.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8D6961BB255F59B200567E35 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				895B5510C00A352576589C74 /* Alarm.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
@@ -825,6 +839,7 @@
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
 				DFC46C9DE5D6CEBD8FB44F5D /* CallView.swift in Sources */,
 				148657E6F4133A78029571DC /* CallViewModel.swift in Sources */,
+				8D6961BD255F59E700567E35 /* Request.swift in Sources */,
 				B74650B04FEAB2B737EA60E5 /* CallingView.swift in Sources */,
 				B8CBFAB256F731532B226F6C /* Character.swift in Sources */,
 				B080A41E07FEDC214DC3C302 /* CharacterListBanner.swift in Sources */,
@@ -849,6 +864,7 @@
 				F40658F7C9EF6D5B22359F3C /* Key.swift in Sources */,
 				608D3E82FA12655CC19ABAE6 /* KeychainHandler.swift in Sources */,
 				A4CC43333435A97034B6FC43 /* MenuItem.swift in Sources */,
+				8D6961C5255F59F300567E35 /* Response.swift in Sources */,
 				398EED5399794741B2D21E9E /* NetworkClient.swift in Sources */,
 				B48742926BCFF31C963D7B3D /* News.swift in Sources */,
 				65C2EA852856BC25EEFA3C71 /* NewsListView.swift in Sources */,
