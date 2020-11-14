@@ -6,7 +6,7 @@ struct RootView: View {
     @State var showingAlert = false
     
     var body: some View {
-        Group {
+        ZStack {
             if appState.doneTutorial {
                 ContentView()
                 .environmentObject(appState)

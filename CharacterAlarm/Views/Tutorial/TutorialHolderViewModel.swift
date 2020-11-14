@@ -7,7 +7,7 @@ class TutorialHolderViewModel: ObservableObject {
     @Published var alertMessage = ""
     
     func signUp() {
-        AnonymousUserStore.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
+        UserStore.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
             switch result {
             case .success(_):
                 // ユーザー作成に成功

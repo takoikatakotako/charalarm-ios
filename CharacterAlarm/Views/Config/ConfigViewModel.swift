@@ -44,7 +44,7 @@ class ConfigViewModel: ObservableObject {
                 return
         }
         
-        AnonymousUserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
+        UserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
             switch result {
             case .success(_):
                 do {

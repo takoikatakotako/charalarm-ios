@@ -3,8 +3,8 @@ import UIKit
 class AlarmStore {
     static func fetchAnonymousAlarms(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<[Alarm], Error>) -> Void) {
         let path = "/api/anonymous/alarm/list"
-        let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
         let apiClient = APIClient<JsonResponseBean<[Alarm]>>()
         apiClient.request(urlRequest: urlRequest) { result in
             DispatchQueue.main.async {
@@ -20,8 +20,8 @@ class AlarmStore {
     
     static func deleteAlarm(anonymousUserName: String, anonymousUserPassword: String, alarmId: Int, completion: @escaping (Result<String, Error>) -> Void) {
         let path = "/api/anonymous/alarm/delete/\(alarmId)"
-        let anonymousAuthBean = AnonymousAuthBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousAuthBean)
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
         let apiClient = APIClient<JsonResponseBean<String>>()
         apiClient.request(urlRequest: urlRequest) { result in
             DispatchQueue.main.async {

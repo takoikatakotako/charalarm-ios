@@ -27,7 +27,7 @@
 		40499ADB485D37EBFB4C1550 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BC61222B11801274795D7 /* UserDefaultsHandler.swift */; };
 		4342FA5F6FF17684BB07B027 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
 		481BD54200732575D96AEF07 /* FileHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9E17D6F8C60D3866E21ED /* FileHandlerError.swift */; };
-		48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */; };
+		48439B20ECC6C706FF7A06FC /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E562A121D3647C0E5E367 /* UserStore.swift */; };
 		54CE7089272BFD296E2EEC93 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
 		5ED1355036782D8CD87178CF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8F361447A4E0FCB38CCC1B /* Config.swift */; };
 		608D3E82FA12655CC19ABAE6 /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006675B4B6829795D55B03 /* KeychainHandler.swift */; };
@@ -44,6 +44,7 @@
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		7A1330A190334DF9895DB3D6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
 		8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */; };
+		8D6961B1255F4C6F00567E35 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961B0255F4C6F00567E35 /* APIHeader.swift */; };
 		90EAB01C50F16E19E3CF9087 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		961391AA3A13EAC26374638C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		99509AD2168EF67333C7F9F4 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
@@ -67,7 +68,6 @@
 		C4AD7B0D9C5AE42CC7C4B44F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB899DF9D87DF6863A9BBB6 /* ProfileView.swift */; };
 		C4E627B8416F373BD0919357 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D784D759892964A434D0D8 /* ProfileViewModel.swift */; };
 		C589FE7D29B34FE43679E3C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */; };
-		C7581DB59F2584A56D229578 /* AnonymousAuthBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42381B160AC4179E32919660 /* AnonymousAuthBean.swift */; };
 		C8069675E81448D1C68CA8A8 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51FBF61F90A06BA645545D /* RootView.swift */; };
 		C8551D91CC8EA7B7BD209B96 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
 		C91BFFFA83242ECFDD851E40 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */; };
@@ -135,7 +135,6 @@
 		3C7833C3E29D693846FC1321 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		3E826133C505EDC6BC8D96E2 /* CharacterListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRow.swift; sourceTree = "<group>"; };
-		42381B160AC4179E32919660 /* AnonymousAuthBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousAuthBean.swift; sourceTree = "<group>"; };
 		42A8CE2D930E90FED5B59D49 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		42C52C26A99ADB9ADFDE8E93 /* CharalarmAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharalarmAppState.swift; sourceTree = "<group>"; };
 		42D784D759892964A434D0D8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -163,9 +162,10 @@
 		7CC31FDCA006756E498AFE71 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		808EEBD408E8DD4EA72DA847 /* AlarmListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListRow.swift; sourceTree = "<group>"; };
 		8328671228E33988C6A1A51F /* JsonResponseBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponseBean.swift; sourceTree = "<group>"; };
-		843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousUserStore.swift; sourceTree = "<group>"; };
+		843E562A121D3647C0E5E367 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		8D6961B0255F4C6F00567E35 /* APIHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9B6ED94D3CA0B43E22A1E969 /* Pods-CharacterAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E24E1C9214EAF296F0A7F0D /* pokemon.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.caf; sourceTree = "<group>"; };
@@ -272,7 +272,6 @@
 			children = (
 				895B5510C00A352576589C74 /* Alarm.swift */,
 				457BAC34E8DC788FE824706F /* AnonymousAlarmBean.swift */,
-				42381B160AC4179E32919660 /* AnonymousAuthBean.swift */,
 				14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */,
 				4CA4CA8D022533B34EA5904B /* Character.swift */,
 				42C52C26A99ADB9ADFDE8E93 /* CharalarmAppState.swift */,
@@ -375,7 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				67B29305D5F25D07B732D385 /* AlarmStore.swift */,
-				843E562A121D3647C0E5E367 /* AnonymousUserStore.swift */,
+				843E562A121D3647C0E5E367 /* UserStore.swift */,
 				3435F7157573867044F2090B /* CharacterStore.swift */,
 				7150449688142AF83A4F3167 /* NewsStore.swift */,
 				49AB5677E8B151AAFA7C724B /* PushStore.swift */,
@@ -457,6 +456,7 @@
 				B02F8242EB9E7A9BB26C8F54 /* APIClient.swift */,
 				FACA66211D763D0B12DDAE5B /* APIRequest.swift */,
 				3C7833C3E29D693846FC1321 /* NetworkClient.swift */,
+				8D6961B0255F4C6F00567E35 /* APIHeader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -818,9 +818,9 @@
 				64CA442F03A6ECEF0D97D799 /* AlarmListViewModel.swift in Sources */,
 				CB2C85E3673116531B14AB71 /* AlarmStore.swift in Sources */,
 				AF5A480A9FE7D90FBAEACA9D /* AnonymousAlarmBean.swift in Sources */,
-				C7581DB59F2584A56D229578 /* AnonymousAuthBean.swift in Sources */,
 				8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */,
-				48439B20ECC6C706FF7A06FC /* AnonymousUserStore.swift in Sources */,
+				48439B20ECC6C706FF7A06FC /* UserStore.swift in Sources */,
+				8D6961B1255F4C6F00567E35 /* APIHeader.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
 				DFC46C9DE5D6CEBD8FB44F5D /* CallView.swift in Sources */,
