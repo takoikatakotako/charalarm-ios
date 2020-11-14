@@ -75,22 +75,35 @@ struct ProfileView: View {
                 
                 if viewModel.showingDownloadingModal {
                     VStack {
-                        Text("リソースをダウンロードしています")
-                            .font(Font.system(size: 24))
-                            .foregroundColor(Color.white)
-                        Text(viewModel.progressMessage)
-                            .font(Font.system(size: 24))
-                            .foregroundColor(Color.white)
-                        
-                        Button {
-                            viewModel.cancel()
-                        } label: {
-                            Text("キャンセル")
+                        if viewModel.downloadError {
+                            Text("リソースのダウンロードに失敗しました")
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.white)
-                                .padding(.top, 16)
-                        }
-                        
+                            Button {
+                                viewModel.close()
+                            } label: {
+                                Text("閉じる")
+                                    .font(Font.system(size: 24))
+                                    .foregroundColor(Color.white)
+                                    .padding(.top, 16)
+                            }
+                        } else {
+                            Text("リソースをダウンロードしています")
+                                .font(Font.system(size: 24))
+                                .foregroundColor(Color.white)
+                            Text(viewModel.progressMessage)
+                                .font(Font.system(size: 24))
+                                .foregroundColor(Color.white)
+                            
+                            Button {
+                                viewModel.cancel()
+                            } label: {
+                                Text("キャンセル")
+                                    .font(Font.system(size: 24))
+                                    .foregroundColor(Color.white)
+                                    .padding(.top, 16)
+                            }
+                        }                        
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .background(Color.black.opacity(0.6))

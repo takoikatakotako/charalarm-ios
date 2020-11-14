@@ -83,7 +83,7 @@ class TopViewModel: ObservableObject {
     }
     
     private func setCharaImage(charaDomain: String, resource: Resource, key: String) {
-        guard let imageName = resource.expression[key]?.image.randomElement() else {
+        guard let imageName = resource.expression[key]?.images.randomElement() else {
             return
         }
         
@@ -99,7 +99,7 @@ class TopViewModel: ObservableObject {
     }
     
     private func playCharaVoice(charaDomain: String, resource: Resource, key: String) {
-        guard let voiceName = resource.expression[key]?.voice.randomElement() else {
+        guard let voiceName = resource.expression[key]?.voices.randomElement() else {
             return
         }
         

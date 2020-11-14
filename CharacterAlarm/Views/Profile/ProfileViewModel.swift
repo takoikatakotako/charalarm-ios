@@ -11,6 +11,7 @@ class ProfileViewModel: ObservableObject {
     @Published var showCheckItem = false
     @Published var showSelectAlert = false
     @Published var showingDownloadingModal = false
+    @Published var downloadError = false
     @Published var progressMessage = ""
     @Published var showingAlert = false
     @Published var alertMessage = ""
@@ -65,6 +66,13 @@ class ProfileViewModel: ObservableObject {
     
     func cancel() {
         resourceInfos = []
+        downloadError = false
+        showingDownloadingModal = false
+    }
+    
+    func close() {
+        resourceInfos = []
+        downloadError = false
         showingDownloadingModal = false
     }
     
@@ -80,9 +88,9 @@ class ProfileViewModel: ObservableObject {
         ResourceStore.downloadResourceJson(charaDomain: charaDomain) { result in
             switch result {
             case let .success(resource):
-                print(resource.resource.image)
-                print(resource.resource.voice)
-                self.numberOfResource = resource.resource.image.count + resource.resource.voice.count
+                print(resource.resource.images)
+                print(resource.resource.voices)
+                self.numberOfResource = resource.resource.images.count + resource.resource.voices.count
                 self.numberOfDownloadedReosurce = 0
 
                 DispatchQueue.main.async {
@@ -90,11 +98,11 @@ class ProfileViewModel: ObservableObject {
                 }
                 
                 self.resourceInfos = []
-                for image in resource.resource.image {
+                for image in resource.resource.images {
                     self.resourceInfos.append(ResourceInfo(type: .image, name: image))
                 }
                 
-                for voice in resource.resource.voice {
+                for voice in resource.resource.voices {
                     self.resourceInfos.append(ResourceInfo(type: .voice, name: voice))
                 }
                 
@@ -102,6 +110,7 @@ class ProfileViewModel: ObservableObject {
                             
             case let .failure(error):
                 print(error.localizedDescription)
+                self.downloadError = true
             }
         }
         

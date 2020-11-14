@@ -55,10 +55,14 @@ class ResourceStore {
                 Line: \(#line)
                 """
                     print(message)
-                    completion(.failure(error))
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
                 }
             case let .failure(error):
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }
     }

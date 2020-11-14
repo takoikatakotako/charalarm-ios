@@ -1,12 +1,12 @@
 import Foundation
 
 struct ImageList: Codable {
-    let image: [String]
+    let images: [String]
 }
 
 struct ImageAndVoiceList: Codable {
-    let image: [String]
-    let voice: [String]
+    let images: [String]
+    let voices: [String]
 }
 
 struct Resource: Codable {
