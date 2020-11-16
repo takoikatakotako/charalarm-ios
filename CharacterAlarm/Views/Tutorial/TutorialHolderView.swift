@@ -27,7 +27,7 @@ struct TutorialHolderView: View {
                 self.viewModel.signUp()
             }
             .alert(isPresented: self.$viewModel.showingAlert) {
-                Alert(title: Text(""), message: Text("xxx"), dismissButton: .default(Text("xx")))
+                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("Close")))
             }
     }
 }

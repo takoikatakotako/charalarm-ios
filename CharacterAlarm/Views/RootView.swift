@@ -3,7 +3,6 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
-    @State var showingAlert = false
     
     var body: some View {
         ZStack {
@@ -14,15 +13,6 @@ struct RootView: View {
                 TutorialHolderView()
                 .environmentObject(appState)
             }
-        }.alert(isPresented: $showingAlert) {
-            Alert(
-                title: Text("タイトル"),
-                message: Text("メッセージ"),
-                primaryButton: .default(Text("ボタンその１")) {
-                    print("ボタンその１")
-                }, secondaryButton: .destructive(Text("ボタンその２")) {
-                    print("ボタンその２")
-                })
         }
     }
 }
