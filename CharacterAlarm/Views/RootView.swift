@@ -7,7 +7,7 @@ struct RootView: View {
     var body: some View {
         ZStack {
             if appState.doneTutorial {
-                ContentView()
+                TopView()
                 .environmentObject(appState)
             } else {
                 TutorialHolderView()

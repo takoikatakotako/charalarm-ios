@@ -2,9 +2,9 @@ import Foundation
 
 class PushStore {
     static func addPushToken(anonymousUserName: String, anonymousUserPassword: String, pushToken: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let path = "/api/anonymous/token/ios/push/add"
-        let anonymousPushTokenBean = AnonymousPushTokenBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword, pushToken: pushToken)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousPushTokenBean)
+        let path = "/api/push-token/ios/push/add"
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: pushToken)
         let apiClient = APIClient<JsonResponseBean<String>>()
         apiClient.request(urlRequest: urlRequest) { result in
             switch result {
@@ -17,9 +17,9 @@ class PushStore {
     }
     
     static func addVoipPushToken(anonymousUserName: String, anonymousUserPassword: String, pushToken: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let path = "/api/anonymous/token/ios/voip-push/add"
-        let anonymousPushTokenBean = AnonymousPushTokenBean(anonymousUserName: anonymousUserName, password: anonymousUserPassword, pushToken: pushToken)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestBody: anonymousPushTokenBean)
+        let path = "/api/push-token/ios/voip-push/add"
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: pushToken)
         let apiClient = APIClient<JsonResponseBean<String>>()
         apiClient.request(urlRequest: urlRequest) { result in
             switch result {
