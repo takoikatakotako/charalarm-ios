@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let voipRegistry: PKPushRegistry = PKPushRegistry(queue: nil)
         voipRegistry.delegate = self
         voipRegistry.desiredPushTypes = [PKPushType.voIP]
-        
+                
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
             NSLog("Playback OK")
@@ -29,6 +29,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
         }
 
+        // 初期のキャラクターをなんとかする
+        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+            fatalError()
+        }
+//        
+//        if let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),
+//           let response: Resource = try? JSONDecoder().decode(Resource.self, from: data){
+//            print(response.version)
+//            return true
+//        } else {
+//            // データをロード
+//            if let filepath = Bundle.main.path(forResource: "resource", ofType: "json") {
+//              
+//            }
+//        }
+        
+        // ここに来ているってことはあれだ、データがないんだ。
+        
+        
         return true
     }
 

@@ -44,6 +44,7 @@
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		7A1330A190334DF9895DB3D6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
 		8C002A80FFC4F8327779893D /* AnonymousPushTokenBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBDACC12BAE16FD782E40A /* AnonymousPushTokenBean.swift */; };
+		8D5CCBFF2562C75D001532AD /* com.charalarm.yui in Resources */ = {isa = PBXBuildFile; fileRef = 8D5CCBFE2562C75D001532AD /* com.charalarm.yui */; };
 		8D6961B1255F4C6F00567E35 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961B0255F4C6F00567E35 /* APIHeader.swift */; };
 		8D6961BD255F59E700567E35 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961BC255F59E700567E35 /* Request.swift */; };
 		8D6961C5255F59F300567E35 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961C4255F59F300567E35 /* Response.swift */; };
@@ -167,6 +168,7 @@
 		843E562A121D3647C0E5E367 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		8D5CCBFE2562C75D001532AD /* com.charalarm.yui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com.charalarm.yui; sourceTree = "<group>"; };
 		8D6961B0255F4C6F00567E35 /* APIHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
 		8D6961BC255F59E700567E35 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		8D6961C4255F59F300567E35 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		37BCF0E81B976D82B5B11590 /* CharacterAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				8D5CCBFD2562C727001532AD /* Resource */,
 				1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */,
 				DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */,
 				1AFCF92E3B66DE971325F7FA /* CharacterAlarm.entitlements */,
@@ -465,6 +468,14 @@
 				8D6961B0255F4C6F00567E35 /* APIHeader.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8D5CCBFD2562C727001532AD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				8D5CCBFE2562C75D001532AD /* com.charalarm.yui */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		8D6961BB255F59B200567E35 /* Response */ = {
@@ -721,6 +732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B641F5F35BC4267EC0ACBAAC /* Assets.xcassets in Resources */,
+				8D5CCBFF2562C75D001532AD /* com.charalarm.yui in Resources */,
 				0907F640F2E769DF0963DFA4 /* GoogleService-Info.plist in Resources */,
 				7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */,
 				C589FE7D29B34FE43679E3C9 /* Preview Assets.xcassets in Resources */,

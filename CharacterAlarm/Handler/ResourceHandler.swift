@@ -1,6 +1,6 @@
 import Foundation
 
-class ResourceHandler {
+class ResourceHandler {    
     static func getSelfIntroductionUrlString(charaDomain: String) -> String {
         return "\(RESOURCE_ENDPOINT)/\(charaDomain)/voice/self-introduction.caf"
     }
