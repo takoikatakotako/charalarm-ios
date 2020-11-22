@@ -53,10 +53,13 @@ class ConfigViewModel: ObservableObject {
                     try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
                     UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
                     UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
-                     completion()
+                    completion()
                 } catch {
-                    self.alertMessage = "ユーザー情報の削除に失敗しました\n\(error.localizedDescription)"
-                    self.showingAlert = true
+                    try! KeychainHandler.setAnonymousUserName(anonymousUserName: "")
+                    try! KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                    UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                    UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                    fatalError("Fource Reset")
                 }
                 
             case let .failure(error):
