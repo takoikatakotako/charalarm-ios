@@ -77,22 +77,12 @@ class ProfileViewModel: ObservableObject {
     }
     
     func selectCharacter() {
-        guard
-            let charaDomain = character?.charaDomain,
-            let charaName = character?.name else {
-            self.alertMessage = "キャラクターを選択できませんでした"
-            self.showingAlert = true
-            return
-        }
-        
         ResourceStore.downloadResourceJson(charaDomain: charaDomain) { result in
             switch result {
             case let .success(resource):
-                print(resource.resource.images)
-                print(resource.resource.voices)
                 self.numberOfResource = resource.resource.images.count + resource.resource.voices.count
                 self.numberOfDownloadedReosurce = 0
-
+                
                 DispatchQueue.main.async {
                     self.progressMessage = "\(String(self.numberOfDownloadedReosurce))/\(String(self.numberOfResource))"
                 }
@@ -107,7 +97,7 @@ class ProfileViewModel: ObservableObject {
                 }
                 
                 self.downloadResource()
-                            
+                
             case let .failure(error):
                 print(error.localizedDescription)
                 self.downloadError = true
@@ -115,11 +105,6 @@ class ProfileViewModel: ObservableObject {
         }
         
         showingDownloadingModal = true
-        
-        UserDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
-        UserDefaultsHandler.setCharaName(charaName: charaName)
-        NotificationCenter.default.post(name: NSNotification.setChara,
-                                                        object: nil, userInfo: nil)
     }
     
     func downloadResource() {
@@ -127,7 +112,8 @@ class ProfileViewModel: ObservableObject {
             self.numberOfDownloadedReosurce = 0
             self.numberOfResource = 0
             DispatchQueue.main.async {
-                 self.showingDownloadingModal = false
+                self.showingDownloadingModal = false
+                self.setCharacter()
             }
             return
         }
@@ -146,11 +132,23 @@ class ProfileViewModel: ObservableObject {
                 self?.downloadResource()
             case .failure(_):
                 DispatchQueue.main.async {
-                     self?.showingDownloadingModal = false
+                    self?.showingDownloadingModal = false
                     self?.alertMessage = "リソースのダウンロードに失敗しました"
                     self?.showingAlert = true
                 }
             }
         }
+    }
+    
+    func setCharacter() {
+        guard
+            let charaDomain = character?.charaDomain,
+            let charaName = character?.name else {
+            return
+        }
+        
+        UserDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
+        UserDefaultsHandler.setCharaName(charaName: charaName)
+        NotificationCenter.default.post(name: NSNotification.setChara, object: nil, userInfo: nil)
     }
 }

@@ -136,7 +136,7 @@ struct ConfigView: View {
             self.viewModel.fetchCharacter()
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-            self.viewModel.fetchCharacter()
+             self.viewModel.fetchCharacter()
         }
         .alert(isPresented: self.$viewModel.showingAlert) {
             Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))

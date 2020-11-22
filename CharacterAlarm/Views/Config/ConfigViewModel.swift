@@ -28,6 +28,7 @@ class ConfigViewModel: ObservableObject {
         CharacterStore.fetchCharacter(charaDomain: charaDomain) { result in
             switch result {
             case let .success(character):
+                print(character)
                 self.character = character
             case let .failure(error):
                 self.alertMessage = error.localizedDescription
@@ -52,7 +53,7 @@ class ConfigViewModel: ObservableObject {
                     try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
                     UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
                     UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
-                    completion()
+                     completion()
                 } catch {
                     self.alertMessage = "ユーザー情報の削除に失敗しました\n\(error.localizedDescription)"
                     self.showingAlert = true

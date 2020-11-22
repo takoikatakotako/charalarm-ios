@@ -1,6 +1,6 @@
 import UIKit
 
-struct Character: Identifiable, Decodable {
+struct Character: Identifiable, Decodable, Hashable {
     var id: Int {
         return charaId
     }

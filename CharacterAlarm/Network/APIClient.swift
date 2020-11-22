@@ -7,18 +7,14 @@ struct APIClient<ResponseType: Decodable> {
             case let .success(data):
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                guard let apiResponse: ResponseType = try? decoder.decode(ResponseType.self, from: data) else {
-                    let message = """
-                                デコードエラー
-                                File: \(#file)
-                                Function: \(#function)
-                                Line: \(#line)
-                                """
-                    print(message)
+                do {
+                    let apiResponse: ResponseType = try decoder.decode(ResponseType.self, from: data)
+                    completion(.success(apiResponse))
+                } catch {
+                    print(error)
                     completion(.failure(CharalarmError.decode))
                     return
                 }
-                completion(.success(apiResponse))
             case let .failure(error):
                 completion(.failure(error))
             }

@@ -5,7 +5,7 @@ struct ImageList: Codable {
 }
 
 struct VoiceList: Codable {
-    let images: [String]
+    let voices: [String]
 }
 
 struct ImageAndVoiceList: Codable {

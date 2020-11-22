@@ -63,7 +63,8 @@ struct TopView: View {
         .edgesIgnoringSafeArea([.top, .bottom])
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
             self.viewModel.setChara()
-        }.onAppear {
+        }
+        .onAppear {
             self.viewModel.setChara()
         }
     }
