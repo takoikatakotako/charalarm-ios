@@ -43,6 +43,7 @@
 		76F45DCED11FB4066CE75C83 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		7933C32BCA599EC89BB51E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		7A1330A190334DF9895DB3D6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
+		8D41F08D257141BF00DEFEC8 /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41F08C257141BF00DEFEC8 /* PushTokenRequest.swift */; };
 		8D5CCBFF2562C75D001532AD /* com.charalarm.yui in Resources */ = {isa = PBXBuildFile; fileRef = 8D5CCBFE2562C75D001532AD /* com.charalarm.yui */; };
 		8D6961B1255F4C6F00567E35 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961B0255F4C6F00567E35 /* APIHeader.swift */; };
 		8D6961BD255F59E700567E35 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6961BC255F59E700567E35 /* Request.swift */; };
@@ -164,6 +165,7 @@
 		843E562A121D3647C0E5E367 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		895B5510C00A352576589C74 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		8D41F08C257141BF00DEFEC8 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
 		8D5CCBFE2562C75D001532AD /* com.charalarm.yui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com.charalarm.yui; sourceTree = "<group>"; };
 		8D6961B0255F4C6F00567E35 /* APIHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
 		8D6961BC255F59E700567E35 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		35CE0717DB5E83C7E13D8178 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				8D41F08B257141A800DEFEC8 /* Request */,
 				8D6961BB255F59B200567E35 /* Response */,
 				4CA4CA8D022533B34EA5904B /* Character.swift */,
 				42C52C26A99ADB9ADFDE8E93 /* CharalarmAppState.swift */,
@@ -462,6 +465,14 @@
 				8D6961B0255F4C6F00567E35 /* APIHeader.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8D41F08B257141A800DEFEC8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8D41F08C257141BF00DEFEC8 /* PushTokenRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		8D5CCBFD2562C727001532AD /* Resource */ = {
@@ -838,6 +849,7 @@
 				64CA442F03A6ECEF0D97D799 /* AlarmListViewModel.swift in Sources */,
 				CB2C85E3673116531B14AB71 /* AlarmStore.swift in Sources */,
 				48439B20ECC6C706FF7A06FC /* UserStore.swift in Sources */,
+				8D41F08D257141BF00DEFEC8 /* PushTokenRequest.swift in Sources */,
 				8D6961B1255F4C6F00567E35 /* APIHeader.swift in Sources */,
 				DBAF145005C23E370B54B94B /* AppDelegate.swift in Sources */,
 				FDFA6718B4A255075B4621C6 /* CallKitHandler.swift in Sources */,
@@ -1083,7 +1095,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = CharacterAlarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1157,7 +1169,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = CharacterAlarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
