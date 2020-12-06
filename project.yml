@@ -2,6 +2,8 @@ name: CharacterAlarm
 options:
   deploymentTarget:
     iOS: 13.0
+  postGenCommand: bundle exec pod install
+
 targets:
   CharacterAlarm:
     type: application
