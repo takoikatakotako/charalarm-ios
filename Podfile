@@ -11,15 +11,15 @@ target 'CharacterAlarm' do
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
 
-  # Pods for CharacterAlarm
-  target 'CharacterAlarmTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # # Pods for CharacterAlarm
+  # target 'CharacterAlarmTests' do
+  #   inherit! :search_paths
+  #   # Pods for testing
+  # end
 
-  target 'CharacterAlarmUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # target 'CharacterAlarmUITests' do
+  #   inherit! :search_paths
+  #   # Pods for testing
+  # end
 
 end

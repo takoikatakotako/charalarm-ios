@@ -4,6 +4,30 @@ options:
     iOS: 13.0
   postGenCommand: bundle exec pod install
 
+
+schemes:
+  Local:
+    build:
+      targets:
+        CharacterAlarm: all
+    run:
+      config: Debug
+  Develop:
+    build:
+      targets:
+        CharacterAlarm: all
+    run:
+      config: Debug
+  Production:
+    build:
+      targets:
+        CharacterAlarm: all
+    run:
+      config: Debug
+
+
+
+
 targets:
   CharacterAlarm:
     type: application
@@ -26,23 +50,23 @@ targets:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-  CharacterAlarmTests:
-    type: bundle.unit-test
-    platform: iOS
-    sources:
-      - CharacterAlarmTests
-    settings:
-      base:
-        INFOPLIST_FILE: CharacterAlarmTests/Info.plist
-    dependencies:
-      - target: CharacterAlarm
-  CharacterAlarmUITests:
-    type: bundle.ui-testing
-    platform: iOS
-    sources:
-      - CharacterAlarmUITests
-    settings:
-      base:
-        INFOPLIST_FILE: CharacterAlarmUITests/Info.plist
-    dependencies:
-      - target: CharacterAlarm
+  # CharacterAlarmTests:
+  #   type: bundle.unit-test
+  #   platform: iOS
+  #   sources:
+  #     - CharacterAlarmTests
+  #   settings:
+  #     base:
+  #       INFOPLIST_FILE: CharacterAlarmTests/Info.plist
+  #   dependencies:
+  #     - target: CharacterAlarm
+  # CharacterAlarmUITests:
+  #   type: bundle.ui-testing
+  #   platform: iOS
+  #   sources:
+  #     - CharacterAlarmUITests
+  #   settings:
+  #     base:
+  #       INFOPLIST_FILE: CharacterAlarmUITests/Info.plist
+  #   dependencies:
+  #     - target: CharacterAlarm
