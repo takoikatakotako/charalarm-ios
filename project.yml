@@ -9,19 +9,26 @@ schemes:
   Local:
     build:
       targets:
-        CharacterAlarm: all
+        CharalarmLocal: all
     run:
       config: Debug
-  Develop:
+    test:
+      config: Debug
+      gatherCoverageData: false
+      targets:
+        - name: CharacterAlarmTests
+          parallelizable: true
+          randomExecutionOrder: true
+  Staging:
     build:
       targets:
-        CharacterAlarm: all
+        CharalarmStaging: all
     run:
       config: Debug
   Production:
     build:
       targets:
-        CharacterAlarm: all
+        CharalarmProduction: all
     run:
       config: Debug
 
@@ -29,7 +36,7 @@ schemes:
 
 
 targets:
-  CharacterAlarm:
+  CharalarmLocal:
     type: application
     platform: iOS
     deploymentTarget: "13.0"
@@ -50,23 +57,65 @@ targets:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-  # CharacterAlarmTests:
-  #   type: bundle.unit-test
-  #   platform: iOS
-  #   sources:
-  #     - CharacterAlarmTests
-  #   settings:
-  #     base:
-  #       INFOPLIST_FILE: CharacterAlarmTests/Info.plist
-  #   dependencies:
-  #     - target: CharacterAlarm
-  # CharacterAlarmUITests:
-  #   type: bundle.ui-testing
-  #   platform: iOS
-  #   sources:
-  #     - CharacterAlarmUITests
-  #   settings:
-  #     base:
-  #       INFOPLIST_FILE: CharacterAlarmUITests/Info.plist
-  #   dependencies:
-  #     - target: CharacterAlarm
+  CharalarmStaging:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources:
+      - CharacterAlarm
+    settings:
+      base:
+        CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 5RH346BQ66
+        INFOPLIST_FILE: CharacterAlarm/Info.plist
+        MARKETING_VERSION: 2.0.0
+        CURRENT_PROJECT_VERSION: 61
+        TARGETED_DEVICE_FAMILY: 1
+      configs:
+        Debug:
+          CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
+        Release:
+          CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
+  CharalarmProduction:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources:
+      - CharacterAlarm
+    settings:
+      base:
+        CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 5RH346BQ66
+        INFOPLIST_FILE: CharacterAlarm/Info.plist
+        MARKETING_VERSION: 2.0.0
+        CURRENT_PROJECT_VERSION: 61
+        TARGETED_DEVICE_FAMILY: 1
+      configs:
+        Debug:
+          CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
+        Release:
+          CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
+  CharacterAlarmTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - CharacterAlarmTests
+    settings:
+      base:
+        INFOPLIST_FILE: CharacterAlarmTests/Info.plist
+    dependencies:
+      - target: CharalarmLocal
+  CharacterAlarmUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - CharacterAlarmUITests
+    settings:
+      base:
+        INFOPLIST_FILE: CharacterAlarmUITests/Info.plist
+    dependencies:
+      - target: CharalarmLocal

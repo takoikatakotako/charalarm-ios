@@ -1,25 +1,35 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'CharacterAlarm' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+
+def install_pods
   use_frameworks!
   inhibit_all_warnings!
+
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
   pod 'SwiftLint'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
 
-  # # Pods for CharacterAlarm
-  # target 'CharacterAlarmTests' do
-  #   inherit! :search_paths
-  #   # Pods for testing
-  # end
+end
 
-  # target 'CharacterAlarmUITests' do
-  #   inherit! :search_paths
-  #   # Pods for testing
-  # end
+target 'CharalarmLocal' do
+  install_pods
+  
+  target 'CharacterAlarmTests' do
+    inherit! :search_paths
+  end
 
+  target 'CharacterAlarmUITests' do
+    inherit! :search_paths
+  end
+end
+
+target 'CharalarmStaging' do
+  install_pods
+end
+
+target 'CharalarmProduction' do
+  install_pods
 end

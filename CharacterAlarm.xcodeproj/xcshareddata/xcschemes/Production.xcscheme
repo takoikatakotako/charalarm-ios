@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED45A90643725F716C84519F"
-               BuildableName = "CharacterAlarm.app"
-               BlueprintName = "CharacterAlarm"
+               BlueprintIdentifier = "2D5540FF571B3E782268AFE1"
+               BuildableName = "CharalarmProduction.app"
+               BlueprintName = "CharalarmProduction"
                ReferencedContainer = "container:CharacterAlarm.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED45A90643725F716C84519F"
-            BuildableName = "CharacterAlarm.app"
-            BlueprintName = "CharacterAlarm"
+            BlueprintIdentifier = "2D5540FF571B3E782268AFE1"
+            BuildableName = "CharalarmProduction.app"
+            BlueprintName = "CharalarmProduction"
             ReferencedContainer = "container:CharacterAlarm.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -54,9 +54,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED45A90643725F716C84519F"
-            BuildableName = "CharacterAlarm.app"
-            BlueprintName = "CharacterAlarm"
+            BlueprintIdentifier = "2D5540FF571B3E782268AFE1"
+            BuildableName = "CharalarmProduction.app"
+            BlueprintName = "CharalarmProduction"
             ReferencedContainer = "container:CharacterAlarm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -73,9 +73,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED45A90643725F716C84519F"
-            BuildableName = "CharacterAlarm.app"
-            BlueprintName = "CharacterAlarm"
+            BlueprintIdentifier = "2D5540FF571B3E782268AFE1"
+            BuildableName = "CharalarmProduction.app"
+            BlueprintName = "CharalarmProduction"
             ReferencedContainer = "container:CharacterAlarm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

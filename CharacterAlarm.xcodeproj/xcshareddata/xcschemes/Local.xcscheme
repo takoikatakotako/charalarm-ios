@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED45A90643725F716C84519F"
-               BuildableName = "CharacterAlarm.app"
-               BlueprintName = "CharacterAlarm"
+               BlueprintIdentifier = "77993B98A36069AB71755054"
+               BuildableName = "CharalarmLocal.app"
+               BlueprintName = "CharalarmLocal"
                ReferencedContainer = "container:CharacterAlarm.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,16 +29,30 @@
       onlyGenerateCoverageForSpecifiedTargets = "NO"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "904AEDF6F4F8C190C31FB1B4"
+               BuildableName = "CharacterAlarmTests.xctest"
+               BlueprintName = "CharacterAlarmTests"
+               ReferencedContainer = "container:CharacterAlarm.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED45A90643725F716C84519F"
-            BuildableName = "CharacterAlarm.app"
-            BlueprintName = "CharacterAlarm"
+            BlueprintIdentifier = "77993B98A36069AB71755054"
+            BuildableName = "CharalarmLocal.app"
+            BlueprintName = "CharalarmLocal"
             ReferencedContainer = "container:CharacterAlarm.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -54,9 +68,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED45A90643725F716C84519F"
-            BuildableName = "CharacterAlarm.app"
-            BlueprintName = "CharacterAlarm"
+            BlueprintIdentifier = "77993B98A36069AB71755054"
+            BuildableName = "CharalarmLocal.app"
+            BlueprintName = "CharalarmLocal"
             ReferencedContainer = "container:CharacterAlarm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -73,9 +87,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED45A90643725F716C84519F"
-            BuildableName = "CharacterAlarm.app"
-            BlueprintName = "CharacterAlarm"
+            BlueprintIdentifier = "77993B98A36069AB71755054"
+            BuildableName = "CharalarmLocal.app"
+            BlueprintName = "CharalarmLocal"
             ReferencedContainer = "container:CharacterAlarm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
