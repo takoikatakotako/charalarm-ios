@@ -6,16 +6,17 @@ struct AlarmListView: View {
     @ObservedObject(initialValue: AlarmListViewModel()) var viewModel: AlarmListViewModel
     
     var body: some View {
-        List {
-            ForEach(self.viewModel.alarms) { alarm in
-                NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
-                    AlarmListRow(delegate: self, alarm: alarm)
-                        .frame(height: 60.0)
+        NavigationView {
+            List {
+                ForEach(self.viewModel.alarms) { alarm in
+                    NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
+                        AlarmListRow(delegate: self, alarm: alarm)
+                            .frame(height: 60.0)
+                    }
                 }
-            }
-            .onDelete(perform: delete)
-        }.listStyle(DefaultListStyle())
-        .navigationBarBackButtonHidden(true)
+                .onDelete(perform: delete)
+            }.listStyle(DefaultListStyle())
+            .navigationBarBackButtonHidden(true)
             .navigationBarItems(
                 leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
@@ -23,16 +24,18 @@ struct AlarmListView: View {
                     Text("設定")
                 }),
                 trailing:
-                HStack {
-                    EditButton()
-                    NavigationLink(destination: AlarmDetailView(alarm: viewModel.createNewAlarm())) {
-                        Image(systemName: "plus")
+                    HStack {
+                        EditButton()
+                        NavigationLink(destination: AlarmDetailView(alarm: viewModel.createNewAlarm())) {
+                            Image(systemName: "plus")
+                        }
                     }
-                }
-        ).onAppear {
-            self.viewModel.fetchAlarms()
-        }.alert(isPresented: self.$viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            ).onAppear {
+                self.viewModel.fetchAlarms()
+            }.alert(isPresented: self.$viewModel.showingAlert) {
+                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            }
+            .navigationBarTitle("", displayMode: .inline)
         }
     }
     

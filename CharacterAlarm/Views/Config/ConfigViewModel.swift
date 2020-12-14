@@ -45,26 +45,19 @@ class ConfigViewModel: ObservableObject {
                 return
         }
         
-        UserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
-            switch result {
-            case .success(_):
-                do {
-                    try KeychainHandler.setAnonymousUserName(anonymousUserName: "")
-                    try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                    UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                    UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
-                    completion()
-                } catch {
-                    try! KeychainHandler.setAnonymousUserName(anonymousUserName: "")
-                    try! KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                    UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                    UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
-                    fatalError("Fource Reset")
-                }
-                
-            case let .failure(error):
-                self.alertMessage = error.localizedDescription
-                self.showingAlert = true
+        UserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ _ in
+            do {
+                try KeychainHandler.setAnonymousUserName(anonymousUserName: "")
+                try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                completion()
+            } catch {
+                try! KeychainHandler.setAnonymousUserName(anonymousUserName: "")
+                try! KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                fatalError("Fource Reset")
             }
         }
     }

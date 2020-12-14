@@ -6,8 +6,8 @@ struct CharacterListView: View {
     @ObservedObject(initialValue: CharacterListViewModel()) var viewModel: CharacterListViewModel
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            VStack {
+        NavigationView {
+            ZStack {
                 List(viewModel.characters) { character in
                     NavigationLink(destination: ProfileView(charaDomain: character.charaDomain)) {
                         CharacterListRow(character: character)
@@ -15,26 +15,29 @@ struct CharacterListView: View {
                             .clipped()
                     }
                 }
-                Spacer()
-            }
-            
-            Button(action: {
-                guard let url = URL(string: "https://swiswiswift.com/") else {
-                    return
+                
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        guard let url = URL(string: "https://swiswiswift.com/") else {
+                            return
+                        }
+                        if UIApplication.shared.canOpenURL(url) {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
+                        CharacterListBanner()
+                            .padding(.horizontal, 16)
+                    }
                 }
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
-            }) {
-                CharacterListBanner()
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 36)
             }
-        }
-        .onAppear {
-            self.viewModel.fetchCharacters()
-        }.alert(isPresented: self.$viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            .onAppear {
+                self.viewModel.fetchCharacters()
+            }
+            .alert(isPresented: self.$viewModel.showingAlert) {
+                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            }
+            .navigationBarTitle("キャラクター一覧", displayMode: .inline)
         }
         .edgesIgnoringSafeArea(.bottom)
     }

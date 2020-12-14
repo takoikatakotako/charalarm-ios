@@ -4,6 +4,8 @@ import AVFoundation
 class TopViewModel: ObservableObject {
     @Published var charaImage = UIImage()
     @Published var showNews: Bool = false
+    @Published var showCharaList: Bool = false
+    @Published var showAlarmList: Bool = false
     @Published var showConfig: Bool = false
     @Published var showingAlert: Bool = false
     @Published var alertMessage: String = ""

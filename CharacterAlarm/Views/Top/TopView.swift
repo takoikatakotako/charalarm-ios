@@ -31,22 +31,55 @@ struct TopView: View {
                 }
                 
                 VStack(spacing: 0) {
+                    
+                    // 
+                    VStack(spacing: 0) {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                self.viewModel.showNews = true
+                            }) {
+                                TopButtonContent(imageName: "top-news")
+                            }.sheet(isPresented: self.$viewModel.showNews) {
+                                NewsListView()
+                            }
+                            .padding()
+                            .padding(.top, 16)
+                        }
+                        .frame(height: 140)
+                        .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
+                    }
+
                     Spacer()
-                    HStack(alignment: .bottom, spacing: 16) {
+                    HStack {
+                        Spacer()
                         TopTimeView()
                         Spacer()
-                        
+                    }
+                    .frame(height: 140)
+                    .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 1), endPoint: UnitPoint(x: 0.5, y: 0)))
+                    
+                    
+                    HStack {
                         Button(action: {
-                            self.viewModel.showNews = true
+                            self.viewModel.showCharaList = true
                         }) {
-                            TopButtonContent(imageName: "top-news")
-                        }.sheet(isPresented: self.$viewModel.showNews) {
-                            NewsListView()
+                            TopButtonContent(imageName: "top-person")
+                        }.sheet(isPresented: self.$viewModel.showCharaList) {
+                            CharacterListView()
+                                .environmentObject( self.appState )
                         }
                         
                         Button(action: {
-                            
-                            
+                            self.viewModel.showAlarmList = true
+                        }) {
+                            TopButtonContent(imageName: "top-alarm")
+                        }.sheet(isPresented: self.$viewModel.showAlarmList) {
+                            AlarmListView()
+                                .environmentObject( self.appState )
+                        }
+                        
+                        Button(action: {
                             self.viewModel.showConfig = true
                         }) {
                             TopButtonContent(imageName: "top-config")
@@ -55,9 +88,9 @@ struct TopView: View {
                                 .environmentObject( self.appState )
                         }
                     }
+                    
                 }
-                .padding(.horizontal, 16)
-                .padding(.bottom, 28)
+
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
