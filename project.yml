@@ -1,7 +1,7 @@
 name: CharacterAlarm
 options:
   deploymentTarget:
-    iOS: 13.0
+    iOS: 14.0
   postGenCommand: bundle exec pod install
 
 schemes:
@@ -35,7 +35,7 @@ targets:
   CharalarmLocal:
     type: application
     platform: iOS
-    deploymentTarget: "13.0"
+    deploymentTarget: "14.0"
     sources:
       - path: CharacterAlarm
       - path: Config/Local
@@ -60,7 +60,7 @@ targets:
   CharalarmStaging:
     type: application
     platform: iOS
-    deploymentTarget: "13.0"
+    deploymentTarget: "14.0"
     sources:
       - path: CharacterAlarm
       - path: Config/Staging
@@ -85,7 +85,7 @@ targets:
   CharalarmProduction:
     type: application
     platform: iOS
-    deploymentTarget: "13.0"
+    deploymentTarget: "14.0"
     sources:
       - path: CharacterAlarm
       - path: Config/Production

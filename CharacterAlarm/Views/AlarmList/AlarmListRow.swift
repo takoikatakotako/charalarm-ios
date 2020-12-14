@@ -32,21 +32,71 @@ struct AlarmListRow: View {
         self.alarmListModel = AlarmListRowModel(alarmId: alarm.alarmId, enable: alarm.enable, delegate: delegate)
     }
     
+    var backgroundColor: Color {
+        return alarm.enable ? Color("alarm-card-background-green") : Color.gray
+    }
+    
+    var toggleThumbColor: Color {
+        return alarm.enable ? Color("alarm-card-background-green") : Color.gray
+    }
+    
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("\(alarm.hour):\(alarm.minute)")
-                    .font(Font.system(size: 20))
+        ZStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(alarm.name)
+                    .font(Font.system(size: 20))
+                Text("\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))")
+                    .font(Font.system(size: 36).bold())
                 Text(alarm.dayOfWeeksString)
+                    .font(Font.system(size: 20))
             }
             .fixedSize(horizontal: true, vertical: false)
-            Spacer()
-            Toggle(isOn: $alarmListModel.enable) {
-                Text("")
+            .foregroundColor(Color.white)
+            .padding(.leading, 16)
+            
+            HStack {
+                Spacer()
+                Toggle(isOn: $alarmListModel.enable) {
+                    Text("")
+                }.labelsHidden()
+                .toggleStyle(ColoredToggleStyle(label: "", onColor: Color.white, offColor: Color.white, thumbColor: toggleThumbColor))
+                .padding()
             }
-            .padding()
         }
+        .frame(height: 140)
+        .background(backgroundColor)
+        .cornerRadius(16)
+        .padding(8)
+    }
+}
+
+// ref: https://stackoverflow.com/questions/56479674/set-toggle-color-in-swiftui
+struct ColoredToggleStyle: ToggleStyle {
+    var label = ""
+    var onColor = Color(UIColor.green)
+    var offColor = Color(UIColor.systemGray5)
+    var thumbColor = Color.white
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        HStack {
+            Text(label)
+            Spacer()
+            Button(action: { configuration.isOn.toggle() } )
+            {
+                RoundedRectangle(cornerRadius: 20, style: .circular)
+                    .fill(configuration.isOn ? onColor : offColor)
+                    .frame(width: 50, height: 29)
+                    .overlay(
+                        Circle()
+                            .fill(thumbColor)
+                            .shadow(radius: 1, x: 0, y: 1)
+                            .padding(1.5)
+                            .offset(x: configuration.isOn ? 10 : -10))
+                    .animation(Animation.easeInOut(duration: 0.1))
+            }
+        }
+        .font(.title)
+        .padding(.horizontal)
     }
 }
 

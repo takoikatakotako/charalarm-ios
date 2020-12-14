@@ -7,46 +7,34 @@ struct AlarmListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(self.viewModel.alarms) { alarm in
-                    NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
-                        AlarmListRow(delegate: self, alarm: alarm)
-                            .frame(height: 60.0)
-                    }
-                }
-                .onDelete(perform: delete)
-            }.listStyle(DefaultListStyle())
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(
-                leading: Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("設定")
-                }),
-                trailing:
-                    HStack {
-                        EditButton()
-                        NavigationLink(destination: AlarmDetailView(alarm: viewModel.createNewAlarm())) {
-                            Image(systemName: "plus")
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(self.viewModel.alarms) { alarm in
+                        NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
+                            AlarmListRow(delegate: self, alarm: alarm)
                         }
                     }
-            ).onAppear {
-                self.viewModel.fetchAlarms()
-            }.alert(isPresented: self.$viewModel.showingAlert) {
-                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+                }
             }
+            .navigationBarBackButtonHidden(true)
+            .onAppear {
+                self.viewModel.fetchAlarms()
+            }
+            //            .alert(isPresented: self.$viewModel.showingAlert) {
+            //                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            //            }
             .navigationBarTitle("", displayMode: .inline)
         }
     }
     
-    func delete(at offsets: IndexSet) {
-        for offset in offsets {
-            guard let alarmId = viewModel.alarms[offset].alarmId else {
-                return
-            }
-            viewModel.deleteAlarm(alarmId: alarmId)
-        }
-    }
+    //    func delete(at offsets: IndexSet) {
+    //        for offset in offsets {
+    //            guard let alarmId = viewModel.alarms[offset].alarmId else {
+    //                return
+    //            }
+    //            viewModel.deleteAlarm(alarmId: alarmId)
+    //        }
+    //    }
 }
 
 extension AlarmListView: AlarmListRowDelegate {
