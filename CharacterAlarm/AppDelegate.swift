@@ -12,6 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
+        guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String  else {
+            fatalError("API_ENDPOINTが見つかりません")
+        }
+        BASE_URL = apiEndpoint
+        
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
         

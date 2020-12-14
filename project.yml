@@ -4,7 +4,6 @@ options:
     iOS: 13.0
   postGenCommand: bundle exec pod install
 
-
 schemes:
   Local:
     build:
@@ -32,23 +31,21 @@ schemes:
     run:
       config: Debug
 
-
-
-
 targets:
   CharalarmLocal:
     type: application
     platform: iOS
     deploymentTarget: "13.0"
     sources:
-      - CharacterAlarm
+      - path: CharacterAlarm
+      - path: Config/Local
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: CharacterAlarm/Info.plist
+        INFOPLIST_FILE: Config/Local/Info.plist
         MARKETING_VERSION: 2.0.0
         CURRENT_PROJECT_VERSION: 61
         TARGETED_DEVICE_FAMILY: 1
@@ -56,43 +53,49 @@ targets:
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
+          API_ENDPOINT: http://localhost:8080
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
+          API_ENDPOINT: http://localhost:8080
   CharalarmStaging:
     type: application
     platform: iOS
     deploymentTarget: "13.0"
     sources:
-      - CharacterAlarm
+      - path: CharacterAlarm
+      - path: Config/Staging
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
         PRODUCT_BUNDLE_IDENTIFIER: com.charalarm.staging
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: CharacterAlarm/Info.plist
+        INFOPLIST_FILE: Config/Staging/Info.plist
         MARKETING_VERSION: 2.0.0
-        CURRENT_PROJECT_VERSION: 1
+        CURRENT_PROJECT_VERSION: 2
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
+          API_ENDPOINT: https://api-stg.charalarm.com
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
+          API_ENDPOINT: https://api-stg.charalarm.com
   CharalarmProduction:
     type: application
     platform: iOS
     deploymentTarget: "13.0"
     sources:
-      - CharacterAlarm
+      - path: CharacterAlarm
+      - path: Config/Production
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: CharacterAlarm/Info.plist
+        INFOPLIST_FILE: Config/Production/Info.plist
         MARKETING_VERSION: 2.0.0
         CURRENT_PROJECT_VERSION: 61
         TARGETED_DEVICE_FAMILY: 1
@@ -100,8 +103,10 @@ targets:
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
+          API_ENDPOINT: https://api.charalarm.com
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
+          API_ENDPOINT: https://api.charalarm.com
   CharacterAlarmTests:
     type: bundle.unit-test
     platform: iOS
