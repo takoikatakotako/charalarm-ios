@@ -42,8 +42,11 @@ struct AlarmDetailView: View {
 //            }
         }.navigationBarItems(trailing:
             HStack {
-                Button("Save") {
-                    self.viewModel.createOrUpdateAlarm()
+                Button(action: {
+                    viewModel.createOrUpdateAlarm()
+                }) {
+                    Text("保存")
+                        .foregroundColor(Color("charalarm-default-green"))
                 }
             }
         ).alert(isPresented: $viewModel.showingAlert) {

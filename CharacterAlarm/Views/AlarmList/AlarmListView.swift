@@ -18,23 +18,30 @@ struct AlarmListView: View {
             }
             .navigationBarBackButtonHidden(true)
             .onAppear {
-                self.viewModel.fetchAlarms()
+                viewModel.fetchAlarms()
             }
-            //            .alert(isPresented: self.$viewModel.showingAlert) {
-            //                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
-            //            }
+            .alert(isPresented: $viewModel.showingAlert) {
+                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            }
             .navigationBarTitle("", displayMode: .inline)
+            .navigationBarItems(
+                leading:
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image("common-icon-close")
+                            .renderingMode(.template)
+                            .foregroundColor(Color("charalarm-default-gray"))
+                    },
+                trailing:
+                    NavigationLink(destination: AlarmDetailView(alarm: viewModel.createNewAlarm())) {
+                        Image("alarm-add-icon")
+                            .renderingMode(.template)
+                            .foregroundColor(Color("charalarm-default-gray"))
+                    }
+            )
         }
     }
-    
-    //    func delete(at offsets: IndexSet) {
-    //        for offset in offsets {
-    //            guard let alarmId = viewModel.alarms[offset].alarmId else {
-    //                return
-    //            }
-    //            viewModel.deleteAlarm(alarmId: alarmId)
-    //        }
-    //    }
 }
 
 extension AlarmListView: AlarmListRowDelegate {

@@ -33,11 +33,11 @@ struct AlarmListRow: View {
     }
     
     var backgroundColor: Color {
-        return alarm.enable ? Color("alarm-card-background-green") : Color.gray
+        return alarm.enable ? Color("alarm-card-background-green") : Color("charalarm-default-gray")
     }
     
     var toggleThumbColor: Color {
-        return alarm.enable ? Color("alarm-card-background-green") : Color.gray
+        return alarm.enable ? Color("alarm-card-background-green") : Color("charalarm-default-gray")
     }
     
     var body: some View {

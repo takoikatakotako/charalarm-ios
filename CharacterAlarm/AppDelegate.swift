@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         BASE_URL = apiEndpoint
         
+        UINavigationBar.appearance().tintColor = UIColor(named: "charalarm-default-gray")
+        
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
         

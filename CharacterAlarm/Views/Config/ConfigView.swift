@@ -10,50 +10,6 @@ struct ConfigView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    NavigationLink(destination: ProfileView(charaDomain: viewModel.charaDomain)) {
-                        HStack {
-                            WebImage(url: URL(string: viewModel.character?.charaThumbnailUrlString ?? ""))
-                                .resizable()
-                                .placeholder {
-                                    Image("character-placeholder")
-                                        .resizable()
-                                }
-                                .animation(.easeInOut(duration: 0.5))
-                                .transition(.fade)
-                                .scaledToFill()
-                                .frame(width: 76, height: 76, alignment: .center)
-                                .clipShape(Circle())
-                            
-                            VStack(alignment: .leading) {
-                                Text(viewModel.character?.name ?? "")
-                                    .foregroundColor(.gray)
-                                    .font(Font.system(size: 24))
-                                Text("\(viewModel.character?.illustrationName ?? "") / \(viewModel.character?.voiceName ?? "")")
-                                    .foregroundColor(.gray)
-                                    .font(Font.system(size: 18))
-                                    .padding(.top, 8)
-                            }
-                        }
-                    }.frame(height: 80)
-                    .onAppear {
-                    }
-                }
-                
-                Section(header: Text("アラーム")) {
-                    NavigationLink(destination: AlarmListView()) {
-                        Text("アラーム")
-                            .foregroundColor(Color("textColor"))
-                    }
-                }
-                
-                Section(header: Text("キャラクター")) {
-                    NavigationLink(destination: CharacterListView()) {
-                        Text("キャラクター")
-                            .foregroundColor(Color("textColor"))
-                    }
-                }
-                
                 Section(header: Text("ユーザー情報")) {
                     NavigationLink(destination: UserInfoView()) {
                         Text("ユーザー情報")
@@ -128,15 +84,19 @@ struct ConfigView: View {
             }.listStyle(GroupedListStyle())
             .navigationBarTitle("設定", displayMode: .inline)
             .navigationBarItems(leading:
-                                    Button("閉じる") {
-                                        self.presentationMode.wrappedValue.dismiss()
+                                    Button(action: {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }) {
+                                        Image("common-icon-close")
+                                            .renderingMode(.template)
+                                            .foregroundColor(Color("charalarm-default-gray"))
                                     }
             )
         }.onAppear {
             self.viewModel.fetchCharacter()
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-             self.viewModel.fetchCharacter()
+            self.viewModel.fetchCharacter()
         }
         .alert(isPresented: self.$viewModel.showingAlert) {
             Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
