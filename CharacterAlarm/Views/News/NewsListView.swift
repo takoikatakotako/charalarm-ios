@@ -20,9 +20,13 @@ struct NewsListView: View {
             }
             .navigationBarTitle("ニュース", displayMode: .inline)
             .navigationBarItems(leading:
-                Button("閉じる") {
-                    self.presentationMode.wrappedValue.dismiss()
-                }
+                                    Button(action: {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }) {
+                                        Image("common-icon-close")
+                                            .renderingMode(.template)
+                                            .foregroundColor(Color("charalarm-default-gray"))
+                                    }
             )
         }.onAppear {
             self.viewModel.fetchNews()

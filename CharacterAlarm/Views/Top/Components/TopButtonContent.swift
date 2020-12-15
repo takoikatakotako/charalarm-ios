@@ -6,12 +6,13 @@ struct TopButtonContent: View {
         Group {
             Image(imageName)
                 .foregroundColor(.white)
-                .padding()
+                .padding(8)
         }
-        .background(Color.black)
-        .cornerRadius(16)
-        .shadow(color: .black, radius: 4, x: 4, y: 4)
-        .opacity(0.9)
+        .background(Color.clear)
+        .overlay(
+            RoundedRectangle(cornerRadius: 4)
+                .stroke(Color.white, lineWidth: 2)
+        )
     }
 }
 

@@ -49,56 +49,65 @@ struct TopView: View {
                         .frame(height: 140)
                         .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
                     }
-
+                    
                     Spacer()
-                    HStack {
-                        Spacer()
-                        TopTimeView()
-                        Spacer()
-                    }
-                    .frame(height: 140)
-                    .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 1), endPoint: UnitPoint(x: 0.5, y: 0)))
                     
-                    
-                    HStack {
-                        Button(action: {
-                            self.viewModel.showCharaList = true
-                        }) {
-                            TopButtonContent(imageName: "top-person")
-                        }.sheet(isPresented: self.$viewModel.showCharaList) {
-                            CharacterListView()
-                                .environmentObject( self.appState )
-                        }
+                    VStack(spacing: 8) {
+                        // TopTimeView()
                         
-                        Button(action: {
-                            self.viewModel.showAlarmList = true
-                        }) {
-                            TopButtonContent(imageName: "top-alarm")
-                        }.sheet(isPresented: self.$viewModel.showAlarmList) {
-                            AlarmListView()
-                                .environmentObject( self.appState )
-                        }
+                        Text("18:00")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: 56).bold())
+                            .padding(.top, 12)
                         
-                        Button(action: {
-                            self.viewModel.showConfig = true
-                        }) {
-                            TopButtonContent(imageName: "top-config")
-                        }.sheet(isPresented: self.$viewModel.showConfig) {
-                            ConfigView()
-                                .environmentObject( self.appState )
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                self.viewModel.showCharaList = true
+                            }) {
+                                TopButtonContent(imageName: "top-person")
+                            }.sheet(isPresented: self.$viewModel.showCharaList) {
+                                CharacterListView()
+                                    .environmentObject( self.appState )
+                            }
+                            
+                            Spacer()
+            
+                            Button(action: {
+                                self.viewModel.showAlarmList = true
+                            }) {
+                                TopButtonContent(imageName: "top-alarm")
+                            }.sheet(isPresented: self.$viewModel.showAlarmList) {
+                                AlarmListView()
+                                    .environmentObject( self.appState )
+                            }
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                viewModel.showConfig = true
+                            }) {
+                                TopButtonContent(imageName: "top-config")
+                            }.sheet(isPresented: self.$viewModel.showConfig) {
+                                ConfigView()
+                                    .environmentObject( self.appState )
+                            }
+                            
+                            Spacer()
                         }
+                        .padding(.bottom, 32)
                     }
-                    
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.8), Color.gray.opacity(0.2)]), startPoint: UnitPoint(x: 0.5, y: 0.03), endPoint: UnitPoint(x: 0.5, y: 0)).opacity(0.9))
                 }
-
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-            self.viewModel.setChara()
+            viewModel.setChara()
         }
         .onAppear {
-            self.viewModel.setChara()
+            viewModel.setChara()
         }
     }
 }

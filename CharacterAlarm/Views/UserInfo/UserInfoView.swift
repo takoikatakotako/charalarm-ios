@@ -13,6 +13,8 @@ struct UserInfoView: View {
             Text("ユーザー名")
                 .font(Font.body.bold())
             Text(userName)
+                .multilineTextAlignment(.leading)
+            
             Spacer()
         }
         .padding()
