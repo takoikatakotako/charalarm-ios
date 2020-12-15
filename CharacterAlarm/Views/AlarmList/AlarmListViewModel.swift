@@ -59,30 +59,4 @@ class AlarmListViewModel: ObservableObject {
             }
         }
     }
-    
-    func deleteAlarm(alarmId: Int) {
-        guard let index = alarms.firstIndex(where: { $0.alarmId == alarmId}) else {
-            self.showingAlert = true
-            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
-            return
-        }
-        alarms.remove(at: index)
-        
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
-            self.showingAlert = true
-            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
-            return
-        }
-        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { result in
-            switch result {
-            case .success(_):
-                self.alertMessage = "削除完了しました"
-                self.showingAlert = true
-            case let .failure(error):
-                self.showingAlert = true
-                self.alertMessage = error.localizedDescription
-            }
-        }
-    }
 }

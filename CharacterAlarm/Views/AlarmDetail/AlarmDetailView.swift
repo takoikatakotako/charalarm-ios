@@ -11,35 +11,50 @@ struct AlarmDetailView: View {
     }
 
     var body: some View {
-        
-        List {
-            NavigationLink(destination: EditAlarmName(alarmName: viewModel.alarm.name, delegate: self)) {
-                VStack(alignment: .leading) {
-                    Text("アラーム名")
-                    Text(viewModel.alarm.name)
-                }.frame(height: 60.0)
-            }
+        ZStack {
+            List {
+                NavigationLink(destination: EditAlarmName(alarmName: viewModel.alarm.name, delegate: self)) {
+                    VStack(alignment: .leading) {
+                        Text("アラーム名")
+                        Text(viewModel.alarm.name)
+                    }.frame(height: 60.0)
+                }
 
-            NavigationLink(destination: EditAlarmTime(delegate: self, hour: viewModel.alarm.hour, minute: viewModel.alarm.minute) ) {
-                VStack(alignment: .leading) {
-                    Text("時間")
-                    Text(viewModel.alarmTimeString)
-                }.frame(height: 60.0)
-            }
+                NavigationLink(destination: EditAlarmTime(delegate: self, hour: viewModel.alarm.hour, minute: viewModel.alarm.minute) ) {
+                    VStack(alignment: .leading) {
+                        Text("時間")
+                        Text(viewModel.alarmTimeString)
+                    }.frame(height: 60.0)
+                }
 
-            NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, dayOfWeeks: viewModel.alarm.dayOfWeeks)) {
-                VStack(alignment: .leading) {
-                    Text("曜日")
-                    Text(viewModel.alarm.dayOfWeeksString)
-                }.frame(height: 60.0)
+                NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, dayOfWeeks: viewModel.alarm.dayOfWeeks)) {
+                    VStack(alignment: .leading) {
+                        Text("曜日")
+                        Text(viewModel.alarm.dayOfWeeksString)
+                    }.frame(height: 60.0)
+                }
             }
-
-//            NavigationLink(destination: EditAlarmTimeDifference(delegate: self, timeDifference: viewModel.alarm.timeDifference)) {
-//                VStack(alignment: .leading) {
-//                    Text("時差")
-//                    Text("GMT + \(viewModel.alarm.timeDifference)")
-//                }.frame(height: 60.0)
-//            }
+            
+            if let alarmId = viewModel.alarm.alarmId {
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        viewModel.deleteAlarm(alarmId: alarmId) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }) {
+                        Text("アラームを削除する")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: 16).bold())
+                            .frame(height: 46)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color("charalarm-default-pink"))
+                            .cornerRadius(28)
+                            .padding(.horizontal, 24)
+                    }
+                }
+            }
+            
         }.navigationBarItems(trailing:
             HStack {
                 Button(action: {

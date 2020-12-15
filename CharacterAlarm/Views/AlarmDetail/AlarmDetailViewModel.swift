@@ -28,6 +28,24 @@ class AlarmDetailViewModel: ObservableObject {
         }
     }
     
+    func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
+        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
+              let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            self.showingAlert = true
+            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+            return
+        }
+        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { result in
+            switch result {
+            case .success:
+                completion()
+            case .failure:
+                self.alertMessage = "削除に失敗しました"
+                self.showingAlert = true
+            }
+        }
+    }
+    
     private func createAlarm() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
