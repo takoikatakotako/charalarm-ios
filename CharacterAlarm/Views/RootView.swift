@@ -6,11 +6,12 @@ struct RootView: View {
     
     var body: some View {
         ZStack {
-            if appState.doneTutorial {
+            // if appState.doneTutorial {
+            if false {
                 TopView()
                 .environmentObject(appState)
             } else {
-                TutorialHolderView()
+                TutorialFirstView()
                 .environmentObject(appState)
             }
         }

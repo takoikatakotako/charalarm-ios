@@ -4,12 +4,11 @@ struct TutorialHolderView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
     
-    @State var views: [TutorialView] = [
-        TutorialView(imageName: "sd-normal", text: "チュートリアルだよ"),
-        TutorialView(imageName: "sd-happly", text: "チュートリアル"),
-        TutorialView(imageName: "sd-sad", text: "チュートリアル"),
-        TutorialView(imageName: "sd-smile", text: "チュートリアル"),
-        TutorialView(tutorialType: .end,imageName: "sd-suprised", text: "最後のチュートリアル")
+    @State var views: [AnyView] = [
+        AnyView(TutorialView(imageName: "sd-happly", text: "チュートリアル")),
+        AnyView(TutorialView(imageName: "sd-sad", text: "チュートリアル")),
+        AnyView(TutorialView(imageName: "sd-smile", text: "チュートリアル")),
+        AnyView(TutorialView(tutorialType: .end,imageName: "sd-suprised", text: "最後のチュートリアル"))
     ]
     
     var body: some View {
