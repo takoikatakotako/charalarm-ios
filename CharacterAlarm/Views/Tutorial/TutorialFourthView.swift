@@ -4,20 +4,29 @@ struct TutorialFourthView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 12) {
             Spacer()
             
-            Image("sd-normal")
+            Image("tutorial-chara-list-screen-shot")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 300, height: 300)
+                .frame(width: 320, height: 400)
+                .padding(.bottom, 36)
+            
             Spacer()
             
+            Text("キャラクター一覧から着信を受けられるキャラクターを見ることができます。")
+                .font(Font.system(size: 20))
+                .padding(.horizontal, 12)
             
-            Text("キャラクター一覧から着信を受けられるキャラクターを見ることができます。好きなキャラクターを選んでみてください。")
+            Text("好きなキャラクターを選んでみてください。")
+                .font(Font.system(size: 20))
+                .padding(.horizontal, 12)
+            
+            Spacer()
             
             NavigationLink(
-                destination: TutorialFifthView()                .environmentObject(appState),
+                destination: TutorialFifthView().environmentObject(appState),
                 label: {
                     Text("つぎへ")
                         .foregroundColor(Color.white)
@@ -37,5 +46,6 @@ struct TutorialFourthView: View {
 struct TutorialFourthView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialFourthView()
+            .environmentObject(CharalarmAppState())
     }
 }

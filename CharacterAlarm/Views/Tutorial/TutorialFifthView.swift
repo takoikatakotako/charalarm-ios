@@ -4,17 +4,23 @@ struct TutorialFifthView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 12) {
+            
             Spacer()
             
-            Image("sd-normal")
+            Text("最後に新しいキャラクターの追加のお知らせのため、プッシュ通知の許可をお願いします。")
+                .font(Font.system(size: 20))
+                .padding(.horizontal, 12)
+                .padding(.top, 128)
+            
+            Image("sd-smile")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
             Spacer()
             
-            
-            Text("プッシュ通知なんとかかんとか")
+                        
+            Spacer()
             
             Button(action: {
                 appState.doneTutorial = true
@@ -37,5 +43,6 @@ struct TutorialFifthView: View {
 struct TutorialFifthView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialFifthView()
+            .environmentObject(CharalarmAppState())
     }
 }

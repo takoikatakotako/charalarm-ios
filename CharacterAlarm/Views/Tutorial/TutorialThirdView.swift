@@ -4,15 +4,23 @@ struct TutorialThirdView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 12) {
             Spacer()
             
-            Image("sd-normal")
+            Image("tutorial-alarm-screen-shot")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 300, height: 300)
+                .frame(width: 320, height: 400)
+                .padding(.bottom, 36)
             
-            Text("無事に着信できたでしょうか？アラームは時間や曜日を指定して複数セットすることができます")
+            Text("無事に着信できましたか？")
+                .font(Font.system(size: 20))
+                .padding(.horizontal, 12)
+            
+            Text("アラームは時間や曜日を指定して複数セットすることができます。")
+                .font(Font.system(size: 20))
+                .padding(.horizontal, 12)
+            
             Spacer()
             
             NavigationLink(
@@ -37,5 +45,6 @@ struct TutorialThirdView: View {
 struct TutorialThirdView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialThirdView()
+            .environmentObject(CharalarmAppState())
     }
 }

@@ -22,11 +22,15 @@ struct TutorialSecondView: View {
             
             if isCalling {
                 VStack {
+                    Text("井上結衣")
+                        .foregroundColor(Color.white)
+                        .font(Font.system(size: 48))
+                        .padding(.top, 156)
                     Spacer()
                     HStack {
                         VStack {
                             NavigationLink(destination: TutorialThirdView()) {
-                                Image("profile-call")
+                                Image("profile-call-end")
                                     .resizable()
                                     .frame(width: 36, height: 36)
                                     .padding(16)
@@ -34,6 +38,8 @@ struct TutorialSecondView: View {
                                     .cornerRadius(32)
                             }
                         }
+                        
+                        Spacer()
                         
                         VStack {
                             Button(action: {
@@ -65,10 +71,11 @@ struct TutorialSecondView: View {
                             }
                         }
                     }
+                    .padding(.horizontal, 64)
                     .padding(.bottom, 32)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .background(Color.gray)
+                .background(Color("charalarm-default-gray"))
             }
             
             if showingNextButton {
@@ -116,5 +123,6 @@ struct TutorialSecondView: View {
 struct TutorialSecondView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialSecondView()
+            .environmentObject(CharalarmAppState())
     }
 }
