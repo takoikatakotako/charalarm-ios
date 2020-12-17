@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct TutorialThirdView: View {
+    @EnvironmentObject var appState: CharalarmAppState
+
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -14,9 +16,10 @@ struct TutorialThirdView: View {
             Spacer()
             
             NavigationLink(
-                destination: TutorialFourthView(),
+                destination: TutorialFourthView()
+                    .environmentObject(appState),
                 label: {
-                    Text("アラームを鳴らしてみる")
+                    Text("つぎへ")
                         .foregroundColor(Color.white)
                         .font(Font.system(size: 16).bold())
                         .frame(height: 46)

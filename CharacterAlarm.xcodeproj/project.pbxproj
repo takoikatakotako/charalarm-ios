@@ -69,13 +69,11 @@
 		2DA1BA4A70BCE0C29ACC08F7 /* com-charalarm-yui-10.caf in Resources */ = {isa = PBXBuildFile; fileRef = 86568D13B38320AFF7016250 /* com-charalarm-yui-10.caf */; };
 		2E0CF5B5C7E759A72737CE47 /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */; };
 		2EA4094C31F3BC523F83F77D /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
-		2F030A6258A6D3AAC85211AD /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8591C8CA529ED187F7634502 /* PageView.swift */; };
 		3028D767D8F5838CAC7BE36F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F499DA3A438885B364999 /* Key.swift */; };
 		30558383F60E443D03CC0B78 /* com-charalarm-yui-9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */; };
 		312E03BB7EC648CB0C9471C0 /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D13A8B5131415CE913CE4 /* TopButtonContent.swift */; };
 		313FFB7CCA8580148B059BA9 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742906F21791584A845436E /* DayOfWeek.swift */; };
 		31BB8D74724BB49175569097 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7833C3E29D693846FC1321 /* NetworkClient.swift */; };
-		32292F53BAA2BABDD34E8436 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6CF552089E0E33E384378 /* TutorialView.swift */; };
 		34B4485829C3BA4288211DBC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C96C5F56A8EC46DB11A2BB /* Resource.swift */; };
 		34B9C6E133DD5DA82A376299 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */; };
 		37437B65095F0E25196B4C0A /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
@@ -98,7 +96,6 @@
 		4A728663B1205EABC86CADE4 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */; };
 		4BFECA1A5E83DB8B40AD59F7 /* com-charalarm-yui-8.caf in Resources */ = {isa = PBXBuildFile; fileRef = 80D67B4AC06397444C43AF2B /* com-charalarm-yui-8.caf */; };
 		4C0BFE1B302CBF69F430B2E6 /* FileHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9E17D6F8C60D3866E21ED /* FileHandlerError.swift */; };
-		4C8E0502A589CA4EDBCE1964 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C52C1A852F945126AB592F /* PageControl.swift */; };
 		4D1E8A0C07DCBD308F35153F /* pokemon.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9E24E1C9214EAF296F0A7F0D /* pokemon.caf */; };
 		4D4764D6FB6CC4A093E32BC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */; };
 		4E8B15A8A987C5CEADEB64B8 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150449688142AF83A4F3167 /* NewsStore.swift */; };
@@ -109,7 +106,6 @@
 		523DF61B0AD3ECF6E5EE2BB3 /* EditAlarmDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */; };
 		537274F932AEB7DB2154E251 /* CharacterListBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404262CCC1804646E1B2D0 /* CharacterListBanner.swift */; };
 		545812C51DF5029BB407EE0B /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC31FDCA006756E498AFE71 /* Notification.swift */; };
-		55AC3B0C100C76105AFE67F3 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6CF552089E0E33E384378 /* TutorialView.swift */; };
 		56148A88CD14D5A15D35A7F1 /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006675B4B6829795D55B03 /* KeychainHandler.swift */; };
 		56D59135DFD58E5C8AC9D86D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
 		58112774B6FB84E6F6A0479C /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */; };
@@ -117,7 +113,6 @@
 		58518EE1E8B7F7842FBE17C9 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
 		58F578C28A3A5A30A1EF166D /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803BB1D9926421781E1451A /* AlarmListView.swift */; };
 		59C7C5DB8D60C6D51A441623 /* com-charalarm-yui-10.caf in Resources */ = {isa = PBXBuildFile; fileRef = 86568D13B38320AFF7016250 /* com-charalarm-yui-10.caf */; };
-		59EF626D61220EC94D2DAC5F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C52C1A852F945126AB592F /* PageControl.swift */; };
 		5B24CAAAB40BD1CE98B7BE55 /* com-charalarm-yui-6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3285444A89FBA10DD6D62D9E /* com-charalarm-yui-6.caf */; };
 		5C7F1EE77182EF589A49C5F8 /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618D3EA404B9855ACD640EFF /* NSNotification+Extension.swift */; };
 		5CBC5047ECA5EE64165AC907 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
@@ -162,7 +157,6 @@
 		7C361B453DA27E15A01C864C /* com-charalarm-yui-5.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */; };
 		7C61503AA27BEA950FA67C85 /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		7CC027BB2218AEDD9220D1B7 /* com-charalarm-yui-1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0FBB89E54E4537A07FA3EA4D /* com-charalarm-yui-1.caf */; };
-		7E27150DAF1606CAB8C1C22F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8591C8CA529ED187F7634502 /* PageView.swift */; };
 		7EE9C5C0464B057D925EA98D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA66211D763D0B12DDAE5B /* APIRequest.swift */; };
 		7F674165FA46F6E47C4E384C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		83A0961183C21D6C7F40563B /* com-charalarm-yui-4.caf in Resources */ = {isa = PBXBuildFile; fileRef = A3897F5CBBEDD5DA1BF923F0 /* com-charalarm-yui-4.caf */; };
@@ -201,9 +195,7 @@
 		97073AA486B0AB5C298314EA /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7833C3E29D693846FC1321 /* NetworkClient.swift */; };
 		98B13F47F8EAF33F0C7D9B52 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856185BA078B30B75AD451D1 /* Request.swift */; };
 		98C82BB8DE0B46232E4B8B11 /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */; };
-		9A9FA91B381AD407BE0E5F85 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD5E9B6747AA9A4AC7BE3D /* PageViewController.swift */; };
 		9B2F5D4E90D4CB2C774E6486 /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3435F7157573867044F2090B /* CharacterStore.swift */; };
-		9B9CABC2DB95A082A545E0A9 /* TutorialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0ACF19C21B55C29D83E19 /* TutorialType.swift */; };
 		9C019F418D6808E49BE76D46 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F499DA3A438885B364999 /* Key.swift */; };
 		9D653CF7624E982E5617EBC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE8CE1C035E9A58C3EAB5EA3 /* GoogleService-Info.plist */; };
 		A04847FF5A526A7F9071CB8E /* com-charalarm-yui-8.caf in Resources */ = {isa = PBXBuildFile; fileRef = 80D67B4AC06397444C43AF2B /* com-charalarm-yui-8.caf */; };
@@ -219,7 +211,6 @@
 		ACE3E74D92518A6D20AC6254 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D0CFBD6D1625332704D67 /* CallingView.swift */; };
 		AD2F7A4A9C634BC284BBBCA4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC31FDCA006756E498AFE71 /* Notification.swift */; };
 		AE2039A09C88554999496B4C /* TutorialHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */; };
-		AF2A7B79B324CC6E2ACB7ADB /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6CF552089E0E33E384378 /* TutorialView.swift */; };
 		AFE0D74214B273C08CC1E6ED /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
 		B202B67B31FBF4861FA82B06 /* CharacterListBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404262CCC1804646E1B2D0 /* CharacterListBanner.swift */; };
 		B48C9086F68F89288D1CA434 /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F7C0192AAB09095D2CC7AC /* NewsRow.swift */; };
@@ -233,12 +224,10 @@
 		B95B53B0571380A20136359B /* com-charalarm-yui-9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */; };
 		BA433D2648091EEB0FF9D51E /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E315AEE9E265153A751D830 /* CallKitHandler.swift */; };
 		BAB57087BE6B82C8497E004D /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FC927EFF1DA08CD0725133 /* thumbnail.png */; };
-		BC66A068BF9695BEB3826EB2 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD5E9B6747AA9A4AC7BE3D /* PageViewController.swift */; };
 		BD63FE91F248A54EBEC34478 /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AF8BA3C79A083B2E1165E /* ResourceStore.swift */; };
 		BDA2ADD98CBB867A1F14F47E /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742906F21791584A845436E /* DayOfWeek.swift */; };
 		BEC580F0935C78169FFE42C1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33F32E49A4EC6856AD091A /* MenuItem.swift */; };
 		BEFC4E0E0534CFA510667CE6 /* resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 565E3348A4FBEB43986FC2DC /* resource.json */; };
-		BFA9979C87ED635CC8D28ED5 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C52C1A852F945126AB592F /* PageControl.swift */; };
 		C04B63C5E22833CE9EDC0CBB /* AlarmListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EEBD408E8DD4EA72DA847 /* AlarmListRow.swift */; };
 		C04C5D74527A52F95AA05E3E /* Pods_CharalarmStaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B8F7BFC94800899AB2DB98 /* Pods_CharalarmStaging.framework */; };
 		C1C1D3C075EB45C2606E8BDE /* CharalarmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C888DB207645A9EEC5A1B403 /* CharalarmError.swift */; };
@@ -253,7 +242,6 @@
 		C858E25B09734A3B8829DA26 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4CA8D022533B34EA5904B /* Character.swift */; };
 		C90F391E93FF8D63306C1906 /* pokemon.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9E24E1C9214EAF296F0A7F0D /* pokemon.caf */; };
 		C9B00FDAF0EB525DB4542FCC /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E8A15A50F8B1C13488BA2 /* NewsListView.swift */; };
-		C9D8BDBFEDDBE23B3BBFC8C7 /* TutorialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0ACF19C21B55C29D83E19 /* TutorialType.swift */; };
 		CA5D4F8FCE6F4AD24B58768D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		CAE0F52D25A70CCF9B914EB3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D784D759892964A434D0D8 /* ProfileViewModel.swift */; };
 		CC434CB4BCEFA546EF343D52 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
@@ -277,7 +265,6 @@
 		DC3EAEBA0045C0BF018D84CA /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D289C438B0540C4EA58400 /* TopTimeView.swift */; };
 		DC4D265218D1835A31F845DE /* AlarmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B29305D5F25D07B732D385 /* AlarmStore.swift */; };
 		DC63A37EBB6E5CB6D9B9376B /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
-		DF80C75C2F3664277E959679 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8591C8CA529ED187F7634502 /* PageView.swift */; };
 		E00B3B98C7C7E56BFFD0AF09 /* ResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019D32E5779DD0890202123 /* ResourceHandler.swift */; };
 		E0DE7EABBA48DEAA4BEBE006 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		E24304A56AC00171599B3C79 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A7B077AA099E6E395320A /* UserStore.swift */; };
@@ -287,13 +274,11 @@
 		E546249454998A850F0A632A /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		E54AD3FDF5CD7CE0047CB84D /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 822AC8D0317768D88ED4B93D /* normal.png */; };
 		E5F4AAF47B46111597CB0B55 /* com-charalarm-yui-6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3285444A89FBA10DD6D62D9E /* com-charalarm-yui-6.caf */; };
-		E6D5E144A69FCB8DC17C08E8 /* TutorialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0ACF19C21B55C29D83E19 /* TutorialType.swift */; };
 		E6E619FE0565513C88EA7399 /* com-charalarm-yui-0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 667969450CBC1A515C38B113 /* com-charalarm-yui-0.caf */; };
 		E8402EB5C0F987608924F25C /* com-charalarm-yui-11.caf in Resources */ = {isa = PBXBuildFile; fileRef = F97E586E4B97AE3524D4BF57 /* com-charalarm-yui-11.caf */; };
 		E8AA07BD4ABFA19C5A2490CA /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */; };
 		EA1648C9932F9E6CF99E2A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */; };
 		EA1E5FE6DA843EF7D89F0ABC /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */; };
-		EAE21CF2C2D57CE80C0D5404 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD5E9B6747AA9A4AC7BE3D /* PageViewController.swift */; };
 		EAFCB778D29E7CC4679B59F5 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		EB0364D2FA9D82CFBBACA9B3 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C59AE0BA077C07162BD26E2 /* APIHeader.swift */; };
 		EBAB307A6FB99C616635D8FB /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E315AEE9E265153A751D830 /* CallKitHandler.swift */; };
@@ -346,12 +331,10 @@
 		00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTimeDifference.swift; sourceTree = "<group>"; };
 		01466BE7F59140BF9877C274 /* CharalarmStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharalarmStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		057CD9AEA4DCAEE4B9C52B7F /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
-		05A6CF552089E0E33E384378 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		0848FAFDCEA18533CA39D5DE /* com-charalarm-yui-3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-3.caf"; sourceTree = "<group>"; };
 		0878562398C8411CDC82C63F /* Pods_CharacterAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		095A7B077AA099E6E395320A /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		0FBB89E54E4537A07FA3EA4D /* com-charalarm-yui-1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-1.caf"; sourceTree = "<group>"; };
-		15B0ACF19C21B55C29D83E19 /* TutorialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialType.swift; sourceTree = "<group>"; };
 		16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderView.swift; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -417,7 +400,6 @@
 		822AC8D0317768D88ED4B93D /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
 		8328671228E33988C6A1A51F /* JsonResponseBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponseBean.swift; sourceTree = "<group>"; };
 		856185BA078B30B75AD451D1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		8591C8CA529ED187F7634502 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		86568D13B38320AFF7016250 /* com-charalarm-yui-10.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-10.caf"; sourceTree = "<group>"; };
 		89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-9.caf"; sourceTree = "<group>"; };
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -443,7 +425,6 @@
 		B02F8242EB9E7A9BB26C8F54 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B0EA2385C9C13D192090FA3A /* CharalarmLocal.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CharalarmLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
-		B2C52C1A852F945126AB592F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
 		B68C400461E10056E1FB216B /* Pods-CharalarmStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmStaging.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging.debug.xcconfig"; sourceTree = "<group>"; };
 		B87DE6C9479EE5ECB5A7CA6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -461,7 +442,6 @@
 		D322D7AD26D7BF529573C4E4 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		D34F499DA3A438885B364999 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		D4A2C2EE6864D777A370ED38 /* self-introduction.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "self-introduction.caf"; sourceTree = "<group>"; };
-		D4CD5E9B6747AA9A4AC7BE3D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		D643DDE403E6F2B0EE897D2A /* CharacterAlarmRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmRelease.entitlements; sourceTree = "<group>"; };
 		DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF920625C7AABEDC943450C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -905,13 +885,8 @@
 		C40F414AC00388EE0DA74284 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				B2C52C1A852F945126AB592F /* PageControl.swift */,
-				8591C8CA529ED187F7634502 /* PageView.swift */,
-				D4CD5E9B6747AA9A4AC7BE3D /* PageViewController.swift */,
 				16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */,
 				CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */,
-				15B0ACF19C21B55C29D83E19 /* TutorialType.swift */,
-				05A6CF552089E0E33E384378 /* TutorialView.swift */,
 				8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */,
 				8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */,
 				8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */,
@@ -1459,9 +1434,6 @@
 				3DB6CE56B8F1C2E8C59B6AAA /* NewsRow.swift in Sources */,
 				4E8B15A8A987C5CEADEB64B8 /* NewsStore.swift in Sources */,
 				AD2F7A4A9C634BC284BBBCA4 /* Notification.swift in Sources */,
-				4C8E0502A589CA4EDBCE1964 /* PageControl.swift in Sources */,
-				2F030A6258A6D3AAC85211AD /* PageView.swift in Sources */,
-				BC66A068BF9695BEB3826EB2 /* PageViewController.swift in Sources */,
 				A6566C8EB80765FF52EA5DBC /* ProfileRow.swift in Sources */,
 				1A15DF17B65C1A76E5FA7AC3 /* ProfileView.swift in Sources */,
 				FDE63E34CC0BE01B82D78D40 /* ProfileViewModel.swift in Sources */,
@@ -1485,8 +1457,6 @@
 				8859FBBAB0342351F9118284 /* TopViewModel.swift in Sources */,
 				6E379B2BD03C29FC8B12AADA /* TutorialHolderView.swift in Sources */,
 				ABF1E9F9CA4055566747EAF3 /* TutorialHolderViewModel.swift in Sources */,
-				C9D8BDBFEDDBE23B3BBFC8C7 /* TutorialType.swift in Sources */,
-				32292F53BAA2BABDD34E8436 /* TutorialView.swift in Sources */,
 				17AA5723A28A5F3F425A88DD /* URLRequest+Extension.swift in Sources */,
 				96C9674D055B99572124C614 /* UserDefaultsHandler.swift in Sources */,
 				027B2FC6F6E3565D55F77AFE /* UserInfoView.swift in Sources */,
@@ -1561,9 +1531,6 @@
 				6DDE484F2BF9F83048DDDC29 /* NewsRow.swift in Sources */,
 				87DF83122C2D69A33F2DE545 /* NewsStore.swift in Sources */,
 				545812C51DF5029BB407EE0B /* Notification.swift in Sources */,
-				BFA9979C87ED635CC8D28ED5 /* PageControl.swift in Sources */,
-				7E27150DAF1606CAB8C1C22F /* PageView.swift in Sources */,
-				9A9FA91B381AD407BE0E5F85 /* PageViewController.swift in Sources */,
 				0E0167C107B3BD78E06FE209 /* ProfileRow.swift in Sources */,
 				D469B886A9332EC519AAC70B /* ProfileView.swift in Sources */,
 				CAE0F52D25A70CCF9B914EB3 /* ProfileViewModel.swift in Sources */,
@@ -1587,8 +1554,6 @@
 				850A7F7D105981E9E82598BF /* TopViewModel.swift in Sources */,
 				96E71FEE980F735CEDFB10B8 /* TutorialHolderView.swift in Sources */,
 				6045016E5C1D941C47A6D90F /* TutorialHolderViewModel.swift in Sources */,
-				9B9CABC2DB95A082A545E0A9 /* TutorialType.swift in Sources */,
-				55AC3B0C100C76105AFE67F3 /* TutorialView.swift in Sources */,
 				7277DA992FB63890D9852158 /* URLRequest+Extension.swift in Sources */,
 				D109B7855BC988ED44DDC8EB /* UserDefaultsHandler.swift in Sources */,
 				7850C20A48793DE1DB4E10DA /* UserInfoView.swift in Sources */,
@@ -1647,9 +1612,6 @@
 				B48C9086F68F89288D1CA434 /* NewsRow.swift in Sources */,
 				EEA8CFC9F1B3E5BEF3F8A7DF /* NewsStore.swift in Sources */,
 				0B1D9B28B28D795514DA663C /* Notification.swift in Sources */,
-				59EF626D61220EC94D2DAC5F /* PageControl.swift in Sources */,
-				DF80C75C2F3664277E959679 /* PageView.swift in Sources */,
-				EAE21CF2C2D57CE80C0D5404 /* PageViewController.swift in Sources */,
 				51A91B42FB95824EBBE970FF /* ProfileRow.swift in Sources */,
 				6538C4AE9B5DBD712EEE58A6 /* ProfileView.swift in Sources */,
 				C857EA2B13C3D3D32A1EF831 /* ProfileViewModel.swift in Sources */,
@@ -1673,8 +1635,6 @@
 				E0DE7EABBA48DEAA4BEBE006 /* TopViewModel.swift in Sources */,
 				AE2039A09C88554999496B4C /* TutorialHolderView.swift in Sources */,
 				F47F6D7BE44EFF4C7705859B /* TutorialHolderViewModel.swift in Sources */,
-				E6D5E144A69FCB8DC17C08E8 /* TutorialType.swift in Sources */,
-				AF2A7B79B324CC6E2ACB7ADB /* TutorialView.swift in Sources */,
 				F864C16EFFBA040BCC798D86 /* URLRequest+Extension.swift in Sources */,
 				0024A21BD7BEEE61C843E924 /* UserDefaultsHandler.swift in Sources */,
 				E3FCB3151893DE58155B49C9 /* UserInfoView.swift in Sources */,

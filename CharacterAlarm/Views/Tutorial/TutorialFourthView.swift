@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct TutorialFourthView: View {
+    @EnvironmentObject var appState: CharalarmAppState
+
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -15,7 +17,7 @@ struct TutorialFourthView: View {
             Text("キャラクター一覧から着信を受けられるキャラクターを見ることができます。好きなキャラクターを選んでみてください。")
             
             NavigationLink(
-                destination: TutorialFifthView(),
+                destination: TutorialFifthView()                .environmentObject(appState),
                 label: {
                     Text("つぎへ")
                         .foregroundColor(Color.white)

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct TutorialFifthView: View {
+    @EnvironmentObject var appState: CharalarmAppState
+
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -14,8 +16,10 @@ struct TutorialFifthView: View {
             
             Text("プッシュ通知なんとかかんとか")
             
-            Button(action: {}) {
-                Text("つぎへ")
+            Button(action: {
+                appState.doneTutorial = true
+            }) {
+                Text("ホーム画面へ")
                     .foregroundColor(Color.white)
                     .font(Font.system(size: 16).bold())
                     .frame(height: 46)

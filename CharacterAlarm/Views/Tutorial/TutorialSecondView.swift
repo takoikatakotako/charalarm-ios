@@ -2,7 +2,8 @@ import SwiftUI
 import AVFoundation
 
 struct TutorialSecondView: View {
-    
+    @EnvironmentObject var appState: CharalarmAppState
+
     @State private var isCalling = true
     @State private var showingNextButton = false
     @State private var incomingAudioPlayer: AVAudioPlayer!
@@ -72,7 +73,8 @@ struct TutorialSecondView: View {
             
             if showingNextButton {
                 NavigationLink(
-                    destination: TutorialThirdView(),
+                    destination: TutorialThirdView()
+                        .environmentObject(appState),
                     label: {
                         Text("つぎへ")
                             .foregroundColor(Color.white)
