@@ -172,6 +172,9 @@
 		8859FBBAB0342351F9118284 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		8A5B7887C2C01A7B5D467E17 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
+		8D32D54A258B882D000E1269 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D32D549258B882D000E1269 /* TutorialFifthView.swift */; };
+		8D32D54B258B882D000E1269 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D32D549258B882D000E1269 /* TutorialFifthView.swift */; };
+		8D32D54C258B882D000E1269 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D32D549258B882D000E1269 /* TutorialFifthView.swift */; };
 		8D9CCAEB258A573E0025AC2F /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */; };
 		8D9CCAEC258A573E0025AC2F /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */; };
 		8D9CCAED258A573E0025AC2F /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */; };
@@ -181,6 +184,9 @@
 		8D9CCB03258A652B0025AC2F /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */; };
 		8D9CCB04258A652B0025AC2F /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */; };
 		8D9CCB05258A652B0025AC2F /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */; };
+		8D9CCB0C258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
+		8D9CCB0D258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
+		8D9CCB0E258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		901A28EF5037083BBC38A102 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
@@ -418,9 +424,11 @@
 		8B1C4CD178DCB1E41C2C5F03 /* Pods-CharalarmLocal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmLocal.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal.debug.xcconfig"; sourceTree = "<group>"; };
 		8C5397E7FB35E9F106CD7E97 /* Pods_CharacterAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
+		8D32D549258B882D000E1269 /* TutorialFifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFifthView.swift; sourceTree = "<group>"; };
 		8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFirstView.swift; sourceTree = "<group>"; };
 		8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSecondView.swift; sourceTree = "<group>"; };
 		8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThirdView.swift; sourceTree = "<group>"; };
+		8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFourthView.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FFA5C213B244A7D263A9FEB /* Pods-CharacterAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -907,6 +915,8 @@
 				8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */,
 				8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */,
 				8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */,
+				8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */,
+				8D32D549258B882D000E1269 /* TutorialFifthView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -1468,7 +1478,9 @@
 				403471E76778777EA49185E2 /* SceneDelegate.swift in Sources */,
 				EE149BD86C0AEB8B3BBA7D0C /* String+Extension.swift in Sources */,
 				93B663A188BE9B871EC09565 /* TopButtonContent.swift in Sources */,
+				8D9CCB0E258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				FC523809B14162281A0A7D77 /* TopTimeView.swift in Sources */,
+				8D32D54C258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				44574CBFB0D7613FD466CE35 /* TopView.swift in Sources */,
 				8859FBBAB0342351F9118284 /* TopViewModel.swift in Sources */,
 				6E379B2BD03C29FC8B12AADA /* TutorialHolderView.swift in Sources */,
@@ -1568,7 +1580,9 @@
 				4F184683EFF6682F11DC46C9 /* SceneDelegate.swift in Sources */,
 				56D59135DFD58E5C8AC9D86D /* String+Extension.swift in Sources */,
 				04EA31F6B975A92404BD93A0 /* TopButtonContent.swift in Sources */,
+				8D9CCB0C258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				DC3EAEBA0045C0BF018D84CA /* TopTimeView.swift in Sources */,
+				8D32D54A258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				247EEB05F318CEFEA3ACFD46 /* TopView.swift in Sources */,
 				850A7F7D105981E9E82598BF /* TopViewModel.swift in Sources */,
 				96E71FEE980F735CEDFB10B8 /* TutorialHolderView.swift in Sources */,
@@ -1652,7 +1666,9 @@
 				B52B8232296EF5376E768E2A /* SceneDelegate.swift in Sources */,
 				C62C41752132FF9C8F9EF2F6 /* String+Extension.swift in Sources */,
 				312E03BB7EC648CB0C9471C0 /* TopButtonContent.swift in Sources */,
+				8D9CCB0D258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				EEF9686212A32B964D91B1B5 /* TopTimeView.swift in Sources */,
+				8D32D54B258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				D2900A7FD470F72B9BEBC974 /* TopView.swift in Sources */,
 				E0DE7EABBA48DEAA4BEBE006 /* TopViewModel.swift in Sources */,
 				AE2039A09C88554999496B4C /* TutorialHolderView.swift in Sources */,

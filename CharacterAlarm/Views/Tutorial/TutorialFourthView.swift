@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TutorialThirdView: View {
+struct TutorialFourthView: View {
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -9,14 +9,15 @@ struct TutorialThirdView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
-            
-            Text("無事に着信できたでしょうか？アラームは時間や曜日を指定して複数セットすることができます")
             Spacer()
             
+            
+            Text("キャラクター一覧から着信を受けられるキャラクターを見ることができます。好きなキャラクターを選んでみてください。")
+            
             NavigationLink(
-                destination: TutorialFourthView(),
+                destination: TutorialFifthView(),
                 label: {
-                    Text("アラームを鳴らしてみる")
+                    Text("つぎへ")
                         .foregroundColor(Color.white)
                         .font(Font.system(size: 16).bold())
                         .frame(height: 46)
@@ -31,8 +32,8 @@ struct TutorialThirdView: View {
     }
 }
 
-struct TutorialThirdView_Previews: PreviewProvider {
+struct TutorialFourthView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialThirdView()
+        TutorialFourthView()
     }
 }

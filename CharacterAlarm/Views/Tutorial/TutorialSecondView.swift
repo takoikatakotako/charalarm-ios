@@ -1,17 +1,30 @@
 import SwiftUI
+import AVFoundation
 
 struct TutorialSecondView: View {
     
     @State private var isCalling = true
+    @State private var showingNextButton = false
+    @State private var incomingAudioPlayer: AVAudioPlayer!
+    @State private var voiceAudioPlayer: AVAudioPlayer!
     
     var body: some View {
         ZStack(alignment: .bottom) {
+            VStack {
+                Spacer()
+                Image("normal")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.top, 60)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            }
+            
             if isCalling {
                 VStack {
                     Spacer()
                     HStack {
                         VStack {
-                            NavigationLink(destination: Text("xxx")) {
+                            NavigationLink(destination: TutorialThirdView()) {
                                 Image("profile-call")
                                     .resizable()
                                     .frame(width: 36, height: 36)
@@ -23,8 +36,23 @@ struct TutorialSecondView: View {
                         
                         VStack {
                             Button(action: {
+                                incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
                                 withAnimation {
                                     self.isCalling = false
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    guard let voice = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") else {
+                                        return
+                                    }
+                                    self.voiceAudioPlayer = try? AVAudioPlayer(data: voice.data)
+                                    self.voiceAudioPlayer?.play()
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                    withAnimation {
+                                        self.showingNextButton = true
+                                    }
                                 }
                             }) {
                                 Image("profile-call")
@@ -42,20 +70,43 @@ struct TutorialSecondView: View {
                 .background(Color.gray)
             }
             
-            if isCalling == false {
-                VStack {
-                    Spacer()
-                    Image("normal")
-                        .resizable()
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .scaledToFit()
-                        .padding(.top, 60)
-                }
+            if showingNextButton {
+                NavigationLink(
+                    destination: TutorialThirdView(),
+                    label: {
+                        Text("つぎへ")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: 16).bold())
+                            .frame(height: 46)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color("charalarm-default-green"))
+                            .cornerRadius(24)
+                            .padding(.horizontal, 16)
+                    })
+                    .padding(.bottom, 32)
             }
+        }
+        .onAppear {
+            incoming()
+        }
+        .onDisappear {
+            fadeOut()
         }
         .edgesIgnoringSafeArea(.all)
         .navigationTitle("")
         .navigationBarHidden(true)
+    }
+    
+    func incoming() {
+        if let sound = NSDataAsset(name: "harunouta") {
+            incomingAudioPlayer = try? AVAudioPlayer(data: sound.data)
+            incomingAudioPlayer?.play()
+        }
+    }
+    
+    func fadeOut() {
+        incomingAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
+        voiceAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
     }
 }
 
