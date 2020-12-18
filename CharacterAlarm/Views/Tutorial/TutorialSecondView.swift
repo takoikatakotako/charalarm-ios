@@ -107,9 +107,11 @@ struct TutorialSecondView: View {
     }
     
     func incoming() {
-        if let sound = NSDataAsset(name: "harunouta") {
+        if let sound = NSDataAsset(name: "ringtone") {
             incomingAudioPlayer = try? AVAudioPlayer(data: sound.data)
+            incomingAudioPlayer?.volume = 0.3
             incomingAudioPlayer?.play()
+            incomingAudioPlayer?.setVolume(1.0, fadeDuration: 0.5)
         }
     }
     

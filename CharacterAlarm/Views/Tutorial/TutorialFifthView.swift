@@ -8,7 +8,7 @@ struct TutorialFifthView: View {
             
             Spacer()
             
-            Text("最後に新しいキャラクターの追加のお知らせのため、プッシュ通知の許可をお願いします。")
+            Text("最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。")
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
                 .padding(.top, 128)

@@ -36,7 +36,7 @@ class CallViewModel: ObservableObject {
     }
     
     func incoming() {
-        if let sound = NSDataAsset(name: "harunouta") {
+        if let sound = NSDataAsset(name: "ringtone") {
             incomingAudioPlayer = try? AVAudioPlayer(data: sound.data)
             incomingAudioPlayer?.play()
         }
