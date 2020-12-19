@@ -39,7 +39,7 @@ struct TopView: View {
                             Button(action: {
                                 self.viewModel.showNews = true
                             }) {
-                                TopButtonContent(imageName: "top-news")
+                                Image( "top-news")
                             }.sheet(isPresented: self.$viewModel.showNews) {
                                 NewsListView()
                             }
@@ -53,8 +53,6 @@ struct TopView: View {
                     Spacer()
                     
                     VStack(spacing: 8) {
-                        // TopTimeView()
-                        
                         Text("18:00")
                             .foregroundColor(Color.white)
                             .font(Font.system(size: 56).bold())
@@ -72,7 +70,7 @@ struct TopView: View {
                             }
                             
                             Spacer()
-            
+                            
                             Button(action: {
                                 self.viewModel.showAlarmList = true
                             }) {
@@ -107,6 +105,12 @@ struct TopView: View {
             viewModel.setChara()
         }
         .onAppear {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                guard granted else { return }
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
             viewModel.setChara()
         }
     }

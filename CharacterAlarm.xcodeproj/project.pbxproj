@@ -182,6 +182,10 @@
 		8D9CCB0D258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
 		8D9CCB0E258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
+		8DF6D2B4258E31DC005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
+		8DF6D2BF258E3252005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
+		8DF6D2C5258E3253005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
+		8DF6D2C6258E3253005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		901A28EF5037083BBC38A102 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
 		90E673CFB786C5D7C60AD465 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C96C5F56A8EC46DB11A2BB /* Resource.swift */; };
@@ -411,6 +415,7 @@
 		8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSecondView.swift; sourceTree = "<group>"; };
 		8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThirdView.swift; sourceTree = "<group>"; };
 		8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFourthView.swift; sourceTree = "<group>"; };
+		8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButton.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FFA5C213B244A7D263A9FEB /* Pods-CharacterAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -741,6 +746,7 @@
 		81E8DF6F97C5B6143187E5A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8DF6D2B2258E31A0005A1FF9 /* Common */,
 				F61D0CFBD6D1625332704D67 /* CallingView.swift */,
 				AD65D969A238BEE7686DA4EE /* ContentView.swift */,
 				BA51FBF61F90A06BA645545D /* RootView.swift */,
@@ -787,6 +793,14 @@
 				3C7833C3E29D693846FC1321 /* NetworkClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8DF6D2B2258E31A0005A1FF9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
@@ -1424,6 +1438,7 @@
 				28480BCC600AD99FA0A42B57 /* FileHandlerError.swift in Sources */,
 				E40E89BF868A7D1F38884FE6 /* JsonResponseBean.swift in Sources */,
 				1B7D9EB74A5FAAF885DBDB7F /* Key.swift in Sources */,
+				8DF6D2C6258E3253005A1FF9 /* BackBarButton.swift in Sources */,
 				414CD8A194B0DBA6750C8D30 /* KeychainHandler.swift in Sources */,
 				63467822E51B2188F11E2950 /* MenuItem.swift in Sources */,
 				5C7F1EE77182EF589A49C5F8 /* NSNotification+Extension.swift in Sources */,
@@ -1468,6 +1483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DF6D2B4258E31DC005A1FF9 /* BackBarButton.swift in Sources */,
 				FAC1E139983D6AEF6BB37E96 /* CharacterAlarmTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1521,6 +1537,7 @@
 				113456A41F2E2D537E595DD3 /* FileHandlerError.swift in Sources */,
 				06D9C2035635751CA8E6E22E /* JsonResponseBean.swift in Sources */,
 				3028D767D8F5838CAC7BE36F /* Key.swift in Sources */,
+				8DF6D2BF258E3252005A1FF9 /* BackBarButton.swift in Sources */,
 				F7257CAC72A40C6F8319BB3D /* KeychainHandler.swift in Sources */,
 				BEC580F0935C78169FFE42C1 /* MenuItem.swift in Sources */,
 				78F043397E34C6D744AED901 /* NSNotification+Extension.swift in Sources */,
@@ -1602,6 +1619,7 @@
 				4C0BFE1B302CBF69F430B2E6 /* FileHandlerError.swift in Sources */,
 				582FDC655CC2C9A56B17E608 /* JsonResponseBean.swift in Sources */,
 				9C019F418D6808E49BE76D46 /* Key.swift in Sources */,
+				8DF6D2C5258E3253005A1FF9 /* BackBarButton.swift in Sources */,
 				56148A88CD14D5A15D35A7F1 /* KeychainHandler.swift in Sources */,
 				B655617FA9263B9D0CD7DC26 /* MenuItem.swift in Sources */,
 				6D1304C72AADCD2E9330EF81 /* NSNotification+Extension.swift in Sources */,

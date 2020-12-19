@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct UserInfoView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var userName: String {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName() else {
@@ -19,6 +20,12 @@ struct UserInfoView: View {
         }
         .padding()
         .navigationBarTitle("ユーザー情報", displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                BackBarButton() {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+        )
     }
 }
 
