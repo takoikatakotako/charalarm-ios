@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),
            let resource: Resource = try? JSONDecoder().decode(Resource.self, from: data){
             print(resource.version)
+            // TODO: 選択中のキャラクターの最新リソースがある場合更新する
         } else {
             // データをロード
             if let filePath = Bundle.main.path(forResource: "resource", ofType: "json", inDirectory: "com.charalarm.yui"),

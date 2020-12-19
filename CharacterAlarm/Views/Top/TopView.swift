@@ -110,6 +110,9 @@ struct TopView: View {
             }
             viewModel.setChara()
         }
+        .alert(isPresented: $viewModel.showingAlert) {
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+        }
     }
 }
 
