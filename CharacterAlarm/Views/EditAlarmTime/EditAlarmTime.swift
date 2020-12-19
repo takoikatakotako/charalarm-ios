@@ -9,6 +9,8 @@ struct EditAlarmTime: View {
     @State var hour: Int
     @State var minute: Int
 
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         GeometryReader { geometry in
             HStack {
@@ -17,28 +19,35 @@ struct EditAlarmTime: View {
                         Text("\($0)")
                     }
                 }.pickerStyle(WheelPickerStyle())
-                    .onReceive([self.hour].publisher.first()) { hour in
-                        self.hour = hour
-
+                .onReceive([self.hour].publisher.first()) { hour in
+                    self.hour = hour
+                    
                 }.labelsHidden()
-                    .frame(width: geometry.size.width / 2, height: geometry.size.height)
-                    .clipped()
-
+                .frame(width: geometry.size.width / 2, height: geometry.size.height)
+                .clipped()
+                
                 Picker(selection: self.$minute, label: EmptyView()) {
                     ForEach(0 ..< 60) {
                         Text("\($0)")
                     }
                 }.pickerStyle(WheelPickerStyle())
-                    .onReceive([self.minute].publisher.first()) { minute in
-                        self.minute = minute
-
+                .onReceive([self.minute].publisher.first()) { minute in
+                    self.minute = minute
+                    
                 }.labelsHidden()
-                    .frame(width: geometry.size.width / 2, height: geometry.size.height)
-                    .clipped()
+                .frame(width: geometry.size.width / 2, height: geometry.size.height)
+                .clipped()
             }
-        }.padding()
-            .onDisappear {
-                self.delegate.updateAlarmTime(hour: self.hour, minute: self.minute)
+        }
+        .padding()
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                BackBarButton() {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+        )
+        .onDisappear {
+            self.delegate.updateAlarmTime(hour: self.hour, minute: self.minute)
         }
     }
 }

@@ -5,6 +5,7 @@ protocol  EditAlarmNameDelegate {
 }
 
 struct EditAlarmName: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var alarmName: String
     let delegate: EditAlarmNameDelegate
     var body: some View {
@@ -15,6 +16,12 @@ struct EditAlarmName: View {
             Spacer()
         }
         .padding()
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                BackBarButton() {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+        )
         .onDisappear {
             self.delegate.updateAlarmName(name: self.alarmName)
         }

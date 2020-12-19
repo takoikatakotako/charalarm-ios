@@ -40,12 +40,8 @@ struct CharacterListView: View {
             }
             .navigationBarTitle("キャラクター一覧", displayMode: .inline)
             .navigationBarItems(leading:
-                                    Button(action: {
+                                    CloseBarButton() {
                                         presentationMode.wrappedValue.dismiss()
-                                    }) {
-                                        Image("common-icon-close")
-                                            .renderingMode(.template)
-                                            .foregroundColor(Color("charalarm-default-gray"))
                                     }
             )
         }

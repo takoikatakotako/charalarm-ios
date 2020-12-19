@@ -2,6 +2,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProfileView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: ProfileViewModel
     
     init(charaDomain: String) {
@@ -110,7 +111,14 @@ struct ProfileView: View {
                     .edgesIgnoringSafeArea(.bottom)
                 }
             }
-        }.onAppear {
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                BackBarButton() {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+        )
+        .onAppear {
             self.viewModel.fetchCharacter()
             self.viewModel.download()
         }.alert(isPresented: self.$viewModel.showSelectAlert) {

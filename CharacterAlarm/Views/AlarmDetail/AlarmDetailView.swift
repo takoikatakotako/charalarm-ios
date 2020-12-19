@@ -55,7 +55,13 @@ struct AlarmDetailView: View {
                 }
             }
             
-        }.navigationBarItems(trailing:
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading: BackBarButton() {
+                presentationMode.wrappedValue.dismiss()
+            },
+            trailing:
             HStack {
                 Button(action: {
                     viewModel.createOrUpdateAlarm()

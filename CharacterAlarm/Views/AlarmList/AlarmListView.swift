@@ -16,28 +16,23 @@ struct AlarmListView: View {
                     }
                 }
             }
-            .navigationBarBackButtonHidden(true)
             .onAppear {
                 viewModel.fetchAlarms()
             }
             .alert(isPresented: $viewModel.showingAlert) {
                 Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
             }
+            .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(
-                leading:
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Image("common-icon-close")
-                            .renderingMode(.template)
-                            .foregroundColor(Color("charalarm-default-gray"))
-                    },
+                leading: CloseBarButton() {
+                    presentationMode.wrappedValue.dismiss()
+                },
                 trailing:
                     NavigationLink(destination: AlarmDetailView(alarm: viewModel.createNewAlarm())) {
                         Image("alarm-add-icon")
                             .renderingMode(.template)
-                            .foregroundColor(Color("charalarm-default-gray"))
+                            .foregroundColor(Color("charalarm-default-green"))
                     }
             )
         }

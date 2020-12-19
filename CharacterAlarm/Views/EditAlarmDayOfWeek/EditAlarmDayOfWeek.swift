@@ -7,7 +7,8 @@ protocol  EditAlarmDayOfWeekDelegate {
 struct EditAlarmDayOfWeek: View {
     let delegate: EditAlarmDayOfWeekDelegate
     @State var dayOfWeeks: [DayOfWeek]
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
         List(DayOfWeek.allCases) { dayOfWeek in
             Button(action: {
@@ -27,9 +28,16 @@ struct EditAlarmDayOfWeek: View {
                     }
                 }
             })
-        }.onDisappear {
+        }
+        .onDisappear {
             self.delegate.updateDayOfWeek(dayOfWeeks: self.dayOfWeeks)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                BackBarButton() {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+        )
     }
     
     private func dayOfWeekString(dayOfWeek: DayOfWeek) -> String {

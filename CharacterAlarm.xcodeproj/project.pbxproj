@@ -186,6 +186,10 @@
 		8DF6D2BF258E3252005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
 		8DF6D2C5258E3253005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
 		8DF6D2C6258E3253005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
+		8DF6D2D7258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
+		8DF6D2D8258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
+		8DF6D2D9258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
+		8DF6D2DA258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		901A28EF5037083BBC38A102 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
 		90E673CFB786C5D7C60AD465 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C96C5F56A8EC46DB11A2BB /* Resource.swift */; };
@@ -416,6 +420,7 @@
 		8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThirdView.swift; sourceTree = "<group>"; };
 		8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFourthView.swift; sourceTree = "<group>"; };
 		8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButton.swift; sourceTree = "<group>"; };
+		8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseBarButton.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FFA5C213B244A7D263A9FEB /* Pods-CharacterAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -799,6 +804,7 @@
 			isa = PBXGroup;
 			children = (
 				8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */,
+				8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1467,6 +1473,7 @@
 				93B663A188BE9B871EC09565 /* TopButtonContent.swift in Sources */,
 				8D9CCB0E258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				FC523809B14162281A0A7D77 /* TopTimeView.swift in Sources */,
+				8DF6D2DA258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
 				8D32D54C258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				44574CBFB0D7613FD466CE35 /* TopView.swift in Sources */,
 				8859FBBAB0342351F9118284 /* TopViewModel.swift in Sources */,
@@ -1485,6 +1492,7 @@
 			files = (
 				8DF6D2B4258E31DC005A1FF9 /* BackBarButton.swift in Sources */,
 				FAC1E139983D6AEF6BB37E96 /* CharacterAlarmTests.swift in Sources */,
+				8DF6D2D7258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1566,6 +1574,7 @@
 				04EA31F6B975A92404BD93A0 /* TopButtonContent.swift in Sources */,
 				8D9CCB0C258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				DC3EAEBA0045C0BF018D84CA /* TopTimeView.swift in Sources */,
+				8DF6D2D8258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
 				8D32D54A258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				247EEB05F318CEFEA3ACFD46 /* TopView.swift in Sources */,
 				850A7F7D105981E9E82598BF /* TopViewModel.swift in Sources */,
@@ -1648,6 +1657,7 @@
 				312E03BB7EC648CB0C9471C0 /* TopButtonContent.swift in Sources */,
 				8D9CCB0D258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				EEF9686212A32B964D91B1B5 /* TopTimeView.swift in Sources */,
+				8DF6D2D9258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
 				8D32D54B258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				D2900A7FD470F72B9BEBC974 /* TopView.swift in Sources */,
 				E0DE7EABBA48DEAA4BEBE006 /* TopViewModel.swift in Sources */,
