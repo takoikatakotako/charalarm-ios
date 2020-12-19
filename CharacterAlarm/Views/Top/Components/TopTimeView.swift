@@ -5,19 +5,10 @@ struct TopTimeView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack {
-            Text(getTime())
-                .foregroundColor(.white)
-                .font(Font.system(size: 40))
-            Text(getDayAndDayOfWeek())
-                .foregroundColor(.white)
-                .font(Font.system(size: 24))
-            EmptyView()
-        }
-        .frame(width: 160, height: 160)
-        .background(Color.black)
-        .cornerRadius(80)
-        .opacity(0.9)
+        Text(getTime())
+            .foregroundColor(Color.white)
+            .font(Font.system(size: 56).bold())
+            .padding(.top, 12)
         .onReceive(timer) { input in
             self.currentDate = input
         }

@@ -53,10 +53,7 @@ struct TopView: View {
                     Spacer()
                     
                     VStack(spacing: 8) {
-                        Text("18:00")
-                            .foregroundColor(Color.white)
-                            .font(Font.system(size: 56).bold())
-                            .padding(.top, 12)
+                        TopTimeView()
                         
                         HStack {
                             Spacer()
