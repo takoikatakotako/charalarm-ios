@@ -38,6 +38,10 @@ targets:
     deploymentTarget: "14.0"
     sources:
       - path: CharacterAlarm
+        excludes:
+          - CharacterAlarm/Resource
+      - path: CharacterAlarm/Resource
+        type: folder
       - path: Config/Local
     settings:
       base:
@@ -63,6 +67,10 @@ targets:
     deploymentTarget: "14.0"
     sources:
       - path: CharacterAlarm
+        excludes:
+          - CharacterAlarm/Resource
+      - path: CharacterAlarm/Resource
+        type: folder
       - path: Config/Staging
     settings:
       base:
@@ -88,6 +96,10 @@ targets:
     deploymentTarget: "14.0"
     sources:
       - path: CharacterAlarm
+        excludes:
+          - CharacterAlarm/Resource
+      - path: CharacterAlarm/Resource
+        type: folder
       - path: Config/Production
     settings:
       base:

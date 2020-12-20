@@ -19,6 +19,7 @@
 		04ED5988ED9DE1F70F722CC6 /* com-charalarm-yui-5.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */; };
 		06D9C2035635751CA8E6E22E /* JsonResponseBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8328671228E33988C6A1A51F /* JsonResponseBean.swift */; };
 		076BB283C31359DE7136678D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4CA8D022533B34EA5904B /* Character.swift */; };
+		086C04A42FA4EEA05A4F7C47 /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */; };
 		08860F65895BC0817EC50C82 /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		096B6D815C455042EF4B5D70 /* com-charalarm-yui-8.caf in Resources */ = {isa = PBXBuildFile; fileRef = 80D67B4AC06397444C43AF2B /* com-charalarm-yui-8.caf */; };
 		0A55FCCF3A70129ED8F66AEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD65D969A238BEE7686DA4EE /* ContentView.swift */; };
@@ -28,7 +29,6 @@
 		0CDDEC0A782E2CBCE1E53D6F /* com-charalarm-yui-9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */; };
 		0D8A1CCE61557EC3C819F7D9 /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803BB1D9926421781E1451A /* AlarmListView.swift */; };
 		0E0167C107B3BD78E06FE209 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA03C3D8D726218234689F /* ProfileRow.swift */; };
-		0E3FBE208978651C9D6FDFB6 /* Pods_CharalarmLocal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0E263E1B13E104B382A589 /* Pods_CharalarmLocal.framework */; };
 		0F4E2C9DD4BBD63DDAC8262E /* CharalarmAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C52C26A99ADB9ADFDE8E93 /* CharalarmAppState.swift */; };
 		0FBCCB2323CD30366BCB46E1 /* CharacterListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E826133C505EDC6BC8D96E2 /* CharacterListRow.swift */; };
 		1119F146EC15869238F7FBD5 /* CharalarmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C888DB207645A9EEC5A1B403 /* CharalarmError.swift */; };
@@ -40,13 +40,13 @@
 		146E313915C78D8EC6260561 /* smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 057CD9AEA4DCAEE4B9C52B7F /* smile.png */; };
 		14DDD3F492E9B21E0098328A /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254752D61458089BCC2BAA0F /* Alarm.swift */; };
 		15133704F0A7AB46A0EF9381 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
+		1519C04E8F4DBD99F9C6CAEE /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */; };
 		165F271319E8EF0ACD193907 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
 		16614E4E606CC0850A8DA15C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856185BA078B30B75AD451D1 /* Request.swift */; };
 		1680497FF614B830DA902A2E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8F361447A4E0FCB38CCC1B /* Config.swift */; };
 		17AA5723A28A5F3F425A88DD /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D322D7AD26D7BF529573C4E4 /* URLRequest+Extension.swift */; };
 		19B7337674A433ABAC7D8D63 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		1A15DF17B65C1A76E5FA7AC3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB899DF9D87DF6863A9BBB6 /* ProfileView.swift */; };
-		1A64CD0A849B52DADBB40C8E /* Pods_CharacterAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0878562398C8411CDC82C63F /* Pods_CharacterAlarmUITests.framework */; };
 		1AA054EAA653513D3327C2FA /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FC927EFF1DA08CD0725133 /* thumbnail.png */; };
 		1AD3884D434E2396F3E648CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		1AD74842CC4FBFE7736FAD22 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F8242EB9E7A9BB26C8F54 /* APIClient.swift */; };
@@ -55,6 +55,7 @@
 		1C85533C2E713DE5CDA8020B /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED0302BB32B9EC33A3B4782 /* CallViewModel.swift */; };
 		1EFD188F2DFECD5BC9058601 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06D99BD7472813256B59778 /* CallView.swift */; };
 		1FB93B6605FF683EE886E78F /* com-charalarm-yui-0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 667969450CBC1A515C38B113 /* com-charalarm-yui-0.caf */; };
+		23B4BCD86821A41F41682EE9 /* TutorialSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */; };
 		247EEB05F318CEFEA3ACFD46 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A83AC04135C53BCEDAC21FE /* TopView.swift */; };
 		253CD0536DEA5E6F307EF5D9 /* resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 565E3348A4FBEB43986FC2DC /* resource.json */; };
 		262F66122E42F76DAA4540E2 /* com-charalarm-yui-11.caf in Resources */ = {isa = PBXBuildFile; fileRef = F97E586E4B97AE3524D4BF57 /* com-charalarm-yui-11.caf */; };
@@ -68,7 +69,9 @@
 		2C4348C1BE218B0B4C585740 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A6EE8DBA273ED06FB06F8 /* News.swift */; };
 		2DA1BA4A70BCE0C29ACC08F7 /* com-charalarm-yui-10.caf in Resources */ = {isa = PBXBuildFile; fileRef = 86568D13B38320AFF7016250 /* com-charalarm-yui-10.caf */; };
 		2E0CF5B5C7E759A72737CE47 /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */; };
+		2E26558CCC61DEC117299248 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
 		2EA4094C31F3BC523F83F77D /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
+		2FCADEED3471FFE5F6C39EB4 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */; };
 		3028D767D8F5838CAC7BE36F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F499DA3A438885B364999 /* Key.swift */; };
 		30558383F60E443D03CC0B78 /* com-charalarm-yui-9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */; };
 		312E03BB7EC648CB0C9471C0 /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D13A8B5131415CE913CE4 /* TopButtonContent.swift */; };
@@ -76,12 +79,15 @@
 		31BB8D74724BB49175569097 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7833C3E29D693846FC1321 /* NetworkClient.swift */; };
 		34B4485829C3BA4288211DBC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C96C5F56A8EC46DB11A2BB /* Resource.swift */; };
 		34B9C6E133DD5DA82A376299 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */; };
+		36DD93563BF68CB23DA466F3 /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEECC00865B257B016D176 /* TutorialThirdView.swift */; };
 		37437B65095F0E25196B4C0A /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		37EAC18A9296BB471FEEDD4C /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FC927EFF1DA08CD0725133 /* thumbnail.png */; };
 		3969110139ED2B6DB80317A2 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
+		3A7CD5B32FB93DC54597724E /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEECC00865B257B016D176 /* TutorialThirdView.swift */; };
 		3BE678E56EDE6A505A0471BD /* com-charalarm-yui-11.caf in Resources */ = {isa = PBXBuildFile; fileRef = F97E586E4B97AE3524D4BF57 /* com-charalarm-yui-11.caf */; };
 		3CCCAF6CAF9774ED6937533A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51FBF61F90A06BA645545D /* RootView.swift */; };
 		3DB6CE56B8F1C2E8C59B6AAA /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F7C0192AAB09095D2CC7AC /* NewsRow.swift */; };
+		3DE5CFCC5C163B7D3C89CD5A /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */; };
 		3F07D8F22322EADE036A6942 /* self-introduction.caf in Resources */ = {isa = PBXBuildFile; fileRef = D4A2C2EE6864D777A370ED38 /* self-introduction.caf */; };
 		403471E76778777EA49185E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */; };
 		41161A738FB24FDB18D9C310 /* com-charalarm-yui-7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 582B90CC320D3D78432506C2 /* com-charalarm-yui-7.caf */; };
@@ -104,8 +110,10 @@
 		51A91B42FB95824EBBE970FF /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA03C3D8D726218234689F /* ProfileRow.swift */; };
 		521750FAE49CB8F1B204E096 /* com-charalarm-yui-5.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */; };
 		523DF61B0AD3ECF6E5EE2BB3 /* EditAlarmDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */; };
+		530FA1C6629C4DE5A098C7EC /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = B7B39A6707846DD02B502E3E /* Resource */; };
 		537274F932AEB7DB2154E251 /* CharacterListBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404262CCC1804646E1B2D0 /* CharacterListBanner.swift */; };
 		545812C51DF5029BB407EE0B /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC31FDCA006756E498AFE71 /* Notification.swift */; };
+		55E15CEE1503EDCE584BB5BB /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEECC00865B257B016D176 /* TutorialThirdView.swift */; };
 		56148A88CD14D5A15D35A7F1 /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006675B4B6829795D55B03 /* KeychainHandler.swift */; };
 		56D59135DFD58E5C8AC9D86D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
 		58112774B6FB84E6F6A0479C /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */; };
@@ -124,6 +132,7 @@
 		6045016E5C1D941C47A6D90F /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
 		60840ED6C491CEB5A809E661 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		6086239CA6AE6D132792E455 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
+		613A57980F0FB65E979E025B /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE981EFE28B1256B8D33E3 /* TutorialFifthView.swift */; };
 		62D319A5279E9770D95DCCC3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8F361447A4E0FCB38CCC1B /* Config.swift */; };
 		63467822E51B2188F11E2950 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33F32E49A4EC6856AD091A /* MenuItem.swift */; };
 		63C07EF133110CFB2500BF88 /* AlarmListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EEBD408E8DD4EA72DA847 /* AlarmListRow.swift */; };
@@ -135,6 +144,7 @@
 		67CD40AEF7B45F615894239B /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		684DFFB12497B040EC2A95F6 /* com-charalarm-yui-7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 582B90CC320D3D78432506C2 /* com-charalarm-yui-7.caf */; };
 		68C688740BDEEFCC77EAAC6C /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
+		69561E151F7B3229AEFF64A6 /* Pods_CharalarmLocal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C033BDD2571745E2917CF1 /* Pods_CharalarmLocal.framework */; };
 		6BEA35A194B21948FD454266 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */; };
 		6D1304C72AADCD2E9330EF81 /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618D3EA404B9855ACD640EFF /* NSNotification+Extension.swift */; };
 		6D1DEA4473A6AEDDD37EC39D /* CharalarmAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C52C26A99ADB9ADFDE8E93 /* CharalarmAppState.swift */; };
@@ -142,6 +152,8 @@
 		6DDE484F2BF9F83048DDDC29 /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F7C0192AAB09095D2CC7AC /* NewsRow.swift */; };
 		6E3699536C492C0B1F5936B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		6E379B2BD03C29FC8B12AADA /* TutorialHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */; };
+		6E52189C71B733A28B918AEA /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE981EFE28B1256B8D33E3 /* TutorialFifthView.swift */; };
+		6F44A36F4040A3823A792C40 /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C5CEE6027DDED33D253B5 /* TutorialFirstView.swift */; };
 		701BF39B48166C7EA493C5B9 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		7033730015DB444857DAE80A /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED0302BB32B9EC33A3B4782 /* CallViewModel.swift */; };
 		725327D9FD001826FA877C39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD65D969A238BEE7686DA4EE /* ContentView.swift */; };
@@ -157,42 +169,24 @@
 		7C361B453DA27E15A01C864C /* com-charalarm-yui-5.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */; };
 		7C61503AA27BEA950FA67C85 /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		7CC027BB2218AEDD9220D1B7 /* com-charalarm-yui-1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0FBB89E54E4537A07FA3EA4D /* com-charalarm-yui-1.caf */; };
+		7D26588A95E168C3E99C5E4D /* Pods_CharalarmStaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0550F3D732C04E1BB113FD /* Pods_CharalarmStaging.framework */; };
 		7EE9C5C0464B057D925EA98D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA66211D763D0B12DDAE5B /* APIRequest.swift */; };
 		7F674165FA46F6E47C4E384C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		83A0961183C21D6C7F40563B /* com-charalarm-yui-4.caf in Resources */ = {isa = PBXBuildFile; fileRef = A3897F5CBBEDD5DA1BF923F0 /* com-charalarm-yui-4.caf */; };
 		850A7F7D105981E9E82598BF /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		85239F6A1B353323F752447D /* EditAlarmDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */; };
+		867DBB84B0A724E1B6BD9FCE /* TutorialSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */; };
 		87DF83122C2D69A33F2DE545 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150449688142AF83A4F3167 /* NewsStore.swift */; };
 		8859FBBAB0342351F9118284 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
 		8A5B7887C2C01A7B5D467E17 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
-		8D32D54A258B882D000E1269 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D32D549258B882D000E1269 /* TutorialFifthView.swift */; };
-		8D32D54B258B882D000E1269 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D32D549258B882D000E1269 /* TutorialFifthView.swift */; };
-		8D32D54C258B882D000E1269 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D32D549258B882D000E1269 /* TutorialFifthView.swift */; };
-		8D9CCAEB258A573E0025AC2F /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */; };
-		8D9CCAEC258A573E0025AC2F /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */; };
-		8D9CCAED258A573E0025AC2F /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */; };
-		8D9CCAFA258A610F0025AC2F /* TutorialSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */; };
-		8D9CCAFB258A610F0025AC2F /* TutorialSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */; };
-		8D9CCAFC258A610F0025AC2F /* TutorialSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */; };
-		8D9CCB03258A652B0025AC2F /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */; };
-		8D9CCB04258A652B0025AC2F /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */; };
-		8D9CCB05258A652B0025AC2F /* TutorialThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */; };
-		8D9CCB0C258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
-		8D9CCB0D258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
-		8D9CCB0E258B7FD20025AC2F /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */; };
+		8B3143D53CF9858AF27D2086 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
-		8DF6D2B4258E31DC005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
-		8DF6D2BF258E3252005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
-		8DF6D2C5258E3253005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
-		8DF6D2C6258E3253005A1FF9 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */; };
-		8DF6D2D7258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
-		8DF6D2D8258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
-		8DF6D2D9258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
-		8DF6D2DA258E33A6005A1FF9 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		901A28EF5037083BBC38A102 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
 		90E673CFB786C5D7C60AD465 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C96C5F56A8EC46DB11A2BB /* Resource.swift */; };
+		910F4A6AF1F91C31DD65369E /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = B7B39A6707846DD02B502E3E /* Resource */; };
+		918803FCC414BA34B4F8F92D /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C5CEE6027DDED33D253B5 /* TutorialFirstView.swift */; };
 		92DE21E6413081296A28B758 /* self-introduction.caf in Resources */ = {isa = PBXBuildFile; fileRef = D4A2C2EE6864D777A370ED38 /* self-introduction.caf */; };
 		93B663A188BE9B871EC09565 /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D13A8B5131415CE913CE4 /* TopButtonContent.swift */; };
 		93BF94238C82EE3F7A9BB5C8 /* CharalarmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C888DB207645A9EEC5A1B403 /* CharalarmError.swift */; };
@@ -201,6 +195,7 @@
 		96C9674D055B99572124C614 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BC61222B11801274795D7 /* UserDefaultsHandler.swift */; };
 		96E71FEE980F735CEDFB10B8 /* TutorialHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */; };
 		97073AA486B0AB5C298314EA /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7833C3E29D693846FC1321 /* NetworkClient.swift */; };
+		97C3F832DD2EB16B7DA37DCD /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */; };
 		98B13F47F8EAF33F0C7D9B52 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856185BA078B30B75AD451D1 /* Request.swift */; };
 		98C82BB8DE0B46232E4B8B11 /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */; };
 		9B2F5D4E90D4CB2C774E6486 /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3435F7157573867044F2090B /* CharacterStore.swift */; };
@@ -211,9 +206,11 @@
 		A42147994B304663F03EA352 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA66211D763D0B12DDAE5B /* APIRequest.swift */; };
 		A519FA70482DE46F1882C07D /* smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 057CD9AEA4DCAEE4B9C52B7F /* smile.png */; };
 		A553480678785E64E5FDA1DE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
+		A563C2ED805A4D714C4F6A2A /* Pods_CharacterAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759C0F532F47A35D8FD50C5A /* Pods_CharacterAlarmUITests.framework */; };
 		A6566C8EB80765FF52EA5DBC /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA03C3D8D726218234689F /* ProfileRow.swift */; };
 		A8E9EDF4213D0D692C3E5247 /* comfused.png in Resources */ = {isa = PBXBuildFile; fileRef = 6488CCAC35F00247E7D55DE1 /* comfused.png */; };
 		A993D1DE094919727C9FA442 /* CharacterAlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F84A5C44E2BDA0D94E2EAF0 /* CharacterAlarmUITests.swift */; };
+		A9F6E0514C1D2200EEB00D6C /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
 		ABF1E9F9CA4055566747EAF3 /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
 		AC075F3E22D93E16B061EE78 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C59AE0BA077C07162BD26E2 /* APIHeader.swift */; };
 		ACE3E74D92518A6D20AC6254 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D0CFBD6D1625332704D67 /* CallingView.swift */; };
@@ -222,6 +219,7 @@
 		AFE0D74214B273C08CC1E6ED /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A9200D23155D111130A0FD /* ConfigView.swift */; };
 		B202B67B31FBF4861FA82B06 /* CharacterListBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404262CCC1804646E1B2D0 /* CharacterListBanner.swift */; };
 		B48C9086F68F89288D1CA434 /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F7C0192AAB09095D2CC7AC /* NewsRow.swift */; };
+		B4FE49FC69D616B2C2AB8034 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = B7B39A6707846DD02B502E3E /* Resource */; };
 		B52B8232296EF5376E768E2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */; };
 		B64CD92FA7B6D90ABA028E77 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35150D70128E7259082F158C /* CharacterListView.swift */; };
 		B655617FA9263B9D0CD7DC26 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33F32E49A4EC6856AD091A /* MenuItem.swift */; };
@@ -232,12 +230,12 @@
 		B95B53B0571380A20136359B /* com-charalarm-yui-9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */; };
 		BA433D2648091EEB0FF9D51E /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E315AEE9E265153A751D830 /* CallKitHandler.swift */; };
 		BAB57087BE6B82C8497E004D /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FC927EFF1DA08CD0725133 /* thumbnail.png */; };
+		BBEB12EBB8D25B1D099749BC /* Pods_CharacterAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F39D7E6EA8BC10DA6A7BBB /* Pods_CharacterAlarmTests.framework */; };
 		BD63FE91F248A54EBEC34478 /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AF8BA3C79A083B2E1165E /* ResourceStore.swift */; };
 		BDA2ADD98CBB867A1F14F47E /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742906F21791584A845436E /* DayOfWeek.swift */; };
 		BEC580F0935C78169FFE42C1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33F32E49A4EC6856AD091A /* MenuItem.swift */; };
 		BEFC4E0E0534CFA510667CE6 /* resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 565E3348A4FBEB43986FC2DC /* resource.json */; };
 		C04B63C5E22833CE9EDC0CBB /* AlarmListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EEBD408E8DD4EA72DA847 /* AlarmListRow.swift */; };
-		C04C5D74527A52F95AA05E3E /* Pods_CharalarmStaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B8F7BFC94800899AB2DB98 /* Pods_CharalarmStaging.framework */; };
 		C1C1D3C075EB45C2606E8BDE /* CharalarmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C888DB207645A9EEC5A1B403 /* CharalarmError.swift */; };
 		C49B8EF0836D170B5D840044 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51FBF61F90A06BA645545D /* RootView.swift */; };
 		C4AF051B51297CB721C68C90 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
@@ -265,10 +263,10 @@
 		D2900A7FD470F72B9BEBC974 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A83AC04135C53BCEDAC21FE /* TopView.swift */; };
 		D301029F58A47C260F3EC277 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		D469B886A9332EC519AAC70B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB899DF9D87DF6863A9BBB6 /* ProfileView.swift */; };
+		D4A330EAA4951221F934B670 /* TutorialSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */; };
 		D53D6516FFAA32B3196C830C /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A7B077AA099E6E395320A /* UserStore.swift */; };
 		D6FECF7A20B4E6BA2F1F8F02 /* com-charalarm-yui-0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 667969450CBC1A515C38B113 /* com-charalarm-yui-0.caf */; };
 		D9F651E7805020209C5BBE0C /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 822AC8D0317768D88ED4B93D /* normal.png */; };
-		DA58BEB1861A613F5B9E50C8 /* Pods_CharacterAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5397E7FB35E9F106CD7E97 /* Pods_CharacterAlarmTests.framework */; };
 		DC07BC8A4B4C99E617583A97 /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E8A15A50F8B1C13488BA2 /* NewsListView.swift */; };
 		DC3EAEBA0045C0BF018D84CA /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D289C438B0540C4EA58400 /* TopTimeView.swift */; };
 		DC4D265218D1835A31F845DE /* AlarmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B29305D5F25D07B732D385 /* AlarmStore.swift */; };
@@ -285,11 +283,13 @@
 		E6E619FE0565513C88EA7399 /* com-charalarm-yui-0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 667969450CBC1A515C38B113 /* com-charalarm-yui-0.caf */; };
 		E8402EB5C0F987608924F25C /* com-charalarm-yui-11.caf in Resources */ = {isa = PBXBuildFile; fileRef = F97E586E4B97AE3524D4BF57 /* com-charalarm-yui-11.caf */; };
 		E8AA07BD4ABFA19C5A2490CA /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */; };
+		E9759FFEB976865C5FE21273 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */; };
 		EA1648C9932F9E6CF99E2A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */; };
 		EA1E5FE6DA843EF7D89F0ABC /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */; };
 		EAFCB778D29E7CC4679B59F5 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		EB0364D2FA9D82CFBBACA9B3 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C59AE0BA077C07162BD26E2 /* APIHeader.swift */; };
 		EBAB307A6FB99C616635D8FB /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E315AEE9E265153A751D830 /* CallKitHandler.swift */; };
+		EE14287CB472A92D11057200 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE981EFE28B1256B8D33E3 /* TutorialFifthView.swift */; };
 		EE149BD86C0AEB8B3BBA7D0C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
 		EEA8CFC9F1B3E5BEF3F8A7DF /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150449688142AF83A4F3167 /* NewsStore.swift */; };
 		EEF9686212A32B964D91B1B5 /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D289C438B0540C4EA58400 /* TopTimeView.swift */; };
@@ -302,7 +302,6 @@
 		F50A17B3B27A27D7066375D9 /* ResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019D32E5779DD0890202123 /* ResourceHandler.swift */; };
 		F592A720D7FB4A751FB70C82 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
 		F59BD988822BE9A34A392A5B /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */; };
-		F5E445FFCE81B2A939C5AE58 /* Pods_CharalarmProduction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A78979ED402D764EAA54FB /* Pods_CharalarmProduction.framework */; };
 		F7257CAC72A40C6F8319BB3D /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006675B4B6829795D55B03 /* KeychainHandler.swift */; };
 		F76D993E6CB470D624DAFF9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E2A35DF7FB5A7B985E30654 /* GoogleService-Info.plist */; };
 		F84545F88FFDB1A6ED113AE9 /* com-charalarm-yui-6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3285444A89FBA10DD6D62D9E /* com-charalarm-yui-6.caf */; };
@@ -310,7 +309,9 @@
 		F8FD127F24B506F604BD43D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */; };
 		F97D04DC777CE4DA4FBE2041 /* AlarmListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EEBD408E8DD4EA72DA847 /* AlarmListRow.swift */; };
 		FAC1E139983D6AEF6BB37E96 /* CharacterAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5462B9E1B807858459757CA /* CharacterAlarmTests.swift */; };
+		FAC342B37F7B82263BEF456D /* Pods_CharalarmProduction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF375E444CA088E6A71AA8 /* Pods_CharalarmProduction.framework */; };
 		FB3A51B8A809BA9EC17801EE /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */; };
+		FBAF60F47FE5C64D98FE5CFC /* TutorialFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C5CEE6027DDED33D253B5 /* TutorialFirstView.swift */; };
 		FBE17E74AE01F1E15F87D563 /* com-charalarm-yui-3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0848FAFDCEA18533CA39D5DE /* com-charalarm-yui-3.caf */; };
 		FC3ACB9EAE69C3CCFE82C6CC /* com-charalarm-yui-10.caf in Resources */ = {isa = PBXBuildFile; fileRef = 86568D13B38320AFF7016250 /* com-charalarm-yui-10.caf */; };
 		FC523809B14162281A0A7D77 /* TopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D289C438B0540C4EA58400 /* TopTimeView.swift */; };
@@ -339,21 +340,21 @@
 		00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTimeDifference.swift; sourceTree = "<group>"; };
 		01466BE7F59140BF9877C274 /* CharalarmStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharalarmStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		057CD9AEA4DCAEE4B9C52B7F /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
+		05D57DD0D663DACC38099A70 /* Pods-CharacterAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0848FAFDCEA18533CA39D5DE /* com-charalarm-yui-3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-3.caf"; sourceTree = "<group>"; };
-		0878562398C8411CDC82C63F /* Pods_CharacterAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		095A7B077AA099E6E395320A /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		0FBB89E54E4537A07FA3EA4D /* com-charalarm-yui-1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-1.caf"; sourceTree = "<group>"; };
 		16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderView.swift; sourceTree = "<group>"; };
+		17F66CB08A974832B55210CA /* Pods-CharalarmLocal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmLocal.release.xcconfig"; path = "Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal.release.xcconfig"; sourceTree = "<group>"; };
 		1803BB1D9926421781E1451A /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListView.swift; sourceTree = "<group>"; };
 		1A83AC04135C53BCEDAC21FE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		1AFCF92E3B66DE971325F7FA /* CharacterAlarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarm.entitlements; sourceTree = "<group>"; };
 		1DBA03C3D8D726218234689F /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
 		1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F56E7CE6453A8DB19B80A01 /* Pods-CharacterAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1FCDC99D1313E09D2A17F37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		21490F32D5AFAF497ED28B9F /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmDayOfWeek.swift; sourceTree = "<group>"; };
-		240CD4DDC78889AD368BFD54 /* Pods-CharalarmStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmStaging.release.xcconfig"; path = "Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging.release.xcconfig"; sourceTree = "<group>"; };
 		254752D61458089BCC2BAA0F /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		25A9200D23155D111130A0FD /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -362,14 +363,14 @@
 		3285444A89FBA10DD6D62D9E /* com-charalarm-yui-6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-6.caf"; sourceTree = "<group>"; };
 		32D289C438B0540C4EA58400 /* TopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTimeView.swift; sourceTree = "<group>"; };
 		3435F7157573867044F2090B /* CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStore.swift; sourceTree = "<group>"; };
+		351443226AB14858CE0D253E /* Pods-CharalarmLocal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmLocal.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal.debug.xcconfig"; sourceTree = "<group>"; };
 		35150D70128E7259082F158C /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
-		38F57F1D227AEA4F96A9AE1C /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3A0550F3D732C04E1BB113FD /* Pods_CharalarmStaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharalarmStaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C59AE0BA077C07162BD26E2 /* APIHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
 		3C7833C3E29D693846FC1321 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		3E826133C505EDC6BC8D96E2 /* CharacterListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRow.swift; sourceTree = "<group>"; };
 		411A735BA5B1AC88D4524278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		41C7F2B0A3AC994C63135392 /* Pods-CharalarmProduction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmProduction.release.xcconfig"; path = "Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction.release.xcconfig"; sourceTree = "<group>"; };
 		42A8CE2D930E90FED5B59D49 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		42C52C26A99ADB9ADFDE8E93 /* CharalarmAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharalarmAppState.swift; sourceTree = "<group>"; };
 		42D784D759892964A434D0D8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -380,15 +381,12 @@
 		565E3348A4FBEB43986FC2DC /* resource.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = resource.json; sourceTree = "<group>"; };
 		567909E25623457C3116C50C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		575BDABDDF3486CF12F422E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		57A78979ED402D764EAA54FB /* Pods_CharalarmProduction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharalarmProduction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B90CC320D3D78432506C2 /* com-charalarm-yui-7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-7.caf"; sourceTree = "<group>"; };
-		5B8037411B7A0A9E0F960A58 /* Pods-CharalarmLocal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmLocal.release.xcconfig"; path = "Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal.release.xcconfig"; sourceTree = "<group>"; };
 		5F33F32E49A4EC6856AD091A /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		5FB899DF9D87DF6863A9BBB6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		618D3EA404B9855ACD640EFF /* NSNotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
 		61F7C0192AAB09095D2CC7AC /* NewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRow.swift; sourceTree = "<group>"; };
 		6296E3CF29CFD6B4A98B408E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		63B8F7BFC94800899AB2DB98 /* Pods_CharalarmStaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharalarmStaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		645E8A15A50F8B1C13488BA2 /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
 		6488CCAC35F00247E7D55DE1 /* comfused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comfused.png; sourceTree = "<group>"; };
 		667969450CBC1A515C38B113 /* com-charalarm-yui-0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-0.caf"; sourceTree = "<group>"; };
@@ -396,56 +394,60 @@
 		67C96C5F56A8EC46DB11A2BB /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		6915811511BDD6501346263B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6B404262CCC1804646E1B2D0 /* CharacterListBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListBanner.swift; sourceTree = "<group>"; };
-		6C9D5CAD51043F5665CC88D6 /* Pods-CharalarmProduction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmProduction.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction.debug.xcconfig"; sourceTree = "<group>"; };
+		6BEF375E444CA088E6A71AA8 /* Pods_CharalarmProduction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharalarmProduction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E315AEE9E265153A751D830 /* CallKitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallKitHandler.swift; sourceTree = "<group>"; };
 		6F84A5C44E2BDA0D94E2EAF0 /* CharacterAlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAlarmUITests.swift; sourceTree = "<group>"; };
 		7150449688142AF83A4F3167 /* NewsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStore.swift; sourceTree = "<group>"; };
 		723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-2.caf"; sourceTree = "<group>"; };
+		72CB62DEC6292C5936CF05CE /* Pods-CharalarmStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmStaging.release.xcconfig"; path = "Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging.release.xcconfig"; sourceTree = "<group>"; };
+		759C0F532F47A35D8FD50C5A /* Pods_CharacterAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		790D13A8B5131415CE913CE4 /* TopButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonContent.swift; sourceTree = "<group>"; };
+		7C2AC5CB37214E15BFAEE9C9 /* Pods-CharacterAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7CC31FDCA006756E498AFE71 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		808EEBD408E8DD4EA72DA847 /* AlarmListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListRow.swift; sourceTree = "<group>"; };
 		80D67B4AC06397444C43AF2B /* com-charalarm-yui-8.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-8.caf"; sourceTree = "<group>"; };
 		822AC8D0317768D88ED4B93D /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
 		8328671228E33988C6A1A51F /* JsonResponseBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponseBean.swift; sourceTree = "<group>"; };
+		854390534CDB69FFA5EDB67D /* Pods-CharalarmStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmStaging.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging.debug.xcconfig"; sourceTree = "<group>"; };
 		856185BA078B30B75AD451D1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		86568D13B38320AFF7016250 /* com-charalarm-yui-10.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-10.caf"; sourceTree = "<group>"; };
 		89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-9.caf"; sourceTree = "<group>"; };
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		8B1C4CD178DCB1E41C2C5F03 /* Pods-CharalarmLocal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmLocal.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal.debug.xcconfig"; sourceTree = "<group>"; };
-		8C5397E7FB35E9F106CD7E97 /* Pods_CharacterAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
-		8D32D549258B882D000E1269 /* TutorialFifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFifthView.swift; sourceTree = "<group>"; };
-		8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFirstView.swift; sourceTree = "<group>"; };
-		8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSecondView.swift; sourceTree = "<group>"; };
-		8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThirdView.swift; sourceTree = "<group>"; };
-		8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFourthView.swift; sourceTree = "<group>"; };
-		8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButton.swift; sourceTree = "<group>"; };
-		8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseBarButton.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8FFA5C213B244A7D263A9FEB /* Pods-CharacterAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		9C4697D65B164D679D8E63A3 /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E24E1C9214EAF296F0A7F0D /* pokemon.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.caf; sourceTree = "<group>"; };
 		9E2A35DF7FB5A7B985E30654 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
+		A1EEECC00865B257B016D176 /* TutorialThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThirdView.swift; sourceTree = "<group>"; };
+		A28C5CEE6027DDED33D253B5 /* TutorialFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFirstView.swift; sourceTree = "<group>"; };
 		A2BFD2A8B26884043585844B /* EditAlarmName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmName.swift; sourceTree = "<group>"; };
+		A2CE981EFE28B1256B8D33E3 /* TutorialFifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFifthView.swift; sourceTree = "<group>"; };
 		A3897F5CBBEDD5DA1BF923F0 /* com-charalarm-yui-4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-4.caf"; sourceTree = "<group>"; };
 		A5462B9E1B807858459757CA /* CharacterAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAlarmTests.swift; sourceTree = "<group>"; };
 		A6FC927EFF1DA08CD0725133 /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
+		A8A08966CE8316636F9E87E0 /* Pods-CharalarmProduction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmProduction.release.xcconfig"; path = "Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction.release.xcconfig"; sourceTree = "<group>"; };
 		AD65D969A238BEE7686DA4EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B02F8242EB9E7A9BB26C8F54 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B0EA2385C9C13D192090FA3A /* CharalarmLocal.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CharalarmLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
+		B484EFA08E82EF0916831727 /* Pods-CharalarmProduction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmProduction.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction.debug.xcconfig"; sourceTree = "<group>"; };
 		B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
-		B68C400461E10056E1FB216B /* Pods-CharalarmStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmStaging.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging.debug.xcconfig"; sourceTree = "<group>"; };
+		B7B39A6707846DD02B502E3E /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resource; path = CharacterAlarm/Resource; sourceTree = SOURCE_ROOT; };
 		B87DE6C9479EE5ECB5A7CA6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA51FBF61F90A06BA645545D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-5.caf"; sourceTree = "<group>"; };
+		BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFourthView.swift; sourceTree = "<group>"; };
 		C019D32E5779DD0890202123 /* ResourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceHandler.swift; sourceTree = "<group>"; };
 		C04848E6DA790BC828920D62 /* CharacterAlarmTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseBarButton.swift; sourceTree = "<group>"; };
 		C1B9E17D6F8C60D3866E21ED /* FileHandlerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandlerError.swift; sourceTree = "<group>"; };
+		C5F39D7E6EA8BC10DA6A7BBB /* Pods_CharacterAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C742906F21791584A845436E /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		C77FE7757285D78CA7096C64 /* CharacterAlarmUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CharacterAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C888DB207645A9EEC5A1B403 /* CharalarmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharalarmError.swift; sourceTree = "<group>"; };
+		C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSecondView.swift; sourceTree = "<group>"; };
 		CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewModel.swift; sourceTree = "<group>"; };
 		CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderViewModel.swift; sourceTree = "<group>"; };
 		CE8CE1C035E9A58C3EAB5EA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -461,53 +463,53 @@
 		E06D99BD7472813256B59778 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		E2BC393EFA0B83134BF62B24 /* CharacterAlarmDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmDebug.entitlements; sourceTree = "<group>"; };
 		E49AF8BA3C79A083B2E1165E /* ResourceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceStore.swift; sourceTree = "<group>"; };
-		E6262FE0A5F3E25CACD6CF7F /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
+		ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButton.swift; sourceTree = "<group>"; };
 		EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewModel.swift; sourceTree = "<group>"; };
 		F61D0CFBD6D1625332704D67 /* CallingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingView.swift; sourceTree = "<group>"; };
+		F6C033BDD2571745E2917CF1 /* Pods_CharalarmLocal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharalarmLocal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97E586E4B97AE3524D4BF57 /* com-charalarm-yui-11.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-11.caf"; sourceTree = "<group>"; };
-		FA0E263E1B13E104B382A589 /* Pods_CharalarmLocal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharalarmLocal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACA66211D763D0B12DDAE5B /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3AEE91B51B86F4E0E84F62CE /* Frameworks */ = {
+		03A380BA39E9B7879A973C1A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA58BEB1861A613F5B9E50C8 /* Pods_CharacterAlarmTests.framework in Frameworks */,
+				A563C2ED805A4D714C4F6A2A /* Pods_CharacterAlarmUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		859E1A4BCB4C65EA2629CB29 /* Frameworks */ = {
+		1905CC587853C7DB79F5867C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E3FBE208978651C9D6FDFB6 /* Pods_CharalarmLocal.framework in Frameworks */,
+				BBEB12EBB8D25B1D099749BC /* Pods_CharacterAlarmTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9EA10E4CF997E9CCBDD58911 /* Frameworks */ = {
+		329809DF7B5B3A5647301F01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C04C5D74527A52F95AA05E3E /* Pods_CharalarmStaging.framework in Frameworks */,
+				FAC342B37F7B82263BEF456D /* Pods_CharalarmProduction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA662DBFC7B4A7672F3BC761 /* Frameworks */ = {
+		C1E9A0A1F586C247F5108A3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A64CD0A849B52DADBB40C8E /* Pods_CharacterAlarmUITests.framework in Frameworks */,
+				69561E151F7B3229AEFF64A6 /* Pods_CharalarmLocal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEB79C8ECAC48BEB6E08094E /* Frameworks */ = {
+		FFE1F81DE562A107601BF78C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5E445FFCE81B2A939C5AE58 /* Pods_CharalarmProduction.framework in Frameworks */,
+				7D26588A95E168C3E99C5E4D /* Pods_CharalarmStaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,23 +524,6 @@
 				77FC721514C07B29127B26DA /* voice */,
 			);
 			path = com.charalarm.yui;
-			sourceTree = "<group>";
-		};
-		1217EA29D315EFFF11F47E34 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1F56E7CE6453A8DB19B80A01 /* Pods-CharacterAlarmTests.debug.xcconfig */,
-				E6262FE0A5F3E25CACD6CF7F /* Pods-CharacterAlarmTests.release.xcconfig */,
-				38F57F1D227AEA4F96A9AE1C /* Pods-CharacterAlarmUITests.debug.xcconfig */,
-				8FFA5C213B244A7D263A9FEB /* Pods-CharacterAlarmUITests.release.xcconfig */,
-				8B1C4CD178DCB1E41C2C5F03 /* Pods-CharalarmLocal.debug.xcconfig */,
-				5B8037411B7A0A9E0F960A58 /* Pods-CharalarmLocal.release.xcconfig */,
-				6C9D5CAD51043F5665CC88D6 /* Pods-CharalarmProduction.debug.xcconfig */,
-				41C7F2B0A3AC994C63135392 /* Pods-CharalarmProduction.release.xcconfig */,
-				B68C400461E10056E1FB216B /* Pods-CharalarmStaging.debug.xcconfig */,
-				240CD4DDC78889AD368BFD54 /* Pods-CharalarmStaging.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		2180A89D0E9CEEBC54123F00 /* Request */ = {
@@ -563,6 +548,15 @@
 				6E315AEE9E265153A751D830 /* CallKitHandler.swift */,
 			);
 			path = CallKit;
+			sourceTree = "<group>";
+		};
+		357570D67F9C748ED42905B2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */,
+				C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		35CE0717DB5E83C7E13D8178 /* Entity */ = {
@@ -751,7 +745,6 @@
 		81E8DF6F97C5B6143187E5A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8DF6D2B2258E31A0005A1FF9 /* Common */,
 				F61D0CFBD6D1625332704D67 /* CallingView.swift */,
 				AD65D969A238BEE7686DA4EE /* ContentView.swift */,
 				BA51FBF61F90A06BA645545D /* RootView.swift */,
@@ -759,6 +752,7 @@
 				75E9F94CE7B7AEC2CC79C066 /* AlarmList */,
 				B5AC1560D658880B7FF7C4B5 /* CallView */,
 				42E351670F89639881A99456 /* CharacterList */,
+				357570D67F9C748ED42905B2 /* Common */,
 				E51383F6B01941AB09D2A8AA /* Config */,
 				28EA1F8D8A0A85749D3C78A9 /* EditAlarmDayOfWeek */,
 				6B03C256EBD4A9B4093EB9D7 /* EditAlarmName */,
@@ -800,15 +794,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		8DF6D2B2258E31A0005A1FF9 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				8DF6D2B3258E31DC005A1FF9 /* BackBarButton.swift */,
-				8DF6D2D6258E33A6005A1FF9 /* CloseBarButton.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,18 +811,6 @@
 			path = UserInfo;
 			sourceTree = "<group>";
 		};
-		992630DFADA63C7961430DA3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8C5397E7FB35E9F106CD7E97 /* Pods_CharacterAlarmTests.framework */,
-				0878562398C8411CDC82C63F /* Pods_CharacterAlarmUITests.framework */,
-				FA0E263E1B13E104B382A589 /* Pods_CharalarmLocal.framework */,
-				57A78979ED402D764EAA54FB /* Pods_CharalarmProduction.framework */,
-				63B8F7BFC94800899AB2DB98 /* Pods_CharalarmStaging.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A1271E9DE3DC965AC5614A83 /* image */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +825,7 @@
 		A769590120CB6B1811F10409 = {
 			isa = PBXGroup;
 			children = (
+				B7B39A6707846DD02B502E3E /* Resource */,
 				37BCF0E81B976D82B5B11590 /* CharacterAlarm */,
 				C5C2DA35224F73FF3E48A5BC /* CharacterAlarmTests */,
 				3DADE3545129FC5F235EDE91 /* CharacterAlarmUITests */,
@@ -859,8 +833,8 @@
 				7CCD931FE779C2C0063B38C2 /* Production */,
 				47EFEED4233926EFE1E25174 /* Staging */,
 				E57C0EA9139C91D90B3CCC8B /* Products */,
-				1217EA29D315EFFF11F47E34 /* Pods */,
-				992630DFADA63C7961430DA3 /* Frameworks */,
+				C04C3269B520F15349C39E23 /* Pods */,
+				F109EF707765AD521814DE56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -902,16 +876,33 @@
 			path = CallView;
 			sourceTree = "<group>";
 		};
+		C04C3269B520F15349C39E23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C2AC5CB37214E15BFAEE9C9 /* Pods-CharacterAlarmTests.debug.xcconfig */,
+				9C4697D65B164D679D8E63A3 /* Pods-CharacterAlarmTests.release.xcconfig */,
+				21490F32D5AFAF497ED28B9F /* Pods-CharacterAlarmUITests.debug.xcconfig */,
+				05D57DD0D663DACC38099A70 /* Pods-CharacterAlarmUITests.release.xcconfig */,
+				351443226AB14858CE0D253E /* Pods-CharalarmLocal.debug.xcconfig */,
+				17F66CB08A974832B55210CA /* Pods-CharalarmLocal.release.xcconfig */,
+				B484EFA08E82EF0916831727 /* Pods-CharalarmProduction.debug.xcconfig */,
+				A8A08966CE8316636F9E87E0 /* Pods-CharalarmProduction.release.xcconfig */,
+				854390534CDB69FFA5EDB67D /* Pods-CharalarmStaging.debug.xcconfig */,
+				72CB62DEC6292C5936CF05CE /* Pods-CharalarmStaging.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C40F414AC00388EE0DA74284 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				A2CE981EFE28B1256B8D33E3 /* TutorialFifthView.swift */,
+				A28C5CEE6027DDED33D253B5 /* TutorialFirstView.swift */,
+				BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */,
 				16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */,
 				CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */,
-				8D9CCAEA258A573E0025AC2F /* TutorialFirstView.swift */,
-				8D9CCAF9258A610F0025AC2F /* TutorialSecondView.swift */,
-				8D9CCB02258A652B0025AC2F /* TutorialThirdView.swift */,
-				8D9CCB0B258B7FD20025AC2F /* TutorialFourthView.swift */,
-				8D32D549258B882D000E1269 /* TutorialFifthView.swift */,
+				C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */,
+				A1EEECC00865B257B016D176 /* TutorialThirdView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -990,6 +981,18 @@
 			path = Config/Local;
 			sourceTree = "<group>";
 		};
+		F109EF707765AD521814DE56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5F39D7E6EA8BC10DA6A7BBB /* Pods_CharacterAlarmTests.framework */,
+				759C0F532F47A35D8FD50C5A /* Pods_CharacterAlarmUITests.framework */,
+				F6C033BDD2571745E2917CF1 /* Pods_CharalarmLocal.framework */,
+				6BEF375E444CA088E6A71AA8 /* Pods_CharalarmProduction.framework */,
+				3A0550F3D732C04E1BB113FD /* Pods_CharalarmStaging.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F62CCBAC9B22C416F208810D /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1006,11 +1009,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D24C02A9047948F215A8B02 /* Build configuration list for PBXNativeTarget "CharalarmProduction" */;
 			buildPhases = (
-				07612BB592BD480621DC7EB3 /* [CP] Check Pods Manifest.lock */,
+				3B325A1AFCFED2BB3E8306AF /* [CP] Check Pods Manifest.lock */,
 				EA033E720D8C3C37921BF000 /* Sources */,
 				A1EBA1A72EA390C7F3ACE995 /* Resources */,
-				FEB79C8ECAC48BEB6E08094E /* Frameworks */,
-				45A323BC5CFD17FCA29966A0 /* [CP] Embed Pods Frameworks */,
+				329809DF7B5B3A5647301F01 /* Frameworks */,
+				ECF39680C77F4C077DE8E1BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1025,11 +1028,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C3284C89A64912422B24624 /* Build configuration list for PBXNativeTarget "CharalarmLocal" */;
 			buildPhases = (
-				A6084F65D1BF10EC6B92560B /* [CP] Check Pods Manifest.lock */,
+				A3F7E07A5D6EBA0197E362CA /* [CP] Check Pods Manifest.lock */,
 				E6C247AEE506E16D70FEDAF2 /* Sources */,
 				9C1A37FA3767F7C7A53EC845 /* Resources */,
-				859E1A4BCB4C65EA2629CB29 /* Frameworks */,
-				1BA974474A7B1A9B99FFB975 /* [CP] Embed Pods Frameworks */,
+				C1E9A0A1F586C247F5108A3F /* Frameworks */,
+				BD6557024B5814B3C61FFACA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1044,9 +1047,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0D9DE266E18E8C484C35F4E /* Build configuration list for PBXNativeTarget "CharacterAlarmTests" */;
 			buildPhases = (
-				CB7D1EE06290C45C0D0EE513 /* [CP] Check Pods Manifest.lock */,
+				B3115EF04FD0293E5C2D96C7 /* [CP] Check Pods Manifest.lock */,
 				597F9CE093AF97AC4561D974 /* Sources */,
-				3AEE91B51B86F4E0E84F62CE /* Frameworks */,
+				1905CC587853C7DB79F5867C /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1062,11 +1065,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FED68EDBAAE4F3451075722E /* Build configuration list for PBXNativeTarget "CharalarmStaging" */;
 			buildPhases = (
-				263934FB6179DB4ABF3C9B1C /* [CP] Check Pods Manifest.lock */,
+				75C64A52E47949897342BB17 /* [CP] Check Pods Manifest.lock */,
 				51F9C45F97D748BA4E01724A /* Sources */,
 				768D5DF2FF4153982BFFB58D /* Resources */,
-				9EA10E4CF997E9CCBDD58911 /* Frameworks */,
-				BE65F8903B2FA4607519C007 /* [CP] Embed Pods Frameworks */,
+				FFE1F81DE562A107601BF78C /* Frameworks */,
+				3BD08A0A599AE521AF0CECFC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1081,9 +1084,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2C07862B9D925806EBC621 /* Build configuration list for PBXNativeTarget "CharacterAlarmUITests" */;
 			buildPhases = (
-				A8BD67D89386624B0A28DAE5 /* [CP] Check Pods Manifest.lock */,
+				FEF14D58AA44FD4010E14EA5 /* [CP] Check Pods Manifest.lock */,
 				BDD17EF351DE7B33E31724E7 /* Sources */,
-				BA662DBFC7B4A7672F3BC761 /* Frameworks */,
+				03A380BA39E9B7879A973C1A /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1151,6 +1154,7 @@
 				6D9D0F57D6B4195A6E394AE5 /* GoogleService-Info.plist in Resources */,
 				C6D0DED0230BF02DD875FA27 /* LaunchScreen.storyboard in Resources */,
 				F8FD127F24B506F604BD43D8 /* Preview Assets.xcassets in Resources */,
+				B4FE49FC69D616B2C2AB8034 /* Resource in Resources */,
 				CC434CB4BCEFA546EF343D52 /* Settings.bundle in Resources */,
 				D6FECF7A20B4E6BA2F1F8F02 /* com-charalarm-yui-0.caf in Resources */,
 				7B08F48AF13B9867599146D0 /* com-charalarm-yui-1.caf in Resources */,
@@ -1182,6 +1186,7 @@
 				F76D993E6CB470D624DAFF9D /* GoogleService-Info.plist in Resources */,
 				1AD3884D434E2396F3E648CB /* LaunchScreen.storyboard in Resources */,
 				34B9C6E133DD5DA82A376299 /* Preview Assets.xcassets in Resources */,
+				530FA1C6629C4DE5A098C7EC /* Resource in Resources */,
 				6790EF7F526D22877C636FC7 /* Settings.bundle in Resources */,
 				1FB93B6605FF683EE886E78F /* com-charalarm-yui-0.caf in Resources */,
 				7CC027BB2218AEDD9220D1B7 /* com-charalarm-yui-1.caf in Resources */,
@@ -1213,6 +1218,7 @@
 				9D653CF7624E982E5617EBC8 /* GoogleService-Info.plist in Resources */,
 				6E3699536C492C0B1F5936B9 /* LaunchScreen.storyboard in Resources */,
 				B68B0909DD9A3F40593E6019 /* Preview Assets.xcassets in Resources */,
+				910F4A6AF1F91C31DD65369E /* Resource in Resources */,
 				644D054BC1D5B41CED904EDF /* Settings.bundle in Resources */,
 				E6E619FE0565513C88EA7399 /* com-charalarm-yui-0.caf in Resources */,
 				EF9431C7DC8E0850E3DA86E6 /* com-charalarm-yui-1.caf in Resources */,
@@ -1239,7 +1245,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07612BB592BD480621DC7EB3 /* [CP] Check Pods Manifest.lock */ = {
+		3B325A1AFCFED2BB3E8306AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1261,24 +1267,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1BA974474A7B1A9B99FFB975 /* [CP] Embed Pods Frameworks */ = {
+		3BD08A0A599AE521AF0CECFC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		263934FB6179DB4ABF3C9B1C /* [CP] Check Pods Manifest.lock */ = {
+		75C64A52E47949897342BB17 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1300,24 +1306,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		45A323BC5CFD17FCA29966A0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6084F65D1BF10EC6B92560B /* [CP] Check Pods Manifest.lock */ = {
+		A3F7E07A5D6EBA0197E362CA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1339,46 +1328,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8BD67D89386624B0A28DAE5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CharacterAlarmUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BE65F8903B2FA4607519C007 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB7D1EE06290C45C0D0EE513 /* [CP] Check Pods Manifest.lock */ = {
+		B3115EF04FD0293E5C2D96C7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1394,6 +1344,62 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-CharacterAlarmTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD6557024B5814B3C61FFACA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECF39680C77F4C077DE8E1BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEF14D58AA44FD4010E14EA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CharacterAlarmUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1418,6 +1424,7 @@
 				2E0CF5B5C7E759A72737CE47 /* AlarmListViewModel.swift in Sources */,
 				28B106B6B7466A2998294959 /* AlarmStore.swift in Sources */,
 				7F674165FA46F6E47C4E384C /* AppDelegate.swift in Sources */,
+				2FCADEED3471FFE5F6C39EB4 /* BackBarButton.swift in Sources */,
 				CDA9E480DB51A78779354765 /* CallKitHandler.swift in Sources */,
 				1EFD188F2DFECD5BC9058601 /* CallView.swift in Sources */,
 				1C85533C2E713DE5CDA8020B /* CallViewModel.swift in Sources */,
@@ -1430,10 +1437,10 @@
 				CDDC539EC11396BDCD2C782C /* CharacterStore.swift in Sources */,
 				0F4E2C9DD4BBD63DDAC8262E /* CharalarmAppState.swift in Sources */,
 				93BF94238C82EE3F7A9BB5C8 /* CharalarmError.swift in Sources */,
+				A9F6E0514C1D2200EEB00D6C /* CloseBarButton.swift in Sources */,
 				759C263A348B060D4FA9A4F4 /* Config.swift in Sources */,
 				5CBC5047ECA5EE64165AC907 /* ConfigView.swift in Sources */,
 				F59BD988822BE9A34A392A5B /* ConfigViewModel.swift in Sources */,
-				8D9CCAFC258A610F0025AC2F /* TutorialSecondView.swift in Sources */,
 				0A55FCCF3A70129ED8F66AEE /* ContentView.swift in Sources */,
 				313FFB7CCA8580148B059BA9 /* DayOfWeek.swift in Sources */,
 				85239F6A1B353323F752447D /* EditAlarmDayOfWeek.swift in Sources */,
@@ -1444,7 +1451,6 @@
 				28480BCC600AD99FA0A42B57 /* FileHandlerError.swift in Sources */,
 				E40E89BF868A7D1F38884FE6 /* JsonResponseBean.swift in Sources */,
 				1B7D9EB74A5FAAF885DBDB7F /* Key.swift in Sources */,
-				8DF6D2C6258E3253005A1FF9 /* BackBarButton.swift in Sources */,
 				414CD8A194B0DBA6750C8D30 /* KeychainHandler.swift in Sources */,
 				63467822E51B2188F11E2950 /* MenuItem.swift in Sources */,
 				5C7F1EE77182EF589A49C5F8 /* NSNotification+Extension.swift in Sources */,
@@ -1462,23 +1468,23 @@
 				E8AA07BD4ABFA19C5A2490CA /* PushTokenRequest.swift in Sources */,
 				98B13F47F8EAF33F0C7D9B52 /* Request.swift in Sources */,
 				72B5B36432419EB06F3AE489 /* Resource.swift in Sources */,
-				8D9CCAED258A573E0025AC2F /* TutorialFirstView.swift in Sources */,
 				F50A17B3B27A27D7066375D9 /* ResourceHandler.swift in Sources */,
-				8D9CCB05258A652B0025AC2F /* TutorialThirdView.swift in Sources */,
 				5D27DBC8E789AC3A320C6A2D /* ResourceStore.swift in Sources */,
 				8DD40292AB3A76479A27E44F /* Response.swift in Sources */,
 				EF6CA84EDAA97AEC4B8BB7D9 /* RootView.swift in Sources */,
 				403471E76778777EA49185E2 /* SceneDelegate.swift in Sources */,
 				EE149BD86C0AEB8B3BBA7D0C /* String+Extension.swift in Sources */,
 				93B663A188BE9B871EC09565 /* TopButtonContent.swift in Sources */,
-				8D9CCB0E258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				FC523809B14162281A0A7D77 /* TopTimeView.swift in Sources */,
-				8DF6D2DA258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
-				8D32D54C258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				44574CBFB0D7613FD466CE35 /* TopView.swift in Sources */,
 				8859FBBAB0342351F9118284 /* TopViewModel.swift in Sources */,
+				6E52189C71B733A28B918AEA /* TutorialFifthView.swift in Sources */,
+				918803FCC414BA34B4F8F92D /* TutorialFirstView.swift in Sources */,
+				086C04A42FA4EEA05A4F7C47 /* TutorialFourthView.swift in Sources */,
 				6E379B2BD03C29FC8B12AADA /* TutorialHolderView.swift in Sources */,
 				ABF1E9F9CA4055566747EAF3 /* TutorialHolderViewModel.swift in Sources */,
+				867DBB84B0A724E1B6BD9FCE /* TutorialSecondView.swift in Sources */,
+				55E15CEE1503EDCE584BB5BB /* TutorialThirdView.swift in Sources */,
 				17AA5723A28A5F3F425A88DD /* URLRequest+Extension.swift in Sources */,
 				96C9674D055B99572124C614 /* UserDefaultsHandler.swift in Sources */,
 				027B2FC6F6E3565D55F77AFE /* UserInfoView.swift in Sources */,
@@ -1490,9 +1496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DF6D2B4258E31DC005A1FF9 /* BackBarButton.swift in Sources */,
 				FAC1E139983D6AEF6BB37E96 /* CharacterAlarmTests.swift in Sources */,
-				8DF6D2D7258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1523,7 @@
 				98C82BB8DE0B46232E4B8B11 /* AlarmListViewModel.swift in Sources */,
 				DC4D265218D1835A31F845DE /* AlarmStore.swift in Sources */,
 				8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */,
+				E9759FFEB976865C5FE21273 /* BackBarButton.swift in Sources */,
 				BA433D2648091EEB0FF9D51E /* CallKitHandler.swift in Sources */,
 				5DB502E904C8E934500FB561 /* CallView.swift in Sources */,
 				7033730015DB444857DAE80A /* CallViewModel.swift in Sources */,
@@ -1531,10 +1536,10 @@
 				9B2F5D4E90D4CB2C774E6486 /* CharacterStore.swift in Sources */,
 				275D7A19B1ED1FAB195FFE12 /* CharalarmAppState.swift in Sources */,
 				1119F146EC15869238F7FBD5 /* CharalarmError.swift in Sources */,
+				8B3143D53CF9858AF27D2086 /* CloseBarButton.swift in Sources */,
 				62D319A5279E9770D95DCCC3 /* Config.swift in Sources */,
 				3969110139ED2B6DB80317A2 /* ConfigView.swift in Sources */,
 				D1A995074F01F77040C0DA0E /* ConfigViewModel.swift in Sources */,
-				8D9CCAFA258A610F0025AC2F /* TutorialSecondView.swift in Sources */,
 				725327D9FD001826FA877C39 /* ContentView.swift in Sources */,
 				BDA2ADD98CBB867A1F14F47E /* DayOfWeek.swift in Sources */,
 				523DF61B0AD3ECF6E5EE2BB3 /* EditAlarmDayOfWeek.swift in Sources */,
@@ -1545,7 +1550,6 @@
 				113456A41F2E2D537E595DD3 /* FileHandlerError.swift in Sources */,
 				06D9C2035635751CA8E6E22E /* JsonResponseBean.swift in Sources */,
 				3028D767D8F5838CAC7BE36F /* Key.swift in Sources */,
-				8DF6D2BF258E3252005A1FF9 /* BackBarButton.swift in Sources */,
 				F7257CAC72A40C6F8319BB3D /* KeychainHandler.swift in Sources */,
 				BEC580F0935C78169FFE42C1 /* MenuItem.swift in Sources */,
 				78F043397E34C6D744AED901 /* NSNotification+Extension.swift in Sources */,
@@ -1563,23 +1567,23 @@
 				EA1E5FE6DA843EF7D89F0ABC /* PushTokenRequest.swift in Sources */,
 				16614E4E606CC0850A8DA15C /* Request.swift in Sources */,
 				34B4485829C3BA4288211DBC /* Resource.swift in Sources */,
-				8D9CCAEB258A573E0025AC2F /* TutorialFirstView.swift in Sources */,
 				E00B3B98C7C7E56BFFD0AF09 /* ResourceHandler.swift in Sources */,
-				8D9CCB03258A652B0025AC2F /* TutorialThirdView.swift in Sources */,
 				F0F75FFDD4A0EF0867572129 /* ResourceStore.swift in Sources */,
 				A553480678785E64E5FDA1DE /* Response.swift in Sources */,
 				C49B8EF0836D170B5D840044 /* RootView.swift in Sources */,
 				4F184683EFF6682F11DC46C9 /* SceneDelegate.swift in Sources */,
 				56D59135DFD58E5C8AC9D86D /* String+Extension.swift in Sources */,
 				04EA31F6B975A92404BD93A0 /* TopButtonContent.swift in Sources */,
-				8D9CCB0C258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				DC3EAEBA0045C0BF018D84CA /* TopTimeView.swift in Sources */,
-				8DF6D2D8258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
-				8D32D54A258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				247EEB05F318CEFEA3ACFD46 /* TopView.swift in Sources */,
 				850A7F7D105981E9E82598BF /* TopViewModel.swift in Sources */,
+				EE14287CB472A92D11057200 /* TutorialFifthView.swift in Sources */,
+				6F44A36F4040A3823A792C40 /* TutorialFirstView.swift in Sources */,
+				3DE5CFCC5C163B7D3C89CD5A /* TutorialFourthView.swift in Sources */,
 				96E71FEE980F735CEDFB10B8 /* TutorialHolderView.swift in Sources */,
 				6045016E5C1D941C47A6D90F /* TutorialHolderViewModel.swift in Sources */,
+				23B4BCD86821A41F41682EE9 /* TutorialSecondView.swift in Sources */,
+				3A7CD5B32FB93DC54597724E /* TutorialThirdView.swift in Sources */,
 				7277DA992FB63890D9852158 /* URLRequest+Extension.swift in Sources */,
 				D109B7855BC988ED44DDC8EB /* UserDefaultsHandler.swift in Sources */,
 				7850C20A48793DE1DB4E10DA /* UserInfoView.swift in Sources */,
@@ -1602,6 +1606,7 @@
 				FB3A51B8A809BA9EC17801EE /* AlarmListViewModel.swift in Sources */,
 				12EEC7174750F3E33ACB520D /* AlarmStore.swift in Sources */,
 				CA5D4F8FCE6F4AD24B58768D /* AppDelegate.swift in Sources */,
+				97C3F832DD2EB16B7DA37DCD /* BackBarButton.swift in Sources */,
 				EBAB307A6FB99C616635D8FB /* CallKitHandler.swift in Sources */,
 				127993D369BE0BD3DE82C70B /* CallView.swift in Sources */,
 				003BFC69507A0A7E9AE2173A /* CallViewModel.swift in Sources */,
@@ -1614,10 +1619,10 @@
 				456278D967C9D9735683AA8A /* CharacterStore.swift in Sources */,
 				6D1DEA4473A6AEDDD37EC39D /* CharalarmAppState.swift in Sources */,
 				C1C1D3C075EB45C2606E8BDE /* CharalarmError.swift in Sources */,
+				2E26558CCC61DEC117299248 /* CloseBarButton.swift in Sources */,
 				1680497FF614B830DA902A2E /* Config.swift in Sources */,
 				AFE0D74214B273C08CC1E6ED /* ConfigView.swift in Sources */,
 				4A728663B1205EABC86CADE4 /* ConfigViewModel.swift in Sources */,
-				8D9CCAFB258A610F0025AC2F /* TutorialSecondView.swift in Sources */,
 				66295CA004BE99C0781F2548 /* ContentView.swift in Sources */,
 				CC7D43723326E1213210F05B /* DayOfWeek.swift in Sources */,
 				1AE4B165A73C7C2C1FC5750B /* EditAlarmDayOfWeek.swift in Sources */,
@@ -1628,7 +1633,6 @@
 				4C0BFE1B302CBF69F430B2E6 /* FileHandlerError.swift in Sources */,
 				582FDC655CC2C9A56B17E608 /* JsonResponseBean.swift in Sources */,
 				9C019F418D6808E49BE76D46 /* Key.swift in Sources */,
-				8DF6D2C5258E3253005A1FF9 /* BackBarButton.swift in Sources */,
 				56148A88CD14D5A15D35A7F1 /* KeychainHandler.swift in Sources */,
 				B655617FA9263B9D0CD7DC26 /* MenuItem.swift in Sources */,
 				6D1304C72AADCD2E9330EF81 /* NSNotification+Extension.swift in Sources */,
@@ -1646,23 +1650,23 @@
 				CEEA5D7DD8209F8B738A261D /* PushTokenRequest.swift in Sources */,
 				51693383AA9FBE2ED3ADE8FE /* Request.swift in Sources */,
 				90E673CFB786C5D7C60AD465 /* Resource.swift in Sources */,
-				8D9CCAEC258A573E0025AC2F /* TutorialFirstView.swift in Sources */,
 				0B613C93FB2DE94A60116FAD /* ResourceHandler.swift in Sources */,
-				8D9CCB04258A652B0025AC2F /* TutorialThirdView.swift in Sources */,
 				BD63FE91F248A54EBEC34478 /* ResourceStore.swift in Sources */,
 				0329E94CBCABD6D968196AC5 /* Response.swift in Sources */,
 				3CCCAF6CAF9774ED6937533A /* RootView.swift in Sources */,
 				B52B8232296EF5376E768E2A /* SceneDelegate.swift in Sources */,
 				C62C41752132FF9C8F9EF2F6 /* String+Extension.swift in Sources */,
 				312E03BB7EC648CB0C9471C0 /* TopButtonContent.swift in Sources */,
-				8D9CCB0D258B7FD20025AC2F /* TutorialFourthView.swift in Sources */,
 				EEF9686212A32B964D91B1B5 /* TopTimeView.swift in Sources */,
-				8DF6D2D9258E33A6005A1FF9 /* CloseBarButton.swift in Sources */,
-				8D32D54B258B882D000E1269 /* TutorialFifthView.swift in Sources */,
 				D2900A7FD470F72B9BEBC974 /* TopView.swift in Sources */,
 				E0DE7EABBA48DEAA4BEBE006 /* TopViewModel.swift in Sources */,
+				613A57980F0FB65E979E025B /* TutorialFifthView.swift in Sources */,
+				FBAF60F47FE5C64D98FE5CFC /* TutorialFirstView.swift in Sources */,
+				1519C04E8F4DBD99F9C6CAEE /* TutorialFourthView.swift in Sources */,
 				AE2039A09C88554999496B4C /* TutorialHolderView.swift in Sources */,
 				F47F6D7BE44EFF4C7705859B /* TutorialHolderViewModel.swift in Sources */,
+				D4A330EAA4951221F934B670 /* TutorialSecondView.swift in Sources */,
+				36DD93563BF68CB23DA466F3 /* TutorialThirdView.swift in Sources */,
 				F864C16EFFBA040BCC798D86 /* URLRequest+Extension.swift in Sources */,
 				0024A21BD7BEEE61C843E924 /* UserDefaultsHandler.swift in Sources */,
 				E3FCB3151893DE58155B49C9 /* UserInfoView.swift in Sources */,
@@ -1818,7 +1822,7 @@
 		};
 		1CA8ADC64C6045214EA33A1C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F56E7CE6453A8DB19B80A01 /* Pods-CharacterAlarmTests.debug.xcconfig */;
+			baseConfigurationReference = 7C2AC5CB37214E15BFAEE9C9 /* Pods-CharacterAlarmTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CharacterAlarmTests/Info.plist;
@@ -1835,7 +1839,7 @@
 		};
 		3CD9B48ADA3F021CC47B214E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B8037411B7A0A9E0F960A58 /* Pods-CharalarmLocal.release.xcconfig */;
+			baseConfigurationReference = 17F66CB08A974832B55210CA /* Pods-CharalarmLocal.release.xcconfig */;
 			buildSettings = {
 				API_ENDPOINT = "http://localhost:8080";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Local";
@@ -1859,7 +1863,7 @@
 		};
 		6C4014C438CEAFBDCDBA84A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41C7F2B0A3AC994C63135392 /* Pods-CharalarmProduction.release.xcconfig */;
+			baseConfigurationReference = A8A08966CE8316636F9E87E0 /* Pods-CharalarmProduction.release.xcconfig */;
 			buildSettings = {
 				API_ENDPOINT = "https://api.charalarm.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Production";
@@ -1883,7 +1887,7 @@
 		};
 		7ADEF455A58E581BFFDB1C72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B1C4CD178DCB1E41C2C5F03 /* Pods-CharalarmLocal.debug.xcconfig */;
+			baseConfigurationReference = 351443226AB14858CE0D253E /* Pods-CharalarmLocal.debug.xcconfig */;
 			buildSettings = {
 				API_ENDPOINT = "http://localhost:8080";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Local";
@@ -1907,7 +1911,7 @@
 		};
 		7D46838E8A744A4EEFD183B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C9D5CAD51043F5665CC88D6 /* Pods-CharalarmProduction.debug.xcconfig */;
+			baseConfigurationReference = B484EFA08E82EF0916831727 /* Pods-CharalarmProduction.debug.xcconfig */;
 			buildSettings = {
 				API_ENDPOINT = "https://api.charalarm.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Production";
@@ -1931,7 +1935,7 @@
 		};
 		85E90FA4C49453A12C6B27ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6262FE0A5F3E25CACD6CF7F /* Pods-CharacterAlarmTests.release.xcconfig */;
+			baseConfigurationReference = 9C4697D65B164D679D8E63A3 /* Pods-CharacterAlarmTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CharacterAlarmTests/Info.plist;
@@ -1948,7 +1952,7 @@
 		};
 		9C2DC7A9ED0C0D3C9FF901FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38F57F1D227AEA4F96A9AE1C /* Pods-CharacterAlarmUITests.debug.xcconfig */;
+			baseConfigurationReference = 21490F32D5AFAF497ED28B9F /* Pods-CharacterAlarmUITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CharacterAlarmUITests/Info.plist;
@@ -1965,14 +1969,14 @@
 		};
 		A632B8E7C470C668D7188466 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 240CD4DDC78889AD368BFD54 /* Pods-CharalarmStaging.release.xcconfig */;
+			baseConfigurationReference = 72CB62DEC6292C5936CF05CE /* Pods-CharalarmStaging.release.xcconfig */;
 			buildSettings = {
 				API_ENDPOINT = "https://api-stg.charalarm.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Staging";
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = Config/Staging/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1989,7 +1993,7 @@
 		};
 		B0E5A467FB277393E0276580 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FFA5C213B244A7D263A9FEB /* Pods-CharacterAlarmUITests.release.xcconfig */;
+			baseConfigurationReference = 05D57DD0D663DACC38099A70 /* Pods-CharacterAlarmUITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CharacterAlarmUITests/Info.plist;
@@ -2006,14 +2010,14 @@
 		};
 		E3DD7890E2ACAA5F3AC66079 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B68C400461E10056E1FB216B /* Pods-CharalarmStaging.debug.xcconfig */;
+			baseConfigurationReference = 854390534CDB69FFA5EDB67D /* Pods-CharalarmStaging.debug.xcconfig */;
 			buildSettings = {
 				API_ENDPOINT = "https://api-stg.charalarm.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Staging";
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = Config/Staging/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

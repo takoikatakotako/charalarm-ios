@@ -54,7 +54,7 @@
    },
    "call":{
       "normal":{
-         "images":[
+         "voices":[
             "com-charalarm-yui-10.caf",
             "com-charalarm-yui-11.caf"
          ]

@@ -21,10 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // TODO: 選択中のキャラクターの最新リソースがある場合更新する
         } else {
             // データをロード
-            if let filePath = Bundle.main.path(forResource: "resource", ofType: "json", inDirectory: "com.charalarm.yui"),
-               let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
+            if let fileUrl = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/com.charalarm.yui"),
+               let data = try? Data(contentsOf: fileUrl),
                let resource: Resource = try? JSONDecoder().decode(Resource.self, from: data) {
-                xxx(charaDomain: charaDomain, resource: resource)
+                loadData(charaDomain: charaDomain, resource: resource)
             }
         }
         
@@ -50,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    func xxx(charaDomain:String, resource: Resource) {
+    func loadData(charaDomain:String, resource: Resource) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(resource)
@@ -60,28 +60,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         for imageName in resource.resource.images {
-            let xxx = imageName.split(separator: ".")
+            let fileInfo = imageName.split(separator: ".")
             do {
-                let fileName: String = String(xxx[0])
-                let type: String = String(xxx[1])
-                let filePath = Bundle.main.path(forResource: fileName, ofType: type, inDirectory: "com.charalarm.yui/image")!
-                let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+                let fileName: String = String(fileInfo[0])
+                let type: String = String(fileInfo[1])
+                guard let fileUrl = Bundle.main.url(forResource: fileName, withExtension: type, subdirectory: "Resource/com.charalarm.yui/image"),
+                      let data = try? Data(contentsOf: fileUrl) else {
+                    continue
+                }
                 try FileHandler.saveFile(directoryName: charaDomain, fileName: imageName, data: data)
             } catch {
-                
+                print("画像ファイルの書き込みに失敗")
             }
         }
         
         for voiceName in resource.resource.voices {
-            let xxx = voiceName.split(separator: ".")
+            let fileInfo = voiceName.split(separator: ".")
             do {
-                let fileName: String = String(xxx[0])
-                let type: String = String(xxx[1])
-                let filePath = Bundle.main.path(forResource: fileName, ofType: type, inDirectory: "com.charalarm.yui/voice")!
-                let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+                let fileName: String = String(fileInfo[0])
+                let type: String = String(fileInfo[1])
+                guard let fileUrl = Bundle.main.url(forResource: fileName, withExtension: type, subdirectory: "Resource/com.charalarm.yui/voice"),
+                      let data = try? Data(contentsOf: fileUrl) else {
+                    continue
+                }
                 try FileHandler.saveFile(directoryName: charaDomain, fileName: voiceName, data: data)
             } catch {
-                
+                print("ボイスファイルの書き込みに失敗")
             }
         }
     }
