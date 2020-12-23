@@ -10,8 +10,13 @@ struct AlarmListView: View {
             ScrollView {
                 LazyVStack(spacing: 0) {
                     ForEach(self.viewModel.alarms) { alarm in
-                        NavigationLink(destination: AlarmDetailView(alarm: alarm)) {
+                        Button(action: {
+                            viewModel.showingSheetForEdit = true
+                        }, label: {
                             AlarmListRow(delegate: self, alarm: alarm)
+                        })
+                        .sheet(isPresented: $viewModel.showingSheetForEdit) {
+                            AlarmDetailView(alarm: alarm)
                         }
                     }
                 }
@@ -29,10 +34,15 @@ struct AlarmListView: View {
                     presentationMode.wrappedValue.dismiss()
                 },
                 trailing:
-                    NavigationLink(destination: AlarmDetailView(alarm: viewModel.createNewAlarm())) {
+                    Button(action: {
+                        viewModel.showingSheetForNew = true
+                    }) {
                         Image("alarm-add-icon")
                             .renderingMode(.template)
                             .foregroundColor(Color("charalarm-default-green"))
+                    }
+                    .sheet(isPresented: $viewModel.showingSheetForNew) {
+                        AlarmDetailView(alarm: viewModel.createNewAlarm())
                     }
             )
         }

@@ -46,6 +46,22 @@ class AlarmDetailViewModel: ObservableObject {
         }
     }
     
+    func updateAlarmName(name: String) {
+        alarm.name = name
+    }
+    
+    func updateAlarmHour(hour: Int) {
+        alarm.hour = hour
+    }
+    
+    func updateAlarmMinute(minute: Int) {
+        alarm.minute = minute
+    }
+
+    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
+        alarm.dayOfWeeks = dayOfWeeks
+    }
+    
     private func createAlarm() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
@@ -84,18 +100,5 @@ class AlarmDetailViewModel: ObservableObject {
                 self.showingAlert = true
             }
         }
-    }
-    
-    func updateAlarmName(name: String) {
-        alarm.name = name
-    }
-    
-    func updateAlarmTime(hour: Int, minute: Int) {
-        alarm.hour = hour
-        alarm.minute = minute
-    }
-
-    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
-        alarm.dayOfWeeks = dayOfWeeks
     }
 }

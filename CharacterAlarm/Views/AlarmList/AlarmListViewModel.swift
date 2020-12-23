@@ -2,6 +2,8 @@ import Foundation
 
 class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm] = []
+    @Published var showingSheetForNew = false
+    @Published var showingSheetForEdit = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
     

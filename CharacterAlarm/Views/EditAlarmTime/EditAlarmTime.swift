@@ -8,7 +8,7 @@ struct EditAlarmTime: View {
     let delegate: EditAlarmTimeDelegate
     @State var hour: Int
     @State var minute: Int
-
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -42,7 +42,7 @@ struct EditAlarmTime: View {
         .padding()
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
-                                BackBarButton() {
+                                CloseBarButton() {
                                     presentationMode.wrappedValue.dismiss()
                                 }
         )

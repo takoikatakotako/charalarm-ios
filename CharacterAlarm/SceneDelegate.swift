@@ -28,9 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
         
-        
         //
-        
         let anonymousUserName = KeychainHandler.getAnonymousUserName()
         let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword()
         
