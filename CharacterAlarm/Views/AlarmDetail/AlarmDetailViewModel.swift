@@ -6,14 +6,14 @@ class AlarmDetailViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
+    @Published var xxxx: Bool = true
+    
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
     
     var enableDaysString: String {
-        
         return alarm.dayOfWeeks.map { $0.rawValue + ", "}.description
-        
     }
     
     init(alarm: Alarm) {
@@ -60,6 +60,15 @@ class AlarmDetailViewModel: ObservableObject {
 
     func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
         alarm.dayOfWeeks = dayOfWeeks
+    }
+    
+    func updateDayOfWeek(isEnable: Bool, dayOfWeek: DayOfWeek) {
+        if let index = alarm.dayOfWeeks.firstIndex(of: dayOfWeek) {
+            alarm.dayOfWeeks.remove(at: index)
+        }
+        if isEnable {
+            alarm.dayOfWeeks.append(dayOfWeek)
+        }
     }
     
     private func createAlarm() {

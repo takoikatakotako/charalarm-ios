@@ -182,6 +182,9 @@
 		8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		8B3143D53CF9858AF27D2086 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
+		8DF2F28625939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */; };
+		8DF2F28725939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */; };
+		8DF2F28825939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		901A28EF5037083BBC38A102 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
 		90E673CFB786C5D7C60AD465 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C96C5F56A8EC46DB11A2BB /* Resource.swift */; };
@@ -414,6 +417,7 @@
 		89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-9.caf"; sourceTree = "<group>"; };
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
+		8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailWeekdayButton.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9C4697D65B164D679D8E63A3 /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -799,6 +803,7 @@
 			children = (
 				A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */,
 				CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */,
+				8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */,
 			);
 			path = AlarmDetail;
 			sourceTree = "<group>";
@@ -1443,6 +1448,7 @@
 				F59BD988822BE9A34A392A5B /* ConfigViewModel.swift in Sources */,
 				0A55FCCF3A70129ED8F66AEE /* ContentView.swift in Sources */,
 				313FFB7CCA8580148B059BA9 /* DayOfWeek.swift in Sources */,
+				8DF2F28825939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */,
 				85239F6A1B353323F752447D /* EditAlarmDayOfWeek.swift in Sources */,
 				C4AF051B51297CB721C68C90 /* EditAlarmName.swift in Sources */,
 				08860F65895BC0817EC50C82 /* EditAlarmTime.swift in Sources */,
@@ -1542,6 +1548,7 @@
 				D1A995074F01F77040C0DA0E /* ConfigViewModel.swift in Sources */,
 				725327D9FD001826FA877C39 /* ContentView.swift in Sources */,
 				BDA2ADD98CBB867A1F14F47E /* DayOfWeek.swift in Sources */,
+				8DF2F28625939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */,
 				523DF61B0AD3ECF6E5EE2BB3 /* EditAlarmDayOfWeek.swift in Sources */,
 				68C688740BDEEFCC77EAAC6C /* EditAlarmName.swift in Sources */,
 				7C61503AA27BEA950FA67C85 /* EditAlarmTime.swift in Sources */,
@@ -1625,6 +1632,7 @@
 				4A728663B1205EABC86CADE4 /* ConfigViewModel.swift in Sources */,
 				66295CA004BE99C0781F2548 /* ContentView.swift in Sources */,
 				CC7D43723326E1213210F05B /* DayOfWeek.swift in Sources */,
+				8DF2F28725939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */,
 				1AE4B165A73C7C2C1FC5750B /* EditAlarmDayOfWeek.swift in Sources */,
 				EAFCB778D29E7CC4679B59F5 /* EditAlarmName.swift in Sources */,
 				04BCE025561BB8AD5347CA5C /* EditAlarmTime.swift in Sources */,

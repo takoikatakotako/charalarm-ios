@@ -9,13 +9,20 @@ struct AlarmListView: View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(self.viewModel.alarms) { alarm in
+                    ForEach(viewModel.alarms) { alarm in
                         Button(action: {
                             viewModel.showingSheetForEdit = true
                         }, label: {
                             AlarmListRow(delegate: self, alarm: alarm)
                         })
                         .sheet(isPresented: $viewModel.showingSheetForEdit) {
+                            AlarmDetailView(alarm: alarm)
+                        }
+                        .sheet(
+                            isPresented: $viewModel.showingSheetForEdit,
+                            onDismiss: {
+                                viewModel.fetchAlarms()
+                            }) {
                             AlarmDetailView(alarm: alarm)
                         }
                     }
@@ -41,7 +48,11 @@ struct AlarmListView: View {
                             .renderingMode(.template)
                             .foregroundColor(Color("charalarm-default-green"))
                     }
-                    .sheet(isPresented: $viewModel.showingSheetForNew) {
+                    .sheet(
+                        isPresented: $viewModel.showingSheetForNew,
+                        onDismiss: {
+                            viewModel.fetchAlarms()
+                        }) {
                         AlarmDetailView(alarm: viewModel.createNewAlarm())
                     }
             )

@@ -3,7 +3,7 @@ import SwiftUI
 struct AlarmDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: AlarmDetailViewModel
-    @State var minute: Int = 0
+    @State var xxx: Bool = false
     
     // AlarmId を取得して、そこからフェッチした方が良い。あ
     // マルチログインに対応する予定ないし、いらんかも
@@ -17,7 +17,7 @@ struct AlarmDetailView: View {
                 HStack {
                     Picker(selection: $viewModel.alarm.hour, label: EmptyView()) {
                         ForEach(0 ..< 24) {
-                            Text("\($0)")
+                            Text(String(format: "%02d", $0))
                                 .font(Font.system(size: 42).bold())
                         }
                     }.pickerStyle(WheelPickerStyle())
@@ -31,7 +31,7 @@ struct AlarmDetailView: View {
                     
                     Picker(selection: $viewModel.alarm.minute, label: EmptyView()) {
                         ForEach(0 ..< 60) {
-                            Text("\($0)")
+                            Text(String(format: "%02d", $0))
                                 .font(Font.system(size: 42).bold())
                         }
                     }.pickerStyle(WheelPickerStyle())
@@ -42,34 +42,22 @@ struct AlarmDetailView: View {
                 .padding()
                 
                 HStack {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("月")
-                    })
-                    
-                    Button(action: {}, label: {
-                        Text("月")
-                    })
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("月")
-                    })
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("月")
-                    })
-                    
-                    Button(action: {}, label: {
-                        Text("月")
-                    })
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("月")
-                    })
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("月")
-                    })
+                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .MON)
+                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .TUE)
+                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .WED)
+                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .THU)
+                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .FRI)
+                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .SAT)
+                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .SUN)
                 }
+                
+                VStack(alignment: .leading) {
+                    Text("アラーム名")
+                    TextField("アラーム名を入力してください", text: $viewModel.alarm.name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                .padding()
+
                 
                 Spacer()
                 
@@ -111,36 +99,7 @@ struct AlarmDetailView: View {
             }
             .navigationBarHidden(false)
             .navigationBarTitle("アラーム追加", displayMode: .inline)
-        }
-        
-        //        ZStack {
-        //            List {
-        //                NavigationLink(destination: EditAlarmName(alarmName: viewModel.alarm.name, delegate: self)) {
-        //                    VStack(alignment: .leading) {
-        //                        Text("アラーム名")
-        //                        Text(viewModel.alarm.name)
-        //                    }.frame(height: 60.0)
-        //                }
-        //
-        //                NavigationLink(destination: EditAlarmTime(delegate: self, hour: viewModel.alarm.hour, minute: viewModel.alarm.minute) ) {
-        //                    VStack(alignment: .leading) {
-        //                        Text("時間")
-        //                        Text(viewModel.alarmTimeString)
-        //                    }.frame(height: 60.0)
-        //                }
-        //
-        //                NavigationLink(destination: EditAlarmDayOfWeek(delegate: self, dayOfWeeks: viewModel.alarm.dayOfWeeks)) {
-        //                    VStack(alignment: .leading) {
-        //                        Text("曜日")
-        //                        Text(viewModel.alarm.dayOfWeeksString)
-        //                    }.frame(height: 60.0)
-        //                }
-        //            }
-        //
-        
-        //
-        //        }
-        
+        }        
     }
 }
 
