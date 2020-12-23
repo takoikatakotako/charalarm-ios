@@ -14,33 +14,40 @@ struct AlarmDetailView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                HStack {
-                    Picker(selection: $viewModel.alarm.hour, label: EmptyView()) {
-                        ForEach(0 ..< 24) {
-                            Text(String(format: "%02d", $0))
-                                .font(Font.system(size: 42).bold())
-                        }
-                    }.pickerStyle(WheelPickerStyle())
-                    .labelsHidden()
-                    .frame(width: 80, height: 200)
-                    .clipped()
+                VStack(spacing: 0) {
+                    HStack {
+                        Picker(selection: $viewModel.alarm.hour, label: EmptyView()) {
+                            ForEach(0 ..< 24) {
+                                Text(String(format: "%02d", $0))
+                                    .font(Font.system(size: 42).bold())
+                            }
+                        }.pickerStyle(WheelPickerStyle())
+                        .labelsHidden()
+                        .frame(width: 80, height: 200)
+                        .clipped()
+                        
+                        Text(":")
+                            .font(Font.system(size: 60).bold())
+                            .padding()
+                        
+                        Picker(selection: $viewModel.alarm.minute, label: EmptyView()) {
+                            ForEach(0 ..< 60) {
+                                Text(String(format: "%02d", $0))
+                                    .font(Font.system(size: 42).bold())
+                            }
+                        }.pickerStyle(WheelPickerStyle())
+                        .labelsHidden()
+                        .frame(width: 80, height: 200)
+                        .clipped()
+                    }
                     
-                    Text(":")
-                        .font(Font.system(size: 60).bold())
-                        .padding()
-                    
-                    Picker(selection: $viewModel.alarm.minute, label: EmptyView()) {
-                        ForEach(0 ..< 60) {
-                            Text(String(format: "%02d", $0))
-                                .font(Font.system(size: 42).bold())
-                        }
-                    }.pickerStyle(WheelPickerStyle())
-                    .labelsHidden()
-                    .frame(width: 80, height: 200)
-                    .clipped()
+                    HStack {
+                        Spacer()
+                        Text("GMT+9")
+                    }
                 }
                 .padding()
-                
+            
                 HStack {
                     AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .MON)
                     AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .TUE)
@@ -57,7 +64,6 @@ struct AlarmDetailView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 .padding()
-
                 
                 Spacer()
                 
@@ -103,29 +109,6 @@ struct AlarmDetailView: View {
     }
 }
 
-extension AlarmDetailView: EditAlarmNameDelegate {
-    func updateAlarmName(name: String) {
-        viewModel.updateAlarmName(name: name)
-    }
-}
-
-extension AlarmDetailView: EditAlarmTimeDelegate {
-    func updateAlarmTime(hour: Int, minute: Int) {
-        // viewModel.updateAlarmTime(hour: hour, minute: minute)
-    }
-}
-
-extension AlarmDetailView: EditAlarmTimeDifferenceDelegate {
-    func updateAlarmTimeDifference(timeDifference: Int) {
-        // viewModel.updateTimeDifference(timeDifference: timeDifference)
-    }
-}
-
-extension AlarmDetailView: EditAlarmDayOfWeekDelegate {
-    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
-        viewModel.updateDayOfWeek(dayOfWeeks: dayOfWeeks)
-    }
-}
 
 //struct AlarmDetailView_Previews: PreviewProvider {
 //    static var previews: some View {

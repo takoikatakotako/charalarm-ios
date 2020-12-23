@@ -14,13 +14,11 @@
 		02F0EE45F34DD50FE36E71E2 /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803BB1D9926421781E1451A /* AlarmListView.swift */; };
 		0329E94CBCABD6D968196AC5 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
 		041D60E8EE32A7541214EC8C /* smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 057CD9AEA4DCAEE4B9C52B7F /* smile.png */; };
-		04BCE025561BB8AD5347CA5C /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		04EA31F6B975A92404BD93A0 /* TopButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D13A8B5131415CE913CE4 /* TopButtonContent.swift */; };
 		04ED5988ED9DE1F70F722CC6 /* com-charalarm-yui-5.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */; };
 		06D9C2035635751CA8E6E22E /* JsonResponseBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8328671228E33988C6A1A51F /* JsonResponseBean.swift */; };
 		076BB283C31359DE7136678D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4CA8D022533B34EA5904B /* Character.swift */; };
 		086C04A42FA4EEA05A4F7C47 /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */; };
-		08860F65895BC0817EC50C82 /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		096B6D815C455042EF4B5D70 /* com-charalarm-yui-8.caf in Resources */ = {isa = PBXBuildFile; fileRef = 80D67B4AC06397444C43AF2B /* com-charalarm-yui-8.caf */; };
 		0A55FCCF3A70129ED8F66AEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD65D969A238BEE7686DA4EE /* ContentView.swift */; };
 		0B1D9B28B28D795514DA663C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC31FDCA006756E498AFE71 /* Notification.swift */; };
@@ -39,7 +37,6 @@
 		145A5980727D768A668DA92D /* self-introduction.caf in Resources */ = {isa = PBXBuildFile; fileRef = D4A2C2EE6864D777A370ED38 /* self-introduction.caf */; };
 		146E313915C78D8EC6260561 /* smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 057CD9AEA4DCAEE4B9C52B7F /* smile.png */; };
 		14DDD3F492E9B21E0098328A /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254752D61458089BCC2BAA0F /* Alarm.swift */; };
-		15133704F0A7AB46A0EF9381 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
 		1519C04E8F4DBD99F9C6CAEE /* TutorialFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */; };
 		165F271319E8EF0ACD193907 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
 		16614E4E606CC0850A8DA15C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856185BA078B30B75AD451D1 /* Request.swift */; };
@@ -50,7 +47,6 @@
 		1AA054EAA653513D3327C2FA /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FC927EFF1DA08CD0725133 /* thumbnail.png */; };
 		1AD3884D434E2396F3E648CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */; };
 		1AD74842CC4FBFE7736FAD22 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F8242EB9E7A9BB26C8F54 /* APIClient.swift */; };
-		1AE4B165A73C7C2C1FC5750B /* EditAlarmDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */; };
 		1B7D9EB74A5FAAF885DBDB7F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F499DA3A438885B364999 /* Key.swift */; };
 		1C85533C2E713DE5CDA8020B /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED0302BB32B9EC33A3B4782 /* CallViewModel.swift */; };
 		1EFD188F2DFECD5BC9058601 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06D99BD7472813256B59778 /* CallView.swift */; };
@@ -70,7 +66,6 @@
 		2DA1BA4A70BCE0C29ACC08F7 /* com-charalarm-yui-10.caf in Resources */ = {isa = PBXBuildFile; fileRef = 86568D13B38320AFF7016250 /* com-charalarm-yui-10.caf */; };
 		2E0CF5B5C7E759A72737CE47 /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */; };
 		2E26558CCC61DEC117299248 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
-		2EA4094C31F3BC523F83F77D /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
 		2FCADEED3471FFE5F6C39EB4 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */; };
 		3028D767D8F5838CAC7BE36F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F499DA3A438885B364999 /* Key.swift */; };
 		30558383F60E443D03CC0B78 /* com-charalarm-yui-9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */; };
@@ -109,7 +104,6 @@
 		51693383AA9FBE2ED3ADE8FE /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856185BA078B30B75AD451D1 /* Request.swift */; };
 		51A91B42FB95824EBBE970FF /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA03C3D8D726218234689F /* ProfileRow.swift */; };
 		521750FAE49CB8F1B204E096 /* com-charalarm-yui-5.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */; };
-		523DF61B0AD3ECF6E5EE2BB3 /* EditAlarmDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */; };
 		530FA1C6629C4DE5A098C7EC /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = B7B39A6707846DD02B502E3E /* Resource */; };
 		537274F932AEB7DB2154E251 /* CharacterListBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404262CCC1804646E1B2D0 /* CharacterListBanner.swift */; };
 		545812C51DF5029BB407EE0B /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC31FDCA006756E498AFE71 /* Notification.swift */; };
@@ -143,7 +137,6 @@
 		6790EF7F526D22877C636FC7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6915811511BDD6501346263B /* Settings.bundle */; };
 		67CD40AEF7B45F615894239B /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DCDE9ACA3BAF30551323D /* NewsListViewModel.swift */; };
 		684DFFB12497B040EC2A95F6 /* com-charalarm-yui-7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 582B90CC320D3D78432506C2 /* com-charalarm-yui-7.caf */; };
-		68C688740BDEEFCC77EAAC6C /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		69561E151F7B3229AEFF64A6 /* Pods_CharalarmLocal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C033BDD2571745E2917CF1 /* Pods_CharalarmLocal.framework */; };
 		6BEA35A194B21948FD454266 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */; };
 		6D1304C72AADCD2E9330EF81 /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618D3EA404B9855ACD640EFF /* NSNotification+Extension.swift */; };
@@ -167,14 +160,12 @@
 		79D2FDA322C6EC497F3089A7 /* com-charalarm-yui-7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 582B90CC320D3D78432506C2 /* com-charalarm-yui-7.caf */; };
 		7B08F48AF13B9867599146D0 /* com-charalarm-yui-1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0FBB89E54E4537A07FA3EA4D /* com-charalarm-yui-1.caf */; };
 		7C361B453DA27E15A01C864C /* com-charalarm-yui-5.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D78AC801BCC90DCAF4E75 /* com-charalarm-yui-5.caf */; };
-		7C61503AA27BEA950FA67C85 /* EditAlarmTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */; };
 		7CC027BB2218AEDD9220D1B7 /* com-charalarm-yui-1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0FBB89E54E4537A07FA3EA4D /* com-charalarm-yui-1.caf */; };
 		7D26588A95E168C3E99C5E4D /* Pods_CharalarmStaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0550F3D732C04E1BB113FD /* Pods_CharalarmStaging.framework */; };
 		7EE9C5C0464B057D925EA98D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA66211D763D0B12DDAE5B /* APIRequest.swift */; };
 		7F674165FA46F6E47C4E384C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		83A0961183C21D6C7F40563B /* com-charalarm-yui-4.caf in Resources */ = {isa = PBXBuildFile; fileRef = A3897F5CBBEDD5DA1BF923F0 /* com-charalarm-yui-4.caf */; };
 		850A7F7D105981E9E82598BF /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
-		85239F6A1B353323F752447D /* EditAlarmDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */; };
 		867DBB84B0A724E1B6BD9FCE /* TutorialSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */; };
 		87DF83122C2D69A33F2DE545 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150449688142AF83A4F3167 /* NewsStore.swift */; };
 		8859FBBAB0342351F9118284 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */; };
@@ -241,7 +232,6 @@
 		C04B63C5E22833CE9EDC0CBB /* AlarmListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EEBD408E8DD4EA72DA847 /* AlarmListRow.swift */; };
 		C1C1D3C075EB45C2606E8BDE /* CharalarmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C888DB207645A9EEC5A1B403 /* CharalarmError.swift */; };
 		C49B8EF0836D170B5D840044 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51FBF61F90A06BA645545D /* RootView.swift */; };
-		C4AF051B51297CB721C68C90 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		C510B91FB82A35B23E6C03C3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254752D61458089BCC2BAA0F /* Alarm.swift */; };
 		C5EDCA2EA67FABA54DC6E72A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4CA8D022533B34EA5904B /* Character.swift */; };
 		C62C41752132FF9C8F9EF2F6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296E3CF29CFD6B4A98B408E /* String+Extension.swift */; };
@@ -289,7 +279,6 @@
 		E9759FFEB976865C5FE21273 /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */; };
 		EA1648C9932F9E6CF99E2A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF7DC4BB6E5B40F852D9EA4 /* Assets.xcassets */; };
 		EA1E5FE6DA843EF7D89F0ABC /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */; };
-		EAFCB778D29E7CC4679B59F5 /* EditAlarmName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFD2A8B26884043585844B /* EditAlarmName.swift */; };
 		EB0364D2FA9D82CFBBACA9B3 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C59AE0BA077C07162BD26E2 /* APIHeader.swift */; };
 		EBAB307A6FB99C616635D8FB /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E315AEE9E265153A751D830 /* CallKitHandler.swift */; };
 		EE14287CB472A92D11057200 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE981EFE28B1256B8D33E3 /* TutorialFifthView.swift */; };
@@ -303,7 +292,6 @@
 		F4274E7EE0796DB75FD1D3B6 /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 822AC8D0317768D88ED4B93D /* normal.png */; };
 		F47F6D7BE44EFF4C7705859B /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
 		F50A17B3B27A27D7066375D9 /* ResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019D32E5779DD0890202123 /* ResourceHandler.swift */; };
-		F592A720D7FB4A751FB70C82 /* EditAlarmTimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */; };
 		F59BD988822BE9A34A392A5B /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */; };
 		F7257CAC72A40C6F8319BB3D /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006675B4B6829795D55B03 /* KeychainHandler.swift */; };
 		F76D993E6CB470D624DAFF9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E2A35DF7FB5A7B985E30654 /* GoogleService-Info.plist */; };
@@ -340,7 +328,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTimeDifference.swift; sourceTree = "<group>"; };
 		01466BE7F59140BF9877C274 /* CharalarmStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharalarmStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		057CD9AEA4DCAEE4B9C52B7F /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		05D57DD0D663DACC38099A70 /* Pods-CharacterAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -357,7 +344,6 @@
 		1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FCDC99D1313E09D2A17F37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21490F32D5AFAF497ED28B9F /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmDayOfWeek.swift; sourceTree = "<group>"; };
 		254752D61458089BCC2BAA0F /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		25A9200D23155D111130A0FD /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		26E0F02CAC3FE08733496CD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -426,7 +412,6 @@
 		A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
 		A1EEECC00865B257B016D176 /* TutorialThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThirdView.swift; sourceTree = "<group>"; };
 		A28C5CEE6027DDED33D253B5 /* TutorialFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFirstView.swift; sourceTree = "<group>"; };
-		A2BFD2A8B26884043585844B /* EditAlarmName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmName.swift; sourceTree = "<group>"; };
 		A2CE981EFE28B1256B8D33E3 /* TutorialFifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFifthView.swift; sourceTree = "<group>"; };
 		A3897F5CBBEDD5DA1BF923F0 /* com-charalarm-yui-4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-4.caf"; sourceTree = "<group>"; };
 		A5462B9E1B807858459757CA /* CharacterAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAlarmTests.swift; sourceTree = "<group>"; };
@@ -437,7 +422,6 @@
 		B0EA2385C9C13D192090FA3A /* CharalarmLocal.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CharalarmLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23E7635A7CAE0E05FF8BDBB /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		B484EFA08E82EF0916831727 /* Pods-CharalarmProduction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmProduction.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction.debug.xcconfig"; sourceTree = "<group>"; };
-		B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmTime.swift; sourceTree = "<group>"; };
 		B7B39A6707846DD02B502E3E /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resource; path = CharacterAlarm/Resource; sourceTree = SOURCE_ROOT; };
 		B87DE6C9479EE5ECB5A7CA6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA51FBF61F90A06BA645545D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -536,14 +520,6 @@
 				8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */,
 			);
 			path = Request;
-			sourceTree = "<group>";
-		};
-		28EA1F8D8A0A85749D3C78A9 /* EditAlarmDayOfWeek */ = {
-			isa = PBXGroup;
-			children = (
-				217DB4C8E1DCB1A6088FB75F /* EditAlarmDayOfWeek.swift */,
-			);
-			path = EditAlarmDayOfWeek;
 			sourceTree = "<group>";
 		};
 		2C3A6CBFE0EA874037556100 /* CallKit */ = {
@@ -668,14 +644,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		6B03C256EBD4A9B4093EB9D7 /* EditAlarmName */ = {
-			isa = PBXGroup;
-			children = (
-				A2BFD2A8B26884043585844B /* EditAlarmName.swift */,
-			);
-			path = EditAlarmName;
-			sourceTree = "<group>";
-		};
 		6B95F0061E5FDFDD18EC5B04 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,14 +696,6 @@
 			path = voice;
 			sourceTree = "<group>";
 		};
-		7B7EB30DF8452AC2C05628CF /* EditTimeDifference */ = {
-			isa = PBXGroup;
-			children = (
-				00092A54152192C7FC33BB40 /* EditAlarmTimeDifference.swift */,
-			);
-			path = EditTimeDifference;
-			sourceTree = "<group>";
-		};
 		7CCD931FE779C2C0063B38C2 /* Production */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,10 +718,6 @@
 				42E351670F89639881A99456 /* CharacterList */,
 				357570D67F9C748ED42905B2 /* Common */,
 				E51383F6B01941AB09D2A8AA /* Config */,
-				28EA1F8D8A0A85749D3C78A9 /* EditAlarmDayOfWeek */,
-				6B03C256EBD4A9B4093EB9D7 /* EditAlarmName */,
-				87DF0608B957E54331636FB5 /* EditAlarmTime */,
-				7B7EB30DF8452AC2C05628CF /* EditTimeDifference */,
 				A80876C4BFBAEBD07EC63732 /* News */,
 				5654D4247A1DA8CD322C0B2E /* Profile */,
 				5273FFA3F5FB8830551F48B6 /* Top */,
@@ -777,14 +733,6 @@
 				7CC31FDCA006756E498AFE71 /* Notification.swift */,
 			);
 			path = Notification;
-			sourceTree = "<group>";
-		};
-		87DF0608B957E54331636FB5 /* EditAlarmTime */ = {
-			isa = PBXGroup;
-			children = (
-				B591A7D7E2BEA4C8D30E52DF /* EditAlarmTime.swift */,
-			);
-			path = EditAlarmTime;
 			sourceTree = "<group>";
 		};
 		88EFFA2A960085B12662077A /* Network */ = {
@@ -1449,10 +1397,6 @@
 				0A55FCCF3A70129ED8F66AEE /* ContentView.swift in Sources */,
 				313FFB7CCA8580148B059BA9 /* DayOfWeek.swift in Sources */,
 				8DF2F28825939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */,
-				85239F6A1B353323F752447D /* EditAlarmDayOfWeek.swift in Sources */,
-				C4AF051B51297CB721C68C90 /* EditAlarmName.swift in Sources */,
-				08860F65895BC0817EC50C82 /* EditAlarmTime.swift in Sources */,
-				15133704F0A7AB46A0EF9381 /* EditAlarmTimeDifference.swift in Sources */,
 				D301029F58A47C260F3EC277 /* FileHandler.swift in Sources */,
 				28480BCC600AD99FA0A42B57 /* FileHandlerError.swift in Sources */,
 				E40E89BF868A7D1F38884FE6 /* JsonResponseBean.swift in Sources */,
@@ -1549,10 +1493,6 @@
 				725327D9FD001826FA877C39 /* ContentView.swift in Sources */,
 				BDA2ADD98CBB867A1F14F47E /* DayOfWeek.swift in Sources */,
 				8DF2F28625939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */,
-				523DF61B0AD3ECF6E5EE2BB3 /* EditAlarmDayOfWeek.swift in Sources */,
-				68C688740BDEEFCC77EAAC6C /* EditAlarmName.swift in Sources */,
-				7C61503AA27BEA950FA67C85 /* EditAlarmTime.swift in Sources */,
-				F592A720D7FB4A751FB70C82 /* EditAlarmTimeDifference.swift in Sources */,
 				60840ED6C491CEB5A809E661 /* FileHandler.swift in Sources */,
 				113456A41F2E2D537E595DD3 /* FileHandlerError.swift in Sources */,
 				06D9C2035635751CA8E6E22E /* JsonResponseBean.swift in Sources */,
@@ -1633,10 +1573,6 @@
 				66295CA004BE99C0781F2548 /* ContentView.swift in Sources */,
 				CC7D43723326E1213210F05B /* DayOfWeek.swift in Sources */,
 				8DF2F28725939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */,
-				1AE4B165A73C7C2C1FC5750B /* EditAlarmDayOfWeek.swift in Sources */,
-				EAFCB778D29E7CC4679B59F5 /* EditAlarmName.swift in Sources */,
-				04BCE025561BB8AD5347CA5C /* EditAlarmTime.swift in Sources */,
-				2EA4094C31F3BC523F83F77D /* EditAlarmTimeDifference.swift in Sources */,
 				8A5B7887C2C01A7B5D467E17 /* FileHandler.swift in Sources */,
 				4C0BFE1B302CBF69F430B2E6 /* FileHandlerError.swift in Sources */,
 				582FDC655CC2C9A56B17E608 /* JsonResponseBean.swift in Sources */,
@@ -1984,7 +1920,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = Config/Staging/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2025,7 +1961,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = Config/Staging/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

@@ -44,7 +44,7 @@ struct TopView: View {
                                 NewsListView()
                             }
                             .padding()
-                            .padding(.top, 16)
+                            .padding(.top, 8)
                         }
                         .frame(height: 140)
                         .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
