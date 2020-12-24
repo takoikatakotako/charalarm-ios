@@ -12,7 +12,8 @@ struct Character: Identifiable, Decodable, Hashable {
     let illustrationUrl: String
     let voiceName: String
     let voiceUrl: String
-    
+    let additionalProfileBeans: [CharaAdditionalProfileBean]
+        
     var charaThumbnailUrlString: String {
         return "\(RESOURCE_ENDPOINT)/\(charaDomain)/image/thumbnail.png"
     }

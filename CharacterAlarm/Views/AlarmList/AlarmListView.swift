@@ -42,7 +42,7 @@ struct AlarmListView: View {
                 },
                 trailing:
                     Button(action: {
-                        viewModel.showingSheetForNew = true
+                        viewModel.addAlarmButtonTapped()
                     }) {
                         Image("alarm-add-icon")
                             .renderingMode(.template)

@@ -28,6 +28,12 @@ struct ProfileView: View {
                     ProfileRow(title: "プロフィール", text: viewModel.character?.description ?? "")
                     ProfileRow(title: "イラスト", text: viewModel.character?.illustrationName ?? "")
                     ProfileRow(title: "CV", text: viewModel.character?.voiceName ?? "")
+                    
+                    if let additionalProfileBeans = viewModel.character?.additionalProfileBeans {
+                        ForEach(additionalProfileBeans, id: \.self) { additionalProfileBean in
+                            ProfileRow(title: additionalProfileBean.title, text: additionalProfileBean.text)
+                        }
+                    }
                 }
                 
                 ZStack(alignment: .bottomTrailing) {

@@ -7,6 +7,15 @@ class AlarmListViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
+    func addAlarmButtonTapped() {
+        if alarms.count < 3 {
+            showingSheetForNew = true
+        } else {
+            self.alertMessage = "アラームは最大3つまで作成できます。"
+            self.showingAlert = true
+        }
+    }
+    
     func createNewAlarm() -> Alarm {
         let date = Date()
         let calendar = Calendar.current
@@ -21,8 +30,8 @@ class AlarmListViewModel: ObservableObject {
     func fetchAlarms() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            self.alertMessage = "ユーザー情報の取得に失敗しました。"
             self.showingAlert = true
-            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
             return
         }
         AlarmStore.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
@@ -39,8 +48,8 @@ class AlarmListViewModel: ObservableObject {
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            self.alertMessage = "ユーザー情報の取得に失敗しました。"
             self.showingAlert = true
-            self.alertMessage = "不明なエラーです（匿名ユーザー名とかがない）"
             return
         }
         

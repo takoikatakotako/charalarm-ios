@@ -172,6 +172,9 @@
 		8A5B7887C2C01A7B5D467E17 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		8B3143D53CF9858AF27D2086 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
+		8DC4B5782594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */; };
+		8DC4B5792594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */; };
+		8DC4B57A2594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
 		8DF2F28625939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */; };
 		8DF2F28725939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */; };
@@ -403,6 +406,7 @@
 		89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-9.caf"; sourceTree = "<group>"; };
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
+		8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaAdditionalProfileBean.swift; sourceTree = "<group>"; };
 		8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailWeekdayButton.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -552,6 +556,7 @@
 				8A3D48B11A4667294D6CCA1E /* Response.swift */,
 				2180A89D0E9CEEBC54123F00 /* Request */,
 				E31ED7F29072D362C30E065E /* Response */,
+				8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1420,6 +1425,7 @@
 				72B5B36432419EB06F3AE489 /* Resource.swift in Sources */,
 				F50A17B3B27A27D7066375D9 /* ResourceHandler.swift in Sources */,
 				5D27DBC8E789AC3A320C6A2D /* ResourceStore.swift in Sources */,
+				8DC4B57A2594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */,
 				8DD40292AB3A76479A27E44F /* Response.swift in Sources */,
 				EF6CA84EDAA97AEC4B8BB7D9 /* RootView.swift in Sources */,
 				403471E76778777EA49185E2 /* SceneDelegate.swift in Sources */,
@@ -1516,6 +1522,7 @@
 				34B4485829C3BA4288211DBC /* Resource.swift in Sources */,
 				E00B3B98C7C7E56BFFD0AF09 /* ResourceHandler.swift in Sources */,
 				F0F75FFDD4A0EF0867572129 /* ResourceStore.swift in Sources */,
+				8DC4B5782594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */,
 				A553480678785E64E5FDA1DE /* Response.swift in Sources */,
 				C49B8EF0836D170B5D840044 /* RootView.swift in Sources */,
 				4F184683EFF6682F11DC46C9 /* SceneDelegate.swift in Sources */,
@@ -1596,6 +1603,7 @@
 				90E673CFB786C5D7C60AD465 /* Resource.swift in Sources */,
 				0B613C93FB2DE94A60116FAD /* ResourceHandler.swift in Sources */,
 				BD63FE91F248A54EBEC34478 /* ResourceStore.swift in Sources */,
+				8DC4B5792594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */,
 				0329E94CBCABD6D968196AC5 /* Response.swift in Sources */,
 				3CCCAF6CAF9774ED6937533A /* RootView.swift in Sources */,
 				B52B8232296EF5376E768E2A /* SceneDelegate.swift in Sources */,
