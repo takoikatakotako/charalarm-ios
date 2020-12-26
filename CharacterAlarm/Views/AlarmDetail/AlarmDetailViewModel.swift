@@ -74,18 +74,18 @@ class AlarmDetailViewModel: ObservableObject {
     private func createAlarm() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+                self.alertMessage = "認証情報の取得に失敗しました。"
                 self.showingAlert = true
-                self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
         }
         
         AlarmStore.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
-            case .success(_):
-                self.alertMessage = "登録完了しました"
+            case .success:
+                self.alertMessage = "アラームの作成が完了しました。"
                 self.showingAlert = true
-            case let .failure(error):
-                self.alertMessage = error.localizedDescription
+            case .failure:
+                self.alertMessage = "アラームの作成に失敗しました。"
                 self.showingAlert = true
             }
         }
@@ -94,18 +94,18 @@ class AlarmDetailViewModel: ObservableObject {
     private func editAlarm(alarmId: Int) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+                self.alertMessage = "認証情報の取得に失敗しました。"
                 self.showingAlert = true
-                self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 return
         }
         
         AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
-                self.alertMessage = "編集完了しました"
+                self.alertMessage = "アラームの編集が完了しました。"
                 self.showingAlert = true
             case let .failure(error):
-                self.alertMessage = error.localizedDescription
+                self.alertMessage = "アラームの編集に失敗しました。"
                 self.showingAlert = true
             }
         }

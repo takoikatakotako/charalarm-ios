@@ -30,7 +30,7 @@ class AlarmListViewModel: ObservableObject {
     func fetchAlarms() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
-            self.alertMessage = "ユーザー情報の取得に失敗しました。"
+            self.alertMessage = "認証情報の取得に失敗しました。"
             self.showingAlert = true
             return
         }
@@ -38,9 +38,9 @@ class AlarmListViewModel: ObservableObject {
             switch result {
             case let .success(alarms):
                 self.alarms = alarms
-            case let .failure(error):
+            case .failure:
+                self.alertMessage = "アラーム一覧の取得に失敗しました。"
                 self.showingAlert = true
-                self.alertMessage = error.localizedDescription
             }
         }
     }
@@ -48,7 +48,7 @@ class AlarmListViewModel: ObservableObject {
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
-            self.alertMessage = "ユーザー情報の取得に失敗しました。"
+            self.alertMessage = "認証情報の取得に失敗しました。"
             self.showingAlert = true
             return
         }
@@ -62,10 +62,10 @@ class AlarmListViewModel: ObservableObject {
         AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
-                self.alertMessage = "編集完了しました"
+                self.alertMessage = "アラームの編集が完了しました。"
                 self.showingAlert = true
             case let .failure(error):
-                self.alertMessage = error.localizedDescription
+                self.alertMessage = "アラームの編集に失敗しました"
                 self.showingAlert = true
             }
         }

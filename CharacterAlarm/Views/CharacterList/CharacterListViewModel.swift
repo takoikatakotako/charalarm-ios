@@ -11,7 +11,7 @@ class CharacterListViewModel: ObservableObject {
             case let .success(characters):
                 self.characters = characters
             case let .failure(error):
-                self.alertMessage = error.localizedDescription
+                self.alertMessage = "キャラクターの取得に失敗しました。"
                 self.showingAlert = true
             }
         }

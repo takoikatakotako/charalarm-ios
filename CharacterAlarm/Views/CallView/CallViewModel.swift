@@ -28,8 +28,8 @@ class CallViewModel: ObservableObject {
                 case let .success(data):
                     self.voiceAudioPlayer = try? AVAudioPlayer(data: data)
                     self.voiceAudioPlayer?.play()
-                case let .failure(error):
-                    print(error.localizedDescription)
+                case  .failure:
+                    break
                 }
             }
         }

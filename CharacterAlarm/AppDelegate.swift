@@ -72,7 +72,7 @@ extension AppDelegate {
             case .success(_):
                 break
             case let .failure(error):
-                print(error.localizedDescription)
+                break
             }
         }
     }
@@ -104,11 +104,11 @@ extension AppDelegate: PKPushRegistryDelegate {
     }
 
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
-        let config = CXProviderConfiguration(localizedName: "キャラーム")
-//        // config.iconTemplateImageData = UIImage(named: "monster-ball")!.pngData()
-        config.ringtoneSound = "pokemon.caf"
-        config.includesCallsInRecents = true;
-        // config.supportsVideo = true;
+        // let config = CXProviderConfiguration(localizedName: "キャラーム")
+        let config = CXProviderConfiguration()
+        // config.iconTemplateImageData = UIImage(named: "monster-ball")!.pngData()
+        // config.ringtoneSound = "pokemon.caf"
+        config.includesCallsInRecents = true
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)
         let update = CXCallUpdate()

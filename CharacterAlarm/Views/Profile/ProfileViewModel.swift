@@ -45,8 +45,8 @@ class ProfileViewModel: ObservableObject {
             switch result {
             case let .success(character):
                 self.character = character
-            case let .failure(error):
-                self.alertMessage = error.localizedDescription
+            case .failure:
+                self.alertMessage = "キャラクター情報の取得に失敗しました。"
                 self.showingAlert = true
             }
         }
@@ -58,7 +58,7 @@ class ProfileViewModel: ObservableObject {
             case .success(_):
                 print("自己紹介音声の保存に成功しました")
             case let .failure(error):
-                self.alertMessage = error.localizedDescription
+                self.alertMessage = "キャラクターのリソースの取得に失敗しました。"
                 self.showingAlert = true
             }
         }
@@ -99,7 +99,6 @@ class ProfileViewModel: ObservableObject {
                 self.downloadResource()
                 
             case let .failure(error):
-                print(error.localizedDescription)
                 self.downloadError = true
             }
         }

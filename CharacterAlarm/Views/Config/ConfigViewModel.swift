@@ -31,7 +31,7 @@ class ConfigViewModel: ObservableObject {
                 print(character)
                 self.character = character
             case let .failure(error):
-                self.alertMessage = error.localizedDescription
+                self.alertMessage = "キャラクター情報の取得に失敗しました。"
                 self.showingAlert = true
             }
         }
