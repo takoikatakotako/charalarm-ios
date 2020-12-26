@@ -104,7 +104,7 @@ class AlarmDetailViewModel: ObservableObject {
             case .success(_):
                 self.alertMessage = "アラームの編集が完了しました。"
                 self.showingAlert = true
-            case let .failure(error):
+            case .failure:
                 self.alertMessage = "アラームの編集に失敗しました。"
                 self.showingAlert = true
             }

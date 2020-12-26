@@ -10,7 +10,7 @@ class CharacterListViewModel: ObservableObject {
             switch result {
             case let .success(characters):
                 self.characters = characters
-            case let .failure(error):
+            case .failure:
                 self.alertMessage = "キャラクターの取得に失敗しました。"
                 self.showingAlert = true
             }

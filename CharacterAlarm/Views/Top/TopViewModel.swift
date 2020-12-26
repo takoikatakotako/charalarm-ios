@@ -41,7 +41,7 @@ class TopViewModel: ObservableObject {
             switch result {
             case let .success(character):
                 completion(character)
-            case let .failure(error):
+            case .failure:
                 self.alertMessage = "キャラクター情報の取得に失敗しました。"
                 self.showingAlert = true
             }

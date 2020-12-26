@@ -11,7 +11,7 @@ class NewsListViewModel: ObservableObject {
             switch result {
             case let .success(news):
                 self.newsList = news
-            case let .failure(error):
+            case .failure:
                 self.alertMessage = "ニュースの取得に失敗しました。"
                 self.showingAlert = true
             }
