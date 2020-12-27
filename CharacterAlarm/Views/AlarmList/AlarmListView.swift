@@ -11,19 +11,9 @@ struct AlarmListView: View {
                 LazyVStack(spacing: 0) {
                     ForEach(viewModel.alarms) { alarm in
                         Button(action: {
-                            viewModel.showingSheetForEdit = true
-                        }, label: {
+                            viewModel.editAlarm(alarm: alarm)
+                        }){
                             AlarmListRow(delegate: self, alarm: alarm)
-                        })
-                        .sheet(isPresented: $viewModel.showingSheetForEdit) {
-                            AlarmDetailView(alarm: alarm)
-                        }
-                        .sheet(
-                            isPresented: $viewModel.showingSheetForEdit,
-                            onDismiss: {
-                                viewModel.fetchAlarms()
-                            }) {
-                            AlarmDetailView(alarm: alarm)
                         }
                     }
                 }
@@ -33,6 +23,17 @@ struct AlarmListView: View {
             }
             .alert(isPresented: $viewModel.showingAlert) {
                 Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            }
+            .sheet(
+                isPresented: $viewModel.showingEditAlarmSheet,
+                onDismiss: {
+                    viewModel.fetchAlarms()
+                }) {
+                if let alarm = viewModel.selectedAlarm {
+                    AlarmDetailView(alarm: alarm)
+                } else {
+                    Text("不明なエラーが発生しました。")
+                }
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
@@ -47,13 +48,6 @@ struct AlarmListView: View {
                         Image("alarm-add-icon")
                             .renderingMode(.template)
                             .foregroundColor(Color("charalarm-default-green"))
-                    }
-                    .sheet(
-                        isPresented: $viewModel.showingSheetForNew,
-                        onDismiss: {
-                            viewModel.fetchAlarms()
-                        }) {
-                        AlarmDetailView(alarm: viewModel.createNewAlarm())
                     }
             )
         }

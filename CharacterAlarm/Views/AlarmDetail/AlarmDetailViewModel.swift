@@ -20,11 +20,11 @@ class AlarmDetailViewModel: ObservableObject {
         self.alarm = alarm
     }
     
-    func createOrUpdateAlarm() {
+    func createOrUpdateAlarm(completion: @escaping () -> Void) {
         if let alarmId = alarm.alarmId {
-            editAlarm(alarmId: alarmId)
+            editAlarm(alarmId: alarmId, completion: completion)
         } else {
-            createAlarm()
+            createAlarm(completion: completion)
         }
     }
     
@@ -71,7 +71,7 @@ class AlarmDetailViewModel: ObservableObject {
         }
     }
     
-    private func createAlarm() {
+    private func createAlarm(completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.alertMessage = "認証情報の取得に失敗しました。"
@@ -82,8 +82,7 @@ class AlarmDetailViewModel: ObservableObject {
         AlarmStore.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success:
-                self.alertMessage = "アラームの作成が完了しました。"
-                self.showingAlert = true
+                completion()
             case .failure:
                 self.alertMessage = "アラームの作成に失敗しました。"
                 self.showingAlert = true
@@ -91,7 +90,7 @@ class AlarmDetailViewModel: ObservableObject {
         }
     }
     
-    private func editAlarm(alarmId: Int) {
+    private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
                 self.alertMessage = "認証情報の取得に失敗しました。"
@@ -102,8 +101,7 @@ class AlarmDetailViewModel: ObservableObject {
         AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
-                self.alertMessage = "アラームの編集が完了しました。"
-                self.showingAlert = true
+                completion()
             case .failure:
                 self.alertMessage = "アラームの編集に失敗しました。"
                 self.showingAlert = true

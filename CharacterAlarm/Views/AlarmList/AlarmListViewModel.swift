@@ -2,14 +2,16 @@ import Foundation
 
 class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm] = []
-    @Published var showingSheetForNew = false
-    @Published var showingSheetForEdit = false
+    
+    @Published var showingEditAlarmSheet = false
+    var selectedAlarm: Alarm?
+    
     @Published var showingAlert = false
-    @Published var alertMessage = ""
+    var alertMessage = ""
     
     func addAlarmButtonTapped() {
         if alarms.count < 3 {
-            showingSheetForNew = true
+            editAlarm(alarm: createNewAlarm())
         } else {
             self.alertMessage = "アラームは最大3つまで作成できます。"
             self.showingAlert = true
@@ -69,5 +71,10 @@ class AlarmListViewModel: ObservableObject {
                 self.showingAlert = true
             }
         }
+    }
+    
+    func editAlarm(alarm: Alarm) {
+        selectedAlarm = alarm
+        showingEditAlarmSheet = true
     }
 }

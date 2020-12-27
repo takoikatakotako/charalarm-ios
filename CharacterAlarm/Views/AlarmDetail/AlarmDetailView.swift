@@ -94,7 +94,9 @@ struct AlarmDetailView: View {
                 trailing:
                     HStack {
                         Button(action: {
-                            viewModel.createOrUpdateAlarm()
+                            viewModel.createOrUpdateAlarm() {
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }) {
                             Text("保存")
                                 .foregroundColor(Color("charalarm-default-green"))
