@@ -43,6 +43,6 @@ struct TutorialFifthView: View {
 struct TutorialFifthView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialFifthView()
-            .environmentObject(CharalarmAppState())
+            .environmentObject(CharalarmAppState(appVersion:  "2.0.0"))
     }
 }

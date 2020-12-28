@@ -1,18 +1,40 @@
 import SwiftUI
+import Firebase
+import FirebaseRemoteConfig
 
 struct RootView: View {
     @EnvironmentObject var appState: CharalarmAppState
-
+    @State var remoteConfig: RemoteConfig!
     
     var body: some View {
         ZStack {
-            if appState.doneTutorial {
-            // if false {
-                TopView()
-                .environmentObject(appState)
+            if appState.underMaintenance {
+                Text("メンテナンス中です")
+            } else if appState.requiredVersion > appState.appVersion {
+                Text("アプリのアップデートが必要です。")
             } else {
-                TutorialHolderView()
-                .environmentObject(appState)
+                if appState.doneTutorial {
+                    TopView()
+                        .environmentObject(appState)
+                } else {
+                    TutorialHolderView()
+                        .environmentObject(appState)
+                }
+            }
+        }.onAppear {
+            remoteConfig = RemoteConfig.remoteConfig()
+            let settings = RemoteConfigSettings()
+            settings.minimumFetchInterval = 0
+            remoteConfig.configSettings = settings
+            remoteConfig.fetch { (status, error) in
+                guard status != .success else {
+                    return
+                }
+                remoteConfig.activate() {_,_ in
+                    if remoteConfig["under_maintenance"].boolValue {
+                        appState.underMaintenance = true
+                    }
+                }
             }
         }
     }

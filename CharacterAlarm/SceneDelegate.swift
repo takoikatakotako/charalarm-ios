@@ -35,8 +35,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 匿名ユーザー名、パスワードが登録されていればチュートリアル完了
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
         
+        guard let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
+            fatalError("アプリケーションのバージョンの取得に失敗しました。")
+        }
+        
         let rootView = RootView()
-        let charalarmAppState = CharalarmAppState()
+        let charalarmAppState = CharalarmAppState(appVersion: appVersion)
         charalarmAppState.doneTutorial = doneTutorial
         
         if let windowScene = scene as? UIWindowScene {

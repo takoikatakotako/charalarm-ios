@@ -45,6 +45,6 @@ struct TutorialFirstView: View {
 struct TutorialFirstView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialFirstView()
-            .environmentObject(CharalarmAppState())
+            .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
     }
 }

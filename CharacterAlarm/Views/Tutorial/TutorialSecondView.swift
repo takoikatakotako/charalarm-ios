@@ -125,6 +125,6 @@ struct TutorialSecondView: View {
 struct TutorialSecondView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialSecondView()
-            .environmentObject(CharalarmAppState())
+            .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
     }
 }
