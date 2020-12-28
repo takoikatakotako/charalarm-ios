@@ -10,7 +10,7 @@ struct TopView: View {
     var body: some View {
         GeometryReader { geometory in
             ZStack {
-                Image("background")
+                Image(R.image.background.name)
                     .resizable()
                     .scaledToFill()
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
