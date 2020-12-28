@@ -1,5 +1,4 @@
 import SwiftUI
-import Firebase
 import FirebaseRemoteConfig
 
 struct RootView: View {
@@ -9,9 +8,9 @@ struct RootView: View {
     var body: some View {
         ZStack {
             if appState.underMaintenance {
-                Text("メンテナンス中です")
+                MaintenanceView()
             } else if appState.requiredVersion > appState.appVersion {
-                Text("アプリのアップデートが必要です。")
+                UpdateRequiredView()
             } else {
                 if appState.doneTutorial {
                     TopView()

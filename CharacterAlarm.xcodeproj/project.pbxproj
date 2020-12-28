@@ -172,9 +172,17 @@
 		8A5B7887C2C01A7B5D467E17 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		8B3143D53CF9858AF27D2086 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
+		8D9EE25E259A112000B34616 /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EE25D259A112000B34616 /* MaintenanceView.swift */; };
 		8DC4B5782594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */; };
 		8DC4B5792594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */; };
 		8DC4B57A2594E89000689BFA /* CharaAdditionalProfileBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */; };
+		8DD23761259A116C004AD140 /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EE25D259A112000B34616 /* MaintenanceView.swift */; };
+		8DD23762259A116D004AD140 /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EE25D259A112000B34616 /* MaintenanceView.swift */; };
+		8DD23763259A116D004AD140 /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EE25D259A112000B34616 /* MaintenanceView.swift */; };
+		8DD2376B259A16C3004AD140 /* UpdateRequiredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD2376A259A16C3004AD140 /* UpdateRequiredView.swift */; };
+		8DD23776259A16D1004AD140 /* UpdateRequiredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD2376A259A16C3004AD140 /* UpdateRequiredView.swift */; };
+		8DD2377C259A16D1004AD140 /* UpdateRequiredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD2376A259A16C3004AD140 /* UpdateRequiredView.swift */; };
+		8DD2377D259A16D1004AD140 /* UpdateRequiredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD2376A259A16C3004AD140 /* UpdateRequiredView.swift */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
 		8DF2F28625939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */; };
 		8DF2F28725939A210083DF41 /* AlarmDetailWeekdayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */; };
@@ -406,7 +414,9 @@
 		89B5BAAB3125A2F6F9AA0FC5 /* com-charalarm-yui-9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-9.caf"; sourceTree = "<group>"; };
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
+		8D9EE25D259A112000B34616 /* MaintenanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceView.swift; sourceTree = "<group>"; };
 		8DC4B5772594E89000689BFA /* CharaAdditionalProfileBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaAdditionalProfileBean.swift; sourceTree = "<group>"; };
+		8DD2376A259A16C3004AD140 /* UpdateRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRequiredView.swift; sourceTree = "<group>"; };
 		8DF2F28525939A210083DF41 /* AlarmDetailWeekdayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailWeekdayButton.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -714,6 +724,8 @@
 		81E8DF6F97C5B6143187E5A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8DD23769259A167E004AD140 /* UpdateRequired */,
+				8D9EE25C259A110F00B34616 /* Maintenance */,
 				F61D0CFBD6D1625332704D67 /* CallingView.swift */,
 				AD65D969A238BEE7686DA4EE /* ContentView.swift */,
 				BA51FBF61F90A06BA645545D /* RootView.swift */,
@@ -749,6 +761,22 @@
 				3C7833C3E29D693846FC1321 /* NetworkClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8D9EE25C259A110F00B34616 /* Maintenance */ = {
+			isa = PBXGroup;
+			children = (
+				8D9EE25D259A112000B34616 /* MaintenanceView.swift */,
+			);
+			path = Maintenance;
+			sourceTree = "<group>";
+		};
+		8DD23769259A167E004AD140 /* UpdateRequired */ = {
+			isa = PBXGroup;
+			children = (
+				8DD2376A259A16C3004AD140 /* UpdateRequiredView.swift */,
+			);
+			path = UpdateRequired;
 			sourceTree = "<group>";
 		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
@@ -1408,6 +1436,7 @@
 				1B7D9EB74A5FAAF885DBDB7F /* Key.swift in Sources */,
 				414CD8A194B0DBA6750C8D30 /* KeychainHandler.swift in Sources */,
 				63467822E51B2188F11E2950 /* MenuItem.swift in Sources */,
+				8DD23763259A116D004AD140 /* MaintenanceView.swift in Sources */,
 				5C7F1EE77182EF589A49C5F8 /* NSNotification+Extension.swift in Sources */,
 				31BB8D74724BB49175569097 /* NetworkClient.swift in Sources */,
 				4881BBE64D1F76DDBA1DF2DB /* News.swift in Sources */,
@@ -1416,6 +1445,7 @@
 				3DB6CE56B8F1C2E8C59B6AAA /* NewsRow.swift in Sources */,
 				4E8B15A8A987C5CEADEB64B8 /* NewsStore.swift in Sources */,
 				AD2F7A4A9C634BC284BBBCA4 /* Notification.swift in Sources */,
+				8DD2377D259A16D1004AD140 /* UpdateRequiredView.swift in Sources */,
 				A6566C8EB80765FF52EA5DBC /* ProfileRow.swift in Sources */,
 				1A15DF17B65C1A76E5FA7AC3 /* ProfileView.swift in Sources */,
 				FDE63E34CC0BE01B82D78D40 /* ProfileViewModel.swift in Sources */,
@@ -1452,6 +1482,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9EE25E259A112000B34616 /* MaintenanceView.swift in Sources */,
+				8DD2376B259A16C3004AD140 /* UpdateRequiredView.swift in Sources */,
 				FAC1E139983D6AEF6BB37E96 /* CharacterAlarmTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1505,6 +1537,7 @@
 				3028D767D8F5838CAC7BE36F /* Key.swift in Sources */,
 				F7257CAC72A40C6F8319BB3D /* KeychainHandler.swift in Sources */,
 				BEC580F0935C78169FFE42C1 /* MenuItem.swift in Sources */,
+				8DD23761259A116C004AD140 /* MaintenanceView.swift in Sources */,
 				78F043397E34C6D744AED901 /* NSNotification+Extension.swift in Sources */,
 				97073AA486B0AB5C298314EA /* NetworkClient.swift in Sources */,
 				2C4348C1BE218B0B4C585740 /* News.swift in Sources */,
@@ -1513,6 +1546,7 @@
 				6DDE484F2BF9F83048DDDC29 /* NewsRow.swift in Sources */,
 				87DF83122C2D69A33F2DE545 /* NewsStore.swift in Sources */,
 				545812C51DF5029BB407EE0B /* Notification.swift in Sources */,
+				8DD23776259A16D1004AD140 /* UpdateRequiredView.swift in Sources */,
 				0E0167C107B3BD78E06FE209 /* ProfileRow.swift in Sources */,
 				D469B886A9332EC519AAC70B /* ProfileView.swift in Sources */,
 				CAE0F52D25A70CCF9B914EB3 /* ProfileViewModel.swift in Sources */,
@@ -1586,6 +1620,7 @@
 				9C019F418D6808E49BE76D46 /* Key.swift in Sources */,
 				56148A88CD14D5A15D35A7F1 /* KeychainHandler.swift in Sources */,
 				B655617FA9263B9D0CD7DC26 /* MenuItem.swift in Sources */,
+				8DD23762259A116D004AD140 /* MaintenanceView.swift in Sources */,
 				6D1304C72AADCD2E9330EF81 /* NSNotification+Extension.swift in Sources */,
 				F05AAAD43245EE8C46650752 /* NetworkClient.swift in Sources */,
 				A3290B65249242EEEEDD6E04 /* News.swift in Sources */,
@@ -1594,6 +1629,7 @@
 				B48C9086F68F89288D1CA434 /* NewsRow.swift in Sources */,
 				EEA8CFC9F1B3E5BEF3F8A7DF /* NewsStore.swift in Sources */,
 				0B1D9B28B28D795514DA663C /* Notification.swift in Sources */,
+				8DD2377C259A16D1004AD140 /* UpdateRequiredView.swift in Sources */,
 				51A91B42FB95824EBBE970FF /* ProfileRow.swift in Sources */,
 				6538C4AE9B5DBD712EEE58A6 /* ProfileView.swift in Sources */,
 				C857EA2B13C3D3D32A1EF831 /* ProfileViewModel.swift in Sources */,
