@@ -62,7 +62,7 @@ extension AppDelegate {
         print("Device token: \(token)")
 
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             return
         }
         
@@ -88,7 +88,7 @@ extension AppDelegate: PKPushRegistryDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             return
         }
         

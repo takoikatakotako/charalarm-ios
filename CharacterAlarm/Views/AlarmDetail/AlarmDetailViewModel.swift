@@ -30,7 +30,7 @@ class AlarmDetailViewModel: ObservableObject {
     
     func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+              let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             self.showingAlert = true
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
             return
@@ -73,7 +73,7 @@ class AlarmDetailViewModel: ObservableObject {
     
     private func createAlarm(completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
                 self.alertMessage = "認証情報の取得に失敗しました。"
                 self.showingAlert = true
                 return
@@ -92,7 +92,7 @@ class AlarmDetailViewModel: ObservableObject {
     
     private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
                 self.alertMessage = "認証情報の取得に失敗しました。"
                 self.showingAlert = true
                 return

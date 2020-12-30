@@ -39,7 +39,7 @@ class ConfigViewModel: ObservableObject {
     
     func withdraw(completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 self.showingAlert = true
                 return

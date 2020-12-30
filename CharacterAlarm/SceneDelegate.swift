@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //
         let anonymousUserName = KeychainHandler.getAnonymousUserName()
-        let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword()
+        let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken()
         
         // 匿名ユーザー名、パスワードが登録されていればチュートリアル完了
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil

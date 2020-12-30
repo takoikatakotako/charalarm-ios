@@ -31,7 +31,7 @@ class AlarmListViewModel: ObservableObject {
     
     func fetchAlarms() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+              let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = "認証情報の取得に失敗しました。"
             self.showingAlert = true
             return
@@ -49,7 +49,7 @@ class AlarmListViewModel: ObservableObject {
     
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousUserPassword() else {
+              let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = "認証情報の取得に失敗しました。"
             self.showingAlert = true
             return

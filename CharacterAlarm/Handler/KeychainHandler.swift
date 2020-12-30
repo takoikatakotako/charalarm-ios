@@ -7,15 +7,15 @@ class KeychainHandler {
     }
     
     static func setAnonymousUserPassword(anonymousUserPassword: String) throws {
-        try set(key: ANONYMOUS_USER_PASSWORD, value: anonymousUserPassword)
+        try set(key: ANONYMOUS_AUTH_TOKEN, value: anonymousUserPassword)
     }
     
     static func getAnonymousUserName() -> String? {
         return get(key: ANONYMOUS_USER_NAME)
     }
     
-    static func getAnonymousUserPassword() -> String? {
-        return get(key: ANONYMOUS_USER_PASSWORD)
+    static func getAnonymousAuthToken() -> String? {
+        return get(key: ANONYMOUS_AUTH_TOKEN)
     }
     
     static private func set(key: String, value: String) throws {
