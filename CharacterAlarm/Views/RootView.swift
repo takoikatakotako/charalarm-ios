@@ -29,12 +29,16 @@ struct RootView: View {
                 guard status == .success else {
                     return
                 }
-                remoteConfig.activate() {_,_ in
-                    DispatchQueue.main.async {
-                        if remoteConfig["under_maintenance"].boolValue {
-                            appState.underMaintenance = true
+                remoteConfig.activate() {changed,_ in
+                    if changed {
+                        DispatchQueue.main.async {
+                            if remoteConfig["under_maintenance"].boolValue {
+                                appState.underMaintenance = true
+                            }
+                            if let requiredVersion = remoteConfig["required_version"].stringValue, appState.requiredVersion != requiredVersion {
+                                appState.requiredVersion = requiredVersion
+                            }
                         }
-                        appState.requiredVersion = remoteConfig["required_version"].stringValue ?? "2.0.0"
                     }
                 }
             }

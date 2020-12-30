@@ -69,9 +69,9 @@ extension AppDelegate {
         let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
         PushStore.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
             switch result {
-            case .success(_):
+            case .success:
                 break
-            case let .failure(error):
+            case .failure:
                 break
             }
         }
@@ -104,10 +104,8 @@ extension AppDelegate: PKPushRegistryDelegate {
     }
 
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
-        // let config = CXProviderConfiguration(localizedName: "キャラーム")
         let config = CXProviderConfiguration()
-        // config.iconTemplateImageData = UIImage(named: "monster-ball")!.pngData()
-        // config.ringtoneSound = "pokemon.caf"
+        config.iconTemplateImageData = R.image.callAlarm()!.pngData()
         config.includesCallsInRecents = true
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)
@@ -126,9 +124,35 @@ extension AppDelegate: CXProviderDelegate {
     }
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
-        if let sound = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") {
-            audioPlayer = try? AVAudioPlayer(data: sound.data)
+        // キャラドメイン
+        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+            return
+        }
+        
+        // リソース取得
+        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+            return
+        }
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        guard let resource = try? decoder.decode(Resource.self, from: data) else {
+            return
+        }
+        
+        guard let key = resource.call.keys.randomElement() else {
+            return
+        }
+        
+        guard let voiceName = resource.expression[key]?.voices.randomElement() else {
+            return
+        }
+        
+        do {
+            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
+            audioPlayer = try? AVAudioPlayer(data: data)
             audioPlayer?.play()
+        } catch {
+            print(error)
         }
     }
     

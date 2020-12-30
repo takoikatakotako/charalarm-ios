@@ -2057,7 +2057,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = Config/Staging/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2098,7 +2098,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				INFOPLIST_FILE = Config/Staging/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
