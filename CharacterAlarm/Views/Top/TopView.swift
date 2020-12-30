@@ -69,6 +69,11 @@ struct TopView: View {
                             Spacer()
                             
                             Button(action: {
+                                guard Locale.current.regionCode != "CN" else {
+                                    viewModel.showingAlert = true
+                                    viewModel.alertMessage = "对不起。此功能在您所在的地区不可用。"
+                                    return
+                                }
                                 self.viewModel.showAlarmList = true
                             }) {
                                 TopButtonContent(imageName: "top-alarm")
