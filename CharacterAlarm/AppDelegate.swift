@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String  else {
             fatalError("API_ENDPOINTが見つかりません")
         }
-        BASE_URL = apiEndpoint
+        API_ENDPOINT = apiEndpoint
+        
+        
+        guard let resourceEndpoint = Bundle.main.infoDictionary?["RESOURCE_ENDPOINT"] as? String  else {
+            fatalError("RESOURCE_ENDPOINTが見つかりません")
+        }
+        RESOURCE_ENDPOINT = resourceEndpoint
         
         UINavigationBar.appearance().tintColor = UIColor(named: "charalarm-default-gray")
         

@@ -4,6 +4,8 @@
 <dict>
 	<key>API_ENDPOINT</key>
 	<string>$(API_ENDPOINT)</string>
+	<key>RESOURCE_ENDPOINT</key>
+	<string>$(RESOURCE_ENDPOINT)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

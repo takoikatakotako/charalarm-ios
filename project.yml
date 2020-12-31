@@ -63,9 +63,11 @@ targets:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
           API_ENDPOINT: http://localhost:8080
+          RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: http://localhost:8080
+          RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
     dependencies:
       - package: R.swift.Library
         product: Rswift
@@ -95,16 +97,18 @@ targets:
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: Config/Staging/Info.plist
         MARKETING_VERSION: 2.0.0
-        CURRENT_PROJECT_VERSION: 2
+        CURRENT_PROJECT_VERSION: 16
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
           API_ENDPOINT: https://api-stg.charalarm.com
+          RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api-stg.charalarm.com
+          RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
     dependencies:
       - package: R.swift.Library
         product: Rswift
@@ -144,16 +148,18 @@ targets:
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: Config/Production/Info.plist
         MARKETING_VERSION: 2.0.0
-        CURRENT_PROJECT_VERSION: 61
+        CURRENT_PROJECT_VERSION: 66
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
           API_ENDPOINT: https://api.charalarm.com
+          RESOURCE_ENDPOINT: https://resource.charalarm.com
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.charalarm.com
+          RESOURCE_ENDPOINT: https://resource.charalarm.com
   CharacterAlarmTests:
     type: bundle.unit-test
     platform: iOS

@@ -15,6 +15,6 @@ struct Character: Identifiable, Decodable, Hashable {
     let additionalProfileBeans: [CharaAdditionalProfileBean]
         
     var charaThumbnailUrlString: String {
-        return "\(RESOURCE_ENDPOINT)/\(charaDomain)/image/thumbnail.png"
+        return "\(String(describing: RESOURCE_ENDPOINT))/\(charaDomain)/image/thumbnail.png"
     }
 }

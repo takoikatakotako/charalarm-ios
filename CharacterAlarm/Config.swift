@@ -1,7 +1,10 @@
 import Foundation
 
 // API の Endpoint。AppDelegateでDI
-var BASE_URL: String!
+var API_ENDPOINT: String = ""
+
+// Resource の Endpoint
+var RESOURCE_ENDPOINT: String = ""
 
 // CharterAlarm公式Twitter
 let OfficialTwitterUrlString: String = "https://twitter.com/chara_alarm"
@@ -13,5 +16,3 @@ let ContactAboutAppUrlString: String = "https://docs.google.com/forms/d/e/1FAIpQ
 
 // キャラクター追加についてのお問い合わせ
 let ContactAbountAddCharacterUrlString = "https://docs.google.com/forms/d/e/1FAIpQLScuMalb8MkEiCGDXtSUHSyybhDNBw5_8e3WUgLB9fWkfCaOyA/viewform?usp=sf_link"
-
-let RESOURCE_ENDPOINT: String = "https://charalarm.com/resource"

@@ -25,22 +25,26 @@ struct RootView: View {
             let settings = RemoteConfigSettings()
             settings.minimumFetchInterval = 0
             remoteConfig.configSettings = settings
+            checkAppStatus()
+            
             remoteConfig.fetch { (status, error) in
                 guard status == .success else {
                     return
                 }
-                remoteConfig.activate() {changed,_ in
-                    if changed {
-                        DispatchQueue.main.async {
-                            if remoteConfig["under_maintenance"].boolValue {
-                                appState.underMaintenance = true
-                            }
-                            if let requiredVersion = remoteConfig["required_version"].stringValue, appState.requiredVersion != requiredVersion {
-                                appState.requiredVersion = requiredVersion
-                            }
-                        }
-                    }
+                remoteConfig.activate() { _, _ in
+                    checkAppStatus()
                 }
+            }
+        }
+    }
+    
+    func checkAppStatus() {
+        DispatchQueue.main.async {
+            if remoteConfig["under_maintenance"].boolValue {
+                appState.underMaintenance = true
+            }
+            if let requiredVersion = remoteConfig["required_version"].stringValue, appState.requiredVersion != requiredVersion {
+                appState.requiredVersion = requiredVersion
             }
         }
     }

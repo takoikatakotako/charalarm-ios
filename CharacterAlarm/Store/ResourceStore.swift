@@ -69,7 +69,7 @@ class ResourceStore {
     
     
     static func downloadResource(charaDomain: String, directory: String, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let path = "https://charalarm.com/resource/\(charaDomain)/\(directory)/\(fileName)"
+        let path = "\(RESOURCE_ENDPOINT)/\(charaDomain)/\(directory)/\(fileName)"
         let url = URL(string: path)!
         let request = URLRequest(url: url)
         NetworkClient.request(urlRequest: request) { result in
