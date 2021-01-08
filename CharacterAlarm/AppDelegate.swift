@@ -134,7 +134,7 @@ extension AppDelegate: CXProviderDelegate {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
             return
         }
-        
+                
         // リソース取得
         guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
             return
@@ -144,15 +144,15 @@ extension AppDelegate: CXProviderDelegate {
         guard let resource = try? decoder.decode(Resource.self, from: data) else {
             return
         }
-        
+
         guard let key = resource.call.keys.randomElement() else {
             return
         }
-        
+
         guard let voiceName = resource.expression[key]?.voices.randomElement() else {
             return
         }
-        
+
         do {
             let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
             audioPlayer = try? AVAudioPlayer(data: data)

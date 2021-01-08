@@ -12,7 +12,6 @@ def install_pods
   pod 'SwiftLint'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
-
 end
 
 target 'CharalarmLocal' do
