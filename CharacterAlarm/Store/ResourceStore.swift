@@ -36,8 +36,8 @@ class ResourceStore {
     }
     
     static func downloadResourceJson(charaDomain: String, completion: @escaping (Result<Resource, Error>) -> Void) {
-        let path = "/resource/\(charaDomain)/resource.json"
-        let urlRequest = APIRequest.createUrlRequest(baseUrl: "https://charalarm.com", path: path, httpMethod: .get)
+        let path = "/\(charaDomain)/resource.json"
+        let urlRequest = APIRequest.createUrlRequest(baseUrl: RESOURCE_ENDPOINT, path: path, httpMethod: .get)
         let apiClient = APIClient<Resource>()
         apiClient.request(urlRequest: urlRequest) { result in
             switch result {
