@@ -4,10 +4,12 @@ import Firebase
 import UserNotifications
 import PushKit
 import CallKit
+import AVKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var audioPlayer: AVAudioPlayer!
+    var player = AVPlayer()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -134,7 +136,7 @@ extension AppDelegate: CXProviderDelegate {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
             return
         }
-                
+
         // リソース取得
         guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
             return
