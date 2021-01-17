@@ -34,22 +34,22 @@ struct TopView: View {
                 VStack(spacing: 0) {
                     
                     // 
-                    VStack(spacing: 0) {
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                self.viewModel.showNews = true
-                            }) {
-                                Image( "top-news")
-                            }.sheet(isPresented: self.$viewModel.showNews) {
-                                NewsListView()
-                            }
-                            .padding()
-                            .padding(.top, 8)
-                        }
-                        .frame(height: 140)
-                        .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
-                    }
+//                    VStack(spacing: 0) {
+//                        HStack {
+//                            Spacer()
+//                            Button(action: {
+//                                self.viewModel.showNews = true
+//                            }) {
+//                                Image( "top-news")
+//                            }.sheet(isPresented: self.$viewModel.showNews) {
+//                                NewsListView()
+//                            }
+//                            .padding()
+//                            .padding(.top, 8)
+//                        }
+//                        .frame(height: 140)
+//                        .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
+//                    }
                     
                     Spacer()
                     
