@@ -1,0 +1,28 @@
+disabled_rules:
+  - force_try
+  - cyclomatic_complexity
+  - identifier_name
+  - shorthand_operator
+  - force_cast
+  - function_parameter_count
+  - statement_position
+  - type_name
+  - function_body_length
+  - type_body_length
+  - unneeded_break_in_switch
+  - nesting
+  - todo
+  - control_statement
+  - multiple_closures_with_trailing_closure
+  - weak_delegate
+  - class_delegate_protocol    
+excluded:
+  - Pods
+
+type_body_length:
+  - 600 # warning
+  - 800 # error
+
+line_length:
+  - 300
+  - 400
