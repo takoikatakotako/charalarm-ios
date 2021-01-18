@@ -42,7 +42,14 @@ struct TutorialFifthView: View {
 
 struct TutorialFifthView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialFifthView()
-            .environmentObject(CharalarmAppState(appVersion:  "2.0.0"))
+        Group {
+            TutorialFifthView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            TutorialFifthView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

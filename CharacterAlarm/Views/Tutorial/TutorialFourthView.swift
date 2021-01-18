@@ -37,7 +37,9 @@ struct TutorialFourthView: View {
                         .cornerRadius(24)
                         .padding(.horizontal, 16)
                 })
+                .padding(.bottom, 32)
         }
+        .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("")
         .navigationBarHidden(true)
     }
@@ -45,7 +47,14 @@ struct TutorialFourthView: View {
 
 struct TutorialFourthView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialFourthView()
-            .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+        Group {
+            TutorialFourthView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            TutorialFourthView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

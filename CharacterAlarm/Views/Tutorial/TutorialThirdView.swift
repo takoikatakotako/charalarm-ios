@@ -36,7 +36,9 @@ struct TutorialThirdView: View {
                         .cornerRadius(24)
                         .padding(.horizontal, 16)
                 })
+                .padding(.bottom, 32)
         }
+        .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("")
         .navigationBarHidden(true)
     }
@@ -44,7 +46,14 @@ struct TutorialThirdView: View {
 
 struct TutorialThirdView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialThirdView()
-            .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+        Group {
+            TutorialThirdView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            TutorialThirdView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

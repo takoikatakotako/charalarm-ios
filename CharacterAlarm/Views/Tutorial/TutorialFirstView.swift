@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TutorialFirstView: View {
     @EnvironmentObject var appState: CharalarmAppState
-
+    
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
             Spacer()
@@ -35,7 +35,9 @@ struct TutorialFirstView: View {
                         .cornerRadius(24)
                         .padding(.horizontal, 16)
                 })
+                .padding(.bottom, 32)
         }
+        .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("")
         .navigationBarHidden(true)
         .background(Color.white.edgesIgnoringSafeArea(.all))
@@ -44,7 +46,14 @@ struct TutorialFirstView: View {
 
 struct TutorialFirstView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialFirstView()
-            .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+        Group {
+            TutorialFirstView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            TutorialFirstView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

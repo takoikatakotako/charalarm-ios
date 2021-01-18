@@ -30,7 +30,7 @@ struct TutorialSecondView: View {
                     HStack {
                         VStack {
                             NavigationLink(destination: TutorialThirdView()) {
-                                Image("profile-call-end")
+                                Image(R.image.profileCallEnd.name)
                                     .resizable()
                                     .frame(width: 36, height: 36)
                                     .padding(16)
@@ -62,7 +62,7 @@ struct TutorialSecondView: View {
                                     }
                                 }
                             }) {
-                                Image("profile-call")
+                                Image(R.image.profileCall.name)
                                     .resizable()
                                     .frame(width: 36, height: 36)
                                     .padding(16)
@@ -124,7 +124,14 @@ struct TutorialSecondView: View {
 
 struct TutorialSecondView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialSecondView()
-            .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+        Group {
+            TutorialSecondView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            TutorialSecondView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

@@ -13,7 +13,7 @@ struct TutorialHolderView: View {
             viewModel.signUp()
         }
         .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text("xxxx"), dismissButton: .default(Text("Close")))
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("Close")))
         }
     }
 }
