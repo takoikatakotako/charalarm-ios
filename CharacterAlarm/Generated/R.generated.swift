@@ -410,7 +410,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 30 images.
+  /// This `R.image` struct is generated, and contains static references to 31 images.
   struct image {
     /// Image `alarm-add-icon`.
     static let alarmAddIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "alarm-add-icon")
@@ -472,6 +472,8 @@ struct R: Rswift.Validatable {
     static let tutorialAlarmScreenShot = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-alarm-screen-shot")
     /// Image `tutorial-chara-list-screen-shot`.
     static let tutorialCharaListScreenShot = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-chara-list-screen-shot")
+    /// Image `tutorial-normal`.
+    static let tutorialNormal = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-normal")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "alarm-add-icon", bundle: ..., traitCollection: ...)`
@@ -680,6 +682,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "tutorial-chara-list-screen-shot", bundle: ..., traitCollection: ...)`
     static func tutorialCharaListScreenShot(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tutorialCharaListScreenShot, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorial-normal", bundle: ..., traitCollection: ...)`
+    static func tutorialNormal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorialNormal, compatibleWith: traitCollection)
     }
     #endif
 

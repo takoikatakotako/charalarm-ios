@@ -13,7 +13,7 @@ struct TutorialSecondView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 Spacer()
-                Image("normal")
+                Image(R.image.tutorialNormal.name)
                     .resizable()
                     .scaledToFit()
                     .padding(.top, 60)
