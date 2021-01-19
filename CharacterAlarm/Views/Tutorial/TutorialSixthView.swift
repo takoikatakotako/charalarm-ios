@@ -25,16 +25,10 @@ struct TutorialSixthView: View {
             Button(action: {
                 appState.doneTutorial = true
             }) {
-                Text("ホーム画面へ")
-                    .foregroundColor(Color.white)
-                    .font(Font.system(size: 16).bold())
-                    .frame(height: 46)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Color("charalarm-default-green"))
-                    .cornerRadius(24)
+                TutorialButtonContent(text: "ホーム画面へ")
                     .padding(.horizontal, 16)
-                    .padding(.bottom, 32)
             }
+            .padding(.bottom, 32)
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("")

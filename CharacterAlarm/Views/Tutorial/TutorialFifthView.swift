@@ -28,13 +28,7 @@ struct TutorialFifthView: View {
                 destination: TutorialSixthView()
                     .environmentObject(appState),
                 label: {
-                    Text("プライバシーポリシーに同意する")
-                        .foregroundColor(Color.white)
-                        .font(Font.system(size: 16).bold())
-                        .frame(height: 46)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(Color("charalarm-default-green"))
-                        .cornerRadius(24)
+                    TutorialButtonContent(text: "プライバシーポリシーに同意する")
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 32)

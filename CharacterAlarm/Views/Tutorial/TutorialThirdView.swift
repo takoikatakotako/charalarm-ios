@@ -7,7 +7,7 @@ struct TutorialThirdView: View {
         VStack(alignment: .center, spacing: 12) {
             Spacer()
             
-            Image("tutorial-alarm-screen-shot")
+            Image(R.image.tutorialAlarmScreenShot.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 320, height: 400)
@@ -27,13 +27,7 @@ struct TutorialThirdView: View {
                 destination: TutorialFourthView()
                     .environmentObject(appState),
                 label: {
-                    Text("つぎへ")
-                        .foregroundColor(Color.white)
-                        .font(Font.system(size: 16).bold())
-                        .frame(height: 46)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(Color("charalarm-default-green"))
-                        .cornerRadius(24)
+                    TutorialButtonContent(text: "つぎへ")
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 32)

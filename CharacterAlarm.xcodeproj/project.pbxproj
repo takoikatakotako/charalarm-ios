@@ -187,6 +187,9 @@
 		8D27E9D725B71BB400546258 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27E9D625B71BB400546258 /* TutorialFifthView.swift */; };
 		8D27E9D825B71BB400546258 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27E9D625B71BB400546258 /* TutorialFifthView.swift */; };
 		8D27E9D925B71BB400546258 /* TutorialFifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27E9D625B71BB400546258 /* TutorialFifthView.swift */; };
+		8D27E9E025B71F1B00546258 /* TutorialButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27E9DF25B71F1B00546258 /* TutorialButtonContent.swift */; };
+		8D27E9E125B71F1B00546258 /* TutorialButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27E9DF25B71F1B00546258 /* TutorialButtonContent.swift */; };
+		8D27E9E225B71F1B00546258 /* TutorialButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27E9DF25B71F1B00546258 /* TutorialButtonContent.swift */; };
 		8D88B70B25AE0D9C002AE8BE /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D88B70A25AE0D9C002AE8BE /* ResourceTests.swift */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
@@ -427,6 +430,7 @@
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
 		8D27E9D625B71BB400546258 /* TutorialFifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFifthView.swift; sourceTree = "<group>"; };
+		8D27E9DF25B71F1B00546258 /* TutorialButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialButtonContent.swift; sourceTree = "<group>"; };
 		8D88B70A25AE0D9C002AE8BE /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		907B4A98F91F2274EE8D356B /* Pods-CharacterAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmTests/Pods-CharacterAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -905,6 +909,7 @@
 				C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */,
 				A1EEECC00865B257B016D176 /* TutorialThirdView.swift */,
 				8D27E9D625B71BB400546258 /* TutorialFifthView.swift */,
+				8D27E9DF25B71F1B00546258 /* TutorialButtonContent.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -1554,6 +1559,7 @@
 				549E5990ED7A089A343491FC /* R.generated.swift in Sources */,
 				98B13F47F8EAF33F0C7D9B52 /* Request.swift in Sources */,
 				72B5B36432419EB06F3AE489 /* Resource.swift in Sources */,
+				8D27E9E225B71F1B00546258 /* TutorialButtonContent.swift in Sources */,
 				F50A17B3B27A27D7066375D9 /* ResourceHandler.swift in Sources */,
 				5D27DBC8E789AC3A320C6A2D /* ResourceStore.swift in Sources */,
 				8DD40292AB3A76479A27E44F /* Response.swift in Sources */,
@@ -1656,6 +1662,7 @@
 				F62610F130B795E504EF3863 /* R.generated.swift in Sources */,
 				16614E4E606CC0850A8DA15C /* Request.swift in Sources */,
 				34B4485829C3BA4288211DBC /* Resource.swift in Sources */,
+				8D27E9E025B71F1B00546258 /* TutorialButtonContent.swift in Sources */,
 				E00B3B98C7C7E56BFFD0AF09 /* ResourceHandler.swift in Sources */,
 				F0F75FFDD4A0EF0867572129 /* ResourceStore.swift in Sources */,
 				A553480678785E64E5FDA1DE /* Response.swift in Sources */,
@@ -1741,6 +1748,7 @@
 				45826791CB64F5FB17433DA4 /* R.generated.swift in Sources */,
 				51693383AA9FBE2ED3ADE8FE /* Request.swift in Sources */,
 				90E673CFB786C5D7C60AD465 /* Resource.swift in Sources */,
+				8D27E9E125B71F1B00546258 /* TutorialButtonContent.swift in Sources */,
 				0B613C93FB2DE94A60116FAD /* ResourceHandler.swift in Sources */,
 				BD63FE91F248A54EBEC34478 /* ResourceStore.swift in Sources */,
 				0329E94CBCABD6D968196AC5 /* Response.swift in Sources */,

@@ -7,7 +7,7 @@ struct TutorialFourthView: View {
         VStack(alignment: .center, spacing: 12) {
             Spacer()
             
-            Image("tutorial-chara-list-screen-shot")
+            Image(R.image.tutorialCharaListScreenShot.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 320, height: 400)
@@ -28,13 +28,7 @@ struct TutorialFourthView: View {
             NavigationLink(
                 destination: TutorialFifthView().environmentObject(appState),
                 label: {
-                    Text("つぎへ")
-                        .foregroundColor(Color.white)
-                        .font(Font.system(size: 16).bold())
-                        .frame(height: 46)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(Color("charalarm-default-green"))
-                        .cornerRadius(24)
+                    TutorialButtonContent(text: "つぎへ")
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 32)
