@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TutorialHolderView: View {
     @EnvironmentObject var appState: CharalarmAppState
-    @ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
+    //@ObservedObject(initialValue: TutorialHolderViewModel()) var viewModel: TutorialHolderViewModel
 
     var body: some View {
         NavigationView {
@@ -10,11 +10,11 @@ struct TutorialHolderView: View {
                 .environmentObject(appState)
         }
         .onAppear {
-            viewModel.signUp()
+            // viewModel.signUp()
         }
-        .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("Close")))
-        }
+//        .alert(isPresented: $viewModel.showingAlert) {
+//            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("Close")))
+//        }
     }
 }
 
