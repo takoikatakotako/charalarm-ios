@@ -83,7 +83,6 @@ struct TutorialSecondView: View {
                     destination: TutorialThirdView()
                         .environmentObject(appState),
                     label: {
-                        Text("つぎへ")
                         TutorialButtonContent(text: "つぎへ")
                             .padding(.horizontal, 16)
                     })
@@ -115,7 +114,6 @@ struct TutorialSecondView: View {
         voiceAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
     }
 }
-
 
 struct TutorialSecondView_Previews: PreviewProvider {
     static var previews: some View {

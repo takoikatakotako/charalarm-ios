@@ -134,7 +134,6 @@
 		5DB502E904C8E934500FB561 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06D99BD7472813256B59778 /* CallView.swift */; };
 		5EFB0EAA658088C285247C95 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8CE2D930E90FED5B59D49 /* CharacterListViewModel.swift */; };
 		5F0BF45506774CD6DDB59B1A /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D0CFBD6D1625332704D67 /* CallingView.swift */; };
-		6045016E5C1D941C47A6D90F /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
 		60840ED6C491CEB5A809E661 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		6086239CA6AE6D132792E455 /* AlarmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */; };
 		613A57980F0FB65E979E025B /* TutorialSixthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE981EFE28B1256B8D33E3 /* TutorialSixthView.swift */; };
@@ -221,7 +220,6 @@
 		A8E9EDF4213D0D692C3E5247 /* comfused.png in Resources */ = {isa = PBXBuildFile; fileRef = 6488CCAC35F00247E7D55DE1 /* comfused.png */; };
 		A993D1DE094919727C9FA442 /* CharacterAlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F84A5C44E2BDA0D94E2EAF0 /* CharacterAlarmUITests.swift */; };
 		A9F6E0514C1D2200EEB00D6C /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
-		ABF1E9F9CA4055566747EAF3 /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
 		AC075F3E22D93E16B061EE78 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C59AE0BA077C07162BD26E2 /* APIHeader.swift */; };
 		ACE3E74D92518A6D20AC6254 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D0CFBD6D1625332704D67 /* CallingView.swift */; };
 		AD2F7A4A9C634BC284BBBCA4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC31FDCA006756E498AFE71 /* Notification.swift */; };
@@ -309,7 +307,6 @@
 		F05AAAD43245EE8C46650752 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7833C3E29D693846FC1321 /* NetworkClient.swift */; };
 		F0F75FFDD4A0EF0867572129 /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AF8BA3C79A083B2E1165E /* ResourceStore.swift */; };
 		F4274E7EE0796DB75FD1D3B6 /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 822AC8D0317768D88ED4B93D /* normal.png */; };
-		F47F6D7BE44EFF4C7705859B /* TutorialHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */; };
 		F50A17B3B27A27D7066375D9 /* ResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019D32E5779DD0890202123 /* ResourceHandler.swift */; };
 		F59BD988822BE9A34A392A5B /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A53019E63D289C02CF495 /* ConfigViewModel.swift */; };
 		F62610F130B795E504EF3863 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63647C877F7B5CC1E3B3469B /* R.generated.swift */; };
@@ -463,7 +460,6 @@
 		C888DB207645A9EEC5A1B403 /* CharalarmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharalarmError.swift; sourceTree = "<group>"; };
 		C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSecondView.swift; sourceTree = "<group>"; };
 		CB80ED78FFF3E8786A4EC4D0 /* AlarmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewModel.swift; sourceTree = "<group>"; };
-		CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHolderViewModel.swift; sourceTree = "<group>"; };
 		CE8CE1C035E9A58C3EAB5EA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D098283288243ECA30EAB652 /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D322D7AD26D7BF529573C4E4 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
@@ -905,7 +901,6 @@
 				A28C5CEE6027DDED33D253B5 /* TutorialFirstView.swift */,
 				BE00742F37E440ECC396EF8A /* TutorialFourthView.swift */,
 				16ACA9E15007FAFB86DB7D97 /* TutorialHolderView.swift */,
-				CCF1C8B9427358CEFFD3F76C /* TutorialHolderViewModel.swift */,
 				C9287903C34CE45B48AB9208 /* TutorialSecondView.swift */,
 				A1EEECC00865B257B016D176 /* TutorialThirdView.swift */,
 				8D27E9D625B71BB400546258 /* TutorialFifthView.swift */,
@@ -1575,7 +1570,6 @@
 				918803FCC414BA34B4F8F92D /* TutorialFirstView.swift in Sources */,
 				086C04A42FA4EEA05A4F7C47 /* TutorialFourthView.swift in Sources */,
 				6E379B2BD03C29FC8B12AADA /* TutorialHolderView.swift in Sources */,
-				ABF1E9F9CA4055566747EAF3 /* TutorialHolderViewModel.swift in Sources */,
 				867DBB84B0A724E1B6BD9FCE /* TutorialSecondView.swift in Sources */,
 				55E15CEE1503EDCE584BB5BB /* TutorialThirdView.swift in Sources */,
 				17AA5723A28A5F3F425A88DD /* URLRequest+Extension.swift in Sources */,
@@ -1678,7 +1672,6 @@
 				6F44A36F4040A3823A792C40 /* TutorialFirstView.swift in Sources */,
 				3DE5CFCC5C163B7D3C89CD5A /* TutorialFourthView.swift in Sources */,
 				96E71FEE980F735CEDFB10B8 /* TutorialHolderView.swift in Sources */,
-				6045016E5C1D941C47A6D90F /* TutorialHolderViewModel.swift in Sources */,
 				23B4BCD86821A41F41682EE9 /* TutorialSecondView.swift in Sources */,
 				3A7CD5B32FB93DC54597724E /* TutorialThirdView.swift in Sources */,
 				7277DA992FB63890D9852158 /* URLRequest+Extension.swift in Sources */,
@@ -1764,7 +1757,6 @@
 				FBAF60F47FE5C64D98FE5CFC /* TutorialFirstView.swift in Sources */,
 				1519C04E8F4DBD99F9C6CAEE /* TutorialFourthView.swift in Sources */,
 				AE2039A09C88554999496B4C /* TutorialHolderView.swift in Sources */,
-				F47F6D7BE44EFF4C7705859B /* TutorialHolderViewModel.swift in Sources */,
 				D4A330EAA4951221F934B670 /* TutorialSecondView.swift in Sources */,
 				36DD93563BF68CB23DA466F3 /* TutorialThirdView.swift in Sources */,
 				F864C16EFFBA040BCC798D86 /* URLRequest+Extension.swift in Sources */,
