@@ -228,7 +228,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 22 files.
+  /// This `R.file` struct is generated, and contains static references to 31 files.
   struct file {
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
@@ -244,8 +244,26 @@ struct R: Rswift.Validatable {
     static let comCharalarmYui10Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-10", pathExtension: "caf")
     /// Resource file `com-charalarm-yui-11.caf`.
     static let comCharalarmYui11Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-11", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-12.caf`.
+    static let comCharalarmYui12Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-12", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-13.caf`.
+    static let comCharalarmYui13Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-13", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-14.caf`.
+    static let comCharalarmYui14Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-14", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-15.caf`.
+    static let comCharalarmYui15Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-15", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-16.caf`.
+    static let comCharalarmYui16Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-16", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-17.caf`.
+    static let comCharalarmYui17Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-17", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-18.caf`.
+    static let comCharalarmYui18Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-18", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-19.caf`.
+    static let comCharalarmYui19Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-19", pathExtension: "caf")
     /// Resource file `com-charalarm-yui-2.caf`.
     static let comCharalarmYui2Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-2", pathExtension: "caf")
+    /// Resource file `com-charalarm-yui-20.caf`.
+    static let comCharalarmYui20Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-20", pathExtension: "caf")
     /// Resource file `com-charalarm-yui-3.caf`.
     static let comCharalarmYui3Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-3", pathExtension: "caf")
     /// Resource file `com-charalarm-yui-4.caf`.
@@ -317,9 +335,63 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "com-charalarm-yui-12", withExtension: "caf")`
+    static func comCharalarmYui12Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui12Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-13", withExtension: "caf")`
+    static func comCharalarmYui13Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui13Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-14", withExtension: "caf")`
+    static func comCharalarmYui14Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui14Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-15", withExtension: "caf")`
+    static func comCharalarmYui15Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui15Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-16", withExtension: "caf")`
+    static func comCharalarmYui16Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui16Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-17", withExtension: "caf")`
+    static func comCharalarmYui17Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui17Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-18", withExtension: "caf")`
+    static func comCharalarmYui18Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui18Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-19", withExtension: "caf")`
+    static func comCharalarmYui19Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui19Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "com-charalarm-yui-2", withExtension: "caf")`
     static func comCharalarmYui2Caf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.comCharalarmYui2Caf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "com-charalarm-yui-20", withExtension: "caf")`
+    static func comCharalarmYui20Caf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.comCharalarmYui20Caf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -410,7 +482,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 29 images.
+  /// This `R.image` struct is generated, and contains static references to 31 images.
   struct image {
     /// Image `alarm-add-icon`.
     static let alarmAddIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "alarm-add-icon")
@@ -428,6 +500,8 @@ struct R: Rswift.Validatable {
     static let commonIconClose = Rswift.ImageResource(bundle: R.hostingBundle, name: "common-icon-close")
     /// Image `momiji`.
     static let momiji = Rswift.ImageResource(bundle: R.hostingBundle, name: "momiji")
+    /// Image `normal`.
+    static let normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "normal")
     /// Image `profile-call-end`.
     static let profileCallEnd = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile-call-end")
     /// Image `profile-call`.
@@ -470,6 +544,8 @@ struct R: Rswift.Validatable {
     static let tutorialAlarmScreenShot = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-alarm-screen-shot")
     /// Image `tutorial-chara-list-screen-shot`.
     static let tutorialCharaListScreenShot = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-chara-list-screen-shot")
+    /// Image `tutorial-normal`.
+    static let tutorialNormal = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-normal")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "alarm-add-icon", bundle: ..., traitCollection: ...)`
@@ -524,6 +600,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "momiji", bundle: ..., traitCollection: ...)`
     static func momiji(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.momiji, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "normal", bundle: ..., traitCollection: ...)`
+    static func normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.normal, compatibleWith: traitCollection)
     }
     #endif
 
@@ -671,6 +754,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "tutorial-chara-list-screen-shot", bundle: ..., traitCollection: ...)`
     static func tutorialCharaListScreenShot(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tutorialCharaListScreenShot, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorial-normal", bundle: ..., traitCollection: ...)`
+    static func tutorialNormal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorialNormal, compatibleWith: traitCollection)
     }
     #endif
 

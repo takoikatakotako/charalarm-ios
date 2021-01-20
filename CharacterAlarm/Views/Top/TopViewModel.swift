@@ -9,7 +9,7 @@ class TopViewModel: ObservableObject {
     @Published var showConfig: Bool = false
     @Published var showingAlert: Bool = false
     @Published var alertMessage: String = ""
-    var audioPlayer: AVAudioPlayer!
+    var audioPlayer: AVAudioPlayer?
 
     func tapped() {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {

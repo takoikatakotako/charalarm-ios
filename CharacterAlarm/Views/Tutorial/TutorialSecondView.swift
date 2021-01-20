@@ -13,7 +13,7 @@ struct TutorialSecondView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 Spacer()
-                Image("normal")
+                Image(R.image.tutorialNormal.name)
                     .resizable()
                     .scaledToFit()
                     .padding(.top, 60)
@@ -30,7 +30,7 @@ struct TutorialSecondView: View {
                     HStack {
                         VStack {
                             NavigationLink(destination: TutorialThirdView()) {
-                                Image("profile-call-end")
+                                Image(R.image.profileCallEnd.name)
                                     .resizable()
                                     .frame(width: 36, height: 36)
                                     .padding(16)
@@ -62,7 +62,7 @@ struct TutorialSecondView: View {
                                     }
                                 }
                             }) {
-                                Image("profile-call")
+                                Image(R.image.profileCall.name)
                                     .resizable()
                                     .frame(width: 36, height: 36)
                                     .padding(16)
@@ -83,16 +83,10 @@ struct TutorialSecondView: View {
                     destination: TutorialThirdView()
                         .environmentObject(appState),
                     label: {
-                        Text("つぎへ")
-                            .foregroundColor(Color.white)
-                            .font(Font.system(size: 16).bold())
-                            .frame(height: 46)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color("charalarm-default-green"))
-                            .cornerRadius(24)
+                        TutorialButtonContent(text: "つぎへ")
                             .padding(.horizontal, 16)
                     })
-                    .padding(.bottom, 32)
+                    .padding(.bottom, 28)
             }
         }
         .onAppear {
@@ -121,10 +115,16 @@ struct TutorialSecondView: View {
     }
 }
 
-
 struct TutorialSecondView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialSecondView()
-            .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+        Group {
+            TutorialSecondView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            TutorialSecondView()
+                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

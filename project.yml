@@ -96,8 +96,8 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: Config/Staging/Info.plist
-        MARKETING_VERSION: 2.0.0
-        CURRENT_PROJECT_VERSION: 16
+        MARKETING_VERSION: 2.0.1
+        CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
       configs:
@@ -147,8 +147,8 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: Config/Production/Info.plist
-        MARKETING_VERSION: 2.0.0
-        CURRENT_PROJECT_VERSION: 66
+        MARKETING_VERSION: 2.0.1
+        CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production
       configs:

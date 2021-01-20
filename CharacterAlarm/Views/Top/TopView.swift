@@ -6,7 +6,7 @@ import AVKit
 
 struct TopView: View {
     @EnvironmentObject var appState: CharalarmAppState
-    @ObservedObject var viewModel = TopViewModel()
+    @StateObject var viewModel = TopViewModel()
     
     var body: some View {
         GeometryReader { geometory in
