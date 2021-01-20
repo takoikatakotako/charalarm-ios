@@ -20,7 +20,7 @@ struct CharacterListView: View {
                 VStack {
                     Spacer()
                     Button(action: {
-                        guard let url = URL(string: "https://swiswiswift.com/") else {
+                        guard let url = URL(string: ContactAbountAddCharacterUrlString) else {
                             return
                         }
                         if UIApplication.shared.canOpenURL(url) {
@@ -31,7 +31,9 @@ struct CharacterListView: View {
                             .padding(.horizontal, 16)
                     }
                 }
+                .padding(.bottom, 28)
             }
+            .edgesIgnoringSafeArea(.bottom)
             .onAppear {
                 self.viewModel.fetchCharacters()
             }
@@ -45,12 +47,17 @@ struct CharacterListView: View {
                                     }
             )
         }
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListView()
+        Group {
+            CharacterListView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            CharacterListView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

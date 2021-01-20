@@ -31,7 +31,7 @@ struct TutorialFourthView: View {
                     TutorialButtonContent(text: "つぎへ")
                         .padding(.horizontal, 16)
                 })
-                .padding(.bottom, 32)
+                .padding(.bottom, 28)
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("")

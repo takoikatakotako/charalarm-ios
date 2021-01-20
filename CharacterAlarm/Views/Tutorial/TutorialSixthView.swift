@@ -28,7 +28,7 @@ struct TutorialSixthView: View {
                 TutorialButtonContent(text: "ホーム画面へ")
                     .padding(.horizontal, 16)
             }
-            .padding(.bottom, 32)
+            .padding(.bottom, 28)
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("")

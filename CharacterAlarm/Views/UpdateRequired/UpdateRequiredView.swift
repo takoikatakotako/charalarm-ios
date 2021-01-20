@@ -12,6 +12,11 @@ struct UpdateRequiredView: View {
             }
             .padding()
             
+            Image(R.image.sdNormal.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 300, height: 300)
+            
             Button(action: {
                 if let url = URL(string: CharalarmAppStoreUrlString) {
                     UIApplication.shared.open(url)
@@ -27,6 +32,12 @@ struct UpdateRequiredView: View {
 
 struct UpdateRequiredView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateRequiredView()
+        Group {
+            UpdateRequiredView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+            
+            UpdateRequiredView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }
