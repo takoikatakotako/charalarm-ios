@@ -203,9 +203,9 @@
 		8A5B7887C2C01A7B5D467E17 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		8B3143D53CF9858AF27D2086 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
-		8D68931E25BB322300A4ADF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D68931D25BB322300A4ADF2 /* Localizable.strings */; };
-		8D68931F25BB322300A4ADF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D68931D25BB322300A4ADF2 /* Localizable.strings */; };
-		8D68932025BB322300A4ADF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D68931D25BB322300A4ADF2 /* Localizable.strings */; };
+		8D68934E25BB333000A4ADF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D68935225BB333000A4ADF2 /* Localizable.strings */; };
+		8D68934F25BB333000A4ADF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D68935225BB333000A4ADF2 /* Localizable.strings */; };
+		8D68935025BB333000A4ADF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D68935225BB333000A4ADF2 /* Localizable.strings */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
 		901A28EF5037083BBC38A102 /* PushStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB5677E8B151AAFA7C724B /* PushStore.swift */; };
@@ -460,7 +460,9 @@
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8A4E1C981DB0CF058C7D3B01 /* Pods_CharalarmStaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharalarmStaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
-		8D68931D25BB322300A4ADF2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8D68933F25BB330C00A4ADF2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8D68935125BB333000A4ADF2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8D68935825BB333400A4ADF2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9073E1791846BE7B7E901950 /* com-charalarm-yui-15.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-15.caf"; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -651,7 +653,7 @@
 				D66AF11E96AEBC29C5D4B21F /* Resource */,
 				6B95F0061E5FDFDD18EC5B04 /* Store */,
 				81E8DF6F97C5B6143187E5A7 /* Views */,
-				8D68931D25BB322300A4ADF2 /* Localizable.strings */,
+				8D68935225BB333000A4ADF2 /* Localizable.strings */,
 			);
 			path = CharacterAlarm;
 			sourceTree = "<group>";
@@ -1203,6 +1205,7 @@
 			knownRegions = (
 				Base,
 				en,
+				ja,
 			);
 			mainGroup = A769590120CB6B1811F10409;
 			packageReferences = (
@@ -1236,7 +1239,7 @@
 				7B08F48AF13B9867599146D0 /* com-charalarm-yui-1.caf in Resources */,
 				2DA1BA4A70BCE0C29ACC08F7 /* com-charalarm-yui-10.caf in Resources */,
 				E8402EB5C0F987608924F25C /* com-charalarm-yui-11.caf in Resources */,
-				8D68932025BB322300A4ADF2 /* Localizable.strings in Resources */,
+				8D68935025BB333000A4ADF2 /* Localizable.strings in Resources */,
 				4A8734AB5D3E1D25F62FD7B6 /* com-charalarm-yui-12.caf in Resources */,
 				72B0484EBA96539F9F3A18C9 /* com-charalarm-yui-13.caf in Resources */,
 				49768FA9A2BC9351DB11CA9D /* com-charalarm-yui-14.caf in Resources */,
@@ -1278,7 +1281,7 @@
 				7CC027BB2218AEDD9220D1B7 /* com-charalarm-yui-1.caf in Resources */,
 				FC3ACB9EAE69C3CCFE82C6CC /* com-charalarm-yui-10.caf in Resources */,
 				262F66122E42F76DAA4540E2 /* com-charalarm-yui-11.caf in Resources */,
-				8D68931E25BB322300A4ADF2 /* Localizable.strings in Resources */,
+				8D68934E25BB333000A4ADF2 /* Localizable.strings in Resources */,
 				EC91822B895A2BBFD342430B /* com-charalarm-yui-12.caf in Resources */,
 				1EC8A067C21272E80769CB28 /* com-charalarm-yui-13.caf in Resources */,
 				A46FC1C84A1F8F07B6C34CFD /* com-charalarm-yui-14.caf in Resources */,
@@ -1320,7 +1323,7 @@
 				EF9431C7DC8E0850E3DA86E6 /* com-charalarm-yui-1.caf in Resources */,
 				59C7C5DB8D60C6D51A441623 /* com-charalarm-yui-10.caf in Resources */,
 				3BE678E56EDE6A505A0471BD /* com-charalarm-yui-11.caf in Resources */,
-				8D68931F25BB322300A4ADF2 /* Localizable.strings in Resources */,
+				8D68934F25BB333000A4ADF2 /* Localizable.strings in Resources */,
 				3DDEFC0B3F7DDBB32D40511F /* com-charalarm-yui-12.caf in Resources */,
 				C0845BF984ED132E38E12063 /* com-charalarm-yui-13.caf in Resources */,
 				6A1F72458C790283C10DC040 /* com-charalarm-yui-14.caf in Resources */,
@@ -1867,8 +1870,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				575BDABDDF3486CF12F422E5 /* Base */,
+				8D68933F25BB330C00A4ADF2 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8D68935225BB333000A4ADF2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D68935125BB333000A4ADF2 /* ja */,
+				8D68935825BB333400A4ADF2 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1878,6 +1891,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1941,6 +1955,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
