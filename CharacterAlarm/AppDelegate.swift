@@ -151,7 +151,7 @@ extension AppDelegate: CXProviderDelegate {
             return
         }
 
-        guard let voiceName = resource.expression[key]?.voices.randomElement() else {
+        guard let voiceName = resource.call[key]?.voices.randomElement() else {
             return
         }
 
