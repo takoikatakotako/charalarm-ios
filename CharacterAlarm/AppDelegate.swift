@@ -12,7 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var player = AVPlayer()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Use Firebase library to configure APIs.
         FirebaseApp.configure()
+        
+        // Initialize the Google Mobile Ads SDK.
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String  else {
             fatalError("API_ENDPOINTが見つかりません")

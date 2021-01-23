@@ -9,6 +9,7 @@ def install_pods
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
+  pod 'Firebase/AdMob'
   pod 'SwiftLint'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'

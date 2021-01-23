@@ -7,16 +7,20 @@ struct AlarmListView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack(spacing: 0) {
-                    ForEach(viewModel.alarms) { alarm in
-                        Button(action: {
-                            viewModel.editAlarm(alarm: alarm)
-                        }){
-                            AlarmListRow(delegate: self, alarm: alarm)
+            ZStack(alignment: .bottom) {
+                ScrollView {
+                    LazyVStack(spacing: 0) {
+                        ForEach(viewModel.alarms) { alarm in
+                            Button(action: {
+                                viewModel.editAlarm(alarm: alarm)
+                            }){
+                                AlarmListRow(delegate: self, alarm: alarm)
+                            }
                         }
                     }
                 }
+                
+                BannerView()
             }
             .onAppear {
                 viewModel.fetchAlarms()
