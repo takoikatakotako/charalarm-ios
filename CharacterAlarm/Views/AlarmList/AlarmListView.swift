@@ -20,7 +20,7 @@ struct AlarmListView: View {
                     }
                 }
                 
-                BannerView()
+                AdmobBannerView(adUnitID: AdmobAlarmListUnitId)
             }
             .onAppear {
                 viewModel.fetchAlarms()

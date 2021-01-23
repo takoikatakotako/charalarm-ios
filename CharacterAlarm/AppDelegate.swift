@@ -18,16 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the Google Mobile Ads SDK.
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
-        guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String  else {
+        // Endpointをパース
+        guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String,
+              let resourceEndpoint = Bundle.main.infoDictionary?["RESOURCE_ENDPOINT"] as? String
+              else {
             fatalError("API_ENDPOINTが見つかりません")
         }
         API_ENDPOINT = apiEndpoint
-        
-        
-        guard let resourceEndpoint = Bundle.main.infoDictionary?["RESOURCE_ENDPOINT"] as? String  else {
-            fatalError("RESOURCE_ENDPOINTが見つかりません")
-        }
         RESOURCE_ENDPOINT = resourceEndpoint
+        
+        // Admob周りの処理
+        guard let admobAlarmListUnitId = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String  else {
+            fatalError("AdmobのUnitIdが見つかりません")
+        }
+        AdmobAlarmListUnitId = admobAlarmListUnitId
+        
         
         UINavigationBar.appearance().tintColor = UIColor(named: "charalarm-default-gray")
         

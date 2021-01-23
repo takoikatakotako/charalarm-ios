@@ -64,10 +64,14 @@ targets:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
           API_ENDPOINT: http://localhost:8080
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
+          GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
+          ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: http://localhost:8080
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
+          GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
+          ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
     dependencies:
       - package: R.swift.Library
         product: Rswift
@@ -105,10 +109,14 @@ targets:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
           API_ENDPOINT: https://api-stg.charalarm.com
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
+          GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
+          ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api-stg.charalarm.com
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
+          GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
+          ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
     dependencies:
       - package: R.swift.Library
         product: Rswift
@@ -156,10 +164,14 @@ targets:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
           API_ENDPOINT: https://api.charalarm.com
           RESOURCE_ENDPOINT: https://resource.charalarm.com
+          GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
+          ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.charalarm.com
           RESOURCE_ENDPOINT: https://resource.charalarm.com
+          GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
+          ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
   CharacterAlarmTests:
     type: bundle.unit-test
     platform: iOS
