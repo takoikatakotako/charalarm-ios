@@ -4,8 +4,6 @@
 <dict>
 	<key>ADMOB_ALARM_LIST</key>
 	<string>${ADMOB_ALARM_LIST}</string>
-	<key>GADApplicationIdentifier</key>
-	<string>${GAD_APPLICATION_IDENTIFER}</string>
 	<key>API_ENDPOINT</key>
 	<string>$(API_ENDPOINT)</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -24,6 +22,8 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>${GAD_APPLICATION_IDENTIFER}</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

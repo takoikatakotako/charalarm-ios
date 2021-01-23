@@ -381,7 +381,7 @@
 
 /* Begin PBXFileReference section */
 		00364392AE29FA402EC0EC3D /* TutorialSixthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSixthView.swift; sourceTree = "<group>"; };
-		01466BE7F59140BF9877C274 /* CharalarmStaging.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CharalarmStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01466BE7F59140BF9877C274 /* CharalarmStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharalarmStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		057CD9AEA4DCAEE4B9C52B7F /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		05F56DEAA38A88F9C0359802 /* Pods-CharalarmProduction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmProduction.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmProduction/Pods-CharalarmProduction.debug.xcconfig"; sourceTree = "<group>"; };
 		0848FAFDCEA18533CA39D5DE /* com-charalarm-yui-3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-3.caf"; sourceTree = "<group>"; };
@@ -512,7 +512,7 @@
 		DBF920625C7AABEDC943450C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DC75C6423E3A270DA2D6668D /* Pods-CharalarmStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmStaging.debug.xcconfig"; path = "Target Support Files/Pods-CharalarmStaging/Pods-CharalarmStaging.debug.xcconfig"; sourceTree = "<group>"; };
 		DED0302BB32B9EC33A3B4782 /* CallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModel.swift; sourceTree = "<group>"; };
-		DF24592E032D9DF49AD58FF5 /* CharalarmProduction.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CharalarmProduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF24592E032D9DF49AD58FF5 /* CharalarmProduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharalarmProduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF987FCB1D6D32047350A2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E06D99BD7472813256B59778 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		E2BC393EFA0B83134BF62B24 /* CharacterAlarmDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharacterAlarmDebug.entitlements; sourceTree = "<group>"; };
@@ -2122,7 +2122,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-5587141252700968~9053558907";
 				INFOPLIST_FILE = Config/Production/Info.plist;
@@ -2176,7 +2176,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-5587141252700968~9053558907";
 				INFOPLIST_FILE = Config/Production/Info.plist;
@@ -2237,7 +2237,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-3940256099942544~1458002511";
 				INFOPLIST_FILE = Config/Staging/Info.plist;
@@ -2281,7 +2281,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-3940256099942544~1458002511";
 				INFOPLIST_FILE = Config/Staging/Info.plist;
