@@ -18,7 +18,6 @@ final private class AdmobBannerViewController: UIViewControllerRepresentable  {
         viewController.view.addSubview(view)
         viewController.view.frame = CGRect(origin: .zero, size: kGADAdSizeBanner.size)
         view.load(GADRequest())
-
         return viewController
     }
 
