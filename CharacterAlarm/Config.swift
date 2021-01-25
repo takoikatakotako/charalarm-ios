@@ -10,7 +10,7 @@ var RESOURCE_ENDPOINT: String = ""
 let PrivacyPolicyUrlString = "https://charalarm.com/privacy/index.html"
 
 // CharterAlarm公式Twitter
-let OfficialTwitterUrlString: String = "https://twitter.com/chara_alarm"
+let OfficialTwitterUrlString: String = "https://twitter.com/charalarm"
 
 // CharalrmのアプストアのURL
 let CharalarmAppStoreUrlString: String = "https://apps.apple.com/jp/app/charalarm-%E3%82%AD%E3%83%A3%E3%83%A9%E3%83%BC%E3%83%A0/id1296641818"
@@ -20,3 +20,6 @@ let ContactAboutAppUrlString: String = "https://docs.google.com/forms/d/e/1FAIpQ
 
 // キャラクター追加についてのお問い合わせ
 let ContactAbountAddCharacterUrlString = "https://docs.google.com/forms/d/e/1FAIpQLScuMalb8MkEiCGDXtSUHSyybhDNBw5_8e3WUgLB9fWkfCaOyA/viewform?usp=sf_link"
+
+// Admob
+var AdmobAlarmListUnitId = ""

@@ -12,18 +12,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var player = AVPlayer()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Use Firebase library to configure APIs.
         FirebaseApp.configure()
         
-        guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String  else {
+        // Initialize the Google Mobile Ads SDK.
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        // Endpointをパース
+        guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String,
+              let resourceEndpoint = Bundle.main.infoDictionary?["RESOURCE_ENDPOINT"] as? String
+              else {
             fatalError("API_ENDPOINTが見つかりません")
         }
         API_ENDPOINT = apiEndpoint
-        
-        
-        guard let resourceEndpoint = Bundle.main.infoDictionary?["RESOURCE_ENDPOINT"] as? String  else {
-            fatalError("RESOURCE_ENDPOINTが見つかりません")
-        }
         RESOURCE_ENDPOINT = resourceEndpoint
+        
+        // Admob周りの処理
+        guard let admobAlarmListUnitId = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String  else {
+            fatalError("AdmobのUnitIdが見つかりません")
+        }
+        AdmobAlarmListUnitId = admobAlarmListUnitId
+        
         
         UINavigationBar.appearance().tintColor = UIColor(named: "charalarm-default-gray")
         
