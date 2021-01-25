@@ -29,7 +29,8 @@ struct AdmobBannerView: View {
     var body: some View{
         HStack{
             Spacer()
-            AdmobBannerViewController(adUnitID: adUnitID).frame(width: 320, height: 50, alignment: .center)
+            AdmobBannerViewController(adUnitID: adUnitID)
+                .frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height, alignment: .center)
             Spacer()
         }
     }

@@ -23,3 +23,4 @@ let ContactAbountAddCharacterUrlString = "https://docs.google.com/forms/d/e/1FAI
 
 // Admob
 var AdmobAlarmListUnitId = ""
+var AdmobConfigUnitId = ""
