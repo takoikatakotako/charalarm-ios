@@ -28,11 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RESOURCE_ENDPOINT = resourceEndpoint
         
         // Admob周りの処理
-        guard let admobAlarmListUnitId = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String  else {
+        guard let admobAlarmListUnitId = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String,
+              let admobConfigUnitId = Bundle.main.infoDictionary?["ADMOB_CONFIG"] as? String else {
             fatalError("AdmobのUnitIdが見つかりません")
         }
         AdmobAlarmListUnitId = admobAlarmListUnitId
-        
+        AdmobConfigUnitId = admobConfigUnitId
         
         UINavigationBar.appearance().tintColor = UIColor(named: "charalarm-default-gray")
         
