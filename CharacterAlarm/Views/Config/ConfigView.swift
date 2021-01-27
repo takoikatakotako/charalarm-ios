@@ -9,79 +9,83 @@ struct ConfigView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section(header: Text("ユーザー情報")) {
-                    NavigationLink(destination: UserInfoView()) {
-                        Text("ユーザー情報")
-                            .foregroundColor(Color("textColor"))
-                    }
-                }
-                
-                Section(header: Text("その他")) {
-                    Button(action: {
-                        self.viewModel.openUrlString(string: OfficialTwitterUrlString)
-                    }) {
-                        Text("公式Twitter")
-                            .foregroundColor(Color("textColor"))
-                    }
-                    
-                    Button(action: {
-                        self.viewModel.openUrlString(string: ContactAboutAppUrlString)
-                    }) {
-                        Text("アプリについてのお問い合わせ")
-                            .foregroundColor(Color("textColor"))
-                    }
-                    
-                    Button(action: {
-                        self.viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
-                    }) {
-                        Text("キャラクター追加のお問い合わせ")
-                            .foregroundColor(Color("textColor"))
-                    }
-                }
-                
-                Section(header: Text("アプリケーション情報")) {
-                    HStack {
-                        Text("バージョン情報")
-                            .foregroundColor(Color("textColor"))
-                        Spacer()
-                        Text(viewModel.versionString)
-                            .foregroundColor(Color("textColor"))
-                    }
-                    Button {
-                        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                            return
+            ZStack(alignment: .bottom) {
+                List {
+                    Section(header: Text("ユーザー情報")) {
+                        NavigationLink(destination: UserInfoView()) {
+                            Text("ユーザー情報")
+                                .foregroundColor(Color("textColor"))
                         }
-                        UIApplication.shared.open(settingsUrl, completionHandler: nil)
-                    } label: {
-                        Text("ライセンス")
-                            .foregroundColor(Color("textColor"))
                     }
-                }
-                
-                Section(header: Text("リセット")) {
-                    Button(action: {
-                        self.showingResetAlert = true
-                    }) {
-                        Text("リセット")
-                            .foregroundColor(Color("textColor"))
+                    
+                    Section(header: Text("その他")) {
+                        Button(action: {
+                            self.viewModel.openUrlString(string: OfficialTwitterUrlString)
+                        }) {
+                            Text("公式Twitter")
+                                .foregroundColor(Color("textColor"))
+                        }
+                        
+                        Button(action: {
+                            self.viewModel.openUrlString(string: ContactAboutAppUrlString)
+                        }) {
+                            Text("アプリについてのお問い合わせ")
+                                .foregroundColor(Color("textColor"))
+                        }
+                        
+                        Button(action: {
+                            self.viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
+                        }) {
+                            Text("キャラクター追加のお問い合わせ")
+                                .foregroundColor(Color("textColor"))
+                        }
                     }
-                    .alert(isPresented: $showingResetAlert) {
-                        Alert(
-                            title: Text("リセット"),
-                            message: Text("リセットしてよろしいですか？"),
-                            primaryButton: .default(Text("キャンセル")) {
-                                print("リセットをキャンセルしました。")
-                            }, secondaryButton: .destructive(Text("リセット")) {
-                                self.viewModel.withdraw() {
-                                    DispatchQueue.main.async {
-                                        self.appState.doneTutorial = false
+                    
+                    Section(header: Text("アプリケーション情報")) {
+                        HStack {
+                            Text("バージョン情報")
+                                .foregroundColor(Color("textColor"))
+                            Spacer()
+                            Text(viewModel.versionString)
+                                .foregroundColor(Color("textColor"))
+                        }
+                        Button {
+                            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                                return
+                            }
+                            UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                        } label: {
+                            Text("ライセンス")
+                                .foregroundColor(Color("textColor"))
+                        }
+                    }
+                    
+                    Section(header: Text("リセット")) {
+                        Button(action: {
+                            self.showingResetAlert = true
+                        }) {
+                            Text("リセット")
+                                .foregroundColor(Color("textColor"))
+                        }
+                        .alert(isPresented: $showingResetAlert) {
+                            Alert(
+                                title: Text("リセット"),
+                                message: Text("リセットしてよろしいですか？"),
+                                primaryButton: .default(Text("キャンセル")) {
+                                    print("リセットをキャンセルしました。")
+                                }, secondaryButton: .destructive(Text("リセット")) {
+                                    self.viewModel.withdraw() {
+                                        DispatchQueue.main.async {
+                                            self.appState.doneTutorial = false
+                                        }
                                     }
-                                }
-                            })
+                                })
+                        }
                     }
-                }
-            }.listStyle(GroupedListStyle())
+                }.listStyle(GroupedListStyle())
+                
+                AdmobBannerView(adUnitID: AdmobConfigUnitId)
+            }
             .navigationBarTitle("設定", displayMode: .inline)
             .navigationBarItems(leading:
                                     Button(action: {
@@ -107,5 +111,6 @@ struct ConfigView: View {
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
         ConfigView()
+            .environmentObject(CharalarmAppState(appVersion: "2.0.4"))
     }
 }
