@@ -25,16 +25,19 @@ struct ProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
                     
-                    ProfileRow(title: "名前", text: viewModel.character?.name ?? "")
-                    ProfileRow(title: "プロフィール", text: viewModel.character?.description ?? "")
-                    ProfileRow(title: "イラスト", text: viewModel.character?.illustrationName ?? "")
-                    ProfileRow(title: "CV", text: viewModel.character?.voiceName ?? "")
+                    ProfileRow(title: "名前", text: viewModel.character?.name ?? "", urlString: "")
+                    ProfileRow(title: "プロフィール", text: viewModel.character?.description ?? "", urlString: "")
+                    ProfileRow(title: "イラスト", text: viewModel.character?.illustrationName ?? "", urlString: viewModel.character?.illustrationUrl ?? "")
+                    ProfileRow(title: "CV", text: viewModel.character?.voiceName ?? "", urlString: viewModel.character?.voiceUrl ?? "")
                     
                     if let additionalProfileBeans = viewModel.character?.additionalProfileBeans {
                         ForEach(additionalProfileBeans, id: \.self) { additionalProfileBean in
-                            ProfileRow(title: additionalProfileBean.title, text: additionalProfileBean.text)
+                            ProfileRow(title: additionalProfileBean.title, text: additionalProfileBean.text, urlString: additionalProfileBean.url)
                         }
                     }
+                    
+                    Spacer()
+                        .frame(height: 120)
                 }
                 
                 ZStack(alignment: .bottomTrailing) {
@@ -50,7 +53,7 @@ struct ProfileView: View {
                                 }
                                 self.viewModel.showCallView = true
                             }) {
-                                MenuItem(imageName: "profile-call")
+                                MenuItem(imageName: R.image.profileCall.name)
                             }.sheet(isPresented: self.$viewModel.showCallView) {
                                 CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
                             }
@@ -68,14 +71,14 @@ struct ProfileView: View {
                             Button(action: {
                                 self.viewModel.showSelectAlert = true
                             }) {
-                                MenuItem(imageName: "profile-check")
+                                MenuItem(imageName: R.image.profileCheck.name)
                             }
                         }
                         Button(action: {
                             self.showMenu()
                         }) {
                             Group {
-                                Image("profile-menu-icon")
+                                Image(R.image.profileMenuIcon.name)
                                     .resizable()
                                     .frame(width: 60, height: 60)
                             }.accentColor(.white)
@@ -161,8 +164,14 @@ struct ProfileView: View {
     
 }
 
-//struct ProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileView(profile: Profile())
-//    }
-//}
+struct ProfileView_Previews: PreviewProvider {
+    struct PreviewWrapper: View {
+        var body: some View {
+            ProfileView(charaDomain: "com.example.xxx")
+        }
+    }
+    
+    static var previews: some View {
+        PreviewWrapper()
+    }
+}

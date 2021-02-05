@@ -45,8 +45,9 @@ struct AlarmListRow: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(alarm.name)
                     .font(Font.system(size: 20))
-                    .frame(width: 320)
+                    .frame(width: UIScreen.main.bounds.size.width - 32, alignment: .leading)
                     .lineLimit(1)
+
                 Text("\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))")
                     .font(Font.system(size: 36).bold())
                 Text(alarm.dayOfWeeksString)
@@ -110,14 +111,30 @@ struct MockAlarmListRowDelegate: AlarmListRowDelegate {
 
 struct AlarmListRow_Previews: PreviewProvider {
     struct PreviewWrapper: View {
-        @State var dayOfWeeks: [DayOfWeek] = [.MON]
+        let alarm: Alarm
+        init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30, dayOfWeeks: [DayOfWeek] = DayOfWeek.allCases) {
+            self.alarm = Alarm(alarmId: 5, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+        }
+        
         var body: some View {
-            AlarmListRow(delegate: MockAlarmListRowDelegate(), alarm: Alarm(alarmId: 3, enable: true, name: "モーニングコールモーニングコールモーニングコール", hour: 3, minute: 5, dayOfWeeks: [.MON, .SAT]))
+            AlarmListRow(delegate: MockAlarmListRowDelegate(), alarm: alarm)
         }
     }
     
     
     static var previews: some View {
-        PreviewWrapper()
+        Group {
+            PreviewWrapper()
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+                .previewDisplayName("iPhone X")
+            
+            PreviewWrapper(name: "長い長いモーニングコール。長い長いモーニングコール。")
+                .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+                .previewDisplayName("iPhone X")
+            
+            PreviewWrapper()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+        }
     }
 }

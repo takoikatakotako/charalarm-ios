@@ -482,7 +482,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 31 images.
+  /// This `R.image` struct is generated, and contains static references to 32 images.
   struct image {
     /// Image `alarm-add-icon`.
     static let alarmAddIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "alarm-add-icon")
@@ -510,6 +510,8 @@ struct R: Rswift.Validatable {
     static let profileCheck = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile-check")
     /// Image `profile-menu-icon`.
     static let profileMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile-menu-icon")
+    /// Image `profile-open-url`.
+    static let profileOpenUrl = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile-open-url")
     /// Image `profile`.
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
     /// Image `sd-angly`.
@@ -642,6 +644,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "profile-menu-icon", bundle: ..., traitCollection: ...)`
     static func profileMenuIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profileMenuIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "profile-open-url", bundle: ..., traitCollection: ...)`
+    static func profileOpenUrl(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileOpenUrl, compatibleWith: traitCollection)
     }
     #endif
 
