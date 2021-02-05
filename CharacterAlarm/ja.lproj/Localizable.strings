@@ -1,2 +1,12 @@
+// English
 
-"hello" = "Hello";
+// Tutorial
+"tutorial-agree-with-the-privacy-policy" = "I agree with the privacy policy";
+"tutorial-failed-to-save-user-information" = "Failed to save user information.";
+"tutorial-open-the-privacy-policy" = "Open the privacy policy";
+"tutorial-please-accept-the-privacy-policy" = "Please accept the privacy policy";
+"tutorial-welcome-to-charalarm" = "Welcome to Charalarm!!";
+"tutorial-this-is-an-app" = "This app is an app that the character calls at the time you set.";
+
+// Common
+"common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";

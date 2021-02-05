@@ -1,2 +1,13 @@
+// Japanise
 
-"hello" = "Hello";
+// Tutorial
+"tutorial-agree-with-the-privacy-policy" =  "プライバシーポリシーに同意する";
+"tutorial-failed-to-save-user-information" = "ユーザー情報の保存に設定に失敗しました。";
+"tutorial-open-the-privacy-policy" = "プライバシーポリシーを開く";
+"tutorial-please-accept-the-privacy-policy" = "プライバシーポリシーへの同意をお願いします。";
+"tutorial-welcome-to-charalarm" = "キャラームにようこそ！";
+"tutorial-this-is-an-app" = "このアプリは設定した時間にキャラクターが電話をしてくれるアプリです。";
+
+
+// Common
+"common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";

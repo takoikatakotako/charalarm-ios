@@ -813,26 +813,121 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 6 localization keys.
     struct localizable {
-      /// ja translation: Hello
+      /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
       /// Locales: ja
-      static let hello = Rswift.StringResource(key: "hello", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      static let commonFailedToConnectWithTheServer = Rswift.StringResource(key: "common-failed-to-connect-with-the-server.", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to save user information.
+      ///
+      /// Locales: ja
+      static let tutorialFailedToSaveUserInformation = Rswift.StringResource(key: "tutorial-failed-to-save-user-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: I agree with the privacy policy
+      ///
+      /// Locales: ja
+      static let tutorialAgreeWithThePrivacyPolicy = Rswift.StringResource(key: "tutorial-agree-with-the-privacy-policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Open the privacy policy
+      ///
+      /// Locales: ja
+      static let tutorialOpenThePrivacyPolicy = Rswift.StringResource(key: "tutorial-open-the-privacy-policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Please accept the privacy policy
+      ///
+      /// Locales: ja
+      static let tutorialPleaseAcceptThePrivacyPolicy = Rswift.StringResource(key: "tutorial-please-accept-the-privacy-policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Welcome to Charalarm!!
+      ///
+      /// Locales: ja
+      static let tutorialWelcomeToCharalarm = Rswift.StringResource(key: "tutorial-welcome-to-charalarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
 
-      /// ja translation: Hello
+      /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
       /// Locales: ja
-      static func hello(preferredLanguages: [String]? = nil) -> String {
+      static func commonFailedToConnectWithTheServer(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("hello", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("common-failed-to-connect-with-the-server.", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "hello"
+          return "common-failed-to-connect-with-the-server."
         }
 
-        return NSLocalizedString("hello", bundle: bundle, comment: "")
+        return NSLocalizedString("common-failed-to-connect-with-the-server.", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to save user information.
+      ///
+      /// Locales: ja
+      static func tutorialFailedToSaveUserInformation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-failed-to-save-user-information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-failed-to-save-user-information"
+        }
+
+        return NSLocalizedString("tutorial-failed-to-save-user-information", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: I agree with the privacy policy
+      ///
+      /// Locales: ja
+      static func tutorialAgreeWithThePrivacyPolicy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-agree-with-the-privacy-policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-agree-with-the-privacy-policy"
+        }
+
+        return NSLocalizedString("tutorial-agree-with-the-privacy-policy", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Open the privacy policy
+      ///
+      /// Locales: ja
+      static func tutorialOpenThePrivacyPolicy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-open-the-privacy-policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-open-the-privacy-policy"
+        }
+
+        return NSLocalizedString("tutorial-open-the-privacy-policy", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Please accept the privacy policy
+      ///
+      /// Locales: ja
+      static func tutorialPleaseAcceptThePrivacyPolicy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-please-accept-the-privacy-policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-please-accept-the-privacy-policy"
+        }
+
+        return NSLocalizedString("tutorial-please-accept-the-privacy-policy", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Welcome to Charalarm!!
+      ///
+      /// Locales: ja
+      static func tutorialWelcomeToCharalarm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-welcome-to-charalarm", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-welcome-to-charalarm"
+        }
+
+        return NSLocalizedString("tutorial-welcome-to-charalarm", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

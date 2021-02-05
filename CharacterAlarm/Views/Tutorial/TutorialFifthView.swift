@@ -14,14 +14,14 @@ struct TutorialFifthView: View {
             VStack(alignment: .center, spacing: 12) {
                 Spacer()
                 
-                Text("プライバシーポリシーへの同意をお願いします。")
+                Text(R.string.localizable.tutorialPleaseAcceptThePrivacyPolicy())
                     .font(Font.system(size: 20))
                     .padding(.horizontal, 12)
                 
                 Button(action: {
                     openPrivacyPolicy()
                 }) {
-                    Text("プライバシーポリシーを開く")
+                    Text(R.string.localizable.tutorialOpenThePrivacyPolicy())
                         .font(Font.system(size: 20))
                 }
                 
@@ -41,7 +41,7 @@ struct TutorialFifthView: View {
                 Button(action: {
                     signUp()
                 }, label: {
-                    TutorialButtonContent(text: "プライバシーポリシーに同意する")
+                    TutorialButtonContent(text: R.string.localizable.tutorialAgreeWithThePrivacyPolicy())
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)
@@ -85,13 +85,13 @@ struct TutorialFifthView: View {
                     try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: anonymousUserPassword)
                     self.accountCreated = true
                 } catch {
-                    self.alertMessage = "ユーザー情報の保存に設定に失敗しました。"
+                    self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
                     self.showingAlert = true
                 }
                 self.creatingAccount = false
                 break
             case .failure:
-                self.alertMessage = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。"
+                self.alertMessage = R.string.localizable.commonFailedToConnectWithTheServer()
                 self.showingAlert = true
                 self.creatingAccount = false
                 break

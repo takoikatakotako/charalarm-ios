@@ -6,7 +6,7 @@ struct TutorialFirstView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
             Spacer()
-            Text("キャラームへようこそ！")
+            Text(R.string.localizable.tutorialWelcomeToCharalarm())
                 .font(Font.system(size: 20))
             
             Text("このアプリは設定した時間にキャラクターが電話をしてくれるアプリです。")

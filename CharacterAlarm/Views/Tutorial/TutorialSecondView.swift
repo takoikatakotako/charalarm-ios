@@ -75,7 +75,7 @@ struct TutorialSecondView: View {
                     .padding(.bottom, 32)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .background(Color("charalarm-default-gray"))
+                .background(Color(R.color.charalarmDefaultGray.name))
             }
             
             if showingNextButton {
