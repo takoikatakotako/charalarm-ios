@@ -64,8 +64,7 @@ class AlarmListViewModel: ObservableObject {
         AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
-                self.alertMessage = "アラームの編集が完了しました。"
-                self.showingAlert = true
+                break
             case .failure:
                 self.alertMessage = "アラームの編集に失敗しました"
                 self.showingAlert = true
