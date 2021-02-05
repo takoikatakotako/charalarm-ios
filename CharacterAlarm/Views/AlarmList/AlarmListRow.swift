@@ -33,11 +33,11 @@ struct AlarmListRow: View {
     }
     
     var backgroundColor: Color {
-        return alarm.enable ? Color("alarm-card-background-green") : Color("charalarm-default-gray")
+        return alarm.enable ? Color(R.color.alarmCardBackgroundGreen.name) : Color(R.color.charalarmDefaultGray.name)
     }
     
     var toggleThumbColor: Color {
-        return alarm.enable ? Color("alarm-card-background-green") : Color("charalarm-default-gray")
+        return alarm.enable ? Color(R.color.alarmCardBackgroundGreen.name) : Color(R.color.charalarmDefaultGray.name)
     }
     
     var body: some View {
@@ -45,6 +45,8 @@ struct AlarmListRow: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(alarm.name)
                     .font(Font.system(size: 20))
+                    .frame(width: 320)
+                    .lineLimit(1)
                 Text("\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))")
                     .font(Font.system(size: 36).bold())
                 Text(alarm.dayOfWeeksString)
@@ -106,10 +108,16 @@ struct MockAlarmListRowDelegate: AlarmListRowDelegate {
     }
 }
 
-//struct AlarmListRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AlarmListRow(delegate: MockAlarmListRowDelegate(), alarm: Alarm(uid: "uid", token: ""))
-//            .previewLayout(
-//                .fixed(width: 320, height: 60))
-//    }
-//}
+struct AlarmListRow_Previews: PreviewProvider {
+    struct PreviewWrapper: View {
+        @State var dayOfWeeks: [DayOfWeek] = [.MON]
+        var body: some View {
+            AlarmListRow(delegate: MockAlarmListRowDelegate(), alarm: Alarm(alarmId: 3, enable: true, name: "モーニングコールモーニングコールモーニングコール", hour: 3, minute: 5, dayOfWeeks: [.MON, .SAT]))
+        }
+    }
+    
+    
+    static var previews: some View {
+        PreviewWrapper()
+    }
+}

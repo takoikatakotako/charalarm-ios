@@ -23,7 +23,6 @@ class PushStore {
         let apiClient = APIClient<JsonResponseBean<String>>()
         apiClient.request(urlRequest: urlRequest) { result in
             switch result {
-            
             case let .success(response):
                 completion(.success(response.data))
             case let .failure(error):

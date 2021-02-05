@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 import SDWebImageSwiftUI
 
 struct ProfileView: View {
@@ -51,6 +52,15 @@ struct ProfileView: View {
                             }) {
                                 MenuItem(imageName: "profile-call")
                             }.sheet(isPresented: self.$viewModel.showCallView) {
+                                CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
+                            }
+                            .sheet(
+                                isPresented: self.$viewModel.showCallView,
+                                onDismiss: {
+                                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                                        SKStoreReviewController.requestReview(in: scene)
+                                    }
+                                }) {
                                 CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
                             }
                         }
