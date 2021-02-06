@@ -813,7 +813,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 6 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
     struct localizable {
       /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
@@ -823,10 +823,22 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialFailedToSaveUserInformation = Rswift.StringResource(key: "tutorial-failed-to-save-user-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Get a call
+      ///
+      /// Locales: ja
+      static let tutorialGetACall = Rswift.StringResource(key: "tutorial-get-a-call", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: I agree with the privacy policy
       ///
       /// Locales: ja
       static let tutorialAgreeWithThePrivacyPolicy = Rswift.StringResource(key: "tutorial-agree-with-the-privacy-policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Let's try it now!
+      ///
+      /// Locales: ja
+      static let tutorialLetUsTryItNow = Rswift.StringResource(key: "tutorial-let-us-try-it-now", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Next
+      ///
+      /// Locales: ja
+      static let commonNext = Rswift.StringResource(key: "common-next", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Open the privacy policy
       ///
       /// Locales: ja
@@ -835,10 +847,22 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialPleaseAcceptThePrivacyPolicy = Rswift.StringResource(key: "tutorial-please-accept-the-privacy-policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Please choose your favorite character.
+      ///
+      /// Locales: ja
+      static let tutorialPleaseChooseYourFavoriteCharacter = Rswift.StringResource(key: "tutorial-please-choose-your-favorite-character", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: This app is an app that the character calls at the time you set.
+      ///
+      /// Locales: ja
+      static let tutorialThisIsAnApp = Rswift.StringResource(key: "tutorial-this-is-an-app", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
       static let tutorialWelcomeToCharalarm = Rswift.StringResource(key: "tutorial-welcome-to-charalarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: You can see the characters that can receive incoming calls from the character list.
+      ///
+      /// Locales: ja
+      static let tutorialYouCanSeeTheCharacters = Rswift.StringResource(key: "tutorial-you-can-see-the-characters", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
 
       /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
@@ -870,6 +894,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tutorial-failed-to-save-user-information", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Get a call
+      ///
+      /// Locales: ja
+      static func tutorialGetACall(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-get-a-call", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-get-a-call"
+        }
+
+        return NSLocalizedString("tutorial-get-a-call", bundle: bundle, comment: "")
+      }
+
       /// ja translation: I agree with the privacy policy
       ///
       /// Locales: ja
@@ -883,6 +922,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-agree-with-the-privacy-policy", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Let's try it now!
+      ///
+      /// Locales: ja
+      static func tutorialLetUsTryItNow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-let-us-try-it-now", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-let-us-try-it-now"
+        }
+
+        return NSLocalizedString("tutorial-let-us-try-it-now", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Next
+      ///
+      /// Locales: ja
+      static func commonNext(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("common-next", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "common-next"
+        }
+
+        return NSLocalizedString("common-next", bundle: bundle, comment: "")
       }
 
       /// ja translation: Open the privacy policy
@@ -915,6 +984,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tutorial-please-accept-the-privacy-policy", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Please choose your favorite character.
+      ///
+      /// Locales: ja
+      static func tutorialPleaseChooseYourFavoriteCharacter(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-please-choose-your-favorite-character", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-please-choose-your-favorite-character"
+        }
+
+        return NSLocalizedString("tutorial-please-choose-your-favorite-character", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: This app is an app that the character calls at the time you set.
+      ///
+      /// Locales: ja
+      static func tutorialThisIsAnApp(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-this-is-an-app", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-this-is-an-app"
+        }
+
+        return NSLocalizedString("tutorial-this-is-an-app", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
@@ -928,6 +1027,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-welcome-to-charalarm", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: You can see the characters that can receive incoming calls from the character list.
+      ///
+      /// Locales: ja
+      static func tutorialYouCanSeeTheCharacters(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-you-can-see-the-characters", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-you-can-see-the-characters"
+        }
+
+        return NSLocalizedString("tutorial-you-can-see-the-characters", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

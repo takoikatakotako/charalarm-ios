@@ -13,7 +13,7 @@ struct TutorialSixthView: View {
                 .padding(.horizontal, 12)
                 .padding(.top, 128)
             
-            Image("sd-smile")
+            Image(R.image.sdSmile.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
