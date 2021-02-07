@@ -813,7 +813,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
     struct localizable {
       /// ja translation: Did you get a call?
       ///
@@ -851,6 +851,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let commonNext = Rswift.StringResource(key: "common-next", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Open App Store
+      ///
+      /// Locales: ja
+      static let updateRequirdOpenAppStore = Rswift.StringResource(key: "update-requird-open-app-store", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Open the privacy policy
       ///
       /// Locales: ja
@@ -863,10 +867,22 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialPleaseChooseYourFavoriteCharacter = Rswift.StringResource(key: "tutorial-please-choose-your-favorite-character", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Please install the latest version of the app from the store.
+      ///
+      /// Locales: ja
+      static let updateRequirdPleaseInstallTheLatestVersion = Rswift.StringResource(key: "update-requird-please-install-the-latest-version", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: The app needs to be updated.
+      ///
+      /// Locales: ja
+      static let updateRequirdTheAppNeedsToBeUpdated = Rswift.StringResource(key: "update-requird-the-app-needs-to-be-updated", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: This app is an app that the character calls at the time you set.
       ///
       /// Locales: ja
       static let tutorialThisIsAnApp = Rswift.StringResource(key: "tutorial-this-is-an-app", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Update Requird
+      ///
+      /// Locales: ja
+      static let updateRequirdUpdateRequird = Rswift.StringResource(key: "update-requird-update-requird", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
@@ -1015,6 +1031,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("common-next", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Open App Store
+      ///
+      /// Locales: ja
+      static func updateRequirdOpenAppStore(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("update-requird-open-app-store", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "update-requird-open-app-store"
+        }
+
+        return NSLocalizedString("update-requird-open-app-store", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Open the privacy policy
       ///
       /// Locales: ja
@@ -1060,6 +1091,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tutorial-please-choose-your-favorite-character", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Please install the latest version of the app from the store.
+      ///
+      /// Locales: ja
+      static func updateRequirdPleaseInstallTheLatestVersion(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("update-requird-please-install-the-latest-version", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "update-requird-please-install-the-latest-version"
+        }
+
+        return NSLocalizedString("update-requird-please-install-the-latest-version", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: The app needs to be updated.
+      ///
+      /// Locales: ja
+      static func updateRequirdTheAppNeedsToBeUpdated(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("update-requird-the-app-needs-to-be-updated", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "update-requird-the-app-needs-to-be-updated"
+        }
+
+        return NSLocalizedString("update-requird-the-app-needs-to-be-updated", bundle: bundle, comment: "")
+      }
+
       /// ja translation: This app is an app that the character calls at the time you set.
       ///
       /// Locales: ja
@@ -1073,6 +1134,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-this-is-an-app", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Update Requird
+      ///
+      /// Locales: ja
+      static func updateRequirdUpdateRequird(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("update-requird-update-requird", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "update-requird-update-requird"
+        }
+
+        return NSLocalizedString("update-requird-update-requird", bundle: bundle, comment: "")
       }
 
       /// ja translation: Welcome to Charalarm!!

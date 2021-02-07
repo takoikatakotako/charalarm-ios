@@ -16,7 +16,11 @@
 "tutorial-go-to-home-screen" = "ホーム画面へ";
 "tutorial-finally-please-allow-push-notificaion" = "最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。";
 
-
+// UpdateRequired
+"update-requird-open-app-store" = "App Storeを開く";
+"update-requird-update-requird" = "アップデートが必要です";
+"update-requird-the-app-needs-to-be-updated" = "アプリのアップデートが必要です。";
+"update-requird-please-install-the-latest-version" = "ストアから最新版のアプリのインストールをお願いします。";
 
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
