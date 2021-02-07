@@ -11,6 +11,10 @@
 "tutorial-get-a-call" = "Get a call";
 "tutorial-you-can-see-the-characters" = "You can see the characters that can receive incoming calls from the character list.";
 "tutorial-please-choose-your-favorite-character" = "Please choose your favorite character.";
+"tutorial-did-you-get-a-call" = "Did you get a call?";
+"tutorial-you-can-set-multiple-alarms" = "You can set multiple alarms by specifying the time and day of the week.";
+"tutorial-go-to-home-screen" = "Go to home screen";
+"tutorial-finally-please-allow-push-notificaion" = "Finally, please allow push notifications, such as to announce the addition of new characters.";
 
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";

@@ -813,8 +813,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
     struct localizable {
+      /// ja translation: Did you get a call?
+      ///
+      /// Locales: ja
+      static let tutorialDidYouGetACall = Rswift.StringResource(key: "tutorial-did-you-get-a-call", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
       /// Locales: ja
@@ -823,10 +827,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialFailedToSaveUserInformation = Rswift.StringResource(key: "tutorial-failed-to-save-user-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Finally, please allow push notifications, such as to announce the addition of new characters.
+      ///
+      /// Locales: ja
+      static let tutorialFinallyPleaseAllowPushNotificaion = Rswift.StringResource(key: "tutorial-finally-please-allow-push-notificaion", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Get a call
       ///
       /// Locales: ja
       static let tutorialGetACall = Rswift.StringResource(key: "tutorial-get-a-call", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Go to home screen
+      ///
+      /// Locales: ja
+      static let tutorialGoToHomeScreen = Rswift.StringResource(key: "tutorial-go-to-home-screen", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: I agree with the privacy policy
       ///
       /// Locales: ja
@@ -863,6 +875,25 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialYouCanSeeTheCharacters = Rswift.StringResource(key: "tutorial-you-can-see-the-characters", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: You can set multiple alarms by specifying the time and day of the week.
+      ///
+      /// Locales: ja
+      static let tutorialYouCanSetMultipleAlarms = Rswift.StringResource(key: "tutorial-you-can-set-multiple-alarms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+
+      /// ja translation: Did you get a call?
+      ///
+      /// Locales: ja
+      static func tutorialDidYouGetACall(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-did-you-get-a-call", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-did-you-get-a-call"
+        }
+
+        return NSLocalizedString("tutorial-did-you-get-a-call", bundle: bundle, comment: "")
+      }
 
       /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
@@ -894,6 +925,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tutorial-failed-to-save-user-information", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Finally, please allow push notifications, such as to announce the addition of new characters.
+      ///
+      /// Locales: ja
+      static func tutorialFinallyPleaseAllowPushNotificaion(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-finally-please-allow-push-notificaion", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-finally-please-allow-push-notificaion"
+        }
+
+        return NSLocalizedString("tutorial-finally-please-allow-push-notificaion", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Get a call
       ///
       /// Locales: ja
@@ -907,6 +953,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-get-a-call", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Go to home screen
+      ///
+      /// Locales: ja
+      static func tutorialGoToHomeScreen(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-go-to-home-screen", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-go-to-home-screen"
+        }
+
+        return NSLocalizedString("tutorial-go-to-home-screen", bundle: bundle, comment: "")
       }
 
       /// ja translation: I agree with the privacy policy
@@ -1042,6 +1103,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-you-can-see-the-characters", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: You can set multiple alarms by specifying the time and day of the week.
+      ///
+      /// Locales: ja
+      static func tutorialYouCanSetMultipleAlarms(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-you-can-set-multiple-alarms", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-you-can-set-multiple-alarms"
+        }
+
+        return NSLocalizedString("tutorial-you-can-set-multiple-alarms", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
