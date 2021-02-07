@@ -35,6 +35,25 @@
 "profile-failed-to-get-the-character-information" = "キャラクター情報の取得に失敗しました。";
 "profile-failed-to-get-the-resource-of-the-character" = "キャラクターのリソースの取得に失敗しました。";
 
+// Alarm
+"alarm-alarm-name" = "アラーム名";
+"alarm-please-enter-the-alarm-name" = "アラーム名を入力してください";
+"alarm-delete-alarm" = "アラーム削除";
+"alarm-add-alarm" = "アラーム追加";
+
+// Config
+"config-config" = "設定";
+"config-user-info" = "ユーザー情報";
+"config-other" = "その他";
+"config-official-twitter" = "公式Twitter";
+"config-application-info" = "アプリケーション情報";
+"config-inquires-about-the-app" = "アプリについてのお問い合わせ";
+"config-inquires-adding-characters" = "キャラクター追加のお問い合わせ";
+"config-version-info" = "バージョン情報";
+"config-license" = "ライセンス";
+"config-reset" = "リセット";
+"config-are-you-sure-you-want-to-reset-the-app" = "アプリをリセットしてよろしいですか？";
+
 // News
 "news-news" = "ニュース";
 "news-failed-to-get-the-news" = "ニュースの取得に失敗しました。";
@@ -48,3 +67,4 @@
 "common-next" = "次へ";
 "common-close" = "閉じる";
 "common-cancel" = "キャンセル";
+"common-save" = "保存";

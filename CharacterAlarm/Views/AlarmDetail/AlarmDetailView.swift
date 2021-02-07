@@ -59,8 +59,8 @@ struct AlarmDetailView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("アラーム名")
-                    TextField("アラーム名を入力してください", text: $viewModel.alarm.name)
+                    Text(R.string.localizable.alarmAlarmName())
+                    TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewModel.alarm.name)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 .padding()
@@ -75,12 +75,12 @@ struct AlarmDetailView: View {
                                 presentationMode.wrappedValue.dismiss()
                              }
                         }) {
-                            Text("アラームを削除する")
+                            Text(R.string.localizable.alarmDeleteAlarm())
                                 .foregroundColor(Color.white)
                                 .font(Font.system(size: 16).bold())
                                 .frame(height: 46)
                                 .frame(minWidth: 0, maxWidth: .infinity)
-                                .background(Color("charalarm-default-pink"))
+                                .background(Color(R.color.charalarmDefaultPink.name))
                                 .cornerRadius(28)
                                 .padding(.horizontal, 24)
                         }
@@ -98,15 +98,15 @@ struct AlarmDetailView: View {
                                 presentationMode.wrappedValue.dismiss()
                             }
                         }) {
-                            Text("保存")
-                                .foregroundColor(Color("charalarm-default-green"))
+                            Text(R.string.localizable.commonSave())
+                                .foregroundColor(Color(R.color.charalarmDefaultGreen.name))
                         }
                     }
             ).alert(isPresented: $viewModel.showingAlert) {
                 Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
             }
             .navigationBarHidden(false)
-            .navigationBarTitle("アラーム追加", displayMode: .inline)
+            .navigationBarTitle(R.string.localizable.alarmAddAlarm(), displayMode: .inline)
         }        
     }
 }

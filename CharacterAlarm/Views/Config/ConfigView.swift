@@ -11,43 +11,43 @@ struct ConfigView: View {
         NavigationView {
             ZStack(alignment: .bottom) {
                 List {
-                    Section(header: Text("ユーザー情報")) {
+                    Section(header: Text(R.string.localizable.configUserInfo())) {
                         NavigationLink(destination: UserInfoView()) {
-                            Text("ユーザー情報")
-                                .foregroundColor(Color("textColor"))
+                            Text(R.string.localizable.configUserInfo())
+                                .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
                     
-                    Section(header: Text("その他")) {
+                    Section(header: Text(R.string.localizable.configOther())) {
                         Button(action: {
-                            self.viewModel.openUrlString(string: OfficialTwitterUrlString)
+                            viewModel.openUrlString(string: OfficialTwitterUrlString)
                         }) {
-                            Text("公式Twitter")
-                                .foregroundColor(Color("textColor"))
+                            Text(R.string.localizable.configOfficialTwitter())
+                                .foregroundColor(Color(R.color.textColor.name))
                         }
                         
                         Button(action: {
-                            self.viewModel.openUrlString(string: ContactAboutAppUrlString)
+                            viewModel.openUrlString(string: ContactAboutAppUrlString)
                         }) {
-                            Text("アプリについてのお問い合わせ")
-                                .foregroundColor(Color("textColor"))
+                            Text(R.string.localizable.configInquiresAboutTheApp())
+                                .foregroundColor(Color(R.color.textColor.name))
                         }
                         
                         Button(action: {
-                            self.viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
+                            viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
                         }) {
-                            Text("キャラクター追加のお問い合わせ")
-                                .foregroundColor(Color("textColor"))
+                            Text(R.string.localizable.configInquiresAddingCharacters())
+                                .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
                     
-                    Section(header: Text("アプリケーション情報")) {
+                    Section(header: Text(R.string.localizable.configApplicationInfo())) {
                         HStack {
-                            Text("バージョン情報")
-                                .foregroundColor(Color("textColor"))
+                            Text(R.string.localizable.configVersionInfo())
+                                .foregroundColor(Color(R.color.textColor.name))
                             Spacer()
                             Text(viewModel.versionString)
-                                .foregroundColor(Color("textColor"))
+                                .foregroundColor(Color(R.color.textColor.name))
                         }
                         Button {
                             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
@@ -55,28 +55,28 @@ struct ConfigView: View {
                             }
                             UIApplication.shared.open(settingsUrl, completionHandler: nil)
                         } label: {
-                            Text("ライセンス")
-                                .foregroundColor(Color("textColor"))
+                            Text(R.string.localizable.configReset())
+                                .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
                     
-                    Section(header: Text("リセット")) {
+                    Section(header: Text(R.string.localizable.configReset())) {
                         Button(action: {
-                            self.showingResetAlert = true
+                            showingResetAlert = true
                         }) {
-                            Text("リセット")
-                                .foregroundColor(Color("textColor"))
+                            Text(R.string.localizable.configReset())
+                                .foregroundColor(Color(R.color.textColor.name))
                         }
                         .alert(isPresented: $showingResetAlert) {
                             Alert(
-                                title: Text("リセット"),
-                                message: Text("リセットしてよろしいですか？"),
-                                primaryButton: .default(Text("キャンセル")) {
+                                title: Text(R.string.localizable.configReset()),
+                                message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),
+                                primaryButton: .default(Text(R.string.localizable.commonCancel())) {
                                     print("リセットをキャンセルしました。")
-                                }, secondaryButton: .destructive(Text("リセット")) {
-                                    self.viewModel.withdraw() {
+                                }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
+                                    viewModel.withdraw() {
                                         DispatchQueue.main.async {
-                                            self.appState.doneTutorial = false
+                                            appState.doneTutorial = false
                                         }
                                     }
                                 })
@@ -86,24 +86,24 @@ struct ConfigView: View {
                 
                 AdmobBannerView(adUnitID: AdmobConfigUnitId)
             }
-            .navigationBarTitle("設定", displayMode: .inline)
+            .navigationBarTitle(R.string.localizable.configConfig(), displayMode: .inline)
             .navigationBarItems(leading:
                                     Button(action: {
                                         presentationMode.wrappedValue.dismiss()
                                     }) {
-                                        Image("common-icon-close")
+                                        Image(R.image.commonIconClose.name)
                                             .renderingMode(.template)
-                                            .foregroundColor(Color("charalarm-default-gray"))
+                                            .foregroundColor(Color( R.color.charalarmDefaultGray.name))
                                     }
             )
         }.onAppear {
-            self.viewModel.fetchCharacter()
+            viewModel.fetchCharacter()
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-            self.viewModel.fetchCharacter()
+            viewModel.fetchCharacter()
         }
         .alert(isPresented: self.$viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
         }
     }
 }

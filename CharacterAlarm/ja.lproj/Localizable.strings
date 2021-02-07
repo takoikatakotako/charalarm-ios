@@ -35,6 +35,25 @@
 "profile-failed-to-get-the-character-information" = "Failed to get the character information.";
 "profile-failed-to-get-the-resource-of-the-character" = "Failed to get the resource of the character.";
 
+// Alarm
+"alarm-alarm-name" = "Alarm Name";
+"alarm-please-enter-the-alarm-name" = "Please enter the alarm name";
+"alarm-delete-alarm" = "Delete Alarm";
+"alarm-add-alarm" = "Add Alarm";
+
+// Config
+"config-config" = "Config";
+"config-user-info" = "User Info";
+"config-other" = "Other";
+"config-official-twitter" = "Official Twitter";
+"config-application-info" = "Application Info";
+"config-inquires-about-the-app" = "Inquiries about the app";
+"config-inquires-adding-characters" = "Inquiries about adding characters";
+"config-version-info" = "Version Info";
+"config-license" = "License";
+"config-reset" = "Reset";
+"config-are-you-sure-you-want-to-reset-the-app" = "Are you sure you want to reset the app?";
+
 // News
 "news-news" = "News";
 "news-failed-to-get-the-news" = "Failed to get the news.";
@@ -48,3 +67,4 @@
 "common-next" = "Next";
 "common-close" = "Close";
 "common-cancel" = "Cancel";
+"common-save" = "Save";
