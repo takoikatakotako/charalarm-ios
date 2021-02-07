@@ -813,16 +813,48 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 22 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 37 localization keys.
     struct localizable {
+      /// ja translation: Cancel
+      ///
+      /// Locales: ja
+      static let commonCancel = Rswift.StringResource(key: "common-cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Character selection
+      ///
+      /// Locales: ja
+      static let profileCharacterSelection = Rswift.StringResource(key: "profile-character-selection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Close
+      ///
+      /// Locales: ja
+      static let commonClose = Rswift.StringResource(key: "common-close", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Did you get a call?
       ///
       /// Locales: ja
       static let tutorialDidYouGetACall = Rswift.StringResource(key: "tutorial-did-you-get-a-call", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Downloading resources
+      ///
+      /// Locales: ja
+      static let profileDownloadingResources = Rswift.StringResource(key: "profile-downloading-resources", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
       /// Locales: ja
       static let commonFailedToConnectWithTheServer = Rswift.StringResource(key: "common-failed-to-connect-with-the-server.", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to download resources
+      ///
+      /// Locales: ja
+      static let profileFailedToDownloadResources = Rswift.StringResource(key: "profile-failed-to-download-resources", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to get the character information.
+      ///
+      /// Locales: ja
+      static let profileFailedToGetTheCharacterInformation = Rswift.StringResource(key: "profile-failed-to-get-the-character-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to get the news.
+      ///
+      /// Locales: ja
+      static let newsFailedToGetTheNews = Rswift.StringResource(key: "news-failed-to-get-the-news", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to get the resource of the character.
+      ///
+      /// Locales: ja
+      static let profileFailedToGetTheResourceOfTheCharacter = Rswift.StringResource(key: "profile-failed-to-get-the-resource-of-the-character", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Failed to save user information.
       ///
       /// Locales: ja
@@ -843,10 +875,22 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialAgreeWithThePrivacyPolicy = Rswift.StringResource(key: "tutorial-agree-with-the-privacy-policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Illustration
+      ///
+      /// Locales: ja
+      static let profileIllustration = Rswift.StringResource(key: "profile-illustration", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Let's try it now!
       ///
       /// Locales: ja
       static let tutorialLetUsTryItNow = Rswift.StringResource(key: "tutorial-let-us-try-it-now", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Name
+      ///
+      /// Locales: ja
+      static let profileName = Rswift.StringResource(key: "profile-name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: News
+      ///
+      /// Locales: ja
+      static let newsNews = Rswift.StringResource(key: "news-news", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Next
       ///
       /// Locales: ja
@@ -871,6 +915,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let updateRequirdPleaseInstallTheLatestVersion = Rswift.StringResource(key: "update-requird-please-install-the-latest-version", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Profile
+      ///
+      /// Locales: ja
+      static let profileProfile = Rswift.StringResource(key: "profile-profile", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: The app needs to be updated.
       ///
       /// Locales: ja
@@ -891,10 +939,22 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let userInfoUserName = Rswift.StringResource(key: "user-info-user-name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Voice
+      ///
+      /// Locales: ja
+      static let profileVoice = Rswift.StringResource(key: "profile-voice", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Want to call this character?
+      ///
+      /// Locales: ja
+      static let profileWantToCallThisCharacter = Rswift.StringResource(key: "profile-want-to-call-this-character", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
       static let tutorialWelcomeToCharalarm = Rswift.StringResource(key: "tutorial-welcome-to-charalarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Yes!!
+      ///
+      /// Locales: ja
+      static let profileYes = Rswift.StringResource(key: "profile-yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: You can see the characters that can receive incoming calls from the character list.
       ///
       /// Locales: ja
@@ -903,6 +963,51 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialYouCanSetMultipleAlarms = Rswift.StringResource(key: "tutorial-you-can-set-multiple-alarms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+
+      /// ja translation: Cancel
+      ///
+      /// Locales: ja
+      static func commonCancel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("common-cancel", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "common-cancel"
+        }
+
+        return NSLocalizedString("common-cancel", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Character selection
+      ///
+      /// Locales: ja
+      static func profileCharacterSelection(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-character-selection", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-character-selection"
+        }
+
+        return NSLocalizedString("profile-character-selection", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Close
+      ///
+      /// Locales: ja
+      static func commonClose(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("common-close", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "common-close"
+        }
+
+        return NSLocalizedString("common-close", bundle: bundle, comment: "")
+      }
 
       /// ja translation: Did you get a call?
       ///
@@ -919,6 +1024,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tutorial-did-you-get-a-call", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Downloading resources
+      ///
+      /// Locales: ja
+      static func profileDownloadingResources(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-downloading-resources", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-downloading-resources"
+        }
+
+        return NSLocalizedString("profile-downloading-resources", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Faild to connect with ther server. Please wait a while and try later.
       ///
       /// Locales: ja
@@ -932,6 +1052,66 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("common-failed-to-connect-with-the-server.", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to download resources
+      ///
+      /// Locales: ja
+      static func profileFailedToDownloadResources(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-failed-to-download-resources", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-failed-to-download-resources"
+        }
+
+        return NSLocalizedString("profile-failed-to-download-resources", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to get the character information.
+      ///
+      /// Locales: ja
+      static func profileFailedToGetTheCharacterInformation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-failed-to-get-the-character-information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-failed-to-get-the-character-information"
+        }
+
+        return NSLocalizedString("profile-failed-to-get-the-character-information", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to get the news.
+      ///
+      /// Locales: ja
+      static func newsFailedToGetTheNews(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("news-failed-to-get-the-news", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "news-failed-to-get-the-news"
+        }
+
+        return NSLocalizedString("news-failed-to-get-the-news", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to get the resource of the character.
+      ///
+      /// Locales: ja
+      static func profileFailedToGetTheResourceOfTheCharacter(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-failed-to-get-the-resource-of-the-character", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-failed-to-get-the-resource-of-the-character"
+        }
+
+        return NSLocalizedString("profile-failed-to-get-the-resource-of-the-character", bundle: bundle, comment: "")
       }
 
       /// ja translation: Failed to save user information.
@@ -1009,6 +1189,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tutorial-agree-with-the-privacy-policy", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Illustration
+      ///
+      /// Locales: ja
+      static func profileIllustration(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-illustration", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-illustration"
+        }
+
+        return NSLocalizedString("profile-illustration", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Let's try it now!
       ///
       /// Locales: ja
@@ -1022,6 +1217,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-let-us-try-it-now", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Name
+      ///
+      /// Locales: ja
+      static func profileName(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-name", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-name"
+        }
+
+        return NSLocalizedString("profile-name", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: News
+      ///
+      /// Locales: ja
+      static func newsNews(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("news-news", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "news-news"
+        }
+
+        return NSLocalizedString("news-news", bundle: bundle, comment: "")
       }
 
       /// ja translation: Next
@@ -1114,6 +1339,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("update-requird-please-install-the-latest-version", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Profile
+      ///
+      /// Locales: ja
+      static func profileProfile(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-profile", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-profile"
+        }
+
+        return NSLocalizedString("profile-profile", bundle: bundle, comment: "")
+      }
+
       /// ja translation: The app needs to be updated.
       ///
       /// Locales: ja
@@ -1189,6 +1429,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("user-info-user-name", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Voice
+      ///
+      /// Locales: ja
+      static func profileVoice(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-voice", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-voice"
+        }
+
+        return NSLocalizedString("profile-voice", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Want to call this character?
+      ///
+      /// Locales: ja
+      static func profileWantToCallThisCharacter(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-want-to-call-this-character", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-want-to-call-this-character"
+        }
+
+        return NSLocalizedString("profile-want-to-call-this-character", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
@@ -1202,6 +1472,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-welcome-to-charalarm", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Yes!!
+      ///
+      /// Locales: ja
+      static func profileYes(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile-yes", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile-yes"
+        }
+
+        return NSLocalizedString("profile-yes", bundle: bundle, comment: "")
       }
 
       /// ja translation: You can see the characters that can receive incoming calls from the character list.

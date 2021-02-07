@@ -17,7 +17,7 @@ struct ProfileView: View {
                     WebImage(url: URL(string: viewModel.charaThumbnailUrlString))
                         .resizable()
                         .placeholder {
-                            Image("character-placeholder")
+                            Image(R.image.characterPlaceholder.name)
                                 .resizable()
                         }
                         .animation(.easeInOut(duration: 0.5))
@@ -25,10 +25,10 @@ struct ProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
                     
-                    ProfileRow(title: "名前", text: viewModel.character?.name ?? "", urlString: "")
-                    ProfileRow(title: "プロフィール", text: viewModel.character?.description ?? "", urlString: "")
-                    ProfileRow(title: "イラスト", text: viewModel.character?.illustrationName ?? "", urlString: viewModel.character?.illustrationUrl ?? "")
-                    ProfileRow(title: "CV", text: viewModel.character?.voiceName ?? "", urlString: viewModel.character?.voiceUrl ?? "")
+                    ProfileRow(title: R.string.localizable.profileName(), text: viewModel.character?.name ?? "", urlString: "")
+                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewModel.character?.description ?? "", urlString: "")
+                    ProfileRow(title: R.string.localizable.profileIllustration(), text: viewModel.character?.illustrationName ?? "", urlString: viewModel.character?.illustrationUrl ?? "")
+                    ProfileRow(title: R.string.localizable.profileVoice(), text: viewModel.character?.voiceName ?? "", urlString: viewModel.character?.voiceUrl ?? "")
                     
                     if let additionalProfileBeans = viewModel.character?.additionalProfileBeans {
                         ForEach(additionalProfileBeans, id: \.self) { additionalProfileBean in
@@ -51,14 +51,14 @@ struct ProfileView: View {
                                 guard viewModel.character?.charaDomain != nil || viewModel.character?.name != nil else {
                                     return
                                 }
-                                self.viewModel.showCallView = true
+                                viewModel.showCallView = true
                             }) {
                                 MenuItem(imageName: R.image.profileCall.name)
-                            }.sheet(isPresented: self.$viewModel.showCallView) {
+                            }.sheet(isPresented: $viewModel.showCallView) {
                                 CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
                             }
                             .sheet(
-                                isPresented: self.$viewModel.showCallView,
+                                isPresented: $viewModel.showCallView,
                                 onDismiss: {
                                     if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                                         SKStoreReviewController.requestReview(in: scene)
@@ -69,13 +69,13 @@ struct ProfileView: View {
                         }
                         if self.viewModel.showCheckItem {
                             Button(action: {
-                                self.viewModel.showSelectAlert = true
+                                viewModel.showSelectAlert = true
                             }) {
                                 MenuItem(imageName: R.image.profileCheck.name)
                             }
                         }
                         Button(action: {
-                            self.showMenu()
+                            showMenu()
                         }) {
                             Group {
                                 Image(R.image.profileMenuIcon.name)
@@ -96,19 +96,19 @@ struct ProfileView: View {
                 if viewModel.showingDownloadingModal {
                     VStack {
                         if viewModel.downloadError {
-                            Text("リソースのダウンロードに失敗しました")
+                            Text(R.string.localizable.profileFailedToDownloadResources())
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.white)
                             Button {
                                 viewModel.close()
                             } label: {
-                                Text("閉じる")
+                                Text(R.string.localizable.commonClose())
                                     .font(Font.system(size: 24))
                                     .foregroundColor(Color.white)
                                     .padding(.top, 16)
                             }
                         } else {
-                            Text("リソースをダウンロードしています")
+                            Text(R.string.localizable.profileFailedToDownloadResources())
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.white)
                             Text(viewModel.progressMessage)
@@ -118,7 +118,7 @@ struct ProfileView: View {
                             Button {
                                 viewModel.cancel()
                             } label: {
-                                Text("キャンセル")
+                                Text(R.string.localizable.commonCancel())
                                     .font(Font.system(size: 24))
                                     .foregroundColor(Color.white)
                                     .padding(.top, 16)
@@ -138,15 +138,15 @@ struct ProfileView: View {
                                 }
         )
         .onAppear {
-            self.viewModel.fetchCharacter()
-            self.viewModel.download()
+            viewModel.fetchCharacter()
+            viewModel.download()
         }.alert(isPresented: self.$viewModel.showSelectAlert) {
             Alert(
-                title: Text("キャラクター選択"),
-                message: Text("このキャラクターに電話してもらいたいですか？"),
-                primaryButton: .default(Text("閉じる")) {
-                }, secondaryButton: .default(Text("はい！！")) {
-                    self.viewModel.selectCharacter()
+                title: Text(R.string.localizable.profileCharacterSelection()),
+                message: Text(R.string.localizable.profileWantToCallThisCharacter()),
+                primaryButton: .default(Text(R.string.localizable.commonClose())) {
+                }, secondaryButton: .default(Text(R.string.localizable.profileYes())) {
+                    viewModel.selectCharacter()
                 })
         }
     }

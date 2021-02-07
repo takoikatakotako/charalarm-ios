@@ -18,20 +18,20 @@ struct NewsListView: View {
                     NewsRow(news: news)
                 }
             }
-            .navigationBarTitle("ニュース", displayMode: .inline)
+            .navigationBarTitle(R.string.localizable.newsNews(), displayMode: .inline)
             .navigationBarItems(leading:
                                     Button(action: {
                                         presentationMode.wrappedValue.dismiss()
                                     }) {
-                                        Image("common-icon-close")
+                                        Image(R.image.commonIconClose.name)
                                             .renderingMode(.template)
-                                            .foregroundColor(Color("charalarm-default-gray"))
+                                            .foregroundColor(Color(R.color.charalarmDefaultGray.name))
                                     }
             )
         }.onAppear {
-            self.viewModel.fetchNews()
-        }.alert(isPresented: self.$viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+            viewModel.fetchNews()
+        }.alert(isPresented: $viewModel.showingAlert) {
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
         }
     }
 }

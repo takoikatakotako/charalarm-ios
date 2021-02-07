@@ -22,6 +22,23 @@
 "update-requird-the-app-needs-to-be-updated" = "アプリのアップデートが必要です。";
 "update-requird-please-install-the-latest-version" = "ストアから最新版のアプリのインストールをお願いします。";
 
+// Profile
+"profile-name" = "名前";
+"profile-profile" = "プロフィール";
+"profile-illustration" = "イラスト";
+"profile-voice" = "CV";
+"profile-failed-to-download-resources" = "リソースのダウンロードに失敗しました";
+"profile-downloading-resources" = "リソースをダウンロードしています";
+"profile-character-selection" = "キャラクター選択";
+"profile-want-to-call-this-character" "このキャラクターに電話してもらいたいですか？";
+"profile-yes" = "はい!!";
+"profile-failed-to-get-the-character-information" = "キャラクター情報の取得に失敗しました。";
+"profile-failed-to-get-the-resource-of-the-character" = "キャラクターのリソースの取得に失敗しました。";
+
+// News
+"news-news" = "ニュース";
+"news-failed-to-get-the-news" = "ニュースの取得に失敗しました。";
+
 // UserInfoView
 "user-info-user-name" = "ユーザー名";
 "user-info-user-info" = "ユーザー情報";
@@ -29,3 +46,5 @@
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
 "common-next" = "次へ";
+"common-close" = "閉じる";
+"common-cancel" = "キャンセル";
