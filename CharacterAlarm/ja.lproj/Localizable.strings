@@ -22,6 +22,11 @@
 "update-requird-the-app-needs-to-be-updated" = "The app needs to be updated.";
 "update-requird-please-install-the-latest-version" = "Please install the latest version of the app from the store.";
 
+
+// UserInfoView
+"user-info-user-name" = "User Name";
+"user-info-user-info" = "User Info";
+
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";
 "common-next" = "Next";

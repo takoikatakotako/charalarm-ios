@@ -22,6 +22,10 @@
 "update-requird-the-app-needs-to-be-updated" = "アプリのアップデートが必要です。";
 "update-requird-please-install-the-latest-version" = "ストアから最新版のアプリのインストールをお願いします。";
 
+// UserInfoView
+"user-info-user-name" = "ユーザー名";
+"user-info-user-info" = "ユーザー情報";
+
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
 "common-next" = "次へ";

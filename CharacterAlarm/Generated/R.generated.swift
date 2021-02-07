@@ -813,7 +813,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 22 localization keys.
     struct localizable {
       /// ja translation: Did you get a call?
       ///
@@ -883,6 +883,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let updateRequirdUpdateRequird = Rswift.StringResource(key: "update-requird-update-requird", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: User Info
+      ///
+      /// Locales: ja
+      static let userInfoUserInfo = Rswift.StringResource(key: "user-info-user-info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: User Name
+      ///
+      /// Locales: ja
+      static let userInfoUserName = Rswift.StringResource(key: "user-info-user-name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
@@ -1149,6 +1157,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("update-requird-update-requird", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: User Info
+      ///
+      /// Locales: ja
+      static func userInfoUserInfo(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("user-info-user-info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "user-info-user-info"
+        }
+
+        return NSLocalizedString("user-info-user-info", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: User Name
+      ///
+      /// Locales: ja
+      static func userInfoUserName(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("user-info-user-name", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "user-info-user-name"
+        }
+
+        return NSLocalizedString("user-info-user-name", bundle: bundle, comment: "")
       }
 
       /// ja translation: Welcome to Charalarm!!
