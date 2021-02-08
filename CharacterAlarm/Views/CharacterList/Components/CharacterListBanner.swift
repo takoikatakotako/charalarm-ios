@@ -15,7 +15,7 @@ struct CharacterListBanner: View {
                 Text("あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！")
                     .multilineTextAlignment(.center)
                     .font(.system(size: 14))
-                    .foregroundColor(Color("brownColor"))
+                    .foregroundColor(Color(R.color.brownColor.name))
                     .padding(.horizontal, 44)
                     .padding(.vertical, 8)
                 Spacer()

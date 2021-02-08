@@ -40,6 +40,14 @@
 "alarm-please-enter-the-alarm-name" = "Please enter the alarm name";
 "alarm-delete-alarm" = "Delete Alarm";
 "alarm-add-alarm" = "Add Alarm";
+"alarm-failed-to-create-an-alarm" = "Failed to create an alarm.";
+"alarm-failed-to-edit-the-alarm" = "Failed to edit the alarm.";
+"alarm-you-can-create-up-to-three-alarms" = "You can create up to three alarms.";
+"alarm-failed-to-get-the-alarm-list" = "Failed to get the alarm list.";
+
+// Character
+"character-character-list" = "Character List";
+"character-failed-to-get-the-character" = "Failed to get the character.";
 
 // Config
 "config-config" = "Config";
@@ -62,9 +70,22 @@
 "user-info-user-name" = "User Name";
 "user-info-user-info" = "User Info";
 
+// DayOfWeek
+"day-of-week-sunday" = "Sunday";
+"day-of-week-monday" = "Monday";
+"day-of-week-tuesday" = "Tuesday";
+"day-of-week-wednesday" = "Wednesday";
+"day-of-week-thursday" = "Thursday";
+"day-of-week-friday" = "Friday";
+"day-of-week-saturday" = "Saturday";
+
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";
 "common-next" = "Next";
 "common-close" = "Close";
 "common-cancel" = "Cancel";
 "common-save" = "Save";
+
+// Error
+"error-an-unknown-error-has-occurred" = "An unknown error has occurred.";
+"error-failed-to-get-the-authentication-information" = "Failed to get the authentication information.";

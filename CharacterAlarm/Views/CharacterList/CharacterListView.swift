@@ -38,9 +38,9 @@ struct CharacterListView: View {
                 self.viewModel.fetchCharacters()
             }
             .alert(isPresented: self.$viewModel.showingAlert) {
-                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
             }
-            .navigationBarTitle("キャラクター一覧", displayMode: .inline)
+            .navigationBarTitle(R.string.localizable.characterCharacterList(), displayMode: .inline)
             .navigationBarItems(leading:
                                     CloseBarButton() {
                                         presentationMode.wrappedValue.dismiss()

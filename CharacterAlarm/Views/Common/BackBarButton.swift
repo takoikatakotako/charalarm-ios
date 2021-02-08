@@ -6,9 +6,9 @@ struct BackBarButton: View {
         Button(action: {
             action()
         }) {
-            Image("common-back-icon")
+            Image(R.image.commonBackIcon.name)
                 .renderingMode(.template)
-                .foregroundColor(Color("charalarm-default-gray"))
+                .foregroundColor(Color(R.color.charalarmDefaultGray.name))
         }
     }
 }

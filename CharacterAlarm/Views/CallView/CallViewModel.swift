@@ -5,11 +5,7 @@ import AVFoundation
 class CallViewModel: ObservableObject {
     let charaDomain: String
     let charaName: String
-    
-
-    
-    var xxxx: AVAudioPlayer?
-    
+        
     @Published var overlay = true
     
     var charaThumbnailUrlString: String {
@@ -20,5 +16,4 @@ class CallViewModel: ObservableObject {
         self.charaDomain = charaDomain
         self.charaName = charaName
     }
-    
 }

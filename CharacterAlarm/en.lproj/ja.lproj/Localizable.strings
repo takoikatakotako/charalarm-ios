@@ -40,6 +40,14 @@
 "alarm-please-enter-the-alarm-name" = "アラーム名を入力してください";
 "alarm-delete-alarm" = "アラーム削除";
 "alarm-add-alarm" = "アラーム追加";
+"alarm-failed-to-create-an-alarm" = "アラームの作成に失敗しました。";
+"alarm-failed-to-edit-the-alarm" = "アラームの編集に失敗しました。";
+"alarm-you-can-create-up-to-three-alarms" = "アラームは最大3つまで作成できます。";
+"alarm-failed-to-get-the-alarm-list" =  "アラーム一覧の取得に失敗しました。";
+
+// Character
+"character-character-list" = "キャラクター一覧";
+"character-failed-to-get-the-character" = "キャラクターの取得に失敗しました。";
 
 // Config
 "config-config" = "設定";
@@ -62,9 +70,22 @@
 "user-info-user-name" = "ユーザー名";
 "user-info-user-info" = "ユーザー情報";
 
+// DayOfWeek
+"day-of-week-sunday" = "日";
+"day-of-week-monday" = "月";
+"day-of-week-tuesday" = "火";
+"day-of-week-wednesday" = "水";
+"day-of-week-thursday" = "木";
+"day-of-week-friday" = "金";
+"day-of-week-saturday" = "土";
+
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
 "common-next" = "次へ";
 "common-close" = "閉じる";
 "common-cancel" = "キャンセル";
 "common-save" = "保存";
+
+// Error
+"error-an-unknown-error-has-occurred" = "不明なエラーが発生しました。";
+"error-failed-to-get-the-authentication-information" = "認証情報の取得に失敗しました。";

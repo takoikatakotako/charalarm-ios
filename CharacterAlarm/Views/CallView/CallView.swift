@@ -21,7 +21,7 @@ struct CallView: View {
                 WebImage(url: URL(string: charaThumbnailUrlString))
                     .resizable()
                     .placeholder {
-                        Image("character-placeholder")
+                        Image(R.image.characterPlaceholder.name)
                             .resizable()
                 }
                 .animation(.easeInOut(duration: 0.5))
@@ -45,7 +45,7 @@ struct CallView: View {
                         .frame(width: 40, height: 40)
                 }
                     .frame(width: 80, height: 80)
-                    .background(Color("call-red"))
+                .background(Color(R.color.callRed.name))
                     .cornerRadius(40)
             }                    .padding(.bottom, 60)
             
@@ -70,7 +70,7 @@ struct CallView: View {
                                 .frame(width: 40, height: 40)
                         }
                         .frame(width: 80, height: 80)
-                        .background(Color("call-red"))
+                        .background(Color(R.color.callRed.name))
                         .cornerRadius(40)
                         
                         
@@ -86,7 +86,7 @@ struct CallView: View {
                                 .frame(width: 40, height: 40)
                         }
                         .frame(width: 80, height: 80)
-                        .background(Color("call-green"))
+                        .background(Color(R.color.callGreen.name))
                         .cornerRadius(40)
                         
                     }

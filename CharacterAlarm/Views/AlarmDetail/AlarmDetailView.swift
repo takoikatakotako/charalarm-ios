@@ -3,7 +3,6 @@ import SwiftUI
 struct AlarmDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: AlarmDetailViewModel
-    @State var xxx: Bool = false
     
     // AlarmId を取得して、そこからフェッチした方が良い。あ
     // マルチログインに対応する予定ないし、いらんかも

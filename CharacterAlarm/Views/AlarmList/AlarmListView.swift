@@ -26,7 +26,7 @@ struct AlarmListView: View {
                 viewModel.fetchAlarms()
             }
             .alert(isPresented: $viewModel.showingAlert) {
-                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
             }
             .sheet(
                 isPresented: $viewModel.showingEditAlarmSheet,
@@ -36,7 +36,7 @@ struct AlarmListView: View {
                 if let alarm = viewModel.selectedAlarm {
                     AlarmDetailView(alarm: alarm)
                 } else {
-                    Text("不明なエラーが発生しました。")
+                    Text(R.string.localizable.errorAnUnknownErrorHasOccurred())
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -49,9 +49,9 @@ struct AlarmListView: View {
                     Button(action: {
                         viewModel.addAlarmButtonTapped()
                     }) {
-                        Image("alarm-add-icon")
+                        Image(R.image.alarmAddIcon.name)
                             .renderingMode(.template)
-                            .foregroundColor(Color("charalarm-default-green"))
+                            .foregroundColor(Color(R.color.charalarmDefaultGreen.name))
                     }
             )
         }

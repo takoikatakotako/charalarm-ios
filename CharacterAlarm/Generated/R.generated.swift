@@ -813,7 +813,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 53 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 68 localization keys.
     struct localizable {
       /// ja translation: Add Alarm
       ///
@@ -823,6 +823,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let alarmAlarmName = Rswift.StringResource(key: "alarm-alarm-name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: An unknown error has occurred.
+      ///
+      /// Locales: ja
+      static let errorAnUnknownErrorHasOccurred = Rswift.StringResource(key: "error-an-unknown-error-has-occurred", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Application Info
       ///
       /// Locales: ja
@@ -835,6 +839,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let commonCancel = Rswift.StringResource(key: "common-cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Character List
+      ///
+      /// Locales: ja
+      static let characterCharacterList = Rswift.StringResource(key: "character-character-list", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Character selection
       ///
       /// Locales: ja
@@ -863,14 +871,34 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let commonFailedToConnectWithTheServer = Rswift.StringResource(key: "common-failed-to-connect-with-the-server.", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to create an alarm.
+      ///
+      /// Locales: ja
+      static let alarmFailedToCreateAnAlarm = Rswift.StringResource(key: "alarm-failed-to-create-an-alarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Failed to download resources
       ///
       /// Locales: ja
       static let profileFailedToDownloadResources = Rswift.StringResource(key: "profile-failed-to-download-resources", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to edit the alarm.
+      ///
+      /// Locales: ja
+      static let alarmFailedToEditTheAlarm = Rswift.StringResource(key: "alarm-failed-to-edit-the-alarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to get the alarm list.
+      ///
+      /// Locales: ja
+      static let alarmFailedToGetTheAlarmList = Rswift.StringResource(key: "alarm-failed-to-get-the-alarm-list", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to get the authentication information.
+      ///
+      /// Locales: ja
+      static let errorFailedToGetTheAuthenticationInformation = Rswift.StringResource(key: "error-failed-to-get-the-authentication-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Failed to get the character information.
       ///
       /// Locales: ja
       static let profileFailedToGetTheCharacterInformation = Rswift.StringResource(key: "profile-failed-to-get-the-character-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Failed to get the character.
+      ///
+      /// Locales: ja
+      static let characterFailedToGetTheCharacter = Rswift.StringResource(key: "character-failed-to-get-the-character", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Failed to get the news.
       ///
       /// Locales: ja
@@ -887,6 +915,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialFinallyPleaseAllowPushNotificaion = Rswift.StringResource(key: "tutorial-finally-please-allow-push-notificaion", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Friday
+      ///
+      /// Locales: ja
+      static let dayOfWeekFriday = Rswift.StringResource(key: "day-of-week-friday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Get a call
       ///
       /// Locales: ja
@@ -919,6 +951,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let configLicense = Rswift.StringResource(key: "config-license", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Monday
+      ///
+      /// Locales: ja
+      static let dayOfWeekMonday = Rswift.StringResource(key: "day-of-week-monday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Name
       ///
       /// Locales: ja
@@ -971,10 +1007,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let configReset = Rswift.StringResource(key: "config-reset", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Saturday
+      ///
+      /// Locales: ja
+      static let dayOfWeekSaturday = Rswift.StringResource(key: "day-of-week-saturday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Save
       ///
       /// Locales: ja
       static let commonSave = Rswift.StringResource(key: "common-save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Sunday
+      ///
+      /// Locales: ja
+      static let dayOfWeekSunday = Rswift.StringResource(key: "day-of-week-sunday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: The app needs to be updated.
       ///
       /// Locales: ja
@@ -983,6 +1027,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let tutorialThisIsAnApp = Rswift.StringResource(key: "tutorial-this-is-an-app", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Thursday
+      ///
+      /// Locales: ja
+      static let dayOfWeekThursday = Rswift.StringResource(key: "day-of-week-thursday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Tuesday
+      ///
+      /// Locales: ja
+      static let dayOfWeekTuesday = Rswift.StringResource(key: "day-of-week-tuesday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Update Requird
       ///
       /// Locales: ja
@@ -1011,6 +1063,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let profileWantToCallThisCharacter = Rswift.StringResource(key: "profile-want-to-call-this-character", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: Wednesday
+      ///
+      /// Locales: ja
+      static let dayOfWeekWednesday = Rswift.StringResource(key: "day-of-week-wednesday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
@@ -1019,6 +1075,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja
       static let profileYes = Rswift.StringResource(key: "profile-yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
+      /// ja translation: You can create up to three alarms.
+      ///
+      /// Locales: ja
+      static let alarmYouCanCreateUpToThreeAlarms = Rswift.StringResource(key: "alarm-you-can-create-up-to-three-alarms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja"], comment: nil)
       /// ja translation: You can see the characters that can receive incoming calls from the character list.
       ///
       /// Locales: ja
@@ -1056,6 +1116,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("alarm-alarm-name", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: An unknown error has occurred.
+      ///
+      /// Locales: ja
+      static func errorAnUnknownErrorHasOccurred(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-an-unknown-error-has-occurred", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-an-unknown-error-has-occurred"
+        }
+
+        return NSLocalizedString("error-an-unknown-error-has-occurred", bundle: bundle, comment: "")
       }
 
       /// ja translation: Application Info
@@ -1101,6 +1176,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("common-cancel", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Character List
+      ///
+      /// Locales: ja
+      static func characterCharacterList(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("character-character-list", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "character-character-list"
+        }
+
+        return NSLocalizedString("character-character-list", bundle: bundle, comment: "")
       }
 
       /// ja translation: Character selection
@@ -1208,6 +1298,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("common-failed-to-connect-with-the-server.", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Failed to create an alarm.
+      ///
+      /// Locales: ja
+      static func alarmFailedToCreateAnAlarm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alarm-failed-to-create-an-alarm", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "alarm-failed-to-create-an-alarm"
+        }
+
+        return NSLocalizedString("alarm-failed-to-create-an-alarm", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Failed to download resources
       ///
       /// Locales: ja
@@ -1223,6 +1328,51 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("profile-failed-to-download-resources", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Failed to edit the alarm.
+      ///
+      /// Locales: ja
+      static func alarmFailedToEditTheAlarm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alarm-failed-to-edit-the-alarm", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "alarm-failed-to-edit-the-alarm"
+        }
+
+        return NSLocalizedString("alarm-failed-to-edit-the-alarm", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to get the alarm list.
+      ///
+      /// Locales: ja
+      static func alarmFailedToGetTheAlarmList(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alarm-failed-to-get-the-alarm-list", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "alarm-failed-to-get-the-alarm-list"
+        }
+
+        return NSLocalizedString("alarm-failed-to-get-the-alarm-list", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to get the authentication information.
+      ///
+      /// Locales: ja
+      static func errorFailedToGetTheAuthenticationInformation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-get-the-authentication-information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-get-the-authentication-information"
+        }
+
+        return NSLocalizedString("error-failed-to-get-the-authentication-information", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Failed to get the character information.
       ///
       /// Locales: ja
@@ -1236,6 +1386,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("profile-failed-to-get-the-character-information", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Failed to get the character.
+      ///
+      /// Locales: ja
+      static func characterFailedToGetTheCharacter(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("character-failed-to-get-the-character", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "character-failed-to-get-the-character"
+        }
+
+        return NSLocalizedString("character-failed-to-get-the-character", bundle: bundle, comment: "")
       }
 
       /// ja translation: Failed to get the news.
@@ -1296,6 +1461,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-finally-please-allow-push-notificaion", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Friday
+      ///
+      /// Locales: ja
+      static func dayOfWeekFriday(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("day-of-week-friday", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "day-of-week-friday"
+        }
+
+        return NSLocalizedString("day-of-week-friday", bundle: bundle, comment: "")
       }
 
       /// ja translation: Get a call
@@ -1416,6 +1596,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("config-license", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Monday
+      ///
+      /// Locales: ja
+      static func dayOfWeekMonday(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("day-of-week-monday", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "day-of-week-monday"
+        }
+
+        return NSLocalizedString("day-of-week-monday", bundle: bundle, comment: "")
       }
 
       /// ja translation: Name
@@ -1613,6 +1808,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("config-reset", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Saturday
+      ///
+      /// Locales: ja
+      static func dayOfWeekSaturday(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("day-of-week-saturday", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "day-of-week-saturday"
+        }
+
+        return NSLocalizedString("day-of-week-saturday", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Save
       ///
       /// Locales: ja
@@ -1626,6 +1836,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("common-save", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Sunday
+      ///
+      /// Locales: ja
+      static func dayOfWeekSunday(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("day-of-week-sunday", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "day-of-week-sunday"
+        }
+
+        return NSLocalizedString("day-of-week-sunday", bundle: bundle, comment: "")
       }
 
       /// ja translation: The app needs to be updated.
@@ -1656,6 +1881,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-this-is-an-app", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Thursday
+      ///
+      /// Locales: ja
+      static func dayOfWeekThursday(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("day-of-week-thursday", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "day-of-week-thursday"
+        }
+
+        return NSLocalizedString("day-of-week-thursday", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: Tuesday
+      ///
+      /// Locales: ja
+      static func dayOfWeekTuesday(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("day-of-week-tuesday", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "day-of-week-tuesday"
+        }
+
+        return NSLocalizedString("day-of-week-tuesday", bundle: bundle, comment: "")
       }
 
       /// ja translation: Update Requird
@@ -1763,6 +2018,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("profile-want-to-call-this-character", bundle: bundle, comment: "")
       }
 
+      /// ja translation: Wednesday
+      ///
+      /// Locales: ja
+      static func dayOfWeekWednesday(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("day-of-week-wednesday", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "day-of-week-wednesday"
+        }
+
+        return NSLocalizedString("day-of-week-wednesday", bundle: bundle, comment: "")
+      }
+
       /// ja translation: Welcome to Charalarm!!
       ///
       /// Locales: ja
@@ -1791,6 +2061,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("profile-yes", bundle: bundle, comment: "")
+      }
+
+      /// ja translation: You can create up to three alarms.
+      ///
+      /// Locales: ja
+      static func alarmYouCanCreateUpToThreeAlarms(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alarm-you-can-create-up-to-three-alarms", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "alarm-you-can-create-up-to-three-alarms"
+        }
+
+        return NSLocalizedString("alarm-you-can-create-up-to-three-alarms", bundle: bundle, comment: "")
       }
 
       /// ja translation: You can see the characters that can receive incoming calls from the character list.
