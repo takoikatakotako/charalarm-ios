@@ -2141,7 +2141,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-5587141252700968~9053558907";
 				INFOPLIST_FILE = Config/Production/Info.plist;
@@ -2150,7 +2150,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "2.0.5 ";
+				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.CharacterAlarm;
 				RESOURCE_ENDPOINT = "https://resource.charalarm.com";
 				SDKROOT = iphoneos;
@@ -2197,7 +2197,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-5587141252700968~9053558907";
 				INFOPLIST_FILE = Config/Production/Info.plist;
@@ -2206,7 +2206,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "2.0.5 ";
+				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiswiswift.CharacterAlarm;
 				RESOURCE_ENDPOINT = "https://resource.charalarm.com";
 				SDKROOT = iphoneos;
@@ -2259,7 +2259,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-3940256099942544~1458002511";
 				INFOPLIST_FILE = Config/Staging/Info.plist;
@@ -2268,7 +2268,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.5;
+				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charalarm.staging;
 				RESOURCE_ENDPOINT = "https://stg-resource.charalarm.com";
 				SDKROOT = iphoneos;
@@ -2304,7 +2304,7 @@
 				CODE_SIGN_ENTITLEMENTS = CharacterAlarm/CharacterAlarmDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5RH346BQ66;
 				GAD_APPLICATION_IDENTIFER = "ca-app-pub-3940256099942544~1458002511";
 				INFOPLIST_FILE = Config/Staging/Info.plist;
@@ -2313,7 +2313,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.5;
+				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charalarm.staging;
 				RESOURCE_ENDPOINT = "https://stg-resource.charalarm.com";
 				SDKROOT = iphoneos;
