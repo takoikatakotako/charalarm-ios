@@ -48,6 +48,10 @@
 // Character
 "character-character-list" = "Character List";
 "character-failed-to-get-the-character" = "Failed to get the character.";
+"character-pr" = "PR";
+"character-want-to-publish-your-character" = "Want to publish your character\n with this app?\n Click here for details!!";
+"character-illustration" = "Illustration";
+"character-voice" = "Voice";
 
 // Config
 "config-config" = "Config";
@@ -71,13 +75,13 @@
 "user-info-user-info" = "User Info";
 
 // DayOfWeek
-"day-of-week-sunday" = "Sunday";
-"day-of-week-monday" = "Monday";
-"day-of-week-tuesday" = "Tuesday";
-"day-of-week-wednesday" = "Wednesday";
-"day-of-week-thursday" = "Thursday";
-"day-of-week-friday" = "Friday";
-"day-of-week-saturday" = "Saturday";
+"day-of-week-sunday" = "Sun";
+"day-of-week-monday" = "Mon";
+"day-of-week-tuesday" = "Tue";
+"day-of-week-wednesday" = "Wed";
+"day-of-week-thursday" = "Thu";
+"day-of-week-friday" = "Fri";
+"day-of-week-saturday" = "Sat";
 
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";

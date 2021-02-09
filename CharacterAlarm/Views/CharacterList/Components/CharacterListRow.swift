@@ -20,13 +20,12 @@ struct CharacterListRow: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(character.name)
                     .font(Font.system(size: 18.0))
-                Text("イラスト: \(character.illustrationName)")
+                Text("\(R.string.localizable.characterIllustration()): \(character.illustrationName)")
                     .font(Font.system(size: 16.0))
                 
-                Text("CV: \(character.voiceName)")
+                Text("\(R.string.localizable.characterVoice()): \(character.voiceName)")
                     .font(Font.system(size: 16.0))
             }
-            
             
             Spacer()
         }

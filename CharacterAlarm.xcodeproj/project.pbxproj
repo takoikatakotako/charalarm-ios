@@ -64,7 +64,6 @@
 		275D7A19B1ED1FAB195FFE12 /* CharalarmAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C52C26A99ADB9ADFDE8E93 /* CharalarmAppState.swift */; };
 		28480BCC600AD99FA0A42B57 /* FileHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9E17D6F8C60D3866E21ED /* FileHandlerError.swift */; };
 		28B106B6B7466A2998294959 /* AlarmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B29305D5F25D07B732D385 /* AlarmStore.swift */; };
-		28F3534432B29B8A628B4984 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7E5A892BB25AFB4BB8D1984 /* Localizable.strings */; };
 		2A8AF054ECA77378CCF95F9C /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B08175138B366EE8E2E95 /* AlarmDetailView.swift */; };
 		2AD67752B44CFBAAA0EB895E /* TutorialSixthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00364392AE29FA402EC0EC3D /* TutorialSixthView.swift */; };
 		2BDE05174443632C63E5E582 /* CallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D0CFBD6D1625332704D67 /* CallingView.swift */; };
@@ -106,7 +105,6 @@
 		44D5ABDAB989A1DA844738CC /* com-charalarm-yui-3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0848FAFDCEA18533CA39D5DE /* com-charalarm-yui-3.caf */; };
 		456278D967C9D9735683AA8A /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3435F7157573867044F2090B /* CharacterStore.swift */; };
 		45826791CB64F5FB17433DA4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63647C877F7B5CC1E3B3469B /* R.generated.swift */; };
-		46624210C733E804AED2E837 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7E5A892BB25AFB4BB8D1984 /* Localizable.strings */; };
 		485D09DE527CD2125B25BE9A /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C59AE0BA077C07162BD26E2 /* APIHeader.swift */; };
 		4881BBE64D1F76DDBA1DF2DB /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A6EE8DBA273ED06FB06F8 /* News.swift */; };
 		49768FA9A2BC9351DB11CA9D /* com-charalarm-yui-14.caf in Resources */ = {isa = PBXBuildFile; fileRef = B9D1B7C23A38500C4F9557D4 /* com-charalarm-yui-14.caf */; };
@@ -207,6 +205,9 @@
 		8A5B7887C2C01A7B5D467E17 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E702D8BFCDA316C16B15DA /* FileHandler.swift */; };
 		8B20591BA9607A511380FE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FC53CB47C8254A518F6A9 /* AppDelegate.swift */; };
 		8B3143D53CF9858AF27D2086 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135FA69DF02A4CAA4C00A69 /* CloseBarButton.swift */; };
+		8DC294E125D2F44C0057394F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DC294E525D2F44C0057394F /* Localizable.strings */; };
+		8DC294E225D2F44C0057394F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DC294E525D2F44C0057394F /* Localizable.strings */; };
+		8DC294E325D2F44C0057394F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DC294E525D2F44C0057394F /* Localizable.strings */; };
 		8DD40292AB3A76479A27E44F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3D48B11A4667294D6CCA1E /* Response.swift */; };
 		8E837064427BE0B7CCBB767E /* Pods_CharalarmStaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A26F0C0989AB993CB5082AE /* Pods_CharalarmStaging.framework */; };
 		8F76DCEFDD44E3239F6AF800 /* com-charalarm-yui-2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 723D2F66C438D740875289DF /* com-charalarm-yui-2.caf */; };
@@ -291,7 +292,6 @@
 		CDA9E480DB51A78779354765 /* CallKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E315AEE9E265153A751D830 /* CallKitHandler.swift */; };
 		CDDC539EC11396BDCD2C782C /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3435F7157573867044F2090B /* CharacterStore.swift */; };
 		CEEA5D7DD8209F8B738A261D /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */; };
-		CF92E803F68C75FDB98E0786 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7E5A892BB25AFB4BB8D1984 /* Localizable.strings */; };
 		CFD32AA779754F247C667582 /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7501C572A5DF61F9831CA /* MaintenanceView.swift */; };
 		D109B7855BC988ED44DDC8EB /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BC61222B11801274795D7 /* UserDefaultsHandler.swift */; };
 		D158081871711BE5B9F09A72 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8CE2D930E90FED5B59D49 /* CharacterListViewModel.swift */; };
@@ -465,6 +465,7 @@
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8C54CED7785616C0D1D7E55B /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
+		8DC294E425D2F44C0057394F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9073E1791846BE7B7E901950 /* com-charalarm-yui-15.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-15.caf"; sourceTree = "<group>"; };
 		9A8F361447A4E0FCB38CCC1B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -525,7 +526,6 @@
 		ECD35E76C36C0D1CE82229B3 /* BackBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButton.swift; sourceTree = "<group>"; };
 		EF5B28299B38EFD5A2D63B5B /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewModel.swift; sourceTree = "<group>"; };
 		F61D0CFBD6D1625332704D67 /* CallingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingView.swift; sourceTree = "<group>"; };
-		F7E5A892BB25AFB4BB8D1984 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F97E586E4B97AE3524D4BF57 /* com-charalarm-yui-11.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-11.caf"; sourceTree = "<group>"; };
 		FACA66211D763D0B12DDAE5B /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -663,10 +663,11 @@
 				4FC7DF0987F5FC2A3F0DD59C /* ja.lproj */,
 				D34F499DA3A438885B364999 /* Key.swift */,
 				3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */,
-				F7E5A892BB25AFB4BB8D1984 /* Localizable.strings */,
+				8DC294E525D2F44C0057394F /* Localizable.strings */,
 				9E24E1C9214EAF296F0A7F0D /* pokemon.caf */,
 				FB625E3E2FA2DFF1780F812D /* SceneDelegate.swift */,
 				6915811511BDD6501346263B /* Settings.bundle */,
+				8DC294EB25D2F6D90057394F /* Logger */,
 				2C3A6CBFE0EA874037556100 /* CallKit */,
 				35CE0717DB5E83C7E13D8178 /* Entity */,
 				3EBDC566ED9D171F6602B8AF /* Error */,
@@ -887,6 +888,13 @@
 				9CA19F2900DE0A9C04381A51 /* UpdateRequiredView.swift */,
 			);
 			path = UpdateRequired;
+			sourceTree = "<group>";
+		};
+		8DC294EB25D2F6D90057394F /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		924C10A9304F65F081128E74 /* AlarmDetail */ = {
@@ -1249,7 +1257,7 @@
 				2C36CD9AC27BDF7E32F97692 /* Assets.xcassets in Resources */,
 				6D9D0F57D6B4195A6E394AE5 /* GoogleService-Info.plist in Resources */,
 				C6D0DED0230BF02DD875FA27 /* LaunchScreen.storyboard in Resources */,
-				28F3534432B29B8A628B4984 /* Localizable.strings in Resources */,
+				8DC294E325D2F44C0057394F /* Localizable.strings in Resources */,
 				F8FD127F24B506F604BD43D8 /* Preview Assets.xcassets in Resources */,
 				B4FE49FC69D616B2C2AB8034 /* Resource in Resources */,
 				CC434CB4BCEFA546EF343D52 /* Settings.bundle in Resources */,
@@ -1291,7 +1299,7 @@
 				4D4764D6FB6CC4A093E32BC1 /* Assets.xcassets in Resources */,
 				F76D993E6CB470D624DAFF9D /* GoogleService-Info.plist in Resources */,
 				1AD3884D434E2396F3E648CB /* LaunchScreen.storyboard in Resources */,
-				46624210C733E804AED2E837 /* Localizable.strings in Resources */,
+				8DC294E125D2F44C0057394F /* Localizable.strings in Resources */,
 				34B9C6E133DD5DA82A376299 /* Preview Assets.xcassets in Resources */,
 				530FA1C6629C4DE5A098C7EC /* Resource in Resources */,
 				6790EF7F526D22877C636FC7 /* Settings.bundle in Resources */,
@@ -1333,7 +1341,7 @@
 				EA1648C9932F9E6CF99E2A9D /* Assets.xcassets in Resources */,
 				9D653CF7624E982E5617EBC8 /* GoogleService-Info.plist in Resources */,
 				6E3699536C492C0B1F5936B9 /* LaunchScreen.storyboard in Resources */,
-				CF92E803F68C75FDB98E0786 /* Localizable.strings in Resources */,
+				8DC294E225D2F44C0057394F /* Localizable.strings in Resources */,
 				B68B0909DD9A3F40593E6019 /* Preview Assets.xcassets in Resources */,
 				910F4A6AF1F91C31DD65369E /* Resource in Resources */,
 				644D054BC1D5B41CED904EDF /* Settings.bundle in Resources */,
@@ -1944,6 +1952,15 @@
 				50737E9AEB735597E19BCC21 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8DC294E525D2F44C0057394F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DC294E425D2F44C0057394F /* en */,
+			);
+			name = Localizable.strings;
+			path = ja.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

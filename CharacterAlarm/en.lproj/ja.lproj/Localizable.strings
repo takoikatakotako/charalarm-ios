@@ -48,6 +48,10 @@
 // Character
 "character-character-list" = "キャラクター一覧";
 "character-failed-to-get-the-character" = "キャラクターの取得に失敗しました。";
+"character-pr" = "PR";
+"character-want-to-publish-your-character" = "あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！";
+"character-illustration" = "イラスト";
+"character-voice" = "CV";
 
 // Config
 "config-config" = "設定";

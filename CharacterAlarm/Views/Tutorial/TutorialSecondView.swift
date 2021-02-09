@@ -83,7 +83,7 @@ struct TutorialSecondView: View {
                     destination: TutorialThirdView()
                         .environmentObject(appState),
                     label: {
-                        TutorialButtonContent(text: "つぎへ")
+                        TutorialButtonContent(text: R.string.localizable.commonNext())
                             .padding(.horizontal, 16)
                     })
                     .padding(.bottom, 28)
