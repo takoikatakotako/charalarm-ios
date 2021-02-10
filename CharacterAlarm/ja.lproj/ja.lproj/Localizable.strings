@@ -1,49 +1,49 @@
 // English
 
 // Tutorial
-"tutorial-agree-with-the-privacy-policy" = "I agree with the privacy policy";
-"tutorial-failed-to-save-user-information" = "Failed to save user information.";
-"tutorial-open-the-privacy-policy" = "Open the privacy policy";
-"tutorial-please-accept-the-privacy-policy" = "Please accept the privacy policy";
-"tutorial-welcome-to-charalarm" = "Welcome to Charalarm!!";
-"tutorial-this-is-an-app" = "This app is an app that the character calls at the time you set.";
-"tutorial-let-us-try-it-now" = "Let's try it now!";
-"tutorial-get-a-call" = "Get a call";
-"tutorial-you-can-see-the-characters" = "You can see the characters that can receive incoming calls from the character list.";
-"tutorial-please-choose-your-favorite-character" = "Please choose your favorite character.";
-"tutorial-did-you-get-a-call" = "Did you get a call?";
-"tutorial-you-can-set-multiple-alarms" = "You can set multiple alarms by specifying the time and day of the week.";
-"tutorial-go-to-home-screen" = "Go to home screen";
-"tutorial-finally-please-allow-push-notificaion" = "Finally, please allow push notifications, such as to announce the addition of new characters.";
+"tutorial-agree-with-the-privacy-policy" =  "プライバシーポリシーに同意する";
+"tutorial-failed-to-save-user-information" = "ユーザー情報の保存に設定に失敗しました。";
+"tutorial-open-the-privacy-policy" = "プライバシーポリシーを開く";
+"tutorial-please-accept-the-privacy-policy" = "プライバシーポリシーへの同意をお願いします。";
+"tutorial-welcome-to-charalarm" = "キャラームにようこそ！";
+"tutorial-this-is-an-app" = "このアプリは設定した時間にキャラクターが電話をしてくれるアプリです。";
+"tutorial-let-us-try-it-now" = "さっそく試してみましょう！";
+"tutorial-get-a-call" = "電話をしてもらう";
+"tutorial-you-can-see-the-characters" = "キャラクター一覧から着信を受けられるキャラクターを見ることができます。";
+"tutorial-please-choose-your-favorite-character" = "好きなキャラクターを選んでみてください。";
+"tutorial-did-you-get-a-call" = "無事に電話がかかってきましたか？";
+"tutorial-you-can-set-multiple-alarms" = "アラームは時間や曜日を指定して複数セットすることができます。";
+"tutorial-go-to-home-screen" = "ホーム画面へ";
+"tutorial-finally-please-allow-push-notificaion" = "最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。";
 
 // UpdateRequired
-"update-requird-open-app-store" = "Open App Store";
-"update-requird-update-requird" = "Update Requird";
-"update-requird-the-app-needs-to-be-updated" = "The app needs to be updated.";
-"update-requird-please-install-the-latest-version" = "Please install the latest version of the app from the store.";
+"update-requird-open-app-store" = "App Storeを開く";
+"update-requird-update-requird" = "アップデートが必要です";
+"update-requird-the-app-needs-to-be-updated" = "アプリのアップデートが必要です。";
+"update-requird-please-install-the-latest-version" = "ストアから最新版のアプリのインストールをお願いします。";
 
 // Profile
-"profile-name" = "Name";
-"profile-profile" = "Profile";
-"profile-illustration" = "Illustration";
-"profile-voice" = "Voice";
-"profile-failed-to-download-resources" = "Failed to download resources";
-"profile-downloading-resources" = "Downloading resources";
-"profile-character-selection" = "Character selection";
-"profile-want-to-call-this-character" = "Want to call this character?";
-"profile-yes" = "Yes!!";
-"profile-failed-to-get-the-character-information" = "Failed to get the character information.";
-"profile-failed-to-get-the-resource-of-the-character" = "Failed to get the resource of the character.";
+"profile-name" = "名前";
+"profile-profile" = "プロフィール";
+"profile-illustration" = "イラスト";
+"profile-voice" = "CV";
+"profile-failed-to-download-resources" = "リソースのダウンロードに失敗しました";
+"profile-downloading-resources" = "リソースをダウンロードしています";
+"profile-character-selection" = "キャラクター選択";
+"profile-want-to-call-this-character" = "このキャラクターに電話してもらいたいですか？";
+"profile-yes" = "はい!!";
+"profile-failed-to-get-the-character-information" = "キャラクター情報の取得に失敗しました。";
+"profile-failed-to-get-the-resource-of-the-character" = "キャラクターのリソースの取得に失敗しました。";
 
 // Alarm
-"alarm-alarm-name" = "Alarm Name";
-"alarm-please-enter-the-alarm-name" = "Please enter the alarm name";
-"alarm-delete-alarm" = "Delete Alarm";
-"alarm-add-alarm" = "Add Alarm";
-"alarm-failed-to-create-an-alarm" = "Failed to create an alarm.";
-"alarm-failed-to-edit-the-alarm" = "Failed to edit the alarm.";
-"alarm-you-can-create-up-to-three-alarms" = "You can create up to three alarms.";
-"alarm-failed-to-get-the-alarm-list" = "Failed to get the alarm list.";
+"alarm-alarm-name" = "アラーム名";
+"alarm-please-enter-the-alarm-name" = "アラーム名を入力してください";
+"alarm-delete-alarm" = "アラーム削除";
+"alarm-add-alarm" = "アラーム追加";
+"alarm-failed-to-create-an-alarm" = "アラームの作成に失敗しました。";
+"alarm-failed-to-edit-the-alarm" = "アラームの編集に失敗しました。";
+"alarm-you-can-create-up-to-three-alarms" = "アラームは最大3つまで作成できます。";
+"alarm-failed-to-get-the-alarm-list" =  "アラーム一覧の取得に失敗しました。";
 
 // Character
 "character-character-list" = "キャラクター一覧";
