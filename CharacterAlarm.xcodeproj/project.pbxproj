@@ -420,7 +420,6 @@
 		49AB5677E8B151AAFA7C724B /* PushStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStore.swift; sourceTree = "<group>"; };
 		4AC7501C572A5DF61F9831CA /* MaintenanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceView.swift; sourceTree = "<group>"; };
 		4CA4CA8D022533B34EA5904B /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		4FC7DF0987F5FC2A3F0DD59C /* ja.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ja.lproj; path = en.lproj/ja.lproj; sourceTree = "<group>"; };
 		50737E9AEB735597E19BCC21 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		528BE5DDF39EAE722E51197C /* Pods-CharalarmLocal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharalarmLocal.release.xcconfig"; path = "Target Support Files/Pods-CharalarmLocal/Pods-CharalarmLocal.release.xcconfig"; sourceTree = "<group>"; };
 		555BC61222B11801274795D7 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
@@ -661,7 +660,6 @@
 				E2BC393EFA0B83134BF62B24 /* CharacterAlarmDebug.entitlements */,
 				D643DDE403E6F2B0EE897D2A /* CharacterAlarmRelease.entitlements */,
 				9A8F361447A4E0FCB38CCC1B /* Config.swift */,
-				4FC7DF0987F5FC2A3F0DD59C /* ja.lproj */,
 				D34F499DA3A438885B364999 /* Key.swift */,
 				3CF57825F325D3807DDEBF09 /* LaunchScreen.storyboard */,
 				8DC294E525D2F44C0057394F /* Localizable.strings */,
