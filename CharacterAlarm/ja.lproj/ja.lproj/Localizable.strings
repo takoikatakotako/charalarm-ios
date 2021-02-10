@@ -54,42 +54,42 @@
 "character-voice" = "CV";
 
 // Config
-"config-config" = "Config";
-"config-user-info" = "User Info";
-"config-other" = "Other";
-"config-official-twitter" = "Official Twitter";
-"config-application-info" = "Application Info";
-"config-inquires-about-the-app" = "Inquiries about the app";
-"config-inquires-adding-characters" = "Inquiries about adding characters";
-"config-version-info" = "Version Info";
-"config-license" = "License";
-"config-reset" = "Reset";
-"config-are-you-sure-you-want-to-reset-the-app" = "Are you sure you want to reset the app?";
+"config-config" = "設定";
+"config-user-info" = "ユーザー情報";
+"config-other" = "その他";
+"config-official-twitter" = "公式Twitter";
+"config-application-info" = "アプリケーション情報";
+"config-inquires-about-the-app" = "アプリについてのお問い合わせ";
+"config-inquires-adding-characters" = "キャラクター追加のお問い合わせ";
+"config-version-info" = "バージョン情報";
+"config-license" = "ライセンス";
+"config-reset" = "リセット";
+"config-are-you-sure-you-want-to-reset-the-app" = "アプリをリセットしてよろしいですか？";
 
 // News
-"news-news" = "News";
-"news-failed-to-get-the-news" = "Failed to get the news.";
+"news-news" = "ニュース";
+"news-failed-to-get-the-news" = "ニュースの取得に失敗しました。";
 
 // UserInfoView
-"user-info-user-name" = "User Name";
-"user-info-user-info" = "User Info";
+"user-info-user-name" = "ユーザー名";
+"user-info-user-info" = "ユーザー情報";
 
 // DayOfWeek
-"day-of-week-sunday" = "Sun";
-"day-of-week-monday" = "Mon";
-"day-of-week-tuesday" = "Tue";
-"day-of-week-wednesday" = "Wed";
-"day-of-week-thursday" = "Thu";
-"day-of-week-friday" = "Fri";
-"day-of-week-saturday" = "Sat";
+"day-of-week-sunday" = "日";
+"day-of-week-monday" = "月";
+"day-of-week-tuesday" = "火";
+"day-of-week-wednesday" = "水";
+"day-of-week-thursday" = "木";
+"day-of-week-friday" = "金";
+"day-of-week-saturday" = "土";
 
 // Common
-"common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";
-"common-next" = "Next";
-"common-close" = "Close";
-"common-cancel" = "Cancel";
-"common-save" = "Save";
+"common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
+"common-next" = "次へ";
+"common-close" = "閉じる";
+"common-cancel" = "キャンセル";
+"common-save" = "保存";
 
 // Error
-"error-an-unknown-error-has-occurred" = "An unknown error has occurred.";
-"error-failed-to-get-the-authentication-information" = "Failed to get the authentication information.";
+"error-an-unknown-error-has-occurred" = "不明なエラーが発生しました。";
+"error-failed-to-get-the-authentication-information" = "認証情報の取得に失敗しました。";
