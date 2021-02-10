@@ -465,6 +465,7 @@
 		8A3D48B11A4667294D6CCA1E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8C54CED7785616C0D1D7E55B /* Pods-CharacterAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharacterAlarmUITests/Pods-CharacterAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D1EFD5DEF556A52556C61E3 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
+		8D6EC96125D4418F004612EF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8DC294E425D2F44C0057394F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8EBAA555618F2495E7F5DED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9073E1791846BE7B7E901950 /* com-charalarm-yui-15.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "com-charalarm-yui-15.caf"; sourceTree = "<group>"; };
@@ -1958,6 +1959,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8DC294E425D2F44C0057394F /* en */,
+				8D6EC96125D4418F004612EF /* ja */,
 			);
 			name = Localizable.strings;
 			path = ja.lproj;
