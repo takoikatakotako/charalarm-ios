@@ -75,7 +75,7 @@ struct TutorialSecondView: View {
                     .padding(.bottom, 32)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .background(Color("charalarm-default-gray"))
+                .background(Color(R.color.charalarmDefaultGray.name))
             }
             
             if showingNextButton {
@@ -83,7 +83,7 @@ struct TutorialSecondView: View {
                     destination: TutorialThirdView()
                         .environmentObject(appState),
                     label: {
-                        TutorialButtonContent(text: "つぎへ")
+                        TutorialButtonContent(text: R.string.localizable.commonNext())
                             .padding(.horizontal, 16)
                     })
                     .padding(.bottom, 28)

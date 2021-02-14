@@ -13,7 +13,7 @@ class AlarmListViewModel: ObservableObject {
         if alarms.count < 3 {
             editAlarm(alarm: createNewAlarm())
         } else {
-            self.alertMessage = "アラームは最大3つまで作成できます。"
+            self.alertMessage = R.string.localizable.alarmYouCanCreateUpToThreeAlarms()
             self.showingAlert = true
         }
     }
@@ -32,7 +32,7 @@ class AlarmListViewModel: ObservableObject {
     func fetchAlarms() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = "認証情報の取得に失敗しました。"
+            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
             self.showingAlert = true
             return
         }
@@ -41,7 +41,7 @@ class AlarmListViewModel: ObservableObject {
             case let .success(alarms):
                 self.alarms = alarms
             case .failure:
-                self.alertMessage = "アラーム一覧の取得に失敗しました。"
+                self.alertMessage = R.string.localizable.alarmFailedToGetTheAlarmList()
                 self.showingAlert = true
             }
         }
@@ -50,7 +50,7 @@ class AlarmListViewModel: ObservableObject {
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = "認証情報の取得に失敗しました。"
+            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
             self.showingAlert = true
             return
         }
@@ -66,7 +66,7 @@ class AlarmListViewModel: ObservableObject {
             case .success(_):
                 break
             case .failure:
-                self.alertMessage = "アラームの編集に失敗しました"
+                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
                 self.showingAlert = true
             }
         }

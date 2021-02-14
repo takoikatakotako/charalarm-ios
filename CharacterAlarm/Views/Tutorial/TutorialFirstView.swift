@@ -6,14 +6,14 @@ struct TutorialFirstView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
             Spacer()
-            Text("キャラームへようこそ！")
+            Text(R.string.localizable.tutorialWelcomeToCharalarm())
                 .font(Font.system(size: 20))
             
-            Text("このアプリは設定した時間にキャラクターが電話をしてくれるアプリです。")
+            Text(R.string.localizable.tutorialThisIsAnApp())
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
             
-            Text("さっそく試してみましょう！")
+            Text(R.string.localizable.tutorialLetUsTryItNow())
                 .font(Font.system(size: 20))
             
             Image(R.image.sdNormal.name)
@@ -26,7 +26,7 @@ struct TutorialFirstView: View {
                 destination: TutorialSecondView()
                     .environmentObject(appState),
                 label: {
-                    TutorialButtonContent(text: "電話をしてもらう")
+                    TutorialButtonContent(text: R.string.localizable.tutorialGetACall())
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)

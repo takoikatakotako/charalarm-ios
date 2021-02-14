@@ -15,11 +15,11 @@ struct TutorialFourthView: View {
             
             Spacer()
             
-            Text("キャラクター一覧から着信を受けられるキャラクターを見ることができます。")
+            Text(R.string.localizable.tutorialYouCanSeeTheCharacters())
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
             
-            Text("好きなキャラクターを選んでみてください。")
+            Text(R.string.localizable.tutorialPleaseChooseYourFavoriteCharacter())
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
             
@@ -28,7 +28,7 @@ struct TutorialFourthView: View {
             NavigationLink(
                 destination: TutorialFifthView().environmentObject(appState),
                 label: {
-                    TutorialButtonContent(text: "つぎへ")
+                    TutorialButtonContent(text: R.string.localizable.commonNext())
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)

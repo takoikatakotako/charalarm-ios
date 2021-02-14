@@ -13,11 +13,11 @@ struct TutorialThirdView: View {
                 .frame(width: 320, height: 400)
                 .padding(.bottom, 36)
             
-            Text("無事に着信できましたか？")
+            Text(R.string.localizable.tutorialDidYouGetACall())
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
             
-            Text("アラームは時間や曜日を指定して複数セットすることができます。")
+            Text(R.string.localizable.tutorialYouCanSetMultipleAlarms())
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
             
@@ -27,7 +27,7 @@ struct TutorialThirdView: View {
                 destination: TutorialFourthView()
                     .environmentObject(appState),
                 label: {
-                    TutorialButtonContent(text: "つぎへ")
+                    TutorialButtonContent(text: R.string.localizable.commonNext())
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)

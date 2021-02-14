@@ -5,7 +5,7 @@ import SDWebImageSwiftUI
 struct CharacterListView: View {
     @ObservedObject(initialValue: CharacterListViewModel()) var viewModel: CharacterListViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -38,13 +38,14 @@ struct CharacterListView: View {
                 self.viewModel.fetchCharacters()
             }
             .alert(isPresented: self.$viewModel.showingAlert) {
-                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
             }
-            .navigationBarTitle("キャラクター一覧", displayMode: .inline)
-            .navigationBarItems(leading:
-                                    CloseBarButton() {
-                                        presentationMode.wrappedValue.dismiss()
-                                    }
+            .navigationBarTitle(R.string.localizable.characterCharacterList(), displayMode: .inline)
+            .navigationBarItems(
+                leading:
+                    CloseBarButton() {
+                        presentationMode.wrappedValue.dismiss()
+                    }
             )
         }
     }

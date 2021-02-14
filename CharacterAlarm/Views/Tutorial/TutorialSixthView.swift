@@ -8,12 +8,12 @@ struct TutorialSixthView: View {
             
             Spacer()
             
-            Text("最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。")
+            Text(R.string.localizable.tutorialFinallyPleaseAllowPushNotificaion())
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
                 .padding(.top, 128)
             
-            Image("sd-smile")
+            Image(R.image.sdSmile.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
@@ -25,7 +25,7 @@ struct TutorialSixthView: View {
             Button(action: {
                 appState.doneTutorial = true
             }) {
-                TutorialButtonContent(text: "ホーム画面へ")
+                TutorialButtonContent(text: R.string.localizable.tutorialGoToHomeScreen())
                     .padding(.horizontal, 16)
             }
             .padding(.bottom, 28)
