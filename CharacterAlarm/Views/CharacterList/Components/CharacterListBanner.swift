@@ -4,7 +4,7 @@ struct CharacterListBanner: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             VStack {
-                Text("PR")
+                Text(R.string.localizable.characterPr())
                     .foregroundColor(Color.white)
                     .font(.system(size: 14))
                     .frame(width: 36, height: 20)
@@ -12,10 +12,10 @@ struct CharacterListBanner: View {
             }
             HStack {
                 Spacer()
-                Text("あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！")
+                Text(R.string.localizable.characterWantToPublishYourCharacter())
                     .multilineTextAlignment(.center)
                     .font(.system(size: 14))
-                    .foregroundColor(Color("brownColor"))
+                    .foregroundColor(Color(R.color.brownColor.name))
                     .padding(.horizontal, 44)
                     .padding(.vertical, 8)
                 Spacer()

@@ -11,19 +11,19 @@ struct AlarmDetailWeekdayButton: View {
     var title: String {
         switch dayOfWeek {
         case .MON:
-            return "月"
+            return R.string.localizable.dayOfWeekMonday()
         case .TUE:
-            return "火"
+            return R.string.localizable.dayOfWeekTuesday()
         case .WED:
-            return "水"
+            return R.string.localizable.dayOfWeekWednesday()
         case .THU:
-            return "木"
+            return R.string.localizable.dayOfWeekThursday()
         case .FRI:
-            return "金"
+            return R.string.localizable.dayOfWeekFriday()
         case .SAT:
-            return "土"
+            return R.string.localizable.dayOfWeekSaturday()
         case .SUN:
-            return "日"
+            return R.string.localizable.dayOfWeekSunday()
         }
     }
     
@@ -42,11 +42,11 @@ struct AlarmDetailWeekdayButton: View {
                 .font(Font.system(size: 16).bold())
                 .foregroundColor(isOn ? Color.white : Color.black)
                 .frame(width: 40, height: 40)
-                .background(isOn ? Color("alarm-card-background-green") : Color.white)
+                .background(isOn ? Color(R.color.alarmCardBackgroundGreen.name) : Color.white)
                 .cornerRadius(20)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color("alarm-card-background-green"), lineWidth: 2)
+                        .stroke(Color(R.color.alarmCardBackgroundGreen.name), lineWidth: 2)
                 )
         }
     }

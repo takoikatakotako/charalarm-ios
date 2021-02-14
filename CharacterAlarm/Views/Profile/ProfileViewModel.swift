@@ -29,7 +29,6 @@ class ProfileViewModel: ObservableObject {
         let name: String
     }
     
-    
     var resourceInfos: [ResourceInfo] = []
     
     var charaThumbnailUrlString: String {
@@ -46,7 +45,7 @@ class ProfileViewModel: ObservableObject {
             case let .success(character):
                 self.character = character
             case .failure:
-                self.alertMessage = "キャラクター情報の取得に失敗しました。"
+                self.alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()
                 self.showingAlert = true
             }
         }
@@ -58,7 +57,7 @@ class ProfileViewModel: ObservableObject {
             case .success(_):
                 print("自己紹介音声の保存に成功しました")
             case .failure:
-                self.alertMessage = "キャラクターのリソースの取得に失敗しました。"
+                self.alertMessage = R.string.localizable.profileFailedToGetTheResourceOfTheCharacter()
                 self.showingAlert = true
             }
         }
@@ -132,7 +131,7 @@ class ProfileViewModel: ObservableObject {
             case .failure(_):
                 DispatchQueue.main.async {
                     self?.showingDownloadingModal = false
-                    self?.alertMessage = "リソースのダウンロードに失敗しました"
+                    self?.alertMessage = R.string.localizable.profileFailedToDownloadResources()
                     self?.showingAlert = true
                 }
             }

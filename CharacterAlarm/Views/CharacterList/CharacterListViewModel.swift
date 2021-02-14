@@ -11,7 +11,7 @@ class CharacterListViewModel: ObservableObject {
             case let .success(characters):
                 self.characters = characters
             case .failure:
-                self.alertMessage = "キャラクターの取得に失敗しました。"
+                self.alertMessage = R.string.localizable.characterFailedToGetTheCharacter()
                 self.showingAlert = true
             }
         }

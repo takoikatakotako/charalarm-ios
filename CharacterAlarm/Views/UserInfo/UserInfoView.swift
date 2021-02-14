@@ -11,7 +11,7 @@ struct UserInfoView: View {
     }
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("ユーザー名")
+            Text(R.string.localizable.userInfoUserName())
                 .font(Font.body.bold())
             Text(userName)
                 .multilineTextAlignment(.leading)
@@ -19,12 +19,13 @@ struct UserInfoView: View {
             Spacer()
         }
         .padding()
-        .navigationBarTitle("ユーザー情報", displayMode: .inline)
+        .navigationBarTitle(R.string.localizable.userInfoUserInfo(), displayMode: .inline)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-                                BackBarButton() {
-                                    presentationMode.wrappedValue.dismiss()
-                                }
+        .navigationBarItems(
+            leading:
+                BackBarButton() {
+                    presentationMode.wrappedValue.dismiss()
+                }
         )
     }
 }

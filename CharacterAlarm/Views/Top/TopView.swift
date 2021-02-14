@@ -25,7 +25,7 @@ struct TopView: View {
                 }
                 
                 Button(action: {
-                    self.viewModel.tapped()
+                    viewModel.tapped()
                 }) {
                     Text("")
                         .frame(width: geometory.size.width, height: geometory.size.height)
@@ -36,10 +36,10 @@ struct TopView: View {
                         HStack {
                             Spacer()
                             Button(action: {
-                                self.viewModel.showNews = true
+                                viewModel.showNews = true
                             }) {
                                 Image(R.image.topNews.name)
-                            }.sheet(isPresented: self.$viewModel.showNews) {
+                            }.sheet(isPresented: $viewModel.showNews) {
                                 NewsListView()
                             }
                             .padding()
@@ -57,12 +57,12 @@ struct TopView: View {
                         HStack {
                             Spacer()
                             Button(action: {
-                                self.viewModel.showCharaList = true
+                                viewModel.showCharaList = true
                             }) {
-                                TopButtonContent(imageName: "top-person")
-                            }.sheet(isPresented: self.$viewModel.showCharaList) {
+                                TopButtonContent(imageName: R.image.topPerson.name)
+                            }.sheet(isPresented: $viewModel.showCharaList) {
                                 CharacterListView()
-                                    .environmentObject( self.appState )
+                                    .environmentObject( appState )
                             }
                             
                             Spacer()
@@ -73,12 +73,12 @@ struct TopView: View {
                                     viewModel.alertMessage = "对不起。此功能在您所在的地区不可用。"
                                     return
                                 }
-                                self.viewModel.showAlarmList = true
+                                viewModel.showAlarmList = true
                             }) {
-                                TopButtonContent(imageName: "top-alarm")
+                                TopButtonContent(imageName: R.image.topAlarm.name)
                             }.sheet(isPresented: self.$viewModel.showAlarmList) {
                                 AlarmListView()
-                                    .environmentObject( self.appState )
+                                    .environmentObject( appState )
                             }
                             
                             Spacer()
@@ -86,10 +86,10 @@ struct TopView: View {
                             Button(action: {
                                 viewModel.showConfig = true
                             }) {
-                                TopButtonContent(imageName: "top-config")
-                            }.sheet(isPresented: self.$viewModel.showConfig) {
+                                TopButtonContent(imageName: R.image.topConfig.name)
+                            }.sheet(isPresented: $viewModel.showConfig) {
                                 ConfigView()
-                                    .environmentObject( self.appState )
+                                    .environmentObject( appState )
                             }
                             
                             Spacer()

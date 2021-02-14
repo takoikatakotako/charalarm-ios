@@ -3,12 +3,12 @@ import SwiftUI
 struct UpdateRequiredView: View {
     var body: some View {
         VStack(spacing: 12) {
-            Text("アップデートが必要です")
+            Text(R.string.localizable.updateRequirdUpdateRequird())
                 .font(Font.system(size: 28))
                 .padding()
             VStack(alignment: .leading) {
-                Text("アプリのアップデートが必要です。")
-                Text("ストアから最新版のアプリのインストールをお願いします。")
+                Text(R.string.localizable.updateRequirdUpdateRequird())
+                Text(R.string.localizable.updateRequirdPleaseInstallTheLatestVersion())
             }
             .padding()
             
@@ -22,7 +22,7 @@ struct UpdateRequiredView: View {
                     UIApplication.shared.open(url)
                 }
             }) {
-                Text("App Storeを開く")
+                Text(R.string.localizable.updateRequirdOpenAppStore())
                     .font(Font.system(size: 20))
             }
             .padding()

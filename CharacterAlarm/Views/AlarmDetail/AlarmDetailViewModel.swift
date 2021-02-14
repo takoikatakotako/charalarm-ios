@@ -32,7 +32,7 @@ class AlarmDetailViewModel: ObservableObject {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             self.showingAlert = true
-            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
             return
         }
         AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { result in
@@ -74,7 +74,7 @@ class AlarmDetailViewModel: ObservableObject {
     private func createAlarm(completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-                self.alertMessage = "認証情報の取得に失敗しました。"
+            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
                 self.showingAlert = true
                 return
         }
@@ -84,7 +84,7 @@ class AlarmDetailViewModel: ObservableObject {
             case .success:
                 completion()
             case .failure:
-                self.alertMessage = "アラームの作成に失敗しました。"
+                self.alertMessage = R.string.localizable.alarmFailedToCreateAnAlarm()
                 self.showingAlert = true
             }
         }
@@ -93,7 +93,7 @@ class AlarmDetailViewModel: ObservableObject {
     private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-                self.alertMessage = "認証情報の取得に失敗しました。"
+            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
                 self.showingAlert = true
                 return
         }
@@ -103,7 +103,7 @@ class AlarmDetailViewModel: ObservableObject {
             case .success(_):
                 completion()
             case .failure:
-                self.alertMessage = "アラームの編集に失敗しました。"
+                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
                 self.showingAlert = true
             }
         }

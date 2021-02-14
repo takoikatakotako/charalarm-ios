@@ -12,7 +12,7 @@ class NewsListViewModel: ObservableObject {
             case let .success(news):
                 self.newsList = news
             case .failure:
-                self.alertMessage = "ニュースの取得に失敗しました。"
+                self.alertMessage = R.string.localizable.newsFailedToGetTheNews()
                 self.showingAlert = true
             }
         }
