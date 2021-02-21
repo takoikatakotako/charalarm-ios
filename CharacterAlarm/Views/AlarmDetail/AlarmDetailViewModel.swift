@@ -5,9 +5,7 @@ class AlarmDetailViewModel: ObservableObject {
     @Published var alarm: Alarm
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    
-    @Published var xxxx: Bool = true
-    
+        
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
@@ -35,13 +33,13 @@ class AlarmDetailViewModel: ObservableObject {
             self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
             return
         }
-        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { result in
+        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
             switch result {
             case .success:
                 completion()
             case .failure:
-                self.alertMessage = "削除に失敗しました"
-                self.showingAlert = true
+                self?.alertMessage = "削除に失敗しました"
+                self?.showingAlert = true
             }
         }
     }

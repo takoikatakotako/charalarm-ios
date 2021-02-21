@@ -40,6 +40,8 @@
 "alarm-please-enter-the-alarm-name" = "Please enter the alarm name";
 "alarm-delete-alarm" = "Delete Alarm";
 "alarm-add-alarm" = "Add Alarm";
+"alarm-edit-alarm" = "Edit Alarm";
+"alarm-new-alarm" = "New Alarm";
 "alarm-failed-to-create-an-alarm" = "Failed to create an alarm.";
 "alarm-failed-to-edit-the-alarm" = "Failed to edit the alarm.";
 "alarm-you-can-create-up-to-three-alarms" = "You can create up to three alarms.";

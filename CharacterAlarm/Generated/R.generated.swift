@@ -813,7 +813,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 72 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 74 localization keys.
     struct localizable {
       /// en translation: Add Alarm
       ///
@@ -867,6 +867,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let profileDownloadingResources = Rswift.StringResource(key: "profile-downloading-resources", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Edit Alarm
+      ///
+      /// Locales: ja, en
+      static let alarmEditAlarm = Rswift.StringResource(key: "alarm-edit-alarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Faild to connect with ther server. Please wait a while and try later.
       ///
       /// Locales: ja, en
@@ -963,6 +967,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let profileName = Rswift.StringResource(key: "profile-name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: New Alarm
+      ///
+      /// Locales: ja, en
+      static let alarmNewAlarm = Rswift.StringResource(key: "alarm-new-alarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: News
       ///
       /// Locales: ja, en
@@ -1297,6 +1305,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("profile-downloading-resources", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Edit Alarm
+      ///
+      /// Locales: ja, en
+      static func alarmEditAlarm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alarm-edit-alarm", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "alarm-edit-alarm"
+        }
+
+        return NSLocalizedString("alarm-edit-alarm", bundle: bundle, comment: "")
       }
 
       /// en translation: Faild to connect with ther server. Please wait a while and try later.
@@ -1657,6 +1680,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("profile-name", bundle: bundle, comment: "")
+      }
+
+      /// en translation: New Alarm
+      ///
+      /// Locales: ja, en
+      static func alarmNewAlarm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alarm-new-alarm", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "alarm-new-alarm"
+        }
+
+        return NSLocalizedString("alarm-new-alarm", bundle: bundle, comment: "")
       }
 
       /// en translation: News

@@ -40,6 +40,8 @@
 "alarm-please-enter-the-alarm-name" = "アラーム名を入力してください";
 "alarm-delete-alarm" = "アラーム削除";
 "alarm-add-alarm" = "アラーム追加";
+"alarm-edit-alarm" = "アラーム編集";
+"alarm-new-alarm" = "新しいアラーム";
 "alarm-failed-to-create-an-alarm" = "アラームの作成に失敗しました。";
 "alarm-failed-to-edit-the-alarm" = "アラームの編集に失敗しました。";
 "alarm-you-can-create-up-to-three-alarms" = "アラームは最大3つまで作成できます。";

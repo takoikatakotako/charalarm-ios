@@ -20,11 +20,11 @@ class AlarmListViewModel: ObservableObject {
     
     func createNewAlarm() -> Alarm {
         let date = Date()
+        let name = R.string.localizable.alarmNewAlarm()
         let calendar = Calendar.current
-        let enable = true
-        let name = date.description
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
+        let enable = true
         let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
         return Alarm(alarmId: nil, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
     }
