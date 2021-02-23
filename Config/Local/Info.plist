@@ -2,12 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GADIsAdManagerApp</key>
+	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>ADMOB_CONFIG</key>
 	<string>${ADMOB_CONFIG}</string>
 	<key>ADMOB_ALARM_LIST</key>
 	<string>${ADMOB_ALARM_LIST}</string>
 	<key>GADApplicationIdentifier</key>
-	<string>${GAD_APPLICATION_IDENTIFER}</string>
+	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>API_ENDPOINT</key>
 	<string>$(API_ENDPOINT)</string>
 	<key>RESOURCE_ENDPOINT</key>

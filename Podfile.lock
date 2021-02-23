@@ -93,6 +93,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/RemoteConfig
+  - Google-Mobile-Ads-SDK
   - KeychainAccess
   - SDWebImageSwiftUI
   - SwiftLint
@@ -138,6 +139,6 @@ SPEC CHECKSUMS:
   SDWebImageSwiftUI: 43687ffe232ddd33fe0659498b7ca9884fdd6b35
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
 
-PODFILE CHECKSUM: b3928f55e0c4261b146f7585d104c921ff504a90
+PODFILE CHECKSUM: 5971e4ab7fc6480fe24d1bd4115c888e97b6118c
 
 COCOAPODS: 1.10.1

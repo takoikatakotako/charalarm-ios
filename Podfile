@@ -10,6 +10,7 @@ def install_pods
   pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/AdMob'
+  pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftLint'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
