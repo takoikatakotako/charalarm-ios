@@ -77,6 +77,8 @@ targets:
     dependencies:
       - package: R.swift.Library
         product: Rswift
+      - sdk: AdSupport.framework
+      - sdk: AppTrackingTransparency.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -124,6 +126,8 @@ targets:
     dependencies:
       - package: R.swift.Library
         product: Rswift
+      - sdk: AdSupport.framework
+      - sdk: AppTrackingTransparency.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -145,6 +149,8 @@ targets:
     dependencies:
       - package: R.swift.Library
         product: Rswift
+      - sdk: AdSupport.framework
+      - sdk: AppTrackingTransparency.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
