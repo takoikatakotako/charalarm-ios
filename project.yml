@@ -54,7 +54,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: Config/Local/Info.plist
+        INFOPLIST_FILE: CharacterAlarm/Info.plist
         MARKETING_VERSION: 2.0.9
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
@@ -103,7 +103,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.charalarm.staging
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: Config/Staging/Info.plist
+        INFOPLIST_FILE: CharacterAlarm/Info.plist
         MARKETING_VERSION: 2.0.9
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
@@ -164,7 +164,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: Config/Production/Info.plist
+        INFOPLIST_FILE: CharacterAlarm/Info.plist
         MARKETING_VERSION: 2.0.9
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
