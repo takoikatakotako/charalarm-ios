@@ -53,7 +53,7 @@ class AlarmListViewModel: ObservableObject {
     func fetchAlarms() {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-                alert = .error(UUID(), R.string.localizable.errorFailedToGetTheAuthenticationInformation())
+                alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
             return
         }
         AlarmStore.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
@@ -69,7 +69,7 @@ class AlarmListViewModel: ObservableObject {
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            alert = .error(UUID(), R.string.localizable.errorFailedToGetTheAuthenticationInformation())
+            alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
 
             return
         }

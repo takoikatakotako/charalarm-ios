@@ -106,12 +106,7 @@ struct TopView: View {
             viewModel.setChara()
         }
         .onAppear {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                guard granted else { return }
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
+            viewModel.onAppear()
             viewModel.setChara()
         }
         .alert(isPresented: $viewModel.showingAlert) {

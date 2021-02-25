@@ -1,5 +1,17 @@
 import SwiftUI
 import AVFoundation
+import AdSupport
+import AppTrackingTransparency
+
+enum TopViewModelAlart: Identifiable {
+    case failedToGetCharacterInformation(String)
+    var id: String {
+        switch self {
+        case let .failedToGetCharacterInformation(message):
+            return message
+        }
+    }
+}
 
 class TopViewModel: ObservableObject {
     @Published var charaImage = UIImage()
@@ -11,6 +23,29 @@ class TopViewModel: ObservableObject {
     @Published var alertMessage: String = ""
     var audioPlayer: AVAudioPlayer?
 
+    func onAppear() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            guard granted else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+        
+        switch ATTrackingManager.trackingAuthorizationStatus {
+        case .authorized:
+            print("Allow Tracking")
+            print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
+        case .denied:
+            print("😭拒否")
+        case .restricted:
+            print("🥺制限")
+        case .notDetermined:
+            print("SSSSS")
+        @unknown default:
+            print("xxxx")
+        }
+    }
+    
     func tapped() {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
             DispatchQueue.main.async {
@@ -42,7 +77,7 @@ class TopViewModel: ObservableObject {
             case let .success(character):
                 completion(character)
             case .failure:
-                self.alertMessage = "キャラクター情報の取得に失敗しました。"
+                self.alertMessage = R.string.localizable.errorFailedToGetCharacterInformation()
                 self.showingAlert = true
             }
         }
@@ -51,7 +86,7 @@ class TopViewModel: ObservableObject {
     func setChara() {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
             DispatchQueue.main.async {
-                self.alertMessage = "選択中のキャラクターの情報をを取得できませんでした"
+                self.alertMessage = R.string.localizable.errorFailedToGetCharacterInformation()
                 self.showingAlert = true
             }
             return
@@ -59,7 +94,7 @@ class TopViewModel: ObservableObject {
         
         guard let resource = getResource(charaDomain: charaDomain) else {
             DispatchQueue.main.async {
-                self.alertMessage = "リソースを取得できませんでした"
+                self.alertMessage = R.string.localizable.errorFailedToGetCharactersResources()
                 self.showingAlert = true
             }
             return

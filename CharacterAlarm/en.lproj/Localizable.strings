@@ -94,4 +94,10 @@
 
 // Error
 "error-an-unknown-error-has-occurred" = "An unknown error has occurred.";
-"error-failed-to-get-the-authentication-information" = "Failed to get the authentication information.";
+"error-failed-to-get-authentication-information" = "Failed to get the authentication information";
+"error-failed-to-get-character-information" = "Failed to get the character information";
+"error-failed-to-get-character-selection-information" = "Failed to get the character selection information";
+"error-failed-to-get-characters-resources" = "Failed to get the character's resources";
+
+
+

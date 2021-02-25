@@ -813,7 +813,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 74 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 77 localization keys.
     struct localizable {
       /// en translation: Add Alarm
       ///
@@ -891,14 +891,26 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let alarmFailedToGetTheAlarmList = Rswift.StringResource(key: "alarm-failed-to-get-the-alarm-list", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
-      /// en translation: Failed to get the authentication information.
+      /// en translation: Failed to get the authentication information
       ///
-      /// Locales: ja, en
-      static let errorFailedToGetTheAuthenticationInformation = Rswift.StringResource(key: "error-failed-to-get-the-authentication-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// Locales: en
+      static let errorFailedToGetAuthenticationInformation = Rswift.StringResource(key: "error-failed-to-get-authentication-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Failed to get the character information
+      ///
+      /// Locales: en
+      static let errorFailedToGetCharacterInformation = Rswift.StringResource(key: "error-failed-to-get-character-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Failed to get the character information.
       ///
       /// Locales: ja, en
       static let profileFailedToGetTheCharacterInformation = Rswift.StringResource(key: "profile-failed-to-get-the-character-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Failed to get the character selection information
+      ///
+      /// Locales: en
+      static let errorFailedToGetCharacterSelectionInformation = Rswift.StringResource(key: "error-failed-to-get-character-selection-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Failed to get the character's resources
+      ///
+      /// Locales: en
+      static let errorFailedToGetCharactersResources = Rswift.StringResource(key: "error-failed-to-get-characters-resources", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Failed to get the character.
       ///
       /// Locales: ja, en
@@ -1397,19 +1409,34 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("alarm-failed-to-get-the-alarm-list", bundle: bundle, comment: "")
       }
 
-      /// en translation: Failed to get the authentication information.
+      /// en translation: Failed to get the authentication information
       ///
-      /// Locales: ja, en
-      static func errorFailedToGetTheAuthenticationInformation(preferredLanguages: [String]? = nil) -> String {
+      /// Locales: en
+      static func errorFailedToGetAuthenticationInformation(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("error-failed-to-get-the-authentication-information", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("error-failed-to-get-authentication-information", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "error-failed-to-get-the-authentication-information"
+          return "error-failed-to-get-authentication-information"
         }
 
-        return NSLocalizedString("error-failed-to-get-the-authentication-information", bundle: bundle, comment: "")
+        return NSLocalizedString("error-failed-to-get-authentication-information", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Failed to get the character information
+      ///
+      /// Locales: en
+      static func errorFailedToGetCharacterInformation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-get-character-information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-get-character-information"
+        }
+
+        return NSLocalizedString("error-failed-to-get-character-information", bundle: bundle, comment: "")
       }
 
       /// en translation: Failed to get the character information.
@@ -1425,6 +1452,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("profile-failed-to-get-the-character-information", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Failed to get the character selection information
+      ///
+      /// Locales: en
+      static func errorFailedToGetCharacterSelectionInformation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-get-character-selection-information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-get-character-selection-information"
+        }
+
+        return NSLocalizedString("error-failed-to-get-character-selection-information", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Failed to get the character's resources
+      ///
+      /// Locales: en
+      static func errorFailedToGetCharactersResources(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-get-characters-resources", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-get-characters-resources"
+        }
+
+        return NSLocalizedString("error-failed-to-get-characters-resources", bundle: bundle, comment: "")
       }
 
       /// en translation: Failed to get the character.

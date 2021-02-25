@@ -95,3 +95,7 @@
 // Error
 "error-an-unknown-error-has-occurred" = "不明なエラーが発生しました。";
 "error-failed-to-get-the-authentication-information" = "認証情報の取得に失敗しました。";
+"error-failed-to-get-the-character-information" = "キャラクターの情報の取得に失敗しました";
+"error-failed-to-get-the-character-selection-information" = "キャラクターの選択情報の取得に失敗しました";
+"error-failed-to-get-the-characters-resources" = "キャラクターのリソースを取得に失敗しました";
+

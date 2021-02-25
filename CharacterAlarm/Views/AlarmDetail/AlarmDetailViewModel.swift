@@ -30,7 +30,7 @@ class AlarmDetailViewModel: ObservableObject {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
             self.showingAlert = true
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
+            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
             return
         }
         AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
@@ -72,7 +72,7 @@ class AlarmDetailViewModel: ObservableObject {
     private func createAlarm(completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
+            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
                 self.showingAlert = true
                 return
         }
@@ -91,7 +91,7 @@ class AlarmDetailViewModel: ObservableObject {
     private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
         guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
             let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
+            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
                 self.showingAlert = true
                 return
         }
