@@ -14,14 +14,20 @@ enum TopViewModelAlert: Identifiable {
     }
 }
 
+enum TopViewModelSheet: Identifiable {
+    case newsList
+    case characterList
+    case alarmList
+    case config
+    var id: Int {
+        return hashValue
+    }
+}
+
 class TopViewModel: ObservableObject {
     @Published var charaImage = UIImage()
-    @Published var showNews: Bool = false
-    @Published var showCharaList: Bool = false
-    @Published var showAlarmList: Bool = false
-    @Published var showConfig: Bool = false
-    @Published var showingAlert: Bool = false
     @Published var alert: TopViewModelAlert?
+    @Published var sheet: TopViewModelSheet?
     
     var audioPlayer: AVAudioPlayer?
 
@@ -35,17 +41,24 @@ class TopViewModel: ObservableObject {
         
         switch ATTrackingManager.trackingAuthorizationStatus {
         case .authorized:
-            print("Allow Tracking")
-            print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
+            break
         case .denied:
-            print("😭拒否")
+            break
         case .restricted:
-            print("🥺制限")
+            break
         case .notDetermined:
             print("SSSSS")
         @unknown default:
-            print("xxxx")
+            break
         }
+    }
+    
+    func newsButtonTapped() {
+        sheet = .newsList
+    }
+    
+    func characterListButtonTapped() {
+        sheet = .characterList
     }
     
     func alarmButtonTapped() {
@@ -53,7 +66,11 @@ class TopViewModel: ObservableObject {
             alert = .thisFeatureIsNotAvailableInYourRegion
             return
         }
-        showAlarmList = true
+        sheet = .alarmList
+    }
+    
+    func configButtonTapped() {
+        sheet = .config
     }
     
     func tapped() {

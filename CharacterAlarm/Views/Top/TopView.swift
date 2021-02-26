@@ -36,11 +36,9 @@ struct TopView: View {
                         HStack {
                             Spacer()
                             Button(action: {
-                                viewModel.showNews = true
+                                viewModel.newsButtonTapped()
                             }) {
                                 Image(R.image.topNews.name)
-                            }.sheet(isPresented: $viewModel.showNews) {
-                                NewsListView()
                             }
                             .padding()
                             .padding(.top, 8)
@@ -57,12 +55,9 @@ struct TopView: View {
                         HStack {
                             Spacer()
                             Button(action: {
-                                viewModel.showCharaList = true
+                                viewModel.characterListButtonTapped()
                             }) {
                                 TopButtonContent(imageName: R.image.topPerson.name)
-                            }.sheet(isPresented: $viewModel.showCharaList) {
-                                CharacterListView()
-                                    .environmentObject( appState )
                             }
                             
                             Spacer()
@@ -71,20 +66,14 @@ struct TopView: View {
                                 viewModel.alarmButtonTapped()
                             }) {
                                 TopButtonContent(imageName: R.image.topAlarm.name)
-                            }.sheet(isPresented: $viewModel.showAlarmList) {
-                                AlarmListView()
-                                    .environmentObject( appState )
                             }
                             
                             Spacer()
                             
                             Button(action: {
-                                viewModel.showConfig = true
+                                viewModel.configButtonTapped()
                             }) {
                                 TopButtonContent(imageName: R.image.topConfig.name)
-                            }.sheet(isPresented: $viewModel.showConfig) {
-                                ConfigView()
-                                    .environmentObject( appState )
                             }
                             
                             Spacer()
@@ -116,6 +105,23 @@ struct TopView: View {
                 return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToSetCharacterImage()), dismissButton: .default(Text(R.string.localizable.commonClose())))
             case .thisFeatureIsNotAvailableInYourRegion:
                 return Alert(title: Text(""), message: Text(R.string.localizable.errorThisFeatureIsNotAvailableInYourRegion()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            }
+        }
+        .sheet(item: $viewModel.sheet) {
+            // On Dissmiss
+        } content: { item in
+            switch item {
+            case .newsList:
+                NewsListView()
+            case .characterList:
+                CharacterListView()
+                    .environmentObject( appState )
+            case .alarmList:
+                AlarmListView()
+                    .environmentObject( appState )
+            case .config:
+                ConfigView()
+                    .environmentObject( appState )
             }
         }
     }
