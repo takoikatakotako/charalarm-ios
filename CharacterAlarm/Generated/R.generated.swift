@@ -813,7 +813,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 77 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 79 localization keys.
     struct localizable {
       /// en translation: Add Alarm
       ///
@@ -893,24 +893,24 @@ struct R: Rswift.Validatable {
       static let alarmFailedToGetTheAlarmList = Rswift.StringResource(key: "alarm-failed-to-get-the-alarm-list", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to get the authentication information
       ///
-      /// Locales: en
-      static let errorFailedToGetAuthenticationInformation = Rswift.StringResource(key: "error-failed-to-get-authentication-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: ja, en
+      static let errorFailedToGetAuthenticationInformation = Rswift.StringResource(key: "error-failed-to-get-authentication-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to get the character information
       ///
-      /// Locales: en
-      static let errorFailedToGetCharacterInformation = Rswift.StringResource(key: "error-failed-to-get-character-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: ja, en
+      static let errorFailedToGetCharacterInformation = Rswift.StringResource(key: "error-failed-to-get-character-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to get the character information.
       ///
       /// Locales: ja, en
       static let profileFailedToGetTheCharacterInformation = Rswift.StringResource(key: "profile-failed-to-get-the-character-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to get the character selection information
       ///
-      /// Locales: en
-      static let errorFailedToGetCharacterSelectionInformation = Rswift.StringResource(key: "error-failed-to-get-character-selection-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: ja, en
+      static let errorFailedToGetCharacterSelectionInformation = Rswift.StringResource(key: "error-failed-to-get-character-selection-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to get the character's resources
       ///
-      /// Locales: en
-      static let errorFailedToGetCharactersResources = Rswift.StringResource(key: "error-failed-to-get-characters-resources", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: ja, en
+      static let errorFailedToGetCharactersResources = Rswift.StringResource(key: "error-failed-to-get-characters-resources", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to get the character.
       ///
       /// Locales: ja, en
@@ -927,6 +927,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let tutorialFailedToSaveUserInformation = Rswift.StringResource(key: "tutorial-failed-to-save-user-information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Failed to set character image
+      ///
+      /// Locales: ja, en
+      static let errorFailedToSetCharacterImage = Rswift.StringResource(key: "error-failed-to-set-character-image", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Finally, please allow push notifications, such as to announce the addition of new characters.
       ///
       /// Locales: ja, en
@@ -1055,6 +1059,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let tutorialThisIsAnApp = Rswift.StringResource(key: "tutorial-this-is-an-app", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: This feature is not available in your region
+      ///
+      /// Locales: ja, en
+      static let errorThisFeatureIsNotAvailableInYourRegion = Rswift.StringResource(key: "error-this-feature-is-not-available-in-your-region", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Thu
       ///
       /// Locales: ja, en
@@ -1411,7 +1419,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Failed to get the authentication information
       ///
-      /// Locales: en
+      /// Locales: ja, en
       static func errorFailedToGetAuthenticationInformation(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("error-failed-to-get-authentication-information", bundle: hostingBundle, comment: "")
@@ -1426,7 +1434,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Failed to get the character information
       ///
-      /// Locales: en
+      /// Locales: ja, en
       static func errorFailedToGetCharacterInformation(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("error-failed-to-get-character-information", bundle: hostingBundle, comment: "")
@@ -1456,7 +1464,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Failed to get the character selection information
       ///
-      /// Locales: en
+      /// Locales: ja, en
       static func errorFailedToGetCharacterSelectionInformation(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("error-failed-to-get-character-selection-information", bundle: hostingBundle, comment: "")
@@ -1471,7 +1479,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Failed to get the character's resources
       ///
-      /// Locales: en
+      /// Locales: ja, en
       static func errorFailedToGetCharactersResources(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("error-failed-to-get-characters-resources", bundle: hostingBundle, comment: "")
@@ -1542,6 +1550,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-failed-to-save-user-information", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Failed to set character image
+      ///
+      /// Locales: ja, en
+      static func errorFailedToSetCharacterImage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-set-character-image", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-set-character-image"
+        }
+
+        return NSLocalizedString("error-failed-to-set-character-image", bundle: bundle, comment: "")
       }
 
       /// en translation: Finally, please allow push notifications, such as to announce the addition of new characters.
@@ -2022,6 +2045,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-this-is-an-app", bundle: bundle, comment: "")
+      }
+
+      /// en translation: This feature is not available in your region
+      ///
+      /// Locales: ja, en
+      static func errorThisFeatureIsNotAvailableInYourRegion(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-this-feature-is-not-available-in-your-region", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-this-feature-is-not-available-in-your-region"
+        }
+
+        return NSLocalizedString("error-this-feature-is-not-available-in-your-region", bundle: bundle, comment: "")
       }
 
       /// en translation: Thu

@@ -68,15 +68,10 @@ struct TopView: View {
                             Spacer()
                             
                             Button(action: {
-                                guard Locale.current.regionCode != "CN" else {
-                                    viewModel.showingAlert = true
-                                    viewModel.alertMessage = "对不起。此功能在您所在的地区不可用。"
-                                    return
-                                }
-                                viewModel.showAlarmList = true
+                                viewModel.alarmButtonTapped()
                             }) {
                                 TopButtonContent(imageName: R.image.topAlarm.name)
-                            }.sheet(isPresented: self.$viewModel.showAlarmList) {
+                            }.sheet(isPresented: $viewModel.showAlarmList) {
                                 AlarmListView()
                                     .environmentObject( appState )
                             }
@@ -109,8 +104,19 @@ struct TopView: View {
             viewModel.onAppear()
             viewModel.setChara()
         }
-        .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+        .alert(item: $viewModel.alert) { item in
+            switch item {
+            case .failedToGetCharacterInformation:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToGetCharacterInformation()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .failedToGetCharacterSelectionInformation:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToGetCharacterSelectionInformation()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .failedToGetCharactersResources:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToGetCharactersResources()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .failedToSetCharacterImage:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToSetCharacterImage()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .thisFeatureIsNotAvailableInYourRegion:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorThisFeatureIsNotAvailableInYourRegion()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            }
         }
     }
 }

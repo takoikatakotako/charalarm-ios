@@ -94,8 +94,11 @@
 
 // Error
 "error-an-unknown-error-has-occurred" = "不明なエラーが発生しました。";
-"error-failed-to-get-the-authentication-information" = "認証情報の取得に失敗しました。";
-"error-failed-to-get-the-character-information" = "キャラクターの情報の取得に失敗しました";
-"error-failed-to-get-the-character-selection-information" = "キャラクターの選択情報の取得に失敗しました";
-"error-failed-to-get-the-characters-resources" = "キャラクターのリソースを取得に失敗しました";
+"error-failed-to-get-authentication-information" = "認証情報の取得に失敗しました。";
+"error-failed-to-get-character-information" = "キャラクターの情報の取得に失敗しました";
+"error-failed-to-get-character-selection-information" = "キャラクターの選択情報の取得に失敗しました";
+"error-failed-to-get-characters-resources" = "キャラクターのリソースを取得に失敗しました";
+"error-failed-to-set-character-image" = "キャラクターの画像を設定できませんでした";
+"error-this-feature-is-not-available-in-your-region" = "この機能はお住まいの地域ではご利用いただけません。";
+
 

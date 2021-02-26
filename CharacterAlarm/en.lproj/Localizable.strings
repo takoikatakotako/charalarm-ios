@@ -98,6 +98,7 @@
 "error-failed-to-get-character-information" = "Failed to get the character information";
 "error-failed-to-get-character-selection-information" = "Failed to get the character selection information";
 "error-failed-to-get-characters-resources" = "Failed to get the character's resources";
-
+"error-failed-to-set-character-image" = "Failed to set character image";
+"error-this-feature-is-not-available-in-your-region" = "This feature is not available in your region";
 
 

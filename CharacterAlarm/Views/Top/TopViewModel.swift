@@ -3,13 +3,14 @@ import AVFoundation
 import AdSupport
 import AppTrackingTransparency
 
-enum TopViewModelAlart: Identifiable {
-    case failedToGetCharacterInformation(String)
-    var id: String {
-        switch self {
-        case let .failedToGetCharacterInformation(message):
-            return message
-        }
+enum TopViewModelAlert: Identifiable {
+    case failedToGetCharacterInformation
+    case failedToGetCharacterSelectionInformation
+    case failedToGetCharactersResources
+    case failedToSetCharacterImage
+    case thisFeatureIsNotAvailableInYourRegion
+    var id: Int {
+        return hashValue
     }
 }
 
@@ -20,7 +21,8 @@ class TopViewModel: ObservableObject {
     @Published var showAlarmList: Bool = false
     @Published var showConfig: Bool = false
     @Published var showingAlert: Bool = false
-    @Published var alertMessage: String = ""
+    @Published var alert: TopViewModelAlert?
+    
     var audioPlayer: AVAudioPlayer?
 
     func onAppear() {
@@ -46,19 +48,25 @@ class TopViewModel: ObservableObject {
         }
     }
     
+    func alarmButtonTapped() {
+        guard Locale.current.regionCode != "CN" else {
+            alert = .thisFeatureIsNotAvailableInYourRegion
+            return
+        }
+        showAlarmList = true
+    }
+    
     func tapped() {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
             DispatchQueue.main.async {
-                self.alertMessage = "選択中のキャラクターの情報をを取得できませんでした"
-                self.showingAlert = true
+                self.alert = .failedToGetCharacterSelectionInformation
             }
             return
         }
         
         guard let resource = getResource(charaDomain: charaDomain) else {
             DispatchQueue.main.async {
-                self.alertMessage = "リソースを取得できませんでした"
-                self.showingAlert = true
+                self.alert = .failedToGetCharactersResources
             }
             return
         }
@@ -77,8 +85,7 @@ class TopViewModel: ObservableObject {
             case let .success(character):
                 completion(character)
             case .failure:
-                self.alertMessage = R.string.localizable.errorFailedToGetCharacterInformation()
-                self.showingAlert = true
+                self.alert = .failedToGetCharacterInformation
             }
         }
     }
@@ -86,16 +93,14 @@ class TopViewModel: ObservableObject {
     func setChara() {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
             DispatchQueue.main.async {
-                self.alertMessage = R.string.localizable.errorFailedToGetCharacterInformation()
-                self.showingAlert = true
+                self.alert = .failedToGetCharacterSelectionInformation
             }
             return
         }
         
         guard let resource = getResource(charaDomain: charaDomain) else {
             DispatchQueue.main.async {
-                self.alertMessage = R.string.localizable.errorFailedToGetCharactersResources()
-                self.showingAlert = true
+                self.alert = .failedToGetCharactersResources
             }
             return
         }
@@ -129,8 +134,7 @@ class TopViewModel: ObservableObject {
             charaImage = UIImage(data: data)!
         } catch {
             DispatchQueue.main.async {
-                self.alertMessage = "キャラクターの画像をセットできませんでした"
-                self.showingAlert = true
+                self.alert = .failedToSetCharacterImage
             }
         }
     }
