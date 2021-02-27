@@ -47,7 +47,7 @@ class TopViewModel: ObservableObject {
         case .restricted:
             break
         case .notDetermined:
-            print("SSSSS")
+            print("xxx")
         @unknown default:
             break
         }

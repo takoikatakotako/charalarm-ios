@@ -9,80 +9,78 @@ struct TopView: View {
     @StateObject var viewModel = TopViewModel()
     
     var body: some View {
-        GeometryReader { geometory in
-            ZStack {
-                Image(R.image.background.name)
+        ZStack {
+            Image(R.image.background.name)
+                .resizable()
+                .scaledToFill()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            
+            VStack(spacing: 0) {
+                Image(uiImage: viewModel.charaImage)
                     .resizable()
-                    .scaledToFill()
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                
+                    .scaledToFit()
+                    .padding(.top, 60)
+            }
+            
+            Button(action: {
+                viewModel.tapped()
+            }) {
+                Text("")
+                    .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            }
+            
+            VStack(spacing: 0) {
                 VStack(spacing: 0) {
-                    Image(uiImage: viewModel.charaImage)
-                        .resizable()
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .scaledToFit()
-                        .padding(.top, 60)
-                }
-                
-                Button(action: {
-                    viewModel.tapped()
-                }) {
-                    Text("")
-                        .frame(width: geometory.size.width, height: geometory.size.height)
-                }
-                
-                VStack(spacing: 0) {
-                    VStack(spacing: 0) {
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                viewModel.newsButtonTapped()
-                            }) {
-                                Image(R.image.topNews.name)
-                            }
-                            .padding()
-                            .padding(.top, 8)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            viewModel.newsButtonTapped()
+                        }) {
+                            Image(R.image.topNews.name)
                         }
-                        .frame(height: 140)
-                        .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
+                        .padding()
+                        .padding(.top, 8)
                     }
+                    .frame(height: 140)
+                    .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
+                }
+                
+                Spacer()
+                
+                VStack(spacing: 8) {
+                    TopTimeView()
                     
-                    Spacer()
-                    
-                    VStack(spacing: 8) {
-                        TopTimeView()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            viewModel.characterListButtonTapped()
+                        }) {
+                            TopButtonContent(imageName: R.image.topPerson.name)
+                        }
                         
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                viewModel.characterListButtonTapped()
-                            }) {
-                                TopButtonContent(imageName: R.image.topPerson.name)
-                            }
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                viewModel.alarmButtonTapped()
-                            }) {
-                                TopButtonContent(imageName: R.image.topAlarm.name)
-                            }
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                viewModel.configButtonTapped()
-                            }) {
-                                TopButtonContent(imageName: R.image.topConfig.name)
-                            }
-                            
-                            Spacer()
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.alarmButtonTapped()
+                        }) {
+                            TopButtonContent(imageName: R.image.topAlarm.name)
                         }
-                        .padding(.bottom, 32)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.configButtonTapped()
+                        }) {
+                            TopButtonContent(imageName: R.image.topConfig.name)
+                        }
+                        
+                        Spacer()
                     }
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.8), Color.gray.opacity(0.2)]), startPoint: UnitPoint(x: 0.5, y: 0.03), endPoint: UnitPoint(x: 0.5, y: 0)).opacity(0.9))
+                    .padding(.bottom, 32)
                 }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.8), Color.gray.opacity(0.2)]), startPoint: UnitPoint(x: 0.5, y: 0.03), endPoint: UnitPoint(x: 0.5, y: 0)).opacity(0.9))
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
