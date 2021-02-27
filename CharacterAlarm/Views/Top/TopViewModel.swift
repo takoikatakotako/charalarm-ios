@@ -38,19 +38,6 @@ class TopViewModel: ObservableObject {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
-        
-        switch ATTrackingManager.trackingAuthorizationStatus {
-        case .authorized:
-            break
-        case .denied:
-            break
-        case .restricted:
-            break
-        case .notDetermined:
-            print("xxx")
-        @unknown default:
-            break
-        }
     }
     
     func newsButtonTapped() {

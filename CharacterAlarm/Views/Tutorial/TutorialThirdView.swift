@@ -24,7 +24,7 @@ struct TutorialThirdView: View {
             Spacer()
             
             NavigationLink(
-                destination: TutorialFourthView()
+                destination: TutorialCharaListView()
                     .environmentObject(appState),
                 label: {
                     TutorialButtonContent(text: R.string.localizable.commonNext())

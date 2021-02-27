@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TutorialFifthView: View {
+struct TutorialAcceptPrivacyPolicyView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @State var accountCreated = false
     @State var creatingAccount = false
@@ -32,7 +32,7 @@ struct TutorialFifthView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: TutorialSixthView(),
+                    destination: TutorialFinallyView(),
                     isActive: $accountCreated,
                     label: {
                         EmptyView()
@@ -100,14 +100,14 @@ struct TutorialFifthView: View {
     }
 }
 
-struct TutorialFifthView_Previews: PreviewProvider {
+struct TutorialAcceptPrivacyPolicyView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TutorialFifthView()
+            TutorialAcceptPrivacyPolicyView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            TutorialFifthView()
+            TutorialAcceptPrivacyPolicyView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

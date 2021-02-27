@@ -1,7 +1,7 @@
 import SwiftUI
 import AVFoundation
 
-struct TutorialSecondView: View {
+struct TutorialCallView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
     @State private var isCalling = true
@@ -118,11 +118,11 @@ struct TutorialSecondView: View {
 struct TutorialSecondView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TutorialSecondView()
+            TutorialCallView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            TutorialSecondView()
+            TutorialCallView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
