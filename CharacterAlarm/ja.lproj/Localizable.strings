@@ -13,6 +13,10 @@
 "tutorial-please-choose-your-favorite-character" = "好きなキャラクターを選んでみてください。";
 "tutorial-did-you-get-a-call" = "無事に電話がかかってきましたか？";
 "tutorial-you-can-set-multiple-alarms" = "アラームは時間や曜日を指定して複数セットすることができます。";
+"tutorial-customize-your-ads" = "カスタマイズした広告を表示";
+"tutorial-charalarm-development-is-supported-by-advertising-revenue" = "Charalarmの運営、開発は広告の収益により支えられています。\n適切な広告が表示されるために必要な情報の利用を許可をお願いします。";
+"tutorial-show-customized-ads" = "カスタマイズした広告を表示";
+"tutorial-do-not-allow-use-of-infomation" = "情報の利用を許可しない";
 "tutorial-go-to-home-screen" = "ホーム画面へ";
 "tutorial-finally-please-allow-push-notificaion" = "最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。";
 

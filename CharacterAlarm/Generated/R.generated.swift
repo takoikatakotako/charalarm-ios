@@ -813,8 +813,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 79 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 83 localization keys.
     struct localizable {
+      /// en translation:  The operation and development of Charalarm is supported by advertising revenue.  nPlease allow us to use the information necessary to display the appropriate advertisement
+      ///
+      /// Locales: ja, en
+      static let tutorialCharalarmDevelopmentIsSupportedByAdvertisingRevenue = Rswift.StringResource(key: "tutorial-charalarm-development-is-supported-by-advertising-revenue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Add Alarm
       ///
       /// Locales: ja, en
@@ -855,6 +859,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let configConfig = Rswift.StringResource(key: "config-config", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Customize your ads!
+      ///
+      /// Locales: ja, en
+      static let tutorialCustomizeYourAds = Rswift.StringResource(key: "tutorial-customize-your-ads", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Delete Alarm
       ///
       /// Locales: ja, en
@@ -863,6 +871,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let tutorialDidYouGetACall = Rswift.StringResource(key: "tutorial-did-you-get-a-call", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Do not allow the use of information
+      ///
+      /// Locales: ja, en
+      static let tutorialDoNotAllowUseOfInfomation = Rswift.StringResource(key: "tutorial-do-not-allow-use-of-infomation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Downloading resources
       ///
       /// Locales: ja, en
@@ -1047,6 +1059,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let commonSave = Rswift.StringResource(key: "common-save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Show customized ads
+      ///
+      /// Locales: ja, en
+      static let tutorialShowCustomizedAds = Rswift.StringResource(key: "tutorial-show-customized-ads", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Sun
       ///
       /// Locales: ja, en
@@ -1131,6 +1147,21 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let tutorialYouCanSetMultipleAlarms = Rswift.StringResource(key: "tutorial-you-can-set-multiple-alarms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+
+      /// en translation:  The operation and development of Charalarm is supported by advertising revenue.  nPlease allow us to use the information necessary to display the appropriate advertisement
+      ///
+      /// Locales: ja, en
+      static func tutorialCharalarmDevelopmentIsSupportedByAdvertisingRevenue(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-charalarm-development-is-supported-by-advertising-revenue", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-charalarm-development-is-supported-by-advertising-revenue"
+        }
+
+        return NSLocalizedString("tutorial-charalarm-development-is-supported-by-advertising-revenue", bundle: bundle, comment: "")
+      }
 
       /// en translation: Add Alarm
       ///
@@ -1282,6 +1313,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("config-config", bundle: bundle, comment: "")
       }
 
+      /// en translation: Customize your ads!
+      ///
+      /// Locales: ja, en
+      static func tutorialCustomizeYourAds(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-customize-your-ads", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-customize-your-ads"
+        }
+
+        return NSLocalizedString("tutorial-customize-your-ads", bundle: bundle, comment: "")
+      }
+
       /// en translation: Delete Alarm
       ///
       /// Locales: ja, en
@@ -1310,6 +1356,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tutorial-did-you-get-a-call", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Do not allow the use of information
+      ///
+      /// Locales: ja, en
+      static func tutorialDoNotAllowUseOfInfomation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-do-not-allow-use-of-infomation", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-do-not-allow-use-of-infomation"
+        }
+
+        return NSLocalizedString("tutorial-do-not-allow-use-of-infomation", bundle: bundle, comment: "")
       }
 
       /// en translation: Downloading resources
@@ -2000,6 +2061,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("common-save", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Show customized ads
+      ///
+      /// Locales: ja, en
+      static func tutorialShowCustomizedAds(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tutorial-show-customized-ads", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "tutorial-show-customized-ads"
+        }
+
+        return NSLocalizedString("tutorial-show-customized-ads", bundle: bundle, comment: "")
       }
 
       /// en translation: Sun
