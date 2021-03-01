@@ -1,5 +1,5 @@
 import XCTest
-@testable import CharacterAlarm
+@testable import CharalarmLocal
 
 class ResourceTests: XCTestCase {
 

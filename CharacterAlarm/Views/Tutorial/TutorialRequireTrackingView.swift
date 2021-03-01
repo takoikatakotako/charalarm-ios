@@ -36,39 +36,21 @@ struct TutorialRequireTrackingView: View {
             })
             
             Button(action: {
-                
+                goNextView = true
             }, label: {
                 Text("情報の利用を許可しない")
             })
             .padding(.bottom, 28)
         }
-        .onAppear {
-            switch ATTrackingManager.trackingAuthorizationStatus {
-            case .authorized:
-                goNextView = true
-            case .denied:
-                goNextView = true
-            case .restricted:
-                goNextView = true
-            case .notDetermined:
-                break
-            @unknown default:
-                goNextView = true
-            }
-        }
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationTitle("")
+        .navigationBarHidden(true)
     }
     
     func requestTrackingAuthorization() {
-        ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-             switch status {
-             case .authorized:
-                goNextView = true
-             case .denied, .restricted, .notDetermined:
-                goNextView = true
-             @unknown default:
-                goNextView = true
-             }
-         })
+        ATTrackingManager.requestTrackingAuthorization { _ in
+            goNextView = true
+        }
     }
 }
 

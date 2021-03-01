@@ -56,7 +56,7 @@ struct TutorialCallView: View {
                                     self.voiceAudioPlayer?.play()
                                 }
                                 
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                                     withAnimation {
                                         self.showingNextButton = true
                                     }

@@ -1,4 +1,6 @@
 import SwiftUI
+import AdSupport
+import AppTrackingTransparency
 
 struct TutorialAcceptPrivacyPolicyView: View {
     @EnvironmentObject var appState: CharalarmAppState
@@ -32,7 +34,7 @@ struct TutorialAcceptPrivacyPolicyView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: TutorialFinallyView(),
+                    destination: TutorialRequireTrackingView(),
                     isActive: $accountCreated,
                     label: {
                         EmptyView()
@@ -96,6 +98,21 @@ struct TutorialAcceptPrivacyPolicyView: View {
                 self.creatingAccount = false
                 break
             }
+        }
+    }
+    
+    private func trackingAuthorizationNotDetermined() -> Bool {
+        switch ATTrackingManager.trackingAuthorizationStatus {
+        case .authorized:
+            return false
+        case .denied:
+            return false
+        case .restricted:
+            return false
+        case .notDetermined:
+            return true
+        @unknown default:
+            return false
         }
     }
 }
