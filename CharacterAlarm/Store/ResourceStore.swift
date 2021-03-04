@@ -2,7 +2,7 @@ import Foundation
 
 class ResourceStore {
     static func downloadSelfIntroduction(charaDomain: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let url = URL(string: ResourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain))!
+        let url = URL(string: charalarmEnvironment.resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain))!
         let request = URLRequest(url: url)
         NetworkClient.request(urlRequest: request) { result in
             switch result {

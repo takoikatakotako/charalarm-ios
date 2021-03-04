@@ -61,7 +61,7 @@ class TopViewModel: ObservableObject {
     }
     
     func tapped() {
-        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
             DispatchQueue.main.async {
                 self.alert = .failedToGetCharacterSelectionInformation
             }
@@ -95,7 +95,7 @@ class TopViewModel: ObservableObject {
     }
     
     func setChara() {
-        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
             DispatchQueue.main.async {
                 self.alert = .failedToGetCharacterSelectionInformation
             }

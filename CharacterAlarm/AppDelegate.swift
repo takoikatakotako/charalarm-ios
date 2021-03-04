@@ -128,7 +128,7 @@ extension AppDelegate: PKPushRegistryDelegate {
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)
         let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: UserDefaultsHandler.getCharaName() ?? "キャラーム")
+        update.remoteHandle = CXHandle(type: .generic, value: charalarmEnvironment.userDefaultsHandler.getCharaName() ?? "キャラーム")
         provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
     }
 }
@@ -143,7 +143,7 @@ extension AppDelegate: CXProviderDelegate {
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
         // キャラドメイン
-        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
             return
         }
 

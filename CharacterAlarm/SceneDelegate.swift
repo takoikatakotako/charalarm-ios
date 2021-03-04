@@ -9,10 +9,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         // キャラクターの初期値のDomainを登録
-        UserDefaultsHandler.registerDefaults(defaults: [CHARA_DOMAIN : DEFAULT_CHARA_DOMAIN, CHARA_NAME: DEFAULT_CHARA_NAME])
+        charalarmEnvironment.userDefaultsHandler.registerDefaults(defaults: [CHARA_DOMAIN : DEFAULT_CHARA_DOMAIN, CHARA_NAME: DEFAULT_CHARA_NAME])
         
         // 
-        guard let charaDomain = UserDefaultsHandler.getCharaDomain()  else {
+        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain()  else {
             fatalError("キャラクターのドメインの取得に失敗しました")
         }
         if let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),

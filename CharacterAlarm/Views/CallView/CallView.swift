@@ -12,7 +12,7 @@ struct CallView: View {
     @State var overlay = true
 
     var charaThumbnailUrlString: String {
-        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
     }
     
     var body: some View {
@@ -105,7 +105,7 @@ struct CallView: View {
     func call() {
         incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {  
-            let urlString = ResourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain)
+            let urlString = charalarmEnvironment.resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain)
             let url = URL(string: urlString)!
             let playerItem = AVPlayerItem(url: url)
             voiceAudioPlayer = AVPlayer(playerItem: playerItem)

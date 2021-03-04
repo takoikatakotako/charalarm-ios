@@ -11,7 +11,7 @@ class ConfigViewModel: ObservableObject {
     }
     
     var charaDomain: String {
-        guard let characterDomain = UserDefaultsHandler.getCharaDomain() else {
+        guard let characterDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
             fatalError("CHARA_DOMAIN が取得できませんでした")
         }
         return characterDomain
@@ -49,14 +49,14 @@ class ConfigViewModel: ObservableObject {
             do {
                 try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
                 try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
                 completion()
             } catch {
                 try! charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
                 try! charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
                 fatalError("Fource Reset")
             }
         }
