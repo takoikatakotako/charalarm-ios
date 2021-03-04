@@ -1,7 +1,9 @@
 import UIKit
 import Foundation
 
-class UserDefaultsHandler {
+protocol UserDefaultsHandlerProtocol {}
+
+class UserDefaultsHandler: UserDefaultsHandlerProtocol {
     // UserDefaults の初期値を設定する
     static func registerDefaults(defaults: [String: String]) {
         UserDefaults.standard.register(defaults: defaults)

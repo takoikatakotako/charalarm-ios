@@ -139,7 +139,6 @@ struct ProfileView: View {
         )
         .onAppear {
             viewModel.fetchCharacter()
-            viewModel.download()
         }.alert(isPresented: self.$viewModel.showSelectAlert) {
             Alert(
                 title: Text(R.string.localizable.profileCharacterSelection()),

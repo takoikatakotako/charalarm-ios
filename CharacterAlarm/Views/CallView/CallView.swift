@@ -8,7 +8,7 @@ struct CallView: View {
     let charaDomain: String
     let charaName: String
     @State var incomingAudioPlayer: AVAudioPlayer?
-    @State var voiceAudioPlayer: AVAudioPlayer?
+    @State var voiceAudioPlayer: AVPlayer?
     @State var overlay = true
 
     var charaThumbnailUrlString: String {
@@ -104,16 +104,12 @@ struct CallView: View {
     
     func call() {
         incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            ResourceStore.loadSelfIntroductionData(charaDomain: self.charaDomain) { result in
-                switch result {
-                case let .success(data):
-                    self.voiceAudioPlayer = try? AVAudioPlayer(data: data)
-                    self.voiceAudioPlayer?.play()
-                case  .failure:
-                    break
-                }
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {  
+            let urlString = ResourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain)
+            let url = URL(string: urlString)!
+            let playerItem = AVPlayerItem(url: url)
+            voiceAudioPlayer = AVPlayer(playerItem: playerItem)
+            voiceAudioPlayer?.play()
         }
     }
         
@@ -128,7 +124,7 @@ struct CallView: View {
     
     func fadeOut() {
         self.incomingAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
-        self.voiceAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
+        self.voiceAudioPlayer?.volume = 0
     }
 }
 

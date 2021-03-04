@@ -1,7 +1,9 @@
 import Foundation
 import KeychainAccess
 
-class KeychainHandler {
+protocol KeychainHandlerProtcol {}
+
+class KeychainHandler: KeychainHandlerProtcol {
     static func setAnonymousUserName(anonymousUserName: String) throws {
         try set(key: ANONYMOUS_USER_NAME, value: anonymousUserName)
     }

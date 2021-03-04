@@ -1,8 +1,11 @@
 import Foundation
 
-class FileHandler {
+protocol FileHandlerProtcol {
+    
+}
+
+class FileHandler: FileHandlerProtcol {
     static func saveFile(directoryName: String, fileName: String, data: Data) throws {
-        
         guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
             throw FileHandlerError.directoryNotFound
         }

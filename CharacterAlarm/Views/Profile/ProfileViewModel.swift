@@ -51,18 +51,6 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func download() {
-        ResourceStore.downloadSelfIntroduction(charaDomain: charaDomain) { result in
-            switch result {
-            case .success(_):
-                print("自己紹介音声の保存に成功しました")
-            case .failure:
-                self.alertMessage = R.string.localizable.profileFailedToGetTheResourceOfTheCharacter()
-                self.showingAlert = true
-            }
-        }
-    }
-    
     func cancel() {
         resourceInfos = []
         downloadError = false
