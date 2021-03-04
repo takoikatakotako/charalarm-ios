@@ -117,7 +117,7 @@ class TopViewModel: ObservableObject {
     }
         
     private func getResource(charaDomain: String) -> Resource? {
-        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+        guard let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
             return nil
         }
         let decoder = JSONDecoder()
@@ -134,7 +134,7 @@ class TopViewModel: ObservableObject {
         }
         
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: imageName)
+            let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: imageName)
             charaImage = UIImage(data: data)!
         } catch {
             DispatchQueue.main.async {
@@ -149,7 +149,7 @@ class TopViewModel: ObservableObject {
         }
         
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
+            let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
             audioPlayer = try? AVAudioPlayer(data: data)
             audioPlayer?.play()
         } catch {

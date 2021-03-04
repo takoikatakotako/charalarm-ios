@@ -1,11 +1,13 @@
 import Foundation
 
 protocol FileHandlerProtcol {
-    
+    func saveFile(directoryName: String, fileName: String, data: Data) throws
+    func getFileURL(directoryName: String, fileName: String) throws -> URL
+    func loadData(directoryName: String, fileName: String) throws -> Data
 }
 
 class FileHandler: FileHandlerProtcol {
-    static func saveFile(directoryName: String, fileName: String, data: Data) throws {
+    func saveFile(directoryName: String, fileName: String, data: Data) throws {
         guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
             throw FileHandlerError.directoryNotFound
         }
@@ -16,11 +18,10 @@ class FileHandler: FileHandlerProtcol {
         }
         
         let filePath = dirPath.appendingPathComponent( fileName )
-        print(filePath)
         try data.write(to: filePath, options: .atomic)
     }
 
-    static func getFileURL(directoryName: String, fileName: String) throws -> URL {
+    func getFileURL(directoryName: String, fileName: String) throws -> URL {
       guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
           throw FileHandlerError.directoryNotFound
       }
@@ -29,7 +30,7 @@ class FileHandler: FileHandlerProtcol {
         return filePath
     }
 
-    static func loadData(directoryName: String, fileName: String) throws -> Data {
+    func loadData(directoryName: String, fileName: String) throws -> Data {
         let filePath = try getFileURL(directoryName: directoryName, fileName: fileName)
         print(filePath)
         guard let data = try? Data(contentsOf: filePath) else {

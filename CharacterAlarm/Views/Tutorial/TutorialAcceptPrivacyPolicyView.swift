@@ -83,8 +83,8 @@ struct TutorialAcceptPrivacyPolicyView: View {
             case .success(_):
                 // ユーザー作成に成功
                 do {
-                    try KeychainHandler.setAnonymousUserName(anonymousUserName: anonymousUserName)
-                    try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: anonymousUserPassword)
+                    try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: anonymousUserName)
+                    try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: anonymousUserPassword)
                     self.accountCreated = true
                 } catch {
                     self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()

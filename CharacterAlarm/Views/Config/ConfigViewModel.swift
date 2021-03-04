@@ -38,8 +38,8 @@ class ConfigViewModel: ObservableObject {
     }
     
     func withdraw(completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 self.showingAlert = true
                 return
@@ -47,14 +47,14 @@ class ConfigViewModel: ObservableObject {
         
         UserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ _ in
             do {
-                try KeychainHandler.setAnonymousUserName(anonymousUserName: "")
-                try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
+                try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
                 UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
                 UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
                 completion()
             } catch {
-                try! KeychainHandler.setAnonymousUserName(anonymousUserName: "")
-                try! KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                try! charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
+                try! charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
                 UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
                 UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
                 fatalError("Fource Reset")

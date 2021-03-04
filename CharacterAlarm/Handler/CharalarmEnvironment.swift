@@ -16,4 +16,4 @@ class CharalarmEnvironment {
     }
 }
 
-var environment = CharalarmEnvironment()
+var charalarmEnvironment = CharalarmEnvironment()

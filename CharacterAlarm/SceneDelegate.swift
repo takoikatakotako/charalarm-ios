@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let charaDomain = UserDefaultsHandler.getCharaDomain()  else {
             fatalError("キャラクターのドメインの取得に失敗しました")
         }
-        if let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),
+        if let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),
            let resource: Resource = try? JSONDecoder().decode(Resource.self, from: data){
             print("ResourceVersion: \(resource.version)")
             // TODO: 選択中のキャラクターの最新リソースがある場合更新する
@@ -29,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         //
-        let anonymousUserName = KeychainHandler.getAnonymousUserName()
-        let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken()
+        let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName()
+        let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken()
         
         // 匿名ユーザー名、パスワードが登録されていればチュートリアル完了
         let doneTutorial = anonymousUserName != nil && anonymousUserPassword != nil
@@ -56,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(resource)
-            try FileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
+            try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
         } catch {
             return
         }
@@ -70,7 +70,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                       let data = try? Data(contentsOf: fileUrl) else {
                     continue
                 }
-                try FileHandler.saveFile(directoryName: charaDomain, fileName: imageName, data: data)
+                try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: imageName, data: data)
             } catch {
                 print("画像ファイルの書き込みに失敗")
             }
@@ -85,7 +85,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                       let data = try? Data(contentsOf: fileUrl) else {
                     continue
                 }
-                try FileHandler.saveFile(directoryName: charaDomain, fileName: voiceName, data: data)
+                try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: voiceName, data: data)
             } catch {
                 print("ボイスファイルの書き込みに失敗")
             }

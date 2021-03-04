@@ -27,8 +27,8 @@ class AlarmDetailViewModel: ObservableObject {
     }
     
     func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.showingAlert = true
             self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
             return
@@ -70,8 +70,8 @@ class AlarmDetailViewModel: ObservableObject {
     }
     
     private func createAlarm(completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
                 self.showingAlert = true
                 return
@@ -89,8 +89,8 @@ class AlarmDetailViewModel: ObservableObject {
     }
     
     private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
                 self.showingAlert = true
                 return

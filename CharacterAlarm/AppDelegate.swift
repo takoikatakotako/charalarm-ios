@@ -79,8 +79,8 @@ extension AppDelegate {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
         print("Device token: \(token)")
 
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             return
         }
         
@@ -105,8 +105,8 @@ extension AppDelegate {
 extension AppDelegate: PKPushRegistryDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             return
         }
         
@@ -148,7 +148,7 @@ extension AppDelegate: CXProviderDelegate {
         }
 
         // リソース取得
-        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+        guard let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
             return
         }
         let decoder = JSONDecoder()
@@ -166,7 +166,7 @@ extension AppDelegate: CXProviderDelegate {
         }
 
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
+            let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
             audioPlayer = try? AVAudioPlayer(data: data)
             audioPlayer?.play()
         } catch {
