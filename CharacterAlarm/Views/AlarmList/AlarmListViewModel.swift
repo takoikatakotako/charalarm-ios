@@ -25,15 +25,12 @@ enum AlarmListViewModelAlert: Identifiable {
 
 class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm] = []
-    
     @Published var sheet: AlarmListViewModelSheet?
     @Published var alert: AlarmListViewModelAlert?
 
     func addAlarmButtonTapped() {
         if alarms.count < 3 {
             editAlarm(alarm: createNewAlarm())
-        } else if alarms.count < 6 {
-            alert = .ad(UUID())
         } else {
             alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())
         }

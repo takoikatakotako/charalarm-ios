@@ -54,7 +54,10 @@ struct TopView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            viewModel.characterListButtonTapped()
+                            // rewarded.showAd()
+
+                            
+                            // viewModel.characterListButtonTapped()
                         }) {
                             TopButtonContent(imageName: R.image.topPerson.name)
                         }
@@ -90,6 +93,7 @@ struct TopView: View {
         .onAppear {
             viewModel.onAppear()
             viewModel.setChara()
+            // rewarded.load()
         }
         .alert(item: $viewModel.alert) { item in
             switch item {

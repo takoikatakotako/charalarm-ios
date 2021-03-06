@@ -1,10 +1,11 @@
 import SwiftUI
+import GoogleMobileAds
 
 struct AlarmListView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: AlarmListViewModel()) var viewModel: AlarmListViewModel
-    
+
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -35,7 +36,7 @@ struct AlarmListView: View {
                 }
             }
             .sheet(item: $viewModel.sheet, onDismiss: {
-                
+                viewModel.fetchAlarms()
             }, content: { item in
                 switch item {
                 case let .alarmDetail(alarm):
@@ -66,6 +67,7 @@ extension AlarmListView: AlarmListRowDelegate {
         viewModel.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }
+
 
 struct AlarmListView_Previews: PreviewProvider {
     static var previews: some View {
