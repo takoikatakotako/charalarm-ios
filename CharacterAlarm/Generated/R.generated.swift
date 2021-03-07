@@ -806,8 +806,52 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
   struct string {
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 2 localization keys.
+    struct infoPlist {
+      /// en translation: Charalarm
+      ///
+      /// Locales: en, ja
+      static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "ja"], comment: nil)
+      /// en translation: This identifier will be used to deliver personalized ads to you.
+      ///
+      /// Locales: en, ja
+      static let nsUserTrackingUsageDescription = Rswift.StringResource(key: "NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "ja"], comment: nil)
+
+      /// en translation: Charalarm
+      ///
+      /// Locales: en, ja
+      static func cfBundleDisplayName(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "InfoPlist", preferredLanguages: preferredLanguages) else {
+          return "CFBundleDisplayName"
+        }
+
+        return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: bundle, comment: "")
+      }
+
+      /// en translation: This identifier will be used to deliver personalized ads to you.
+      ///
+      /// Locales: en, ja
+      static func nsUserTrackingUsageDescription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "InfoPlist", preferredLanguages: preferredLanguages) else {
+          return "NSUserTrackingUsageDescription"
+        }
+
+        return NSLocalizedString("NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
     /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
     struct launchScreen {
       fileprivate init() {}
