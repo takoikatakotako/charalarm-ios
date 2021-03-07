@@ -812,16 +812,16 @@ struct R: Rswift.Validatable {
     struct infoPlist {
       /// en translation: Charalarm
       ///
-      /// Locales: en, ja
-      static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "ja"], comment: nil)
+      /// Locales: ja, en
+      static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: This identifier will be used to deliver personalized ads to you.
       ///
-      /// Locales: en, ja
-      static let nsUserTrackingUsageDescription = Rswift.StringResource(key: "NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "ja"], comment: nil)
+      /// Locales: ja, en
+      static let nsUserTrackingUsageDescription = Rswift.StringResource(key: "NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
 
       /// en translation: Charalarm
       ///
-      /// Locales: en, ja
+      /// Locales: ja, en
       static func cfBundleDisplayName(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: hostingBundle, comment: "")
@@ -836,7 +836,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: This identifier will be used to deliver personalized ads to you.
       ///
-      /// Locales: en, ja
+      /// Locales: ja, en
       static func nsUserTrackingUsageDescription(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: hostingBundle, comment: "")
