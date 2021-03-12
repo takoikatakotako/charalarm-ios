@@ -1,29 +1,76 @@
 import SwiftUI
 import AVFoundation
+import AdSupport
+import AppTrackingTransparency
+
+enum TopViewModelAlert: Identifiable {
+    case failedToGetCharacterInformation
+    case failedToGetCharacterSelectionInformation
+    case failedToGetCharactersResources
+    case failedToSetCharacterImage
+    case thisFeatureIsNotAvailableInYourRegion
+    var id: Int {
+        return hashValue
+    }
+}
+
+enum TopViewModelSheet: Identifiable {
+    case newsList
+    case characterList
+    case alarmList
+    case config
+    var id: Int {
+        return hashValue
+    }
+}
 
 class TopViewModel: ObservableObject {
     @Published var charaImage = UIImage()
-    @Published var showNews: Bool = false
-    @Published var showCharaList: Bool = false
-    @Published var showAlarmList: Bool = false
-    @Published var showConfig: Bool = false
-    @Published var showingAlert: Bool = false
-    @Published var alertMessage: String = ""
+    @Published var alert: TopViewModelAlert?
+    @Published var sheet: TopViewModelSheet?
+    
     var audioPlayer: AVAudioPlayer?
 
-    func tapped() {
-        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+    func onAppear() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            guard granted else { return }
             DispatchQueue.main.async {
-                self.alertMessage = "選択中のキャラクターの情報をを取得できませんでした"
-                self.showingAlert = true
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    
+    func newsButtonTapped() {
+        sheet = .newsList
+    }
+    
+    func characterListButtonTapped() {
+        sheet = .characterList
+    }
+    
+    func alarmButtonTapped() {
+        guard Locale.current.regionCode != "CN" else {
+            alert = .thisFeatureIsNotAvailableInYourRegion
+            return
+        }
+        sheet = .alarmList
+    }
+    
+    func configButtonTapped() {
+        sheet = .config
+    }
+    
+    func tapped() {
+        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
+            DispatchQueue.main.async {
+                self.alert = .failedToGetCharacterSelectionInformation
             }
             return
         }
         
         guard let resource = getResource(charaDomain: charaDomain) else {
             DispatchQueue.main.async {
-                self.alertMessage = "リソースを取得できませんでした"
-                self.showingAlert = true
+                self.alert = .failedToGetCharactersResources
             }
             return
         }
@@ -42,25 +89,22 @@ class TopViewModel: ObservableObject {
             case let .success(character):
                 completion(character)
             case .failure:
-                self.alertMessage = "キャラクター情報の取得に失敗しました。"
-                self.showingAlert = true
+                self.alert = .failedToGetCharacterInformation
             }
         }
     }
     
     func setChara() {
-        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
             DispatchQueue.main.async {
-                self.alertMessage = "選択中のキャラクターの情報をを取得できませんでした"
-                self.showingAlert = true
+                self.alert = .failedToGetCharacterSelectionInformation
             }
             return
         }
         
         guard let resource = getResource(charaDomain: charaDomain) else {
             DispatchQueue.main.async {
-                self.alertMessage = "リソースを取得できませんでした"
-                self.showingAlert = true
+                self.alert = .failedToGetCharactersResources
             }
             return
         }
@@ -73,7 +117,7 @@ class TopViewModel: ObservableObject {
     }
         
     private func getResource(charaDomain: String) -> Resource? {
-        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+        guard let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
             return nil
         }
         let decoder = JSONDecoder()
@@ -90,12 +134,11 @@ class TopViewModel: ObservableObject {
         }
         
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: imageName)
+            let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: imageName)
             charaImage = UIImage(data: data)!
         } catch {
             DispatchQueue.main.async {
-                self.alertMessage = "キャラクターの画像をセットできませんでした"
-                self.showingAlert = true
+                self.alert = .failedToSetCharacterImage
             }
         }
     }
@@ -106,7 +149,7 @@ class TopViewModel: ObservableObject {
         }
         
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
+            let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
             audioPlayer = try? AVAudioPlayer(data: data)
             audioPlayer?.play()
         } catch {

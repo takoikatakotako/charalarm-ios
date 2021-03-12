@@ -11,7 +11,7 @@ class ConfigViewModel: ObservableObject {
     }
     
     var charaDomain: String {
-        guard let characterDomain = UserDefaultsHandler.getCharaDomain() else {
+        guard let characterDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
             fatalError("CHARA_DOMAIN が取得できませんでした")
         }
         return characterDomain
@@ -38,8 +38,8 @@ class ConfigViewModel: ObservableObject {
     }
     
     func withdraw(completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 self.showingAlert = true
                 return
@@ -47,16 +47,16 @@ class ConfigViewModel: ObservableObject {
         
         UserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ _ in
             do {
-                try KeychainHandler.setAnonymousUserName(anonymousUserName: "")
-                try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
+                try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
                 completion()
             } catch {
-                try! KeychainHandler.setAnonymousUserName(anonymousUserName: "")
-                try! KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                UserDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                UserDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                try! charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
+                try! charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
+                charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
                 fatalError("Fource Reset")
             }
         }

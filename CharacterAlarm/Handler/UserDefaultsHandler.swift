@@ -1,31 +1,39 @@
 import UIKit
 import Foundation
 
-class UserDefaultsHandler {
+protocol UserDefaultsHandlerProtocol {
+    func registerDefaults(defaults: [String: String])
+    func getCharaDomain() -> String?
+    func setCharaDomain(charaDomain: String)
+    func getCharaName() -> String?
+    func setCharaName(charaName: String)
+}
+
+class UserDefaultsHandler: UserDefaultsHandlerProtocol {
     // UserDefaults の初期値を設定する
-    static func registerDefaults(defaults: [String: String]) {
+    func registerDefaults(defaults: [String: String]) {
         UserDefaults.standard.register(defaults: defaults)
     }
     
-    static func getCharaDomain() -> String? {
+    func getCharaDomain() -> String? {
         guard let charaDomain = UserDefaults.standard.string(forKey: CHARA_DOMAIN) else {
             return nil
         }
         return charaDomain
     }
     
-    static func setCharaDomain(charaDomain: String) {
+    func setCharaDomain(charaDomain: String) {
         UserDefaults.standard.set(charaDomain, forKey: CHARA_DOMAIN)
     }
     
-    static func getCharaName() -> String? {
+    func getCharaName() -> String? {
         guard let charaName = UserDefaults.standard.string(forKey: CHARA_NAME) else {
             return nil
         }
         return charaName
     }
     
-    static func setCharaName(charaName: String) {
+    func setCharaName(charaName: String) {
         UserDefaults.standard.set(charaName, forKey: CHARA_NAME)
     }
 }

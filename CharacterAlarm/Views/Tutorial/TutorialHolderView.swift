@@ -5,7 +5,7 @@ struct TutorialHolderView: View {
 
     var body: some View {
         NavigationView {
-            TutorialFirstView()
+            TutorialIntroductionView()
                 .environmentObject(appState)
         }
     }

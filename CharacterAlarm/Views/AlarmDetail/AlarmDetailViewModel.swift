@@ -5,9 +5,7 @@ class AlarmDetailViewModel: ObservableObject {
     @Published var alarm: Alarm
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    
-    @Published var xxxx: Bool = true
-    
+        
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
@@ -29,19 +27,19 @@ class AlarmDetailViewModel: ObservableObject {
     }
     
     func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.showingAlert = true
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
+            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
             return
         }
-        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { result in
+        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
             switch result {
             case .success:
                 completion()
             case .failure:
-                self.alertMessage = "削除に失敗しました"
-                self.showingAlert = true
+                self?.alertMessage = "削除に失敗しました"
+                self?.showingAlert = true
             }
         }
     }
@@ -72,9 +70,9 @@ class AlarmDetailViewModel: ObservableObject {
     }
     
     private func createAlarm(completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
                 self.showingAlert = true
                 return
         }
@@ -91,9 +89,9 @@ class AlarmDetailViewModel: ObservableObject {
     }
     
     private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
                 self.showingAlert = true
                 return
         }

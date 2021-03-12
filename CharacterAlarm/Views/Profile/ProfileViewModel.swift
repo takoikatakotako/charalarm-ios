@@ -32,7 +32,7 @@ class ProfileViewModel: ObservableObject {
     var resourceInfos: [ResourceInfo] = []
     
     var charaThumbnailUrlString: String {
-        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
     }
     
     init(charaDomain: String) {
@@ -46,18 +46,6 @@ class ProfileViewModel: ObservableObject {
                 self.character = character
             case .failure:
                 self.alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()
-                self.showingAlert = true
-            }
-        }
-    }
-    
-    func download() {
-        ResourceStore.downloadSelfIntroduction(charaDomain: charaDomain) { result in
-            switch result {
-            case .success(_):
-                print("自己紹介音声の保存に成功しました")
-            case .failure:
-                self.alertMessage = R.string.localizable.profileFailedToGetTheResourceOfTheCharacter()
                 self.showingAlert = true
             }
         }
@@ -145,8 +133,8 @@ class ProfileViewModel: ObservableObject {
             return
         }
         
-        UserDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
-        UserDefaultsHandler.setCharaName(charaName: charaName)
+        charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
+        charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: charaName)
         NotificationCenter.default.post(name: NSNotification.setChara, object: nil, userInfo: nil)
     }
 }

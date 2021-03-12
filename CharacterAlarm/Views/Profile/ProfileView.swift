@@ -108,7 +108,7 @@ struct ProfileView: View {
                                     .padding(.top, 16)
                             }
                         } else {
-                            Text(R.string.localizable.profileFailedToDownloadResources())
+                            Text(R.string.localizable.profileDownloadingResources())
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.white)
                             Text(viewModel.progressMessage)
@@ -139,7 +139,6 @@ struct ProfileView: View {
         )
         .onAppear {
             viewModel.fetchCharacter()
-            viewModel.download()
         }.alert(isPresented: self.$viewModel.showSelectAlert) {
             Alert(
                 title: Text(R.string.localizable.profileCharacterSelection()),

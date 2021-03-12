@@ -2,13 +2,13 @@ import Foundation
 
 class ResourceStore {
     static func downloadSelfIntroduction(charaDomain: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let url = URL(string: ResourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain))!
+        let url = URL(string: charalarmEnvironment.resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain))!
         let request = URLRequest(url: url)
         NetworkClient.request(urlRequest: request) { result in
             switch result {
             case let .success(data):
                 do {
-                    try FileHandler.saveFile(directoryName: charaDomain, fileName: "self-introduction.caf", data: data)
+                    try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: "self-introduction.caf", data: data)
                     completion(.success("自己紹介の保存に成功しました"))
                 } catch {
                     let message = """
@@ -28,7 +28,7 @@ class ResourceStore {
     
     static func loadSelfIntroductionData(charaDomain: String, completion: @escaping (Result<Data, Error>) -> Void) {
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: "self-introduction.caf")
+            let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "self-introduction.caf")
             completion(.success(data))
         } catch {
             completion(.failure(error))
@@ -45,7 +45,7 @@ class ResourceStore {
                 do {
                     let encoder = JSONEncoder()
                     let data = try encoder.encode(response)
-                    try FileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
+                    try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
                     completion(.success(response))
                 } catch {
                     let message = """
@@ -76,7 +76,7 @@ class ResourceStore {
             switch result {
             case let .success(data):
                 do {
-                    try FileHandler.saveFile(directoryName: charaDomain, fileName: fileName, data: data)
+                    try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: fileName, data: data)
                     completion(.success("\(path)の保存に成功しました"))
                 } catch {
                     let message = """

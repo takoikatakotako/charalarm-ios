@@ -1,7 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-
 def install_pods
   use_frameworks!
   inhibit_all_warnings!
@@ -9,7 +8,7 @@ def install_pods
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
-  pod 'Firebase/AdMob'
+  pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftLint'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
