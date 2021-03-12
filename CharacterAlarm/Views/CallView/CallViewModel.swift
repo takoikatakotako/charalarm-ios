@@ -9,7 +9,7 @@ class CallViewModel: ObservableObject {
     @Published var overlay = true
     
     var charaThumbnailUrlString: String {
-        return ResourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
     }
     
     init(charaDomain: String, charaName: String) {

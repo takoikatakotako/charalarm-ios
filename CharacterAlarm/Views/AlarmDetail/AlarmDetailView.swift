@@ -2,12 +2,20 @@ import SwiftUI
 
 struct AlarmDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var viewModel: AlarmDetailViewModel
+    @StateObject var viewModel: AlarmDetailViewModel
     
     // AlarmId を取得して、そこからフェッチした方が良い。あ
     // マルチログインに対応する予定ないし、いらんかも
     init(alarm: Alarm) {
-        viewModel = AlarmDetailViewModel(alarm: alarm)
+        _viewModel = StateObject(wrappedValue: AlarmDetailViewModel(alarm: alarm))
+    }
+    
+    var title: String {
+        if viewModel.alarm.alarmId == nil {
+            return R.string.localizable.alarmAddAlarm()
+        } else {
+            return R.string.localizable.alarmEditAlarm()
+        }
     }
     
     var body: some View {
@@ -105,7 +113,7 @@ struct AlarmDetailView: View {
                 Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
             }
             .navigationBarHidden(false)
-            .navigationBarTitle(R.string.localizable.alarmAddAlarm(), displayMode: .inline)
+            .navigationBarTitle(title, displayMode: .inline)
         }        
     }
 }

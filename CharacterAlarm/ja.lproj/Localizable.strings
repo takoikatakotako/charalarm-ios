@@ -13,6 +13,10 @@
 "tutorial-please-choose-your-favorite-character" = "好きなキャラクターを選んでみてください。";
 "tutorial-did-you-get-a-call" = "無事に電話がかかってきましたか？";
 "tutorial-you-can-set-multiple-alarms" = "アラームは時間や曜日を指定して複数セットすることができます。";
+"tutorial-customize-your-ads" = "カスタマイズした広告を表示";
+"tutorial-charalarm-development-is-supported-by-advertising-revenue" = "Charalarmの運営、開発は広告の収益により支えられています。\n適切な広告が表示されるために必要な情報の利用を許可をお願いします。";
+"tutorial-show-customized-ads" = "カスタマイズした広告を表示";
+"tutorial-do-not-allow-use-of-infomation" = "情報の利用を許可しない";
 "tutorial-go-to-home-screen" = "ホーム画面へ";
 "tutorial-finally-please-allow-push-notificaion" = "最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。";
 
@@ -40,6 +44,8 @@
 "alarm-please-enter-the-alarm-name" = "アラーム名を入力してください";
 "alarm-delete-alarm" = "アラーム削除";
 "alarm-add-alarm" = "アラーム追加";
+"alarm-edit-alarm" = "アラーム編集";
+"alarm-new-alarm" = "新しいアラーム";
 "alarm-failed-to-create-an-alarm" = "アラームの作成に失敗しました。";
 "alarm-failed-to-edit-the-alarm" = "アラームの編集に失敗しました。";
 "alarm-you-can-create-up-to-three-alarms" = "アラームは最大3つまで作成できます。";
@@ -92,4 +98,11 @@
 
 // Error
 "error-an-unknown-error-has-occurred" = "不明なエラーが発生しました。";
-"error-failed-to-get-the-authentication-information" = "認証情報の取得に失敗しました。";
+"error-failed-to-get-authentication-information" = "認証情報の取得に失敗しました。";
+"error-failed-to-get-character-information" = "キャラクターの情報の取得に失敗しました";
+"error-failed-to-get-character-selection-information" = "キャラクターの選択情報の取得に失敗しました";
+"error-failed-to-get-characters-resources" = "キャラクターのリソースを取得に失敗しました";
+"error-failed-to-set-character-image" = "キャラクターの画像を設定できませんでした";
+"error-this-feature-is-not-available-in-your-region" = "この機能はお住まいの地域ではご利用いただけません。";
+
+

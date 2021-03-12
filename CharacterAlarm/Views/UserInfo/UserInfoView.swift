@@ -4,7 +4,7 @@ struct UserInfoView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var userName: String {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName() else {
             return ""
         }
         return anonymousUserName

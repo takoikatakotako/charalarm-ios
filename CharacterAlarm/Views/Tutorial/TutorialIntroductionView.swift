@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TutorialFirstView: View {
+struct TutorialIntroductionView: View {
     @EnvironmentObject var appState: CharalarmAppState
     
     var body: some View {
@@ -23,7 +23,7 @@ struct TutorialFirstView: View {
             Spacer()
             
             NavigationLink(
-                destination: TutorialSecondView()
+                destination: TutorialCallView()
                     .environmentObject(appState),
                 label: {
                     TutorialButtonContent(text: R.string.localizable.tutorialGetACall())
@@ -41,11 +41,11 @@ struct TutorialFirstView: View {
 struct TutorialFirstView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TutorialFirstView()
+            TutorialIntroductionView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            TutorialFirstView()
+            TutorialIntroductionView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

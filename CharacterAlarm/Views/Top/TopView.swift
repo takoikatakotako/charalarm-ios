@@ -9,96 +9,81 @@ struct TopView: View {
     @StateObject var viewModel = TopViewModel()
     
     var body: some View {
-        GeometryReader { geometory in
-            ZStack {
-                Image(R.image.background.name)
+        ZStack {
+            Image(R.image.background.name)
+                .resizable()
+                .scaledToFill()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            
+            VStack(spacing: 0) {
+                Image(uiImage: viewModel.charaImage)
                     .resizable()
-                    .scaledToFill()
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                
+                    .scaledToFit()
+                    .padding(.top, 60)
+            }
+            
+            Button(action: {
+                viewModel.tapped()
+            }) {
+                Text("")
+                    .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            }
+            
+            VStack(spacing: 0) {
                 VStack(spacing: 0) {
-                    Image(uiImage: viewModel.charaImage)
-                        .resizable()
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .scaledToFit()
-                        .padding(.top, 60)
-                }
-                
-                Button(action: {
-                    viewModel.tapped()
-                }) {
-                    Text("")
-                        .frame(width: geometory.size.width, height: geometory.size.height)
-                }
-                
-                VStack(spacing: 0) {
-                    VStack(spacing: 0) {
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                viewModel.showNews = true
-                            }) {
-                                Image(R.image.topNews.name)
-                            }.sheet(isPresented: $viewModel.showNews) {
-                                NewsListView()
-                            }
-                            .padding()
-                            .padding(.top, 8)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            viewModel.newsButtonTapped()
+                        }) {
+                            Image(R.image.topNews.name)
                         }
-                        .frame(height: 140)
-                        .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
+                        .padding()
+                        .padding(.top, 8)
                     }
+                    .frame(height: 140)
+                    .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
+                }
+                
+                Spacer()
+                
+                VStack(spacing: 8) {
+                    TopTimeView()
                     
-                    Spacer()
-                    
-                    VStack(spacing: 8) {
-                        TopTimeView()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            // rewarded.showAd()
+
+                            
+                            // viewModel.characterListButtonTapped()
+                        }) {
+                            TopButtonContent(imageName: R.image.topPerson.name)
+                        }
                         
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                viewModel.showCharaList = true
-                            }) {
-                                TopButtonContent(imageName: R.image.topPerson.name)
-                            }.sheet(isPresented: $viewModel.showCharaList) {
-                                CharacterListView()
-                                    .environmentObject( appState )
-                            }
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                guard Locale.current.regionCode != "CN" else {
-                                    viewModel.showingAlert = true
-                                    viewModel.alertMessage = "对不起。此功能在您所在的地区不可用。"
-                                    return
-                                }
-                                viewModel.showAlarmList = true
-                            }) {
-                                TopButtonContent(imageName: R.image.topAlarm.name)
-                            }.sheet(isPresented: self.$viewModel.showAlarmList) {
-                                AlarmListView()
-                                    .environmentObject( appState )
-                            }
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                viewModel.showConfig = true
-                            }) {
-                                TopButtonContent(imageName: R.image.topConfig.name)
-                            }.sheet(isPresented: $viewModel.showConfig) {
-                                ConfigView()
-                                    .environmentObject( appState )
-                            }
-                            
-                            Spacer()
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.alarmButtonTapped()
+                        }) {
+                            TopButtonContent(imageName: R.image.topAlarm.name)
                         }
-                        .padding(.bottom, 32)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.configButtonTapped()
+                        }) {
+                            TopButtonContent(imageName: R.image.topConfig.name)
+                        }
+                        
+                        Spacer()
                     }
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.8), Color.gray.opacity(0.2)]), startPoint: UnitPoint(x: 0.5, y: 0.03), endPoint: UnitPoint(x: 0.5, y: 0)).opacity(0.9))
+                    .padding(.bottom, 32)
                 }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.8), Color.gray.opacity(0.2)]), startPoint: UnitPoint(x: 0.5, y: 0.03), endPoint: UnitPoint(x: 0.5, y: 0)).opacity(0.9))
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
@@ -106,16 +91,40 @@ struct TopView: View {
             viewModel.setChara()
         }
         .onAppear {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                guard granted else { return }
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
+            viewModel.onAppear()
             viewModel.setChara()
+            // rewarded.load()
         }
-        .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
+        .alert(item: $viewModel.alert) { item in
+            switch item {
+            case .failedToGetCharacterInformation:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToGetCharacterInformation()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .failedToGetCharacterSelectionInformation:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToGetCharacterSelectionInformation()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .failedToGetCharactersResources:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToGetCharactersResources()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .failedToSetCharacterImage:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToSetCharacterImage()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            case .thisFeatureIsNotAvailableInYourRegion:
+                return Alert(title: Text(""), message: Text(R.string.localizable.errorThisFeatureIsNotAvailableInYourRegion()), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            }
+        }
+        .sheet(item: $viewModel.sheet) {
+            // On Dissmiss
+        } content: { item in
+            switch item {
+            case .newsList:
+                NewsListView()
+            case .characterList:
+                CharacterListView()
+                    .environmentObject( appState )
+            case .alarmList:
+                AlarmListView()
+                    .environmentObject( appState )
+            case .config:
+                ConfigView()
+                    .environmentObject( appState )
+            }
         }
     }
 }

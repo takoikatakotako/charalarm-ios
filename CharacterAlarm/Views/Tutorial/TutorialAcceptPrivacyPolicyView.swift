@@ -1,6 +1,8 @@
 import SwiftUI
+import AdSupport
+import AppTrackingTransparency
 
-struct TutorialFifthView: View {
+struct TutorialAcceptPrivacyPolicyView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @State var accountCreated = false
     @State var creatingAccount = false
@@ -32,7 +34,7 @@ struct TutorialFifthView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: TutorialSixthView(),
+                    destination: TutorialRequireTrackingView(),
                     isActive: $accountCreated,
                     label: {
                         EmptyView()
@@ -81,8 +83,8 @@ struct TutorialFifthView: View {
             case .success(_):
                 // ユーザー作成に成功
                 do {
-                    try KeychainHandler.setAnonymousUserName(anonymousUserName: anonymousUserName)
-                    try KeychainHandler.setAnonymousUserPassword(anonymousUserPassword: anonymousUserPassword)
+                    try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: anonymousUserName)
+                    try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: anonymousUserPassword)
                     self.accountCreated = true
                 } catch {
                     self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
@@ -98,16 +100,31 @@ struct TutorialFifthView: View {
             }
         }
     }
+    
+    private func trackingAuthorizationNotDetermined() -> Bool {
+        switch ATTrackingManager.trackingAuthorizationStatus {
+        case .authorized:
+            return false
+        case .denied:
+            return false
+        case .restricted:
+            return false
+        case .notDetermined:
+            return true
+        @unknown default:
+            return false
+        }
+    }
 }
 
-struct TutorialFifthView_Previews: PreviewProvider {
+struct TutorialAcceptPrivacyPolicyView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TutorialFifthView()
+            TutorialAcceptPrivacyPolicyView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            TutorialFifthView()
+            TutorialAcceptPrivacyPolicyView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

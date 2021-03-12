@@ -13,6 +13,11 @@
 "tutorial-please-choose-your-favorite-character" = "Please choose your favorite character.";
 "tutorial-did-you-get-a-call" = "Did you get a call?";
 "tutorial-you-can-set-multiple-alarms" = "You can set multiple alarms by specifying the time and day of the week.";
+"tutorial-customize-your-ads" = "Customize your ads!";
+"tutorial-charalarm-development-is-supported-by-advertising-revenue" = "
+The operation and development of Charalarm is supported by advertising revenue. \ nPlease allow us to use the information necessary to display the appropriate advertisement";
+"tutorial-show-customized-ads" = "Show customized ads";
+"tutorial-do-not-allow-use-of-infomation" = "Do not allow the use of information";
 "tutorial-go-to-home-screen" = "Go to home screen";
 "tutorial-finally-please-allow-push-notificaion" = "Finally, please allow push notifications, such as to announce the addition of new characters.";
 
@@ -40,6 +45,8 @@
 "alarm-please-enter-the-alarm-name" = "Please enter the alarm name";
 "alarm-delete-alarm" = "Delete Alarm";
 "alarm-add-alarm" = "Add Alarm";
+"alarm-edit-alarm" = "Edit Alarm";
+"alarm-new-alarm" = "New Alarm";
 "alarm-failed-to-create-an-alarm" = "Failed to create an alarm.";
 "alarm-failed-to-edit-the-alarm" = "Failed to edit the alarm.";
 "alarm-you-can-create-up-to-three-alarms" = "You can create up to three alarms.";
@@ -92,4 +99,11 @@
 
 // Error
 "error-an-unknown-error-has-occurred" = "An unknown error has occurred.";
-"error-failed-to-get-the-authentication-information" = "Failed to get the authentication information.";
+"error-failed-to-get-authentication-information" = "Failed to get the authentication information";
+"error-failed-to-get-character-information" = "Failed to get the character information";
+"error-failed-to-get-character-selection-information" = "Failed to get the character selection information";
+"error-failed-to-get-characters-resources" = "Failed to get the character's resources";
+"error-failed-to-set-character-image" = "Failed to set character image";
+"error-this-feature-is-not-available-in-your-region" = "This feature is not available in your region";
+
+

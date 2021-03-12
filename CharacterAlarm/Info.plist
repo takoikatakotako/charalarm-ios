@@ -2,16 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ADMOB_CONFIG</key>
-	<string>${ADMOB_CONFIG}</string>
 	<key>ADMOB_ALARM_LIST</key>
 	<string>${ADMOB_ALARM_LIST}</string>
-	<key>GADApplicationIdentifier</key>
-	<string>${GAD_APPLICATION_IDENTIFER}</string>
+	<key>ADMOB_CONFIG</key>
+	<string>${ADMOB_CONFIG}</string>
 	<key>API_ENDPOINT</key>
 	<string>$(API_ENDPOINT)</string>
-	<key>RESOURCE_ENDPOINT</key>
-	<string>$(RESOURCE_ENDPOINT)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -21,13 +17,17 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>キャラーム</string>
+	<string>Charalarm</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>${GAD_APPLICATION_IDENTIFER}</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -35,6 +35,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to deliver personalized ads to you.</string>
+	<key>RESOURCE_ENDPOINT</key>
+	<string>$(RESOURCE_ENDPOINT)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TutorialFourthView: View {
+struct TutorialCharaListView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
     var body: some View {
@@ -26,7 +26,7 @@ struct TutorialFourthView: View {
             Spacer()
             
             NavigationLink(
-                destination: TutorialFifthView().environmentObject(appState),
+                destination: TutorialAcceptPrivacyPolicyView().environmentObject(appState),
                 label: {
                     TutorialButtonContent(text: R.string.localizable.commonNext())
                         .padding(.horizontal, 16)
@@ -42,11 +42,11 @@ struct TutorialFourthView: View {
 struct TutorialFourthView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TutorialFourthView()
+            TutorialCharaListView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            TutorialFourthView()
+            TutorialCharaListView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

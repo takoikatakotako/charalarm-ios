@@ -1,39 +1,56 @@
 import Foundation
 
+enum AlarmListViewModelSheet: Identifiable {
+    case alarmDetail(Alarm)
+    var id: String {
+        switch self {
+        case let .alarmDetail(alarm):
+            return alarm.id
+        }
+    }
+}
+
+enum AlarmListViewModelAlert: Identifiable {
+    case ad(UUID)
+    case error(UUID, String)
+    var id: UUID {
+        switch self {
+        case let .ad(id):
+            return id
+        case let .error(id, _):
+            return id
+        }
+    }
+}
+
 class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm] = []
-    
-    @Published var showingEditAlarmSheet = false
-    var selectedAlarm: Alarm?
-    
-    @Published var showingAlert = false
-    var alertMessage = ""
-    
+    @Published var sheet: AlarmListViewModelSheet?
+    @Published var alert: AlarmListViewModelAlert?
+
     func addAlarmButtonTapped() {
         if alarms.count < 3 {
             editAlarm(alarm: createNewAlarm())
         } else {
-            self.alertMessage = R.string.localizable.alarmYouCanCreateUpToThreeAlarms()
-            self.showingAlert = true
+            alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())
         }
     }
     
     func createNewAlarm() -> Alarm {
         let date = Date()
+        let name = R.string.localizable.alarmNewAlarm()
         let calendar = Calendar.current
-        let enable = true
-        let name = date.description
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
+        let enable = true
         let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
         return Alarm(alarmId: nil, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
     }
     
     func fetchAlarms() {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
-            self.showingAlert = true
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+                alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
             return
         }
         AlarmStore.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
@@ -41,17 +58,16 @@ class AlarmListViewModel: ObservableObject {
             case let .success(alarms):
                 self.alarms = alarms
             case .failure:
-                self.alertMessage = R.string.localizable.alarmFailedToGetTheAlarmList()
-                self.showingAlert = true
+                self.alert = .error(UUID(), R.string.localizable.alarmFailedToGetTheAlarmList())
             }
         }
     }
     
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetTheAuthenticationInformation()
-            self.showingAlert = true
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+            alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
+
             return
         }
         
@@ -66,14 +82,12 @@ class AlarmListViewModel: ObservableObject {
             case .success(_):
                 break
             case .failure:
-                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
-                self.showingAlert = true
+                self.alert = .error(UUID(), R.string.localizable.alarmFailedToEditTheAlarm())
             }
         }
     }
     
     func editAlarm(alarm: Alarm) {
-        selectedAlarm = alarm
-        showingEditAlarmSheet = true
+        sheet = .alarmDetail(alarm)
     }
 }

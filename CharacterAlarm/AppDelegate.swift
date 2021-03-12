@@ -79,8 +79,8 @@ extension AppDelegate {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
         print("Device token: \(token)")
 
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             return
         }
         
@@ -105,8 +105,8 @@ extension AppDelegate {
 extension AppDelegate: PKPushRegistryDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-        guard let anonymousUserName = KeychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = KeychainHandler.getAnonymousAuthToken() else {
+        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             return
         }
         
@@ -128,7 +128,7 @@ extension AppDelegate: PKPushRegistryDelegate {
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)
         let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: UserDefaultsHandler.getCharaName() ?? "キャラーム")
+        update.remoteHandle = CXHandle(type: .generic, value: charalarmEnvironment.userDefaultsHandler.getCharaName() ?? "キャラーム")
         provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
     }
 }
@@ -143,12 +143,12 @@ extension AppDelegate: CXProviderDelegate {
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
         // キャラドメイン
-        guard let charaDomain = UserDefaultsHandler.getCharaDomain() else {
+        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
             return
         }
 
         // リソース取得
-        guard let data = try? FileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+        guard let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
             return
         }
         let decoder = JSONDecoder()
@@ -166,7 +166,7 @@ extension AppDelegate: CXProviderDelegate {
         }
 
         do {
-            let data = try FileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
+            let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
             audioPlayer = try? AVAudioPlayer(data: data)
             audioPlayer?.play()
         } catch {

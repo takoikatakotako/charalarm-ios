@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TutorialSixthView: View {
+struct TutorialFinallyView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
     var body: some View {
@@ -17,9 +17,6 @@ struct TutorialSixthView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
-            Spacer()
-            
-                        
             Spacer()
             
             Button(action: {
@@ -39,11 +36,11 @@ struct TutorialSixthView: View {
 struct TutorialSixthView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TutorialSixthView()
+            TutorialFinallyView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            TutorialSixthView()
+            TutorialFinallyView()
                 .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
