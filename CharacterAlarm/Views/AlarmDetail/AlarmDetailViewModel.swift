@@ -1,10 +1,24 @@
 import Foundation
 import SwiftUI
 
-class AlarmDetailViewModel: ObservableObject {
+protocol AlarmDetailViewModelProtocol: ObservableObject {
+    
+}
+
+enum AlarmDetailViewSheet: Identifiable {
+    case voiceList
+    var id: Int {
+        return hashValue
+    }
+}
+
+class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     @Published var alarm: Alarm
+    @Published var characters: [Character] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
+    
+    @Published var sheet: AlarmDetailViewSheet?
         
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
@@ -16,6 +30,17 @@ class AlarmDetailViewModel: ObservableObject {
     
     init(alarm: Alarm) {
         self.alarm = alarm
+    }
+    
+    func onAppear() {
+        CharacterStore.fetchCharacters { [weak self] result in
+            switch result {
+            case let .success(characters):
+                self?.characters = characters
+            case .failure(_):
+                break
+            }
+        }
     }
     
     func createOrUpdateAlarm(completion: @escaping () -> Void) {

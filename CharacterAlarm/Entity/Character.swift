@@ -15,6 +15,11 @@ struct Character: Identifiable, Decodable, Hashable {
     let additionalProfileBeans: [CharaAdditionalProfileBean]
         
     var charaThumbnailUrlString: String {
+        return Self.charaDomainToThmbnailUrlString(charaDomain: charaDomain)
+    }
+    
+    static func charaDomainToThmbnailUrlString(charaDomain: String) -> String {
         return "\(String(describing: RESOURCE_ENDPOINT))/\(charaDomain)/image/thumbnail.png"
     }
 }
+
