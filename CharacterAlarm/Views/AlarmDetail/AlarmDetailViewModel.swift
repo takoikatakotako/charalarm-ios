@@ -6,9 +6,12 @@ protocol AlarmDetailViewModelProtocol: ObservableObject {
 }
 
 enum AlarmDetailViewSheet: Identifiable {
-    case voiceList
+    case voiceList(Character)
     var id: Int {
-        return hashValue
+        switch self {
+        case let .voiceList(character):
+            return character.charaId
+        }
     }
 }
 
@@ -67,6 +70,10 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
                 self?.showingAlert = true
             }
         }
+    }
+    
+    func showVoiceList(chara: Character) {
+        sheet = .voiceList(chara)
     }
     
     func updateAlarmName(name: String) {

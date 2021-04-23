@@ -1,17 +1,13 @@
 import SwiftUI
 
 struct AlarmVoiceList: View {
+    let chara: Character
     var body: some View {
         NavigationView {
             List {
-                Text("おはよう")
-                Text("お疲れ様")
-                Text("お疲れ様")
-                Text("お疲れ様")
-                Text("お疲れ様")
-                Text("お疲れ様")
-                Text("お疲れ様")
-                Text("お疲れ様")
+                ForEach(chara.charaCallResponseEntities) { index in
+                    Text(index.charaFileName)
+                 }
             }
             .navigationBarTitle("ボイス設定")
             .navigationBarTitleDisplayMode(.inline)
@@ -21,6 +17,6 @@ struct AlarmVoiceList: View {
 
 struct AlarmVoiceList_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmVoiceList()
+        AlarmVoiceList(chara: Character.mock())
     }
 }

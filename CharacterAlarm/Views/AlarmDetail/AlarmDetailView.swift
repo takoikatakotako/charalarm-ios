@@ -74,7 +74,7 @@ struct AlarmDetailView: View {
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 16)
-
+                    
                     VStack(alignment: .leading) {
                         Text("キャラクター")
                             .font(Font.system(size: 16).bold())
@@ -84,26 +84,35 @@ struct AlarmDetailView: View {
                                 Text("Loading")
                             } else {
                                 LazyHStack(spacing: 12) {
-                                    WebImage(url: URL(string: "https://resource.charalarm.com/com.charalarm.yui/image/thumbnail.png"))
-                                        .resizable()
-                                        .frame(width: 64, height: 64)
-                                        .cornerRadius(10)
+                                    if let charaId = viewModel.alarm.charaId {
+                                        WebImage(url: URL(string: "https://resource.charalarm.com/com.charalarm.yui/image/thumbnail.png"))
+                                            .resizable()
+                                            .frame(width: 64, height: 64)
+                                            .cornerRadius(10)
+                                    } else {
+                                        Text("?")
+                                            .frame(width: 64, height: 64)
+                                            .foregroundColor(Color.white)
+                                            .font(Font.system(size: 24).bold())
+                                            .background(Color(UIColor.lightGray))
+                                            .cornerRadius(10)
+                                    }
                                     
                                     Button {
                                         print("XXXXXX")
                                     } label: {
-                                    Text("?")
-                                        .frame(width: 56, height: 56)
-                                        .foregroundColor(Color.white)
-                                        .font(Font.system(size: 24).bold())
-                                        .background(Color(UIColor.lightGray))
-                                        .cornerRadius(10)
-                                        .padding(.top, 8)
+                                        Text("?")
+                                            .frame(width: 56, height: 56)
+                                            .foregroundColor(Color.white)
+                                            .font(Font.system(size: 24).bold())
+                                            .background(Color(UIColor.lightGray))
+                                            .cornerRadius(10)
+                                            .padding(.top, 8)
                                     }
                                     
                                     ForEach(viewModel.characters) { character in
                                         Button {
-                                            viewModel.sheet = .voiceList
+                                            viewModel.showVoiceList(chara: character)
                                         } label: {
                                             WebImage(url: URL(string: character.charaThumbnailUrlString))
                                                 .resizable()
@@ -118,7 +127,7 @@ struct AlarmDetailView: View {
                         .frame(height: 64)
                     }
                     .padding(.horizontal, 16)
-
+                    
                     Spacer()
                     
                     if let alarmId = viewModel.alarm.alarmId {
@@ -142,12 +151,12 @@ struct AlarmDetailView: View {
                     }
                 }
                 
-//                ProgressView()
-//                    .scaleEffect(1.5, anchor: .center)
-//                    .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
-//                    .padding(36)
-//                    .background(Color.black.opacity(0.5))
-//                    .cornerRadius(24)
+                //                ProgressView()
+                //                    .scaleEffect(1.5, anchor: .center)
+                //                    .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                //                    .padding(36)
+                //                    .background(Color.black.opacity(0.5))
+                //                    .cornerRadius(24)
             }
             .onAppear {
                 viewModel.onAppear()
@@ -170,8 +179,11 @@ struct AlarmDetailView: View {
             ).alert(isPresented: $viewModel.showingAlert) {
                 Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
             }
-            .sheet(item: $viewModel.sheet) {_ in
-                AlarmVoiceList()
+            .sheet(item: $viewModel.sheet) { item in
+                switch item {
+                case let .voiceList(chara):
+                    AlarmVoiceList(chara: chara)
+                }
             }
             .navigationBarHidden(false)
             .navigationBarTitle(title, displayMode: .inline)
