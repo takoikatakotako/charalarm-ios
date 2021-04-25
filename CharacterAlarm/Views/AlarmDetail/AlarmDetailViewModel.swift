@@ -54,6 +54,14 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
         }
     }
     
+    func setCharaId(charaId: Int) {
+        alarm.charaId = charaId
+    }
+    
+    func setCharaCallId(charaCallId: Int) {
+        alarm.charaCallId = charaCallId
+    }
+    
     func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {

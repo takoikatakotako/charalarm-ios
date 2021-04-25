@@ -131,15 +131,13 @@ struct AlarmDetailView: View {
                             .font(Font.system(size: 16).bold())
                         
                         HStack {
-                            
                             Button {
                                 print("ssss")
                             } label: {
                                 Text("ssss")
                             }
                             
-                            
-                            Text("xxsdsfsdfsdf.caf")
+                            Text("\(viewModel.alarm.charaCallId?.description ?? "s")")
                         }
                         .padding(.top, 8)
                         .padding(.bottom, 16)
@@ -165,13 +163,7 @@ struct AlarmDetailView: View {
                         }
                     }
                     .padding(.horizontal, 16)
-                    
-                    
-                    
-                    
-                    
                 }
-                
             }
             .onAppear {
                 viewModel.onAppear()
@@ -197,12 +189,23 @@ struct AlarmDetailView: View {
             .sheet(item: $viewModel.sheet) { item in
                 switch item {
                 case let .voiceList(chara):
-                    AlarmVoiceListView(chara: chara)
+                    AlarmVoiceListView(chara: chara, delegate: self)
                 }
             }
             .navigationBarHidden(false)
             .navigationBarTitle(title, displayMode: .inline)
         }        
+    }
+}
+
+extension AlarmDetailView: AlarmVoiceListViewDelegate {
+    func selectedRandomVoice(charaId: Int) {
+        viewModel.setCharaId(charaId: charaId)
+    }
+    
+    func selectedVoice(charaId: Int, charaCallId: Int) {
+        viewModel.setCharaId(charaId: charaId)
+        viewModel.setCharaCallId(charaCallId: charaCallId)
     }
 }
 

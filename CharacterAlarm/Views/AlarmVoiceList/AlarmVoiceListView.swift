@@ -1,53 +1,66 @@
 import SwiftUI
 
 protocol AlarmVoiceListViewDelegate {
-    
+    func selectedRandomVoice(charaId: Int)
+    func selectedVoice(charaId: Int, charaCallId: Int)
 }
 
 struct AlarmVoiceListView: View {
-    let chara: Character
-    let viewModel = AlarmVoiceListViewModel()
+    let delegate: AlarmVoiceListViewDelegate
+    @StateObject var viewModel: AlarmVoiceListViewModel
+    @Environment(\.presentationMode) private var presentationMode
+
+    init(chara: Character, delegate: AlarmVoiceListViewDelegate) {
+        _viewModel = StateObject(wrappedValue: AlarmVoiceListViewModel(chara: chara))
+        self.delegate = delegate
+    }
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(chara.charaCallResponseEntities) { charaCallResponseEntity in
-                    HStack(spacing: 0) {
+                HStack(spacing: 8) {
+                    Button(action: {
+                         print("ランダムに設定する")
+                    }, label: {
+                        Image(R.image.alarmVoicePlay.name)
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    HStack {
+                        Text("ランダム")
+                        Spacer()
+                    }
+                    .contentShape(Rectangle())
+                }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    delegate.selectedRandomVoice(charaId: viewModel.chara.charaId)
+                    presentationMode.wrappedValue.dismiss()
+                }
+                
+                ForEach(viewModel.chara.charaCallResponseEntities) { charaCallResponseEntity in
+                    HStack(spacing: 8) {
                         Button(action: {
                              viewModel.playVoice(filePath: charaCallResponseEntity.charaFilePath)
                         }, label: {
                             Image(R.image.alarmVoicePlay.name)
                         })
-                        .background(Color.red)
                         .buttonStyle(PlainButtonStyle())
                         
                         HStack {
                             Text(charaCallResponseEntity.charaFileName)
                             Spacer()
-    //
                         }
                         .contentShape(Rectangle())
-
-//                        Button {
-//                            print("ssss")
-//                        } label: {
-//                            Text(charaCallResponseEntity.charaFileName)
-//                            .frame(height: 52)
-//                            .frame(minWidth: 0, maxWidth: .infinity,alignment: .leading)
-//                        }
-//                        .background(Color.blue)
-//                        .buttonStyle(PlainButtonStyle())
-
-                        
-                        // https://stackoverflow.com/questions/58500295/swiftui-pick-a-value-from-a-list-with-ontap-gesture
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        print("ssss")
+                        delegate.selectedVoice(charaId: viewModel.chara.charaId, charaCallId: charaCallResponseEntity.charaCallId)
+                        presentationMode.wrappedValue.dismiss()
                     }
                  }
             }
-            .navigationBarTitle("\(chara.name)のボイス")
+            .navigationBarTitle("\(viewModel.chara.name)のボイス")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -55,6 +68,12 @@ struct AlarmVoiceListView: View {
 
 struct AlarmVoiceList_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmVoiceListView(chara: Character.mock())
+        AlarmVoiceListView(chara: Character.mock(), delegate: MockAlarmVoiceListViewDelegate())
     }
 }
+
+struct MockAlarmVoiceListViewDelegate: AlarmVoiceListViewDelegate {
+    func selectedRandomVoice(charaId: Int) {}
+    func selectedVoice(charaId: Int, charaCallId: Int) {}
+}
+
