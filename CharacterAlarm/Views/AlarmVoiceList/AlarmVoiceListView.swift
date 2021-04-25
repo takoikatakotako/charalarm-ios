@@ -1,8 +1,8 @@
 import SwiftUI
 
 protocol AlarmVoiceListViewDelegate {
-    func selectedRandomVoice(charaId: Int)
-    func selectedVoice(charaId: Int, charaCallId: Int)
+    func selectedRandomVoice(chara: Character)
+    func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity)
 }
 
 struct AlarmVoiceListView: View {
@@ -34,7 +34,7 @@ struct AlarmVoiceListView: View {
                 }
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    delegate.selectedRandomVoice(charaId: viewModel.chara.charaId)
+                    delegate.selectedRandomVoice(chara: viewModel.chara)
                     presentationMode.wrappedValue.dismiss()
                 }
                 
@@ -48,14 +48,14 @@ struct AlarmVoiceListView: View {
                         .buttonStyle(PlainButtonStyle())
                         
                         HStack {
-                            Text(charaCallResponseEntity.charaFileName)
+                            Text(charaCallResponseEntity.charaFileMessage)
                             Spacer()
                         }
                         .contentShape(Rectangle())
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        delegate.selectedVoice(charaId: viewModel.chara.charaId, charaCallId: charaCallResponseEntity.charaCallId)
+                        delegate.selectedVoice(chara: viewModel.chara, charaCall: charaCallResponseEntity)
                         presentationMode.wrappedValue.dismiss()
                     }
                  }
@@ -73,7 +73,7 @@ struct AlarmVoiceList_Previews: PreviewProvider {
 }
 
 struct MockAlarmVoiceListViewDelegate: AlarmVoiceListViewDelegate {
-    func selectedRandomVoice(charaId: Int) {}
-    func selectedVoice(charaId: Int, charaCallId: Int) {}
+    func selectedRandomVoice(chara: Character) {}
+    func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity) {}
 }
 

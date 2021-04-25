@@ -84,8 +84,8 @@ struct AlarmDetailView: View {
                                 Text("Loading")
                             } else {
                                 LazyHStack(spacing: 12) {
-                                    if let charaId = viewModel.alarm.charaId {
-                                        WebImage(url: URL(string: "https://resource.charalarm.com/com.charalarm.yui/image/thumbnail.png"))
+                                    if let chara = viewModel.selectedChara {
+                                        WebImage(url: URL(string: chara.charaThumbnailUrlString))
                                             .resizable()
                                             .frame(width: 64, height: 64)
                                             .cornerRadius(10)
@@ -130,15 +130,7 @@ struct AlarmDetailView: View {
                         Text("ボイス")
                             .font(Font.system(size: 16).bold())
                         
-                        HStack {
-                            Button {
-                                print("ssss")
-                            } label: {
-                                Text("ssss")
-                            }
-                            
-                            Text("\(viewModel.alarm.charaCallId?.description ?? "s")")
-                        }
+                        Text("\(viewModel.selectedCharaCall?.charaFileMessage ?? "ランダム")")
                         .padding(.top, 8)
                         .padding(.bottom, 16)
                         
@@ -199,13 +191,13 @@ struct AlarmDetailView: View {
 }
 
 extension AlarmDetailView: AlarmVoiceListViewDelegate {
-    func selectedRandomVoice(charaId: Int) {
-        viewModel.setCharaId(charaId: charaId)
+    func selectedRandomVoice(chara: Character) {
+         viewModel.setChara(chara: chara)
     }
     
-    func selectedVoice(charaId: Int, charaCallId: Int) {
-        viewModel.setCharaId(charaId: charaId)
-        viewModel.setCharaCallId(charaCallId: charaCallId)
+    func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity) {
+         viewModel.setChara(chara: chara)
+         viewModel.setCharaCall(charaCall: charaCall)
     }
 }
 

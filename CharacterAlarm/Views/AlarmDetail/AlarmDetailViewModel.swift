@@ -20,9 +20,10 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     @Published var characters: [Character] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    
     @Published var sheet: AlarmDetailViewSheet?
-        
+    @Published var selectedChara: Character?
+    @Published var selectedCharaCall: CharaCallResponseEntity?
+    
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
@@ -54,12 +55,14 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
         }
     }
     
-    func setCharaId(charaId: Int) {
-        alarm.charaId = charaId
+    func setChara(chara: Character) {
+        alarm.charaId = chara.charaId
+        selectedChara = chara
     }
     
-    func setCharaCallId(charaCallId: Int) {
-        alarm.charaCallId = charaCallId
+    func setCharaCall(charaCall: CharaCallResponseEntity) {
+        alarm.charaCallId = charaCall.charaCallId
+        selectedCharaCall = charaCall
     }
     
     func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
