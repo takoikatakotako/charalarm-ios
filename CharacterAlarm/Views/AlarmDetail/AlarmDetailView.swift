@@ -182,7 +182,7 @@ struct AlarmDetailView: View {
             .sheet(item: $viewModel.sheet) { item in
                 switch item {
                 case let .voiceList(chara):
-                    AlarmVoiceList(chara: chara)
+                    AlarmVoiceListView(chara: chara)
                 }
             }
             .navigationBarHidden(false)
