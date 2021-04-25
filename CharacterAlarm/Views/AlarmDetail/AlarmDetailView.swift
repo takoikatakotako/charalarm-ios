@@ -21,7 +21,7 @@ struct AlarmDetailView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            ScrollView {
                 VStack(alignment: .center) {
                     HStack {
                         Picker(selection: $viewModel.alarm.hour, label: EmptyView()) {
@@ -125,38 +125,53 @@ struct AlarmDetailView: View {
                             }
                         }
                         .frame(height: 64)
-                    }
-                    .padding(.horizontal, 16)
-                    
-                    Spacer()
-                    
-                    if let alarmId = viewModel.alarm.alarmId {
-                        VStack {
-                            Spacer()
-                            Button(action: {
-                                viewModel.deleteAlarm(alarmId: alarmId) {
-                                    presentationMode.wrappedValue.dismiss()
+                        .padding(.bottom, 16)
+                        
+                        Text("ボイス")
+                            .font(Font.system(size: 16).bold())
+                        
+                        HStack {
+                            
+                            Button {
+                                print("ssss")
+                            } label: {
+                                Text("ssss")
+                            }
+                            
+                            
+                            Text("xxsdsfsdfsdf.caf")
+                        }
+                        .padding(.top, 8)
+                        .padding(.bottom, 16)
+                        
+                        if let alarmId = viewModel.alarm.alarmId {
+                            VStack {
+                                Spacer()
+                                Button(action: {
+                                    viewModel.deleteAlarm(alarmId: alarmId) {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }
+                                }) {
+                                    Text(R.string.localizable.alarmDeleteAlarm())
+                                        .foregroundColor(Color.white)
+                                        .font(Font.system(size: 16).bold())
+                                        .frame(height: 46)
+                                        .frame(minWidth: 0, maxWidth: .infinity)
+                                        .background(Color(R.color.charalarmDefaultPink.name))
+                                        .cornerRadius(28)
+                                        .padding(.horizontal, 24)
                                 }
-                            }) {
-                                Text(R.string.localizable.alarmDeleteAlarm())
-                                    .foregroundColor(Color.white)
-                                    .font(Font.system(size: 16).bold())
-                                    .frame(height: 46)
-                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                    .background(Color(R.color.charalarmDefaultPink.name))
-                                    .cornerRadius(28)
-                                    .padding(.horizontal, 24)
                             }
                         }
                     }
+                    .padding(.horizontal, 16)
+                    
+                    
+                    
+                    
+                    
                 }
                 
-                //                ProgressView()
-                //                    .scaleEffect(1.5, anchor: .center)
-                //                    .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
-                //                    .padding(36)
-                //                    .background(Color.black.opacity(0.5))
-                //                    .cornerRadius(24)
             }
             .onAppear {
                 viewModel.onAppear()

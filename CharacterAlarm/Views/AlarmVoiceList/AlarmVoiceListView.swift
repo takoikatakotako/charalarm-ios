@@ -1,5 +1,9 @@
 import SwiftUI
 
+protocol AlarmVoiceListViewDelegate {
+    
+}
+
 struct AlarmVoiceListView: View {
     let chara: Character
     let viewModel = AlarmVoiceListViewModel()
@@ -8,18 +12,42 @@ struct AlarmVoiceListView: View {
         NavigationView {
             List {
                 ForEach(chara.charaCallResponseEntities) { charaCallResponseEntity in
-                    HStack {
-                        Text(charaCallResponseEntity.charaFileName)
-                        Spacer()
+                    HStack(spacing: 0) {
                         Button(action: {
-                            viewModel.playVoice(filePath: charaCallResponseEntity.charaFilePath)
+                             viewModel.playVoice(filePath: charaCallResponseEntity.charaFilePath)
                         }, label: {
-                            Text("▷")
+                            Image(R.image.alarmVoicePlay.name)
                         })
+                        .background(Color.red)
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        HStack {
+                            Text(charaCallResponseEntity.charaFileName)
+                            Spacer()
+    //
+                        }
+                        .contentShape(Rectangle())
+
+//                        Button {
+//                            print("ssss")
+//                        } label: {
+//                            Text(charaCallResponseEntity.charaFileName)
+//                            .frame(height: 52)
+//                            .frame(minWidth: 0, maxWidth: .infinity,alignment: .leading)
+//                        }
+//                        .background(Color.blue)
+//                        .buttonStyle(PlainButtonStyle())
+
+                        
+                        // https://stackoverflow.com/questions/58500295/swiftui-pick-a-value-from-a-list-with-ontap-gesture
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        print("ssss")
                     }
                  }
             }
-            .navigationBarTitle("ボイス設定")
+            .navigationBarTitle("\(chara.name)のボイス")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
