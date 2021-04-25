@@ -192,12 +192,12 @@ struct AlarmDetailView: View {
 
 extension AlarmDetailView: AlarmVoiceListViewDelegate {
     func selectedRandomVoice(chara: Character) {
-         viewModel.setChara(chara: chara)
+        viewModel.setCharaAndCharaCall(chara: chara, charaCall: nil)
     }
     
     func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity) {
-         viewModel.setChara(chara: chara)
-         viewModel.setCharaCall(charaCall: charaCall)
+        viewModel.setCharaAndCharaCall(chara: chara, charaCall: charaCall)
+
     }
 }
 
