@@ -11,16 +11,19 @@ class AlarmVoiceListViewModel: ObservableObject {
     
     func playVoice(filePath: String) {
         let urlString = "http://localhost:4566/charalarm-image\(filePath)"
-        
-        let url = URL(string: urlString)!
+        guard let url = URL(string: urlString) else {
+            // TODO: ここでなんか投げる
+            return
+        }
         let playerItem = AVPlayerItem(url: url)
         avPlayer = AVPlayer(playerItem: playerItem)
         avPlayer?.play()
     }
     
-    func randomPlayVoice() {
-        
+    func playRandomVoice() {
+        guard let charaCall = chara.charaCallResponseEntities.randomElement() else {
+            return
+        }
+        playVoice(filePath: charaCall.charaFilePath)
     }
-
-    
 }

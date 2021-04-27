@@ -20,7 +20,7 @@ struct AlarmVoiceListView: View {
             List {
                 HStack(spacing: 8) {
                     Button(action: {
-                         print("ランダムに設定する")
+                        viewModel.playRandomVoice()
                     }, label: {
                         Image(R.image.alarmVoicePlay.name)
                     })
