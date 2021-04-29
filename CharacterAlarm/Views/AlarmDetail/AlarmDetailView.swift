@@ -99,7 +99,7 @@ struct AlarmDetailView: View {
                                     }
                                     
                                     Button {
-                                        print("XXXXXX")
+                                        viewModel.setRandomChara()
                                     } label: {
                                         Text("?")
                                             .frame(width: 56, height: 56)

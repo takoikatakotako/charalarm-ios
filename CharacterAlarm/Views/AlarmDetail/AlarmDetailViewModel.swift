@@ -82,6 +82,13 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
         }
     }
     
+    func setRandomChara() {
+        alarm.charaId = nil
+        alarm.charaCallId = nil
+        selectedChara = nil
+        selectedCharaCall = nil
+    }
+    
     func setCharaAndCharaCall(chara: Character, charaCall: CharaCallResponseEntity?) {
         alarm.charaId = chara.charaId
         selectedChara = chara
