@@ -1,13 +1,13 @@
 import SwiftUI
 
 class NewsListViewModel: ObservableObject {
-    
     @Published var newsList: [News] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
+    let newsRepository: NewsRepository = NewsRepository()
     
     func fetchNews() {
-        NewsStore.fetchNews { result in
+        newsRepository.fetchNews { result in
             switch result {
             case let .success(news):
                 self.newsList = news

@@ -27,7 +27,8 @@ class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm] = []
     @Published var sheet: AlarmListViewModelSheet?
     @Published var alert: AlarmListViewModelAlert?
-
+    let alarmRepository: AlarmRepository = AlarmRepository()
+    
     func addAlarmButtonTapped() {
         if alarms.count < 3 {
             editAlarm(alarm: createNewAlarm())
@@ -53,7 +54,7 @@ class AlarmListViewModel: ObservableObject {
                 alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
             return
         }
-        AlarmStore.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
+        alarmRepository.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
             switch result {
             case let .success(alarms):
                 self.alarms = alarms
@@ -77,7 +78,7 @@ class AlarmListViewModel: ObservableObject {
         
         alarms[index].enable = isEnable
         let alarm = alarms[index]
-        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
                 break

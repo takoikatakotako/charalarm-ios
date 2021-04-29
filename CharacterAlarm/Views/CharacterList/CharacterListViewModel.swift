@@ -4,9 +4,10 @@ class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
+    let charaRepository: CharaRepository = CharaRepository()
     
     func fetchCharacters() {
-        CharacterStore.fetchCharacters { result in
+        charaRepository.fetchCharacters { result in
             switch result {
             case let .success(characters):
                 self.characters = characters

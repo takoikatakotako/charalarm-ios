@@ -10,6 +10,7 @@ import AVKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var audioPlayer: AVAudioPlayer!
     var player = AVPlayer()
+    let pushRepository: PushRepository = PushRepository()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs.
@@ -85,7 +86,7 @@ extension AppDelegate {
         }
         
         let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-        PushStore.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
+        pushRepository.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
             switch result {
             case .success:
                 break
@@ -111,7 +112,7 @@ extension AppDelegate: PKPushRegistryDelegate {
         }
         
         let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-        PushStore.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
+        pushRepository.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
             switch result {
             case .success(_):
                 break

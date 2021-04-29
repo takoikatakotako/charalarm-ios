@@ -23,7 +23,10 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     @Published var sheet: AlarmDetailViewSheet?
     @Published var selectedChara: Character?
     @Published var selectedCharaCall: CharaCallResponseEntity?
-    
+    let alarmRepository: AlarmRepository = AlarmRepository()
+    let charaCallRepository: CharaCallRepository = CharaCallRepository()
+    let charaRepository: CharaRepository = CharaRepository()
+
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
@@ -37,12 +40,36 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     }
     
     func onAppear() {
-        CharacterStore.fetchCharacters { [weak self] result in
+        charaRepository.fetchCharacters { [weak self] result in
             switch result {
             case let .success(characters):
                 self?.characters = characters
             case .failure(_):
                 break
+            }
+        }
+        
+        if let charaId = alarm.charaId {
+            charaRepository.fetchCharacter(charaId: charaId) { [weak self] result in
+                switch result {
+                case let .success(character):
+                    self?.selectedChara = character
+                case let .failure(error):
+                    print(error)
+                    break
+                }
+            }
+        }
+        
+        if let charaCallId = alarm.charaCallId {
+            charaCallRepository.findByCharaCallId(charaCallId: charaCallId) { [weak self] result in
+                switch result {
+                case let .success(charaCall):
+                    self?.selectedCharaCall = charaCall
+                case let .failure(error):
+                    print(error)
+                    break
+                }
             }
         }
     }
@@ -70,7 +97,7 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
             self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
             return
         }
-        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
+        alarmRepository.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
             switch result {
             case .success:
                 completion()
@@ -118,7 +145,7 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
                 return
         }
         
-        AlarmStore.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        alarmRepository.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success:
                 completion()
@@ -137,7 +164,7 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
                 return
         }
         
-        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
                 completion()
