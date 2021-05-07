@@ -10,7 +10,7 @@ class AlarmVoiceListViewModel: ObservableObject {
     }
     
     func playVoice(filePath: String) {
-        let urlString = "http://localhost:4566/charalarm-image\(filePath)"
+        let urlString = RESOURCE_ENDPOINT + filePath
         guard let url = URL(string: urlString) else {
             // TODO: ここでなんか投げる
             return
