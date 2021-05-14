@@ -27,6 +27,7 @@ class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm] = []
     @Published var sheet: AlarmListViewModelSheet?
     @Published var alert: AlarmListViewModelAlert?
+    @Published var showingIndicator: Bool = true
     let alarmRepository: AlarmRepository = AlarmRepository()
     
     func addAlarmButtonTapped() {
@@ -49,6 +50,7 @@ class AlarmListViewModel: ObservableObject {
     }
     
     func fetchAlarms() {
+        showingIndicator = true
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
                 alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
@@ -57,6 +59,7 @@ class AlarmListViewModel: ObservableObject {
         alarmRepository.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
             switch result {
             case let .success(alarms):
+                self.showingIndicator = false
                 self.alarms = alarms
             case .failure:
                 self.alert = .error(UUID(), R.string.localizable.alarmFailedToGetTheAlarmList())

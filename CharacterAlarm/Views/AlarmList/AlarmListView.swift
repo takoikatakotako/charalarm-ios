@@ -9,17 +9,24 @@ struct AlarmListView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(viewModel.alarms) { alarm in
-                            Button(action: {
-                                viewModel.editAlarm(alarm: alarm)
-                            }){
-                                AlarmListRow(delegate: self, alarm: alarm)
+                ZStack(alignment: .center) {
+                    ScrollView {
+                        LazyVStack(spacing: 0) {
+                            ForEach(viewModel.alarms) { alarm in
+                                Button(action: {
+                                    viewModel.editAlarm(alarm: alarm)
+                                }){
+                                    AlarmListRow(delegate: self, alarm: alarm)
+                                }
                             }
                         }
                     }
+                    
+                    if viewModel.showingIndicator {
+                        CharalarmActivityIndicator()
+                    }
                 }
+
                 AdmobBannerView(adUnitID: AdmobAlarmListUnitId)
             }
             .onAppear {
