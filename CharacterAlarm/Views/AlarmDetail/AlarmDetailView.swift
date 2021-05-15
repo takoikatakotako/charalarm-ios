@@ -23,31 +23,7 @@ struct AlarmDetailView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .center) {
-                    HStack {
-                        Picker(selection: $viewModel.alarm.hour, label: EmptyView()) {
-                            ForEach(0 ..< 24) {
-                                Text(String(format: "%02d", $0))
-                                    .font(Font.system(size: 42).bold())
-                            }
-                        }.pickerStyle(WheelPickerStyle())
-                        .labelsHidden()
-                        .frame(width: 80, height: 200)
-                        .clipped()
-                        
-                        Text(":")
-                            .font(Font.system(size: 60).bold())
-                            .padding()
-                        
-                        Picker(selection: $viewModel.alarm.minute, label: EmptyView()) {
-                            ForEach(0 ..< 60) {
-                                Text(String(format: "%02d", $0))
-                                    .font(Font.system(size: 42).bold())
-                            }
-                        }.pickerStyle(WheelPickerStyle())
-                        .labelsHidden()
-                        .frame(width: 80, height: 200)
-                        .clipped()
-                    }
+                    AlarmDetailTimePicker(hour: $viewModel.alarm.hour, minute: $viewModel.alarm.minute)
                     .padding(.top, 16)
                     .padding(.horizontal, 16)
                     
@@ -58,15 +34,7 @@ struct AlarmDetailView: View {
                     .padding(.horizontal, 16)
                     .padding(.bottom, 16)
                     
-                    HStack {
-                        AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .MON)
-                        AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .TUE)
-                        AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .WED)
-                        AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .THU)
-                        AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .FRI)
-                        AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .SAT)
-                        AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .SUN)
-                    }
+                    AlarmDetailWeekdaySelecter(dayOfWeeks: $viewModel.alarm.dayOfWeeks)
                     
                     VStack(alignment: .leading) {
                         TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewModel.alarm.name)

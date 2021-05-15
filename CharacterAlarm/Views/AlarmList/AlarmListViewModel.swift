@@ -71,7 +71,6 @@ class AlarmListViewModel: ObservableObject {
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
-
             return
         }
         
