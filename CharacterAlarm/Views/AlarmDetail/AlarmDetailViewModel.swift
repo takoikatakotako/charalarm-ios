@@ -23,6 +23,7 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     @Published var sheet: AlarmDetailViewSheet?
     @Published var selectedChara: Character?
     @Published var selectedCharaCall: CharaCallResponseEntity?
+    @Published var showingIndicator: Bool = false
     let alarmRepository: AlarmRepository = AlarmRepository()
     let charaCallRepository: CharaCallRepository = CharaCallRepository()
     let charaRepository: CharaRepository = CharaRepository()
@@ -75,6 +76,7 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     }
     
     func createOrUpdateAlarm(completion: @escaping () -> Void) {
+        showingIndicator = true
         if let alarmId = alarm.alarmId {
             editAlarm(alarmId: alarmId, completion: completion)
         } else {

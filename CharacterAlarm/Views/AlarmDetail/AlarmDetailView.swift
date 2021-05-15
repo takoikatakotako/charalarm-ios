@@ -21,109 +21,47 @@ struct AlarmDetailView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .center) {
-                    AlarmDetailTimePicker(hour: $viewModel.alarm.hour, minute: $viewModel.alarm.minute)
-                    .padding(.top, 16)
-                    .padding(.horizontal, 16)
-                    
-                    HStack {
-                        Spacer()
-                        Text("GMT+9")
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 16)
-                    
-                    AlarmDetailWeekdaySelecter(dayOfWeeks: $viewModel.alarm.dayOfWeeks)
-                    
-                    VStack(alignment: .leading) {
-                        TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewModel.alarm.name)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 16)
-                    
-                    VStack(alignment: .leading) {
-                        Text("キャラクター")
-                            .font(Font.system(size: 16).bold())
+            ZStack {
+                ScrollView {
+                    VStack(alignment: .center) {
+                        AlarmDetailTimePicker(hour: $viewModel.alarm.hour, minute: $viewModel.alarm.minute)
+                        .padding(.top, 16)
+                        .padding(.horizontal, 16)
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            if viewModel.characters.isEmpty {
-                                Text("Loading")
-                            } else {
-                                LazyHStack(spacing: 12) {
-                                    if let chara = viewModel.selectedChara {
-                                        WebImage(url: URL(string: chara.charaThumbnailUrlString))
-                                            .resizable()
-                                            .frame(width: 64, height: 64)
-                                            .cornerRadius(10)
-                                    } else {
-                                        Text("?")
-                                            .frame(width: 64, height: 64)
-                                            .foregroundColor(Color.white)
-                                            .font(Font.system(size: 24).bold())
-                                            .background(Color(UIColor.lightGray))
-                                            .cornerRadius(10)
-                                    }
-                                    
-                                    Button {
-                                        viewModel.setRandomChara()
-                                    } label: {
-                                        Text("?")
-                                            .frame(width: 56, height: 56)
-                                            .foregroundColor(Color.white)
-                                            .font(Font.system(size: 24).bold())
-                                            .background(Color(UIColor.lightGray))
-                                            .cornerRadius(10)
-                                            .padding(.top, 8)
-                                    }
-                                    
-                                    ForEach(viewModel.characters) { character in
-                                        Button {
-                                            viewModel.showVoiceList(chara: character)
-                                        } label: {
-                                            WebImage(url: URL(string: character.charaThumbnailUrlString))
-                                                .resizable()
-                                                .frame(width: 56, height: 56)
-                                                .cornerRadius(10)
-                                                .padding(.top, 8)
-                                        }
-                                    }
-                                }
-                            }
+                        HStack {
+                            Spacer()
+                            Text("GMT+9")
                         }
-                        .frame(height: 64)
+                        .padding(.horizontal, 16)
                         .padding(.bottom, 16)
                         
-                        Text("ボイス")
-                            .font(Font.system(size: 16).bold())
+                        AlarmDetailWeekdaySelecter(dayOfWeeks: $viewModel.alarm.dayOfWeeks)
                         
-                        Text("\(viewModel.selectedCharaCall?.charaFileMessage ?? "ランダム")")
-                        .padding(.top, 8)
-                        .padding(.bottom, 16)
+                        VStack(alignment: .leading) {
+                            TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewModel.alarm.name)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 16)
+                        
+                        AlarmDetailCharaSelecter(delegate: self, selectedChara: $viewModel.selectedChara, charas: $viewModel.characters)
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 16)
+                        
+                        AlarmDetailVoiceText(fileMessage: viewModel.selectedCharaCall?.charaFileMessage ?? "ランダム")
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 16)
                         
                         if let alarmId = viewModel.alarm.alarmId {
-                            VStack {
-                                Spacer()
-                                Button(action: {
-                                    viewModel.deleteAlarm(alarmId: alarmId) {
-                                        presentationMode.wrappedValue.dismiss()
-                                    }
-                                }) {
-                                    Text(R.string.localizable.alarmDeleteAlarm())
-                                        .foregroundColor(Color.white)
-                                        .font(Font.system(size: 16).bold())
-                                        .frame(height: 46)
-                                        .frame(minWidth: 0, maxWidth: .infinity)
-                                        .background(Color(R.color.charalarmDefaultPink.name))
-                                        .cornerRadius(28)
-                                        .padding(.horizontal, 24)
-                                }
-                            }
+                            AlarmDetailDeleteAlarmButton(delegate: self, alarmId: alarmId)
                         }
                     }
-                    .padding(.horizontal, 16)
                 }
+                
+                if viewModel.showingIndicator {
+                    CharalarmActivityIndicator()
+                }
+                
             }
             .onAppear {
                 viewModel.onAppear()
@@ -158,6 +96,16 @@ struct AlarmDetailView: View {
     }
 }
 
+extension AlarmDetailView: AlarmDetailCharaSelecterDelegate {
+    func setRandomChara() {
+        viewModel.setRandomChara()
+    }
+    
+    func showVoiceList(chara: Character) {
+        viewModel.showVoiceList(chara: chara)
+    }
+}
+
 extension AlarmDetailView: AlarmVoiceListViewDelegate {
     func selectedRandomVoice(chara: Character) {
         viewModel.setCharaAndCharaCall(chara: chara, charaCall: nil)
@@ -166,6 +114,14 @@ extension AlarmDetailView: AlarmVoiceListViewDelegate {
     func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity) {
         viewModel.setCharaAndCharaCall(chara: chara, charaCall: charaCall)
 
+    }
+}
+
+extension AlarmDetailView: AlarmDetailDeleteAlarmDelegate {
+    func deleteAlarm(alarmId: Int) {
+        viewModel.deleteAlarm(alarmId: alarmId) {
+            presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
