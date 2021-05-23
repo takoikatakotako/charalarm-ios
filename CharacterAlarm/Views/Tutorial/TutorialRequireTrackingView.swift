@@ -31,7 +31,7 @@ struct TutorialRequireTrackingView: View {
             Button(action: {
                 requestTrackingAuthorization()
             }, label: {
-                TutorialButtonContent(text: R.string.localizable.tutorialShowCustomizedAds())
+                TutorialButtonContent(text: R.string.localizable.commonNext())
                     .padding(.horizontal, 16)
             })
             

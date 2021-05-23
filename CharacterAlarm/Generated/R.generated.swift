@@ -866,7 +866,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 83 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 82 localization keys.
     struct localizable {
       /// en translation:  The operation and development of Charalarm is supported by advertising revenue.  nPlease allow us to use the information necessary to display the appropriate advertisement
       ///
@@ -1112,10 +1112,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let commonSave = Rswift.StringResource(key: "common-save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
-      /// en translation: Show customized ads
-      ///
-      /// Locales: ja, en
-      static let tutorialShowCustomizedAds = Rswift.StringResource(key: "tutorial-show-customized-ads", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Sun
       ///
       /// Locales: ja, en
@@ -2114,21 +2110,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("common-save", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Show customized ads
-      ///
-      /// Locales: ja, en
-      static func tutorialShowCustomizedAds(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("tutorial-show-customized-ads", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "tutorial-show-customized-ads"
-        }
-
-        return NSLocalizedString("tutorial-show-customized-ads", bundle: bundle, comment: "")
       }
 
       /// en translation: Sun
