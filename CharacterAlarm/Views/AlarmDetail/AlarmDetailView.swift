@@ -1,10 +1,11 @@
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct AlarmDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel: AlarmDetailViewModel
     
-    // AlarmId を取得して、そこからフェッチした方が良い。あ
+    // AlarmId を取得して、そこからフェッチした方が良い。
     // マルチログインに対応する予定ないし、いらんかも
     init(alarm: Alarm) {
         _viewModel = StateObject(wrappedValue: AlarmDetailViewModel(alarm: alarm))
@@ -20,79 +21,50 @@ struct AlarmDetailView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .center) {
-                VStack(spacing: 0) {
-                    HStack {
-                        Picker(selection: $viewModel.alarm.hour, label: EmptyView()) {
-                            ForEach(0 ..< 24) {
-                                Text(String(format: "%02d", $0))
-                                    .font(Font.system(size: 42).bold())
-                            }
-                        }.pickerStyle(WheelPickerStyle())
-                        .labelsHidden()
-                        .frame(width: 80, height: 200)
-                        .clipped()
+            ZStack {
+                ScrollView {
+                    VStack(alignment: .center) {
+                        AlarmDetailTimePicker(hour: $viewModel.alarm.hour, minute: $viewModel.alarm.minute)
+                        .padding(.top, 16)
+                        .padding(.horizontal, 16)
                         
-                        Text(":")
-                            .font(Font.system(size: 60).bold())
-                            .padding()
+                        HStack {
+                            Spacer()
+                            Text("GMT+9")
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 16)
                         
-                        Picker(selection: $viewModel.alarm.minute, label: EmptyView()) {
-                            ForEach(0 ..< 60) {
-                                Text(String(format: "%02d", $0))
-                                    .font(Font.system(size: 42).bold())
-                            }
-                        }.pickerStyle(WheelPickerStyle())
-                        .labelsHidden()
-                        .frame(width: 80, height: 200)
-                        .clipped()
-                    }
-                    
-                    HStack {
-                        Spacer()
-                        Text("GMT+9")
-                    }
-                }
-                .padding()
-            
-                HStack {
-                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .MON)
-                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .TUE)
-                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .WED)
-                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .THU)
-                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .FRI)
-                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .SAT)
-                    AlarmDetailWeekdayButton(dayOfWeeks: $viewModel.alarm.dayOfWeeks, dayOfWeek: .SUN)
-                }
-                
-                VStack(alignment: .leading) {
-                    Text(R.string.localizable.alarmAlarmName())
-                    TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewModel.alarm.name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                .padding()
-                
-                Spacer()
-                
-                if let alarmId = viewModel.alarm.alarmId {
-                    VStack {
-                        Spacer()
-                        Button(action: {
-                             viewModel.deleteAlarm(alarmId: alarmId) {
-                                presentationMode.wrappedValue.dismiss()
-                             }
-                        }) {
-                            Text(R.string.localizable.alarmDeleteAlarm())
-                                .foregroundColor(Color.white)
-                                .font(Font.system(size: 16).bold())
-                                .frame(height: 46)
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .background(Color(R.color.charalarmDefaultPink.name))
-                                .cornerRadius(28)
-                                .padding(.horizontal, 24)
+                        AlarmDetailWeekdaySelecter(dayOfWeeks: $viewModel.alarm.dayOfWeeks)
+                        
+                        VStack(alignment: .leading) {
+                            TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewModel.alarm.name)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 16)
+                        
+                        AlarmDetailCharaSelecter(delegate: self, selectedChara: $viewModel.selectedChara, charas: $viewModel.characters)
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 16)
+                        
+                        AlarmDetailVoiceText(fileMessage: viewModel.selectedCharaCall?.charaFileMessage ?? "ランダム")
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 16)
+                        
+                        if let alarmId = viewModel.alarm.alarmId {
+                            AlarmDetailDeleteAlarmButton(delegate: self, alarmId: alarmId)
                         }
                     }
                 }
+                
+                if viewModel.showingIndicator {
+                    CharalarmActivityIndicator()
+                }
+                
+            }
+            .onAppear {
+                viewModel.onAppear()
             }
             .navigationBarItems(
                 leading: CloseBarButton() {
@@ -112,9 +84,44 @@ struct AlarmDetailView: View {
             ).alert(isPresented: $viewModel.showingAlert) {
                 Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("閉じる")))
             }
+            .sheet(item: $viewModel.sheet) { item in
+                switch item {
+                case let .voiceList(chara):
+                    AlarmVoiceListView(chara: chara, delegate: self)
+                }
+            }
             .navigationBarHidden(false)
             .navigationBarTitle(title, displayMode: .inline)
         }        
+    }
+}
+
+extension AlarmDetailView: AlarmDetailCharaSelecterDelegate {
+    func setRandomChara() {
+        viewModel.setRandomChara()
+    }
+    
+    func showVoiceList(chara: Character) {
+        viewModel.showVoiceList(chara: chara)
+    }
+}
+
+extension AlarmDetailView: AlarmVoiceListViewDelegate {
+    func selectedRandomVoice(chara: Character) {
+        viewModel.setCharaAndCharaCall(chara: chara, charaCall: nil)
+    }
+    
+    func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity) {
+        viewModel.setCharaAndCharaCall(chara: chara, charaCall: charaCall)
+
+    }
+}
+
+extension AlarmDetailView: AlarmDetailDeleteAlarmDelegate {
+    func deleteAlarm(alarmId: Int) {
+        viewModel.deleteAlarm(alarmId: alarmId) {
+            presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 

@@ -10,6 +10,7 @@ struct TutorialAcceptPrivacyPolicyView: View {
     @State var alertMessage = ""
     let anonymousUserName = UUID().uuidString
     let anonymousUserPassword = UUID().uuidString
+    let userRepository: UserRepository = UserRepository()
     
     var body: some View {
         ZStack {
@@ -78,7 +79,7 @@ struct TutorialAcceptPrivacyPolicyView: View {
         }
         creatingAccount = true
         
-        UserStore.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
+        userRepository.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
             switch result {
             case .success(_):
                 // ユーザー作成に成功

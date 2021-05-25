@@ -18,6 +18,8 @@ class ProfileViewModel: ObservableObject {
     
     private var numberOfResource: Int = 0
     private var numberOfDownloadedReosurce: Int = 0
+    let charaRepository: CharaRepository = CharaRepository()
+    
     
     enum ResourceType: String {
         case image = "image"
@@ -40,7 +42,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func fetchCharacter() {
-        CharacterStore.fetchCharacter(charaDomain: charaDomain) { result in
+        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
             switch result {
             case let .success(character):
                 self.character = character

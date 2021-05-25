@@ -5,6 +5,8 @@ class ConfigViewModel: ObservableObject {
     @Published var character: Character?
     @Published var showingAlert = false
     @Published var alertMessage = ""
+    let charaRepository: CharaRepository = CharaRepository()
+    let userRepository: UserRepository = UserRepository()
     
     var versionString: String {
         return getVersion()
@@ -25,7 +27,7 @@ class ConfigViewModel: ObservableObject {
     }
     
     func fetchCharacter() {
-        CharacterStore.fetchCharacter(charaDomain: charaDomain) { result in
+        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
             switch result {
             case let .success(character):
                 print(character)
@@ -45,7 +47,7 @@ class ConfigViewModel: ObservableObject {
                 return
         }
         
-        UserStore.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ _ in
+        userRepository.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ _ in
             do {
                 try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
                 try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")

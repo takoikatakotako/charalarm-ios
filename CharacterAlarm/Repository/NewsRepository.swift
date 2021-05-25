@@ -1,7 +1,7 @@
 import Foundation
 
-class NewsStore {
-    static func fetchNews(completion: @escaping (Result<[News], Error>) -> Void) {
+class NewsRepository {
+    func fetchNews(completion: @escaping (Result<[News], Error>) -> Void) {
         let path = "/api/news/list"
         let urlRequest = APIRequest.createUrlRequest(path: path)
         let apiClient = APIClient<JsonResponseBean<[News]>>()

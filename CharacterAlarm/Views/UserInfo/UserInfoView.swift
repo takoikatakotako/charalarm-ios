@@ -13,9 +13,10 @@ struct UserInfoView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(R.string.localizable.userInfoUserName())
                 .font(Font.body.bold())
-            Text(userName)
-                .multilineTextAlignment(.leading)
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             
+            Text(userName)
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             Spacer()
         }
         .padding()

@@ -53,6 +53,12 @@ bundle config set path vendor/bundle
 bundle _2.1.4_ install --path vendor/bundle
 ```
 
+#### Mintのインストール ####
+
+```
+mint bootstrap
+```
+
 #### セットアップ ####
 
 ```

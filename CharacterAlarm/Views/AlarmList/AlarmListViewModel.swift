@@ -27,7 +27,9 @@ class AlarmListViewModel: ObservableObject {
     @Published var alarms: [Alarm] = []
     @Published var sheet: AlarmListViewModelSheet?
     @Published var alert: AlarmListViewModelAlert?
-
+    @Published var showingIndicator: Bool = true
+    let alarmRepository: AlarmRepository = AlarmRepository()
+    
     func addAlarmButtonTapped() {
         if alarms.count < 3 {
             editAlarm(alarm: createNewAlarm())
@@ -48,14 +50,16 @@ class AlarmListViewModel: ObservableObject {
     }
     
     func fetchAlarms() {
+        showingIndicator = true
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
                 alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
             return
         }
-        AlarmStore.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
+        alarmRepository.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
             switch result {
             case let .success(alarms):
+                self.showingIndicator = false
                 self.alarms = alarms
             case .failure:
                 self.alert = .error(UUID(), R.string.localizable.alarmFailedToGetTheAlarmList())
@@ -67,7 +71,6 @@ class AlarmListViewModel: ObservableObject {
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
-
             return
         }
         
@@ -77,7 +80,7 @@ class AlarmListViewModel: ObservableObject {
         
         alarms[index].enable = isEnable
         let alarm = alarms[index]
-        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
                 break
