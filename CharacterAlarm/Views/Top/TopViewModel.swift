@@ -28,7 +28,8 @@ class TopViewModel: ObservableObject {
     @Published var charaImage = UIImage()
     @Published var alert: TopViewModelAlert?
     @Published var sheet: TopViewModelSheet?
-    
+    let charaRepository: CharaRepository = CharaRepository()
+
     var audioPlayer: AVAudioPlayer?
 
     func onAppear() {
@@ -84,7 +85,7 @@ class TopViewModel: ObservableObject {
     }
     
     func featchCharacter(charaDomain: String, completion: @escaping (Character) -> Void) {
-        CharacterStore.fetchCharacter(charaDomain: charaDomain) { result in
+        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
             switch result {
             case let .success(character):
                 completion(character)

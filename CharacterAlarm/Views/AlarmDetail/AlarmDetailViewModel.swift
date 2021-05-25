@@ -1,11 +1,33 @@
 import Foundation
 import SwiftUI
 
-class AlarmDetailViewModel: ObservableObject {
+protocol AlarmDetailViewModelProtocol: ObservableObject {
+    
+}
+
+enum AlarmDetailViewSheet: Identifiable {
+    case voiceList(Character)
+    var id: Int {
+        switch self {
+        case let .voiceList(character):
+            return character.charaId
+        }
+    }
+}
+
+class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     @Published var alarm: Alarm
+    @Published var characters: [Character] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
-        
+    @Published var sheet: AlarmDetailViewSheet?
+    @Published var selectedChara: Character?
+    @Published var selectedCharaCall: CharaCallResponseEntity?
+    @Published var showingIndicator: Bool = false
+    let alarmRepository: AlarmRepository = AlarmRepository()
+    let charaCallRepository: CharaCallRepository = CharaCallRepository()
+    let charaRepository: CharaRepository = CharaRepository()
+
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
@@ -18,12 +40,63 @@ class AlarmDetailViewModel: ObservableObject {
         self.alarm = alarm
     }
     
+    func onAppear() {
+        charaRepository.fetchCharacters { [weak self] result in
+            switch result {
+            case let .success(characters):
+                self?.characters = characters
+            case .failure(_):
+                break
+            }
+        }
+        
+        if let charaId = alarm.charaId {
+            charaRepository.fetchCharacter(charaId: charaId) { [weak self] result in
+                switch result {
+                case let .success(character):
+                    self?.selectedChara = character
+                case let .failure(error):
+                    print(error)
+                    break
+                }
+            }
+        }
+        
+        if let charaCallId = alarm.charaCallId {
+            charaCallRepository.findByCharaCallId(charaCallId: charaCallId) { [weak self] result in
+                switch result {
+                case let .success(charaCall):
+                    self?.selectedCharaCall = charaCall
+                case let .failure(error):
+                    print(error)
+                    break
+                }
+            }
+        }
+    }
+    
     func createOrUpdateAlarm(completion: @escaping () -> Void) {
+        showingIndicator = true
         if let alarmId = alarm.alarmId {
             editAlarm(alarmId: alarmId, completion: completion)
         } else {
             createAlarm(completion: completion)
         }
+    }
+    
+    func setRandomChara() {
+        alarm.charaId = nil
+        alarm.charaCallId = nil
+        selectedChara = nil
+        selectedCharaCall = nil
+    }
+    
+    func setCharaAndCharaCall(chara: Character, charaCall: CharaCallResponseEntity?) {
+        alarm.charaId = chara.charaId
+        selectedChara = chara
+        
+        alarm.charaCallId = charaCall?.charaCallId ?? nil
+        selectedCharaCall = charaCall
     }
     
     func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
@@ -33,7 +106,7 @@ class AlarmDetailViewModel: ObservableObject {
             self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
             return
         }
-        AlarmStore.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
+        alarmRepository.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
             switch result {
             case .success:
                 completion()
@@ -42,6 +115,10 @@ class AlarmDetailViewModel: ObservableObject {
                 self?.showingAlert = true
             }
         }
+    }
+    
+    func showVoiceList(chara: Character) {
+        sheet = .voiceList(chara)
     }
     
     func updateAlarmName(name: String) {
@@ -77,7 +154,7 @@ class AlarmDetailViewModel: ObservableObject {
                 return
         }
         
-        AlarmStore.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        alarmRepository.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success:
                 completion()
@@ -96,7 +173,7 @@ class AlarmDetailViewModel: ObservableObject {
                 return
         }
         
-        AlarmStore.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
             switch result {
             case .success(_):
                 completion()
