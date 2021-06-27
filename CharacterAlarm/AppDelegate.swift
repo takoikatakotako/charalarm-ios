@@ -5,6 +5,7 @@ import UserNotifications
 import PushKit
 import CallKit
 import AVKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
