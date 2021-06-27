@@ -6,6 +6,9 @@ PODS:
     - FirebaseAnalytics (~> 7.11.0)
   - Firebase/CoreOnly (7.11.0):
     - FirebaseCore (= 7.11.0)
+  - Firebase/Crashlytics (7.11.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 7.11.0)
   - Firebase/RemoteConfig (7.11.0):
     - Firebase/CoreOnly
     - FirebaseRemoteConfig (~> 7.11.0)
@@ -47,6 +50,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
     - nanopb (~> 2.30908.0)
+  - FirebaseCrashlytics (7.11.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleDataTransport (~> 8.4)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (~> 1.2)
   - FirebaseInstallations (7.11.0):
     - FirebaseCore (~> 7.0)
     - GoogleUtilities/Environment (~> 7.0)
@@ -115,6 +124,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Core
+  - Firebase/Crashlytics
   - Firebase/RemoteConfig
   - Google-Mobile-Ads-SDK
   - KeychainAccess
@@ -128,6 +138,7 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseInstallations
     - FirebaseRemoteConfig
     - Google-Mobile-Ads-SDK
@@ -148,6 +159,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
   FirebaseCoreDiagnostics: 68ad972f99206cef818230f3f3179d52ccfb7f8c
+  FirebaseCrashlytics: 272b675aa9d1e9bae1f9e1449fcc1f2cf6042806
   FirebaseInstallations: a58d4f72ec5861840b84df489f2668d970df558a
   FirebaseRemoteConfig: 0ea30de5fb0231df8c1bdcdf3b6c23bdc5066131
   Google-Mobile-Ads-SDK: 093c3bf0aed3b7d1b8707221a15e3b6634f92dec
@@ -162,6 +174,6 @@ SPEC CHECKSUMS:
   SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: b1b2cd4f30c9771640bc37aedcb42a414949fb06
+PODFILE CHECKSUM: bd43d50c7c14d52099ab18ae7d97457856e8d3e2
 
 COCOAPODS: 1.10.1
