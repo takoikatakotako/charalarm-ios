@@ -13,6 +13,11 @@ def install_pods
   pod 'SwiftLint'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
+
+  script_phase name: 'Run Firebase Crashlytics',
+    shell_path: '/bin/sh',
+    script: '"${PODS_ROOT}/FirebaseCrashlytics/run"',
+    input_files: []
 end
 
 target 'CharalarmLocal' do
