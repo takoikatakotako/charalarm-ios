@@ -218,6 +218,86 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(watchOS)
+    /// `UIColor(named: "alarm-card-background-gray", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func alarmCardBackgroundGray(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.alarmCardBackgroundGray.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "alarm-card-background-green", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func alarmCardBackgroundGreen(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.alarmCardBackgroundGreen.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "brownColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func brownColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.brownColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "call-green", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func callGreen(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.callGreen.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "call-red", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func callRed(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.callRed.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "charalarm-default-gray", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func charalarmDefaultGray(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.charalarmDefaultGray.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "charalarm-default-green", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func charalarmDefaultGreen(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.charalarmDefaultGreen.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "charalarm-default-pink", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func charalarmDefaultPink(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.charalarmDefaultPink.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "textColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func textColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.textColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "xxxxColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func xxxxColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.xxxxColor.name)
+    }
+    #endif
+
     fileprivate init() {}
   }
 

@@ -8,10 +8,16 @@ def install_pods
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Crashlytics'
   pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftLint'
   pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
+
+  script_phase name: 'Run Firebase Crashlytics',
+    shell_path: '/bin/sh',
+    script: '"${PODS_ROOT}/FirebaseCrashlytics/run"',
+    input_files: []
 end
 
 target 'CharalarmLocal' do
