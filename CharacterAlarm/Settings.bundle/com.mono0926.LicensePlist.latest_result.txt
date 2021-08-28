@@ -1,80 +1,269 @@
 name: Firebase, nameSpecified: 
 body: 
                    …
-version: 6.32.2
+version: 8.6.1
+
+name: Firebase, nameSpecified: 
+body: 
+                   …
+version: 8.6.1
+
+name: Firebase, nameSpecified: 
+body: 
+                   …
+version: 8.6.1
+
+name: FirebaseABTesting, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseABTesting, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseABTesting, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
 
 name: FirebaseAnalytics, nameSpecified: 
-body: Copyright 2020 Googl…
-version: 6.8.2
+body: Copyright 2021 Googl…
+version: 8.6.0
+
+name: FirebaseAnalytics, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 8.6.0
+
+name: FirebaseAnalytics, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 8.6.0
 
 name: FirebaseCore, nameSpecified: 
 body: 
                    …
-version: 6.10.2
+version: 8.6.1
+
+name: FirebaseCore, nameSpecified: 
+body: 
+                   …
+version: 8.6.1
+
+name: FirebaseCore, nameSpecified: 
+body: 
+                   …
+version: 8.6.1
 
 name: FirebaseCoreDiagnostics, nameSpecified: 
 body: 
                    …
-version: 1.6.0
+version: 8.6.0
+
+name: FirebaseCoreDiagnostics, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseCoreDiagnostics, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseCrashlytics, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseCrashlytics, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseCrashlytics, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
 
 name: FirebaseInstallations, nameSpecified: 
 body: 
                    …
-version: 1.7.0
+version: 8.6.0
+
+name: FirebaseInstallations, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseInstallations, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseRemoteConfig, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseRemoteConfig, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: FirebaseRemoteConfig, nameSpecified: 
+body: 
+                   …
+version: 8.6.0
+
+name: Google-Mobile-Ads-SDK, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 8.9.0
+
+name: Google-Mobile-Ads-SDK, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 8.9.0
+
+name: Google-Mobile-Ads-SDK, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 8.9.0
 
 name: GoogleAppMeasurement, nameSpecified: 
-body: Copyright 2020 Googl…
-version: 6.8.2
+body: Copyright 2021 Googl…
+version: 8.6.0
+
+name: GoogleAppMeasurement, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 8.6.0
+
+name: GoogleAppMeasurement, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 8.6.0
 
 name: GoogleDataTransport, nameSpecified: 
 body: 
                    …
-version: 7.3.0
+version: 9.1.0
+
+name: GoogleDataTransport, nameSpecified: 
+body: 
+                   …
+version: 9.1.0
+
+name: GoogleDataTransport, nameSpecified: 
+body: 
+                   …
+version: 9.1.0
+
+name: GoogleUserMessagingPlatform, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 2.0.0
+
+name: GoogleUserMessagingPlatform, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 2.0.0
+
+name: GoogleUserMessagingPlatform, nameSpecified: 
+body: Copyright 2021 Googl…
+version: 2.0.0
 
 name: GoogleUtilities, nameSpecified: 
 body: 
                    …
-version: 6.7.2
+version: 7.5.1
+
+name: GoogleUtilities, nameSpecified: 
+body: 
+                   …
+version: 7.5.1
+
+name: GoogleUtilities, nameSpecified: 
+body: 
+                   …
+version: 7.5.1
 
 name: KeychainAccess, nameSpecified: 
 body: The MIT License (MIT…
-version: 4.2.1
+version: 4.2.2
 
-name: LicensePlist, nameSpecified: 
-body: MIT License
+name: KeychainAccess, nameSpecified: 
+body: The MIT License (MIT…
+version: 4.2.2
 
-Copyrig…
-version: 2.16.0
+name: KeychainAccess, nameSpecified: 
+body: The MIT License (MIT…
+version: 4.2.2
 
 name: nanopb, nameSpecified: 
 body: Copyright (c) 2011 P…
-version: 1.30906.0
+version: 2.30908.0
+
+name: nanopb, nameSpecified: 
+body: Copyright (c) 2011 P…
+version: 2.30908.0
+
+name: nanopb, nameSpecified: 
+body: Copyright (c) 2011 P…
+version: 2.30908.0
 
 name: PromisesObjC, nameSpecified: 
 body: 
                    …
-version: 1.2.10
+version: 2.0.0
+
+name: PromisesObjC, nameSpecified: 
+body: 
+                   …
+version: 2.0.0
+
+name: PromisesObjC, nameSpecified: 
+body: 
+                   …
+version: 2.0.0
 
 name: SDWebImage, nameSpecified: 
 body: Copyright (c) 2009-2…
-version: 5.9.1
+version: 5.11.1
+
+name: SDWebImage, nameSpecified: 
+body: Copyright (c) 2009-2…
+version: 5.11.1
+
+name: SDWebImage, nameSpecified: 
+body: Copyright (c) 2009-2…
+version: 5.11.1
 
 name: SDWebImageSwiftUI, nameSpecified: 
 body: Copyright (c) 2019 l…
-version: 1.5.0
+version: 2.0.2
+
+name: SDWebImageSwiftUI, nameSpecified: 
+body: Copyright (c) 2019 l…
+version: 2.0.2
+
+name: SDWebImageSwiftUI, nameSpecified: 
+body: Copyright (c) 2019 l…
+version: 2.0.2
 
 name: SwiftLint, nameSpecified: 
 body: The MIT License (MIT…
-version: 0.40.2
+version: 0.43.1
 
-name: LicensePlist, nameSpecified: , owner: mono0926, version: 2.16.0
+name: SwiftLint, nameSpecified: 
+body: The MIT License (MIT…
+version: 0.43.1
 
-name: R.swift, nameSpecified: , owner: mac-cain13, version: v5.2.0
+name: SwiftLint, nameSpecified: 
+body: The MIT License (MIT…
+version: 0.43.1
 
-name: swiftlint, nameSpecified: , owner: realm, version: 0.40.2
+name: LicensePlist, nameSpecified: , owner: mono0926, version: 3.13.0
 
-name: xcodegen, nameSpecified: , owner: yonaskolb, version: 2.17.0
+name: R.swift, nameSpecified: , owner: mac-cain13, version: v5.4.0
+
+name: swiftlint, nameSpecified: , owner: realm, version: 0.43.1
+
+name: xcodegen, nameSpecified: , owner: yonaskolb, version: 2.24.0
 
 add-version-numbers: false
 
-LicensePlist Version: 2.16.0
+LicensePlist Version: 3.13.0
