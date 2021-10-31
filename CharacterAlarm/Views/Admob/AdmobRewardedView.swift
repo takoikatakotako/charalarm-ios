@@ -2,7 +2,7 @@ import SwiftUI
 import GoogleMobileAds
 import UIKit
 
-class AdmobRewardedHandler: NSObject{
+class AdmobRewardedHandler: NSObject, ObservableObject {
     var rewardedAd: GADRewardedAd?
     func load() {
         GADRewardedAd.load(withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: nil) { ad, error in
@@ -12,20 +12,21 @@ class AdmobRewardedHandler: NSObject{
             }
             self.rewardedAd = ad
             self.rewardedAd?.fullScreenContentDelegate = self
-
+            
             print("Roloaded")
         }
     }
-
-    func showAd(viewController: UIViewController) {
-//        guard let rewardedAd = rewardedAd else {
-//            return
-//        }
-//
-//        let root = UIApplication.shared.windows.first?.rootViewController
-//        rewardedAd.present(fromRootViewController: viewController) {
-//
-//        }
+    
+    func showAd() {
+        guard let rewardedAd = rewardedAd else {
+            return
+        }
+        
+        if let root = UIApplication.shared.windows.first?.rootViewController {
+            rewardedAd.present(fromRootViewController: root) {
+                
+            }
+        }
     }
 }
 
@@ -34,14 +35,14 @@ extension AdmobRewardedHandler: GADFullScreenContentDelegate {
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print(error.localizedDescription)
     }
-
+    
     // Called when an ad is dismissed
     func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-
+        
     }
-
+    
     // Called when an ad is dismissed
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-
+        
     }
 }

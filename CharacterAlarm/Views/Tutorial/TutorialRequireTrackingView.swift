@@ -34,12 +34,6 @@ struct TutorialRequireTrackingView: View {
                 TutorialButtonContent(text: R.string.localizable.commonNext())
                     .padding(.horizontal, 16)
             })
-            
-            Button(action: {
-                goNextView = true
-            }, label: {
-                Text(R.string.localizable.tutorialDoNotAllowUseOfInfomation())
-            })
             .padding(.bottom, 28)
         }
         .edgesIgnoringSafeArea(.bottom)
