@@ -14,6 +14,7 @@ struct AlarmDetailTimePicker: View {
             }.pickerStyle(WheelPickerStyle())
             .labelsHidden()
             .frame(width: 80, height: 200)
+            .compositingGroup()
             .clipped()
             
             Text(":")
@@ -28,6 +29,7 @@ struct AlarmDetailTimePicker: View {
             }.pickerStyle(WheelPickerStyle())
             .labelsHidden()
             .frame(width: 80, height: 200)
+            .compositingGroup()
             .clipped()
         }
     }

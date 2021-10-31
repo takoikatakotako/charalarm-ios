@@ -3,10 +3,14 @@ import AVFoundation
 import CallKit
 import PushKit
 import AVKit
+import GoogleMobileAds
 
 struct TopView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @StateObject var viewModel = TopViewModel()
+    
+    @StateObject var adDelegate = AdmobRewardedHandler()
+
     
     var body: some View {
         ZStack {
@@ -33,7 +37,18 @@ struct TopView: View {
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     HStack {
+                        Button(action: {
+
+                            adDelegate.showAd()
+                            
+                        }) {
+                            Image(R.image.topNews.name)
+                        }
+                        .padding()
+                        .padding(.top, 8)
+                        
                         Spacer()
+                        
                         Button(action: {
                             viewModel.newsButtonTapped()
                         }) {
@@ -90,6 +105,7 @@ struct TopView: View {
         .onAppear {
             viewModel.onAppear()
             viewModel.setChara()
+            adDelegate.load()
         }
         .alert(item: $viewModel.alert) { item in
             switch item {
