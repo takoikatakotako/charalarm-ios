@@ -24,9 +24,10 @@ struct AlarmDetailView: View {
             ZStack {
                 ScrollView {
                     VStack(alignment: .center) {
-                        AlarmDetailTimePicker(hour: $viewModel.alarm.hour, minute: $viewModel.alarm.minute)
-                        .padding(.top, 16)
-                        .padding(.horizontal, 16)
+//                        AlarmDetailTimePicker(hour: $viewModel.alarm.hour, minute: $viewModel.alarm.minute)
+//                        .padding(.top, 16)
+//                        .padding(.horizontal, 16)
+                        AlarmDetailTimePickerTemp(hour: $viewModel.alarm.hour, minute: $viewModel.alarm.minute)
                         
                         HStack {
                             Spacer()

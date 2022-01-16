@@ -99,10 +99,3 @@ LicensePlistの更新
 ```
 mint run LicensePlist license-plist --output-path CharacterAlarm/Settings.bundle
 ```
-
-## 作業の流れ
-
-- issue の内容を確認する。良くわからなければ小野に質問してください。
-- feature/作業内容_#issue番号 でブランチを作成し、作業する。
-- 小野にプルリクを飛ばす
-- マージされたらお支払い

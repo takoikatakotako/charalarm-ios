@@ -37,15 +37,13 @@ struct TopView: View {
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     HStack {
-                        Button(action: {
-
-                            adDelegate.showAd()
-                            
-                        }) {
-                            Image(R.image.topNews.name)
-                        }
-                        .padding()
-                        .padding(.top, 8)
+//                        Button(action: {
+//                            adDelegate.showAd()
+//                        }) {
+//                            Image(R.image.topNews.name)
+//                        }
+//                        .padding()
+//                        .padding(.top, 8)
                         
                         Spacer()
                         
