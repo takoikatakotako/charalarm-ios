@@ -11,8 +11,9 @@ packages:
   SDWebImageSwiftUI:
     url: https://github.com/SDWebImage/SDWebImageSwiftUI
     from: 2.2.1
-
-
+  KeychainAccess:
+    url: https://github.com/kishikawakatsumi/KeychainAccess
+    from: 4.2.1
 
 schemes:
   Local:
@@ -86,6 +87,8 @@ targets:
       - sdk: AppTrackingTransparency.framework
       - package: SDWebImageSwiftUI
         product: SDWebImageSwiftUI
+      - package: KeychainAccess
+        product: KeychainAccess
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -137,6 +140,8 @@ targets:
       - sdk: AppTrackingTransparency.framework
       - package: SDWebImageSwiftUI
         product: SDWebImageSwiftUI
+      - package: KeychainAccess
+        product: KeychainAccess
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -162,6 +167,8 @@ targets:
       - sdk: AppTrackingTransparency.framework
       - package: SDWebImageSwiftUI
         product: SDWebImageSwiftUI
+      - package: KeychainAccess
+        product: KeychainAccess
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift

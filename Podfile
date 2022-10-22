@@ -12,7 +12,7 @@ def install_pods
   pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftLint'
   # pod 'SDWebImageSwiftUI'
-  pod 'KeychainAccess'
+  # pod 'KeychainAccess'
 
   script_phase name: 'Run Firebase Crashlytics',
     shell_path: '/bin/sh',
