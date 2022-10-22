@@ -110,11 +110,6 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
-  - SDWebImage (5.13.4):
-    - SDWebImage/Core (= 5.13.4)
-  - SDWebImage/Core (5.13.4)
-  - SDWebImageSwiftUI (2.2.1):
-    - SDWebImage (~> 5.10)
   - SwiftLint (0.49.1)
 
 DEPENDENCIES:
@@ -124,7 +119,6 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - Google-Mobile-Ads-SDK
   - KeychainAccess
-  - SDWebImageSwiftUI
   - SwiftLint
 
 SPEC REPOS:
@@ -145,8 +139,6 @@ SPEC REPOS:
     - KeychainAccess
     - nanopb
     - PromisesObjC
-    - SDWebImage
-    - SDWebImageSwiftUI
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -166,10 +158,8 @@ SPEC CHECKSUMS:
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
-  SDWebImageSwiftUI: 2ecf5ab6f574526326b10ecb155e72a88059d0f0
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
 
-PODFILE CHECKSUM: 607a2d95e33b70cc91381e6163cb51cfbf632cdd
+PODFILE CHECKSUM: f9e650385db125b40a458fbc91594ebb8fbafb40
 
 COCOAPODS: 1.10.2

@@ -11,7 +11,7 @@ def install_pods
   pod 'Firebase/Crashlytics'
   pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftLint'
-  pod 'SDWebImageSwiftUI'
+  # pod 'SDWebImageSwiftUI'
   pod 'KeychainAccess'
 
   script_phase name: 'Run Firebase Crashlytics',

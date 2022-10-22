@@ -8,6 +8,11 @@ packages:
   R.swift.Library:
     url: https://github.com/mac-cain13/R.swift.Library
     from: 5.4.0
+  SDWebImageSwiftUI:
+    url: https://github.com/SDWebImage/SDWebImageSwiftUI
+    from: 2.2.1
+
+
 
 schemes:
   Local:
@@ -79,6 +84,8 @@ targets:
         product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -128,6 +135,8 @@ targets:
         product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -151,6 +160,8 @@ targets:
         product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
