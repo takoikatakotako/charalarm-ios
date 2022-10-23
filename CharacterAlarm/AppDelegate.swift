@@ -7,6 +7,9 @@ import CallKit
 import AVKit
 import GoogleMobileAds
 
+
+// This method should not be called on the main thread as it may lead to UI unresponsiveness.
+// このエラーはADMobに起因するためスルーで大丈夫
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var player = AVPlayer()
