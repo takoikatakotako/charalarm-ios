@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the Google Mobile Ads SDK.
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
-        // Endpointをパース
+        // APIのエンドポイントを取得
         guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String,
               let resourceEndpoint = Bundle.main.infoDictionary?["RESOURCE_ENDPOINT"] as? String
         else {
@@ -31,15 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         API_ENDPOINT = apiEndpoint
         RESOURCE_ENDPOINT = resourceEndpoint
         
-        // Admob周りの処理
+        // AdmobのユニットIDを取得
         guard let admobAlarmListUnitId = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String,
               let admobConfigUnitId = Bundle.main.infoDictionary?["ADMOB_CONFIG"] as? String else {
             fatalError("AdmobのUnitIdが見つかりません")
         }
-        AdmobAlarmListUnitId = admobAlarmListUnitId
-        AdmobConfigUnitId = admobConfigUnitId
+        ADMOB_ALARM_LIST_UNIT_ID = admobAlarmListUnitId
+        ADMOB_CONFIG_UNIT_ID = admobConfigUnitId
         
-        UINavigationBar.appearance().tintColor = UIColor(named: "charalarm-default-gray")
+        UINavigationBar.appearance().tintColor = UIColor(named: R.color.charalarmDefaultGray.name)
         
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
@@ -54,11 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
-            NSLog("Playback OK")
+            print("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
-            NSLog("Session is Active")
+            print("Session is Active")
         } catch {
-            NSLog("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
+            print("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
         }
         
         return true
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-// Push Notification
+// MARK: - Push Notification
 extension AppDelegate {
     // プッシュ通知の利用登録が成功した場合
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -108,7 +108,7 @@ extension AppDelegate {
     }
 }
 
-// VoIP Push Notification
+// MARK: - VoIP Push Notification
 extension AppDelegate: PKPushRegistryDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
@@ -134,72 +134,23 @@ extension AppDelegate: PKPushRegistryDelegate {
     }
     
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
-        
-        let logger = Logger()
-        
+        // ペイロードのパース
         if let aps = payload.dictionaryPayload["aps"] as? NSDictionary,
            let alert = aps["alert"] as? String,
            let data = alert.data(using: .utf8),
            let dataDictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
            let charaNeme = dataDictionary["charaName"],
            let filePath = dataDictionary["filePath"] {
+            let logger = Logger()
             logger.sendLog(message: "charaNeme: \(charaNeme)")
             logger.sendLog(message: "filePath: \(filePath)")
             self.charaName = charaNeme
             self.filePath = filePath
         }
            
-        
-        
-//        // ペイロードのパース
-//        if let aps = payload.dictionaryPayload["aps"] as? NSDictionary {
-//            logger.sendLog(message: "aps: \(aps.description)")
-//            self.charaName = "APS取れてる"
-//
-//            if let alert = aps["alert"] as? String {
-//                logger.sendLog(message: "alert: \(alert.description)")
-//                self.charaName = "Alert取れてる"
-//
-//                if let data = alert.data(using: .utf8),
-//                   let dataDictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//
-//
-//                    logger.sendLog(message: "dictionary: \(dataDictionary.description)")
-//                    self.charaName = "Dictionaryいけてる"
-//
-//
-//                    if let charaNeme = dataDictionary["charaName"] as? String,
-//                       let filePath = dataDictionary["filePath"] as? String {
-//
-//                        logger.sendLog(message: "charaNeme: \(charaNeme)")
-//                        logger.sendLog(message: "filePath: \(filePath)")
-//
-//
-//                        self.charaName = charaNeme
-//                        self.filePath = filePath
-//
-//
-//
-//
-//                    }
-//
-//
-//
-//                }
-//
-//
-//            }
-//            // self.filePath = filePath
-//        }
-        //           let alert = aps["alert"] as? NSDictionary,
-        //           let charaName = alert["charaName"] as? String,
-        //           let filePath = alert["filePath"] as? String {
-        //            self.charaName = charaName
-        //            self.filePath = filePath
-        //        }
-        
+        // 
         let config = CXProviderConfiguration()
-        config.iconTemplateImageData = R.image.callAlarm()!.pngData()
+        config.iconTemplateImageData = R.image.callAlarm()?.pngData()
         config.includesCallsInRecents = true
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)

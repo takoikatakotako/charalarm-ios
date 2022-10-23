@@ -46,11 +46,9 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
-  - SwiftLint (0.49.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
-  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -60,7 +58,6 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
-    - SwiftLint
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 595bcae60a0ad9992a3f52fddb8aebda993a2d80
@@ -69,8 +66,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
 
-PODFILE CHECKSUM: 948d5f508813f22e3571178842d99d0c335955d4
+PODFILE CHECKSUM: 590466814e73098e09ba08411e973edfd09d6ab3
 
 COCOAPODS: 1.10.2

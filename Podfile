@@ -6,7 +6,6 @@ def install_pods
   inhibit_all_warnings!
 
   pod 'Google-Mobile-Ads-SDK'
-  pod 'SwiftLint'
 end
 
 target 'CharalarmLocal' do
