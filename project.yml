@@ -98,12 +98,10 @@ targets:
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-  
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
+        basedOnDependencyAnalysis: false
         outputFiles:
           - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
   CharalarmStaging:
@@ -161,8 +159,7 @@ targets:
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
+        basedOnDependencyAnalysis: false
         outputFiles:
           - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
   CharalarmProduction:
@@ -191,12 +188,10 @@ targets:
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
+        basedOnDependencyAnalysis: false
         outputFiles:
           - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
     settings:
