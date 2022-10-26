@@ -1,8 +1,8 @@
 import SwiftUI
-import GoogleMobileAds
 import UIKit
+import GoogleMobileAds
 
-final private class AdmobBannerViewController: UIViewControllerRepresentable  {
+private struct AdmobBannerViewController: UIViewControllerRepresentable {
     let adUnitId: String
     
     init(adUnitID: String) {
@@ -11,7 +11,7 @@ final private class AdmobBannerViewController: UIViewControllerRepresentable  {
     
     func makeUIViewController(context: Context) -> UIViewController {
         let view = GADBannerView(adSize: GADAdSizeBanner)
-
+        
         let viewController = UIViewController()
         view.adUnitID = adUnitId
         view.rootViewController = viewController
@@ -20,7 +20,7 @@ final private class AdmobBannerViewController: UIViewControllerRepresentable  {
         view.load(GADRequest())
         return viewController
     }
-
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 
@@ -42,5 +42,3 @@ struct BannerView_Previews: PreviewProvider {
         AdmobBannerView(adUnitID: "ca-app-pub-3940256099942544/2934735716")
     }
 }
-
-
