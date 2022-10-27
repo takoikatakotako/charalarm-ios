@@ -12,11 +12,7 @@ import GoogleMobileAds
 // このエラーはADMobに起因するためスルーで大丈夫
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var player = AVPlayer()
-    let pushRepository: PushRepository = PushRepository()
-    
-    var charaName: String = ""
-    var filePath: String = ""
+    let model = AppDelegateModel(pushRepository: PushRepository(), keychainHandler: KeychainHandler())
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs.
@@ -41,9 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         ADMOB_ALARM_LIST_UNIT_ID = admobAlarmListUnitId
         ADMOB_CONFIG_UNIT_ID = admobConfigUnitId
-        
-        UINavigationBar.appearance().tintColor = UIColor(named: R.color.charalarmDefaultGray.name)
-        
+                
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
 
@@ -52,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         voipRegistry.delegate = self
         voipRegistry.desiredPushTypes = [PKPushType.voIP]
         
+        // バックグラウンドでの音声再生を有効化する
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
             print("Playback OK")
@@ -61,11 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
         }
         
+        // NavigationBarの色を変更
+        UINavigationBar.appearance().tintColor = UIColor(named: R.color.charalarmDefaultGray.name)
+        
         return true
     }
     
     // MARK: UISceneSession Lifecycle
-    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
@@ -84,55 +81,24 @@ extension AppDelegate {
     // プッシュ通知の利用登録が成功した場合
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
-        print("Device token: \(token)")
-        
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-            return
-        }
-        
-        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-        pushRepository.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-            switch result {
-            case .success:
-                break
-            case .failure:
-                break
-            }
-        }
+        model.registerPushToken(token: token)
     }
     
     // プッシュ通知の利用登録が失敗した場合
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register to APNs: \(error)")
+        model.failToRregisterVoipPushToken(error: error)
     }
 }
 
 // MARK: - VoIP Push Notification
 extension AppDelegate: PKPushRegistryDelegate {
+    // VoIP Push トークンを取得
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-        print(token)
-        print(pushCredentials.token)
-        
-        
-        
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-            return
-        }
-        
-        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-        pushRepository.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-            switch result {
-            case .success(_):
-                break
-            case let .failure(error):
-                print(error)
-            }
-        }
+        model.registerVoipPushToken(token: token)
     }
     
+    // VoIP Pushを受信
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
         // ペイロードのパース
         if let aps = payload.dictionaryPayload["aps"] as? NSDictionary,
@@ -141,39 +107,31 @@ extension AppDelegate: PKPushRegistryDelegate {
            let dataDictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
            let charaNeme = dataDictionary["charaName"],
            let filePath = dataDictionary["filePath"] {
-            let logger = Logger()
-            logger.sendLog(message: "charaNeme: \(charaNeme)")
-            logger.sendLog(message: "filePath: \(filePath)")
-            self.charaName = charaNeme
-            self.filePath = filePath
+            model.setCharaName(charaName: charaNeme)
+            model.setFilePath(filePath: filePath)
         }
         
-        //
+        // 通話画面を表示
         let config = CXProviderConfiguration()
         config.iconTemplateImageData = R.image.callAlarm()?.pngData()
         config.includesCallsInRecents = true
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)
         let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: charaName)
+        update.remoteHandle = CXHandle(type: .generic, value: model.charaName)
         provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
     }
 }
 
 extension AppDelegate: CXProviderDelegate {
-    func providerDidReset(_ provider: CXProvider) {
-    }
+    func providerDidReset(_ provider: CXProvider) {}
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         action.fulfill()
     }
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
-        if let url = URL(string: RESOURCE_ENDPOINT + filePath) {
-            let playerItem = AVPlayerItem(url: url)
-            player = AVPlayer(playerItem: playerItem)
-            player.play()
-        }
+        model.receiveVoipPushToken()
     }
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {

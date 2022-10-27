@@ -55,7 +55,7 @@ struct ConfigView: View {
                             }
                             UIApplication.shared.open(settingsUrl, completionHandler: nil)
                         } label: {
-                            Text(R.string.localizable.configReset())
+                            Text(R.string.localizable.configOther())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
