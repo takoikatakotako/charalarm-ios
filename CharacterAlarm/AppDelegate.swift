@@ -46,10 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
-        
-        let logger = Logger()
-        logger.sendLog(message: "test message")
-        
+
         // VoIP Pushを要求
         let voipRegistry: PKPushRegistry = PKPushRegistry(queue: nil)
         voipRegistry.delegate = self
@@ -150,8 +147,8 @@ extension AppDelegate: PKPushRegistryDelegate {
             self.charaName = charaNeme
             self.filePath = filePath
         }
-           
-        // 
+        
+        //
         let config = CXProviderConfiguration()
         config.iconTemplateImageData = R.image.callAlarm()?.pngData()
         config.includesCallsInRecents = true
