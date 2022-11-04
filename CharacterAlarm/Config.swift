@@ -1,10 +1,14 @@
 import Foundation
 
-// API の Endpoint。AppDelegateでDI
+// APIのエンドポイント、AppDelegateで取得
 var API_ENDPOINT: String = ""
 
-// Resource の Endpoint
+// リソースのエンドポイント、AppDelegateで取得
 var RESOURCE_ENDPOINT: String = ""
+
+// AdmobのユニットID、AppDelegateで取得
+var ADMOB_ALARM_LIST_UNIT_ID = ""
+var ADMOB_CONFIG_UNIT_ID = ""
 
 // PrivacyPolicyのURL
 let PrivacyPolicyUrlString = "https://charalarm.com/privacy/index.html"
@@ -20,7 +24,3 @@ let ContactAboutAppUrlString: String = "https://docs.google.com/forms/d/e/1FAIpQ
 
 // キャラクター追加についてのお問い合わせ
 let ContactAbountAddCharacterUrlString = "https://docs.google.com/forms/d/e/1FAIpQLScuMalb8MkEiCGDXtSUHSyybhDNBw5_8e3WUgLB9fWkfCaOyA/viewform?usp=sf_link"
-
-// Admob
-var AdmobAlarmListUnitId = ""
-var AdmobConfigUnitId = ""

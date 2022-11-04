@@ -308,7 +308,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 31 files.
+  /// This `R.file` struct is generated, and contains static references to 30 files.
   struct file {
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
@@ -362,8 +362,6 @@ struct R: Rswift.Validatable {
     static let comfusedPng = Rswift.FileResource(bundle: R.hostingBundle, name: "comfused", pathExtension: "png")
     /// Resource file `normal.png`.
     static let normalPng = Rswift.FileResource(bundle: R.hostingBundle, name: "normal", pathExtension: "png")
-    /// Resource file `pokemon.caf`.
-    static let pokemonCaf = Rswift.FileResource(bundle: R.hostingBundle, name: "pokemon", pathExtension: "caf")
     /// Resource file `resource.json`.
     static let resourceJson = Rswift.FileResource(bundle: R.hostingBundle, name: "resource", pathExtension: "json")
     /// Resource file `self-introduction.caf`.
@@ -526,12 +524,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "normal", withExtension: "png")`
     static func normalPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.normalPng
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "pokemon", withExtension: "caf")`
-    static func pokemonCaf(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.pokemonCaf
       return fileResource.bundle.url(forResource: fileResource)
     }
 

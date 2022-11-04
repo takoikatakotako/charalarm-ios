@@ -55,7 +55,7 @@ struct ConfigView: View {
                             }
                             UIApplication.shared.open(settingsUrl, completionHandler: nil)
                         } label: {
-                            Text(R.string.localizable.configReset())
+                            Text(R.string.localizable.configOther())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
@@ -84,7 +84,7 @@ struct ConfigView: View {
                     }
                 }.listStyle(GroupedListStyle())
                 
-                AdmobBannerView(adUnitID: AdmobConfigUnitId)
+                AdmobBannerView(adUnitID: ADMOB_CONFIG_UNIT_ID)
             }
             .navigationBarTitle(R.string.localizable.configConfig(), displayMode: .inline)
             .navigationBarItems(leading:
