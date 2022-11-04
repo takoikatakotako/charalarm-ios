@@ -37,9 +37,9 @@ extension AdmobRewardedHandler: GADFullScreenContentDelegate {
     }
     
     // Called when an ad is dismissed
-    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        
-    }
+//    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//
+//    }
     
     // Called when an ad is dismissed
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {

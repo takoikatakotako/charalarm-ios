@@ -8,6 +8,15 @@ packages:
   R.swift.Library:
     url: https://github.com/mac-cain13/R.swift.Library
     from: 5.4.0
+  SDWebImageSwiftUI:
+    url: https://github.com/SDWebImage/SDWebImageSwiftUI
+    from: 2.2.1
+  KeychainAccess:
+    url: https://github.com/kishikawakatsumi/KeychainAccess
+    from: 4.2.1
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 9.6.0
 
 schemes:
   Local:
@@ -55,7 +64,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 2.1.3
+        MARKETING_VERSION: 2.1.4
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Local
@@ -79,11 +88,20 @@ targets:
         product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseRemoteConfig
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
+        basedOnDependencyAnalysis: false
         outputFiles:
           - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
   CharalarmStaging:
@@ -104,7 +122,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 2.1.3
+        MARKETING_VERSION: 2.1.4
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
@@ -128,11 +146,20 @@ targets:
         product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseRemoteConfig
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
+        basedOnDependencyAnalysis: false
         outputFiles:
           - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
   CharalarmProduction:
@@ -151,11 +178,20 @@ targets:
         product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseRemoteConfig
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
+        basedOnDependencyAnalysis: false
         outputFiles:
           - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
     settings:
@@ -165,7 +201,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 2.1.3
+        MARKETING_VERSION: 2.1.4
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production

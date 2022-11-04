@@ -5,19 +5,7 @@ def install_pods
   use_frameworks!
   inhibit_all_warnings!
 
-  pod 'Firebase/Core'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/RemoteConfig'
-  pod 'Firebase/Crashlytics'
   pod 'Google-Mobile-Ads-SDK'
-  pod 'SwiftLint'
-  pod 'SDWebImageSwiftUI'
-  pod 'KeychainAccess'
-
-  script_phase name: 'Run Firebase Crashlytics',
-    shell_path: '/bin/sh',
-    script: '"${PODS_ROOT}/FirebaseCrashlytics/run"',
-    input_files: []
 end
 
 target 'CharalarmLocal' do
@@ -38,4 +26,13 @@ end
 
 target 'CharalarmProduction' do
   install_pods
+end
+
+# エラーを消すために IPHONEOS_DEPLOYMENT_TARGET を11.0に設定
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+    end
+  end
 end
