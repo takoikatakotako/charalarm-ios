@@ -7,6 +7,8 @@ class AppDelegateModel {
     private var player = AVPlayer()
     private let pushRepository: PushRepository
     private let keychainHandler: KeychainHandlerProtcol
+    private var pushToken: String?
+    private var voipPushToken: String?
     
     init(pushRepository: PushRepository, keychainHandler: KeychainHandlerProtcol) {
         self.pushRepository = PushRepository()
@@ -23,7 +25,9 @@ class AppDelegateModel {
     
     // MARK: - Push Notification
     // Pushトークンを登録
-    func registerPushToken(token: String) {        
+    func registerPushToken(token: String) {
+        self.pushToken = token
+        
         guard let anonymousUserName = keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = keychainHandler.getAnonymousAuthToken() else {
             return
@@ -40,8 +44,8 @@ class AppDelegateModel {
         }
     }
     
-    // Pushトークンを取得できなかった場合
-    func failToRregisterVoipPushToken(error: Error) {
+    // ViIPPushトークンを取得できなかった場合
+    func failToRregisterPushToken(error: Error) {
         print("Failed to register to APNs: \(error)")
     }
     
@@ -49,6 +53,8 @@ class AppDelegateModel {
     // MARK: - Voip Push Notification
     // VoIP Pushトークンを登録
     func registerVoipPushToken(token: String) {
+        self.voipPushToken = token
+
         guard let anonymousUserName = keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = keychainHandler.getAnonymousAuthToken() else {
             return

@@ -5,8 +5,10 @@ class ConfigViewModel: ObservableObject {
     @Published var character: Character?
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    let charaRepository: CharaRepository = CharaRepository()
-    let userRepository: UserRepository = UserRepository()
+    @Published var showingResetAlert = false
+
+    private let charaRepository: CharaRepository = CharaRepository()
+    private let userRepository: UserRepository = UserRepository()
     
     var versionString: String {
         return getVersion()
@@ -62,6 +64,10 @@ class ConfigViewModel: ObservableObject {
                 fatalError("Fource Reset")
             }
         }
+    }
+    
+    func resetButtonTapped() {
+        showingResetAlert = true
     }
         
     private func getVersion() -> String {

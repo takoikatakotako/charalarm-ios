@@ -5,7 +5,6 @@ struct ConfigView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
-    @State private var showingResetAlert = false
     
     var body: some View {
         NavigationView {
@@ -62,12 +61,12 @@ struct ConfigView: View {
                     
                     Section(header: Text(R.string.localizable.configReset())) {
                         Button(action: {
-                            showingResetAlert = true
+                            viewModel.resetButtonTapped()
                         }) {
                             Text(R.string.localizable.configReset())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        .alert(isPresented: $showingResetAlert) {
+                        .alert(isPresented: $viewModel.showingResetAlert) {
                             Alert(
                                 title: Text(R.string.localizable.configReset()),
                                 message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),

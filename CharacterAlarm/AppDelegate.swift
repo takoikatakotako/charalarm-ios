@@ -86,7 +86,7 @@ extension AppDelegate {
     
     // プッシュ通知の利用登録が失敗した場合
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        model.failToRregisterVoipPushToken(error: error)
+        model.failToRregisterPushToken(error: error)
     }
 }
 
