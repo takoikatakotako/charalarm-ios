@@ -1,14 +1,10 @@
 import SwiftUI
-import AVFoundation
 
 struct TutorialCallView: View {
     @EnvironmentObject var appState: CharalarmAppState
 
-    @State private var isCalling = true
-    @State private var showingNextButton = false
-    @State private var incomingAudioPlayer: AVAudioPlayer!
-    @State private var voiceAudioPlayer: AVAudioPlayer!
-    
+    @StateObject var viewModel = TutorialCallViewModel()
+
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
@@ -20,7 +16,7 @@ struct TutorialCallView: View {
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
             
-            if isCalling {
+            if viewModel.isCalling {
                 VStack {
                     Text("井上結衣")
                         .foregroundColor(Color.white)
@@ -43,24 +39,7 @@ struct TutorialCallView: View {
                         
                         VStack {
                             Button(action: {
-                                incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
-                                withAnimation {
-                                    self.isCalling = false
-                                }
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    guard let voice = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") else {
-                                        return
-                                    }
-                                    self.voiceAudioPlayer = try? AVAudioPlayer(data: voice.data)
-                                    self.voiceAudioPlayer?.play()
-                                }
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                                    withAnimation {
-                                        self.showingNextButton = true
-                                    }
-                                }
+                                viewModel.callButtonTapped()
                             }) {
                                 Image(R.image.profileCall.name)
                                     .resizable()
@@ -78,7 +57,7 @@ struct TutorialCallView: View {
                 .background(Color(R.color.charalarmDefaultGray.name))
             }
             
-            if showingNextButton {
+            if viewModel.showingNextButton {
                 NavigationLink(
                     destination: TutorialThirdView()
                         .environmentObject(appState),
@@ -90,28 +69,14 @@ struct TutorialCallView: View {
             }
         }
         .onAppear {
-            incoming()
+            viewModel.onAppear()
         }
         .onDisappear {
-            fadeOut()
+            viewModel.onDisappear()
         }
         .edgesIgnoringSafeArea(.all)
         .navigationTitle("")
         .navigationBarHidden(true)
-    }
-    
-    func incoming() {
-        if let sound = NSDataAsset(name: "ringtone") {
-            incomingAudioPlayer = try? AVAudioPlayer(data: sound.data)
-            incomingAudioPlayer?.volume = 0.3
-            incomingAudioPlayer?.play()
-            incomingAudioPlayer?.setVolume(1.0, fadeDuration: 0.5)
-        }
-    }
-    
-    func fadeOut() {
-        incomingAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
-        voiceAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
     }
 }
 

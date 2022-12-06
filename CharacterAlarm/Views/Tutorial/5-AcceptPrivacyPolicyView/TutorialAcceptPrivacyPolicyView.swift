@@ -4,13 +4,8 @@ import AppTrackingTransparency
 
 struct TutorialAcceptPrivacyPolicyView: View {
     @EnvironmentObject var appState: CharalarmAppState
-    @State var accountCreated = false
-    @State var creatingAccount = false
-    @State var showingAlert = false
-    @State var alertMessage = ""
-    let anonymousUserName = UUID().uuidString
-    let anonymousUserPassword = UUID().uuidString
-    let userRepository: UserRepository = UserRepository()
+
+    @StateObject var viewModel = TutorialAcceptPrivacyPolicyViewModel()
     
     var body: some View {
         ZStack {
@@ -22,7 +17,7 @@ struct TutorialAcceptPrivacyPolicyView: View {
                     .padding(.horizontal, 12)
                 
                 Button(action: {
-                    openPrivacyPolicy()
+                    viewModel.openPrivacyPolicy()
                 }) {
                     Text(R.string.localizable.tutorialOpenThePrivacyPolicy())
                         .font(Font.system(size: 20))
@@ -36,13 +31,13 @@ struct TutorialAcceptPrivacyPolicyView: View {
                 
                 NavigationLink(
                     destination: TutorialRequireTrackingView(),
-                    isActive: $accountCreated,
+                    isActive: $viewModel.accountCreated,
                     label: {
                         EmptyView()
                     })
                 
                 Button(action: {
-                    signUp()
+                    viewModel.signUp()
                 }, label: {
                     TutorialButtonContent(text: R.string.localizable.tutorialAgreeWithThePrivacyPolicy())
                         .padding(.horizontal, 16)
@@ -50,7 +45,7 @@ struct TutorialAcceptPrivacyPolicyView: View {
                 .padding(.bottom, 28)
             }
             
-            if creatingAccount {
+            if viewModel.creatingAccount {
                 ProgressView()
                     .scaleEffect(2.4, anchor: .center)
                     .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
@@ -59,62 +54,11 @@ struct TutorialAcceptPrivacyPolicyView: View {
                     .cornerRadius(16)
             }
         }
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text(""), message: Text(alertMessage), dismissButton: .default(Text("Close")))}
+        .alert(isPresented: $viewModel.showingAlert) {
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text("Close")))}
         .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("")
         .navigationBarHidden(true)
-    }
-    
-    private func openPrivacyPolicy() {
-        guard let url = URL(string: PrivacyPolicyUrlString) else {
-            return
-        }
-        UIApplication.shared.open(url)
-    }
-    
-    private func signUp() {
-        guard !creatingAccount else {
-            return
-        }
-        creatingAccount = true
-        
-        userRepository.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
-            switch result {
-            case .success(_):
-                // ユーザー作成に成功
-                do {
-                    try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: anonymousUserName)
-                    try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: anonymousUserPassword)
-                    self.accountCreated = true
-                } catch {
-                    self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
-                    self.showingAlert = true
-                }
-                self.creatingAccount = false
-                break
-            case .failure:
-                self.alertMessage = R.string.localizable.commonFailedToConnectWithTheServer()
-                self.showingAlert = true
-                self.creatingAccount = false
-                break
-            }
-        }
-    }
-    
-    private func trackingAuthorizationNotDetermined() -> Bool {
-        switch ATTrackingManager.trackingAuthorizationStatus {
-        case .authorized:
-            return false
-        case .denied:
-            return false
-        case .restricted:
-            return false
-        case .notDetermined:
-            return true
-        @unknown default:
-            return false
-        }
     }
 }
 
