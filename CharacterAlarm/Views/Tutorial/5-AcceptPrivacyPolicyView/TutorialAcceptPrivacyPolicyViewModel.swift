@@ -10,7 +10,8 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
     let anonymousUserName = UUID().uuidString
     let anonymousUserPassword = UUID().uuidString
     let userRepository: UserRepository = UserRepository()
-    
+    let pushRepository: PushRepository = PushRepository()
+
     func openPrivacyPolicy() {
         guard let url = URL(string: PrivacyPolicyUrlString) else {
             return
@@ -25,33 +26,64 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
         
         creatingAccount = true
         
-        Task {
+        
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        let optionalPushToken = delegate?.model.pushToken
+        let optionalVoIPPushToken = delegate?.model.voipPushToken
+        
+        Task { @MainActor in
             // ここでユーザー登録してトークンを設定する
-            
+            do {
+                // SignUp
+                let message = try await userRepository.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword)
+                print(message)
+                
+                // Set KeyChain
+                try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
+                try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
+                
+                // Set Push Token
+                if let token = optionalPushToken {
+                    let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+                    _ = try await pushRepository.addPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: pushToken)
+                }
+    
+                // Set VoIP Push Token
+                if let token = optionalVoIPPushToken {
+                    let voipPushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+                    _ = try await pushRepository.addVoipPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: voipPushToken)
+                }
+                
+                self.accountCreated = true
+            } catch {
+                self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
+                self.showingAlert = true
+            }
+            self.creatingAccount = false
         }
 
         
-        userRepository.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
-            switch result {
-            case .success(_):
-                // ユーザー作成に成功
-                do {
-                    try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
-                    try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
-                    self.accountCreated = true
-                } catch {
-                    self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
-                    self.showingAlert = true
-                }
-                self.creatingAccount = false
-                break
-            case .failure:
-                self.alertMessage = R.string.localizable.commonFailedToConnectWithTheServer()
-                self.showingAlert = true
-                self.creatingAccount = false
-                break
-            }
-        }
+//        userRepository.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
+//            switch result {
+//            case .success(_):
+//                // ユーザー作成に成功
+//                do {
+//                    try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
+//                    try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
+//                    self.accountCreated = true
+//                } catch {
+//                    self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
+//                    self.showingAlert = true
+//                }
+//                self.creatingAccount = false
+//                break
+//            case .failure:
+//                self.alertMessage = R.string.localizable.commonFailedToConnectWithTheServer()
+//                self.showingAlert = true
+//                self.creatingAccount = false
+//                break
+//            }
+//        }
     }
     
     func trackingAuthorizationNotDetermined() -> Bool {

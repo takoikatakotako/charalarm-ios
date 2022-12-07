@@ -7,8 +7,8 @@ class AppDelegateModel {
     private var player = AVPlayer()
     private let pushRepository: PushRepository
     private let keychainHandler: KeychainHandlerProtcol
-    private var pushToken: String?
-    private var voipPushToken: String?
+    var pushToken: String?
+    var voipPushToken: String?
     
     init(pushRepository: PushRepository, keychainHandler: KeychainHandlerProtcol) {
         self.pushRepository = PushRepository()
