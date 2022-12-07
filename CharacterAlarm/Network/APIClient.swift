@@ -20,4 +20,12 @@ struct APIClient<ResponseType: Decodable> {
             }
         }
     }
+    
+    func request(urlRequest: URLRequest) async throws -> ResponseType {
+        let data = try await NetworkClient.request(urlRequest: urlRequest)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let apiResponse: ResponseType = try decoder.decode(ResponseType.self, from: data)
+        return apiResponse
+    }
 }

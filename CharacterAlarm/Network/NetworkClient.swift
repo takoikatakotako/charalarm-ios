@@ -50,4 +50,41 @@ struct NetworkClient {
         }
         task.resume()
     }
+    
+    static func request(urlRequest: URLRequest) async throws -> Data {
+        print("====== curl =====")
+        print(urlRequest.curlString)
+        print("=================")
+        
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        print("====== response =====")
+        print(String(decoding: data, as: UTF8.self))
+        print("=================")
+        
+        
+        guard let response = response as? HTTPURLResponse else {
+            let message = """
+            サーバーエラー
+            File: \(#file)
+            Function: \(#function)
+            Line: \(#line)
+            """
+            print(message)
+            throw CharalarmError.serverError
+        }
+        
+        if response.statusCode == 200 {
+            return data
+        }
+        
+        // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
+        let message = """
+        レスポンスコードエラー
+        File: \(#file)
+        Function: \(#function)
+        Line: \(#line)
+        """
+        print(message)
+        throw CharalarmError.serverError
+    }
 }
