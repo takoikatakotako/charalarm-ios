@@ -61,29 +61,6 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
             }
             self.creatingAccount = false
         }
-
-        
-//        userRepository.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ result in
-//            switch result {
-//            case .success(_):
-//                // ユーザー作成に成功
-//                do {
-//                    try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
-//                    try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
-//                    self.accountCreated = true
-//                } catch {
-//                    self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
-//                    self.showingAlert = true
-//                }
-//                self.creatingAccount = false
-//                break
-//            case .failure:
-//                self.alertMessage = R.string.localizable.commonFailedToConnectWithTheServer()
-//                self.showingAlert = true
-//                self.creatingAccount = false
-//                break
-//            }
-//        }
     }
     
     func trackingAuthorizationNotDetermined() -> Bool {
