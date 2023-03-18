@@ -3,7 +3,7 @@ import UIKit
 class AlarmRepository {
     func fetchAnonymousAlarms(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<[Alarm], Error>) -> Void) {
         let path = "/api/alarm/list"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: anonymousUserName, authToken: anonymousUserPassword)
         let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
         let apiClient = APIClient<JsonResponseBean<[Alarm]>>()
         apiClient.request(urlRequest: urlRequest) { result in
@@ -20,7 +20,7 @@ class AlarmRepository {
     
     func addAlarm(anonymousUserName: String, anonymousUserPassword: String, alarm: Alarm, completion: @escaping (Result<String, Error>) -> Void) {
         let path = "/api/alarm/add"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: anonymousUserName, authToken: anonymousUserPassword)
         let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: alarm)
         let apiClient = APIClient<JsonResponseBean<String>>()
         apiClient.request(urlRequest: urlRequest) { result in
@@ -40,7 +40,7 @@ class AlarmRepository {
             return
         }
         let path = "/api/alarm/edit/\(alarmId)"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: anonymousUserName, authToken: anonymousUserPassword)
         let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: alarm)
         let apiClient = APIClient<JsonResponseBean<String>>()
         apiClient.request(urlRequest: urlRequest) { result in
@@ -57,7 +57,7 @@ class AlarmRepository {
     
     func deleteAlarm(anonymousUserName: String, anonymousUserPassword: String, alarmId: Int, completion: @escaping (Result<String, Error>) -> Void) {
         let path = "/api/alarm/delete/\(alarmId)"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: anonymousUserName, authToken: anonymousUserPassword)
         let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
         let apiClient = APIClient<JsonResponseBean<String>>()
         apiClient.request(urlRequest: urlRequest) { result in

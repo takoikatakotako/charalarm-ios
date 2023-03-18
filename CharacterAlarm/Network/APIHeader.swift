@@ -1,9 +1,9 @@
 import Foundation
 
 struct APIHeader {
-    static let defaultHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]
-    static func createAuthorizationRequestHeader(userName: String, token: String) -> [String: String] {
-        guard let authorization = "\(userName):\(token)".data(using: .utf8)?.base64EncodedString() else {
+    static let defaultHeader: [String: String] = ["Content-Type": "application/json"]
+    static func createAuthorizationRequestHeader(userID: String, authToken: String) -> [String: String] {
+        guard let authorization = "\(userID):\(authToken)".data(using: .utf8)?.base64EncodedString() else {
             fatalError()
         }
         var requestHeader = Self.defaultHeader

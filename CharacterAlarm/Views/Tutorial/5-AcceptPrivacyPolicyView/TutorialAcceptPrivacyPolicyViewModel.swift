@@ -35,8 +35,7 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
             // ここでユーザー登録してトークンを設定する
             do {
                 // SignUp
-                let message = try await userRepository.signup(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword)
-                print(message)
+                try await userRepository.signup(userID: anonymousUserName, authToken: anonymousUserPassword)
                 
                 // Set KeyChain
                 try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)

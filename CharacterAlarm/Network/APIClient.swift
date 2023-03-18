@@ -21,6 +21,32 @@ struct APIClient<ResponseType: Decodable> {
         }
     }
     
+    func request2(url: URL, httpMethod: HttpMethod, requestHeader: [String: String], requestBody: Encodable?) async throws -> ResponseType {
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.rawValue
+        urlRequest.allHTTPHeaderFields = requestHeader
+        if let requestBody = requestBody, let httpBody = try? JSONEncoder().encode(requestBody) {
+            urlRequest.httpBody = httpBody
+        }
+        
+        let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+        
+        guard let urlResponse = urlResponse as? HTTPURLResponse else {
+            throw CharalarmError.clientError
+        }
+        
+        guard urlResponse.statusCode == 200 else {
+            throw CharalarmError.clientError
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let response = try decoder.decode(ResponseType.self, from: data)
+        return response
+    }
+    
+    
     func request(urlRequest: URLRequest) async throws -> ResponseType {
         let data = try await NetworkClient.request(urlRequest: urlRequest)
         let decoder = JSONDecoder()

@@ -71,14 +71,14 @@ targets:
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
-          API_ENDPOINT: http://localhost:8080
+          API_ENDPOINT: https://api.sandbox.swiswiswift.com
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-          API_ENDPOINT: http://localhost:8080
+          API_ENDPOINT: https://api.sandbox.swiswiswift.com
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
@@ -129,14 +129,14 @@ targets:
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
-          API_ENDPOINT: https://api-stg.charalarm.com
+          API_ENDPOINT: https://api.sandbox.swiswiswift.com
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-          API_ENDPOINT: https://api-stg.charalarm.com
+          API_ENDPOINT: https://api.sandbox.swiswiswift.com
           RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
