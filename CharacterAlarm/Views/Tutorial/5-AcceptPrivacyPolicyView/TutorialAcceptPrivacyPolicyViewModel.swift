@@ -41,17 +41,17 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
                 try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
                 try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
                 
-                // Set Push Token
-                if let token = optionalPushToken {
-                    let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-                    _ = try await pushRepository.addPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: pushToken)
-                }
-    
-                // Set VoIP Push Token
-                if let token = optionalVoIPPushToken {
-                    let voipPushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-                    _ = try await pushRepository.addVoipPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: voipPushToken)
-                }
+//                // Set Push Token
+//                if let token = optionalPushToken {
+//                    let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+//                    _ = try await pushRepository.addPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: pushToken)
+//                }
+//    
+//                // Set VoIP Push Token
+//                if let token = optionalVoIPPushToken {
+//                    let voipPushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+//                    _ = try await pushRepository.addVoipPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: voipPushToken)
+//                }
                 
                 self.accountCreated = true
             } catch {
