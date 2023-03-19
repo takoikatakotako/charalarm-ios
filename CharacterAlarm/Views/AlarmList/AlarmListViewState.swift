@@ -1,33 +1,11 @@
 import Foundation
 
-enum AlarmListViewModelSheet: Identifiable {
-    case alarmDetail(Alarm)
-    var id: String {
-        switch self {
-        case let .alarmDetail(alarm):
-            return alarm.id
-        }
-    }
-}
-
-enum AlarmListViewModelAlert: Identifiable {
-    case ad(UUID)
-    case error(UUID, String)
-    var id: UUID {
-        switch self {
-        case let .ad(id):
-            return id
-        case let .error(id, _):
-            return id
-        }
-    }
-}
-
 class AlarmListViewState: ObservableObject {
     @Published var alarms: [Alarm] = []
-    @Published var sheet: AlarmListViewModelSheet?
-    @Published var alert: AlarmListViewModelAlert?
+    @Published var sheet: AlarmListViewSheetItem?
+    @Published var alert: AlarmListViewAlertItem?
     @Published var showingIndicator: Bool = true
+    
     let alarmRepository: AlarmRepository = AlarmRepository()
     
     func addAlarmButtonTapped() {
