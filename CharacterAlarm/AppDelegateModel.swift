@@ -33,15 +33,15 @@ class AppDelegateModel {
             return
         }
         
-        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-        pushRepository.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-            switch result {
-            case .success:
-                break
-            case .failure:
-                break
-            }
-        }
+//        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+//        pushRepository.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
+//            switch result {
+//            case .success:
+//                break
+//            case .failure:
+//                break
+//            }
+//        }
     }
     
     // ViIPPushトークンを取得できなかった場合
@@ -60,15 +60,15 @@ class AppDelegateModel {
             return
         }
         
-        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-        pushRepository.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-            switch result {
-            case .success(_):
-                break
-            case let .failure(error):
-                print(error)
-            }
-        }
+//        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+//        pushRepository.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
+//            switch result {
+//            case .success(_):
+//                break
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
     }
     
     // VoIP Pushを受信

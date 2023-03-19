@@ -41,38 +41,38 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     }
     
     func onAppear() {
-        charaRepository.fetchCharacters { [weak self] result in
-            switch result {
-            case let .success(characters):
-                self?.characters = characters
-            case .failure(_):
-                break
-            }
-        }
-        
-        if let charaId = alarm.charaId {
-            charaRepository.fetchCharacter(charaId: charaId) { [weak self] result in
-                switch result {
-                case let .success(character):
-                    self?.selectedChara = character
-                case let .failure(error):
-                    print(error)
-                    break
-                }
-            }
-        }
-        
-        if let charaCallId = alarm.charaCallId {
-            charaCallRepository.findByCharaCallId(charaCallId: charaCallId) { [weak self] result in
-                switch result {
-                case let .success(charaCall):
-                    self?.selectedCharaCall = charaCall
-                case let .failure(error):
-                    print(error)
-                    break
-                }
-            }
-        }
+//        charaRepository.fetchCharacters { [weak self] result in
+//            switch result {
+//            case let .success(characters):
+//                self?.characters = characters
+//            case .failure(_):
+//                break
+//            }
+//        }
+//        
+//        if let charaId = alarm.charaId {
+//            charaRepository.fetchCharacter(charaId: charaId) { [weak self] result in
+//                switch result {
+//                case let .success(character):
+//                    self?.selectedChara = character
+//                case let .failure(error):
+//                    print(error)
+//                    break
+//                }
+//            }
+//        }
+//        
+//        if let charaCallId = alarm.charaCallId {
+//            charaCallRepository.findByCharaCallId(charaCallId: charaCallId) { [weak self] result in
+//                switch result {
+//                case let .success(charaCall):
+//                    self?.selectedCharaCall = charaCall
+//                case let .failure(error):
+//                    print(error)
+//                    break
+//                }
+//            }
+//        }
     }
     
     func createOrUpdateAlarm(completion: @escaping () -> Void) {
@@ -100,21 +100,21 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
     }
     
     func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-            self.showingAlert = true
-            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
-            return
-        }
-        alarmRepository.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
-            switch result {
-            case .success:
-                completion()
-            case .failure:
-                self?.alertMessage = "削除に失敗しました"
-                self?.showingAlert = true
-            }
-        }
+//        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+//              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+//            self.showingAlert = true
+//            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
+//            return
+//        }
+//        alarmRepository.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
+//            switch result {
+//            case .success:
+//                completion()
+//            case .failure:
+//                self?.alertMessage = "削除に失敗しました"
+//                self?.showingAlert = true
+//            }
+//        }
     }
     
     func showVoiceList(chara: Character) {
@@ -154,15 +154,15 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
                 return
         }
         
-        alarmRepository.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
-            switch result {
-            case .success:
-                completion()
-            case .failure:
-                self.alertMessage = R.string.localizable.alarmFailedToCreateAnAlarm()
-                self.showingAlert = true
-            }
-        }
+//        alarmRepository.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+//            switch result {
+//            case .success:
+//                completion()
+//            case .failure:
+//                self.alertMessage = R.string.localizable.alarmFailedToCreateAnAlarm()
+//                self.showingAlert = true
+//            }
+//        }
     }
     
     private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
@@ -173,14 +173,14 @@ class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
                 return
         }
         
-        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
-            switch result {
-            case .success(_):
-                completion()
-            case .failure:
-                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
-                self.showingAlert = true
-            }
-        }
+//        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+//            switch result {
+//            case .success(_):
+//                completion()
+//            case .failure:
+//                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
+//                self.showingAlert = true
+//            }
+//        }
     }
 }

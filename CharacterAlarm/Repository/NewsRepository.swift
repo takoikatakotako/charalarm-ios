@@ -1,19 +1,11 @@
 import Foundation
 
 class NewsRepository {
-    func fetchNews(completion: @escaping (Result<[News], Error>) -> Void) {
+    func fetchNews() async throws -> [News] {
         let path = "/api/news/list"
-        let urlRequest = APIRequest.createUrlRequest(path: path)
-        let apiClient = APIClient<JsonResponseBean<[News]>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    completion(.success(response.data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
+        let url = URL(string: API_ENDPOINT + path)!
+        let requestHeader: [String: String] = APIHeader.defaultHeader
+        let requestBody: Encodable? = nil
+        return try await APIClient<[News]>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }

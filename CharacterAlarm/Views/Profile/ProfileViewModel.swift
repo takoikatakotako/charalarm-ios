@@ -42,11 +42,11 @@ class ProfileViewModel: ObservableObject {
     }
     
     func fetchCharacter() {
-        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
-            switch result {
-            case let .success(character):
+        Task { @MainActor in
+            do {
+                let chara = try await charaRepository.fetchCharacter(charaDomain: charaDomain)
                 self.character = character
-            case .failure:
+            } catch {
                 self.alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()
                 self.showingAlert = true
             }
@@ -66,33 +66,34 @@ class ProfileViewModel: ObservableObject {
     }
     
     func selectCharacter() {
-        ResourceStore.downloadResourceJson(charaDomain: charaDomain) { result in
-            switch result {
-            case let .success(resource):
-                self.numberOfResource = resource.resource.images.count + resource.resource.voices.count
-                self.numberOfDownloadedReosurce = 0
-                
-                DispatchQueue.main.async {
-                    self.progressMessage = "\(String(self.numberOfDownloadedReosurce))/\(String(self.numberOfResource))"
-                }
-                
-                self.resourceInfos = []
-                for image in resource.resource.images {
-                    self.resourceInfos.append(ResourceInfo(type: .image, name: image))
-                }
-                
-                for voice in resource.resource.voices {
-                    self.resourceInfos.append(ResourceInfo(type: .voice, name: voice))
-                }
-                
-                self.downloadResource()
-                
-            case .failure:
-                self.downloadError = true
-            }
-        }
-        
-        showingDownloadingModal = true
+//        Task { @MainActor in
+//            let result = try await ResourceStore.downloadResourceJson(charaDomain: charaDomain)
+//            switch result {
+//            case let .success(resource):
+//                self.numberOfResource = resource.resource.images.count + resource.resource.voices.count
+//                self.numberOfDownloadedReosurce = 0
+//                
+//                DispatchQueue.main.async {
+//                    self.progressMessage = "\(String(self.numberOfDownloadedReosurce))/\(String(self.numberOfResource))"
+//                }
+//                
+//                self.resourceInfos = []
+//                for image in resource.resource.images {
+//                    self.resourceInfos.append(ResourceInfo(type: .image, name: image))
+//                }
+//                
+//                for voice in resource.resource.voices {
+//                    self.resourceInfos.append(ResourceInfo(type: .voice, name: voice))
+//                }
+//                
+//                self.downloadResource()
+//                
+//            case .failure:
+//                self.downloadError = true
+//            }
+//            
+//            showingDownloadingModal = true
+//        }
     }
     
     func downloadResource() {
@@ -106,26 +107,26 @@ class ProfileViewModel: ObservableObject {
             return
         }
         
-        ResourceStore.downloadResource(charaDomain: charaDomain, directory: resourceInfo.type.rawValue, fileName: resourceInfo.name) {[weak self] result in
-            switch result {
-            case .success(_):
-                if self?.resourceInfos.isEmpty ?? true {
-                    return
-                }
-                self?.resourceInfos.removeFirst()
-                self?.numberOfDownloadedReosurce += 1
-                DispatchQueue.main.async {
-                    self?.progressMessage = "\(String(self?.numberOfDownloadedReosurce ?? 0))/\(String(self?.numberOfResource ?? 0))"
-                }
-                self?.downloadResource()
-            case .failure(_):
-                DispatchQueue.main.async {
-                    self?.showingDownloadingModal = false
-                    self?.alertMessage = R.string.localizable.profileFailedToDownloadResources()
-                    self?.showingAlert = true
-                }
-            }
-        }
+//        ResourceStore.downloadResource(charaDomain: charaDomain, directory: resourceInfo.type.rawValue, fileName: resourceInfo.name) {[weak self] result in
+//            switch result {
+//            case .success(_):
+//                if self?.resourceInfos.isEmpty ?? true {
+//                    return
+//                }
+//                self?.resourceInfos.removeFirst()
+//                self?.numberOfDownloadedReosurce += 1
+//                DispatchQueue.main.async {
+//                    self?.progressMessage = "\(String(self?.numberOfDownloadedReosurce ?? 0))/\(String(self?.numberOfResource ?? 0))"
+//                }
+//                self?.downloadResource()
+//            case .failure(_):
+//                DispatchQueue.main.async {
+//                    self?.showingDownloadingModal = false
+//                    self?.alertMessage = R.string.localizable.profileFailedToDownloadResources()
+//                    self?.showingAlert = true
+//                }
+//            }
+//        }
     }
     
     func setCharacter() {

@@ -29,12 +29,11 @@ class ConfigViewModel: ObservableObject {
     }
     
     func fetchCharacter() {
-        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
-            switch result {
-            case let .success(character):
-                print(character)
+        Task { @MainActor in
+            do {
+                let chara = try await charaRepository.fetchCharacter(charaDomain: charaDomain)
                 self.character = character
-            case .failure:
+            } catch {
                 self.alertMessage = "キャラクター情報の取得に失敗しました。"
                 self.showingAlert = true
             }

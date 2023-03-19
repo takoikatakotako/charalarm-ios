@@ -7,11 +7,11 @@ class NewsListViewModel: ObservableObject {
     let newsRepository: NewsRepository = NewsRepository()
     
     func fetchNews() {
-        newsRepository.fetchNews { result in
-            switch result {
-            case let .success(news):
+        Task { @MainActor in
+            do {
+                let news = try await newsRepository.fetchNews()
                 self.newsList = news
-            case .failure:
+            } catch {
                 self.alertMessage = R.string.localizable.newsFailedToGetTheNews()
                 self.showingAlert = true
             }

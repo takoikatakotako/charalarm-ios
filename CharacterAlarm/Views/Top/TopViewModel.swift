@@ -84,16 +84,19 @@ class TopViewModel: ObservableObject {
         playCharaVoice(charaDomain: charaDomain, resource: resource, key: key)
     }
     
-    func featchCharacter(charaDomain: String, completion: @escaping (Character) -> Void) {
-        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
-            switch result {
-            case let .success(character):
-                completion(character)
-            case .failure:
-                self.alert = .failedToGetCharacterInformation
-            }
-        }
-    }
+//    func featchCharacter(charaDomain: String) async throws -> Character {
+//        Task {
+//            let
+//        }
+//        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
+//            switch result {
+//            case let .success(character):
+//                completion(character)
+//            case .failure:
+//                self.alert = .failedToGetCharacterInformation
+//            }
+//        }
+//    }
     
     func setChara() {
         guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
