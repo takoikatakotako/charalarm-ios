@@ -23,7 +23,7 @@ enum AlarmListViewModelAlert: Identifiable {
     }
 }
 
-class AlarmListViewModel: ObservableObject {
+class AlarmListViewState: ObservableObject {
     @Published var alarms: [Alarm] = []
     @Published var sheet: AlarmListViewModelSheet?
     @Published var alert: AlarmListViewModelAlert?
@@ -50,21 +50,22 @@ class AlarmListViewModel: ObservableObject {
     }
     
     func fetchAlarms() {
-        showingIndicator = true
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-                alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
-            return
+        Task { @MainActor in
+            showingIndicator = true
+            guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+                  let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+                    alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
+                return
+            }
+            
+            do {
+                let alarms = try await alarmRepository.fetchAlarms(userID: userID, authToken: authToken)
+                self.showingIndicator = false
+                self.alarms = alarms
+            } catch {
+                self.alert = .error(UUID(), R.string.localizable.alarmFailedToGetTheAlarmList())
+            }
         }
-//        alarmRepository.fetchAnonymousAlarms(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword) { result in
-//            switch result {
-//            case let .success(alarms):
-//                self.showingIndicator = false
-//                self.alarms = alarms
-//            case .failure:
-//                self.alert = .error(UUID(), R.string.localizable.alarmFailedToGetTheAlarmList())
-//            }
-//        }
     }
     
     func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
