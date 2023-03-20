@@ -31,38 +31,27 @@ class AlarmDetailViewState: AlarmDetailViewModelProtocol {
     }
     
     func onAppear() {
-//        charaRepository.fetchCharacters { [weak self] result in
-//            switch result {
-//            case let .success(characters):
-//                self?.characters = characters
-//            case .failure(_):
-//                break
-//            }
-//        }
-//        
-//        if let charaId = alarm.charaId {
-//            charaRepository.fetchCharacter(charaId: charaId) { [weak self] result in
-//                switch result {
-//                case let .success(character):
-//                    self?.selectedChara = character
-//                case let .failure(error):
-//                    print(error)
-//                    break
-//                }
-//            }
-//        }
-//        
-//        if let charaCallId = alarm.charaCallId {
-//            charaCallRepository.findByCharaCallId(charaCallId: charaCallId) { [weak self] result in
-//                switch result {
-//                case let .success(charaCall):
-//                    self?.selectedCharaCall = charaCall
-//                case let .failure(error):
-//                    print(error)
-//                    break
-//                }
-//            }
-//        }
+        Task { @MainActor in
+            do {
+                // キャラクター一覧取得
+                let characters = try await charaRepository.fetchCharacters()
+                self.characters = characters
+                
+                // 現在のキャラを取得
+                if let charaId = alarm.charaId {
+                    let chara = try await charaRepository.fetchCharacter(charaId: charaId)
+                    self.selectedChara = chara
+                }
+                
+                // CharaCallを取得
+                if let charaCallId = alarm.charaCallId {
+                    let charaCall = try await charaCallRepository.findByCharaCallId(charaCallId: charaCallId)
+                    self.selectedCharaCall = charaCall
+                }
+            } catch {
+                // TODO: キャラクター情報の取得に失敗しました的なアラートを表示
+            }
+        }
     }
     
     func createOrUpdateAlarm(completion: @escaping () -> Void) {
