@@ -5,22 +5,12 @@ protocol AlarmDetailViewModelProtocol: ObservableObject {
     
 }
 
-enum AlarmDetailViewSheet: Identifiable {
-    case voiceList(Character)
-    var id: Int {
-        switch self {
-        case let .voiceList(character):
-            return character.charaId
-        }
-    }
-}
-
-class AlarmDetailViewModel: AlarmDetailViewModelProtocol {
+class AlarmDetailViewState: AlarmDetailViewModelProtocol {
     @Published var alarm: Alarm
     @Published var characters: [Character] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    @Published var sheet: AlarmDetailViewSheet?
+    @Published var sheet: AlarmDetailViewSheetItem?
     @Published var selectedChara: Character?
     @Published var selectedCharaCall: CharaCallResponseEntity?
     @Published var showingIndicator: Bool = false

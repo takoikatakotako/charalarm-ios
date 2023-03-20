@@ -48,7 +48,7 @@ struct AlarmListView: View {
             }, content: { item in
                 switch item {
                 case let .alarmDetail(alarm):
-                    AlarmDetailView(alarm: alarm)
+                    AlarmDetailView(viewState: AlarmDetailViewState(alarm: alarm))
                 }
             })
             .navigationBarBackButtonHidden(true)
