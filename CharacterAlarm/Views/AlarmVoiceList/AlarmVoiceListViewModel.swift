@@ -21,9 +21,9 @@ class AlarmVoiceListViewModel: ObservableObject {
     }
     
     func playRandomVoice() {
-        guard let charaCall = chara.charaCallResponseEntities.randomElement() else {
-            return
-        }
-        playVoice(filePath: charaCall.charaFilePath)
+//        guard let charaCall = chara.charaCallResponseEntities.randomElement() else {
+//            return
+//        }
+//        playVoice(filePath: charaCall.charaFilePath)
     }
 }

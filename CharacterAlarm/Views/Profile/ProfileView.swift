@@ -25,16 +25,16 @@ struct ProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
                     
-                    ProfileRow(title: R.string.localizable.profileName(), text: viewModel.character?.name ?? "", urlString: "")
-                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewModel.character?.description ?? "", urlString: "")
-                    ProfileRow(title: R.string.localizable.profileIllustration(), text: viewModel.character?.illustrationName ?? "", urlString: viewModel.character?.illustrationUrl ?? "")
-                    ProfileRow(title: R.string.localizable.profileVoice(), text: viewModel.character?.voiceName ?? "", urlString: viewModel.character?.voiceUrl ?? "")
-                    
-                    if let additionalProfileBeans = viewModel.character?.additionalProfileBeans {
-                        ForEach(additionalProfileBeans, id: \.self) { additionalProfileBean in
-                            ProfileRow(title: additionalProfileBean.title, text: additionalProfileBean.text, urlString: additionalProfileBean.url)
-                        }
-                    }
+//                    ProfileRow(title: R.string.localizable.profileName(), text: viewModel.character?.name ?? "", urlString: "")
+//                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewModel.character?.description ?? "", urlString: "")
+//                    ProfileRow(title: R.string.localizable.profileIllustration(), text: viewModel.character?.illustrationName ?? "", urlString: viewModel.character?.illustrationUrl ?? "")
+//                    ProfileRow(title: R.string.localizable.profileVoice(), text: viewModel.character?.voiceName ?? "", urlString: viewModel.character?.voiceUrl ?? "")
+//                    
+//                    if let additionalProfileBeans = viewModel.character?.additionalProfileBeans {
+//                        ForEach(additionalProfileBeans, id: \.self) { additionalProfileBean in
+//                            ProfileRow(title: additionalProfileBean.title, text: additionalProfileBean.text, urlString: additionalProfileBean.url)
+//                        }
+//                    }
                     
                     Spacer()
                         .frame(height: 120)

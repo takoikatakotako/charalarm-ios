@@ -9,13 +9,13 @@ struct CharacterListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List(viewModel.characters) { character in
-                    NavigationLink(destination: ProfileView(charaDomain: character.charaDomain)) {
-                        CharacterListRow(character: character)
-                            .frame(height: 80)
-                            .clipped()
-                    }
-                }
+//                List(viewModel.characters) { character in
+//                    NavigationLink(destination: ProfileView(charaDomain: character.charaDomain)) {
+//                        CharacterListRow(character: character)
+//                            .frame(height: 80)
+//                            .clipped()
+//                    }
+//                }
                 
                 VStack {
                     Spacer()

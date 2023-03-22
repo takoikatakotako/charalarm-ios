@@ -13,7 +13,7 @@ struct Alarm: Identifiable, Decodable, Hashable, Encodable {
     var hour: Int
     var minute: Int
     var dayOfWeeks: [DayOfWeek]
-    var charaId: Int?
+    var charaID: String?
     var charaCallId: Int?
     
     var dayOfWeeksString: String {

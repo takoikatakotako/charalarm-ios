@@ -22,19 +22,19 @@ struct AlarmDetailCharaSelecter: View {
                         .frame(height: 64)
                 } else {
                     LazyHStack(spacing: 12) {
-                        if let chara = selectedChara {
-                            WebImage(url: URL(string: chara.charaThumbnailUrlString))
-                                .resizable()
-                                .frame(width: 64, height: 64)
-                                .cornerRadius(10)
-                        } else {
-                            Text("?")
-                                .frame(width: 64, height: 64)
-                                .foregroundColor(Color.white)
-                                .font(Font.system(size: 24).bold())
-                                .background(Color(UIColor.lightGray))
-                                .cornerRadius(10)
-                        }
+//                        if let chara = selectedChara {
+//                            WebImage(url: URL(string: chara.charaThumbnailUrlString))
+//                                .resizable()
+//                                .frame(width: 64, height: 64)
+//                                .cornerRadius(10)
+//                        } else {
+//                            Text("?")
+//                                .frame(width: 64, height: 64)
+//                                .foregroundColor(Color.white)
+//                                .font(Font.system(size: 24).bold())
+//                                .background(Color(UIColor.lightGray))
+//                                .cornerRadius(10)
+//                        }
                         
                         
                         Button {
@@ -54,11 +54,12 @@ struct AlarmDetailCharaSelecter: View {
                             Button {
                                 delegate.showVoiceList(chara: chara)
                             } label: {
-                                WebImage(url: URL(string: chara.charaThumbnailUrlString))
-                                    .resizable()
-                                    .frame(width: 56, height: 56)
-                                    .cornerRadius(10)
-                                    .padding(.top, 8)
+                                Text("label")
+//                                WebImage(url: URL(string: chara.charaThumbnailUrlString))
+//                                    .resizable()
+//                                    .frame(width: 56, height: 56)
+//                                    .cornerRadius(10)
+//                                    .padding(.top, 8)
                             }
                         }
                     }
@@ -69,21 +70,21 @@ struct AlarmDetailCharaSelecter: View {
     }
 }
 
-struct AlarmDetailCharaSelecter_Previews: PreviewProvider {
-    struct PreviewWrapper: View, AlarmDetailCharaSelecterDelegate {
-        @State var selectedChara: Character?
-        @State var charas: [Character] = [Character.mock()]
-
-        var body: some View {
-            AlarmDetailCharaSelecter(delegate: self, selectedChara: $selectedChara, charas: $charas)
-        }
-        
-        func setRandomChara() {}
-        func showVoiceList(chara: Character) {}
-    }
-
-    static var previews: some View {
-        PreviewWrapper()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct AlarmDetailCharaSelecter_Previews: PreviewProvider {
+//    struct PreviewWrapper: View, AlarmDetailCharaSelecterDelegate {
+//        @State var selectedChara: Character?
+//        @State var charas: [Character] = [Character.mock()]
+//
+//        var body: some View {
+//            AlarmDetailCharaSelecter(delegate: self, selectedChara: $selectedChara, charas: $charas)
+//        }
+//
+//        func setRandomChara() {}
+//        func showVoiceList(chara: Character) {}
+//    }
+//
+//    static var previews: some View {
+//        PreviewWrapper()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

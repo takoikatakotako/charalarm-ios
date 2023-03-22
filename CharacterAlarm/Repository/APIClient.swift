@@ -1,6 +1,17 @@
 import Foundation
 
 struct APIClient<ResponseType: Decodable> {
+    
+//    func xxx<ResponseType2: Decodable>() -> ResponseType2 {
+//        return try! JSONDecoder().decode(ResponseType2.self, from: Data())
+//    }
+//
+//
+//    func request3<ResponseType2: Decodable>(url: URL, httpMethod: HttpMethod, requestHeader: [String: String], requestBody: Encodable?) async throws -> ResponseType2 {
+//
+//    }
+
+    
     func request2(url: URL, httpMethod: HttpMethod, requestHeader: [String: String], requestBody: Encodable?) async throws -> ResponseType {
         
         var urlRequest = URLRequest(url: url)

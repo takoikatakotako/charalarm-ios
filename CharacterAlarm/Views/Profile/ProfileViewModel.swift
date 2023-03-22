@@ -130,14 +130,14 @@ class ProfileViewModel: ObservableObject {
     }
     
     func setCharacter() {
-        guard
-            let charaDomain = character?.charaDomain,
-            let charaName = character?.name else {
-            return
-        }
-        
-        charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
-        charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: charaName)
-        NotificationCenter.default.post(name: NSNotification.setChara, object: nil, userInfo: nil)
+//        guard
+//            let charaDomain = character?.charaDomain,
+//            let charaName = character?.name else {
+//            return
+//        }
+//        
+//        charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: charaDomain)
+//        charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: charaName)
+//        NotificationCenter.default.post(name: NSNotification.setChara, object: nil, userInfo: nil)
     }
 }
