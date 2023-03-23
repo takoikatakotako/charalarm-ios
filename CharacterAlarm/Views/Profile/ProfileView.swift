@@ -25,16 +25,14 @@ struct ProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
                     
-//                    ProfileRow(title: R.string.localizable.profileName(), text: viewModel.character?.name ?? "", urlString: "")
-//                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewModel.character?.description ?? "", urlString: "")
-//                    ProfileRow(title: R.string.localizable.profileIllustration(), text: viewModel.character?.illustrationName ?? "", urlString: viewModel.character?.illustrationUrl ?? "")
-//                    ProfileRow(title: R.string.localizable.profileVoice(), text: viewModel.character?.voiceName ?? "", urlString: viewModel.character?.voiceUrl ?? "")
-//                    
-//                    if let additionalProfileBeans = viewModel.character?.additionalProfileBeans {
-//                        ForEach(additionalProfileBeans, id: \.self) { additionalProfileBean in
-//                            ProfileRow(title: additionalProfileBean.title, text: additionalProfileBean.text, urlString: additionalProfileBean.url)
-//                        }
-//                    }
+                    ProfileRow(title: R.string.localizable.profileName(), text: viewModel.character?.name ?? "", urlString: "")
+                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewModel.character?.description ?? "", urlString: "")
+                    
+                    if let profiles = viewModel.character?.profiles {
+                        ForEach(profiles, id: \.hashValue) { profile in
+                            ProfileRow(title: profile.title, text: profile.name, urlString: profile.url)
+                        }
+                    }
                     
                     Spacer()
                         .frame(height: 120)
@@ -64,8 +62,8 @@ struct ProfileView: View {
                                         SKStoreReviewController.requestReview(in: scene)
                                     }
                                 }) {
-                                CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
-                            }
+                                    CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
+                                }
                         }
                         if self.viewModel.showCheckItem {
                             Button(action: {
@@ -82,11 +80,11 @@ struct ProfileView: View {
                                     .resizable()
                                     .frame(width: 60, height: 60)
                             }.accentColor(.white)
-                            .frame(width: 80, height: 80)
-                            .background(Color.black)
-                            .cornerRadius(40)
-                            .shadow(color: .black, radius: 4, x: 4, y: 4)
-                            .opacity(0.9)
+                                .frame(width: 80, height: 80)
+                                .background(Color.black)
+                                .cornerRadius(40)
+                                .shadow(color: .black, radius: 4, x: 4, y: 4)
+                                .opacity(0.9)
                         }
                     }
                     .padding()
@@ -123,7 +121,7 @@ struct ProfileView: View {
                                     .foregroundColor(Color.white)
                                     .padding(.top, 16)
                             }
-                        }                        
+                        }
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .background(Color.black.opacity(0.6))
@@ -132,10 +130,11 @@ struct ProfileView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-                                BackBarButton() {
-                                    presentationMode.wrappedValue.dismiss()
-                                }
+        .navigationBarItems(
+            leading:
+                BackBarButton() {
+                    presentationMode.wrappedValue.dismiss()
+                }
         )
         .onAppear {
             viewModel.fetchCharacter()
@@ -160,7 +159,6 @@ struct ProfileView: View {
             }
         })
     }
-    
 }
 
 struct ProfileView_Previews: PreviewProvider {

@@ -10,7 +10,6 @@ class CharaRepository {
         
         // 変換
         return charaResponses.map { Character(charaResponse: $0) }
-        
     }
     
     func fetchCharacter(charaId: String) async throws -> Character {

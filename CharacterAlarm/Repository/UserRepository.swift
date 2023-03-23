@@ -1,11 +1,11 @@
 import UIKit
 
 class UserRepository {
-    func signup(userID: String, authToken: String) async throws {
+    func signup(request: UserSignUpRequest) async throws {
         let path = "/user/signup"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader: [String: String] = APIHeader.defaultHeader
-        let requestBody: Encodable? = UserSignUpRequest(userID: userID, authToken: authToken)
+        let requestBody: Encodable? = request
         _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     

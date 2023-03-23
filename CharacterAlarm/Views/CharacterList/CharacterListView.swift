@@ -3,19 +3,19 @@ import UIKit
 import SDWebImageSwiftUI
 
 struct CharacterListView: View {
-    @ObservedObject(initialValue: CharacterListViewModel()) var viewModel: CharacterListViewModel
+    @StateObject var viewState: CharacterListViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
             ZStack {
-//                List(viewModel.characters) { character in
-//                    NavigationLink(destination: ProfileView(charaDomain: character.charaDomain)) {
-//                        CharacterListRow(character: character)
-//                            .frame(height: 80)
-//                            .clipped()
-//                    }
-//                }
+                List(viewState.characters) { character in
+                    NavigationLink(destination: ProfileView(charaDomain: character.charaDomain)) {
+                        CharacterListRow(character: character)
+                            .frame(height: 80)
+                            .clipped()
+                    }
+                }
                 
                 VStack {
                     Spacer()
@@ -35,10 +35,10 @@ struct CharacterListView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
             .onAppear {
-                self.viewModel.fetchCharacters()
+                viewState.fetchCharacters()
             }
-            .alert(isPresented: self.$viewModel.showingAlert) {
-                Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            .alert(isPresented: self.$viewState.showingAlert) {
+                Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
             }
             .navigationBarTitle(R.string.localizable.characterCharacterList(), displayMode: .inline)
             .navigationBarItems(
@@ -54,10 +54,10 @@ struct CharacterListView: View {
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CharacterListView()
+            CharacterListView(viewState: CharacterListViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            CharacterListView()
+            CharacterListView(viewState: CharacterListViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }

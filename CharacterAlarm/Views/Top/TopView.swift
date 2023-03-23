@@ -126,7 +126,7 @@ struct TopView: View {
             case .newsList:
                 NewsListView()
             case .characterList:
-                CharacterListView()
+                CharacterListView(viewState: CharacterListViewModel())
                     .environmentObject( appState )
             case .alarmList:
                 AlarmListView()
