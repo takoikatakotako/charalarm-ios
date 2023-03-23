@@ -22,19 +22,19 @@ struct AlarmDetailCharaSelecter: View {
                         .frame(height: 64)
                 } else {
                     LazyHStack(spacing: 12) {
-//                        if let chara = selectedChara {
-//                            WebImage(url: URL(string: chara.charaThumbnailUrlString))
-//                                .resizable()
-//                                .frame(width: 64, height: 64)
-//                                .cornerRadius(10)
-//                        } else {
-//                            Text("?")
-//                                .frame(width: 64, height: 64)
-//                                .foregroundColor(Color.white)
-//                                .font(Font.system(size: 24).bold())
-//                                .background(Color(UIColor.lightGray))
-//                                .cornerRadius(10)
-//                        }
+                        if let chara = selectedChara {
+                            WebImage(url: URL(string: chara.charaThumbnailUrlString))
+                                .resizable()
+                                .frame(width: 64, height: 64)
+                                .cornerRadius(10)
+                        } else {
+                            Text("?")
+                                .frame(width: 64, height: 64)
+                                .foregroundColor(Color.white)
+                                .font(Font.system(size: 24).bold())
+                                .background(Color(UIColor.lightGray))
+                                .cornerRadius(10)
+                        }
                         
                         
                         Button {
@@ -54,12 +54,11 @@ struct AlarmDetailCharaSelecter: View {
                             Button {
                                 delegate.showVoiceList(chara: chara)
                             } label: {
-                                Text("label")
-//                                WebImage(url: URL(string: chara.charaThumbnailUrlString))
-//                                    .resizable()
-//                                    .frame(width: 56, height: 56)
-//                                    .cornerRadius(10)
-//                                    .padding(.top, 8)
+                                WebImage(url: URL(string: chara.charaThumbnailUrlString))
+                                    .resizable()
+                                    .frame(width: 56, height: 56)
+                                    .cornerRadius(10)
+                                    .padding(.top, 8)
                             }
                         }
                     }

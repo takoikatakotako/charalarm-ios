@@ -13,7 +13,7 @@ class CharaRepository {
         
     }
     
-    func fetchCharacter(charaId: Int) async throws -> Character {
+    func fetchCharacter(charaId: String) async throws -> Character {
         let path = "/api/chara/\(charaId)"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader: [String: String] = APIHeader.defaultHeader
