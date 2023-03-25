@@ -42,14 +42,14 @@ struct ProfileView: View {
                         Spacer()
                         if self.viewState.showCallItem {
                             Button(action: {
-                                guard viewState.character?.charaDomain != nil || viewState.character?.name != nil else {
+                                guard viewState.character?.charaID != nil || viewState.character?.name != nil else {
                                     return
                                 }
                                 viewState.showCallView = true
                             }) {
                                 MenuItem(imageName: R.image.profileCall.name)
                             }.sheet(isPresented: $viewState.showCallView) {
-                                CallView(charaDomain: viewState.character?.charaDomain ?? "", charaName: viewState.character?.name ?? "")
+                                CallView(charaDomain: viewState.character?.charaID ?? "", charaName: viewState.character?.name ?? "")
                             }
                             .sheet(
                                 isPresented: $viewState.showCallView,
@@ -58,7 +58,7 @@ struct ProfileView: View {
                                         SKStoreReviewController.requestReview(in: scene)
                                     }
                                 }) {
-                                    CallView(charaDomain: viewState.character?.charaDomain ?? "", charaName: viewState.character?.name ?? "")
+                                    CallView(charaDomain: viewState.character?.charaID ?? "", charaName: viewState.character?.name ?? "")
                                 }
                         }
                         if self.viewState.showCheckItem {

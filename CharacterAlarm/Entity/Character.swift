@@ -7,22 +7,17 @@ struct Character: Identifiable, Hashable, Equatable {
         name = charaResponse.name
         description = charaResponse.description
         profiles = charaResponse.profiles.map { CharaProfile(title: $0.title, name: $0.name, url: $0.url) }
-        resources = CharaResource(images: charaResponse.resources.images, voices: charaResponse.resources.voices)
+        resources = charaResponse.resources.map { CharaResource(directoryPath: $0.directoryPath, fileName: $0.fileName) }
         expressions = charaResponse.expressions.mapValues { CharaExpression(images: $0.images, voices: $0.voices) }
-        calls = CharaCall(voices: charaResponse.calls.voices)
+        calls = charaResponse.calls.map { CharaCall(message: $0.message, voice: $0.voice)}
     }
     
     var id: String {
         return charaID
     }
     
-    // Deprecated
-    var charaDomain: String {
-        return charaID
-    }
-    
     var charaThumbnailUrlString: String {
-        return Self.charaDomainToThmbnailUrlString(charaDomain: charaDomain)
+        return Self.charaDomainToThmbnailUrlString(charaDomain: charaID)
     }
     
     static func charaDomainToThmbnailUrlString(charaDomain: String) -> String {
@@ -34,9 +29,9 @@ struct Character: Identifiable, Hashable, Equatable {
     let name: String
     let description: String
     let profiles: [CharaProfile]
-    let resources: CharaResource
+    let resources: [CharaResource]
     let expressions: [String: CharaExpression]
-    let calls: CharaCall
+    let calls: [CharaCall]
     
     //    let charaId: Int
     //    let charaDomain: String
@@ -57,8 +52,6 @@ struct Character: Identifiable, Hashable, Equatable {
     //    }
 }
 
-//
-
 
 struct CharaProfile: Hashable, Equatable {
     let title: String
@@ -67,8 +60,8 @@ struct CharaProfile: Hashable, Equatable {
 }
 
 struct CharaResource: Hashable, Equatable {
-    let images: [String]
-    let voices: [String]
+    let directoryPath: String
+    let fileName: String
 }
 
 struct CharaExpression: Hashable, Equatable {
@@ -77,6 +70,7 @@ struct CharaExpression: Hashable, Equatable {
 }
 
 struct CharaCall: Hashable, Equatable {
-    let voices: [String]
+    let message: String
+    let voice: String
 }
 

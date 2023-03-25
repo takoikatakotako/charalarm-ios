@@ -6,9 +6,9 @@ struct CharaResponse: Decodable {
     let name: String
     let description: String
     let profiles: [CharaProfileResponse]
-    let resources: CharaResourceResponse
+    let resources: [CharaResourceResponse]
     let expressions: [String: CharaExpressionResponse]
-    let calls: CharaCallResponse
+    let calls: [CharaCallResponse]
 }
 
 struct CharaProfileResponse: Decodable {
@@ -18,8 +18,8 @@ struct CharaProfileResponse: Decodable {
 }
 
 struct CharaResourceResponse: Decodable {
-    let images: [String]
-    let voices: [String]
+    let directoryPath: String
+    let fileName: String
 }
 
 struct CharaExpressionResponse: Decodable {
@@ -28,5 +28,6 @@ struct CharaExpressionResponse: Decodable {
 }
 
 struct CharaCallResponse: Decodable {
-    let voices: [String]
+    let message: String
+    let voice: String
 }

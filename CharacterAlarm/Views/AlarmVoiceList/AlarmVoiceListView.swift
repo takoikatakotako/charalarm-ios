@@ -38,24 +38,24 @@ struct AlarmVoiceListView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
                 
-//                ForEach(viewModel.chara.charaCallResponseEntities) { charaCallResponseEntity in
+//                ForEach(viewModel.chara.calls) { call in
 //                    HStack(spacing: 8) {
 //                        Button(action: {
-//                             viewModel.playVoice(filePath: charaCallResponseEntity.charaFilePath)
+//                             viewModel.playVoice(filePath: call.charaFilePath)
 //                        }, label: {
 //                            Image(R.image.alarmVoicePlay.name)
 //                        })
 //                        .buttonStyle(PlainButtonStyle())
 //                        
 //                        HStack {
-//                            Text(charaCallResponseEntity.charaFileMessage)
+//                            Text(call.charaFileMessage)
 //                            Spacer()
 //                        }
 //                        .contentShape(Rectangle())
 //                    }
 //                    .contentShape(Rectangle())
 //                    .onTapGesture {
-//                        delegate.selectedVoice(chara: viewModel.chara, charaCall: charaCallResponseEntity)
+//                        delegate.selectedVoice(chara: viewModel.chara, charaCall: call)
 //                        presentationMode.wrappedValue.dismiss()
 //                    }
 //                 }
