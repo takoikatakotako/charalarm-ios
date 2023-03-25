@@ -3,8 +3,8 @@ import CallKit
 import SwiftUI
 import Combine
 
-class ProfileViewModel: ObservableObject {
-    let charaDomain: String
+class ProfileViewState: ObservableObject {
+    let charaID: String
     @Published var character: Character?
     @Published var showCallView: Bool = false
     @Published var showCallItem = false
@@ -34,21 +34,21 @@ class ProfileViewModel: ObservableObject {
     var resourceInfos: [ResourceInfo] = []
     
     var charaThumbnailUrlString: String {
-        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaID)
     }
     
-    init(charaDomain: String) {
-        self.charaDomain = charaDomain
+    init(charaID: String) {
+        self.charaID = charaID
     }
     
     func fetchCharacter() {
         Task { @MainActor in
             do {
-                let chara = try await charaRepository.fetchCharacter(charaDomain: charaDomain)
-                self.character = character
+                let chara = try await charaRepository.fetchCharacter(charaId: charaID)
+                character = chara
             } catch {
-                self.alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()
-                self.showingAlert = true
+                alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()
+                showingAlert = true
             }
         }
     }

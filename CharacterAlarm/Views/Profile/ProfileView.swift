@@ -4,17 +4,13 @@ import SDWebImageSwiftUI
 
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var viewModel: ProfileViewModel
-    
-    init(charaDomain: String) {
-        viewModel = ProfileViewModel(charaDomain: charaDomain)
-    }
+    @StateObject var viewState: ProfileViewState
     
     var body: some View {
         GeometryReader { geometory in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    WebImage(url: URL(string: viewModel.charaThumbnailUrlString))
+                    WebImage(url: URL(string: viewState.charaThumbnailUrlString))
                         .resizable()
                         .placeholder {
                             Image(R.image.characterPlaceholder.name)
@@ -25,10 +21,10 @@ struct ProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
                     
-                    ProfileRow(title: R.string.localizable.profileName(), text: viewModel.character?.name ?? "", urlString: "")
-                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewModel.character?.description ?? "", urlString: "")
+                    ProfileRow(title: R.string.localizable.profileName(), text: viewState.character?.name ?? "", urlString: "")
+                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewState.character?.description ?? "", urlString: "")
                     
-                    if let profiles = viewModel.character?.profiles {
+                    if let profiles = viewState.character?.profiles {
                         ForEach(profiles, id: \.hashValue) { profile in
                             ProfileRow(title: profile.title, text: profile.name, urlString: profile.url)
                         }
@@ -44,30 +40,30 @@ struct ProfileView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     VStack {
                         Spacer()
-                        if self.viewModel.showCallItem {
+                        if self.viewState.showCallItem {
                             Button(action: {
-                                guard viewModel.character?.charaDomain != nil || viewModel.character?.name != nil else {
+                                guard viewState.character?.charaDomain != nil || viewState.character?.name != nil else {
                                     return
                                 }
-                                viewModel.showCallView = true
+                                viewState.showCallView = true
                             }) {
                                 MenuItem(imageName: R.image.profileCall.name)
-                            }.sheet(isPresented: $viewModel.showCallView) {
-                                CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
+                            }.sheet(isPresented: $viewState.showCallView) {
+                                CallView(charaDomain: viewState.character?.charaDomain ?? "", charaName: viewState.character?.name ?? "")
                             }
                             .sheet(
-                                isPresented: $viewModel.showCallView,
+                                isPresented: $viewState.showCallView,
                                 onDismiss: {
                                     if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                                         SKStoreReviewController.requestReview(in: scene)
                                     }
                                 }) {
-                                    CallView(charaDomain: viewModel.character?.charaDomain ?? "", charaName: viewModel.character?.name ?? "")
+                                    CallView(charaDomain: viewState.character?.charaDomain ?? "", charaName: viewState.character?.name ?? "")
                                 }
                         }
-                        if self.viewModel.showCheckItem {
+                        if self.viewState.showCheckItem {
                             Button(action: {
-                                viewModel.showSelectAlert = true
+                                viewState.showSelectAlert = true
                             }) {
                                 MenuItem(imageName: R.image.profileCheck.name)
                             }
@@ -91,14 +87,14 @@ struct ProfileView: View {
                 }
                 
                 
-                if viewModel.showingDownloadingModal {
+                if viewState.showingDownloadingModal {
                     VStack {
-                        if viewModel.downloadError {
+                        if viewState.downloadError {
                             Text(R.string.localizable.profileFailedToDownloadResources())
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.white)
                             Button {
-                                viewModel.close()
+                                viewState.close()
                             } label: {
                                 Text(R.string.localizable.commonClose())
                                     .font(Font.system(size: 24))
@@ -109,12 +105,12 @@ struct ProfileView: View {
                             Text(R.string.localizable.profileDownloadingResources())
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.white)
-                            Text(viewModel.progressMessage)
+                            Text(viewState.progressMessage)
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.white)
                             
                             Button {
-                                viewModel.cancel()
+                                viewState.cancel()
                             } label: {
                                 Text(R.string.localizable.commonCancel())
                                     .font(Font.system(size: 24))
@@ -137,25 +133,25 @@ struct ProfileView: View {
                 }
         )
         .onAppear {
-            viewModel.fetchCharacter()
-        }.alert(isPresented: self.$viewModel.showSelectAlert) {
+            viewState.fetchCharacter()
+        }.alert(isPresented: self.$viewState.showSelectAlert) {
             Alert(
                 title: Text(R.string.localizable.profileCharacterSelection()),
                 message: Text(R.string.localizable.profileWantToCallThisCharacter()),
                 primaryButton: .default(Text(R.string.localizable.commonClose())) {
                 }, secondaryButton: .default(Text(R.string.localizable.profileYes())) {
-                    viewModel.selectCharacter()
+                    viewState.selectCharacter()
                 })
         }
     }
     
     func showMenu() {
         withAnimation {
-            self.viewModel.showCheckItem.toggle()
+            self.viewState.showCheckItem.toggle()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             withAnimation {
-                self.viewModel.showCallItem.toggle()
+                self.viewState.showCallItem.toggle()
             }
         })
     }
@@ -164,7 +160,7 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         var body: some View {
-            ProfileView(charaDomain: "com.example.xxx")
+            ProfileView(viewState: ProfileViewState(charaID: "com.example.xxx"))
         }
     }
     
