@@ -1,13 +1,13 @@
 import UIKit
 
-struct Character: Identifiable, Hashable, Equatable {
+struct Chara: Identifiable, Hashable, Equatable {
     init(charaResponse: CharaResponse) {
         charaID = charaResponse.charaID
         enable = charaResponse.enable
         name = charaResponse.name
         description = charaResponse.description
         profiles = charaResponse.profiles.map { CharaProfile(title: $0.title, name: $0.name, url: $0.url) }
-        resources = charaResponse.resources.map { CharaResource(directoryPath: $0.directoryPath, fileName: $0.fileName) }
+        resources = charaResponse.resources.map { CharaResource(directoryPath: $0.directoryName, fileName: $0.fileName) }
         expressions = charaResponse.expressions.mapValues { CharaExpression(images: $0.images, voices: $0.voices) }
         calls = charaResponse.calls.map { CharaCall(message: $0.message, voice: $0.voice)}
     }

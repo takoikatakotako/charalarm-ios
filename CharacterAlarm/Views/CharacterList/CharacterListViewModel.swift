@@ -1,7 +1,7 @@
 import SwiftUI
 
 class CharacterListViewModel: ObservableObject {
-    @Published var characters: [Character] = []
+    @Published var characters: [Chara] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
     let charaRepository: CharaRepository = CharaRepository()

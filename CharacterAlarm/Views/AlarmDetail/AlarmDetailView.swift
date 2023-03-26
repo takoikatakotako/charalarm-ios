@@ -93,17 +93,17 @@ extension AlarmDetailView: AlarmDetailCharaSelecterDelegate {
         viewState.setRandomChara()
     }
     
-    func showVoiceList(chara: Character) {
+    func showVoiceList(chara: Chara) {
         viewState.showVoiceList(chara: chara)
     }
 }
 
 extension AlarmDetailView: AlarmVoiceListViewDelegate {
-    func selectedRandomVoice(chara: Character) {
+    func selectedRandomVoice(chara: Chara) {
         viewState.setCharaAndCharaCall(chara: chara, charaCall: nil)
     }
     
-    func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity) {
+    func selectedVoice(chara: Chara, charaCall: CharaCallResponseEntity) {
         viewState.setCharaAndCharaCall(chara: chara, charaCall: charaCall)
 
     }

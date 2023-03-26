@@ -3,13 +3,13 @@ import SDWebImageSwiftUI
 
 protocol AlarmDetailCharaSelecterDelegate {
     func setRandomChara()
-    func showVoiceList(chara: Character)
+    func showVoiceList(chara: Chara)
 }
 
 struct AlarmDetailCharaSelecter: View {
     var delegate: AlarmDetailCharaSelecterDelegate
-    @Binding var selectedChara: Character?
-    @Binding var charas: [Character]
+    @Binding var selectedChara: Chara?
+    @Binding var charas: [Chara]
     
     var body: some View {
         VStack(alignment: .leading) {

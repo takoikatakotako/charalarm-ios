@@ -3,7 +3,7 @@ import UIKit
 import SDWebImageSwiftUI
 
 struct CharacterListRow: View {
-    let character: Character
+    let character: Chara
     var body: some View {
         HStack {
             WebImage(url: URL(string: character.charaThumbnailUrlString))

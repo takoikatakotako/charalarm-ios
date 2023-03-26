@@ -1,8 +1,8 @@
 import SwiftUI
 
 protocol AlarmVoiceListViewDelegate {
-    func selectedRandomVoice(chara: Character)
-    func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity)
+    func selectedRandomVoice(chara: Chara)
+    func selectedVoice(chara: Chara, charaCall: CharaCallResponseEntity)
 }
 
 struct AlarmVoiceListView: View {
@@ -10,7 +10,7 @@ struct AlarmVoiceListView: View {
     @StateObject var viewModel: AlarmVoiceListViewModel
     @Environment(\.presentationMode) private var presentationMode
 
-    init(chara: Character, delegate: AlarmVoiceListViewDelegate) {
+    init(chara: Chara, delegate: AlarmVoiceListViewDelegate) {
         _viewModel = StateObject(wrappedValue: AlarmVoiceListViewModel(chara: chara))
         self.delegate = delegate
     }
@@ -73,7 +73,7 @@ struct AlarmVoiceListView: View {
 //}
 
 struct MockAlarmVoiceListViewDelegate: AlarmVoiceListViewDelegate {
-    func selectedRandomVoice(chara: Character) {}
-    func selectedVoice(chara: Character, charaCall: CharaCallResponseEntity) {}
+    func selectedRandomVoice(chara: Chara) {}
+    func selectedVoice(chara: Chara, charaCall: CharaCallResponseEntity) {}
 }
 

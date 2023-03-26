@@ -5,7 +5,7 @@ import Combine
 
 class ProfileViewState: ObservableObject {
     let charaID: String
-    @Published var character: Character?
+    @Published var character: Chara?
     @Published var showCallView: Bool = false
     @Published var showCallItem = false
     @Published var showCheckItem = false

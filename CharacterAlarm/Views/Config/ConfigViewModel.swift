@@ -2,7 +2,7 @@ import UIKit
 import SwiftUI
 
 class ConfigViewModel: ObservableObject {
-    @Published var character: Character?
+    @Published var character: Chara?
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showingResetAlert = false

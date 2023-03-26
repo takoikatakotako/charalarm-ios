@@ -7,11 +7,11 @@ protocol AlarmDetailViewModelProtocol: ObservableObject {
 
 class AlarmDetailViewState: AlarmDetailViewModelProtocol {
     @Published var alarm: Alarm
-    @Published var characters: [Character] = []
+    @Published var characters: [Chara] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var sheet: AlarmDetailViewSheetItem?
-    @Published var selectedChara: Character?
+    @Published var selectedChara: Chara?
     @Published var selectedCharaCall: CharaCallResponseEntity?
     @Published var showingIndicator: Bool = false
     let alarmRepository: AlarmRepository = AlarmRepository()
@@ -71,7 +71,7 @@ class AlarmDetailViewState: AlarmDetailViewModelProtocol {
         selectedCharaCall = nil
     }
     
-    func setCharaAndCharaCall(chara: Character, charaCall: CharaCallResponseEntity?) {
+    func setCharaAndCharaCall(chara: Chara, charaCall: CharaCallResponseEntity?) {
         alarm.charaID = chara.charaID
         selectedChara = chara
         
@@ -97,7 +97,7 @@ class AlarmDetailViewState: AlarmDetailViewModelProtocol {
 //        }
     }
     
-    func showVoiceList(chara: Character) {
+    func showVoiceList(chara: Chara) {
         sheet = .voiceList(chara)
     }
     

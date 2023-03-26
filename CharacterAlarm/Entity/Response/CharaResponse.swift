@@ -18,7 +18,7 @@ struct CharaProfileResponse: Decodable {
 }
 
 struct CharaResourceResponse: Decodable {
-    let directoryPath: String
+    let directoryName: String
     let fileName: String
 }
 

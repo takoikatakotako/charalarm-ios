@@ -2,10 +2,10 @@ import SwiftUI
 import AVFoundation
 
 class AlarmVoiceListViewModel: ObservableObject {
-    let chara: Character
+    let chara: Chara
     var avPlayer: AVPlayer?
     
-    init(chara: Character) {
+    init(chara: Chara) {
         self.chara = chara
     }
     
