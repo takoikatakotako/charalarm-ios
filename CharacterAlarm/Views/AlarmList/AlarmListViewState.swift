@@ -10,7 +10,7 @@ class AlarmListViewState: ObservableObject {
     
     func addAlarmButtonTapped() {
         if alarms.count < 3 {
-            editAlarm(alarm: createNewAlarm())
+            sheet = .alarmDetailForCreate
         } else {
             alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())
         }
@@ -68,8 +68,12 @@ class AlarmListViewState: ObservableObject {
 //            }
 //        }
     }
-    
+//    
+//    func createAlarm() {
+//        sheet = .alarmDetailForCreate
+//    }
+//    
     func editAlarm(alarm: Alarm) {
-        sheet = .alarmDetail(alarm)
+        sheet = .alarmDetailForEdit(alarm)
     }
 }

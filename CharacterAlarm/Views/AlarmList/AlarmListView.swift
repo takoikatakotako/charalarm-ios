@@ -45,9 +45,11 @@ struct AlarmListView: View {
             }
             .sheet(item: $viewState.sheet, onDismiss: {
                 viewState.fetchAlarms()
-            }, content: { item in
+            }, content: { (item: AlarmListViewSheetItem) in
                 switch item {
-                case let .alarmDetail(alarm):
+                case .alarmDetailForCreate:
+                    AlarmDetailView(viewState: AlarmDetailViewState())                    
+                case let .alarmDetailForEdit(alarm):
                     AlarmDetailView(viewState: AlarmDetailViewState(alarm: alarm))
                 }
             })

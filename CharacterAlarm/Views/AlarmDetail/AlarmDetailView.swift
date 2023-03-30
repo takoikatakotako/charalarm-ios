@@ -6,9 +6,10 @@ struct AlarmDetailView: View {
     @StateObject var viewState: AlarmDetailViewState
     
     var title: String {
-        if viewState.alarm.alarmId == nil {
+        switch viewState.type {
+        case .create:
             return R.string.localizable.alarmAddAlarm()
-        } else {
+        case .edit:
             return R.string.localizable.alarmEditAlarm()
         }
     }
@@ -65,9 +66,7 @@ struct AlarmDetailView: View {
                 trailing:
                     HStack {
                         Button(action: {
-                            viewState.createOrUpdateAlarm() {
-                                presentationMode.wrappedValue.dismiss()
-                            }
+                            viewState.createOrUpdateAlarm()
                         }) {
                             Text(R.string.localizable.commonSave())
                                 .foregroundColor(Color(R.color.charalarmDefaultGreen.name))

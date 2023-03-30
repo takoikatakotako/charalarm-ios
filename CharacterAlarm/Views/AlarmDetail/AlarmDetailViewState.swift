@@ -1,11 +1,7 @@
 import Foundation
 import SwiftUI
 
-protocol AlarmDetailViewModelProtocol: ObservableObject {
-    
-}
-
-class AlarmDetailViewState: AlarmDetailViewModelProtocol {
+class AlarmDetailViewState: ObservableObject {
     @Published var alarm: Alarm
     @Published var characters: [Chara] = []
     @Published var showingAlert = false
@@ -14,6 +10,8 @@ class AlarmDetailViewState: AlarmDetailViewModelProtocol {
     @Published var selectedChara: Chara?
     @Published var selectedCharaCall: CharaCallResponseEntity?
     @Published var showingIndicator: Bool = false
+    
+    let type: AlarmDetailViewTyep
     let alarmRepository: AlarmRepository = AlarmRepository()
     let charaCallRepository: CharaCallRepository = CharaCallRepository()
     let charaRepository: CharaRepository = CharaRepository()
@@ -26,8 +24,25 @@ class AlarmDetailViewState: AlarmDetailViewModelProtocol {
         return alarm.dayOfWeeks.map { $0.rawValue + ", "}.description
     }
     
+    init() {
+        // アラーム新規作成の場合
+        self.type = .create
+
+        // アラーム作成
+        let date = Date()
+        let name = R.string.localizable.alarmNewAlarm()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        let enable = true
+        let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
+        self.alarm = Alarm(alarmId: 1, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+    }
+    
     init(alarm: Alarm) {
+        // アラーム編集の場合
         self.alarm = alarm
+        self.type = .create
     }
     
     func onAppear() {
@@ -50,18 +65,20 @@ class AlarmDetailViewState: AlarmDetailViewModelProtocol {
                 }
             } catch {
                 // TODO: キャラクター情報の取得に失敗しました的なアラートを表示
-                
+                print("----")
+                print(error)
+                print("----")
             }
         }
     }
     
-    func createOrUpdateAlarm(completion: @escaping () -> Void) {
+    func createOrUpdateAlarm() {
         showingIndicator = true
-        if let alarmId = alarm.alarmId {
-            editAlarm(alarmId: alarmId, completion: completion)
-        } else {
-            createAlarm(completion: completion)
-        }
+//        if let alarmId = alarm.alarmId {
+//            editAlarm(alarmId: alarmId, completion: completion)
+//        } else {
+//            createAlarm(completion: completion)
+//        }
     }
     
     func setRandomChara() {
