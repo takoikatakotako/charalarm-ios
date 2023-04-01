@@ -12,9 +12,9 @@ class AlarmDetailViewState: ObservableObject {
     @Published var showingIndicator: Bool = false
     
     let type: AlarmDetailViewTyep
-    let alarmRepository: AlarmRepository = AlarmRepository()
-    let charaCallRepository: CharaCallRepository = CharaCallRepository()
-    let charaRepository: CharaRepository = CharaRepository()
+    private let alarmRepository: AlarmRepository = AlarmRepository()
+    private let charaCallRepository: CharaCallRepository = CharaCallRepository()
+    private let charaRepository: CharaRepository = CharaRepository()
 
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
