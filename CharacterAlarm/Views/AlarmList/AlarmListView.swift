@@ -73,7 +73,7 @@ struct AlarmListView: View {
 }
 
 extension AlarmListView: AlarmListRowDelegate {
-    func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
+    func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
         viewState.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }

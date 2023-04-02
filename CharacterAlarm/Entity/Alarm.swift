@@ -1,13 +1,11 @@
 import UIKit
 
-struct Alarm: Identifiable, Decodable, Hashable, Encodable {
-    var id: String {
-        guard let alarmId = alarmId else {
-            return name
-        }
-        return alarmId.description
+struct Alarm: Identifiable, Hashable {
+    var id: UUID {
+        return alarmID
     }
-    var alarmId: Int?
+    var alarmID: UUID
+    var type: AlarmType
     var enable: Bool
     var name: String
     var hour: Int
@@ -27,4 +25,33 @@ struct Alarm: Identifiable, Decodable, Hashable, Encodable {
         text += dayOfWeeks.contains(.SUN) ? "日 " : ""
         return text
     }
+}
+
+//extension Alarm {
+//    func toAlarmRequest(userID: UUID) -> AlarmRequest {
+//        return AlarmRequest(
+//            alarmID: alarmID,
+//            userID: userID,
+//            type: <#T##String#>,
+//            enable: <#T##Bool#>,
+//            name: <#T##String#>,
+//            hour: <#T##Int#>,
+//            minute: <#T##Int#>,
+//            charaID: <#T##String#>,
+//            charaName: <#T##String#>,
+//            voiceFileName: <#T##String#>,
+//            sunday: <#T##Bool#>,
+//            monday: <#T##Bool#>,
+//            tuesday: <#T##Bool#>,
+//            wednesday: <#T##Bool#>,
+//            thursday: <#T##Bool#>,
+//            friday: <#T##Bool#>,
+//            saturday: <#T##Bool#>
+//        )
+//    }
+//}
+
+
+enum AlarmType {
+    case VOIP_NOTIFICATION
 }

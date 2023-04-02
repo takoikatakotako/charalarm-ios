@@ -45,7 +45,7 @@ struct AlarmDetailView: View {
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
                         
-                        if let alarmId = viewState.alarm.alarmId {
+                        if let alarmId = viewState.alarm.alarmID {
                             AlarmDetailDeleteAlarmButton(delegate: self, alarmId: alarmId)
                         }
                     }
@@ -109,7 +109,7 @@ extension AlarmDetailView: AlarmVoiceListViewDelegate {
 }
 
 extension AlarmDetailView: AlarmDetailDeleteAlarmDelegate {
-    func deleteAlarm(alarmId: Int) {
+    func deleteAlarm(alarmId: UUID) {
         viewState.deleteAlarm(alarmId: alarmId) {
             presentationMode.wrappedValue.dismiss()
         }

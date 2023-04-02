@@ -36,7 +36,7 @@ class AlarmDetailViewState: ObservableObject {
         let minute = calendar.component(.minute, from: date)
         let enable = true
         let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
-        self.alarm = Alarm(alarmId: 1, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+        self.alarm = Alarm(alarmID: UUID(), type: .VOIP_NOTIFICATION, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
     }
     
     init(alarm: Alarm) {
@@ -73,7 +73,16 @@ class AlarmDetailViewState: ObservableObject {
     }
     
     func createOrUpdateAlarm() {
-        showingIndicator = true
+        Task { @MainActor in
+            showingIndicator = true
+            if type == .create {
+                
+//                let alarmRequest = AlarmRequest(
+//                
+//                let alarmAddRequest = AlarmAddRequest(alarm: Alarm)
+//                let message = alarmRepository.addAlarm(userID: "", authToken: "", requestBody: <#T##AlarmRequest#>)
+            }
+        }
 //        if let alarmId = alarm.alarmId {
 //            editAlarm(alarmId: alarmId, completion: completion)
 //        } else {
@@ -96,7 +105,7 @@ class AlarmDetailViewState: ObservableObject {
         selectedCharaCall = charaCall
     }
     
-    func deleteAlarm(alarmId: Int, completion: @escaping () -> Void) {
+    func deleteAlarm(alarmId: UUID, completion: @escaping () -> Void) {
 //        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
 //              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
 //            self.showingAlert = true

@@ -1,24 +1,24 @@
 import SwiftUI
 
 protocol AlarmListRowDelegate {
-    func updateAlarmEnable(alarmId: Int, isEnable: Bool)
+    func updateAlarmEnable(alarmId: UUID, isEnable: Bool)
 }
 
 class AlarmListRowModel: ObservableObject {
-    let alarmId: Int?
+    let alarmID: UUID?
     let delegate: AlarmListRowDelegate?
     @Published var enable: Bool {
         didSet {
-            guard let alarmId = alarmId else {
+            guard let alarmId = alarmID else {
                 return
             }
             self.delegate?.updateAlarmEnable(alarmId: alarmId, isEnable: enable)
         }
     }
     
-    init (alarmId: Int?, enable: Bool, delegate: AlarmListRowDelegate) {
+    init (alarmID: UUID, enable: Bool, delegate: AlarmListRowDelegate) {
         self.enable = enable
-        self.alarmId = alarmId
+        self.alarmID = alarmID
         self.delegate = delegate
     }
 }
@@ -29,7 +29,7 @@ struct AlarmListRow: View {
     
     init(delegate: AlarmListRowDelegate, alarm: Alarm) {
         self.alarm = alarm
-        self.alarmListModel = AlarmListRowModel(alarmId: alarm.alarmId, enable: alarm.enable, delegate: delegate)
+        self.alarmListModel = AlarmListRowModel(alarmID: alarm.alarmID, enable: alarm.enable, delegate: delegate)
     }
     
     var backgroundColor: Color {
@@ -104,7 +104,7 @@ struct ColoredToggleStyle: ToggleStyle {
 }
 
 struct MockAlarmListRowDelegate: AlarmListRowDelegate {
-    func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
+    func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
         
     }
 }
@@ -113,7 +113,7 @@ struct AlarmListRow_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         let alarm: Alarm
         init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30, dayOfWeeks: [DayOfWeek] = DayOfWeek.allCases) {
-            self.alarm = Alarm(alarmId: 5, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+            self.alarm = Alarm(alarmID: UUID(), type: .VOIP_NOTIFICATION, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
         }
         
         var body: some View {

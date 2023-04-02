@@ -1,12 +1,12 @@
 import SwiftUI
 
 protocol AlarmDetailDeleteAlarmDelegate {
-    func deleteAlarm(alarmId: Int)
+    func deleteAlarm(alarmId: UUID)
 }
 
 struct AlarmDetailDeleteAlarmButton: View {
     let delegate: AlarmDetailDeleteAlarmDelegate
-    let alarmId: Int
+    let alarmId: UUID
     var body: some View {
         VStack {
             Spacer()
@@ -30,9 +30,9 @@ struct AlarmDetailDeleteAlarmButton_Previews: PreviewProvider {
     
     struct PreviewWrapper: View, AlarmDetailDeleteAlarmDelegate {
         var body: some View {
-            AlarmDetailDeleteAlarmButton(delegate: self, alarmId: 4)
+            AlarmDetailDeleteAlarmButton(delegate: self, alarmId: UUID())
         }
-        func deleteAlarm(alarmId: Int) {}
+        func deleteAlarm(alarmId: UUID) {}
     }
     
     static var previews: some View {
