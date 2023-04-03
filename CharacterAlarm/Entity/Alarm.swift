@@ -10,9 +10,18 @@ struct Alarm: Identifiable, Hashable {
     var name: String
     var hour: Int
     var minute: Int
+    var charaName: String
     var dayOfWeeks: [DayOfWeek]
-    var charaID: String?
+    var charaID: String
     var charaCallId: Int?
+    var voiceFileName: String
+    var sunday: Bool
+    var monday: Bool
+    var tuesday: Bool
+    var wednesday: Bool
+    var thursday: Bool
+    var friday: Bool
+    var saturday: Bool
     
     var dayOfWeeksString: String {
         var text = ""
@@ -27,31 +36,31 @@ struct Alarm: Identifiable, Hashable {
     }
 }
 
-//extension Alarm {
-//    func toAlarmRequest(userID: UUID) -> AlarmRequest {
-//        return AlarmRequest(
-//            alarmID: alarmID,
-//            userID: userID,
-//            type: <#T##String#>,
-//            enable: <#T##Bool#>,
-//            name: <#T##String#>,
-//            hour: <#T##Int#>,
-//            minute: <#T##Int#>,
-//            charaID: <#T##String#>,
-//            charaName: <#T##String#>,
-//            voiceFileName: <#T##String#>,
-//            sunday: <#T##Bool#>,
-//            monday: <#T##Bool#>,
-//            tuesday: <#T##Bool#>,
-//            wednesday: <#T##Bool#>,
-//            thursday: <#T##Bool#>,
-//            friday: <#T##Bool#>,
-//            saturday: <#T##Bool#>
-//        )
-//    }
-//}
+extension Alarm {
+    func toAlarmRequest(userID: UUID) -> AlarmRequest {
+        return AlarmRequest(
+            alarmID: alarmID,
+            userID: userID,
+            type: type.rawValue,
+            enable: enable,
+            name: name,
+            hour: hour,
+            minute: minute,
+            charaID: charaID,
+            charaName: charaName,
+            voiceFileName: voiceFileName,
+            sunday: sunday,
+            monday: monday,
+            tuesday: tuesday,
+            wednesday: wednesday,
+            thursday: thursday,
+            friday: friday,
+            saturday: saturday
+        )
+    }
+}
 
 
-enum AlarmType {
-    case VOIP_NOTIFICATION
+enum AlarmType: String {
+    case VOIP_NOTIFICATION = "VOIP_NOTIFICATION"
 }

@@ -15,7 +15,7 @@ class AlarmDetailViewState: ObservableObject {
     private let alarmRepository: AlarmRepository = AlarmRepository()
     private let charaCallRepository: CharaCallRepository = CharaCallRepository()
     private let charaRepository: CharaRepository = CharaRepository()
-
+    
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
@@ -27,7 +27,7 @@ class AlarmDetailViewState: ObservableObject {
     init() {
         // アラーム新規作成の場合
         self.type = .create
-
+        
         // アラーム作成
         let date = Date()
         let name = R.string.localizable.alarmNewAlarm()
@@ -36,7 +36,26 @@ class AlarmDetailViewState: ObservableObject {
         let minute = calendar.component(.minute, from: date)
         let enable = true
         let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
-        self.alarm = Alarm(alarmID: UUID(), type: .VOIP_NOTIFICATION, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+        
+        self.alarm = Alarm(
+            alarmID: UUID(),
+            type: .VOIP_NOTIFICATION,
+            enable: true,
+            name: "xxxx",
+            hour: 8,
+            minute: 30,
+            charaName: "xxxx",
+            dayOfWeeks: [],
+            charaID: "xxxx",
+            voiceFileName: "ssssss",
+            sunday: true,
+            monday: true,
+            tuesday: true,
+            wednesday: true,
+            thursday: true,
+            friday: true,
+            saturday: true
+        )
     }
     
     init(alarm: Alarm) {
@@ -53,11 +72,9 @@ class AlarmDetailViewState: ObservableObject {
                 self.characters = characters
                 
                 // 現在のキャラを取得
-                if let charaId: String = alarm.charaID {
-                    let chara = try await charaRepository.fetchCharacter(charaId: charaId)
-                    self.selectedChara = chara
-                }
-
+                let chara = try await charaRepository.fetchCharacter(charaId: alarm.charaID)
+                self.selectedChara = chara
+                
                 // CharaCallを取得
                 if let charaCallId = alarm.charaCallId {
                     let charaCall = try await charaCallRepository.findByCharaCallId(charaCallId: charaCallId)
@@ -73,25 +90,37 @@ class AlarmDetailViewState: ObservableObject {
     }
     
     func createOrUpdateAlarm() {
+        
+        guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+              let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+            self.showingAlert = true
+            return
+        }
+        
         Task { @MainActor in
             showingIndicator = true
             if type == .create {
+                let alarmRequest = self.alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
+                let alarmAddRequest = AlarmAddRequest(alarm: alarmRequest)
                 
-//                let alarmRequest = AlarmRequest(
-//                
-//                let alarmAddRequest = AlarmAddRequest(alarm: Alarm)
-//                let message = alarmRepository.addAlarm(userID: "", authToken: "", requestBody: <#T##AlarmRequest#>)
+                do {
+                    try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
+                } catch {
+                    print(error)
+                }
+                
             }
         }
-//        if let alarmId = alarm.alarmId {
-//            editAlarm(alarmId: alarmId, completion: completion)
-//        } else {
-//            createAlarm(completion: completion)
-//        }
+        //        if let alarmId = alarm.alarmId {
+        //            editAlarm(alarmId: alarmId, completion: completion)
+        //        } else {
+        //            createAlarm(completion: completion)
+        //        }
     }
     
     func setRandomChara() {
-        alarm.charaID = nil
+        // alarm.charaID = nil
         alarm.charaCallId = nil
         selectedChara = nil
         selectedCharaCall = nil
@@ -106,21 +135,21 @@ class AlarmDetailViewState: ObservableObject {
     }
     
     func deleteAlarm(alarmId: UUID, completion: @escaping () -> Void) {
-//        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-//              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-//            self.showingAlert = true
-//            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
-//            return
-//        }
-//        alarmRepository.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
-//            switch result {
-//            case .success:
-//                completion()
-//            case .failure:
-//                self?.alertMessage = "削除に失敗しました"
-//                self?.showingAlert = true
-//            }
-//        }
+        //        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+        //              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+        //            self.showingAlert = true
+        //            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
+        //            return
+        //        }
+        //        alarmRepository.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
+        //            switch result {
+        //            case .success:
+        //                completion()
+        //            case .failure:
+        //                self?.alertMessage = "削除に失敗しました"
+        //                self?.showingAlert = true
+        //            }
+        //        }
     }
     
     func showVoiceList(chara: Chara) {
@@ -138,7 +167,7 @@ class AlarmDetailViewState: ObservableObject {
     func updateAlarmMinute(minute: Int) {
         alarm.minute = minute
     }
-
+    
     func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
         alarm.dayOfWeeks = dayOfWeeks
     }
@@ -154,39 +183,39 @@ class AlarmDetailViewState: ObservableObject {
     
     private func createAlarm(completion: @escaping () -> Void) {
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
-                self.showingAlert = true
-                return
+            self.showingAlert = true
+            return
         }
         
-//        alarmRepository.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
-//            switch result {
-//            case .success:
-//                completion()
-//            case .failure:
-//                self.alertMessage = R.string.localizable.alarmFailedToCreateAnAlarm()
-//                self.showingAlert = true
-//            }
-//        }
+        //        alarmRepository.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        //            switch result {
+        //            case .success:
+        //                completion()
+        //            case .failure:
+        //                self.alertMessage = R.string.localizable.alarmFailedToCreateAnAlarm()
+        //                self.showingAlert = true
+        //            }
+        //        }
     }
     
     private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
-                self.showingAlert = true
-                return
+            self.showingAlert = true
+            return
         }
         
-//        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
-//            switch result {
-//            case .success(_):
-//                completion()
-//            case .failure:
-//                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
-//                self.showingAlert = true
-//            }
-//        }
+        //        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
+        //            switch result {
+        //            case .success(_):
+        //                completion()
+        //            case .failure:
+        //                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
+        //                self.showingAlert = true
+        //            }
+        //        }
     }
 }

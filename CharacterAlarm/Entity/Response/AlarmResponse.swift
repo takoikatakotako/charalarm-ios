@@ -9,19 +9,36 @@ struct AlarmResponse: Identifiable, Decodable, Hashable, Encodable {
     var name: String
     var hour: Int
     var minute: Int
-    var dayOfWeeks: [DayOfWeek]
-    var charaID: String?
-    var charaCallId: Int?
     
-    var dayOfWeeksString: String {
-        var text = ""
-        text += dayOfWeeks.contains(.MON) ? "月 " : ""
-        text += dayOfWeeks.contains(.THU) ? "火 " : ""
-        text += dayOfWeeks.contains(.WED) ? "水 " : ""
-        text += dayOfWeeks.contains(.THU) ? "木 " : ""
-        text += dayOfWeeks.contains(.FRI) ? "金 " : ""
-        text += dayOfWeeks.contains(.SAT) ? "土 " : ""
-        text += dayOfWeeks.contains(.SUN) ? "日 " : ""
-        return text
+    var sunday: Bool
+    var monday: Bool
+    var tuesday: Bool
+    var wednesday: Bool
+    var thursday: Bool
+    var friday: Bool
+    var saturday: Bool
+}
+
+extension AlarmResponse {
+    func toAlarm() -> Alarm {
+        return Alarm(
+            alarmID: alarmID,
+            type: .VOIP_NOTIFICATION,
+            enable: enable,
+            name: name,
+            hour: hour,
+            minute: minute,
+            charaName: "",
+            dayOfWeeks: [],
+            charaID: "",
+            voiceFileName: "",
+            sunday: true,
+            monday: true,
+            tuesday: true,
+            wednesday: true,
+            thursday: true,
+            friday: true,
+            saturday: true
+        )
     }
 }

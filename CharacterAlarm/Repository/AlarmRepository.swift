@@ -14,7 +14,7 @@ class AlarmRepository {
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Encodable? = requestBody
-        _ = try await APIClient<[MessageResponse]>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 
     func editAlarm(userID: String, authToken: String, requestBody: Alarm) async throws {

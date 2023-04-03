@@ -45,8 +45,9 @@ struct AlarmDetailView: View {
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
                         
-                        if let alarmId = viewState.alarm.alarmID {
-                            AlarmDetailDeleteAlarmButton(delegate: self, alarmId: alarmId)
+                        
+                        if viewState.type == .edit {
+                            AlarmDetailDeleteAlarmButton(delegate: self, alarmId: viewState.alarm.alarmID)
                         }
                     }
                 }

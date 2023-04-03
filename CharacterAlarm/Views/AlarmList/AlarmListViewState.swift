@@ -25,7 +25,26 @@ class AlarmListViewState: ObservableObject {
         let minute = calendar.component(.minute, from: date)
         let enable = true
         let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
-        return Alarm(alarmID: alarmID, type: .VOIP_NOTIFICATION, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+        
+        return Alarm(
+            alarmID: alarmID,
+            type: .VOIP_NOTIFICATION,
+            enable: enable,
+            name: name,
+            hour: hour,
+            minute: minute,
+            charaName: "",
+            dayOfWeeks: [],
+            charaID: "",
+            voiceFileName: "",
+            sunday: true,
+            monday: true,
+            tuesday: true,
+            wednesday: true,
+            thursday: true,
+            friday: true,
+            saturday: true
+        )
     }
     
     func fetchAlarms() {
@@ -38,9 +57,9 @@ class AlarmListViewState: ObservableObject {
             }
             
             do {
-//                let alarms = try await alarmRepository.fetchAlarms(userID: userID, authToken: authToken)
-//                self.showingIndicator = false
-//                self.alarms = alarms
+                let alarms = try await alarmRepository.fetchAlarms(userID: userID, authToken: authToken)
+                self.showingIndicator = false
+                self.alarms = alarms.map { $0.toAlarm() }
             } catch {
                 self.alert = .error(UUID(), R.string.localizable.alarmFailedToGetTheAlarmList())
             }

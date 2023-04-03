@@ -113,7 +113,25 @@ struct AlarmListRow_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         let alarm: Alarm
         init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30, dayOfWeeks: [DayOfWeek] = DayOfWeek.allCases) {
-            self.alarm = Alarm(alarmID: UUID(), type: .VOIP_NOTIFICATION, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+            self.alarm = Alarm(
+                alarmID: UUID(),
+                type: .VOIP_NOTIFICATION,
+                enable: true,
+                name: "xxxx",
+                hour: 8,
+                minute: 30,
+                charaName: "xxxx",
+                dayOfWeeks: [],
+                charaID: "xxxx",
+                voiceFileName: "ssssss",
+                sunday: true,
+                monday: true,
+                tuesday: true,
+                wednesday: true,
+                thursday: true,
+                friday: true,
+                saturday: true
+            )
         }
         
         var body: some View {
