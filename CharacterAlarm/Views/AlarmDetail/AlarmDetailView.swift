@@ -57,6 +57,9 @@ struct AlarmDetailView: View {
                 }
                 
             }
+            .onReceive(viewState.dismissRequest) { _ in
+                presentationMode.wrappedValue.dismiss()
+            }
             .onAppear {
                 viewState.onAppear()
             }
@@ -67,13 +70,14 @@ struct AlarmDetailView: View {
                 trailing:
                     HStack {
                         Button(action: {
-                            viewState.createOrUpdateAlarm()
+                            viewState.createAlarm()
                         }) {
                             Text(R.string.localizable.commonSave())
                                 .foregroundColor(Color(R.color.charalarmDefaultGreen.name))
                         }
                     }
-            ).alert(isPresented: $viewState.showingAlert) {
+            )
+            .alert(isPresented: $viewState.showingAlert) {
                 Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text("閉じる")))
             }
             .sheet(item: $viewState.sheet) { item in
@@ -111,9 +115,7 @@ extension AlarmDetailView: AlarmVoiceListViewDelegate {
 
 extension AlarmDetailView: AlarmDetailDeleteAlarmDelegate {
     func deleteAlarm(alarmId: UUID) {
-        viewState.deleteAlarm(alarmId: alarmId) {
-            presentationMode.wrappedValue.dismiss()
-        }
+        viewState.deleteAlarm()
     }
 }
 

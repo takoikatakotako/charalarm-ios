@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Combine
 
 class AlarmDetailViewState: ObservableObject {
     @Published var alarm: Alarm
@@ -10,6 +11,13 @@ class AlarmDetailViewState: ObservableObject {
     @Published var selectedChara: Chara?
     @Published var selectedCharaCall: CharaCallResponseEntity?
     @Published var showingIndicator: Bool = false
+    @Published var dismiss: Bool = false
+    
+    var dismissRequest: AnyPublisher<Void, Never> {
+        dismissSubject.eraseToAnyPublisher()
+    }
+    private let dismissSubject = PassthroughSubject<Void, Never>()
+    
     
     let type: AlarmDetailViewTyep
     private let alarmRepository: AlarmRepository = AlarmRepository()
@@ -61,7 +69,7 @@ class AlarmDetailViewState: ObservableObject {
     init(alarm: Alarm) {
         // アラーム編集の場合
         self.alarm = alarm
-        self.type = .create
+        self.type = .edit
     }
     
     func onAppear() {
@@ -89,36 +97,50 @@ class AlarmDetailViewState: ObservableObject {
         }
     }
     
-    func createOrUpdateAlarm() {
-        
+    func createAlarm() {
         guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
             self.showingAlert = true
             return
         }
-        
         Task { @MainActor in
             showingIndicator = true
-            if type == .create {
+            do {
                 let alarmRequest = self.alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
                 let alarmAddRequest = AlarmAddRequest(alarm: alarmRequest)
-                
-                do {
-                    try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
-                } catch {
-                    print(error)
-                }
-                
+                try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
+            } catch {
+                self.alertMessage = "xxxx"
+                self.showingAlert = true
             }
         }
-        //        if let alarmId = alarm.alarmId {
-        //            editAlarm(alarmId: alarmId, completion: completion)
-        //        } else {
-        //            createAlarm(completion: completion)
-        //        }
     }
     
+    func editAlarm() {
+        // TODO: ここでアラーム更新
+    }
+    
+    func deleteAlarm() {
+        guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+              let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+            self.showingAlert = true
+            return
+        }
+        Task { @MainActor in
+            showingIndicator = true
+            do {
+                let alarmDeleteRequest = AlarmDeleteRequest(alarmID: alarm.alarmID)
+                try await alarmRepository.deleteAlarm(userID: userID, authToken: authToken, requestBody: alarmDeleteRequest)
+                dismissSubject.send()
+            } catch {
+                self.alertMessage = "xyz"
+                self.showingAlert = true
+            }
+        }
+    }
+
     func setRandomChara() {
         // alarm.charaID = nil
         alarm.charaCallId = nil
@@ -129,29 +151,10 @@ class AlarmDetailViewState: ObservableObject {
     func setCharaAndCharaCall(chara: Chara, charaCall: CharaCallResponseEntity?) {
         alarm.charaID = chara.charaID
         selectedChara = chara
-        
         alarm.charaCallId = charaCall?.charaCallId ?? nil
         selectedCharaCall = charaCall
     }
-    
-    func deleteAlarm(alarmId: UUID, completion: @escaping () -> Void) {
-        //        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-        //              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-        //            self.showingAlert = true
-        //            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
-        //            return
-        //        }
-        //        alarmRepository.deleteAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarmId: alarmId) { [weak self] result in
-        //            switch result {
-        //            case .success:
-        //                completion()
-        //            case .failure:
-        //                self?.alertMessage = "削除に失敗しました"
-        //                self?.showingAlert = true
-        //            }
-        //        }
-    }
-    
+        
     func showVoiceList(chara: Chara) {
         sheet = .voiceList(chara)
     }

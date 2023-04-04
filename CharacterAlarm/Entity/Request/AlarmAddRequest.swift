@@ -1,5 +1,5 @@
 import Foundation
 
-struct AlarmAddRequest: Encodable {
+struct AlarmAddRequest: Request {
     let alarm: AlarmRequest
 }

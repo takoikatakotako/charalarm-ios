@@ -5,7 +5,7 @@ class AlarmRepository {
         let path = "/alarm/list"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
-        let requestBody: Encodable? = nil
+        let requestBody: Request? = nil
         return try await APIClient<[AlarmResponse]>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     
@@ -13,7 +13,7 @@ class AlarmRepository {
         let path = "/alarm/add"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
-        let requestBody: Encodable? = requestBody
+        let requestBody: Request? = requestBody
         _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 
@@ -21,15 +21,15 @@ class AlarmRepository {
         let path = "/api/alarm/edit"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
-        let requestBody: Encodable? = nil
-        _ = try await APIClient<[MessageResponse]>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let requestBody: Request? = nil
+        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     
-    func deleteAlarm(userID: String, authToken: String, alarmId: Int) async throws {
-        let path = "/api/alarm/delete"
+    func deleteAlarm(userID: String, authToken: String, requestBody: AlarmDeleteRequest) async throws {
+        let path = "/alarm/delete"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
-        let requestBody: Encodable? = alarmId
-        _ = try await APIClient<[MessageResponse]>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let requestBody: Request? = requestBody
+        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }
