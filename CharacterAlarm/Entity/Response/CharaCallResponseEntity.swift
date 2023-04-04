@@ -1,6 +1,6 @@
 import Foundation
 
-struct CharaCallResponseEntity: Identifiable, Decodable, Equatable, Hashable {
+struct CharaCallResponseEntity: Identifiable, Response, Hashable {
     var id: Int {
         return charaCallId
     }

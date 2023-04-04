@@ -1,5 +1,5 @@
 import Foundation
 
-struct MessageResponse: Decodable {
+struct MessageResponse: Response {
     let message: String
 }

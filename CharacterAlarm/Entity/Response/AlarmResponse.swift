@@ -1,26 +1,48 @@
 import UIKit
 
-struct AlarmResponse: Identifiable, Decodable, Hashable, Encodable {
-    var id: UUID {
-       return alarmID
-    }
-    var alarmID: UUID
-    var enable: Bool
-    var name: String
-    var hour: Int
-    var minute: Int
-    
-    var sunday: Bool
-    var monday: Bool
-    var tuesday: Bool
-    var wednesday: Bool
-    var thursday: Bool
-    var friday: Bool
-    var saturday: Bool
+struct AlarmResponse: Response {
+    let alarmID: UUID
+    let userID: UUID
+    let type: String
+    let enable: Bool
+    let name: String
+    let hour: Int
+    let minute: Int
+    let timeDifference: Int
+    let charaID: String
+    let charaName: String
+    let voiceFileName: String
+    let sunday: Bool
+    let monday: Bool
+    let tuesday: Bool
+    let wednesday: Bool
+    let thursday: Bool
+    let friday: Bool
+    let saturday: Bool
 }
 
 extension AlarmResponse {
     func toAlarm() -> Alarm {
+        var dayOfWeeks: [DayOfWeek] = []
+        if sunday {
+            dayOfWeeks.append(.SUN)
+        }
+        if tuesday {
+            dayOfWeeks.append(.TUE)
+        }
+        if wednesday {
+            dayOfWeeks.append(.WED)
+        }
+        if thursday {
+            dayOfWeeks.append(.THU)
+        }
+        if friday {
+            dayOfWeeks.append(.FRI)
+        }
+        if saturday {
+            dayOfWeeks.append(.SAT)
+        }
+        
         return Alarm(
             alarmID: alarmID,
             type: .VOIP_NOTIFICATION,
@@ -28,17 +50,17 @@ extension AlarmResponse {
             name: name,
             hour: hour,
             minute: minute,
-            charaName: "",
-            dayOfWeeks: [],
-            charaID: "",
-            voiceFileName: "",
-            sunday: true,
-            monday: true,
-            tuesday: true,
-            wednesday: true,
-            thursday: true,
-            friday: true,
-            saturday: true
+            charaName: charaName,
+            dayOfWeeks: dayOfWeeks,
+            charaID: charaID,
+            voiceFileName: voiceFileName,
+            sunday: sunday,
+            monday: monday,
+            tuesday: tuesday,
+            wednesday: wednesday,
+            thursday: thursday,
+            friday: friday,
+            saturday: saturday
         )
     }
 }

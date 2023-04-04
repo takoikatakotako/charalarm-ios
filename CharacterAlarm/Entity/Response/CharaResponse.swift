@@ -1,6 +1,6 @@
 import Foundation
 
-struct CharaResponse: Decodable {
+struct CharaResponse: Response {
     let charaID: String
     let enable: Bool
     let name: String
@@ -11,23 +11,23 @@ struct CharaResponse: Decodable {
     let calls: [CharaCallResponse]
 }
 
-struct CharaProfileResponse: Decodable {
+struct CharaProfileResponse: Response {
     let title: String
     let name: String
     let url: String
 }
 
-struct CharaResourceResponse: Decodable {
+struct CharaResourceResponse: Response {
     let directoryName: String
     let fileName: String
 }
 
-struct CharaExpressionResponse: Decodable {
+struct CharaExpressionResponse: Response {
     let images: [String]
     let voices: [String]
 }
 
-struct CharaCallResponse: Decodable {
+struct CharaCallResponse: Response {
     let message: String
     let voice: String
 }
