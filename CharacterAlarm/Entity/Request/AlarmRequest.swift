@@ -8,6 +8,7 @@ struct AlarmRequest: Encodable {
     let name: String
     let hour: Int
     let minute: Int
+    let timeDifference: Decimal
     let charaID: String
     let charaName: String
     let voiceFileName: String

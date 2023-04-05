@@ -120,6 +120,7 @@ struct AlarmListRow_Previews: PreviewProvider {
                 name: "xxxx",
                 hour: 8,
                 minute: 30,
+                timeDifference: 0,
                 charaName: "xxxx",
                 dayOfWeeks: [],
                 charaID: "xxxx",

@@ -20,9 +20,10 @@ class AlarmListViewState: ObservableObject {
         let alarmID = UUID()
         let date = Date()
         let name = R.string.localizable.alarmNewAlarm()
-        let calendar = Calendar.current
+        let calendar = Calendar(identifier: .gregorian)
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
+        let timeDifference = Decimal(TimeZone.current.secondsFromGMT(for: date) / 60 / 60)
         let enable = true
         let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
         
@@ -33,8 +34,9 @@ class AlarmListViewState: ObservableObject {
             name: name,
             hour: hour,
             minute: minute,
+            timeDifference: timeDifference,
             charaName: "",
-            dayOfWeeks: [],
+            dayOfWeeks: dayOfWeeks,
             charaID: "",
             voiceFileName: "",
             sunday: true,

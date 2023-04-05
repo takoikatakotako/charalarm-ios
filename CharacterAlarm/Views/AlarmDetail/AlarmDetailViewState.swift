@@ -32,44 +32,9 @@ class AlarmDetailViewState: ObservableObject {
         return alarm.dayOfWeeks.map { $0.rawValue + ", "}.description
     }
     
-    init() {
-        // アラーム新規作成の場合
-        self.type = .create
-        
-        // アラーム作成
-        let date = Date()
-        let name = R.string.localizable.alarmNewAlarm()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
-        let enable = true
-        let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
-        
-        self.alarm = Alarm(
-            alarmID: UUID(),
-            type: .VOIP_NOTIFICATION,
-            enable: true,
-            name: "xxxx",
-            hour: 8,
-            minute: 30,
-            charaName: "xxxx",
-            dayOfWeeks: [],
-            charaID: "xxxx",
-            voiceFileName: "ssssss",
-            sunday: true,
-            monday: true,
-            tuesday: true,
-            wednesday: true,
-            thursday: true,
-            friday: true,
-            saturday: true
-        )
-    }
-    
-    init(alarm: Alarm) {
-        // アラーム編集の場合
+    init(alarm: Alarm, type: AlarmDetailViewTyep) {
         self.alarm = alarm
-        self.type = .edit
+        self.type = type
     }
     
     func onAppear() {
@@ -80,8 +45,10 @@ class AlarmDetailViewState: ObservableObject {
                 self.characters = characters
                 
                 // 現在のキャラを取得
-                let chara = try await charaRepository.fetchCharacter(charaId: alarm.charaID)
-                self.selectedChara = chara
+                if let charaID = alarm.charaID {
+                    let chara = try await charaRepository.fetchCharacter(charaId: charaID)
+                    self.selectedChara = chara
+                }
                 
                 // CharaCallを取得
                 if let charaCallId = alarm.charaCallId {
@@ -110,6 +77,8 @@ class AlarmDetailViewState: ObservableObject {
                 let alarmRequest = self.alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
                 let alarmAddRequest = AlarmAddRequest(alarm: alarmRequest)
                 try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
+                dismissSubject.send()
+                showingIndicator = false
             } catch {
                 self.alertMessage = "xxxx"
                 self.showingAlert = true
@@ -134,6 +103,7 @@ class AlarmDetailViewState: ObservableObject {
                 let alarmDeleteRequest = AlarmDeleteRequest(alarmID: alarm.alarmID)
                 try await alarmRepository.deleteAlarm(userID: userID, authToken: authToken, requestBody: alarmDeleteRequest)
                 dismissSubject.send()
+                showingIndicator = false
             } catch {
                 self.alertMessage = "xyz"
                 self.showingAlert = true

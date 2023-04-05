@@ -10,11 +10,12 @@ struct Alarm: Identifiable, Hashable {
     var name: String
     var hour: Int
     var minute: Int
+    var timeDifference: Decimal
     var charaName: String
     var dayOfWeeks: [DayOfWeek]
-    var charaID: String
+    var charaID: String?
     var charaCallId: Int?
-    var voiceFileName: String
+    var voiceFileName: String?
     var sunday: Bool
     var monday: Bool
     var tuesday: Bool
@@ -46,9 +47,10 @@ extension Alarm {
             name: name,
             hour: hour,
             minute: minute,
-            charaID: charaID,
+            timeDifference: timeDifference,
+            charaID: charaID ?? "",
             charaName: charaName,
-            voiceFileName: voiceFileName,
+            voiceFileName: voiceFileName ?? "",
             sunday: sunday,
             monday: monday,
             tuesday: tuesday,
@@ -59,7 +61,6 @@ extension Alarm {
         )
     }
 }
-
 
 enum AlarmType: String {
     case VOIP_NOTIFICATION = "VOIP_NOTIFICATION"

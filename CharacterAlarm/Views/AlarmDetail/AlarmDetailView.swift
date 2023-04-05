@@ -8,6 +8,7 @@ struct AlarmDetailView: View {
     var title: String {
         switch viewState.type {
         case .create:
+            print(R.string.localizable.alarmAddAlarm())
             return R.string.localizable.alarmAddAlarm()
         case .edit:
             return R.string.localizable.alarmEditAlarm()

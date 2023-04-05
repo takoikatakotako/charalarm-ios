@@ -48,9 +48,9 @@ struct AlarmListView: View {
             }, content: { (item: AlarmListViewSheetItem) in
                 switch item {
                 case .alarmDetailForCreate:
-                    AlarmDetailView(viewState: AlarmDetailViewState())                    
+                    AlarmDetailView(viewState: AlarmDetailViewState(alarm: viewState.createNewAlarm(), type: .create))
                 case let .alarmDetailForEdit(alarm):
-                    AlarmDetailView(viewState: AlarmDetailViewState(alarm: alarm))
+                    AlarmDetailView(viewState: AlarmDetailViewState(alarm: alarm, type: .edit))
                 }
             })
             .navigationBarBackButtonHidden(true)
