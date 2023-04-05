@@ -40,6 +40,18 @@ struct AlarmListRow: View {
         return alarm.enable ? Color(R.color.alarmCardBackgroundGreen.name) : Color(R.color.charalarmDefaultGray.name)
     }
     
+    var dayOfWeeksString: String {
+        var text = ""
+        text += alarm.sunday ? "\(R.string.localizable.dayOfWeekSunday()) " : ""
+        text += alarm.monday ? "\(R.string.localizable.dayOfWeekMonday()) " : ""
+        text += alarm.tuesday ? "\(R.string.localizable.dayOfWeekTuesday()) " : ""
+        text += alarm.wednesday ? "\(R.string.localizable.dayOfWeekWednesday()) " : ""
+        text += alarm.thursday ? "\(R.string.localizable.dayOfWeekThursday()) " : ""
+        text += alarm.friday ? "\(R.string.localizable.dayOfWeekFriday()) " : ""
+        text += alarm.saturday ? "\(R.string.localizable.dayOfWeekSaturday()) " : ""
+        return text
+    }
+    
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
@@ -50,7 +62,7 @@ struct AlarmListRow: View {
 
                 Text("\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))")
                     .font(Font.system(size: 36).bold())
-                Text(alarm.dayOfWeeksString)
+                Text(dayOfWeeksString)
                     .font(Font.system(size: 20))
             }
             .fixedSize(horizontal: true, vertical: false)
@@ -122,7 +134,6 @@ struct AlarmListRow_Previews: PreviewProvider {
                 minute: 30,
                 timeDifference: 0,
                 charaName: "xxxx",
-                dayOfWeeks: [],
                 charaID: "xxxx",
                 voiceFileName: "ssssss",
                 sunday: true,

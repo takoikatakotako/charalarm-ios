@@ -24,14 +24,23 @@ class AlarmDetailViewState: ObservableObject {
     private let charaCallRepository: CharaCallRepository = CharaCallRepository()
     private let charaRepository: CharaRepository = CharaRepository()
     
+    
+    var timeDefferenceString: String {
+        if alarm.timeDifference >= 0 {
+            return "GMT+\(abs(alarm.timeDifference))"
+        } else {
+            return "GMT-\(abs(alarm.timeDifference))"
+        }
+    }
+    
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
     
-    var enableDaysString: String {
-        return alarm.dayOfWeeks.map { $0.rawValue + ", "}.description
-    }
-    
+//    var enableDaysString: String {
+//        return alarm.dayOfWeeks.map { $0.rawValue + ", "}.description
+//    }
+//    
     init(alarm: Alarm, type: AlarmDetailViewTyep) {
         self.alarm = alarm
         self.type = type
@@ -141,18 +150,18 @@ class AlarmDetailViewState: ObservableObject {
         alarm.minute = minute
     }
     
-    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
-        alarm.dayOfWeeks = dayOfWeeks
-    }
-    
-    func updateDayOfWeek(isEnable: Bool, dayOfWeek: DayOfWeek) {
-        if let index = alarm.dayOfWeeks.firstIndex(of: dayOfWeek) {
-            alarm.dayOfWeeks.remove(at: index)
-        }
-        if isEnable {
-            alarm.dayOfWeeks.append(dayOfWeek)
-        }
-    }
+//    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
+//        alarm.dayOfWeeks = dayOfWeeks
+//    }
+//    
+//    func updateDayOfWeek(isEnable: Bool, dayOfWeek: DayOfWeek) {
+//        if let index = alarm.dayOfWeeks.firstIndex(of: dayOfWeek) {
+//            alarm.dayOfWeeks.remove(at: index)
+//        }
+//        if isEnable {
+//            alarm.dayOfWeeks.append(dayOfWeek)
+//        }
+//    }
     
     private func createAlarm(completion: @escaping () -> Void) {
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),

@@ -24,12 +24,16 @@ struct AlarmDetailView: View {
                         
                         HStack {
                             Spacer()
-                            Text("GMT+9")
+                            Button {
+                                
+                            } label: {
+                                Text(viewState.timeDefferenceString)
+                            }
                         }
                         .padding(.horizontal, 16)
                         .padding(.bottom, 16)
                         
-                        AlarmDetailWeekdaySelecter(dayOfWeeks: $viewState.alarm.dayOfWeeks)
+                        AlarmDetailWeekdaySelecter(alarm: $viewState.alarm)
                         
                         VStack(alignment: .leading) {
                             TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewState.alarm.name)

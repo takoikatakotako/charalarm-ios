@@ -23,26 +23,6 @@ struct AlarmResponse: Response {
 
 extension AlarmResponse {
     func toAlarm() -> Alarm {
-        var dayOfWeeks: [DayOfWeek] = []
-        if sunday {
-            dayOfWeeks.append(.SUN)
-        }
-        if tuesday {
-            dayOfWeeks.append(.TUE)
-        }
-        if wednesday {
-            dayOfWeeks.append(.WED)
-        }
-        if thursday {
-            dayOfWeeks.append(.THU)
-        }
-        if friday {
-            dayOfWeeks.append(.FRI)
-        }
-        if saturday {
-            dayOfWeeks.append(.SAT)
-        }
-        
         return Alarm(
             alarmID: alarmID,
             type: .VOIP_NOTIFICATION,
@@ -52,7 +32,6 @@ extension AlarmResponse {
             minute: minute,
             timeDifference: timeDifference,
             charaName: charaName,
-            dayOfWeeks: dayOfWeeks,
             charaID: charaID,
             voiceFileName: voiceFileName,
             sunday: sunday,
