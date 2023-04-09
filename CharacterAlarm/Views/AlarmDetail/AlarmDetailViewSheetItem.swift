@@ -1,11 +1,11 @@
 import Foundation
 
-enum AlarmDetailViewSheetItem: Identifiable {
-    case voiceList(Chara)
-    var id: String {
-        switch self {
-        case let .voiceList(character):
-            return character.charaID
-        }
+enum AlarmDetailViewSheetItem: Identifiable, Hashable {
+    var id: Self {
+        return self
     }
+
+    case timeDeffarenceList
+    case voiceList(Chara)
+
 }

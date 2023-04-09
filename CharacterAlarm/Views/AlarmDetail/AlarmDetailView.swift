@@ -25,7 +25,7 @@ struct AlarmDetailView: View {
                         HStack {
                             Spacer()
                             Button {
-                                
+                                viewState.timeDirrerenceTapped()
                             } label: {
                                 Text(viewState.timeDefferenceString)
                             }
@@ -89,6 +89,8 @@ struct AlarmDetailView: View {
                 switch item {
                 case let .voiceList(chara):
                     AlarmVoiceListView(chara: chara, delegate: self)
+                case .timeDeffarenceList:
+                    AlarmDetailTimeDeffarenceSelecter(timeDeffarence: $viewState.alarm.timeDifference)
                 }
             }
             .navigationBarHidden(false)

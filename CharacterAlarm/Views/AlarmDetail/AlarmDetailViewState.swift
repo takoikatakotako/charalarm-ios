@@ -163,6 +163,10 @@ class AlarmDetailViewState: ObservableObject {
 //        }
 //    }
     
+    func timeDirrerenceTapped() {
+        sheet = .timeDeffarenceList
+    }
+    
     private func createAlarm(completion: @escaping () -> Void) {
         guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
