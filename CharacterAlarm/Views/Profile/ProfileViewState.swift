@@ -44,7 +44,7 @@ class ProfileViewState: ObservableObject {
     func fetchCharacter() {
         Task { @MainActor in
             do {
-                let chara = try await charaRepository.fetchCharacter(charaId: charaID)
+                let chara = try await charaRepository.fetchCharacter(charaID: charaID)
                 character = chara
             } catch {
                 alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()

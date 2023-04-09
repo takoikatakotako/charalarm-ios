@@ -54,8 +54,8 @@ class AlarmDetailViewState: ObservableObject {
                 self.characters = characters
                 
                 // 現在のキャラを取得
-                if let charaID = alarm.charaID {
-                    let chara = try await charaRepository.fetchCharacter(charaId: charaID)
+                if alarm.charaID.isNotEmpty {
+                    let chara = try await charaRepository.fetchCharacter(charaID: alarm.charaID)
                     self.selectedChara = chara
                 }
                 

@@ -12,7 +12,7 @@ struct Alarm: Identifiable, Hashable {
     var minute: Int
     var timeDifference: Decimal
     var charaName: String
-    var charaID: String?
+    var charaID: String
     var charaCallId: Int?
     var voiceFileName: String?
     var sunday: Bool

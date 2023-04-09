@@ -10,8 +10,8 @@ class CharaRepository {
         return charaResponses.map { Chara(charaResponse: $0) }
     }
     
-    func fetchCharacter(charaId: String) async throws -> Chara {
-        let path = "/chara/id/\(charaId)"
+    func fetchCharacter(charaID: String) async throws -> Chara {
+        let path = "/chara/id/\(charaID)"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader: [String: String] = APIHeader.defaultHeader
         let requestBody: Encodable? = nil
