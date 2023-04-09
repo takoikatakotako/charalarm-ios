@@ -9,8 +9,8 @@ class AlarmVoiceListViewModel: ObservableObject {
         self.chara = chara
     }
     
-    func playVoice(filePath: String) {
-        let urlString = RESOURCE_ENDPOINT + filePath
+    func playVoice(fileName: String) {
+        let urlString = RESOURCE_ENDPOINT + fileName
         guard let url = URL(string: urlString) else {
             // TODO: ここでなんか投げる
             return
