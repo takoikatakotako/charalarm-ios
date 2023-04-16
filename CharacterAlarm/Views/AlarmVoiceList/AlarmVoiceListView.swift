@@ -18,26 +18,6 @@ struct AlarmVoiceListView: View {
     var body: some View {
         NavigationView {
             List {
-//                HStack(spacing: 8) {
-//                    Button(action: {
-//                        viewModel.playRandomVoice()
-//                    }, label: {
-//                        Image(R.image.alarmVoicePlay.name)
-//                    })
-//                    .buttonStyle(PlainButtonStyle())
-//
-//                    HStack {
-//                        Text("ランダム")
-//                        Spacer()
-//                    }
-//                    .contentShape(Rectangle())
-//                }
-//                .contentShape(Rectangle())
-//                .onTapGesture {
-//                    delegate.selectedRandomVoice(chara: viewModel.chara)
-//                    presentationMode.wrappedValue.dismiss()
-//                }
-//
                 ForEach(viewModel.chara.calls, id: \.self) { charaCall in
                     HStack(spacing: 8) {
                         Button(action: {
