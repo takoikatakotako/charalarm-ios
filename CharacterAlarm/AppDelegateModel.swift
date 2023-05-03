@@ -55,20 +55,19 @@ class AppDelegateModel {
     func registerVoipPushToken(token: String) {
         self.voipPushToken = token
 
-        guard let anonymousUserName = keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = keychainHandler.getAnonymousAuthToken() else {
+        guard let userID = keychainHandler.getAnonymousUserName(),
+              let authToken = keychainHandler.getAnonymousAuthToken() else {
             return
         }
         
-//        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-//        pushRepository.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-//            switch result {
-//            case .success(_):
-//                break
-//            case let .failure(error):
-//                print(error)
-//            }
-//        }
+        Task {
+            do {
+                let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+                try await pushRepository.addVoipPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     // VoIP Pushを受信

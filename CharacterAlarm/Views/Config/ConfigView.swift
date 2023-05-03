@@ -11,7 +11,7 @@ struct ConfigView: View {
             ZStack(alignment: .bottom) {
                 List {
                     Section(header: Text(R.string.localizable.configUserInfo())) {
-                        NavigationLink(destination: UserInfoView()) {
+                        NavigationLink(destination: UserInfoView(viewState: UserInfoViewState())) {
                             Text(R.string.localizable.configUserInfo())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
