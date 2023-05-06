@@ -7,10 +7,12 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
     @Published var creatingAccount = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    let anonymousUserName = UUID().uuidString
-    let anonymousUserPassword = UUID().uuidString
-    let userRepository: UserRepository = UserRepository()
-    let pushRepository: PushRepository = PushRepository()
+    
+    private let userID = UUID()
+    private let authToken = UUID()
+    private let userRepository: UserRepository = UserRepository()
+    private let pushRepository: PushRepository = PushRepository()
+    private let keychainRepository: KeychainRepository = KeychainRepository()
 
     func openPrivacyPolicy() {
         guard let url = URL(string: PrivacyPolicyUrlString) else {
@@ -26,7 +28,6 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
         
         creatingAccount = true
         
-        
         let delegate = UIApplication.shared.delegate as? AppDelegate
         let optionalPushToken = delegate?.model.pushToken
         let optionalVoIPPushToken = delegate?.model.voipPushToken
@@ -35,34 +36,34 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
             // ここでユーザー登録してトークンを設定する
             do {
                 // SignUp
-                try await userRepository.signup(request: UserSignUpRequest(userID: anonymousUserName, authToken: anonymousUserPassword))
+                try await userRepository.signup(request: UserSignUpRequest(userID: userID.uuidString, authToken: authToken.uuidString, platform: "iOS"))
 
                 // Set KeyChain
-                try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: self.anonymousUserName)
-                try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: self.anonymousUserPassword)
+                try keychainRepository.setUserID(userID: userID)
+                try keychainRepository.setAuthToken(authToken: authToken)
                 
-//                // Set Push Token
-//                if let token = optionalPushToken {
-//                    let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-//                    _ = try await pushRepository.addPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: pushToken)
-//                }
-//    
-//                // Set VoIP Push Token
-//                if let token = optionalVoIPPushToken {
-//                    let voipPushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-//                    _ = try await pushRepository.addVoipPushToken(anonymousUserName: self.anonymousUserName, anonymousUserPassword: self.anonymousUserPassword, pushToken: voipPushToken)
-//                }
+                // Set Push Token
+                if let token = optionalPushToken {
+                    let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+                    try await pushRepository.addPushToken(userID: userID.uuidString, authToken: userID.uuidString, pushToken: pushToken)
+                }
+    
+                // Set VoIP Push Token
+                if let token = optionalVoIPPushToken {
+                    let voipPushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+                    try await pushRepository.addVoipPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: voipPushToken)
+                }
                 
-                self.accountCreated = true
+                accountCreated = true
             } catch {
-                self.alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
-                self.showingAlert = true
+                alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
+                showingAlert = true
             }
-            self.creatingAccount = false
+            creatingAccount = false
         }
     }
     
-    func trackingAuthorizationNotDetermined() -> Bool {
+    private func trackingAuthorizationNotDetermined() -> Bool {
         switch ATTrackingManager.trackingAuthorizationStatus {
         case .authorized:
             return false

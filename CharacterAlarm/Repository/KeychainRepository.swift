@@ -3,13 +3,13 @@ import KeychainAccess
 
 struct KeychainRepository {
     func setUserID(userID: UUID) throws {
-        try set(key: ANONYMOUS_USER_NAME, value: userID.description)
-        try set(key: USER_ID, value: userID.description)
+        try set(key: ANONYMOUS_USER_NAME, value: userID.uuidString)
+        try set(key: USER_ID, value: userID.uuidString)
     }
     
     func setAuthToken(authToken: UUID) throws {
-        try set(key: ANONYMOUS_AUTH_TOKEN, value: authToken.description)
-        try set(key: AUTH_TOKEN, value: authToken.description)
+        try set(key: ANONYMOUS_AUTH_TOKEN, value: authToken.uuidString)
+        try set(key: AUTH_TOKEN, value: authToken.uuidString)
     }
     
     func getUserID() -> String? {
