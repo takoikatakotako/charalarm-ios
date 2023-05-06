@@ -6,7 +6,8 @@ class AlarmListViewState: ObservableObject {
     @Published var alert: AlarmListViewAlertItem?
     @Published var showingIndicator: Bool = true
     
-    let alarmRepository: AlarmRepository = AlarmRepository()
+    private let alarmRepository: AlarmRepository = AlarmRepository()
+    private let keychainRepository: KeychainRepository = KeychainRepository()
     
     func addAlarmButtonTapped() {
         if alarms.count < 3 {
@@ -25,11 +26,10 @@ class AlarmListViewState: ObservableObject {
         let minute = calendar.component(.minute, from: date)
         let timeDifference = Decimal(TimeZone.current.secondsFromGMT(for: date) / 60 / 60)
         let enable = true
-        let dayOfWeeks: [DayOfWeek] = [.MON, .TUE, .WED, .THU, .FRI, .SAT, .SUN]
         
         return Alarm(
             alarmID: alarmID,
-            type: .VOIP_NOTIFICATION,
+            type: .IOS_VOIP_PUSH_NOTIFICATION,
             enable: enable,
             name: name,
             hour: hour,
@@ -68,11 +68,11 @@ class AlarmListViewState: ObservableObject {
     }
     
     func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-            alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
-            return
-        }
+//        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
+//              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+//            alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
+//            return
+//        }
         
 //        guard let index = alarms.firstIndex(where: { $0.alarmID == alarmId }) else {
 //            return

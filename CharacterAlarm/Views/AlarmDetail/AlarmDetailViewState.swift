@@ -68,23 +68,23 @@ class AlarmDetailViewState: ObservableObject {
     }
     
     func createAlarm() {
-        guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
-            self.showingAlert = true
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
+            alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+            showingAlert = true
             return
         }
         Task { @MainActor in
             showingIndicator = true
             do {
-                let alarmRequest = self.alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
+                let alarmRequest = alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
                 let alarmAddRequest = AlarmAddRequest(alarm: alarmRequest)
                 try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
                 dismissSubject.send()
                 showingIndicator = false
             } catch {
-                self.alertMessage = "xxxx"
-                self.showingAlert = true
+                alertMessage = "xxxx"
+                showingAlert = true
             }
         }
     }

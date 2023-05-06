@@ -127,7 +127,7 @@ struct AlarmListRow_Previews: PreviewProvider {
         init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30, dayOfWeeks: [DayOfWeek] = DayOfWeek.allCases) {
             self.alarm = Alarm(
                 alarmID: UUID(),
-                type: .VOIP_NOTIFICATION,
+                type: .IOS_VOIP_PUSH_NOTIFICATION,
                 enable: true,
                 name: "xxxx",
                 hour: 8,

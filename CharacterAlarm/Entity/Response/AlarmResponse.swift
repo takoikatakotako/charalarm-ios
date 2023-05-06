@@ -25,7 +25,7 @@ extension AlarmResponse {
     func toAlarm() -> Alarm {
         return Alarm(
             alarmID: alarmID,
-            type: .VOIP_NOTIFICATION,
+            type: .IOS_VOIP_PUSH_NOTIFICATION,
             enable: enable,
             name: name,
             hour: hour,

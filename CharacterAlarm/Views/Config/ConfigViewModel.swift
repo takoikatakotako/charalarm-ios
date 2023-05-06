@@ -29,15 +29,15 @@ class ConfigViewModel: ObservableObject {
     }
     
     func fetchCharacter() {
-        Task { @MainActor in
-            do {
-                let chara = try await charaRepository.fetchCharacter(charaID: charaDomain)
-                self.character = character
-            } catch {
-                self.alertMessage = "キャラクター情報の取得に失敗しました。"
-                self.showingAlert = true
-            }
-        }
+//        Task { @MainActor in
+//            do {
+//                // let chara = try await charaRepository.fetchCharacter(charaID: charaDomain)
+//                self.character = character
+//            } catch {
+//                self.alertMessage = "キャラクター情報の取得に失敗しました。"
+//                self.showingAlert = true
+//            }
+//        }
     }
     
     func withdraw() async throws {

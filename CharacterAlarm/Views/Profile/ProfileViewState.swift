@@ -97,15 +97,15 @@ class ProfileViewState: ObservableObject {
     }
     
     func downloadResource() {
-        guard let resourceInfo = resourceInfos.first else {
-            self.numberOfDownloadedReosurce = 0
-            self.numberOfResource = 0
-            DispatchQueue.main.async {
-                self.showingDownloadingModal = false
-                self.setCharacter()
-            }
-            return
-        }
+//        guard let resourceInfo = resourceInfos.first else {
+//            self.numberOfDownloadedReosurce = 0
+//            self.numberOfResource = 0
+//            DispatchQueue.main.async {
+//                self.showingDownloadingModal = false
+//                self.setCharacter()
+//            }
+//            return
+//        }
         
 //        ResourceStore.downloadResource(charaDomain: charaDomain, directory: resourceInfo.type.rawValue, fileName: resourceInfo.name) {[weak self] result in
 //            switch result {
