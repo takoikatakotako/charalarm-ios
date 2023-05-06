@@ -9,7 +9,7 @@ class AlarmDetailViewState: ObservableObject {
     @Published var alertMessage = ""
     @Published var sheet: AlarmDetailViewSheetItem?
     @Published var selectedChara: Chara?
-    @Published var selectedCharaCall: CharaCallResponseEntity?
+    @Published var selectedCharaCall: CharaCall?
     @Published var showingIndicator: Bool = false
     @Published var dismiss: Bool = false
     
@@ -60,10 +60,10 @@ class AlarmDetailViewState: ObservableObject {
                 }
                 
                 // CharaCallを取得
-                if let charaCallId = alarm.charaCallId {
-                    let charaCall = try await charaCallRepository.findByCharaCallId(charaCallId: charaCallId)
-                    self.selectedCharaCall = charaCall
-                }
+//                if let charaCallId = alarm.charaCallId {
+//                    let charaCall = try await charaCallRepository.findByCharaCallId(charaCallId: charaCallId)
+//                    self.selectedCharaCall = charaCall
+//                }
             } catch {
                 // TODO: キャラクター情報の取得に失敗しました的なアラートを表示
                 print("----")
@@ -127,10 +127,10 @@ class AlarmDetailViewState: ObservableObject {
         selectedCharaCall = nil
     }
     
-    func setCharaAndCharaCall(chara: Chara, charaCall: CharaCallResponseEntity?) {
+    func setCharaAndCharaCall(chara: Chara, charaCall: CharaCall?) {
         alarm.charaID = chara.charaID
         selectedChara = chara
-        alarm.charaCallId = charaCall?.charaCallId ?? nil
+        // alarm.charaCallId = charaCall?.charaCallId ?? nil
         selectedCharaCall = charaCall
     }
         

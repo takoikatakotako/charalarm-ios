@@ -46,7 +46,7 @@ struct AlarmDetailView: View {
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
                         
-                        AlarmDetailVoiceText(fileMessage: viewState.selectedCharaCall?.charaFileMessage ?? "ランダム")
+                        AlarmDetailVoiceText(fileMessage: viewState.selectedCharaCall?.message ?? "ランダム")
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
                         
@@ -88,7 +88,7 @@ struct AlarmDetailView: View {
             .sheet(item: $viewState.sheet) { item in
                 switch item {
                 case let .voiceList(chara):
-                    AlarmVoiceListView(chara: chara, delegate: self)
+                    AlarmDetailVoiceList(delegate: self, viewState: AlarmDetailVoiceListState(chara: chara))
                 case .timeDeffarenceList:
                     AlarmDetailTimeDeffarenceSelecter(timeDeffarence: $viewState.alarm.timeDifference)
                 }
@@ -109,14 +109,10 @@ extension AlarmDetailView: AlarmDetailCharaSelecterDelegate {
     }
 }
 
-extension AlarmDetailView: AlarmVoiceListViewDelegate {
-    func selectedRandomVoice(chara: Chara) {
-        viewState.setCharaAndCharaCall(chara: chara, charaCall: nil)
-    }
-    
-    func selectedVoice(chara: Chara, charaCall: CharaCallResponseEntity) {
+extension AlarmDetailView: AlarmDetailVoiceListDelegate {
+    func selectCharaAndCall(chara: Chara, charaCall: CharaCall?) {
+        print("xxxx")
         viewState.setCharaAndCharaCall(chara: chara, charaCall: charaCall)
-
     }
 }
 
