@@ -7,9 +7,9 @@ struct Chara: Identifiable, Hashable, Equatable {
         name = charaResponse.name
         description = charaResponse.description
         profiles = charaResponse.profiles.map { CharaProfile(title: $0.title, name: $0.name, url: $0.url) }
-        resources = charaResponse.resources.map { CharaResource(directoryPath: $0.directoryName, fileName: $0.fileName) }
-        expressions = charaResponse.expressions.mapValues { CharaExpression(images: $0.images, voices: $0.voices) }
-        calls = charaResponse.calls.map { CharaCall(message: $0.message, voice: $0.voice)}
+        resources = charaResponse.resources.map { CharaResource(fileName: $0.fileURL) }
+        expressions = charaResponse.expressions.mapValues { CharaExpression(images: $0.imageFileURLs, voices: $0.voiceFileURLs) }
+        calls = charaResponse.calls.map { CharaCall(message: $0.message, voice: $0.voiceFileURL)}
     }
     
     var id: String {
@@ -60,7 +60,6 @@ struct CharaProfile: Hashable, Equatable {
 }
 
 struct CharaResource: Hashable, Equatable {
-    let directoryPath: String
     let fileName: String
 }
 

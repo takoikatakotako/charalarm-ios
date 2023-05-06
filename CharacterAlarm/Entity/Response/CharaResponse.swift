@@ -18,16 +18,15 @@ struct CharaProfileResponse: Response {
 }
 
 struct CharaResourceResponse: Response {
-    let directoryName: String
-    let fileName: String
+    let fileURL: String
 }
 
 struct CharaExpressionResponse: Response {
-    let images: [String]
-    let voices: [String]
+    let imageFileURLs: [String]
+    let voiceFileURLs: [String]
 }
 
 struct CharaCallResponse: Response {
     let message: String
-    let voice: String
+    let voiceFileURL: String
 }

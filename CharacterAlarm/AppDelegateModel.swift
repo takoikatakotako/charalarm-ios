@@ -27,21 +27,20 @@ class AppDelegateModel {
     // Pushトークンを登録
     func registerPushToken(token: String) {
         self.pushToken = token
-        
-        guard let anonymousUserName = keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = keychainHandler.getAnonymousAuthToken() else {
+    
+        guard let userID = keychainHandler.getAnonymousUserName(),
+              let authToken = keychainHandler.getAnonymousAuthToken() else {
             return
         }
         
-//        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-//        pushRepository.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-//            switch result {
-//            case .success:
-//                break
-//            case .failure:
-//                break
-//            }
-//        }
+        Task {
+            do {
+                let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+                try await pushRepository.addPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     // ViIPPushトークンを取得できなかった場合
