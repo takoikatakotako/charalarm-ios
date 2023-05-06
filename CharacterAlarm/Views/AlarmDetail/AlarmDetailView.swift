@@ -111,7 +111,6 @@ extension AlarmDetailView: AlarmDetailCharaSelecterDelegate {
 
 extension AlarmDetailView: AlarmDetailVoiceListDelegate {
     func selectCharaAndCall(chara: Chara, charaCall: CharaCall?) {
-        print("xxxx")
         viewState.setCharaAndCharaCall(chara: chara, charaCall: charaCall)
     }
 }

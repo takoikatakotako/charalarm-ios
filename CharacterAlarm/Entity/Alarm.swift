@@ -13,8 +13,7 @@ struct Alarm: Identifiable, Hashable {
     var timeDifference: Decimal
     var charaName: String
     var charaID: String
-    var charaCallId: Int?
-    var voiceFileName: String?
+    var voiceFileName: String
     var sunday: Bool
     var monday: Bool
     var tuesday: Bool
@@ -35,9 +34,9 @@ extension Alarm {
             hour: hour,
             minute: minute,
             timeDifference: timeDifference,
-            charaID: charaID ?? "",
+            charaID: charaID,
             charaName: charaName,
-            voiceFileName: voiceFileName ?? "",
+            voiceFileName: voiceFileName,
             sunday: sunday,
             monday: monday,
             tuesday: tuesday,

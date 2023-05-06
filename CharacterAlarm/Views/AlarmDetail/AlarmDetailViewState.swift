@@ -18,12 +18,11 @@ class AlarmDetailViewState: ObservableObject {
     }
     private let dismissSubject = PassthroughSubject<Void, Never>()
     
-    
     let type: AlarmDetailViewTyep
     private let alarmRepository: AlarmRepository = AlarmRepository()
     private let charaCallRepository: CharaCallRepository = CharaCallRepository()
     private let charaRepository: CharaRepository = CharaRepository()
-    
+    private let keychainRepository: KeychainRepository = KeychainRepository()
     
     var timeDefferenceString: String {
         if alarm.timeDifference >= 0 {
@@ -37,10 +36,6 @@ class AlarmDetailViewState: ObservableObject {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
     
-//    var enableDaysString: String {
-//        return alarm.dayOfWeeks.map { $0.rawValue + ", "}.description
-//    }
-//    
     init(alarm: Alarm, type: AlarmDetailViewTyep) {
         self.alarm = alarm
         self.type = type
@@ -57,13 +52,12 @@ class AlarmDetailViewState: ObservableObject {
                 if alarm.charaID.isNotEmpty {
                     let chara = try await charaRepository.fetchCharacter(charaID: alarm.charaID)
                     self.selectedChara = chara
+                    
+                    // CharaCallを設定
+                    self.selectedCharaCall = chara.calls.first { charaCall in
+                        charaCall.voice.contains(alarm.voiceFileName)
+                    }
                 }
-                
-                // CharaCallを取得
-//                if let charaCallId = alarm.charaCallId {
-//                    let charaCall = try await charaCallRepository.findByCharaCallId(charaCallId: charaCallId)
-//                    self.selectedCharaCall = charaCall
-//                }
             } catch {
                 // TODO: キャラクター情報の取得に失敗しました的なアラートを表示
                 print("----")
@@ -122,7 +116,6 @@ class AlarmDetailViewState: ObservableObject {
 
     func setRandomChara() {
         // alarm.charaID = nil
-        alarm.charaCallId = nil
         selectedChara = nil
         selectedCharaCall = nil
     }
@@ -130,7 +123,6 @@ class AlarmDetailViewState: ObservableObject {
     func setCharaAndCharaCall(chara: Chara, charaCall: CharaCall?) {
         alarm.charaID = chara.charaID
         selectedChara = chara
-        // alarm.charaCallId = charaCall?.charaCallId ?? nil
         selectedCharaCall = charaCall
     }
         
@@ -149,59 +141,8 @@ class AlarmDetailViewState: ObservableObject {
     func updateAlarmMinute(minute: Int) {
         alarm.minute = minute
     }
-    
-//    func updateDayOfWeek(dayOfWeeks: [DayOfWeek]) {
-//        alarm.dayOfWeeks = dayOfWeeks
-//    }
-//    
-//    func updateDayOfWeek(isEnable: Bool, dayOfWeek: DayOfWeek) {
-//        if let index = alarm.dayOfWeeks.firstIndex(of: dayOfWeek) {
-//            alarm.dayOfWeeks.remove(at: index)
-//        }
-//        if isEnable {
-//            alarm.dayOfWeeks.append(dayOfWeek)
-//        }
-//    }
-    
+
     func timeDirrerenceTapped() {
         sheet = .timeDeffarenceList
-    }
-    
-    private func createAlarm(completion: @escaping () -> Void) {
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
-            self.showingAlert = true
-            return
-        }
-        
-        //        alarmRepository.addAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
-        //            switch result {
-        //            case .success:
-        //                completion()
-        //            case .failure:
-        //                self.alertMessage = R.string.localizable.alarmFailedToCreateAnAlarm()
-        //                self.showingAlert = true
-        //            }
-        //        }
-    }
-    
-    private func editAlarm(alarmId: Int, completion: @escaping () -> Void) {
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-            self.alertMessage = R.string.localizable.errorFailedToGetAuthenticationInformation()
-            self.showingAlert = true
-            return
-        }
-        
-        //        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
-        //            switch result {
-        //            case .success(_):
-        //                completion()
-        //            case .failure:
-        //                self.alertMessage = R.string.localizable.alarmFailedToEditTheAlarm()
-        //                self.showingAlert = true
-        //            }
-        //        }
     }
 }
