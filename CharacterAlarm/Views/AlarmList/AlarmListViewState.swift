@@ -51,8 +51,8 @@ class AlarmListViewState: ObservableObject {
     func fetchAlarms() {
         Task { @MainActor in
             showingIndicator = true
-            guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-                  let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+            guard let userID = keychainRepository.getUserID(),
+                  let authToken = keychainRepository.getAuthToken() else {
                     alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
                 return
             }

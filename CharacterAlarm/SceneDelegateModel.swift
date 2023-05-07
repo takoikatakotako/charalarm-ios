@@ -5,6 +5,8 @@ class SceneDelegateModel {
     private let fileHandler: FileHandlerProtcol
     private let userDefaultsHandler: UserDefaultsHandlerProtocol
     private let keychainHandler: KeychainHandlerProtcol
+    
+    private let userDefaultsRepository = UserDefaultsRepository()
 
     init(
         fileHandler: FileHandlerProtcol = FileHandler(),
@@ -21,7 +23,7 @@ class SceneDelegateModel {
     }
     
     func loadData() {
-        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain()  else {
+        guard let charaDomain = userDefaultsRepository.getCharaDomain()  else {
             fatalError("キャラクターのドメインの取得に失敗しました")
         }
         if let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),

@@ -77,8 +77,8 @@ class AlarmDetailViewState: ObservableObject {
     }
 
     func deleteAlarm() {
-        guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-              let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
             self.showingAlert = true
             return

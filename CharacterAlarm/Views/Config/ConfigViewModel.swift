@@ -9,13 +9,15 @@ class ConfigViewModel: ObservableObject {
 
     private let charaRepository: CharaRepository = CharaRepository()
     private let userRepository: UserRepository = UserRepository()
+    private let keychainRepository: KeychainRepository = KeychainRepository()
+    private let userDefaultsRepository = UserDefaultsRepository()
     
     var versionString: String {
         return getVersion()
     }
     
     var charaDomain: String {
-        guard let characterDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
+        guard let characterDomain = userDefaultsRepository.getCharaDomain() else {
             fatalError("CHARA_DOMAIN が取得できませんでした")
         }
         return characterDomain
@@ -41,24 +43,24 @@ class ConfigViewModel: ObservableObject {
     }
     
     func withdraw() async throws {
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+        guard let userID = keychainRepository.getUserID(),
+            let authToken = keychainRepository.getAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 self.showingAlert = true
                 return
         }
         
         do {
-            try await userRepository.withdraw(userID: anonymousUserName, authToken: anonymousUserPassword)
-            try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
-            try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-            charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-            charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+            try await userRepository.withdraw(userID: userID, authToken: authToken)
+            try keychainRepository.setUserID(userID: nil)
+            try keychainRepository.setAuthToken(authToken: nil)
+            userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+            userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
         } catch {
-            try! charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
-            try! charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-            charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-            charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
+            try! keychainRepository.setUserID(userID: nil)
+            try! keychainRepository.setAuthToken(authToken: nil)
+            userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+            userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
             fatalError("Fource Reset")
         }
     }
