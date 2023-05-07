@@ -1,7 +1,14 @@
 import Foundation
 import KeychainAccess
 
-struct KeychainRepository {
+protocol KeychainRepositoryProtcol {
+    func setUserID(userID: UUID?) throws
+    func setAuthToken(authToken: UUID?) throws
+    func getUserID() -> String?
+    func getAuthToken() -> String?
+}
+
+struct KeychainRepository: KeychainRepositoryProtcol {
     func setUserID(userID: UUID?) throws {
         try set(key: ANONYMOUS_USER_NAME, value: userID?.uuidString ?? "")
         try set(key: USER_ID, value: userID?.uuidString ?? "")
