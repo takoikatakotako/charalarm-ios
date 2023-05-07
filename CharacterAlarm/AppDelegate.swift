@@ -128,7 +128,7 @@ extension AppDelegate: CXProviderDelegate {
     }
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
-        model.receiveVoipPushToken()
+        model.receiveVoipPush()
     }
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {

@@ -1,6 +1,6 @@
 import Foundation
 
-class PushRepository {
+struct PushRepository {
     func addPushToken(userID: String, authToken: String, pushToken: PushTokenRequest) async throws {
         let path = "/push-token/ios/push/add"
         let url = URL(string: API_ENDPOINT + path)!

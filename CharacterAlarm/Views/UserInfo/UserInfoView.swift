@@ -7,33 +7,60 @@ struct UserInfoView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(R.string.localizable.userInfoUserName())
-                .font(Font.body.bold())
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             
-            Text(viewState.userInfo?.userID.description ?? "Loading")
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            VStack {
+                Text(R.string.localizable.userInfoUserName())
+                    .font(Font.body.bold())
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                
+                Text(viewState.userInfo?.userID.description ?? "Loading")
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
 
-            Text("AuthToken")
-                .font(Font.body.bold())
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            VStack {
+                Text("AuthToken")
+                    .font(Font.body.bold())
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                
+                Text(viewState.userInfo?.authToken ?? "Loading")
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
             
-            Text(viewState.userInfo?.authToken ?? "Loading")
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-
-            Text("PushTokenEndpoint")
-                .font(Font.body.bold())
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            VStack {
+                Text("PushTokenEndpoint")
+                    .font(Font.body.bold())
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                
+                Text(viewState.userInfo?.iOSPlatformInfo.pushTokenSNSEndpoint ?? "Loading")
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
             
-            Text(viewState.userInfo?.iOSPlatformInfo.pushTokenSNSEndpoint ?? "Loading")
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            VStack {
+                Text("VoIPPushTokenEndpoint")
+                    .font(Font.body.bold())
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                
+                Text(viewState.userInfo?.iOSPlatformInfo.voIPPushTokenSNSEndpoint ?? "Loading")
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
             
-            Text("VoIPPushTokenEndpoint")
-                .font(Font.body.bold())
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            VStack {
+                Text("PushToken")
+                    .font(Font.body.bold())
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                
+                Text(viewState.pushToken ?? "empty")
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
             
-            Text(viewState.userInfo?.iOSPlatformInfo.voIPPushTokenSNSEndpoint ?? "Loading")
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            VStack {
+                Text("VoIPPushToken")
+                    .font(Font.body.bold())
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                
+                Text(viewState.voipPushToken ?? "empty")
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
 
             Spacer()
         }

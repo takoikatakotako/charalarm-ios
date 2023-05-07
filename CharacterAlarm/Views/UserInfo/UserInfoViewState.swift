@@ -6,8 +6,17 @@ class UserInfoViewState: ObservableObject {
     @Published var showingAlert = false
     @Published var userInfo: UserInfo?
     
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     private let userRepository = UserRepository()
     private let keychainRepository = KeychainRepository()
+    
+    var pushToken: String? {
+        return appDelegate?.model.pushToken
+    }
+    
+    var voipPushToken: String? {
+        return appDelegate?.model.voipPushToken
+    }
     
     func fetchUserInfo() {
         Task { @MainActor in

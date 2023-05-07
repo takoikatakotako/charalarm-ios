@@ -70,7 +70,7 @@ class AppDelegateModel {
     }
     
     // VoIP Pushを受信
-    func receiveVoipPushToken() {
+    func receiveVoipPush() {
         if let url = URL(string: voiceFileURL) {
             let playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
