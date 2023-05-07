@@ -3,24 +3,24 @@ import AVKit
 
 class AppDelegateModel {
     private(set) var charaName: String = ""
-    private(set) var filePath: String = ""
+    private(set) var voiceFileURL: String = ""
     private var player = AVPlayer()
     private let pushRepository: PushRepository
-    private let keychainHandler: KeychainHandlerProtcol
+    private let keychainRepository: KeychainRepository
     var pushToken: String?
     var voipPushToken: String?
     
-    init(pushRepository: PushRepository, keychainHandler: KeychainHandlerProtcol) {
+    init(pushRepository: PushRepository, keychainRepository: KeychainRepository) {
         self.pushRepository = PushRepository()
-        self.keychainHandler = KeychainHandler()
+        self.keychainRepository = KeychainRepository()
     }
     
     func setCharaName(charaName: String) {
         self.charaName = charaName
     }
     
-    func setFilePath(filePath: String) {
-        self.filePath = filePath
+    func setVoiceFileURL(voiceFileURL: String) {
+        self.voiceFileURL = voiceFileURL
     }
     
     // MARK: - Push Notification
@@ -28,8 +28,8 @@ class AppDelegateModel {
     func registerPushToken(token: String) {
         self.pushToken = token
     
-        guard let userID = keychainHandler.getAnonymousUserName(),
-              let authToken = keychainHandler.getAnonymousAuthToken() else {
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
             return
         }
         
@@ -54,8 +54,8 @@ class AppDelegateModel {
     func registerVoipPushToken(token: String) {
         self.voipPushToken = token
 
-        guard let userID = keychainHandler.getAnonymousUserName(),
-              let authToken = keychainHandler.getAnonymousAuthToken() else {
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
             return
         }
         
@@ -71,7 +71,7 @@ class AppDelegateModel {
     
     // VoIP Pushを受信
     func receiveVoipPushToken() {
-        if let url = URL(string: RESOURCE_ENDPOINT + filePath) {
+        if let url = URL(string: voiceFileURL) {
             let playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
             player.play()

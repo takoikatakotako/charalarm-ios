@@ -32,26 +32,7 @@ struct Chara: Identifiable, Hashable, Equatable {
     let resources: [CharaResource]
     let expressions: [String: CharaExpression]
     let calls: [CharaCall]
-    
-    //    let charaId: Int
-    //    let charaDomain: String
-    //    let name: String
-    //    let description: String
-    //    let illustrationName: String
-    //    let illustrationUrl: String
-    //    let voiceName: String
-    //    let voiceUrl: String
-    //    let additionalProfileBeans: [CharaAdditionalProfileBean]
-    //    let charaCallResponseEntities: [CharaCallResponseEntity]
-    //    var charaThumbnailUrlString: String {
-    //        return Self.charaDomainToThmbnailUrlString(charaDomain: charaDomain)
-    //    }
-    //
-    //    static func charaDomainToThmbnailUrlString(charaDomain: String) -> String {
-    //        return "\(String(describing: RESOURCE_ENDPOINT))/\(charaDomain)/image/thumbnail.png"
-    //    }
 }
-
 
 struct CharaProfile: Hashable, Equatable {
     let title: String
@@ -72,4 +53,3 @@ struct CharaCall: Hashable, Equatable {
     let message: String
     let voice: String
 }
-
