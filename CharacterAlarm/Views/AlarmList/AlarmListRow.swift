@@ -124,7 +124,7 @@ struct MockAlarmListRowDelegate: AlarmListRowDelegate {
 struct AlarmListRow_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         let alarm: Alarm
-        init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30, dayOfWeeks: [DayOfWeek] = DayOfWeek.allCases) {
+        init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30) {
             self.alarm = Alarm(
                 alarmID: UUID(),
                 type: .IOS_VOIP_PUSH_NOTIFICATION,
