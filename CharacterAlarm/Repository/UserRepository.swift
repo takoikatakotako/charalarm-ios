@@ -9,13 +9,17 @@ class UserRepository {
         let userInfoResponse = try await APIClient<UserInfoResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
         
         // 変換
-        let iosVoIPPushTokens = UserInfoPushToken(token: userInfoResponse.iosVoIPPushTokens.token, snsEndpointArn: userInfoResponse.iosVoIPPushTokens.snsEndpointArn)
-        let iosPushTokens = UserInfoPushToken(token: userInfoResponse.iosPushTokens.token, snsEndpointArn: userInfoResponse.iosPushTokens.snsEndpointArn)
+        let iOSPlatformInfo = UserInfoIOSPlatformInfo (
+            pushToken: userInfoResponse.iOSPlatformInfo.pushToken,
+            pushTokenSNSEndpoint: userInfoResponse.iOSPlatformInfo.pushTokenSNSEndpoint,
+            voIPPushToken: userInfoResponse.iOSPlatformInfo.voIPPushToken,
+            voIPPushTokenSNSEndpoint: userInfoResponse.iOSPlatformInfo.voIPPushTokenSNSEndpoint
+        )
         return UserInfo(
             userID: userInfoResponse.userID,
             authToken: userInfoResponse.authToken,
-            iosVoIPPushTokens: iosVoIPPushTokens,
-            iosPushTokens: iosPushTokens)
+            platform: userInfoResponse.platform,
+            iOSPlatformInfo: iOSPlatformInfo)
     }
 
     func signup(request: UserSignUpRequest) async throws {

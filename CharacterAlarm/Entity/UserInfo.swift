@@ -6,11 +6,13 @@ struct UserInfo: Identifiable, Hashable {
     }
     let userID: UUID
     let authToken: String
-    let iosVoIPPushTokens: UserInfoPushToken
-    let iosPushTokens: UserInfoPushToken
+    let platform: String
+    let iOSPlatformInfo: UserInfoIOSPlatformInfo
 }
 
-struct UserInfoPushToken: Hashable {
-    let token: String
-    let snsEndpointArn: String
+struct UserInfoIOSPlatformInfo: Hashable {
+    let pushToken: String
+    let pushTokenSNSEndpoint: String
+    let voIPPushToken: String
+    let voIPPushTokenSNSEndpoint: String
 }

@@ -25,14 +25,14 @@ struct UserInfoView: View {
                 .font(Font.body.bold())
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             
-            Text(viewState.userInfo?.iosPushTokens.snsEndpointArn ?? "Loading")
+            Text(viewState.userInfo?.iOSPlatformInfo.pushTokenSNSEndpoint ?? "Loading")
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             
             Text("VoIPPushTokenEndpoint")
                 .font(Font.body.bold())
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             
-            Text(viewState.userInfo?.iosVoIPPushTokens.snsEndpointArn ?? "Loading")
+            Text(viewState.userInfo?.iOSPlatformInfo.voIPPushTokenSNSEndpoint ?? "Loading")
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
 
             Spacer()

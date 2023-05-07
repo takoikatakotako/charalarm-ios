@@ -7,20 +7,22 @@ class UserInfoViewState: ObservableObject {
     @Published var userInfo: UserInfo?
     
     private let userRepository = UserRepository()
+    private let keychainRepository = KeychainRepository()
+    
     func fetchUserInfo() {
         Task { @MainActor in
-            guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-                  let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-                self.alertMessage = "不明なエラーです"
-                self.showingAlert = true
+            guard let userID = keychainRepository.getUserID(),
+                  let authToken = keychainRepository.getAuthToken() else {
+                alertMessage = "不明なエラーです"
+                showingAlert = true
                 return
             }
             
             do {
                 userInfo = try await userRepository.info(userID: userID, authToken: authToken)
             } catch {
-                self.alertMessage = "不明なエラーです"
-                self.showingAlert = true
+                alertMessage = "不明なエラーです"
+                showingAlert = true
             }
         }
     }
