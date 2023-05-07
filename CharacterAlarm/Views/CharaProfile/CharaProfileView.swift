@@ -2,9 +2,9 @@ import SwiftUI
 import StoreKit
 import SDWebImageSwiftUI
 
-struct ProfileView: View {
+struct CharaProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @StateObject var viewState: ProfileViewState
+    @StateObject var viewState: CharaProfileViewState
     
     var body: some View {
         GeometryReader { geometory in
@@ -21,12 +21,12 @@ struct ProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
                     
-                    ProfileRow(title: R.string.localizable.profileName(), text: viewState.character?.name ?? "", urlString: "")
-                    ProfileRow(title: R.string.localizable.profileProfile(), text: viewState.character?.description ?? "", urlString: "")
+                    CharaProfileRow(title: R.string.localizable.profileName(), text: viewState.character?.name ?? "", urlString: "")
+                    CharaProfileRow(title: R.string.localizable.profileProfile(), text: viewState.character?.description ?? "", urlString: "")
                     
                     if let profiles = viewState.character?.profiles {
                         ForEach(profiles, id: \.hashValue) { profile in
-                            ProfileRow(title: profile.title, text: profile.name, urlString: profile.url)
+                            CharaProfileRow(title: profile.title, text: profile.name, urlString: profile.url)
                         }
                     }
                     
@@ -160,7 +160,7 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         var body: some View {
-            ProfileView(viewState: ProfileViewState(charaID: "com.example.xxx"))
+            CharaProfileView(viewState: CharaProfileViewState(charaID: "com.example.xxx"))
         }
     }
     

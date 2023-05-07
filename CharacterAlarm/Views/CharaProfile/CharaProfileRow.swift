@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ProfileRow: View {
+struct CharaProfileRow: View {
     let title: String
     let text: String
     let urlString: String
@@ -42,10 +42,10 @@ struct ProfileRow: View {
 struct ProfileRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ProfileRow(title: "名前", text: "井上結衣", urlString: "https://swiswiswift.com/")
+            CharaProfileRow(title: "名前", text: "井上結衣", urlString: "https://swiswiswift.com/")
                 .previewLayout(.sizeThatFits)
             
-            ProfileRow(title: "プロフィール", text: "長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。", urlString: "")
+            CharaProfileRow(title: "プロフィール", text: "長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。", urlString: "")
                 .previewLayout(.sizeThatFits)
         }
     }

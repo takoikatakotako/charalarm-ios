@@ -3,7 +3,7 @@ import CallKit
 import SwiftUI
 import Combine
 
-class ProfileViewState: ObservableObject {
+class CharaProfileViewState: ObservableObject {
     let charaID: String
     @Published var character: Chara?
     @Published var showCallView: Bool = false
@@ -18,7 +18,7 @@ class ProfileViewState: ObservableObject {
     
     private var numberOfResource: Int = 0
     private var numberOfDownloadedReosurce: Int = 0
-    let charaRepository: CharaRepository = CharaRepository()
+    private let charaRepository: CharaRepository = CharaRepository()
     
     
     enum ResourceType: String {
