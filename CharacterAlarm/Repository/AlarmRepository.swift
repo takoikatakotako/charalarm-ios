@@ -17,11 +17,11 @@ class AlarmRepository {
         _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 
-    func editAlarm(userID: String, authToken: String, requestBody: Alarm) async throws {
-        let path = "/api/alarm/edit"
+    func editAlarm(userID: String, authToken: String, requestBody: AlarmEditRequest) async throws {
+        let path = "/alarm/edit"
         let url = URL(string: API_ENDPOINT + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
-        let requestBody: Request? = nil
+        let requestBody: Request? = requestBody
         _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     

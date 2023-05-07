@@ -68,32 +68,28 @@ class AlarmListViewState: ObservableObject {
     }
     
     func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
-//        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-//              let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
-//            alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
-//            return
-//        }
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
+            alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
+            return
+        }
         
-//        guard let index = alarms.firstIndex(where: { $0.alarmID == alarmId }) else {
-//            return
-//        }
-//
-//        alarms[index].enable = isEnable
-//        let alarm = alarms[index]
-//        alarmRepository.editAlarm(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, alarm: alarm) { result in
-//            switch result {
-//            case .success(_):
-//                break
-//            case .failure:
-//                self.alert = .error(UUID(), R.string.localizable.alarmFailedToEditTheAlarm())
-//            }
-//        }
+        guard let index = alarms.firstIndex(where: { $0.alarmID == alarmId }) else {
+            return
+        }
+
+        alarms[index].enable = isEnable
+        let alarm = alarms[index]
+        Task { @MainActor in
+            do {
+                let requestBody = AlarmEditRequest(alarm: alarm.toAlarmRequest(userID: UUID(uuidString: userID)!))
+                try await alarmRepository.editAlarm(userID:userID, authToken: authToken, requestBody: requestBody)
+            } catch {
+                alert = .error(UUID(), R.string.localizable.alarmFailedToEditTheAlarm())
+            }
+        }
     }
-//    
-//    func createAlarm() {
-//        sheet = .alarmDetailForCreate
-//    }
-//    
+    
     func editAlarm(alarm: Alarm) {
         sheet = .alarmDetailForEdit(alarm)
     }

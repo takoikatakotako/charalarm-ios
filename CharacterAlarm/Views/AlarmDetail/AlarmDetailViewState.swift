@@ -67,32 +67,15 @@ class AlarmDetailViewState: ObservableObject {
         }
     }
     
-    func createAlarm() {
-        guard let userID = keychainRepository.getUserID(),
-              let authToken = keychainRepository.getAuthToken() else {
-            alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
-            showingAlert = true
-            return
-        }
-        Task { @MainActor in
-            showingIndicator = true
-            do {
-                let alarmRequest = alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
-                let alarmAddRequest = AlarmAddRequest(alarm: alarmRequest)
-                try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
-                dismissSubject.send()
-                showingIndicator = false
-            } catch {
-                alertMessage = "xxxx"
-                showingAlert = true
-            }
+    func createOrEditAlarm() {
+        switch type {
+        case .create:
+            createAlarm()
+        case .edit:
+            editAlarm()
         }
     }
-    
-    func editAlarm() {
-        // TODO: ここでアラーム更新
-    }
-    
+
     func deleteAlarm() {
         guard let userID = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
               let authToken = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
@@ -115,7 +98,6 @@ class AlarmDetailViewState: ObservableObject {
     }
 
     func setRandomChara() {
-        // alarm.charaID = nil
         selectedChara = nil
         selectedCharaCall = nil
     }
@@ -144,5 +126,49 @@ class AlarmDetailViewState: ObservableObject {
 
     func timeDirrerenceTapped() {
         sheet = .timeDeffarenceList
+    }
+    
+    private func createAlarm() {
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
+            alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+            showingAlert = true
+            return
+        }
+        Task { @MainActor in
+            showingIndicator = true
+            do {
+                let alarmRequest = alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
+                let alarmAddRequest = AlarmAddRequest(alarm: alarmRequest)
+                try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
+                dismissSubject.send()
+                showingIndicator = false
+            } catch {
+                alertMessage = "xxxx"
+                showingAlert = true
+            }
+        }
+    }
+    
+    private func editAlarm() {
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
+            alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
+            showingAlert = true
+            return
+        }
+        Task { @MainActor in
+            showingIndicator = true
+            do {
+                let alarmRequest = alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
+                let alarmEditRequest = AlarmEditRequest(alarm: alarmRequest)
+                try await alarmRepository.editAlarm(userID: userID, authToken: authToken, requestBody: alarmEditRequest)
+                dismissSubject.send()
+                showingIndicator = false
+            } catch {
+                alertMessage = "xxxx"
+                showingAlert = true
+            }
+        }
     }
 }
