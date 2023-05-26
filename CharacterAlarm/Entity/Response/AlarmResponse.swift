@@ -11,7 +11,7 @@ struct AlarmResponse: Response {
     let timeDifference: Decimal
     let charaID: String
     let charaName: String
-    let voiceFileName: String
+    let voiceFileUrl: String
     let sunday: Bool
     let monday: Bool
     let tuesday: Bool
@@ -33,7 +33,7 @@ extension AlarmResponse {
             timeDifference: timeDifference,
             charaName: charaName,
             charaID: charaID,
-            voiceFileName: voiceFileName,
+            voiceFileUrl: voiceFileUrl,
             sunday: sunday,
             monday: monday,
             tuesday: tuesday,

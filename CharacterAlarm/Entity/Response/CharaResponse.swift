@@ -28,5 +28,6 @@ struct CharaExpressionResponse: Response {
 
 struct CharaCallResponse: Response {
     let message: String
+    let voiceFileName: String
     let voiceFileURL: String
 }

@@ -135,7 +135,7 @@ struct AlarmListRow_Previews: PreviewProvider {
                 timeDifference: 0,
                 charaName: "xxxx",
                 charaID: "xxxx",
-                voiceFileName: "ssssss",
+                voiceFileUrl: "ssssss",
                 sunday: true,
                 monday: true,
                 tuesday: true,

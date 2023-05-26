@@ -37,7 +37,7 @@ class AlarmListViewState: ObservableObject {
             timeDifference: timeDifference,
             charaName: "",
             charaID: "",
-            voiceFileName: "",
+            voiceFileUrl: "",
             sunday: true,
             monday: true,
             tuesday: true,
