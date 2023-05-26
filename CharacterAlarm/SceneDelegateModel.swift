@@ -3,25 +3,25 @@ import AVKit
 
 class SceneDelegateModel {
     private let fileHandler: FileHandlerProtcol
-    private let userDefaultsHandler: UserDefaultsHandlerProtocol
-    private let keychainHandler: KeychainHandlerProtcol
-
+    private let userDefaultsRepository: UserDefaultsRepositoryProtocol
+    private let keychainRepository: KeychainRepositoryProtcol
+    
     init(
         fileHandler: FileHandlerProtcol = FileHandler(),
-        userDefaultsHandler: UserDefaultsHandlerProtocol = UserDefaultsHandler(),
-        keychainHandler: KeychainHandlerProtcol = KeychainHandler()
+        userDefaultsRepository: UserDefaultsRepositoryProtocol = UserDefaultsRepository(),
+        keychainRepository: KeychainRepositoryProtcol = KeychainRepository()
     ) {
         self.fileHandler = fileHandler
-        self.userDefaultsHandler = userDefaultsHandler
-        self.keychainHandler = keychainHandler
+        self.userDefaultsRepository = userDefaultsRepository
+        self.keychainRepository = keychainRepository
     }
     
     func registerDefaults() {
-        userDefaultsHandler.registerDefaults(defaults: [CHARA_DOMAIN : DEFAULT_CHARA_DOMAIN, CHARA_NAME: DEFAULT_CHARA_NAME])
+        userDefaultsRepository.registerDefaults(defaults: [CHARA_DOMAIN : DEFAULT_CHARA_DOMAIN, CHARA_NAME: DEFAULT_CHARA_NAME])
     }
     
     func loadData() {
-        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain()  else {
+        guard let charaDomain = userDefaultsRepository.getCharaDomain()  else {
             fatalError("キャラクターのドメインの取得に失敗しました")
         }
         if let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),
@@ -40,11 +40,11 @@ class SceneDelegateModel {
     
     func getIsDoneTutorial() -> Bool {
         // ユーザー名とパスワードを取得
-        let anonymousUserName = keychainHandler.getAnonymousUserName()
-        let anonymousUserPassword = keychainHandler.getAnonymousAuthToken()
+        let userID = keychainRepository.getUserID()
+        let authToken = keychainRepository.getAuthToken()
         
         // 匿名ユーザー名、パスワードが登録されていればチュートリアル完了
-        return anonymousUserName != nil && anonymousUserPassword != nil
+        return userID != nil && authToken != nil
     }
     
     func getAppVersion() -> String {

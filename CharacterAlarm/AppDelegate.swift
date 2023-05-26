@@ -7,12 +7,9 @@ import CallKit
 import AVKit
 import GoogleMobileAds
 
-
-// This method should not be called on the main thread as it may lead to UI unresponsiveness.
-// このエラーはADMobに起因するためスルーで大丈夫
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let model = AppDelegateModel(pushRepository: PushRepository(), keychainHandler: KeychainHandler())
+    let model = AppDelegateModel(pushRepository: PushRepository(), keychainRepository: KeychainRepository())
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs.
@@ -86,7 +83,7 @@ extension AppDelegate {
     
     // プッシュ通知の利用登録が失敗した場合
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        model.failToRregisterVoipPushToken(error: error)
+        model.failToRregisterPushToken(error: error)
     }
 }
 
@@ -106,9 +103,9 @@ extension AppDelegate: PKPushRegistryDelegate {
            let data = alert.data(using: .utf8),
            let dataDictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
            let charaNeme = dataDictionary["charaName"],
-           let filePath = dataDictionary["filePath"] {
+           let voiceFileURL = dataDictionary["voiceFileURL"] {
             model.setCharaName(charaName: charaNeme)
-            model.setFilePath(filePath: filePath)
+            model.setVoiceFileURL(voiceFileURL: voiceFileURL)
         }
         
         // 通話画面を表示
@@ -131,7 +128,7 @@ extension AppDelegate: CXProviderDelegate {
     }
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
-        model.receiveVoipPushToken()
+        model.receiveVoipPush()
     }
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {

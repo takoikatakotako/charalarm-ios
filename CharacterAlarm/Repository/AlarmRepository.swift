@@ -1,74 +1,35 @@
 import UIKit
 
 class AlarmRepository {
-    func fetchAnonymousAlarms(anonymousUserName: String, anonymousUserPassword: String, completion: @escaping (Result<[Alarm], Error>) -> Void) {
-        let path = "/api/alarm/list"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
-        let apiClient = APIClient<JsonResponseBean<[Alarm]>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    completion(.success(response.data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
+    func fetchAlarms(userID: String, authToken: String) async throws -> [AlarmResponse] {
+        let path = "/alarm/list"
+        let url = URL(string: API_ENDPOINT + path)!
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
+        let requestBody: Request? = nil
+        return try await APIClient<[AlarmResponse]>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     
-    func addAlarm(anonymousUserName: String, anonymousUserPassword: String, alarm: Alarm, completion: @escaping (Result<String, Error>) -> Void) {
-        let path = "/api/alarm/add"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: alarm)
-        let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    return completion(.success(response.data))
-                case let .failure(error):
-                    return completion(.failure(error))
-                }
-            }
-        }
+    func addAlarm(userID: String, authToken: String, requestBody: AlarmAddRequest) async throws {
+        let path = "/alarm/add"
+        let url = URL(string: API_ENDPOINT + path)!
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
+        let requestBody: Request? = requestBody
+        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 
-    func editAlarm(anonymousUserName: String, anonymousUserPassword: String, alarm: Alarm, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let alarmId = alarm.alarmId else {
-            return
-        }
-        let path = "/api/alarm/edit/\(alarmId)"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader, requestBody: alarm)
-        let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    return completion(.success(response.data))
-                case let .failure(error):
-                    return completion(.failure(error))
-                }
-            }
-        }
+    func editAlarm(userID: String, authToken: String, requestBody: AlarmEditRequest) async throws {
+        let path = "/alarm/edit"
+        let url = URL(string: API_ENDPOINT + path)!
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
+        let requestBody: Request? = requestBody
+        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     
-    func deleteAlarm(anonymousUserName: String, anonymousUserPassword: String, alarmId: Int, completion: @escaping (Result<String, Error>) -> Void) {
-        let path = "/api/alarm/delete/\(alarmId)"
-        let requestHeader = APIHeader.createAuthorizationRequestHeader(userName: anonymousUserName, token: anonymousUserPassword)
-        let urlRequest = APIRequest.createUrlRequest(path: path, httpMethod: .post, requestHeader: requestHeader)
-        let apiClient = APIClient<JsonResponseBean<String>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    completion(.success(response.data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
+    func deleteAlarm(userID: String, authToken: String, requestBody: AlarmDeleteRequest) async throws {
+        let path = "/alarm/delete"
+        let url = URL(string: API_ENDPOINT + path)!
+        let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
+        let requestBody: Request? = requestBody
+        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }

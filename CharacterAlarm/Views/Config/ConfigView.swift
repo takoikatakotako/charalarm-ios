@@ -5,14 +5,13 @@ struct ConfigView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
-    @State private var showingResetAlert = false
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
                 List {
                     Section(header: Text(R.string.localizable.configUserInfo())) {
-                        NavigationLink(destination: UserInfoView()) {
+                        NavigationLink(destination: UserInfoView(viewState: UserInfoViewState())) {
                             Text(R.string.localizable.configUserInfo())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
@@ -62,21 +61,24 @@ struct ConfigView: View {
                     
                     Section(header: Text(R.string.localizable.configReset())) {
                         Button(action: {
-                            showingResetAlert = true
+                            viewModel.resetButtonTapped()
                         }) {
                             Text(R.string.localizable.configReset())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        .alert(isPresented: $showingResetAlert) {
+                        .alert(isPresented: $viewModel.showingResetAlert) {
                             Alert(
                                 title: Text(R.string.localizable.configReset()),
                                 message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),
                                 primaryButton: .default(Text(R.string.localizable.commonCancel())) {
                                     print("リセットをキャンセルしました。")
                                 }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
-                                    viewModel.withdraw() {
-                                        DispatchQueue.main.async {
+                                    Task {
+                                        do {
+                                            try await viewModel.withdraw()
                                             appState.doneTutorial = false
+                                        } catch {
+                                            
                                         }
                                     }
                                 })

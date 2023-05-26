@@ -4,7 +4,8 @@ import GoogleMobileAds
 struct AlarmListView: View {
     @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject(initialValue: AlarmListViewModel()) var viewModel: AlarmListViewModel
+    
+    @StateObject var viewState: AlarmListViewState = AlarmListViewState()
 
     var body: some View {
         NavigationView {
@@ -12,9 +13,9 @@ struct AlarmListView: View {
                 ZStack(alignment: .center) {
                     ScrollView {
                         LazyVStack(spacing: 0) {
-                            ForEach(viewModel.alarms) { alarm in
+                            ForEach(viewState.alarms) { alarm in
                                 Button(action: {
-                                    viewModel.editAlarm(alarm: alarm)
+                                    viewState.editAlarm(alarm: alarm)
                                 }){
                                     AlarmListRow(delegate: self, alarm: alarm)
                                 }
@@ -22,7 +23,7 @@ struct AlarmListView: View {
                         }
                     }
                     
-                    if viewModel.showingIndicator {
+                    if viewState.showingIndicator {
                         CharalarmActivityIndicator()
                     }
                 }
@@ -30,9 +31,9 @@ struct AlarmListView: View {
                 AdmobBannerView(adUnitID: ADMOB_ALARM_LIST_UNIT_ID)
             }
             .onAppear {
-                viewModel.fetchAlarms()
+                viewState.fetchAlarms()
             }
-            .alert(item: $viewModel.alert) { item in
+            .alert(item: $viewState.alert) { item in
                 switch item {
                 case .ad:
                     return Alert(title: Text(""), message: Text("動画見てください！"), primaryButton: .default(Text("aaa"), action: {
@@ -42,12 +43,14 @@ struct AlarmListView: View {
                     return Alert(title: Text(""), message: Text(message), dismissButton: .default(Text(R.string.localizable.commonClose())))
                 }
             }
-            .sheet(item: $viewModel.sheet, onDismiss: {
-                viewModel.fetchAlarms()
-            }, content: { item in
+            .sheet(item: $viewState.sheet, onDismiss: {
+                viewState.fetchAlarms()
+            }, content: { (item: AlarmListViewSheetItem) in
                 switch item {
-                case let .alarmDetail(alarm):
-                    AlarmDetailView(alarm: alarm)
+                case .alarmDetailForCreate:
+                    AlarmDetailView(viewState: AlarmDetailViewState(alarm: viewState.createNewAlarm(), type: .create))
+                case let .alarmDetailForEdit(alarm):
+                    AlarmDetailView(viewState: AlarmDetailViewState(alarm: alarm, type: .edit))
                 }
             })
             .navigationBarBackButtonHidden(true)
@@ -58,7 +61,7 @@ struct AlarmListView: View {
                 },
                 trailing:
                     Button(action: {
-                        viewModel.addAlarmButtonTapped()
+                        viewState.addAlarmButtonTapped()
                     }) {
                         Image(R.image.alarmAddIcon.name)
                             .renderingMode(.template)
@@ -70,8 +73,8 @@ struct AlarmListView: View {
 }
 
 extension AlarmListView: AlarmListRowDelegate {
-    func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
-        viewModel.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
+    func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
+        viewState.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }
 

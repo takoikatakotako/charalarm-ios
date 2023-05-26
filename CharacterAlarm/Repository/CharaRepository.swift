@@ -1,51 +1,21 @@
 import UIKit
 
 class CharaRepository {
-    func fetchCharacters(completion: @escaping (Result<[Character], Error>) -> Void) {
-        let path = "/api/chara/list"
-        let urlRequest = APIRequest.createUrlRequest(path: path)
-        let apiClient = APIClient<JsonResponseBean<[Character]>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    completion(.success(response.data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
+    func fetchCharacters() async throws -> [Chara] {
+        let path = "/chara/list"
+        let url = URL(string: API_ENDPOINT + path)!
+        let requestHeader: [String: String] = APIHeader.defaultHeader
+        let requestBody: Encodable? = nil
+        let charaResponses = try await APIClient<[CharaResponse]>().request2(url: url, httpMethod: .get, requestHeader: requestHeader, requestBody: requestBody)        
+        return charaResponses.map { Chara(charaResponse: $0) }
     }
     
-    func fetchCharacter(charaId: Int, completion: @escaping (Result<Character, Error>) -> Void) {
-        let path = "/api/chara/\(charaId)"
-        let urlRequest = APIRequest.createUrlRequest(path: path)
-        let apiClient = APIClient<JsonResponseBean<Character>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    completion(.success(response.data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-    
-    func fetchCharacter(charaDomain: String, completion: @escaping (Result<Character, Error>) -> Void) {
-        let path = "/api/chara/domain/\(charaDomain)"
-        let urlRequest = APIRequest.createUrlRequest(path: path)
-        let apiClient = APIClient<JsonResponseBean<Character>>()
-        apiClient.request(urlRequest: urlRequest) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    completion(.success(response.data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
+    func fetchCharacter(charaID: String) async throws -> Chara {
+        let path = "/chara/id/\(charaID)"
+        let url = URL(string: API_ENDPOINT + path)!
+        let requestHeader: [String: String] = APIHeader.defaultHeader
+        let requestBody: Encodable? = nil
+        let charaResponse = try await APIClient<CharaResponse>().request2(url: url, httpMethod: .get, requestHeader: requestHeader, requestBody: requestBody)
+        return Chara(charaResponse: charaResponse)
     }
 }

@@ -1,24 +1,24 @@
 import SwiftUI
 
 protocol AlarmListRowDelegate {
-    func updateAlarmEnable(alarmId: Int, isEnable: Bool)
+    func updateAlarmEnable(alarmId: UUID, isEnable: Bool)
 }
 
 class AlarmListRowModel: ObservableObject {
-    let alarmId: Int?
+    let alarmID: UUID?
     let delegate: AlarmListRowDelegate?
     @Published var enable: Bool {
         didSet {
-            guard let alarmId = alarmId else {
+            guard let alarmId = alarmID else {
                 return
             }
             self.delegate?.updateAlarmEnable(alarmId: alarmId, isEnable: enable)
         }
     }
     
-    init (alarmId: Int?, enable: Bool, delegate: AlarmListRowDelegate) {
+    init (alarmID: UUID, enable: Bool, delegate: AlarmListRowDelegate) {
         self.enable = enable
-        self.alarmId = alarmId
+        self.alarmID = alarmID
         self.delegate = delegate
     }
 }
@@ -29,7 +29,7 @@ struct AlarmListRow: View {
     
     init(delegate: AlarmListRowDelegate, alarm: Alarm) {
         self.alarm = alarm
-        self.alarmListModel = AlarmListRowModel(alarmId: alarm.alarmId, enable: alarm.enable, delegate: delegate)
+        self.alarmListModel = AlarmListRowModel(alarmID: alarm.alarmID, enable: alarm.enable, delegate: delegate)
     }
     
     var backgroundColor: Color {
@@ -38,6 +38,18 @@ struct AlarmListRow: View {
     
     var toggleThumbColor: Color {
         return alarm.enable ? Color(R.color.alarmCardBackgroundGreen.name) : Color(R.color.charalarmDefaultGray.name)
+    }
+    
+    var dayOfWeeksString: String {
+        var text = ""
+        text += alarm.sunday ? "\(R.string.localizable.dayOfWeekSunday()) " : ""
+        text += alarm.monday ? "\(R.string.localizable.dayOfWeekMonday()) " : ""
+        text += alarm.tuesday ? "\(R.string.localizable.dayOfWeekTuesday()) " : ""
+        text += alarm.wednesday ? "\(R.string.localizable.dayOfWeekWednesday()) " : ""
+        text += alarm.thursday ? "\(R.string.localizable.dayOfWeekThursday()) " : ""
+        text += alarm.friday ? "\(R.string.localizable.dayOfWeekFriday()) " : ""
+        text += alarm.saturday ? "\(R.string.localizable.dayOfWeekSaturday()) " : ""
+        return text
     }
     
     var body: some View {
@@ -50,7 +62,7 @@ struct AlarmListRow: View {
 
                 Text("\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))")
                     .font(Font.system(size: 36).bold())
-                Text(alarm.dayOfWeeksString)
+                Text(dayOfWeeksString)
                     .font(Font.system(size: 20))
             }
             .fixedSize(horizontal: true, vertical: false)
@@ -104,7 +116,7 @@ struct ColoredToggleStyle: ToggleStyle {
 }
 
 struct MockAlarmListRowDelegate: AlarmListRowDelegate {
-    func updateAlarmEnable(alarmId: Int, isEnable: Bool) {
+    func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
         
     }
 }
@@ -112,8 +124,26 @@ struct MockAlarmListRowDelegate: AlarmListRowDelegate {
 struct AlarmListRow_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         let alarm: Alarm
-        init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30, dayOfWeeks: [DayOfWeek] = DayOfWeek.allCases) {
-            self.alarm = Alarm(alarmId: 5, enable: enable, name: name, hour: hour, minute: minute, dayOfWeeks: dayOfWeeks)
+        init(enable: Bool = true, name: String = "モーニングコール", hour: Int = 9, minute: Int = 30) {
+            self.alarm = Alarm(
+                alarmID: UUID(),
+                type: .IOS_VOIP_PUSH_NOTIFICATION,
+                enable: true,
+                name: "xxxx",
+                hour: 8,
+                minute: 30,
+                timeDifference: 0,
+                charaName: "xxxx",
+                charaID: "xxxx",
+                voiceFileName: "ssssss",
+                sunday: true,
+                monday: true,
+                tuesday: true,
+                wednesday: true,
+                thursday: true,
+                friday: true,
+                saturday: true
+            )
         }
         
         var body: some View {

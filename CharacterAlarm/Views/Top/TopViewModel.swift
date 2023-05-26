@@ -28,7 +28,8 @@ class TopViewModel: ObservableObject {
     @Published var charaImage = UIImage()
     @Published var alert: TopViewModelAlert?
     @Published var sheet: TopViewModelSheet?
-    let charaRepository: CharaRepository = CharaRepository()
+    private let charaRepository: CharaRepository = CharaRepository()
+    private let userDefaultsRepository: UserDefaultsRepository = UserDefaultsRepository()
 
     var audioPlayer: AVAudioPlayer?
 
@@ -62,7 +63,7 @@ class TopViewModel: ObservableObject {
     }
     
     func tapped() {
-        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
+        guard let charaDomain = userDefaultsRepository.getCharaDomain() else {
             DispatchQueue.main.async {
                 self.alert = .failedToGetCharacterSelectionInformation
             }
@@ -84,19 +85,22 @@ class TopViewModel: ObservableObject {
         playCharaVoice(charaDomain: charaDomain, resource: resource, key: key)
     }
     
-    func featchCharacter(charaDomain: String, completion: @escaping (Character) -> Void) {
-        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
-            switch result {
-            case let .success(character):
-                completion(character)
-            case .failure:
-                self.alert = .failedToGetCharacterInformation
-            }
-        }
-    }
+//    func featchCharacter(charaDomain: String) async throws -> Character {
+//        Task {
+//            let
+//        }
+//        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
+//            switch result {
+//            case let .success(character):
+//                completion(character)
+//            case .failure:
+//                self.alert = .failedToGetCharacterInformation
+//            }
+//        }
+//    }
     
     func setChara() {
-        guard let charaDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
+        guard let charaDomain = userDefaultsRepository.getCharaDomain() else {
             DispatchQueue.main.async {
                 self.alert = .failedToGetCharacterSelectionInformation
             }

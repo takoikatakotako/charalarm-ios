@@ -2,18 +2,22 @@ import UIKit
 import SwiftUI
 
 class ConfigViewModel: ObservableObject {
-    @Published var character: Character?
+    @Published var character: Chara?
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    let charaRepository: CharaRepository = CharaRepository()
-    let userRepository: UserRepository = UserRepository()
+    @Published var showingResetAlert = false
+
+    private let charaRepository: CharaRepository = CharaRepository()
+    private let userRepository: UserRepository = UserRepository()
+    private let keychainRepository: KeychainRepository = KeychainRepository()
+    private let userDefaultsRepository = UserDefaultsRepository()
     
     var versionString: String {
         return getVersion()
     }
     
     var charaDomain: String {
-        guard let characterDomain = charalarmEnvironment.userDefaultsHandler.getCharaDomain() else {
+        guard let characterDomain = userDefaultsRepository.getCharaDomain() else {
             fatalError("CHARA_DOMAIN が取得できませんでした")
         }
         return characterDomain
@@ -27,41 +31,42 @@ class ConfigViewModel: ObservableObject {
     }
     
     func fetchCharacter() {
-        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
-            switch result {
-            case let .success(character):
-                print(character)
-                self.character = character
-            case .failure:
-                self.alertMessage = "キャラクター情報の取得に失敗しました。"
-                self.showingAlert = true
-            }
-        }
+//        Task { @MainActor in
+//            do {
+//                // let chara = try await charaRepository.fetchCharacter(charaID: charaDomain)
+//                self.character = character
+//            } catch {
+//                self.alertMessage = "キャラクター情報の取得に失敗しました。"
+//                self.showingAlert = true
+//            }
+//        }
     }
     
-    func withdraw(completion: @escaping () -> Void) {
-        guard let anonymousUserName = charalarmEnvironment.keychainHandler.getAnonymousUserName(),
-            let anonymousUserPassword = charalarmEnvironment.keychainHandler.getAnonymousAuthToken() else {
+    func withdraw() async throws {
+        guard let userID = keychainRepository.getUserID(),
+            let authToken = keychainRepository.getAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
                 self.showingAlert = true
                 return
         }
         
-        userRepository.withdraw(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword){ _ in
-            do {
-                try charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
-                try charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
-                completion()
-            } catch {
-                try! charalarmEnvironment.keychainHandler.setAnonymousUserName(anonymousUserName: "")
-                try! charalarmEnvironment.keychainHandler.setAnonymousUserPassword(anonymousUserPassword: "")
-                charalarmEnvironment.userDefaultsHandler.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                charalarmEnvironment.userDefaultsHandler.setCharaName(charaName: DEFAULT_CHARA_NAME)
-                fatalError("Fource Reset")
-            }
+        do {
+            try await userRepository.withdraw(userID: userID, authToken: authToken)
+            try keychainRepository.setUserID(userID: nil)
+            try keychainRepository.setAuthToken(authToken: nil)
+            userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+            userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
+        } catch {
+            try! keychainRepository.setUserID(userID: nil)
+            try! keychainRepository.setAuthToken(authToken: nil)
+            userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+            userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
+            fatalError("Fource Reset")
         }
+    }
+    
+    func resetButtonTapped() {
+        showingResetAlert = true
     }
         
     private func getVersion() -> String {

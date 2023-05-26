@@ -3,7 +3,7 @@ import UIKit
 import SDWebImageSwiftUI
 
 struct CharacterListRow: View {
-    let character: Character
+    let character: Chara
     var body: some View {
         HStack {
             WebImage(url: URL(string: character.charaThumbnailUrlString))
@@ -20,13 +20,13 @@ struct CharacterListRow: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(character.name)
                     .font(Font.system(size: 18.0))
-                Text("\(R.string.localizable.characterIllustration()): \(character.illustrationName)")
-                    .font(Font.system(size: 16.0))
                 
-                Text("\(R.string.localizable.characterVoice()): \(character.voiceName)")
-                    .font(Font.system(size: 16.0))
+                ForEach(character.profiles.prefix(2), id: \.hashValue) { profile in
+                    Text("\(profile.title): \(profile.name)")
+                                       .font(Font.system(size: 16.0))
+                }
             }
-            
+              
             Spacer()
         }
     }

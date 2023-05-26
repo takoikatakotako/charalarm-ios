@@ -3,45 +3,48 @@ import AVKit
 
 class AppDelegateModel {
     private(set) var charaName: String = ""
-    private(set) var filePath: String = ""
+    private(set) var voiceFileURL: String = ""
     private var player = AVPlayer()
     private let pushRepository: PushRepository
-    private let keychainHandler: KeychainHandlerProtcol
+    private let keychainRepository: KeychainRepository
+    var pushToken: String?
+    var voipPushToken: String?
     
-    init(pushRepository: PushRepository, keychainHandler: KeychainHandlerProtcol) {
+    init(pushRepository: PushRepository, keychainRepository: KeychainRepository) {
         self.pushRepository = PushRepository()
-        self.keychainHandler = KeychainHandler()
+        self.keychainRepository = KeychainRepository()
     }
     
     func setCharaName(charaName: String) {
         self.charaName = charaName
     }
     
-    func setFilePath(filePath: String) {
-        self.filePath = filePath
+    func setVoiceFileURL(voiceFileURL: String) {
+        self.voiceFileURL = voiceFileURL
     }
     
     // MARK: - Push Notification
     // Pushトークンを登録
-    func registerPushToken(token: String) {        
-        guard let anonymousUserName = keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = keychainHandler.getAnonymousAuthToken() else {
+    func registerPushToken(token: String) {
+        self.pushToken = token
+    
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
             return
         }
         
-        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-        pushRepository.addPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-            switch result {
-            case .success:
-                break
-            case .failure:
-                break
+        Task {
+            do {
+                let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+                try await pushRepository.addPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
+            } catch {
+                print(error)
             }
         }
     }
     
-    // Pushトークンを取得できなかった場合
-    func failToRregisterVoipPushToken(error: Error) {
+    // ViIPPushトークンを取得できなかった場合
+    func failToRregisterPushToken(error: Error) {
         print("Failed to register to APNs: \(error)")
     }
     
@@ -49,25 +52,26 @@ class AppDelegateModel {
     // MARK: - Voip Push Notification
     // VoIP Pushトークンを登録
     func registerVoipPushToken(token: String) {
-        guard let anonymousUserName = keychainHandler.getAnonymousUserName(),
-              let anonymousUserPassword = keychainHandler.getAnonymousAuthToken() else {
+        self.voipPushToken = token
+
+        guard let userID = keychainRepository.getUserID(),
+              let authToken = keychainRepository.getAuthToken() else {
             return
         }
         
-        let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-        pushRepository.addVoipPushToken(anonymousUserName: anonymousUserName, anonymousUserPassword: anonymousUserPassword, pushToken: pushToken) { result in
-            switch result {
-            case .success(_):
-                break
-            case let .failure(error):
+        Task {
+            do {
+                let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+                try await pushRepository.addVoipPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
+            } catch {
                 print(error)
             }
         }
     }
     
     // VoIP Pushを受信
-    func receiveVoipPushToken() {
-        if let url = URL(string: RESOURCE_ENDPOINT + filePath) {
+    func receiveVoipPush() {
+        if let url = URL(string: voiceFileURL) {
             let playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
             player.play()
