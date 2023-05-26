@@ -55,7 +55,7 @@ class AlarmDetailViewState: ObservableObject {
                     
                     // CharaCallを設定
                     self.selectedCharaCall = chara.calls.first { charaCall in
-                        charaCall.voice.contains(alarm.voiceFileUrl)
+                        charaCall.voice.contains(alarm.voiceFileName)
                     }
                 }
             } catch {
@@ -105,7 +105,7 @@ class AlarmDetailViewState: ObservableObject {
     func setCharaAndCharaCall(chara: Chara, charaCall: CharaCall?) {
         alarm.charaID = chara.charaID
         alarm.charaName = chara.name
-        alarm.voiceFileUrl = charaCall?.voice ?? ""
+        alarm.voiceFileName = charaCall?.voice ?? ""
         selectedChara = chara
         selectedCharaCall = charaCall
     }

@@ -13,7 +13,7 @@ struct Alarm: Identifiable, Hashable {
     var timeDifference: Decimal
     var charaName: String
     var charaID: String
-    var voiceFileUrl: String
+    var voiceFileName: String
     var sunday: Bool
     var monday: Bool
     var tuesday: Bool
@@ -25,7 +25,7 @@ struct Alarm: Identifiable, Hashable {
 
 extension Alarm {
     func toAlarmRequest(userID: UUID) -> AlarmRequest {
-        let url = URL(string: voiceFileUrl)!
+        let url = URL(string: voiceFileName)!
         let fileName = url.lastPathComponent
         return AlarmRequest(
             alarmID: alarmID,
