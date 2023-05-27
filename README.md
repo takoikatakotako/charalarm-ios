@@ -22,11 +22,11 @@ App Store から
 brew update
 brew install rbenv ruby-build
 rbenv install -l
-rbenv install 2.7.1  # 最新版をインストール
+rbenv install 2.7.1  # 最新版をインストール  3.2.2
 rbenv versions  # インストール済みのバージョンを表示
 
 cd
-atom .bash_profile  # .bash_profile に記述
+code .zprofile  # .zprofile に記述
 ```
 
 ```
@@ -34,14 +34,14 @@ eval "$(rbenv init -)"
 ```
 
 ```
-rbenv global 2.7.1  # 使用バージョンを設定
+rbenv global 2.7.1  # 使用バージョンを設定  3.2.2
 ruby -v  # 切り替わっていることを確認
 ```
 
 #### Bundlerのインストール ####
 
 ```
-gem install bundler -v 2.1.4
+gem install bundler -v 2.4.13
 gem list bundler
 bundle -v
 ```
@@ -50,7 +50,7 @@ bundle -v
 
 ```
 bundle config set path vendor/bundle
-bundle _2.1.4_ install --path vendor/bundle
+bundle _2.4.13_ install --path vendor/bundle
 ```
 
 #### Mintのインストール ####
@@ -62,7 +62,7 @@ mint bootstrap
 #### セットアップ ####
 
 ```
-bundle exec pod install  # 依存パッケージのインストールとプロジェクト生成 (Pod用)
+mint run xcodegen xcodegen generate
 ```
 
 #### Podライブラリのアップデート ####
