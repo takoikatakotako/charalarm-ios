@@ -1,6 +1,6 @@
 import UIKit
 
-class AlarmRepository {
+struct AlarmRepository {
     func fetchAlarms(userID: String, authToken: String) async throws -> [AlarmResponse] {
         let path = "/alarm/list"
         let url = URL(string: API_ENDPOINT + path)!
