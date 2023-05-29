@@ -4,16 +4,16 @@ import AVKit
 class SceneDelegateModel {
     private let fileHandler: FileHandlerProtcol
     private let userDefaultsRepository: UserDefaultsRepositoryProtocol
-    private let keychainRepository: KeychainRepositoryProtcol
+    private let authUseCase: AppUseCaseProtcol
     
     init(
         fileHandler: FileHandlerProtcol = FileHandler(),
         userDefaultsRepository: UserDefaultsRepositoryProtocol = UserDefaultsRepository(),
-        keychainRepository: KeychainRepositoryProtcol = KeychainRepository()
+        authUseCase: AppUseCaseProtcol = AppUseCase()
     ) {
         self.fileHandler = fileHandler
         self.userDefaultsRepository = userDefaultsRepository
-        self.keychainRepository = keychainRepository
+        self.authUseCase = authUseCase
     }
     
     func registerDefaults() {
@@ -39,12 +39,7 @@ class SceneDelegateModel {
     }
     
     func getIsDoneTutorial() -> Bool {
-        // ユーザー名とパスワードを取得
-        let userID = keychainRepository.getUserID()
-        let authToken = keychainRepository.getAuthToken()
-        
-        // 匿名ユーザー名、パスワードが登録されていればチュートリアル完了
-        return userID != nil && authToken != nil
+        return authUseCase.isDoneTutorial
     }
     
     func getAppVersion() -> String {

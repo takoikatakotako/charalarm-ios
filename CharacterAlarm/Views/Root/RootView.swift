@@ -1,57 +1,31 @@
 import SwiftUI
-import FirebaseRemoteConfig
 
 struct RootView: View {
-    @EnvironmentObject var appState: CharalarmAppState
-    @State var remoteConfig: RemoteConfig!
-    
+    @StateObject var viewState: RootViewState
+//    @EnvironmentObject var appState: CharalarmAppState
+//    @State var remoteConfig: RemoteConfig!
+//    
     var body: some View {
         ZStack {
-            if appState.underMaintenance {
+            if viewState.type == .loading {
+                Text("Loading")
+            } else if viewState.type == .maintenance {
                 MaintenanceView()
-            } else if appState.requiredVersion > appState.appVersion {
+            } else if viewState.type == .updateRequire {
                 UpdateRequiredView()
-            } else {
-                if appState.doneTutorial {
-                    TopView()
-                        .environmentObject(appState)
-                } else {
-                    TutorialHolderView()
-                        .environmentObject(appState)
-                }
+            } else if viewState.type == .top {
+                TopView()
+            } else if viewState.type == .tutorial {
+                TutorialHolderView()
             }
         }.onAppear {
-            remoteConfig = RemoteConfig.remoteConfig()
-            let settings = RemoteConfigSettings()
-            settings.minimumFetchInterval = 0
-            remoteConfig.configSettings = settings
-            checkAppStatus()
-            
-            remoteConfig.fetch { (status, error) in
-                guard status == .success else {
-                    return
-                }
-                remoteConfig.activate() { _, _ in
-                    checkAppStatus()
-                }
-            }
-        }
-    }
-    
-    func checkAppStatus() {
-        DispatchQueue.main.async {
-            if remoteConfig["under_maintenance"].boolValue {
-                appState.underMaintenance = true
-            }
-            if let requiredVersion = remoteConfig["required_version"].stringValue, appState.requiredVersion != requiredVersion {
-                appState.requiredVersion = requiredVersion
-            }
+            viewState.onAppear()
         }
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView(viewState: RootViewState())
     }
 }

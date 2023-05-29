@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let appVersion = sceneDelegateModel.getAppVersion()
         
         // RootViewを作成
-        let rootView = RootView()
+        let rootView = RootView(viewState: RootViewState())
         let charalarmAppState = CharalarmAppState(appVersion: appVersion)
         charalarmAppState.doneTutorial = doneTutorial
         
