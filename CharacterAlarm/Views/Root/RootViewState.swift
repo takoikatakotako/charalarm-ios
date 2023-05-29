@@ -4,8 +4,7 @@ import SwiftUI
 class RootViewState: ObservableObject {
     @Published var type: RootViewType = .loading
     private let otherRepository = OtherRepository()
-    private let authUseCase = AppUseCase()
-    
+    private let appUseCase = AppUseCase()
     
     func onAppear() {
         Task { @MainActor in
@@ -13,25 +12,30 @@ class RootViewState: ObservableObject {
                 // メンテナンス中か確認
                 let isMaintenance = try await otherRepository.fetchMaintenance()
                 if isMaintenance {
-                    type = .maintenance
+                    withAnimation(.linear(duration: 1)) {
+                        type = .maintenance
+                    }
                     return
                 }
                 
                 // アップデートが必要か確認
                 let requireVersion = try await otherRepository.fetchRequireVersion()
-                guard let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
-                    return
-                }
-                if requireVersion > currentVersion {
-                    type = .updateRequire
+                if requireVersion > appUseCase.appVersion {
+                    withAnimation(.linear(duration: 1)) {
+                        type = .updateRequire
+                    }
                     return
                 }
                 
                 // チュートリアルの状態を確認
-                if authUseCase.isDoneTutorial {
-                    type = .top
+                if appUseCase.isDoneTutorial {
+                    withAnimation(.linear(duration: 1)) {
+                        type = .top
+                    }
                 } else {
-                    type = .tutorial
+                    withAnimation(.linear(duration: 1)) {
+                        type = .tutorial
+                    }
                 }
             } catch {
                 

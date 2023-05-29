@@ -104,7 +104,7 @@ struct ConfigView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
             viewModel.fetchCharacter()
         }
-        .alert(isPresented: self.$viewModel.showingAlert) {
+        .alert(isPresented: $viewModel.showingAlert) {
             Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
         }
     }

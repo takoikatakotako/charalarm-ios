@@ -11,7 +11,8 @@ class ConfigViewModel: ObservableObject {
     private let userRepository: UserRepository = UserRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
-    
+    private let appUseCase = AppUseCase()
+
     var versionString: String {
         return getVersion()
     }
@@ -70,10 +71,6 @@ class ConfigViewModel: ObservableObject {
     }
         
     private func getVersion() -> String {
-        guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
-            let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else {
-                return ""
-        }
-        return "\(version)(\(build))"
+        return "\(appUseCase.appVersion)(\(appUseCase.appBuild))"
     }
 }

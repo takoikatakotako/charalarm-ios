@@ -18,7 +18,8 @@ struct RootView: View {
             } else if viewState.type == .tutorial {
                 TutorialHolderView()
             }
-        }.onAppear {
+        }
+        .onAppear {
             viewState.onAppear()
         }
     }
