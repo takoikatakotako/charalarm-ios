@@ -20,7 +20,7 @@ struct TutorialFinallyView: View {
             Spacer()
             
             Button(action: {
-                appState.doneTutorial = true
+                NotificationCenter.default.post(name: NSNotification.doneTutorial, object: self, userInfo: nil)
             }) {
                 TutorialButtonContent(text: R.string.localizable.tutorialGoToHomeScreen())
                     .padding(.horizontal, 16)

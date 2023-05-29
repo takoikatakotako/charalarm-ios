@@ -43,7 +43,7 @@ class ConfigViewModel: ObservableObject {
 //        }
     }
     
-    func withdraw() async throws {
+    func withdraw() {
         guard let userID = keychainRepository.getUserID(),
             let authToken = keychainRepository.getAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
@@ -51,18 +51,22 @@ class ConfigViewModel: ObservableObject {
                 return
         }
         
-        do {
-            try await userRepository.withdraw(userID: userID, authToken: authToken)
-            try keychainRepository.setUserID(userID: nil)
-            try keychainRepository.setAuthToken(authToken: nil)
-            userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-            userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
-        } catch {
-            try! keychainRepository.setUserID(userID: nil)
-            try! keychainRepository.setAuthToken(authToken: nil)
-            userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-            userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
-            fatalError("Fource Reset")
+        Task { @MainActor in
+            do {
+                try await userRepository.withdraw(userID: userID, authToken: authToken)
+                try keychainRepository.setUserID(userID: nil)
+                try keychainRepository.setAuthToken(authToken: nil)
+                userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                
+                NotificationCenter.default.post(name: NSNotification.didReset, object: self, userInfo: nil)
+            } catch {
+                try! keychainRepository.setUserID(userID: nil)
+                try! keychainRepository.setAuthToken(authToken: nil)
+                userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
+                userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                fatalError("Fource Reset")
+            }
         }
     }
     

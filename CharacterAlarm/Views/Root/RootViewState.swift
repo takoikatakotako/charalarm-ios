@@ -42,4 +42,16 @@ class RootViewState: ObservableObject {
             }
         }
     }
+    
+    func doneTutorial() {
+        withAnimation(.linear(duration: 1)) {
+            type = .top
+        }
+    }
+    
+    func didReset() {
+        withAnimation(.linear(duration: 1)) {
+            type = .tutorial
+        }
+    }
 }

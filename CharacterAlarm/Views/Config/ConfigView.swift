@@ -73,14 +73,7 @@ struct ConfigView: View {
                                 primaryButton: .default(Text(R.string.localizable.commonCancel())) {
                                     print("リセットをキャンセルしました。")
                                 }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
-                                    Task {
-                                        do {
-                                            try await viewModel.withdraw()
-                                            appState.doneTutorial = false
-                                        } catch {
-                                            
-                                        }
-                                    }
+                                    viewModel.withdraw()
                                 })
                         }
                     }

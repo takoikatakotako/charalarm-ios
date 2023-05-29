@@ -22,6 +22,12 @@ struct RootView: View {
         .onAppear {
             viewState.onAppear()
         }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.doneTutorial)) { notification in
+            viewState.doneTutorial()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.didReset)) { notification in
+            viewState.didReset()
+        }
     }
 }
 
