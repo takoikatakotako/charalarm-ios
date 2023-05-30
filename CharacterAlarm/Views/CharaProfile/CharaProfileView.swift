@@ -21,10 +21,10 @@ struct CharaProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
                     
-                    CharaProfileRow(title: R.string.localizable.profileName(), text: viewState.character?.name ?? "", urlString: "")
-                    CharaProfileRow(title: R.string.localizable.profileProfile(), text: viewState.character?.description ?? "", urlString: "")
+                    CharaProfileRow(title: R.string.localizable.profileName(), text: viewState.chara?.name ?? "", urlString: "")
+                    CharaProfileRow(title: R.string.localizable.profileProfile(), text: viewState.chara?.description ?? "", urlString: "")
                     
-                    if let profiles = viewState.character?.profiles {
+                    if let profiles = viewState.chara?.profiles {
                         ForEach(profiles, id: \.hashValue) { profile in
                             CharaProfileRow(title: profile.title, text: profile.name, urlString: profile.url)
                         }
@@ -42,14 +42,14 @@ struct CharaProfileView: View {
                         Spacer()
                         if self.viewState.showCallItem {
                             Button(action: {
-                                guard viewState.character?.charaID != nil || viewState.character?.name != nil else {
+                                guard viewState.chara?.charaID != nil || viewState.chara?.name != nil else {
                                     return
                                 }
                                 viewState.showCallView = true
                             }) {
                                 MenuItem(imageName: R.image.profileCall.name)
                             }.sheet(isPresented: $viewState.showCallView) {
-                                CallView(charaDomain: viewState.character?.charaID ?? "", charaName: viewState.character?.name ?? "")
+                                CallView(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? "")
                             }
                             .sheet(
                                 isPresented: $viewState.showCallView,
@@ -58,7 +58,7 @@ struct CharaProfileView: View {
                                         SKStoreReviewController.requestReview(in: scene)
                                     }
                                 }) {
-                                    CallView(charaDomain: viewState.character?.charaID ?? "", charaName: viewState.character?.name ?? "")
+                                    CallView(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? "")
                                 }
                         }
                         if self.viewState.showCheckItem {

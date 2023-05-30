@@ -2,16 +2,16 @@ import SwiftUI
 import UIKit
 import SDWebImageSwiftUI
 
-struct CharacterListView: View {
+struct CharaListView: View {
     @StateObject var viewState: CharacterListViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
             ZStack {
-                List(viewState.characters) { character in
-                    NavigationLink(destination: CharaProfileView(viewState: CharaProfileViewState(charaID: character.charaID))) {
-                        CharacterListRow(character: character)
+                List(viewState.charaList) { chara in
+                    NavigationLink(destination: CharaProfileView(viewState: CharaProfileViewState(chara: chara))) {
+                        CharacterListRow(character: chara)
                             .frame(height: 80)
                             .clipped()
                     }
@@ -37,7 +37,7 @@ struct CharacterListView: View {
             .onAppear {
                 viewState.fetchCharacters()
             }
-            .alert(isPresented: self.$viewState.showingAlert) {
+            .alert(isPresented: $viewState.showingAlert) {
                 Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
             }
             .navigationBarTitle(R.string.localizable.characterCharacterList(), displayMode: .inline)
@@ -54,10 +54,10 @@ struct CharacterListView: View {
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CharacterListView(viewState: CharacterListViewModel())
+            CharaListView(viewState: CharacterListViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            CharacterListView(viewState: CharacterListViewModel())
+            CharaListView(viewState: CharacterListViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }

@@ -5,7 +5,7 @@ import Combine
 
 class CharaProfileViewState: ObservableObject {
     let charaID: String
-    @Published var character: Chara?
+    @Published var chara: Chara?
     @Published var showCallView: Bool = false
     @Published var showCallItem = false
     @Published var showCheckItem = false
@@ -41,11 +41,16 @@ class CharaProfileViewState: ObservableObject {
         self.charaID = charaID
     }
     
+    init(chara: Chara) {
+        charaID = chara.charaID
+        self.chara = chara
+    }
+    
     func fetchCharacter() {
         Task { @MainActor in
             do {
                 let chara = try await charaRepository.fetchCharacter(charaID: charaID)
-                character = chara
+                self.chara = chara
             } catch {
                 alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()
                 showingAlert = true

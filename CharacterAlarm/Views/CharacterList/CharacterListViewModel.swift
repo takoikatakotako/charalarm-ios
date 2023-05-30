@@ -1,7 +1,7 @@
 import SwiftUI
 
 class CharacterListViewModel: ObservableObject {
-    @Published var characters: [Chara] = []
+    @Published var charaList: [Chara] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
     let charaRepository: CharaRepository = CharaRepository()
@@ -9,10 +9,9 @@ class CharacterListViewModel: ObservableObject {
     func fetchCharacters() {
         Task { @MainActor in
             do {
-                let characters = try await charaRepository.fetchCharacters()
-                self.characters = characters
+                self.charaList = try await charaRepository.fetchCharacters()
             } catch {
-                self.alertMessage = R.string.localizable.characterFailedToGetTheCharacter()
+                alertMessage = R.string.localizable.characterFailedToGetTheCharacter()
                 self.showingAlert = true
             }
         }
