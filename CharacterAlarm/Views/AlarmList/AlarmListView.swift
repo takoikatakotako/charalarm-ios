@@ -2,7 +2,6 @@ import SwiftUI
 import GoogleMobileAds
 
 struct AlarmListView: View {
-    @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @StateObject var viewState: AlarmListViewState = AlarmListViewState()

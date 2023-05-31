@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct TutorialFinallyView: View {
-    @EnvironmentObject var appState: CharalarmAppState
 
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
@@ -37,11 +36,9 @@ struct TutorialSixthView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             TutorialFinallyView()
-                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
             TutorialFinallyView()
-                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }

@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct TutorialCallView: View {
-    @EnvironmentObject var appState: CharalarmAppState
-
     @StateObject var viewModel = TutorialCallViewModel()
 
     var body: some View {
@@ -59,8 +57,7 @@ struct TutorialCallView: View {
             
             if viewModel.showingNextButton {
                 NavigationLink(
-                    destination: TutorialThirdView()
-                        .environmentObject(appState),
+                    destination: TutorialThirdView(),
                     label: {
                         TutorialButtonContent(text: R.string.localizable.commonNext())
                             .padding(.horizontal, 16)
@@ -84,11 +81,9 @@ struct TutorialSecondView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             TutorialCallView()
-                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
             TutorialCallView()
-                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }

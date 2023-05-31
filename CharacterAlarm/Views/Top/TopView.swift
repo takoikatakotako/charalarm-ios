@@ -6,7 +6,6 @@ import AVKit
 import GoogleMobileAds
 
 struct TopView: View {
-    @EnvironmentObject var appState: CharalarmAppState
     @StateObject var viewModel = TopViewModel()
     
     @StateObject var adDelegate = AdmobRewardedHandler()
@@ -127,13 +126,10 @@ struct TopView: View {
                 NewsListView()
             case .characterList:
                 CharaListView(viewState: CharacterListViewModel())
-                    .environmentObject( appState )
             case .alarmList:
                 AlarmListView()
-                    .environmentObject( appState )
             case .config:
                 ConfigView()
-                    .environmentObject( appState )
             }
         }
     }

@@ -2,7 +2,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ConfigView: View {
-    @EnvironmentObject var appState: CharalarmAppState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
     
@@ -106,6 +105,5 @@ struct ConfigView: View {
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
         ConfigView()
-            .environmentObject(CharalarmAppState(appVersion: "2.0.4"))
     }
 }

@@ -3,8 +3,6 @@ import AdSupport
 import AppTrackingTransparency
 
 struct TutorialAcceptPrivacyPolicyView: View {
-    @EnvironmentObject var appState: CharalarmAppState
-
     @StateObject var viewModel = TutorialAcceptPrivacyPolicyViewModel()
     
     var body: some View {
@@ -66,11 +64,9 @@ struct TutorialAcceptPrivacyPolicyView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             TutorialAcceptPrivacyPolicyView()
-                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
             TutorialAcceptPrivacyPolicyView()
-                .environmentObject(CharalarmAppState(appVersion: "2.0.0"))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }

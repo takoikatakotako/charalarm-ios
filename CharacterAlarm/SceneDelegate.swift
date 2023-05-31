@@ -13,18 +13,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // データをロードする
         sceneDelegateModel.loadData()
 
-        // チュートリアルが終わったのか判定
-        let doneTutorial = sceneDelegateModel.getIsDoneTutorial()
-        let appVersion = sceneDelegateModel.getAppVersion()
-        
         // RootViewを作成
         let rootView = RootView(viewState: RootViewState())
-        let charalarmAppState = CharalarmAppState(appVersion: appVersion)
-        charalarmAppState.doneTutorial = doneTutorial
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            rootViewController = UIHostingController(rootView: rootView.environmentObject(charalarmAppState))
+            rootViewController = UIHostingController(rootView: rootView)
             window.rootViewController = self.rootViewController
             self.window = window
             window.makeKeyAndVisible()

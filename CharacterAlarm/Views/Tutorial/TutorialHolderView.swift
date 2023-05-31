@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct TutorialHolderView: View {
-    @EnvironmentObject var appState: CharalarmAppState
-
     // 1. TutorialIntroductionView
     // 2. TutorialCallView
     // 3. TutorialThirdView
@@ -13,7 +11,6 @@ struct TutorialHolderView: View {
     var body: some View {
         NavigationView {
             TutorialIntroductionView()
-                .environmentObject(appState)
         }
     }
 }
