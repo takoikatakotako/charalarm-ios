@@ -46,15 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // バックグラウンドでの音声再生を有効化する
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
-            print("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
-            print("Session is Active")
         } catch {
-            print("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
+            assertionFailure("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
         }
-        
-        // NavigationBarの色を変更
-        UINavigationBar.appearance().tintColor = UIColor(named: R.color.charalarmDefaultGray.name)
         
         return true
     }

@@ -75,6 +75,9 @@ class AppDelegateModel {
             let playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
             player.play()
+        } else {
+            // TODO: ここで再生できない時の処理
+            
         }
     }
 }
