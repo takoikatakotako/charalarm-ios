@@ -56,15 +56,15 @@ class ConfigViewModel: ObservableObject {
                 try await userRepository.withdraw(userID: userID, authToken: authToken)
                 try keychainRepository.setUserID(userID: nil)
                 try keychainRepository.setAuthToken(authToken: nil)
-                userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                userDefaultsRepository.setDefaultCharaDomain()
+                userDefaultsRepository.setDefaultCharaName()
                 
                 NotificationCenter.default.post(name: NSNotification.didReset, object: self, userInfo: nil)
             } catch {
                 try! keychainRepository.setUserID(userID: nil)
                 try! keychainRepository.setAuthToken(authToken: nil)
-                userDefaultsRepository.setCharaDomain(charaDomain: DEFAULT_CHARA_DOMAIN)
-                userDefaultsRepository.setCharaName(charaName: DEFAULT_CHARA_NAME)
+                userDefaultsRepository.setDefaultCharaDomain()
+                userDefaultsRepository.setDefaultCharaName()
                 fatalError("Fource Reset")
             }
         }

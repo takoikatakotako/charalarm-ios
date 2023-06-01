@@ -17,7 +17,7 @@ class SceneDelegateModel {
     }
     
     func registerDefaults() {
-        userDefaultsRepository.registerDefaults(defaults: [CHARA_DOMAIN : DEFAULT_CHARA_DOMAIN, CHARA_NAME: DEFAULT_CHARA_NAME])
+        userDefaultsRepository.registerDefaults()
     }
     
     func loadData() {
