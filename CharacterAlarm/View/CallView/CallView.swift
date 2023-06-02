@@ -5,18 +5,17 @@ import AVFoundation
 
 struct CallView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    let charaDomain: String
-    let charaName: String
-    @State var incomingAudioPlayer: AVAudioPlayer?
-    @State var voiceAudioPlayer: AVPlayer?
-    @State var overlay = true
-    
-    let resourceHandler = ResourceRepository()
-    
+//    let charaDomain: String
+//    let charaName: String
+//    @State var incomingAudioPlayer: AVAudioPlayer?
+//    @State var voiceAudioPlayer: AVPlayer?
+//    @State var overlay = true
+//
+//    let resourceHandler = ResourceRepository()
+//
     
     @StateObject var viewState: CallViewState
     
-
     var body: some View {
         ZStack {
             VStack {
@@ -31,15 +30,15 @@ struct CallView: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                 .scaledToFill()
                 
-                Text(charaName)
+                Text(viewState.charaName)
                     .font(Font.system(size: 40))
                     .foregroundColor(Color.black)
                     .padding(.top, 40)
                 Spacer()
                 
                 Button(action: {
-                    self.fadeOut()
-                    self.presentationMode.wrappedValue.dismiss()
+                    viewState.fadeOut()
+                    presentationMode.wrappedValue.dismiss()
                 }){
                     Image(systemName: "phone.fill.arrow.down.left")
                         .resizable()
@@ -52,9 +51,9 @@ struct CallView: View {
             }                    .padding(.bottom, 60)
             
             
-            if overlay {
+            if viewState.overlay {
                 VStack {
-                    Text(charaName)
+                    Text(viewState.charaName)
                         .font(Font.system(size: 40))
                         .foregroundColor(Color.white)
                         .padding(.top, 100)
@@ -62,8 +61,8 @@ struct CallView: View {
                     
                     HStack(spacing: 160) {
                         Button(action: {
-                            self.fadeOut()
-                            self.presentationMode.wrappedValue.dismiss()
+                            viewState.fadeOut()
+                            presentationMode.wrappedValue.dismiss()
                         }){
                             
                             Image(systemName: "phone.fill.arrow.down.left")
@@ -77,9 +76,9 @@ struct CallView: View {
                         
                         
                         Button(action: {
-                            self.call()
+                            viewState.call()
                             withAnimation {
-                                self.overlay = false
+                                viewState.overlay = false
                             }
                         }){
                             Image(systemName: "phone.fill")
@@ -100,38 +99,13 @@ struct CallView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
-            incoming()
+            viewState.incoming()
         }
-    }
-    
-    func call() {
-        incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {  
-            let urlString = resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain)
-            let url = URL(string: urlString)!
-            let playerItem = AVPlayerItem(url: url)
-            voiceAudioPlayer = AVPlayer(playerItem: playerItem)
-            voiceAudioPlayer?.play()
-        }
-    }
-        
-    func incoming() {
-        if let sound = NSDataAsset(name: "ringtone") {
-            incomingAudioPlayer = try? AVAudioPlayer(data: sound.data)
-            incomingAudioPlayer?.volume = 0.3
-            incomingAudioPlayer?.play()
-            incomingAudioPlayer?.setVolume(1.0, fadeDuration: 0.5)
-        }
-    }
-    
-    func fadeOut() {
-        self.incomingAudioPlayer?.setVolume(0.0, fadeDuration: 0.5)
-        self.voiceAudioPlayer?.volume = 0
     }
 }
 
 struct CallView_Previews: PreviewProvider {
     static var previews: some View {
-        CallView(charaDomain: "com.charalarm.yui", charaName: "井上結衣", viewState: CallViewState(charaDomain: "com.charalarm.yui", charaName: "井上結衣"))
+        CallView(viewState: CallViewState(charaDomain: "com.charalarm.yui", charaName: "井上結衣"))
     }
 }
