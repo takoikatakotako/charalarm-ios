@@ -29,8 +29,6 @@ class AlarmDetailVoiceListState: ObservableObject {
     }
     
     private func playVoice(url: URL) {
-        let playerItem = AVPlayerItem(url: url)
-        avPlayer = AVPlayer(playerItem: playerItem)
-        avPlayer?.play()
+        AudioManagerSingleton.shared.playAudio(url: url)
     }
 }

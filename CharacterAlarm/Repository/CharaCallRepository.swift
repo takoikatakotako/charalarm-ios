@@ -1,6 +1,6 @@
 import UIKit
 
-class CharaCallRepository {
+struct CharaCallRepository {
     func findByCharaCallId(charaCallId: Int) async throws -> CharaCallResponseEntity {
         let path = "/api/chara-call/\(charaCallId)"
         let url = URL(string: API_ENDPOINT + path)!

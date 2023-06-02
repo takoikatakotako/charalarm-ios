@@ -2,12 +2,12 @@ import UIKit
 import AVKit
 
 class SceneDelegateModel {
-    private let fileHandler: FileHandlerProtcol
+    private let fileHandler: FileRepositoryProtcol
     private let userDefaultsRepository: UserDefaultsRepositoryProtocol
     private let authUseCase: AppUseCaseProtcol
     
     init(
-        fileHandler: FileHandlerProtcol = FileHandler(),
+        fileHandler: FileRepositoryProtcol = FileRepository(),
         userDefaultsRepository: UserDefaultsRepositoryProtocol = UserDefaultsRepository(),
         authUseCase: AppUseCaseProtcol = AppUseCase()
     ) {
@@ -24,7 +24,7 @@ class SceneDelegateModel {
         guard let charaDomain = userDefaultsRepository.getCharaDomain()  else {
             fatalError("キャラクターのドメインの取得に失敗しました")
         }
-        if let data = try? charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),
+        if let data = try? fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json"),
            let resource: Resource = try? JSONDecoder().decode(Resource.self, from: data){
             print("ResourceVersion: \(resource.version)")
             // TODO: 選択中のキャラクターの最新リソースがある場合更新する
@@ -54,7 +54,7 @@ class SceneDelegateModel {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(resource)
-            try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
+            try fileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
         } catch {
             return
         }
@@ -68,7 +68,7 @@ class SceneDelegateModel {
                       let data = try? Data(contentsOf: fileUrl) else {
                     continue
                 }
-                try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: imageName, data: data)
+                try fileHandler.saveFile(directoryName: charaDomain, fileName: imageName, data: data)
             } catch {
                 print("画像ファイルの書き込みに失敗")
             }
@@ -83,7 +83,7 @@ class SceneDelegateModel {
                       let data = try? Data(contentsOf: fileUrl) else {
                     continue
                 }
-                try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: voiceName, data: data)
+                try fileHandler.saveFile(directoryName: charaDomain, fileName: voiceName, data: data)
             } catch {
                 print("ボイスファイルの書き込みに失敗")
             }

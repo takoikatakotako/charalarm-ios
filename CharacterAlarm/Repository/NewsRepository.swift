@@ -1,6 +1,6 @@
 import Foundation
 
-class NewsRepository {
+struct NewsRepository {
     func fetchNews() async throws -> [News] {
         let path = "/api/news/list"
         let url = URL(string: API_ENDPOINT + path)!

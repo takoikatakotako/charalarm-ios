@@ -1,12 +1,12 @@
 import Foundation
 
-protocol FileHandlerProtcol {
+protocol FileRepositoryProtcol {
     func saveFile(directoryName: String, fileName: String, data: Data) throws
     func getFileURL(directoryName: String, fileName: String) throws -> URL
     func loadData(directoryName: String, fileName: String) throws -> Data
 }
 
-class FileHandler: FileHandlerProtcol {
+struct FileRepository: FileRepositoryProtcol {
     func saveFile(directoryName: String, fileName: String, data: Data) throws {
         guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
             throw FileHandlerError.directoryNotFound
@@ -32,7 +32,6 @@ class FileHandler: FileHandlerProtcol {
 
     func loadData(directoryName: String, fileName: String) throws -> Data {
         let filePath = try getFileURL(directoryName: directoryName, fileName: fileName)
-        print(filePath)
         guard let data = try? Data(contentsOf: filePath) else {
             throw FileHandlerError.directoryNotFound
         }

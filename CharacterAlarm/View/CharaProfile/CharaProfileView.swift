@@ -49,7 +49,7 @@ struct CharaProfileView: View {
                             }) {
                                 MenuItem(imageName: R.image.profileCall.name)
                             }.sheet(isPresented: $viewState.showCallView) {
-                                CallView(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? "")
+                                CallView(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? "", viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
                             }
                             .sheet(
                                 isPresented: $viewState.showCallView,
@@ -58,7 +58,7 @@ struct CharaProfileView: View {
                                         SKStoreReviewController.requestReview(in: scene)
                                     }
                                 }) {
-                                    CallView(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? "")
+                                    CallView(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? "", viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
                                 }
                         }
                         if self.viewState.showCheckItem {

@@ -1,14 +1,19 @@
 import Foundation
 
 class ResourceStore {
+    // 本当はここに定義しちゃダメ
+    static let resourceHandler = ResourceRepository()
+    static let fileHandler = FileRepository()
+    
+    
     static func downloadSelfIntroduction(charaDomain: String) async throws {
-        let url = URL(string: charalarmEnvironment.resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain))!
+        let url = URL(string: resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain))!
         let data = try await APIClient<String>().fileDownload(url: url)
-        try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: "self-introduction.caf", data: data)
+        try fileHandler.saveFile(directoryName: charaDomain, fileName: "self-introduction.caf", data: data)
     }
     
     static func loadSelfIntroductionData(charaDomain: String) async throws -> Data {
-        let data = try charalarmEnvironment.fileHandler.loadData(directoryName: charaDomain, fileName: "self-introduction.caf")
+        let data = try fileHandler.loadData(directoryName: charaDomain, fileName: "self-introduction.caf")
         return data
     }
     
@@ -17,7 +22,7 @@ class ResourceStore {
         let url = URL(string: API_ENDPOINT + path)!
         let data = try await APIClient<String>().fileDownload(url: url)
         let response = try JSONDecoder().decode(Resource.self, from: data)
-        try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
+        try fileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
         return response
     }
     
@@ -26,6 +31,6 @@ class ResourceStore {
         let path = "\(RESOURCE_ENDPOINT)/\(charaDomain)/\(directory)/\(fileName)"
         let url = URL(string: path)!
         let data = try await APIClient<String>().fileDownload(url: url)
-        try charalarmEnvironment.fileHandler.saveFile(directoryName: charaDomain, fileName: fileName, data: data)
+        try fileHandler.saveFile(directoryName: charaDomain, fileName: fileName, data: data)
     }
 }

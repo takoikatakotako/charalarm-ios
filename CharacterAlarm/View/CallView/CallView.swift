@@ -10,15 +10,17 @@ struct CallView: View {
     @State var incomingAudioPlayer: AVAudioPlayer?
     @State var voiceAudioPlayer: AVPlayer?
     @State var overlay = true
-
-    var charaThumbnailUrlString: String {
-        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
-    }
     
+    let resourceHandler = ResourceRepository()
+    
+    
+    @StateObject var viewState: CallViewState
+    
+
     var body: some View {
         ZStack {
             VStack {
-                WebImage(url: URL(string: charaThumbnailUrlString))
+                WebImage(url: URL(string: viewState.charaThumbnailUrlString))
                     .resizable()
                     .placeholder {
                         Image(R.image.characterPlaceholder.name)
@@ -105,7 +107,7 @@ struct CallView: View {
     func call() {
         incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {  
-            let urlString = charalarmEnvironment.resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain)
+            let urlString = resourceHandler.getSelfIntroductionUrlString(charaDomain: charaDomain)
             let url = URL(string: urlString)!
             let playerItem = AVPlayerItem(url: url)
             voiceAudioPlayer = AVPlayer(playerItem: playerItem)
@@ -130,6 +132,6 @@ struct CallView: View {
 
 struct CallView_Previews: PreviewProvider {
     static var previews: some View {
-        CallView(charaDomain: "com.charalarm.yui", charaName: "井上結衣")
+        CallView(charaDomain: "com.charalarm.yui", charaName: "井上結衣", viewState: CallViewState(charaDomain: "com.charalarm.yui", charaName: "井上結衣"))
     }
 }

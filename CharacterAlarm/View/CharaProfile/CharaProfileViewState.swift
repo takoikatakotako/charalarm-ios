@@ -19,7 +19,7 @@ class CharaProfileViewState: ObservableObject {
     private var numberOfResource: Int = 0
     private var numberOfDownloadedReosurce: Int = 0
     private let charaRepository: CharaRepository = CharaRepository()
-    
+    private let resourceHandler = ResourceRepository()
     
     enum ResourceType: String {
         case image = "image"
@@ -34,7 +34,7 @@ class CharaProfileViewState: ObservableObject {
     var resourceInfos: [ResourceInfo] = []
     
     var charaThumbnailUrlString: String {
-        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaID)
+        return resourceHandler.getCharaThumbnailUrlString(charaDomain: charaID)
     }
     
     init(charaID: String) {

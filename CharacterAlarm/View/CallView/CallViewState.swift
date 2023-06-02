@@ -2,14 +2,16 @@ import SwiftUI
 import UIKit
 import AVFoundation
 
-class CallViewModel: ObservableObject {
+class CallViewState: ObservableObject {
     let charaDomain: String
     let charaName: String
+    let resourceHandler = ResourceRepository()
         
     @Published var overlay = true
     
+    
     var charaThumbnailUrlString: String {
-        return charalarmEnvironment.resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+        return resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
     }
     
     init(charaDomain: String, charaName: String) {

@@ -27,6 +27,7 @@ struct AlarmDetailVoiceList: View {
                     Button {
                         viewState.playAndSelectVoice(charaCall: charaCall)
                         delegate.selectCharaAndCall(chara: viewState.chara, charaCall: viewState.selectedCharaCall)
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         HStack {
                             Image(R.image.alarmVoicePlay.name)

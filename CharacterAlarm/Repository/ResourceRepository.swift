@@ -1,11 +1,11 @@
 import Foundation
 
-protocol ResourceHandlerProtcol {
+protocol ResourceRepositoryProtcol {
     func getSelfIntroductionUrlString(charaDomain: String) -> String
     func getCharaThumbnailUrlString(charaDomain: String) -> String
 }
 
-class ResourceHandler: ResourceHandlerProtcol {
+struct ResourceRepository: ResourceRepositoryProtcol {
     func getSelfIntroductionUrlString(charaDomain: String) -> String {
         return "\(RESOURCE_ENDPOINT)/\(charaDomain)/voice/self-introduction.caf"
     }
