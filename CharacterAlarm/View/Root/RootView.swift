@@ -17,6 +17,8 @@ struct RootView: View {
                 TopView()
             } else if viewState.type == .tutorial {
                 TutorialHolderView()
+            } else if viewState.type == .calling {
+                Text("Calling...")
             }
         }
         .onAppear {
@@ -27,6 +29,12 @@ struct RootView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.didReset)) { notification in
             viewState.didReset()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.answerCall)) { notification in
+            viewState.answerCall()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.endCall)) { notification in
+            viewState.endCall()
         }
     }
 }

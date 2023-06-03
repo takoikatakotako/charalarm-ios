@@ -9,6 +9,11 @@ class RootViewState: ObservableObject {
     func onAppear() {
         Task { @MainActor in
             do {
+                // ローディング中（初回起動）のみ先に進む
+                guard type == .loading else {
+                    return
+                }
+                
                 // メンテナンス中か確認
                 let isMaintenance = try await otherRepository.fetchMaintenance()
                 if isMaintenance {
@@ -53,5 +58,13 @@ class RootViewState: ObservableObject {
         withAnimation(.linear(duration: 1)) {
             type = .tutorial
         }
+    }
+    
+    func answerCall() {
+        type = .calling
+    }
+    
+    func endCall() {
+        type = .top
     }
 }

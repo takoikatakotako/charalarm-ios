@@ -6,4 +6,5 @@ enum RootViewType {
     case updateRequire
     case top
     case tutorial
+    case calling
 }
