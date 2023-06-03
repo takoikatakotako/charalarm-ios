@@ -48,7 +48,8 @@ struct CharaProfileView: View {
                                 viewState.showCallView = true
                             }) {
                                 MenuItem(imageName: R.image.profileCall.name)
-                            }.sheet(isPresented: $viewState.showCallView) {
+                            }
+                            .sheet(isPresented: $viewState.showCallView) {
                                 CallView(viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
                             }
                             .sheet(

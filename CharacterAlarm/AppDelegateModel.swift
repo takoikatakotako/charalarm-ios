@@ -80,4 +80,12 @@ class AppDelegateModel {
             
         }
     }
+    
+    func answerCall() {
+        NotificationCenter.default.post(name: NSNotification.answerCall, object: self, userInfo: nil)
+    }
+    
+    func endCall() {
+        NotificationCenter.default.post(name: NSNotification.endCall, object: self, userInfo: nil)
+    }
 }
