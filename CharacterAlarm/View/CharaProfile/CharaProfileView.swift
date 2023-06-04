@@ -31,61 +31,32 @@ struct CharaProfileView: View {
                     }
                     
                     Spacer()
-                        .frame(height: 120)
+                        .frame(height: 60)
                 }
                 
-                ZStack(alignment: .bottomTrailing) {
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack {
+                    Spacer()
+                    
                     VStack {
                         Spacer()
-                        if self.viewState.showCallItem {
-                            Button(action: {
-                                guard viewState.chara?.charaID != nil || viewState.chara?.name != nil else {
-                                    return
-                                }
-                                viewState.showCallView = true
-                            }) {
-                                MenuItem(imageName: R.image.profileCall.name)
-                            }
-                            .sheet(isPresented: $viewState.showCallView) {
-                                CallView(viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
-                            }
-                            .sheet(
-                                isPresented: $viewState.showCallView,
-                                onDismiss: {
-                                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                                        SKStoreReviewController.requestReview(in: scene)
-                                    }
-                                }) {
-                                    CallView(viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
-                                }
-                        }
-                        if self.viewState.showCheckItem {
-                            Button(action: {
-                                viewState.showSelectAlert = true
-                            }) {
-                                MenuItem(imageName: R.image.profileCheck.name)
-                            }
-                        }
                         Button(action: {
-                            showMenu()
+                            guard viewState.chara?.charaID != nil || viewState.chara?.name != nil else {
+                                return
+                            }
+                            viewState.showCallView = true
                         }) {
-                            Group {
-                                Image(R.image.profileMenuIcon.name)
-                                    .resizable()
-                                    .frame(width: 60, height: 60)
-                            }.accentColor(.white)
-                                .frame(width: 80, height: 80)
-                                .background(Color.black)
-                                .cornerRadius(40)
-                                .shadow(color: .black, radius: 4, x: 4, y: 4)
-                                .opacity(0.9)
+                            MenuItem(imageName: R.image.profileCall.name)
+                        }
+                        
+                        Button(action: {
+                            viewState.showSelectAlert = true
+                        }) {
+                            MenuItem(imageName: R.image.profileCheck.name)
                         }
                     }
                     .padding()
                 }
+                
                 
                 
                 if viewState.showingDownloadingModal {
@@ -135,7 +106,8 @@ struct CharaProfileView: View {
         )
         .onAppear {
             viewState.fetchCharacter()
-        }.alert(isPresented: self.$viewState.showSelectAlert) {
+        }
+        .alert(isPresented: self.$viewState.showSelectAlert) {
             Alert(
                 title: Text(R.string.localizable.profileCharacterSelection()),
                 message: Text(R.string.localizable.profileWantToCallThisCharacter()),
@@ -144,17 +116,18 @@ struct CharaProfileView: View {
                     viewState.selectCharacter()
                 })
         }
-    }
-    
-    func showMenu() {
-        withAnimation {
-            self.viewState.showCheckItem.toggle()
+        .sheet(isPresented: $viewState.showCallView) {
+            CallView(viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            withAnimation {
-                self.viewState.showCallItem.toggle()
+        .sheet(
+            isPresented: $viewState.showCallView,
+            onDismiss: {
+                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                }
+            }) {
+                CallView(viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
             }
-        })
     }
 }
 

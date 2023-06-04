@@ -3,10 +3,10 @@ import UIKit
 import SDWebImageSwiftUI
 
 struct CharacterListRow: View {
-    let character: Chara
+    let chara: Chara
     var body: some View {
         HStack {
-            WebImage(url: URL(string: character.thumbnailUrlString))
+            WebImage(url: URL(string: chara.thumbnailUrlString))
                 .resizable()
                 .placeholder {
                     Image(R.image.characterPlaceholder.name)
@@ -18,10 +18,10 @@ struct CharacterListRow: View {
             .scaledToFill()
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(character.name)
+                Text(chara.name)
                     .font(Font.system(size: 18.0))
                 
-                ForEach(character.profiles.prefix(2), id: \.hashValue) { profile in
+                ForEach(chara.profiles.prefix(2), id: \.hashValue) { profile in
                     Text("\(profile.title): \(profile.name)")
                                        .font(Font.system(size: 16.0))
                 }

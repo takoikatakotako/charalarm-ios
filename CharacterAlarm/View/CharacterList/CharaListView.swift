@@ -11,7 +11,7 @@ struct CharaListView: View {
             ZStack {
                 List(viewState.charaList) { chara in
                     NavigationLink(destination: CharaProfileView(viewState: CharaProfileViewState(chara: chara))) {
-                        CharacterListRow(character: chara)
+                        CharacterListRow(chara: chara)
                             .frame(height: 80)
                             .clipped()
                     }

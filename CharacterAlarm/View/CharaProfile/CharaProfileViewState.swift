@@ -7,8 +7,6 @@ class CharaProfileViewState: ObservableObject {
     let charaID: String
     @Published var chara: Chara?
     @Published var showCallView: Bool = false
-    @Published var showCallItem = false
-    @Published var showCheckItem = false
     @Published var showSelectAlert = false
     @Published var showingDownloadingModal = false
     @Published var downloadError = false
