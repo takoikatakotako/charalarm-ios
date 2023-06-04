@@ -78,7 +78,7 @@ struct ConfigView: View {
                     }
                 }.listStyle(GroupedListStyle())
                 
-                AdmobBannerView(adUnitID: ADMOB_CONFIG_UNIT_ID)
+                AdmobBannerView(adUnitID: environmentVariable.admobConfigUnitID)
             }
             .navigationBarTitle(R.string.localizable.configConfig(), displayMode: .inline)
             .navigationBarItems(leading:

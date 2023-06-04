@@ -19,10 +19,10 @@ packages:
     from: 9.6.0
 
 schemes:
-  Local:
+  Develop:
     build:
       targets:
-        CharalarmLocal: all
+        CharalarmDevelop: all
     run:
       config: Debug
     test:
@@ -46,7 +46,7 @@ schemes:
       config: Debug
 
 targets:
-  CharalarmLocal:
+  CharalarmDevelop:
     type: application
     platform: iOS
     deploymentTarget: "14.0"
@@ -56,30 +56,30 @@ targets:
           - CharacterAlarm/Resource
       - path: CharacterAlarm/Resource
         type: folder
-      - path: Config/Local
+      - path: Config/Develop
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-        PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.CharacterAlarm
+        PRODUCT_BUNDLE_IDENTIFIER: com.charalarm.staging
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
         MARKETING_VERSION: 3.0.0
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Local
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Develop
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
           API_ENDPOINT: https://api.sandbox.swiswiswift.com
-          RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
+          RESOURCE_ENDPOINT: https://s3.ap-northeast-1.amazonaws.com/resource.charalarm.sandbox.swiswiswift.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.sandbox.swiswiswift.com
-          RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
+          RESOURCE_ENDPOINT: https://s3.ap-northeast-1.amazonaws.com/resource.charalarm.sandbox.swiswiswift.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
@@ -229,7 +229,7 @@ targets:
       base:
         INFOPLIST_FILE: CharacterAlarmTests/Info.plist
     dependencies:
-      - target: CharalarmLocal
+      - target: CharalarmDevelop
   CharacterAlarmUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -239,4 +239,4 @@ targets:
       base:
         INFOPLIST_FILE: CharacterAlarmUITests/Info.plist
     dependencies:
-      - target: CharalarmLocal
+      - target: CharalarmDevelop

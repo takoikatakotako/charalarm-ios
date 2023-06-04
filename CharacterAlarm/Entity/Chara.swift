@@ -21,7 +21,7 @@ struct Chara: Identifiable, Hashable, Equatable {
     }
     
     static func charaDomainToThmbnailUrlString(charaDomain: String) -> String {
-        return "\(String(describing: RESOURCE_ENDPOINT))/\(charaDomain)/image/thumbnail.png"
+        return "\(String(describing: environmentVariable.resourceEndpoint))/\(charaDomain)/image/thumbnail.png"
     }
     
     let charaID: String

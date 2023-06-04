@@ -1,15 +1,5 @@
 import Foundation
 
-// APIのエンドポイント、AppDelegateで取得
-var API_ENDPOINT: String = ""
-
-// リソースのエンドポイント、AppDelegateで取得
-var RESOURCE_ENDPOINT: String = ""
-
-// AdmobのユニットID、AppDelegateで取得
-var ADMOB_ALARM_LIST_UNIT_ID = ""
-var ADMOB_CONFIG_UNIT_ID = ""
-
 // PrivacyPolicyのURL
 let PrivacyPolicyUrlString = "https://charalarm.com/privacy/index.html"
 

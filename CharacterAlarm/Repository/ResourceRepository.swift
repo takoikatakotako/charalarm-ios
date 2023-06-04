@@ -7,10 +7,10 @@ protocol ResourceRepositoryProtcol {
 
 struct ResourceRepository: ResourceRepositoryProtcol {
     func getSelfIntroductionUrlString(charaDomain: String) -> String {
-        return "\(RESOURCE_ENDPOINT)/\(charaDomain)/voice/self-introduction.caf"
+        return "\(environmentVariable.resourceEndpoint)/\(charaDomain)/voice/self-introduction.caf"
     }
     
     func getCharaThumbnailUrlString(charaDomain: String) -> String {
-        return "\(RESOURCE_ENDPOINT)/\(charaDomain)/image/thumbnail.png"
+        return "\(environmentVariable.resourceEndpoint)/\(charaDomain)/image/thumbnail.png"
     }
 }

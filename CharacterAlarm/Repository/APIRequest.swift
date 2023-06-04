@@ -6,7 +6,7 @@ enum HttpMethod: String {
 }
 
 struct APIRequest {
-    static func createUrlRequest(baseUrl: String = API_ENDPOINT, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]) -> URLRequest {
+    static func createUrlRequest(baseUrl: String = environmentVariable.apiEndpoint, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]) -> URLRequest {
         let url = URL(string: baseUrl + path)!
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
@@ -14,8 +14,8 @@ struct APIRequest {
         return request
     }
     
-    static func createUrlRequest<RequestBody: Encodable>(baseUrl: String = API_ENDPOINT, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"], requestBody: RequestBody) -> URLRequest {
-        let url = URL(string: API_ENDPOINT + path)!
+    static func createUrlRequest<RequestBody: Encodable>(baseUrl: String = environmentVariable.apiEndpoint, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"], requestBody: RequestBody) -> URLRequest {
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.allHTTPHeaderFields = requestHeader

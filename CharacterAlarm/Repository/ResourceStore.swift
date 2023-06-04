@@ -19,7 +19,7 @@ class ResourceStore {
     
     static func downloadResourceJson(charaDomain: String) async throws -> Resource {
         let path = "/\(charaDomain)/resource.json"
-        let url = URL(string: API_ENDPOINT + path)!
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
         let data = try await APIClient<String>().fileDownload(url: url)
         let response = try JSONDecoder().decode(Resource.self, from: data)
         try fileHandler.saveFile(directoryName: charaDomain, fileName: "resource.json", data: data)
@@ -28,7 +28,7 @@ class ResourceStore {
     
     
     static func downloadResource(charaDomain: String, directory: String, fileName: String) async throws {
-        let path = "\(RESOURCE_ENDPOINT)/\(charaDomain)/\(directory)/\(fileName)"
+        let path = "\(environmentVariable.resourceEndpoint)/\(charaDomain)/\(directory)/\(fileName)"
         let url = URL(string: path)!
         let data = try await APIClient<String>().fileDownload(url: url)
         try fileHandler.saveFile(directoryName: charaDomain, fileName: fileName, data: data)
