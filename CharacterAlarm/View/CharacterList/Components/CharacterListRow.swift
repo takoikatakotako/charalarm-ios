@@ -6,7 +6,7 @@ struct CharacterListRow: View {
     let character: Chara
     var body: some View {
         HStack {
-            WebImage(url: URL(string: character.charaThumbnailUrlString))
+            WebImage(url: URL(string: character.thumbnailUrlString))
                 .resizable()
                 .placeholder {
                     Image(R.image.characterPlaceholder.name)

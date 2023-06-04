@@ -23,7 +23,7 @@ struct AlarmDetailCharaSelecter: View {
                 } else {
                     LazyHStack(spacing: 12) {
                         if let chara = selectedChara {
-                            WebImage(url: URL(string: chara.charaThumbnailUrlString))
+                            WebImage(url: URL(string: chara.thumbnailUrlString))
                                 .resizable()
                                 .frame(width: 64, height: 64)
                                 .cornerRadius(10)
@@ -54,7 +54,7 @@ struct AlarmDetailCharaSelecter: View {
                             Button {
                                 delegate.showVoiceList(chara: chara)
                             } label: {
-                                WebImage(url: URL(string: chara.charaThumbnailUrlString))
+                                WebImage(url: URL(string: chara.thumbnailUrlString))
                                     .resizable()
                                     .frame(width: 56, height: 56)
                                     .cornerRadius(10)
