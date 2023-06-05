@@ -18,6 +18,7 @@ class CharaProfileViewState: ObservableObject {
     private var numberOfDownloadedReosurce: Int = 0
     private let charaRepository: CharaRepository = CharaRepository()
     private let resourceHandler = ResourceRepository()
+    private let fileRepository = FileRepository()
     
     enum ResourceType: String {
         case image = "image"
@@ -69,34 +70,62 @@ class CharaProfileViewState: ObservableObject {
     }
     
     func selectCharacter() {
-//        Task { @MainActor in
+        Task { @MainActor in
+            
+            
+            showingDownloadingModal = true
+
+//            guard let chara = chara else {
+//                // 読み込み中です的なやつ表示
+//                return
+//            }
+//
+//            for resource in chara.resources {
+//                guard let fileURL = URL(string: resource.fileURL) else {
+//                    // TODO: エラーハンドリング
+//                    continue
+//                }
+//
+//                try {
+//                    let fileName = fileURL.lastPathComponent
+//                    let fileData = try await fileRepository.downloadFile(url: fileURL)
+//                    fileRepository.saveFile(directoryName: charaID, fileName: fileName, data: fileData)
+//                } catch {
+//                    // TODO: エラーハンドリング
+//                }
+//
+//            }
+            
+            
+            
+            
 //            let result = try await ResourceStore.downloadResourceJson(charaDomain: charaDomain)
 //            switch result {
 //            case let .success(resource):
 //                self.numberOfResource = resource.resource.images.count + resource.resource.voices.count
 //                self.numberOfDownloadedReosurce = 0
-//                
+//
 //                DispatchQueue.main.async {
 //                    self.progressMessage = "\(String(self.numberOfDownloadedReosurce))/\(String(self.numberOfResource))"
 //                }
-//                
+//
 //                self.resourceInfos = []
 //                for image in resource.resource.images {
 //                    self.resourceInfos.append(ResourceInfo(type: .image, name: image))
 //                }
-//                
+//
 //                for voice in resource.resource.voices {
 //                    self.resourceInfos.append(ResourceInfo(type: .voice, name: voice))
 //                }
-//                
+//
 //                self.downloadResource()
-//                
+//
 //            case .failure:
 //                self.downloadError = true
 //            }
-//            
+//
 //            showingDownloadingModal = true
-//        }
+        }
     }
     
     func downloadResource() {

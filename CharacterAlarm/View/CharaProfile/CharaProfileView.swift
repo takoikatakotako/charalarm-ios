@@ -128,6 +128,10 @@ struct CharaProfileView: View {
             }) {
                 CallView(viewState: CallViewState(charaDomain: viewState.chara?.charaID ?? "", charaName: viewState.chara?.name ?? ""))
             }
+            .fullScreenCover(isPresented: $viewState.showingDownloadingModal) {
+                Text("")
+            }
+
     }
 }
 

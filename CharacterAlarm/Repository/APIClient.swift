@@ -104,3 +104,27 @@ struct APIClient<ResponseType: Decodable> {
         return data
     }
 }
+
+
+
+struct APIClient2 {
+    func downloadFile(url: URL) async throws -> Data {
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = HttpMethod.get.rawValue
+        let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+        
+        print("====== curl =====")
+        print(urlRequest.curlString)
+        print("=================")
+        
+        guard let urlResponse = urlResponse as? HTTPURLResponse else {
+            throw CharalarmError.clientError
+        }
+                
+        guard urlResponse.statusCode == 200 else {
+            throw CharalarmError.clientError
+        }
+        
+        return data
+    }
+}

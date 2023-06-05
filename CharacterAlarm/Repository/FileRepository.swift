@@ -20,6 +20,13 @@ struct FileRepository: FileRepositoryProtcol {
         let filePath = dirPath.appendingPathComponent( fileName )
         try data.write(to: filePath, options: .atomic)
     }
+    
+    
+    func downloadFile(url: URL) async throws -> Data {
+        return try await APIClient2().downloadFile(url: url)
+    }
+    
+    
 
     func getFileURL(directoryName: String, fileName: String) throws -> URL {
       guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
