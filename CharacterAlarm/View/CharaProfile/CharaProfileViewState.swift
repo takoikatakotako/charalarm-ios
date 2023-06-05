@@ -8,7 +8,7 @@ class CharaProfileViewState: ObservableObject {
     @Published var chara: Chara?
     @Published var showCallView: Bool = false
     @Published var showSelectAlert = false
-    @Published var showingDownloadingModal = false
+    @Published var showingResourceDownloadView = false
     @Published var downloadError = false
     @Published var progressMessage = ""
     @Published var showingAlert = false
@@ -60,41 +60,27 @@ class CharaProfileViewState: ObservableObject {
     func cancel() {
         resourceInfos = []
         downloadError = false
-        showingDownloadingModal = false
+        showingResourceDownloadView = false
     }
     
     func close() {
         resourceInfos = []
         downloadError = false
-        showingDownloadingModal = false
+        showingResourceDownloadView = false
     }
     
     func selectCharacter() {
         Task { @MainActor in
             
             
-            showingDownloadingModal = true
+            showingResourceDownloadView = true
 
 //            guard let chara = chara else {
 //                // 読み込み中です的なやつ表示
 //                return
 //            }
 //
-//            for resource in chara.resources {
-//                guard let fileURL = URL(string: resource.fileURL) else {
-//                    // TODO: エラーハンドリング
-//                    continue
-//                }
-//
-//                try {
-//                    let fileName = fileURL.lastPathComponent
-//                    let fileData = try await fileRepository.downloadFile(url: fileURL)
-//                    fileRepository.saveFile(directoryName: charaID, fileName: fileName, data: fileData)
-//                } catch {
-//                    // TODO: エラーハンドリング
-//                }
-//
-//            }
+
             
             
             
