@@ -16,8 +16,6 @@ class ResourceDownloadViewState: ObservableObject {
     
     func onAppear() {
         Task { @MainActor in
-         
-            
             do {
                 let chara = try await charaRepository.fetchCharacter(charaID: charaID)
                 for (index, resource) in chara.resources.enumerated() {
@@ -29,7 +27,8 @@ class ResourceDownloadViewState: ObservableObject {
                         return
                     }
 
-                    progressMessage = "(\(index + 1)/\(chara.resources.count))"
+                    let progressPercent = Int(round(Float(index + 1) / Float(chara.resources.count) * 100))
+                    progressMessage = "\(progressPercent)%"
                     
                     let fileName = fileURL.lastPathComponent
                     let fileData = try await fileRepository.downloadFile(url: fileURL)
@@ -37,11 +36,11 @@ class ResourceDownloadViewState: ObservableObject {
                 }
                 
                 
-                mainMessage = "ダウンロードが完了しました"
+                mainMessage = "設定完了しました"
                 progressMessage = "100%"
                 showDismissButton = true
                 // 閉じるボタン追加
-
+                
                 
             } catch {
                 
@@ -49,9 +48,6 @@ class ResourceDownloadViewState: ObservableObject {
                 showDismissButton = true
 
             }
-                        
-            
-            
         }
     }
 }
