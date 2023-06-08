@@ -36,10 +36,19 @@ class ResourceDownloadViewState: ObservableObject {
                 }
                 
                 
+                // Chara を CharaLocalResource に変換する
+                
+                
                 mainMessage = "設定完了しました"
                 progressMessage = "100%"
                 showDismissButton = true
-                // 閉じるボタン追加
+
+                
+                
+                // 
+                
+                
+                // ここでキャラクターを設定する
                 
                 
             } catch {
