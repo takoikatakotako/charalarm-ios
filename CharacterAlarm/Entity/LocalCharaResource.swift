@@ -1,6 +1,6 @@
 import Foundation
 
-struct CharaLocalResource: Encodable {
+struct LocalCharaResource: Encodable {
     let charaID: String
     var expressions: [String: CharaLocalExpression]
     

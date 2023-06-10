@@ -8,7 +8,7 @@ struct Chara: Identifiable, Hashable, Equatable {
         description = charaResponse.description
         profiles = charaResponse.profiles.map { CharaProfile(title: $0.title, name: $0.name, url: $0.url) }
         resources = charaResponse.resources.map { CharaResource(fileURL: $0.fileURL) }
-        expressions = charaResponse.expressions.mapValues { CharaExpression(images: $0.imageFileURLs, voiceFileURLs: $0.voiceFileURLs) }
+        expressions = charaResponse.expressions.mapValues { CharaExpression(imageFileURLs: $0.imageFileURLs, voiceFileURLs: $0.voiceFileURLs) }
         calls = charaResponse.calls.map { CharaCall(message: $0.message, voiceFileURL: $0.voiceFileURL)}
     }
     

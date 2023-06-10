@@ -4,6 +4,7 @@ class ResourceDownloadViewState: ObservableObject {
     private let charaID: String
     private let charaRepository = CharaRepository()
     private let fileRepository = FileRepository()
+    private let localCharaResourceUseCase = LocalCharaResourceUseCase()
     
     @Published var mainMessage: String = "リソースをダウンロードしています"
     @Published var progressMessage: String = ""
@@ -37,10 +38,8 @@ class ResourceDownloadViewState: ObservableObject {
                 
                 
                 // Chara を CharaLocalResource に変換する
-                let charaLocalResource = CharaLocalResource(chara: chara)
-                let xxx = try JSONEncoder().encode(charaLocalResource)
-                try fileRepository.saveFile(directoryName: chara.charaID, fileName: "resource.json", data: xxx)
-                
+                let localCharaResource = LocalCharaResource(chara: chara)
+                try localCharaResourceUseCase.saveCharaResource(charaID: chara.charaID, localCharaResource: localCharaResource)
                 
                 mainMessage = "設定完了しました"
                 progressMessage = "100%"
