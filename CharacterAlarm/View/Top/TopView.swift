@@ -6,10 +6,8 @@ import AVKit
 import GoogleMobileAds
 
 struct TopView: View {
-    @StateObject var viewModel = TopViewModel()
-    
+    @StateObject var viewState = TopViewState()
     @StateObject var adDelegate = AdmobRewardedHandler()
-
     
     var body: some View {
         ZStack {
@@ -19,7 +17,7 @@ struct TopView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
             VStack(spacing: 0) {
-                Image(uiImage: viewModel.charaImage)
+                Image(uiImage: viewState.charaImage)
                     .resizable()
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .scaledToFit()
@@ -27,7 +25,7 @@ struct TopView: View {
             }
             
             Button(action: {
-                viewModel.tapped()
+                viewState.tapped()
             }) {
                 Text("")
                     .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
@@ -47,7 +45,7 @@ struct TopView: View {
                         Spacer()
                         
                         Button(action: {
-                            viewModel.newsButtonTapped()
+                            viewState.newsButtonTapped()
                         }) {
                             Image(R.image.topNews.name)
                         }
@@ -66,7 +64,7 @@ struct TopView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            viewModel.characterListButtonTapped()
+                            viewState.characterListButtonTapped()
                         }) {
                             TopButtonContent(imageName: R.image.topPerson.name)
                         }
@@ -74,7 +72,7 @@ struct TopView: View {
                         Spacer()
                         
                         Button(action: {
-                            viewModel.alarmButtonTapped()
+                            viewState.alarmButtonTapped()
                         }) {
                             TopButtonContent(imageName: R.image.topAlarm.name)
                         }
@@ -82,7 +80,7 @@ struct TopView: View {
                         Spacer()
                         
                         Button(action: {
-                            viewModel.configButtonTapped()
+                            viewState.configButtonTapped()
                         }) {
                             TopButtonContent(imageName: R.image.topConfig.name)
                         }
@@ -97,14 +95,14 @@ struct TopView: View {
         }
         .edgesIgnoringSafeArea([.top, .bottom])
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-            viewModel.setChara()
+            viewState.setChara()
         }
         .onAppear {
-            viewModel.onAppear()
-            viewModel.setChara()
+            viewState.onAppear()
+            viewState.setChara()
             adDelegate.load()
         }
-        .alert(item: $viewModel.alert) { item in
+        .alert(item: $viewState.alert) { item in
             switch item {
             case .failedToGetCharacterInformation:
                 return Alert(title: Text(""), message: Text(R.string.localizable.errorFailedToGetCharacterInformation()), dismissButton: .default(Text(R.string.localizable.commonClose())))
@@ -118,7 +116,7 @@ struct TopView: View {
                 return Alert(title: Text(""), message: Text(R.string.localizable.errorThisFeatureIsNotAvailableInYourRegion()), dismissButton: .default(Text(R.string.localizable.commonClose())))
             }
         }
-        .sheet(item: $viewModel.sheet) {
+        .sheet(item: $viewState.sheet) {
             // On Dissmiss
         } content: { item in
             switch item {

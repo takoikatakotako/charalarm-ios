@@ -13,6 +13,8 @@ struct FileRepository: FileRepositoryProtcol {
         }
         let dirPath = dir.appendingPathComponent( directoryName )
         
+        print(dirPath)
+        
         if !FileManager.default.fileExists(atPath: dirPath.path) {
             try FileManager.default.createDirectory(atPath: dirPath.path, withIntermediateDirectories: true, attributes: nil)
         }
@@ -39,6 +41,9 @@ struct FileRepository: FileRepositoryProtcol {
 
     func loadData(directoryName: String, fileName: String) throws -> Data {
         let filePath = try getFileURL(directoryName: directoryName, fileName: fileName)
+        
+        print(filePath)
+        
         guard let data = try? Data(contentsOf: filePath) else {
             throw FileHandlerError.directoryNotFound
         }

@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         sceneDelegateModel.registerDefaults()
         
         // データをロードする
-        sceneDelegateModel.loadData()
+        // sceneDelegateModel.loadData()
 
         // RootViewを作成
         let rootView = RootView(viewState: RootViewState())
