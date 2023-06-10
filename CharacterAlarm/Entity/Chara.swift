@@ -42,19 +42,19 @@ struct Chara: Identifiable, Hashable, Equatable {
 struct CharaProfile: Hashable, Equatable {
     let title: String
     let name: String
-    let url: String
+    let url: URL
 }
 
 struct CharaResource: Hashable, Equatable {
-    let fileURL: String
+    let fileURL: URL
 }
 
 struct CharaExpression: Hashable, Equatable {
-    let images: [String]
-    let voices: [String]
+    let images: [URL]
+    let voices: [URL]
 }
 
 struct CharaCall: Hashable, Equatable {
     let message: String
-    let voice: String
+    let voice: URL
 }

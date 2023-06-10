@@ -19,19 +19,19 @@ class ResourceDownloadViewState: ObservableObject {
             do {
                 let chara = try await charaRepository.fetchCharacter(charaID: charaID)
                 for (index, resource) in chara.resources.enumerated() {
-                    guard let fileURL = URL(string: resource.fileURL) else {
-                        // TODO: エラーハンドリング
-                        mainMessage = "ダウンロードに失敗しました"
-                        progressMessage = ""
-                        showDismissButton = true
-                        return
-                    }
+//                    guard let fileURL = resource.fileURL else {
+//                        // TODO: エラーハンドリング
+//                        mainMessage = "ダウンロードに失敗しました"
+//                        progressMessage = ""
+//                        showDismissButton = true
+//                        return
+//                    }
 
                     let progressPercent = Int(round(Float(index + 1) / Float(chara.resources.count) * 100))
                     progressMessage = "\(progressPercent)%"
                     
-                    let fileName = fileURL.lastPathComponent
-                    let fileData = try await fileRepository.downloadFile(url: fileURL)
+                    let fileName = resource.fileURL.lastPathComponent
+                    let fileData = try await fileRepository.downloadFile(url: resource.fileURL)
                     try fileRepository.saveFile(directoryName: charaID, fileName: fileName, data: fileData)
                 }
                 

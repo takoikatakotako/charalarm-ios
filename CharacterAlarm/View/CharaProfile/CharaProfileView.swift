@@ -20,23 +20,23 @@ struct CharaProfileView: View {
                         .transition(.fade)
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
-                    
-                    CharaProfileRow(title: R.string.localizable.profileName(), text: viewState.chara?.name ?? "", urlString: "")
-                    CharaProfileRow(title: R.string.localizable.profileProfile(), text: viewState.chara?.description ?? "", urlString: "")
-                    
+
+                    CharaProfileRow(title: R.string.localizable.profileName(), text: viewState.chara?.name ?? "", url: nil)
+                    CharaProfileRow(title: R.string.localizable.profileProfile(), text: viewState.chara?.description ?? "", url: nil)
+
                     if let profiles = viewState.chara?.profiles {
                         ForEach(profiles, id: \.hashValue) { profile in
-                            CharaProfileRow(title: profile.title, text: profile.name, urlString: profile.url)
+                            CharaProfileRow(title: profile.title, text: profile.name, url: profile.url)
                         }
                     }
-                    
+
                     Spacer()
                         .frame(height: 60)
                 }
-                
+
                 HStack {
                     Spacer()
-                    
+
                     VStack {
                         Spacer()
                         Button(action: {
@@ -47,7 +47,7 @@ struct CharaProfileView: View {
                         }) {
                             MenuItem(imageName: R.image.profileCall.name)
                         }
-                        
+
                         Button(action: {
                             viewState.showSelectAlert = true
                         }) {

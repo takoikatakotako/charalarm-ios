@@ -3,7 +3,7 @@ import SwiftUI
 struct CharaProfileRow: View {
     let title: String
     let text: String
-    let urlString: String
+    let url: URL?
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -19,7 +19,7 @@ struct CharaProfileRow: View {
                 Divider()
             }
             
-            if let url = URL(string: urlString) {
+            if let url = url {
                 Button(action: {
                     if UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.open(url)
@@ -42,10 +42,10 @@ struct CharaProfileRow: View {
 struct ProfileRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CharaProfileRow(title: "名前", text: "井上結衣", urlString: "https://swiswiswift.com/")
+            CharaProfileRow(title: "名前", text: "井上結衣", url: URL(string: "https://swiswiswift.com/")!)
                 .previewLayout(.sizeThatFits)
             
-            CharaProfileRow(title: "プロフィール", text: "長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。", urlString: "")
+            CharaProfileRow(title: "プロフィール", text: "長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。", url: nil)
                 .previewLayout(.sizeThatFits)
         }
     }

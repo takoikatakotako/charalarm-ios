@@ -14,20 +14,20 @@ struct CharaResponse: Response {
 struct CharaProfileResponse: Response {
     let title: String
     let name: String
-    let url: String
+    let url: URL
 }
 
 struct CharaResourceResponse: Response {
-    let fileURL: String
+    let fileURL: URL
 }
 
 struct CharaExpressionResponse: Response {
-    let imageFileURLs: [String]
-    let voiceFileURLs: [String]
+    let imageFileURLs: [URL]
+    let voiceFileURLs: [URL]
 }
 
 struct CharaCallResponse: Response {
     let message: String
     let voiceFileName: String
-    let voiceFileURL: String
+    let voiceFileURL: URL
 }

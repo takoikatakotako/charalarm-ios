@@ -12,20 +12,15 @@ class AlarmDetailVoiceListState: ObservableObject {
     
     func randomPlayAndSelecVoice() {
         selectedCharaCall = nil
-        guard let randomCharaCall = chara.calls.randomElement(),
-        let url = URL(string: randomCharaCall.voice) else {
+        guard let randomCharaCall = chara.calls.randomElement() else {
+            // TODO: なにか
             return
         }
-        playVoice(url: url)
+        playVoice(url: randomCharaCall.voice)
     }
     
     func playAndSelectVoice(charaCall: CharaCall) {
-        selectedCharaCall = charaCall
-        guard let url = URL(string: charaCall.voice) else {
-            // TODO: エラーメッセージを表示
-            return
-        }
-        playVoice(url: url)
+        playVoice(url: charaCall.voice)
     }
     
     private func playVoice(url: URL) {
