@@ -37,6 +37,9 @@ class ResourceDownloadViewState: ObservableObject {
                 
                 
                 // Chara を CharaLocalResource に変換する
+                let charaLocalResource = CharaLocalResource(chara: chara)
+                let xxx = try JSONEncoder().encode(charaLocalResource)
+                try fileRepository.saveFile(directoryName: chara.charaID, fileName: "resource.json", data: xxx)
                 
                 
                 mainMessage = "設定完了しました"
