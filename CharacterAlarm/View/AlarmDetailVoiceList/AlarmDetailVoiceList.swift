@@ -23,7 +23,7 @@ struct AlarmDetailVoiceList: View {
                 .buttonStyle(PlainButtonStyle())
                 
                 // 指定して選択する
-                ForEach(viewState.chara.calls, id: \.voice) { charaCall in
+                ForEach(viewState.chara.calls, id: \.voiceFileURL) { charaCall in
                     Button {
                         viewState.playAndSelectVoice(charaCall: charaCall)
                         delegate.selectCharaAndCall(chara: viewState.chara, charaCall: viewState.selectedCharaCall)

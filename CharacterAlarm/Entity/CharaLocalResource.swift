@@ -21,10 +21,10 @@ struct CharaLocalExpression: Encodable {
     let voiceFileNames: [String]
     
     init(charaExpression: CharaExpression) {
-        self.imageFileNames = charaExpression.images.map({ url in
+        self.imageFileNames = charaExpression.imageFileURLs.map({ url in
             url.lastPathComponent
         })
-        self.voiceFileNames = charaExpression.voices.map({ url in
+        self.voiceFileNames = charaExpression.voiceFileURLs.map({ url in
             url.lastPathComponent
         })
     }

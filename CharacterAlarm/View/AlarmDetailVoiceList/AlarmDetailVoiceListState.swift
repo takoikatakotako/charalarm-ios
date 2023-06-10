@@ -16,11 +16,11 @@ class AlarmDetailVoiceListState: ObservableObject {
             // TODO: なにか
             return
         }
-        playVoice(url: randomCharaCall.voice)
+        playVoice(url: randomCharaCall.voiceFileURL)
     }
     
     func playAndSelectVoice(charaCall: CharaCall) {
-        playVoice(url: charaCall.voice)
+        playVoice(url: charaCall.voiceFileURL)
     }
     
     private func playVoice(url: URL) {

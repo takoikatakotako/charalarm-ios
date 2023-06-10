@@ -55,7 +55,7 @@ class AlarmDetailViewState: ObservableObject {
                     
                     // CharaCallを設定
                     self.selectedCharaCall = chara.calls.first { charaCall in
-                        charaCall.voice.lastPathComponent == alarm.voiceFileName
+                        charaCall.voiceFileURL.lastPathComponent == alarm.voiceFileName
                     }
                 }
             } catch {
@@ -105,7 +105,7 @@ class AlarmDetailViewState: ObservableObject {
     func setCharaAndCharaCall(chara: Chara, charaCall: CharaCall?) {
         alarm.charaID = chara.charaID
         alarm.charaName = chara.name
-        alarm.voiceFileName = charaCall?.voice.lastPathComponent ?? ""
+        alarm.voiceFileName = charaCall?.voiceFileURL.lastPathComponent ?? ""
         selectedChara = chara
         selectedCharaCall = charaCall
     }
