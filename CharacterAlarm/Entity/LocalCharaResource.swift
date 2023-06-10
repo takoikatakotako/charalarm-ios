@@ -1,6 +1,6 @@
 import Foundation
 
-struct LocalCharaResource: Encodable {
+struct LocalCharaResource: Codable {
     let charaID: String
     var expressions: [String: CharaLocalExpression]
     
@@ -16,7 +16,7 @@ struct LocalCharaResource: Encodable {
 }
 
 
-struct CharaLocalExpression: Encodable {
+struct CharaLocalExpression: Codable {
     let imageFileNames: [String]
     let voiceFileNames: [String]
     

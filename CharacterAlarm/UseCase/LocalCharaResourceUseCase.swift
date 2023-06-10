@@ -10,5 +10,9 @@ struct LocalCharaResourceUseCase {
         let data = try encoder.encode(localCharaResource)
         try fileRepository.saveFile(directoryName: charaID, fileName: "resource.json", data: data)
     }
-    
+
+    func loadCharaResource(charaID: String) throws -> LocalCharaResource {
+        let data = try fileRepository.loadData(directoryName: charaID, fileName: "resource.json")
+        return try JSONDecoder().decode(LocalCharaResource.self, from: data)
+    }
 }

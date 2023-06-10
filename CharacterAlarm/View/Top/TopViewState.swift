@@ -31,9 +31,12 @@ class TopViewState: ObservableObject {
     private let charaRepository: CharaRepository = CharaRepository()
     private let userDefaultsRepository: UserDefaultsRepository = UserDefaultsRepository()
     private let fileHandler: FileRepositoryProtcol = FileRepository()
-
+    
+    private let localCharaResourceUseCase = LocalCharaResourceUseCase()
+    
+    
     var audioPlayer: AVAudioPlayer?
-
+    
     func onAppear() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             guard granted else { return }
@@ -71,95 +74,95 @@ class TopViewState: ObservableObject {
             return
         }
         
-//        guard let resource = getResource(charaDomain: charaDomain) else {
-//            DispatchQueue.main.async {
-//                self.alert = .failedToGetCharactersResources
-//            }
-//            return
-//        }
-//        
-//        guard let key = resource.expression.keys.randomElement() else {
-//            return
-//        }
-//
-//        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
-//        playCharaVoice(charaDomain: charaDomain, resource: resource, key: key)
+        guard let resource = try? localCharaResourceUseCase.loadCharaResource(charaID: charaDomain) else {
+            DispatchQueue.main.async {
+                self.alert = .failedToGetCharactersResources
+            }
+            return
+        }
+        
+        guard let key = resource.expressions.keys.randomElement() else {
+            return
+        }
+        
+        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
+        playCharaVoice(charaDomain: charaDomain, resource: resource, key: key)
     }
     
-//    func featchCharacter(charaDomain: String) async throws -> Character {
-//        Task {
-//            let
-//        }
-//        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
-//            switch result {
-//            case let .success(character):
-//                completion(character)
-//            case .failure:
-//                self.alert = .failedToGetCharacterInformation
-//            }
-//        }
-//    }
+    //    func featchCharacter(charaDomain: String) async throws -> Character {
+    //        Task {
+    //            let
+    //        }
+    //        charaRepository.fetchCharacter(charaDomain: charaDomain) { result in
+    //            switch result {
+    //            case let .success(character):
+    //                completion(character)
+    //            case .failure:
+    //                self.alert = .failedToGetCharacterInformation
+    //            }
+    //        }
+    //    }
     
     func setChara() {
-//        guard let charaDomain = userDefaultsRepository.getCharaDomain() else {
-//            DispatchQueue.main.async {
-//                self.alert = .failedToGetCharacterSelectionInformation
-//            }
-//            return
-//        }
-//
-//        guard let resource = getResource(charaDomain: charaDomain) else {
-//            DispatchQueue.main.async {
-//                self.alert = .failedToGetCharactersResources
-//            }
-//            return
-//        }
-//
-//        guard let key = resource.expression.keys.randomElement() else {
-//            return
-//        }
-//
-//        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
+        //        guard let charaDomain = userDefaultsRepository.getCharaDomain() else {
+        //            DispatchQueue.main.async {
+        //                self.alert = .failedToGetCharacterSelectionInformation
+        //            }
+        //            return
+        //        }
+        //
+        //        guard let resource = getResource(charaDomain: charaDomain) else {
+        //            DispatchQueue.main.async {
+        //                self.alert = .failedToGetCharactersResources
+        //            }
+        //            return
+        //        }
+        //
+        //        guard let key = resource.expression.keys.randomElement() else {
+        //            return
+        //        }
+        //
+        //        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
     }
+    
+    //    private func getResource(charaDomain: String) -> Resource? {
+    //        guard let data = try? fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
+    //            return nil
+    //        }
+    //        let decoder = JSONDecoder()
+    //        decoder.dateDecodingStrategy = .iso8601
+    //        guard let resource = try? decoder.decode(Resource.self, from: data) else {
+    //            return nil
+    //        }
+    //        return resource
+    //    }
+    //
+    private func setCharaImage(charaDomain: String, resource: LocalCharaResource, key: String) {
+        guard let imageName = resource.expressions[key]?.imageFileNames.randomElement() else {
+            return
+        }
         
-//    private func getResource(charaDomain: String) -> Resource? {
-//        guard let data = try? fileHandler.loadData(directoryName: charaDomain, fileName: "resource.json") else {
-//            return nil
-//        }
-//        let decoder = JSONDecoder()
-//        decoder.dateDecodingStrategy = .iso8601
-//        guard let resource = try? decoder.decode(Resource.self, from: data) else {
-//            return nil
-//        }
-//        return resource
-//    }
-//
-//    private func setCharaImage(charaDomain: String, resource: Resource, key: String) {
-//        guard let imageName = resource.expression[key]?.images.randomElement() else {
-//            return
-//        }
-//
-//        do {
-//            let data = try fileHandler.loadData(directoryName: charaDomain, fileName: imageName)
-//            charaImage = UIImage(data: data)!
-//        } catch {
-//            DispatchQueue.main.async {
-//                self.alert = .failedToSetCharacterImage
-//            }
-//        }
-//    }
-//
-//    private func playCharaVoice(charaDomain: String, resource: Resource, key: String) {
-//        guard let voiceName = resource.expression[key]?.voices.randomElement() else {
-//            return
-//        }
-//
-//        do {
-//            let data = try fileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
-//            audioPlayer = try? AVAudioPlayer(data: data)
-//            audioPlayer?.play()
-//        } catch {
-//            print(error)
-//        }
-//    }
+        do {
+            let data = try fileHandler.loadData(directoryName: charaDomain, fileName: imageName)
+            charaImage = UIImage(data: data)!
+        } catch {
+            DispatchQueue.main.async {
+                self.alert = .failedToSetCharacterImage
+            }
+        }
+    }
+    
+    private func playCharaVoice(charaDomain: String, resource: LocalCharaResource, key: String) {
+        guard let voiceName = resource.expressions[key]?.voiceFileNames.randomElement() else {
+            return
+        }
+        
+        do {
+            let data = try fileHandler.loadData(directoryName: charaDomain, fileName: voiceName)
+            audioPlayer = try? AVAudioPlayer(data: data)
+            audioPlayer?.play()
+        } catch {
+            print(error)
+        }
+    }
 }
