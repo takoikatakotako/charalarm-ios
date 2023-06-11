@@ -5,6 +5,7 @@ class RootViewState: ObservableObject {
     @Published var type: RootViewType = .loading
     private let apiRepository = APIRepository()
     private let appUseCase = AppUseCase()
+    private let charaUseCase = CharaUseCase()
     private let userDefaultsRepository = UserDefaultsRepository()
     private let fileRepository: FileRepositoryProtcol = FileRepository()
     
@@ -38,18 +39,19 @@ class RootViewState: ObservableObject {
                 userDefaultsRepository.registerDefaults()
                 
                 // 初期ファイルが配置済みか確認する
-                let exists = try fileRepository.isExistDirectory(directoryName: "com.charalarm.yui")
+                let exists = try charaUseCase.isExistDefaultCharaDirectory()
                 if exists == false {
-                    // Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/com.charalarm.yui"),
-                    // ここでファイルをコピーする
+                    try charaUseCase.copyToDefaultCharaDirectory()
                 }
                 
                 // デコードできるかチェックする
-                // fileRepository.loadData(directoryName: <#T##String#>, fileName: <#T##String#>)
-                
-                
-                // 最新更新できるかチェックする
-                
+                if let localCharaReesource = try? charaUseCase.loadLocalCharaReesource() {
+                    // 最新更新できるかチェックする
+                    // TODO: 続き
+                } else {
+                    // 最新版を落とす
+                    // TODO: 続き
+                }                                
                 
                 // チュートリアルの状態を確認
                 if appUseCase.isDoneTutorial {
