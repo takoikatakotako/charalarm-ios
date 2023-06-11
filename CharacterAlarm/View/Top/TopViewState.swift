@@ -44,6 +44,26 @@ class TopViewState: ObservableObject {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
+        
+        guard let charaDomain = userDefaultsRepository.getCharaID() else {
+            DispatchQueue.main.async {
+                self.alert = .failedToGetCharacterSelectionInformation
+            }
+            return
+        }
+        
+        guard let resource = try? localCharaResourceUseCase.loadCharaResource(charaID: charaDomain) else {
+            DispatchQueue.main.async {
+                self.alert = .failedToGetCharactersResources
+            }
+            return
+        }
+        
+        guard let key = resource.expressions.keys.randomElement() else {
+            return
+        }
+        
+        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
     }
     
     func newsButtonTapped() {
@@ -67,7 +87,7 @@ class TopViewState: ObservableObject {
     }
     
     func tapped() {
-        guard let charaDomain = userDefaultsRepository.getCharaDomain() else {
+        guard let charaDomain = userDefaultsRepository.getCharaID() else {
             DispatchQueue.main.async {
                 self.alert = .failedToGetCharacterSelectionInformation
             }

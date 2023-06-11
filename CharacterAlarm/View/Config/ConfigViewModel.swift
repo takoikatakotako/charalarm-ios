@@ -18,7 +18,7 @@ class ConfigViewModel: ObservableObject {
     }
     
     var charaDomain: String {
-        guard let characterDomain = userDefaultsRepository.getCharaDomain() else {
+        guard let characterDomain = userDefaultsRepository.getCharaID() else {
             fatalError("CHARA_DOMAIN が取得できませんでした")
         }
         return characterDomain

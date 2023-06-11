@@ -2,7 +2,7 @@ import Foundation
 
 protocol UserDefaultsRepositoryProtocol {
     func registerDefaults()
-    func getCharaDomain() -> String?
+    func getCharaID() -> String?
     func setCharaDomain(charaDomain: String)
     func setDefaultCharaDomain()
     func getCharaName() -> String?
@@ -25,7 +25,7 @@ struct UserDefaultsRepository: UserDefaultsRepositoryProtocol {
         UserDefaults.standard.register(defaults: defaults)
     }
     
-    func getCharaDomain() -> String? {
+    func getCharaID() -> String? {
         guard let charaDomain = UserDefaults.standard.string(forKey: CHARA_DOMAIN) else {
             return nil
         }
