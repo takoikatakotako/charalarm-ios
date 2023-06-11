@@ -5,14 +5,14 @@ import AVFoundation
 class CallViewState: ObservableObject {
     let charaDomain: String
     let charaName: String
-    let resourceHandler = ResourceRepository()
+    let resourceHandler = CharaUseCase()
         
     @Published var overlay = true
     @Published var incomingAudioPlayer: AVAudioPlayer?
     @Published var voiceAudioPlayer: AVPlayer?
     
     var charaThumbnailUrlString: String {
-        return resourceHandler.getCharaThumbnailUrlString(charaDomain: charaDomain)
+        return resourceHandler.getCharaThumbnailUrlString(charaID: charaDomain)
     }
     
     init(charaDomain: String, charaName: String) {
@@ -23,7 +23,7 @@ class CallViewState: ObservableObject {
     func call() {
         incomingAudioPlayer?.setVolume(0, fadeDuration: 1)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            let urlString = self.resourceHandler.getSelfIntroductionUrlString(charaDomain: self.charaDomain)
+            let urlString = self.resourceHandler.getSelfIntroductionUrlString(charaID: self.charaDomain)
             let url = URL(string: urlString)!
             let playerItem = AVPlayerItem(url: url)
             self.voiceAudioPlayer = AVPlayer(playerItem: playerItem)

@@ -17,7 +17,7 @@ class CharaProfileViewState: ObservableObject {
     private var numberOfResource: Int = 0
     private var numberOfDownloadedReosurce: Int = 0
     private let apiRepository = APIRepository()
-    private let resourceHandler = ResourceRepository()
+    private let resourceHandler = CharaUseCase()
     private let fileRepository = FileRepository()
     
     enum ResourceType: String {
@@ -33,7 +33,7 @@ class CharaProfileViewState: ObservableObject {
     var resourceInfos: [ResourceInfo] = []
     
     var charaThumbnailUrlString: String {
-        return resourceHandler.getCharaThumbnailUrlString(charaDomain: charaID)
+        return resourceHandler.getCharaThumbnailUrlString(charaID: charaID)
     }
     
     init(charaID: String) {
