@@ -16,7 +16,6 @@ struct Chara: Identifiable, Hashable, Equatable {
         return charaID
     }
     
-    
     var thumbnailUrlString: String {
         return "\(environmentVariable.resourceEndpoint)/\(charaID)/thumbnail.png"
     }

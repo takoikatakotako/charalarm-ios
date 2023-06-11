@@ -4,6 +4,7 @@ protocol FileRepositoryProtcol {
     func saveFile(directoryName: String, fileName: String, data: Data) throws
     func getFileURL(directoryName: String, fileName: String) throws -> URL
     func loadData(directoryName: String, fileName: String) throws -> Data
+    func isExistDirectory(directoryName: String) throws -> Bool
 }
 
 struct FileRepository: FileRepositoryProtcol {
@@ -12,9 +13,6 @@ struct FileRepository: FileRepositoryProtcol {
             throw FileHandlerError.directoryNotFound
         }
         let dirPath = dir.appendingPathComponent( directoryName )
-        
-        print(dirPath)
-        
         if !FileManager.default.fileExists(atPath: dirPath.path) {
             try FileManager.default.createDirectory(atPath: dirPath.path, withIntermediateDirectories: true, attributes: nil)
         }
@@ -28,17 +26,15 @@ struct FileRepository: FileRepositoryProtcol {
         return try await APIClient().downloadFile(url: url)
     }
     
-    
-
     func getFileURL(directoryName: String, fileName: String) throws -> URL {
-      guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
-          throw FileHandlerError.directoryNotFound
-      }
+        guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
+            throw FileHandlerError.directoryNotFound
+        }
         let dirPath = dir.appendingPathComponent( directoryName )
         let filePath = dirPath.appendingPathComponent( fileName )
         return filePath
     }
-
+    
     func loadData(directoryName: String, fileName: String) throws -> Data {
         let filePath = try getFileURL(directoryName: directoryName, fileName: fileName)
         
@@ -48,5 +44,17 @@ struct FileRepository: FileRepositoryProtcol {
             throw FileHandlerError.directoryNotFound
         }
         return data
+    }
+    
+    func isExistDirectory(directoryName: String) throws -> Bool {
+        guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
+            throw FileHandlerError.directoryNotFound
+        }
+        let dirPath = dir.appendingPathComponent( directoryName )
+        
+        print(dirPath.path)
+        
+        var isDirectory = ObjCBool(true)
+        return FileManager.default.fileExists(atPath: dirPath.path, isDirectory:  &isDirectory)
     }
 }

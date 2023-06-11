@@ -15,9 +15,7 @@ struct Logger {
             let message: String
         }
   
-        
         let info = DatadogInfo(host: "charalarm-ios", source: "iOS", service: "iOS", status: "Info", message: message)
-        
         request.httpBody = try! JSONEncoder().encode(info)
         
         

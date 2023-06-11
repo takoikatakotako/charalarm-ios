@@ -2,16 +2,16 @@ import UIKit
 import AVKit
 
 class SceneDelegateModel {
-    private let fileHandler: FileRepositoryProtcol
+    private let fileRepository: FileRepositoryProtcol
     private let userDefaultsRepository: UserDefaultsRepositoryProtocol
     private let authUseCase: AppUseCaseProtcol
     
     init(
-        fileHandler: FileRepositoryProtcol = FileRepository(),
+        fileRepository: FileRepositoryProtcol = FileRepository(),
         userDefaultsRepository: UserDefaultsRepositoryProtocol = UserDefaultsRepository(),
         authUseCase: AppUseCaseProtcol = AppUseCase()
     ) {
-        self.fileHandler = fileHandler
+        self.fileRepository = fileRepository
         self.userDefaultsRepository = userDefaultsRepository
         self.authUseCase = authUseCase
     }
@@ -38,16 +38,16 @@ class SceneDelegateModel {
 //        }
 //    }
     
-    func getIsDoneTutorial() -> Bool {
-        return authUseCase.isDoneTutorial
-    }
-    
-    func getAppVersion() -> String {
-        guard let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
-            fatalError("アプリケーションのバージョンの取得に失敗しました。")
-        }
-        return appVersion
-    }
+//    func getIsDoneTutorial() -> Bool {
+//        return authUseCase.isDoneTutorial
+//    }
+//    
+//    func getAppVersion() -> String {
+//        guard let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
+//            fatalError("アプリケーションのバージョンの取得に失敗しました。")
+//        }
+//        return appVersion
+//    }
     
     // データをロードする
 //    private func loadData(charaDomain:String, resource: Resource) {
