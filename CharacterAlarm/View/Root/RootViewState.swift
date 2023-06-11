@@ -3,7 +3,7 @@ import SwiftUI
 
 class RootViewState: ObservableObject {
     @Published var type: RootViewType = .loading
-    private let otherRepository = OtherRepository()
+    private let apiRepository = APIRepository()
     private let appUseCase = AppUseCase()
     
     func onAppear() {
@@ -15,7 +15,7 @@ class RootViewState: ObservableObject {
                 }
                 
                 // メンテナンス中か確認
-                let isMaintenance = try await otherRepository.fetchMaintenance()
+                let isMaintenance = try await apiRepository.fetchMaintenance()
                 if isMaintenance {
                     withAnimation(.linear(duration: 1)) {
                         type = .maintenance
@@ -24,7 +24,7 @@ class RootViewState: ObservableObject {
                 }
                 
                 // アップデートが必要か確認
-                let requireVersion = try await otherRepository.fetchRequireVersion()
+                let requireVersion = try await apiRepository.fetchRequireVersion()
                 if requireVersion > appUseCase.appVersion {
                     withAnimation(.linear(duration: 1)) {
                         type = .updateRequire

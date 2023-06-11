@@ -10,7 +10,6 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
     
     private let userID = UUID()
     private let authToken = UUID()
-    private let pushRepository: PushRepository = PushRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     private let apiRepository = APIRepository()
 
@@ -45,13 +44,13 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
                 // Set Push Token
                 if let token = optionalPushToken {
                     let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-                    try await pushRepository.addPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: pushToken)
+                    try await apiRepository.postPushTokenAddPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: pushToken)
                 }
     
                 // Set VoIP Push Token
                 if let token = optionalVoIPPushToken {
                     let voipPushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-                    try await pushRepository.addVoipPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: voipPushToken)
+                    try await apiRepository.postPushTokenAddVoIPPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: voipPushToken)
                 }
                 
                 accountCreated = true

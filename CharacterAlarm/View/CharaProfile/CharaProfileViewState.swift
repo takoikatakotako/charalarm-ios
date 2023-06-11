@@ -16,7 +16,7 @@ class CharaProfileViewState: ObservableObject {
     
     private var numberOfResource: Int = 0
     private var numberOfDownloadedReosurce: Int = 0
-    private let charaRepository: CharaRepository = CharaRepository()
+    private let apiRepository = APIRepository()
     private let resourceHandler = ResourceRepository()
     private let fileRepository = FileRepository()
     
@@ -48,7 +48,7 @@ class CharaProfileViewState: ObservableObject {
     func fetchCharacter() {
         Task { @MainActor in
             do {
-                let chara = try await charaRepository.fetchCharacter(charaID: charaID)
+                let chara = try await apiRepository.fetchCharacter(charaID: charaID)
                 self.chara = chara
             } catch {
                 alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()

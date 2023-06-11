@@ -28,7 +28,6 @@ class TopViewState: ObservableObject {
     @Published var charaImage = UIImage()
     @Published var alert: TopViewModelAlert?
     @Published var sheet: TopViewModelSheet?
-    private let charaRepository: CharaRepository = CharaRepository()
     private let userDefaultsRepository: UserDefaultsRepository = UserDefaultsRepository()
     private let fileHandler: FileRepositoryProtcol = FileRepository()
     

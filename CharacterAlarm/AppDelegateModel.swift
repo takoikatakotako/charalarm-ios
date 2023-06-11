@@ -5,13 +5,13 @@ class AppDelegateModel {
     private(set) var charaName: String = ""
     private(set) var voiceFileURL: String = ""
     private var player = AVPlayer()
-    private let pushRepository: PushRepository
+    private let apiRepository: APIRepository
     private let keychainRepository: KeychainRepository
     var pushToken: String?
     var voipPushToken: String?
     
-    init(pushRepository: PushRepository, keychainRepository: KeychainRepository) {
-        self.pushRepository = PushRepository()
+    init(apiRepository: APIRepository, keychainRepository: KeychainRepository) {
+        self.apiRepository = APIRepository()
         self.keychainRepository = KeychainRepository()
     }
     
@@ -36,7 +36,7 @@ class AppDelegateModel {
         Task {
             do {
                 let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
-                try await pushRepository.addPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
+                try await apiRepository.postPushTokenAddPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
                 print(error)
             }
@@ -62,7 +62,7 @@ class AppDelegateModel {
         Task {
             do {
                 let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
-                try await pushRepository.addVoipPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
+                try await apiRepository.postPushTokenAddVoIPPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
                 print(error)
             }

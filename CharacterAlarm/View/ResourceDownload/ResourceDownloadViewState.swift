@@ -2,7 +2,7 @@ import Foundation
 
 class ResourceDownloadViewState: ObservableObject {
     private let charaID: String
-    private let charaRepository = CharaRepository()
+    private let apiRepository = APIRepository()
     private let fileRepository = FileRepository()
     private let localCharaResourceUseCase = LocalCharaResourceUseCase()
     
@@ -18,7 +18,7 @@ class ResourceDownloadViewState: ObservableObject {
     func onAppear() {
         Task { @MainActor in
             do {
-                let chara = try await charaRepository.fetchCharacter(charaID: charaID)
+                let chara = try await apiRepository.fetchCharacter(charaID: charaID)
                 for (index, resource) in chara.resources.enumerated() {
 //                    guard let fileURL = resource.fileURL else {
 //                        // TODO: エラーハンドリング

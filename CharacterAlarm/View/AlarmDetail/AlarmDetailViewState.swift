@@ -20,8 +20,7 @@ class AlarmDetailViewState: ObservableObject {
     
     let type: AlarmDetailViewTyep
     private let alarmRepository: AlarmRepository = AlarmRepository()
-    private let charaCallRepository: CharaCallRepository = CharaCallRepository()
-    private let charaRepository: CharaRepository = CharaRepository()
+    private let apiRepository = APIRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     
     var timeDefferenceString: String {
@@ -45,12 +44,12 @@ class AlarmDetailViewState: ObservableObject {
         Task { @MainActor in
             do {
                 // キャラクター一覧取得
-                let characters = try await charaRepository.fetchCharacters()
+                let characters = try await apiRepository.getCharaList()
                 self.characters = characters
                 
                 // 現在のキャラを取得
                 if alarm.charaID.isNotEmpty {
-                    let chara = try await charaRepository.fetchCharacter(charaID: alarm.charaID)
+                    let chara = try await apiRepository.fetchCharacter(charaID: alarm.charaID)
                     self.selectedChara = chara
                     
                     // CharaCallを設定

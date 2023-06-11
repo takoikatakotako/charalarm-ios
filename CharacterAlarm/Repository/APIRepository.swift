@@ -5,6 +5,24 @@ struct APIRepository {
 }
 
 extension APIRepository {
+    func postPushTokenAddPushToken(userID: String, authToken: String, pushToken: PushTokenRequest) async throws {
+        let path = "/push-token/ios/push/add"
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
+        let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
+        let requestBody: Encodable = pushToken
+        let messageResponse: MessageResponse = try await APIClient2().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+    }
+
+    func postPushTokenAddVoIPPushToken(userID: String, authToken: String, pushToken: PushTokenRequest) async throws {
+        let path = "/push-token/ios/voip-push/add"
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
+        let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
+        let requestBody: Encodable = pushToken
+        let messageResponse: MessageResponse = try await APIClient2().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+    }
+}
+
+extension APIRepository {
     func postUserInfo(userID: String, authToken: String) async throws -> UserInfo {
         let path = "/user/info"
         let url = URL(string: environmentVariable.apiEndpoint + path)!
@@ -40,5 +58,45 @@ extension APIRepository {
         let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Encodable? = nil
         let messageResponse: MessageResponse = try await APIClient2().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+    }
+}
+
+extension APIRepository {
+    func getCharaList() async throws -> [Chara] {
+        let path = "/chara/list"
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
+        let requestHeader: [String: String] = APIHeader.defaultHeader
+        let requestBody: Encodable? = nil
+        let charaResponses: [CharaResponse] = try await APIClient2().request(url: url, httpMethod: .get, requestHeader: requestHeader, requestBody: requestBody)
+        return charaResponses.map { Chara(charaResponse: $0) }
+    }
+    
+    func fetchCharacter(charaID: String) async throws -> Chara {
+        let path = "/chara/id/\(charaID)"
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
+        let requestHeader: [String: String] = APIHeader.defaultHeader
+        let requestBody: Encodable? = nil
+        let charaResponse: CharaResponse = try await APIClient2().request(url: url, httpMethod: .get, requestHeader: requestHeader, requestBody: requestBody)
+        return Chara(charaResponse: charaResponse)
+    }
+}
+
+extension APIRepository {
+    func fetchMaintenance() async throws -> Bool {
+        let path = "/maintenance"
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
+        let requestHeader = APIHeader.defaultHeader
+        let requestBody: Request? = nil
+        let response: MaintenanceResponse = try await APIClient2().request(url: url, httpMethod: .get, requestHeader: requestHeader, requestBody: requestBody)
+        return response.maintenance
+    }
+    
+    func fetchRequireVersion() async throws -> String {
+        let path = "/require"
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
+        let requestHeader = APIHeader.defaultHeader
+        let requestBody: Request? = nil
+        let response: RequireVersionResponse = try await APIClient2().request(url: url, httpMethod: .get, requestHeader: requestHeader, requestBody: requestBody)
+        return response.iosVersion
     }
 }

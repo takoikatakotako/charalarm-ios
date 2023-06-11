@@ -7,7 +7,6 @@ class ConfigViewModel: ObservableObject {
     @Published var alertMessage = ""
     @Published var showingResetAlert = false
 
-    private let charaRepository: CharaRepository = CharaRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
     private let appUseCase = AppUseCase()
