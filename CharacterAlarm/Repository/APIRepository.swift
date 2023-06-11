@@ -1,12 +1,16 @@
-import UIKit
+import Foundation
 
-class UserRepository {
-    func info(userID: String, authToken: String) async throws -> UserInfo {
+struct APIRepository {
+    
+}
+
+extension APIRepository {
+    func postUserInfo(userID: String, authToken: String) async throws -> UserInfo {
         let path = "/user/info"
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Encodable? = nil
-        let userInfoResponse = try await APIClient<UserInfoResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let userInfoResponse: UserInfoResponse = try await APIClient2().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
         
         // 変換
         let iOSPlatformInfo = UserInfoIOSPlatformInfo (
@@ -21,20 +25,20 @@ class UserRepository {
             platform: userInfoResponse.platform,
             iOSPlatformInfo: iOSPlatformInfo)
     }
-
-    func signup(request: UserSignUpRequest) async throws {
+    
+    func postUserSignup(request: UserSignUpRequest) async throws {
         let path = "/user/signup"
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader: [String: String] = APIHeader.defaultHeader
         let requestBody: Encodable? = request
-        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let messageResponse: MessageResponse = try await APIClient2().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     
-    func withdraw(userID: String, authToken: String) async throws {
+    func postUserWithdraw(userID: String, authToken: String) async throws {
         let path = "/user/withdraw"
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Encodable? = nil
-        _ = try await APIClient<MessageResponse>().request2(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let messageResponse: MessageResponse = try await APIClient2().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }

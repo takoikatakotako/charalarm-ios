@@ -8,10 +8,10 @@ class ConfigViewModel: ObservableObject {
     @Published var showingResetAlert = false
 
     private let charaRepository: CharaRepository = CharaRepository()
-    private let userRepository: UserRepository = UserRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
     private let appUseCase = AppUseCase()
+    private let apiRepository = APIRepository()
 
     var versionString: String {
         return getVersion()
@@ -53,7 +53,7 @@ class ConfigViewModel: ObservableObject {
         
         Task { @MainActor in
             do {
-                try await userRepository.withdraw(userID: userID, authToken: authToken)
+                try await apiRepository.postUserWithdraw(userID: userID, authToken: authToken)
                 try keychainRepository.setUserID(userID: nil)
                 try keychainRepository.setAuthToken(authToken: nil)
                 userDefaultsRepository.setDefaultCharaDomain()

@@ -7,7 +7,7 @@ class UserInfoViewState: ObservableObject {
     @Published var userInfo: UserInfo?
     
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    private let userRepository = UserRepository()
+    private let apiRepository = APIRepository()
     private let keychainRepository = KeychainRepository()
     
     var pushToken: String? {
@@ -28,7 +28,7 @@ class UserInfoViewState: ObservableObject {
             }
             
             do {
-                userInfo = try await userRepository.info(userID: userID, authToken: authToken)
+                userInfo = try await apiRepository.postUserInfo(userID: userID, authToken: authToken)
             } catch {
                 alertMessage = "不明なエラーです"
                 showingAlert = true

@@ -10,9 +10,9 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
     
     private let userID = UUID()
     private let authToken = UUID()
-    private let userRepository: UserRepository = UserRepository()
     private let pushRepository: PushRepository = PushRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
+    private let apiRepository = APIRepository()
 
     func openPrivacyPolicy() {
         guard let url = URL(string: PrivacyPolicyUrlString) else {
@@ -36,7 +36,7 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
             // ここでユーザー登録してトークンを設定する
             do {
                 // SignUp
-                try await userRepository.signup(request: UserSignUpRequest(userID: userID.uuidString, authToken: authToken.uuidString, platform: "iOS"))
+                try await apiRepository.postUserSignup(request: UserSignUpRequest(userID: userID.uuidString, authToken: authToken.uuidString, platform: "iOS"))
 
                 // Set KeyChain
                 try keychainRepository.setUserID(userID: userID)
