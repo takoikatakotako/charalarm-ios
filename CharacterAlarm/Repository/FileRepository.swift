@@ -25,7 +25,7 @@ struct FileRepository: FileRepositoryProtcol {
     
     
     func downloadFile(url: URL) async throws -> Data {
-        return try await APIClient2().downloadFile(url: url)
+        return try await APIClient().downloadFile(url: url)
     }
     
     

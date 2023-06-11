@@ -19,7 +19,7 @@ class AlarmDetailViewState: ObservableObject {
     private let dismissSubject = PassthroughSubject<Void, Never>()
     
     let type: AlarmDetailViewTyep
-    private let alarmRepository: AlarmRepository = AlarmRepository()
+//    private let alarmRepository: AlarmRepository = AlarmRepository()
     private let apiRepository = APIRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     
@@ -86,7 +86,7 @@ class AlarmDetailViewState: ObservableObject {
             showingIndicator = true
             do {
                 let alarmDeleteRequest = AlarmDeleteRequest(alarmID: alarm.alarmID)
-                try await alarmRepository.deleteAlarm(userID: userID, authToken: authToken, requestBody: alarmDeleteRequest)
+                try await apiRepository.deleteAlarm(userID: userID, authToken: authToken, requestBody: alarmDeleteRequest)
                 dismissSubject.send()
                 showingIndicator = false
             } catch {
@@ -141,7 +141,7 @@ class AlarmDetailViewState: ObservableObject {
             do {
                 let alarmRequest = alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
                 let alarmAddRequest = AlarmAddRequest(alarm: alarmRequest)
-                try await alarmRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
+                try await apiRepository.addAlarm(userID: userID, authToken: authToken, requestBody: alarmAddRequest)
                 dismissSubject.send()
                 showingIndicator = false
             } catch {
@@ -163,7 +163,7 @@ class AlarmDetailViewState: ObservableObject {
             do {
                 let alarmRequest = alarm.toAlarmRequest(userID: UUID(uuidString: userID)!)
                 let alarmEditRequest = AlarmEditRequest(alarm: alarmRequest)
-                try await alarmRepository.editAlarm(userID: userID, authToken: authToken, requestBody: alarmEditRequest)
+                try await apiRepository.editAlarm(userID: userID, authToken: authToken, requestBody: alarmEditRequest)
                 dismissSubject.send()
                 showingIndicator = false
             } catch {

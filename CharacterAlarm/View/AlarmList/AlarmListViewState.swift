@@ -6,7 +6,7 @@ class AlarmListViewState: ObservableObject {
     @Published var alert: AlarmListViewAlertItem?
     @Published var showingIndicator: Bool = true
     
-    private let alarmRepository: AlarmRepository = AlarmRepository()
+    private let apiRepository = APIRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     
     func addAlarmButtonTapped() {
@@ -58,7 +58,7 @@ class AlarmListViewState: ObservableObject {
             }
             
             do {
-                let alarms = try await alarmRepository.fetchAlarms(userID: userID, authToken: authToken)
+                let alarms = try await apiRepository.fetchAlarms(userID: userID, authToken: authToken)
                 self.showingIndicator = false
                 self.alarms = alarms.map { $0.toAlarm() }
             } catch {
@@ -83,7 +83,7 @@ class AlarmListViewState: ObservableObject {
         Task { @MainActor in
             do {
                 let requestBody = AlarmEditRequest(alarm: alarm.toAlarmRequest(userID: UUID(uuidString: userID)!))
-                try await alarmRepository.editAlarm(userID:userID, authToken: authToken, requestBody: requestBody)
+                try await apiRepository.editAlarm(userID:userID, authToken: authToken, requestBody: requestBody)
             } catch {
                 alert = .error(UUID(), R.string.localizable.alarmFailedToEditTheAlarm())
             }
