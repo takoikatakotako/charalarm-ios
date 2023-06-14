@@ -6,6 +6,7 @@ protocol CharaUseCaseProtcol {
 }
 
 struct CharaUseCase: CharaUseCaseProtcol {
+    private let apiRepository = APIRepository()
     private let fileRepository = FileRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
     
@@ -61,5 +62,13 @@ struct CharaUseCase: CharaUseCaseProtcol {
         let resourceData = try fileRepository.loadData(directoryName: charaID, fileName: "resource.json")
         let localCharaResource: LocalCharaResource = try JSONDecoder().decode(LocalCharaResource.self, from: resourceData)
         return localCharaResource
+    }
+    
+    func fetchAndDownloadCharaResource() async throws {
+        let charaID = userDefaultsRepository.getCharaID() ?? "com.charalarm.yui"
+        let chara = try await apiRepository.fetchCharacter(charaID: charaID)
+        let localCharaResource: LocalCharaResource = LocalCharaResource(chara: chara)
+        let data = try JSONEncoder().encode(localCharaResource)
+        try fileRepository.saveFile(directoryName: charaID, fileName: "resource.json", data: data)
     }
 }
