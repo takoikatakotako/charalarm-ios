@@ -51,7 +51,9 @@ class RootViewState: ObservableObject {
                 } else {
                     // 最新版を落とす
                     // TODO: 続き
-                }                                
+                    
+                                        
+                }
                 
                 // チュートリアルの状態を確認
                 if appUseCase.isDoneTutorial {

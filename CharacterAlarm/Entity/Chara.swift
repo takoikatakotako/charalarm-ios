@@ -4,6 +4,8 @@ struct Chara: Identifiable, Hashable, Equatable {
     init(charaResponse: CharaResponse) {
         charaID = charaResponse.charaID
         enable = charaResponse.enable
+        createdAt = charaResponse.createdAt
+        updatedAt = charaResponse.updatedAt
         name = charaResponse.name
         description = charaResponse.description
         profiles = charaResponse.profiles.map { CharaProfile(title: $0.title, name: $0.name, url: $0.url) }
@@ -30,6 +32,8 @@ struct Chara: Identifiable, Hashable, Equatable {
     
     let charaID: String
     let enable: Bool
+    let createdAt: String
+    let updatedAt: String
     let name: String
     let description: String
     let profiles: [CharaProfile]

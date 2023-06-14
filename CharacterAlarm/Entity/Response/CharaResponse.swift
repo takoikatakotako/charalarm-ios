@@ -3,6 +3,8 @@ import Foundation
 struct CharaResponse: Response {
     let charaID: String
     let enable: Bool
+    let createdAt: String
+    let updatedAt: String
     let name: String
     let description: String
     let profiles: [CharaProfileResponse]

@@ -2,10 +2,12 @@ import Foundation
 
 struct LocalCharaResource: Codable {
     let charaID: String
+    let updatedAt: String
     var expressions: [String: CharaLocalExpression]
     
     init(chara: Chara) {
         self.charaID = chara.charaID
+        self.updatedAt = chara.updatedAt
 
         var expressions: [String: CharaLocalExpression] = [:]
         chara.expressions.forEach { touple in
