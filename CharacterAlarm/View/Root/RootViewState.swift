@@ -47,10 +47,9 @@ class RootViewState: ObservableObject {
                 // デコードできるかチェックする
                 if let localCharaReesource = try? charaUseCase.loadLocalCharaReesource() {
                     // 最新更新できるかチェックする
-                    // TODO: 続き
+                    try await charaUseCase.checkUpdateCharaResource(charaID: localCharaReesource.charaID, updatedAt: localCharaReesource.updatedAt)
                 } else {
                     // 最新版を落とす
-                    // TODO: 続き
                     try await charaUseCase.fetchAndDownloadCharaResource()
                 }
                 

@@ -71,4 +71,16 @@ struct CharaUseCase: CharaUseCaseProtcol {
         let data = try JSONEncoder().encode(localCharaResource)
         try fileRepository.saveFile(directoryName: charaID, fileName: "resource.json", data: data)
     }
+    
+    func checkUpdateCharaResource(charaID: String, updatedAt: String) async throws {
+        let chara = try await apiRepository.fetchCharacter(charaID: charaID)
+        let localCharaResource: LocalCharaResource = LocalCharaResource(chara: chara)
+        
+        // 新しい場合は保存
+        guard localCharaResource.updatedAt > updatedAt else {
+            return
+        }
+        let data = try JSONEncoder().encode(localCharaResource)
+        try fileRepository.saveFile(directoryName: charaID, fileName: "resource.json", data: data)
+    }
 }
