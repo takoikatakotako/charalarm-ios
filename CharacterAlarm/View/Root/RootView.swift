@@ -19,6 +19,8 @@ struct RootView: View {
                 TutorialHolderView()
             } else if viewState.type == .calling {
                 Text("Calling...")
+            } else if viewState.type == .error {
+                ErrorView()
             }
         }
         .onAppear {

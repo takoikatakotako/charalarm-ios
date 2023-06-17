@@ -64,7 +64,9 @@ class RootViewState: ObservableObject {
                     }
                 }
             } catch {
-                
+                withAnimation(.linear(duration: 1)) {
+                    type = .error
+                }
             }
         }
     }
