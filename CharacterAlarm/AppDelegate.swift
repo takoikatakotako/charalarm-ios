@@ -120,7 +120,7 @@ extension AppDelegate: CXProviderDelegate {
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         action.fulfill()
-        model.answerCall()
+        model.answerCall(callUUID: action.callUUID)
     }
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {

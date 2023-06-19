@@ -81,8 +81,8 @@ class AppDelegateModel {
         }
     }
     
-    func answerCall() {
-        NotificationCenter.default.post(name: NSNotification.answerCall, object: self, userInfo: nil)
+    func answerCall(callUUID: UUID) {
+        NotificationCenter.default.post(name: NSNotification.answerCall, object: self, userInfo: [NSNotification.answerCallUserInfoKey: callUUID])
     }
     
     func endCall() {

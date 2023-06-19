@@ -1,6 +1,6 @@
 import Foundation
 
-enum RootViewType {
+enum RootViewType: Equatable {
     case loading
     case maintenance
     case updateRequire

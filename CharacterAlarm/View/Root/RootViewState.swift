@@ -3,6 +3,8 @@ import SwiftUI
 
 class RootViewState: ObservableObject {
     @Published var type: RootViewType = .loading
+    var callUUID: UUID?
+    
     private let apiRepository = APIRepository()
     private let appUseCase = AppUseCase()
     private let charaUseCase = CharaUseCase()
@@ -83,8 +85,9 @@ class RootViewState: ObservableObject {
         }
     }
     
-    func answerCall() {
+    func answerCall(callUUID: UUID?) {
         type = .calling
+        self.callUUID = callUUID
     }
     
     func endCall() {
