@@ -3,6 +3,7 @@ import UIKit
 import SDWebImageSwiftUI
 import AVFoundation
 
+// TODO: モックであるようなことが伝わる名前にする
 struct CallView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 //    let charaDomain: String

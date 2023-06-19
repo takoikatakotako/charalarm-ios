@@ -82,7 +82,12 @@ class AppDelegateModel {
     }
     
     func answerCall(callUUID: UUID) {
-        NotificationCenter.default.post(name: NSNotification.answerCall, object: self, userInfo: [NSNotification.answerCallUserInfoKey: callUUID])
+        let userInfo: [String: Any] = [
+            NSNotification.answerCallUserInfoKeyCharaID: "com.charalarm.yui",
+            NSNotification.answerCallUserInfoKeyCharaName: charaName,
+            NSNotification.answerCallUserInfoKeyCallUUID: callUUID,
+        ]
+        NotificationCenter.default.post(name: NSNotification.answerCall, object: self, userInfo: userInfo)
     }
     
     func endCall() {

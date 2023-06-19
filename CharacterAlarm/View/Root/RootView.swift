@@ -33,8 +33,10 @@ struct RootView: View {
             viewState.didReset()
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.answerCall)) { notification in
-            let callUUID: UUID? = notification.userInfo?[NSNotification.answerCallUserInfoKey] as? UUID
-            viewState.answerCall(callUUID: callUUID)
+            let charaID: String? = notification.userInfo?[NSNotification.answerCallUserInfoKeyCharaID] as? String
+            let charaName: String? = notification.userInfo?[NSNotification.answerCallUserInfoKeyCharaName] as? String
+            let callUUID: UUID? = notification.userInfo?[NSNotification.answerCallUserInfoKeyCallUUID] as? UUID
+            viewState.answerCall(charaID: charaID, charaName: charaName, callUUID: callUUID)
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.endCall)) { notification in
             viewState.endCall()
