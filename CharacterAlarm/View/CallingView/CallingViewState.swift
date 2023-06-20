@@ -23,7 +23,7 @@ class CallingViewState: ObservableObject {
         }
         
         let endCallAction = CXEndCallAction(call: callUUID)
-        let transaction = CXTransaction(action: endCallAction)
+        let transaction = CXTransaction(action: endCallAction)        
         controller.request(transaction) { error in
             if let error = error {
                 print("CXEndCallAction error: \(error.localizedDescription)")
