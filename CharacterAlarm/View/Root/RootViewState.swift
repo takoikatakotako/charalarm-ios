@@ -96,6 +96,8 @@ class RootViewState: ObservableObject {
     }
     
     func endCall() {
-        type = .top
+        withAnimation(.linear(duration: 1)) {
+            type = .top
+        }
     }
 }

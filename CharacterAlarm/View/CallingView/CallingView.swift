@@ -9,11 +9,8 @@ struct CallingView: View {
             Color.gray
                 .edgesIgnoringSafeArea(.all)
             
-            
             VStack {
-                
                 Spacer()
-                
                 
                 Text("Calling...")
                     .font(Font.system(size: 40).bold())
@@ -35,12 +32,7 @@ struct CallingView: View {
                 .padding(.bottom, 48)
             }
             .ignoresSafeArea(.all)
-            
-            
-
-            
         }
-
     }
 }
 
