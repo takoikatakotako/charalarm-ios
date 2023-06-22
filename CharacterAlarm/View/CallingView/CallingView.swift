@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct CallingView: View {
-    
     @StateObject var viewState: CallingViewState
-
     var body: some View {
         ZStack {
             Color.gray
@@ -12,14 +10,14 @@ struct CallingView: View {
             VStack {
                 Spacer()
                 
-                Text("Calling...")
+                Text(viewState.charaName ?? "Calling...")
                     .font(Font.system(size: 40).bold())
                     .foregroundColor(.white)
                 
                 Spacer()
                 
                 Button(action: {
-                    viewState.xxxx()
+                    viewState.endCall()
                 }){
                     Image(systemName: "phone.fill.arrow.down.left")
                         .resizable()
@@ -39,5 +37,7 @@ struct CallingView: View {
 struct CallingView_Previews: PreviewProvider {
     static var previews: some View {
         CallingView(viewState: CallingViewState(charaID: nil, charaName: nil, callUUID: nil))
+        
+        CallingView(viewState: CallingViewState(charaID: nil, charaName: "井上結衣", callUUID: nil))
     }
 }

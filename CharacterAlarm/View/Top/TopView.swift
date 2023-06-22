@@ -127,7 +127,7 @@ struct TopView: View {
             case .alarmList:
                 AlarmListView()
             case .config:
-                ConfigView()
+                ConfigView(viewModel: ConfigViewState())
             }
         }
     }

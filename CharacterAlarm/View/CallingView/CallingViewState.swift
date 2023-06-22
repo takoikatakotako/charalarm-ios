@@ -17,7 +17,7 @@ class CallingViewState: ObservableObject {
     private let controller = CXCallController()
 
     
-    func xxxx() {
+    func endCall() {
         guard let callUUID = callUUID else {
             fatalError("Message")
         }

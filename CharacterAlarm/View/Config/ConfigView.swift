@@ -2,9 +2,9 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ConfigView: View {
+    @StateObject var viewState: ConfigViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject(initialValue: ConfigViewModel()) var viewModel: ConfigViewModel
-    
+
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -18,21 +18,21 @@ struct ConfigView: View {
                     
                     Section(header: Text(R.string.localizable.configOther())) {
                         Button(action: {
-                            viewModel.openUrlString(string: OfficialTwitterUrlString)
+                            viewState.openUrlString(string: OfficialTwitterUrlString)
                         }) {
                             Text(R.string.localizable.configOfficialTwitter())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                         
                         Button(action: {
-                            viewModel.openUrlString(string: ContactAboutAppUrlString)
+                            viewState.openUrlString(string: ContactAboutAppUrlString)
                         }) {
                             Text(R.string.localizable.configInquiresAboutTheApp())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                         
                         Button(action: {
-                            viewModel.openUrlString(string: ContactAbountAddCharacterUrlString)
+                            viewState.openUrlString(string: ContactAbountAddCharacterUrlString)
                         }) {
                             Text(R.string.localizable.configInquiresAddingCharacters())
                                 .foregroundColor(Color(R.color.textColor.name))
@@ -44,7 +44,7 @@ struct ConfigView: View {
                             Text(R.string.localizable.configVersionInfo())
                                 .foregroundColor(Color(R.color.textColor.name))
                             Spacer()
-                            Text(viewModel.versionString)
+                            Text(viewState.versionString)
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                         Button {
@@ -60,19 +60,19 @@ struct ConfigView: View {
                     
                     Section(header: Text(R.string.localizable.configReset())) {
                         Button(action: {
-                            viewModel.resetButtonTapped()
+                            viewState.resetButtonTapped()
                         }) {
                             Text(R.string.localizable.configReset())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        .alert(isPresented: $viewModel.showingResetAlert) {
+                        .alert(isPresented: $viewState.showingResetAlert) {
                             Alert(
                                 title: Text(R.string.localizable.configReset()),
                                 message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),
                                 primaryButton: .default(Text(R.string.localizable.commonCancel())) {
                                     print("リセットをキャンセルしました。")
                                 }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
-                                    viewModel.withdraw()
+                                    viewState.withdraw()
                                 })
                         }
                     }
@@ -91,19 +91,19 @@ struct ConfigView: View {
                                     }
             )
         }.onAppear {
-            viewModel.fetchCharacter()
+            viewState.fetchCharacter()
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-            viewModel.fetchCharacter()
+            viewState.fetchCharacter()
         }
-        .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
+        .alert(isPresented: $viewState.showingAlert) {
+            Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
         }
     }
 }
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigView()
+        ConfigView(viewState: ConfigViewState())
     }
 }
