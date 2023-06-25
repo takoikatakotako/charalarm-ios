@@ -34,14 +34,6 @@ struct TopView: View {
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     HStack {
-//                        Button(action: {
-//                            adDelegate.showAd()
-//                        }) {
-//                            Image(R.image.topNews.name)
-//                        }
-//                        .padding()
-//                        .padding(.top, 8)
-                        
                         Spacer()
                         
                         Button(action: {
@@ -127,7 +119,7 @@ struct TopView: View {
             case .alarmList:
                 AlarmListView()
             case .config:
-                ConfigView(viewModel: ConfigViewState())
+                ConfigView(viewState: ConfigViewState())
             }
         }
     }

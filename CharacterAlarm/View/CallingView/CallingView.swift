@@ -10,7 +10,7 @@ struct CallingView: View {
             VStack {
                 Spacer()
                 
-                Text(viewState.charaName ?? "Calling...")
+                Text("Calling...")
                     .font(Font.system(size: 40).bold())
                     .foregroundColor(.white)
                 

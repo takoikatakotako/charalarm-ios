@@ -1,19 +1,10 @@
 import SwiftUI
 import UIKit
 import SDWebImageSwiftUI
-import AVFoundation
 
 // TODO: モックであるようなことが伝わる名前にする
 struct CallView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//    let charaDomain: String
-//    let charaName: String
-//    @State var incomingAudioPlayer: AVAudioPlayer?
-//    @State var voiceAudioPlayer: AVPlayer?
-//    @State var overlay = true
-//
-//    let resourceHandler = ResourceRepository()
-//
     
     @StateObject var viewState: CallViewState
     
