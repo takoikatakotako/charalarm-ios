@@ -10,7 +10,7 @@ extension APIRepository {
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Encodable = pushToken
-        let messageResponse: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 
     func postPushTokenAddVoIPPushToken(userID: String, authToken: String, pushToken: PushTokenRequest) async throws {
@@ -18,7 +18,7 @@ extension APIRepository {
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Encodable = pushToken
-        let messageResponse: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }
 
@@ -49,7 +49,7 @@ extension APIRepository {
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader: [String: String] = APIHeader.defaultHeader
         let requestBody: Encodable? = request
-        let messageResponse: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     
     func postUserWithdraw(userID: String, authToken: String) async throws {
@@ -57,7 +57,7 @@ extension APIRepository {
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Encodable? = nil
-        let messageResponse: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }
 
@@ -116,7 +116,7 @@ extension APIRepository {
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Request? = requestBody
-        let response: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 
     func editAlarm(userID: String, authToken: String, requestBody: AlarmEditRequest) async throws {
@@ -124,7 +124,7 @@ extension APIRepository {
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Request? = requestBody
-        let response: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     
     func deleteAlarm(userID: String, authToken: String, requestBody: AlarmDeleteRequest) async throws {
@@ -132,6 +132,6 @@ extension APIRepository {
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
         let requestBody: Request? = requestBody
-        let response: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }

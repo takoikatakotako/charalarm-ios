@@ -5,11 +5,6 @@ struct APIClient {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = HttpMethod.get.rawValue
         let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
-        
-        print("====== curl =====")
-        print(urlRequest.curlString)
-        print("=================")
-        
         guard let urlResponse = urlResponse as? HTTPURLResponse else {
             throw CharalarmError.clientError
         }
@@ -35,21 +30,16 @@ struct APIClient {
         
         let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
         
-        print("====== curl =====")
-        print(urlRequest.curlString)
-        print("=================")
+        Logger.printWithTitle(title: "curl", content: urlRequest.curlString)
         
         guard let urlResponse = urlResponse as? HTTPURLResponse else {
             throw CharalarmError.clientError
         }
                 
         guard urlResponse.statusCode == 200 else {
-            print(urlResponse.statusCode)
             if let response = try? JSONDecoder().decode(MessageResponse.self, from: data) {
-                print(response)
                 throw CharalarmError.clientError
             }
-            
             throw CharalarmError.clientError
         }
         

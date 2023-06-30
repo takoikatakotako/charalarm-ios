@@ -78,8 +78,8 @@ targets:
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-          API_ENDPOINT: https://api.sandbox.swiswiswift.com
-          RESOURCE_ENDPOINT: https://s3.ap-northeast-1.amazonaws.com/resource.charalarm.sandbox.swiswiswift.com
+          API_ENDPOINT: https://api.charalarm.sandbox.swiswiswift.com
+          RESOURCE_ENDPOINT: https://resource.charalarm.sandbox.swiswiswift.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716

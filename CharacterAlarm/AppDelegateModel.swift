@@ -35,17 +35,17 @@ class AppDelegateModel {
         
         Task {
             do {
-                let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+                let pushTokenRequest = PushTokenRequest(pushToken: token)
                 try await apiRepository.postPushTokenAddPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
-                print(error)
+                Logger.sendError(error: error)
             }
         }
     }
     
     // ViIPPushトークンを取得できなかった場合
     func failToRregisterPushToken(error: Error) {
-        print("Failed to register to APNs: \(error)")
+        Logger.sendError(error: error)
     }
     
     
@@ -61,10 +61,10 @@ class AppDelegateModel {
         
         Task {
             do {
-                let pushTokenRequest = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+                let pushTokenRequest = PushTokenRequest(pushToken: token)
                 try await apiRepository.postPushTokenAddVoIPPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
-                print(error)
+                Logger.sendError(error: error)
             }
         }
     }
@@ -77,7 +77,6 @@ class AppDelegateModel {
             player.play()
         } else {
             // TODO: ここで再生できない時の処理
-            
         }
     }
     

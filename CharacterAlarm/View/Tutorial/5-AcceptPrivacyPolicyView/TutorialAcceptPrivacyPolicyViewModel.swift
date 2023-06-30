@@ -43,13 +43,13 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
                 
                 // Set Push Token
                 if let token = optionalPushToken {
-                    let pushToken = PushTokenRequest(osType: "IOS", pushTokenType: "REMOTE_NOTIFICATION", pushToken: token)
+                    let pushToken = PushTokenRequest(pushToken: token)
                     try await apiRepository.postPushTokenAddPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: pushToken)
                 }
     
                 // Set VoIP Push Token
                 if let token = optionalVoIPPushToken {
-                    let voipPushToken = PushTokenRequest(osType: "IOS", pushTokenType: "VOIP_NOTIFICATION", pushToken: token)
+                    let voipPushToken = PushTokenRequest(pushToken: token)
                     try await apiRepository.postPushTokenAddVoIPPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: voipPushToken)
                 }
                 

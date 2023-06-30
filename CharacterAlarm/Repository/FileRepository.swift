@@ -37,9 +37,6 @@ struct FileRepository: FileRepositoryProtcol {
     
     func loadData(directoryName: String, fileName: String) throws -> Data {
         let filePath = try getFileURL(directoryName: directoryName, fileName: fileName)
-        
-        print(filePath)
-        
         guard let data = try? Data(contentsOf: filePath) else {
             throw FileHandlerError.directoryNotFound
         }
@@ -51,9 +48,6 @@ struct FileRepository: FileRepositoryProtcol {
             throw FileHandlerError.directoryNotFound
         }
         let dirPath = dir.appendingPathComponent( directoryName )
-        
-        print(dirPath.path)
-        
         var isDirectory = ObjCBool(true)
         return FileManager.default.fileExists(atPath: dirPath.path, isDirectory:  &isDirectory)
     }

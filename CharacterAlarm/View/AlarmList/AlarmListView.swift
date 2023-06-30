@@ -36,7 +36,6 @@ struct AlarmListView: View {
                 switch item {
                 case .ad:
                     return Alert(title: Text(""), message: Text("動画見てください！"), primaryButton: .default(Text("aaa"), action: {
-                        print("Hello")
                     }), secondaryButton: .cancel())
                 case let .error(_, message):
                     return Alert(title: Text(""), message: Text(message), dismissButton: .default(Text(R.string.localizable.commonClose())))
