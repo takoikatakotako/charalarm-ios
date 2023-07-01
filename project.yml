@@ -60,7 +60,7 @@ targets:
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-        PRODUCT_BUNDLE_IDENTIFIER: com.charalarm.staging
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.sandbox.charalarm
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
