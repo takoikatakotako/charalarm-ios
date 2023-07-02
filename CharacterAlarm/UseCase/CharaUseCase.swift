@@ -18,8 +18,24 @@ struct CharaUseCase: CharaUseCaseProtcol {
         return "\(environmentVariable.resourceEndpoint)/\(charaID)/thumbnail.png"
     }
     
-    func isExistDefaultCharaDirectory() throws -> Bool {
-        return try fileRepository.isExistDirectory(directoryName: "com.charalarm.yui")
+    func isExistDefaultCharaResources() throws -> Bool {
+        let resourceData = try fileRepository.loadData(directoryName: "com.charalarm.yui", fileName: "resource.json")
+        let localCharaResource: LocalCharaResource = try JSONDecoder().decode(LocalCharaResource.self, from: resourceData)
+
+        for expression in localCharaResource.expressions {
+            for imageFileName in expression.value.imageFileNames {
+                guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: imageFileName) else {
+                    return false
+                }
+            }
+            for voiceFileName in expression.value.voiceFileNames {
+                guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: voiceFileName) else {
+                    return false
+                }
+            }
+        }
+
+        return true
     }
     
     func copyToDefaultCharaDirectory() throws {
@@ -33,7 +49,11 @@ struct CharaUseCase: CharaUseCaseProtcol {
         // 保存する
         for expression in localCharaResource.expressions {
             for imageFileName in expression.value.imageFileNames {
-                guard let imageFileURL = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/com.charalarm.yui/\(imageFileName)"),
+                
+                
+                
+                                
+                guard let imageFileURL = Bundle.main.url(forResource: imageFileName, withExtension: "", subdirectory: "Resource/com.charalarm.yui"),
                       let imageData = try? Data(contentsOf: imageFileURL) else {
                     // TODO: エラーハンドリング
                     return
@@ -42,7 +62,7 @@ struct CharaUseCase: CharaUseCaseProtcol {
             }
             
             for voiceFileName in expression.value.voiceFileNames {
-                guard let voiceFileURL = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/com.charalarm.yui/\(voiceFileName)"),
+                guard let voiceFileURL = Bundle.main.url(forResource: voiceFileName, withExtension: "", subdirectory: "Resource/com.charalarm.yui"),
                       let voiceData = try? Data(contentsOf: voiceFileURL) else {
                     // TODO: エラーハンドリング
                     return

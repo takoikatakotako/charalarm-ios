@@ -1,5 +1,6 @@
 {
   "charaID" : "com.charalarm.yui",
+  "updatedAt": "2023-06-14",
   "expressions" : {
     "smile" : {
       "voiceFileNames" : [

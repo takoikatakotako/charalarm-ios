@@ -51,4 +51,12 @@ struct FileRepository: FileRepositoryProtcol {
         var isDirectory = ObjCBool(true)
         return FileManager.default.fileExists(atPath: dirPath.path, isDirectory:  &isDirectory)
     }
+    
+    func isExistFile(directoryName: String, fileName: String) throws -> Bool {
+        guard let dir = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask ).first else {
+            throw FileHandlerError.directoryNotFound
+        }
+        let filePath = dir.appendingPathComponent( directoryName ).appendingPathComponent( fileName )
+        return FileManager.default.fileExists(atPath: filePath.path)
+    }
 }

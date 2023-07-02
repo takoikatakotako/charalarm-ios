@@ -44,7 +44,7 @@ class RootViewState: ObservableObject {
                 userDefaultsRepository.registerDefaults()
                 
                 // 初期ファイルが配置済みか確認する
-                let exists = try charaUseCase.isExistDefaultCharaDirectory()
+                let exists = try charaUseCase.isExistDefaultCharaResources()
                 if exists == false {
                     try charaUseCase.copyToDefaultCharaDirectory()
                 }
