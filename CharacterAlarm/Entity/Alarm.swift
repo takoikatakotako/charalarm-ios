@@ -25,8 +25,6 @@ struct Alarm: Identifiable, Hashable {
 
 extension Alarm {
     func toAlarmRequest(userID: UUID) -> AlarmRequest {
-        let url = URL(string: voiceFileName)!
-        let fileName = url.lastPathComponent
         return AlarmRequest(
             alarmID: alarmID,
             userID: userID,
@@ -38,7 +36,7 @@ extension Alarm {
             timeDifference: timeDifference,
             charaID: charaID,
             charaName: charaName,
-            voiceFileName: fileName,
+            voiceFileName: voiceFileName,
             sunday: sunday,
             monday: monday,
             tuesday: tuesday,

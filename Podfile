@@ -8,7 +8,7 @@ def install_pods
   pod 'Google-Mobile-Ads-SDK'
 end
 
-target 'CharalarmLocal' do
+target 'CharalarmDevelop' do
   install_pods
   
   target 'CharacterAlarmTests' do

@@ -9,6 +9,12 @@ protocol KeychainRepositoryProtcol {
 }
 
 struct KeychainRepository: KeychainRepositoryProtcol {
+    // Key
+    private let USER_ID = "USER_ID"
+    private let AUTH_TOKEN = "AUTH_TOKEN"
+    private let ANONYMOUS_USER_NAME = "ANONYMOUS_USER_NAME"
+    private let ANONYMOUS_AUTH_TOKEN = "ANONYMOUS_AUTH_TOKEN"
+    
     func setUserID(userID: UUID?) throws {
         try set(key: ANONYMOUS_USER_NAME, value: userID?.uuidString ?? "")
         try set(key: USER_ID, value: userID?.uuidString ?? "")

@@ -50,7 +50,7 @@ bundle -v
 
 ```
 bundle config set path vendor/bundle
-bundle _2.4.13_ install --path vendor/bundle
+bundle _2.4.13_ install
 ```
 
 #### Mintのインストール ####

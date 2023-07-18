@@ -9,7 +9,7 @@ import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let model = AppDelegateModel(pushRepository: PushRepository(), keychainRepository: KeychainRepository())
+    let model = AppDelegateModel(apiRepository: APIRepository(), keychainRepository: KeychainRepository())
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs.
@@ -24,16 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             fatalError("API_ENDPOINTが見つかりません")
         }
-        API_ENDPOINT = apiEndpoint
-        RESOURCE_ENDPOINT = resourceEndpoint
+        environmentVariable.apiEndpoint = apiEndpoint
+        environmentVariable.resourceEndpoint = resourceEndpoint
         
         // AdmobのユニットIDを取得
-        guard let admobAlarmListUnitId = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String,
-              let admobConfigUnitId = Bundle.main.infoDictionary?["ADMOB_CONFIG"] as? String else {
+        guard let admobAlarmListUnitID = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String,
+              let admobConfigUnitID = Bundle.main.infoDictionary?["ADMOB_CONFIG"] as? String else {
             fatalError("AdmobのUnitIdが見つかりません")
         }
-        ADMOB_ALARM_LIST_UNIT_ID = admobAlarmListUnitId
-        ADMOB_CONFIG_UNIT_ID = admobConfigUnitId
+        environmentVariable.admobAlarmListUnitID = admobAlarmListUnitID
+        environmentVariable.admobConfigUnitID = admobConfigUnitID
                 
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
@@ -46,15 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // バックグラウンドでの音声再生を有効化する
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
-            print("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
-            print("Session is Active")
         } catch {
-            print("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
+            assertionFailure("ERROR: CANNOT PLAY MUSIC IN BACKGROUND. Message from code: \"\(error)\"")
         }
-        
-        // NavigationBarの色を変更
-        UINavigationBar.appearance().tintColor = UIColor(named: R.color.charalarmDefaultGray.name)
         
         return true
     }
@@ -125,6 +120,7 @@ extension AppDelegate: CXProviderDelegate {
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         action.fulfill()
+        model.answerCall(callUUID: action.callUUID)
     }
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
@@ -133,5 +129,6 @@ extension AppDelegate: CXProviderDelegate {
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         action.fulfill()
+        model.endCall()
     }
 }

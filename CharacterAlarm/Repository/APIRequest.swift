@@ -5,8 +5,21 @@ enum HttpMethod: String {
     case post = "POST"
 }
 
+struct APIHeader {
+    static let defaultHeader: [String: String] = ["Content-Type": "application/json"]
+
+    static func createAuthorizationRequestHeader(userID: String, authToken: String) -> [String: String] {
+        guard let authorization = "\(userID):\(authToken)".data(using: .utf8)?.base64EncodedString() else {
+            fatalError()
+        }
+        var requestHeader = Self.defaultHeader
+        requestHeader["Authorization"] = "Basic \(authorization)"
+        return requestHeader
+    }
+}
+
 struct APIRequest {
-    static func createUrlRequest(baseUrl: String = API_ENDPOINT, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]) -> URLRequest {
+    static func createUrlRequest(baseUrl: String = environmentVariable.apiEndpoint, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"]) -> URLRequest {
         let url = URL(string: baseUrl + path)!
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
@@ -14,8 +27,8 @@ struct APIRequest {
         return request
     }
     
-    static func createUrlRequest<RequestBody: Encodable>(baseUrl: String = API_ENDPOINT, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"], requestBody: RequestBody) -> URLRequest {
-        let url = URL(string: API_ENDPOINT + path)!
+    static func createUrlRequest<RequestBody: Encodable>(baseUrl: String = environmentVariable.apiEndpoint, path: String, httpMethod: HttpMethod = .get, requestHeader: [String: String] = ["X-API-VERSION": "0", "Content-Type": "application/json"], requestBody: RequestBody) -> URLRequest {
+        let url = URL(string: environmentVariable.apiEndpoint + path)!
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.allHTTPHeaderFields = requestHeader
