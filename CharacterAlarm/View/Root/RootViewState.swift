@@ -44,7 +44,7 @@ class RootViewState: ObservableObject {
                 userDefaultsRepository.registerDefaults()
                 
                 // 初期ファイルが配置済みか確認する
-                let exists = try charaUseCase.isExistDefaultCharaResources()
+                let exists: Bool = charaUseCase.isExistDefaultCharaResources()
                 if exists == false {
                     try charaUseCase.copyToDefaultCharaDirectory()
                 }
@@ -52,10 +52,10 @@ class RootViewState: ObservableObject {
                 // デコードできるかチェックする
                 if let localCharaReesource = try? charaUseCase.loadLocalCharaReesource() {
                     // 最新更新できるかチェックする
-                    try await charaUseCase.checkUpdateCharaResource(charaID: localCharaReesource.charaID, updatedAt: localCharaReesource.updatedAt)
+                    try? await charaUseCase.checkUpdateCharaResource(charaID: localCharaReesource.charaID, updatedAt: localCharaReesource.updatedAt)
                 } else {
                     // 最新版を落とす
-                    try await charaUseCase.fetchAndDownloadCharaResource()
+                    try? await charaUseCase.fetchAndDownloadCharaResource()
                 }
                 
                 // チュートリアルの状態を確認

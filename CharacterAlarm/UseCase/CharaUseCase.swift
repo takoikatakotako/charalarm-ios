@@ -18,24 +18,27 @@ struct CharaUseCase: CharaUseCaseProtcol {
         return "\(environmentVariable.resourceEndpoint)/\(charaID)/thumbnail.png"
     }
     
-    func isExistDefaultCharaResources() throws -> Bool {
-        let resourceData = try fileRepository.loadData(directoryName: "com.charalarm.yui", fileName: "resource.json")
-        let localCharaResource: LocalCharaResource = try JSONDecoder().decode(LocalCharaResource.self, from: resourceData)
+    func isExistDefaultCharaResources() -> Bool {
+        do {
+            let resourceData = try fileRepository.loadData(directoryName: "com.charalarm.yui", fileName: "resource.json")
+            let localCharaResource: LocalCharaResource = try JSONDecoder().decode(LocalCharaResource.self, from: resourceData)
 
-        for expression in localCharaResource.expressions {
-            for imageFileName in expression.value.imageFileNames {
-                guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: imageFileName) else {
-                    return false
+            for expression in localCharaResource.expressions {
+                for imageFileName in expression.value.imageFileNames {
+                    guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: imageFileName) else {
+                        return false
+                    }
+                }
+                for voiceFileName in expression.value.voiceFileNames {
+                    guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: voiceFileName) else {
+                        return false
+                    }
                 }
             }
-            for voiceFileName in expression.value.voiceFileNames {
-                guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: voiceFileName) else {
-                    return false
-                }
-            }
+            return true
+        } catch {
+            return false
         }
-
-        return true
     }
     
     func copyToDefaultCharaDirectory() throws {

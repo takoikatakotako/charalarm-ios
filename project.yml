@@ -208,14 +208,14 @@ targets:
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
-          API_ENDPOINT: https://api.charalarm.com
+          API_ENDPOINT: https://api2.charalarm.com
           RESOURCE_ENDPOINT: https://resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
           ADMOB_CONFIG: ca-app-pub-5587141252700968/1355204268
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-          API_ENDPOINT: https://api.charalarm.com
+          API_ENDPOINT: https://api2.charalarm.com
           RESOURCE_ENDPOINT: https://resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
