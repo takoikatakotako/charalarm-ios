@@ -39,14 +39,14 @@ class UserInfoViewState: ObservableObject {
         Task { @MainActor in
             guard let userID = keychainRepository.getUserID(),
                   let authToken = keychainRepository.getAuthToken() else {
-                alert = UserInfoAlertItem(message: "XXX")
+                alert = UserInfoAlertItem(message: "認証情報の取得に失敗しました")
                 return
             }
             
             do {
                 userInfo = try await apiRepository.postUserInfo(userID: userID, authToken: authToken)
             } catch {
-                alert = UserInfoAlertItem(message: "XXXYYY")
+                alert = UserInfoAlertItem(message: "ユーザー情報の取得に失敗しました")
             }
         }
     }

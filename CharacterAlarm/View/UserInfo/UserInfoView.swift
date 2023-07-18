@@ -65,24 +65,22 @@ struct UserInfoView: View {
                 }
             }
             
-            
             Spacer()
             
             Button {
                 viewState.tapHidenButton()
             } label: {
-                Color.red
+                Color.clear
                     .frame(height: 40)
                     .frame(minWidth: 0, maxWidth: .infinity)
                 
             }
-            
         }
         .onAppear {
             viewState.fetchUserInfo()
         }
         .alert(item: $viewState.alert, content: { item in
-            Alert(title: Text("SSSS"), message: Text("SSSS"), dismissButton: .default(Text("SSS")))
+            Alert(title: Text("Error"), message: Text(item.message), dismissButton: .default(Text("Close")))
         })
         .padding()
         .navigationBarTitle(R.string.localizable.userInfoUserInfo(), displayMode: .inline)
