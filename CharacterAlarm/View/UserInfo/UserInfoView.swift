@@ -13,7 +13,7 @@ struct UserInfoView: View {
                     .font(Font.body.bold())
                 
                 Text(viewState.userID)
-                    .lineLimit(1)
+                    .textSelection(.enabled)
             }
             
             
@@ -23,7 +23,7 @@ struct UserInfoView: View {
                         .font(Font.body.bold())
                     
                     Text(viewState.authToken)
-                        .lineLimit(1)
+                        .textSelection(.enabled)
                 }
                 
                 VStack(alignment: .leading) {
@@ -32,7 +32,7 @@ struct UserInfoView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
                     Text(viewState.userInfo?.iOSPlatformInfo.pushTokenSNSEndpoint ?? "Loading")
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .textSelection(.enabled)
                 }
                 
                 
@@ -43,7 +43,7 @@ struct UserInfoView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
                     Text(viewState.userInfo?.iOSPlatformInfo.voIPPushTokenSNSEndpoint ?? "Loading")
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .textSelection(.enabled)
                 }
                 
                 VStack(alignment: .leading) {
@@ -52,7 +52,7 @@ struct UserInfoView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
                     Text(viewState.pushToken ?? "empty")
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .textSelection(.enabled)
                 }
                 
                 VStack(alignment: .leading) {
@@ -61,7 +61,7 @@ struct UserInfoView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
                     Text(viewState.voipPushToken ?? "empty")
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .textSelection(.enabled)
                 }
             }
             
