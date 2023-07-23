@@ -165,7 +165,7 @@ class AlarmDetailViewState: ObservableObject {
                 dismissSubject.send()
                 showingIndicator = false
             } catch {
-                alertMessage = "xxxx"
+                alertMessage = "Error"
                 showingAlert = true
             }
         }
