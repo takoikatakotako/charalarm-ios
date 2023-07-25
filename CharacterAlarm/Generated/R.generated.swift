@@ -308,7 +308,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 30 files.
+  /// This `R.file` struct is generated, and contains static references to 31 files.
   struct file {
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
@@ -360,6 +360,8 @@ struct R: Rswift.Validatable {
     static let comCharalarmYui9Caf = Rswift.FileResource(bundle: R.hostingBundle, name: "com-charalarm-yui-9", pathExtension: "caf")
     /// Resource file `comfused.png`.
     static let comfusedPng = Rswift.FileResource(bundle: R.hostingBundle, name: "comfused", pathExtension: "png")
+    /// Resource file `confused.png`.
+    static let confusedPng = Rswift.FileResource(bundle: R.hostingBundle, name: "confused", pathExtension: "png")
     /// Resource file `normal.png`.
     static let normalPng = Rswift.FileResource(bundle: R.hostingBundle, name: "normal", pathExtension: "png")
     /// Resource file `resource.json`.
@@ -521,6 +523,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "confused", withExtension: "png")`
+    static func confusedPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.confusedPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "normal", withExtension: "png")`
     static func normalPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.normalPng
@@ -554,8 +562,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 33 images.
+  /// This `R.image` struct is generated, and contains static references to 35 images.
   struct image {
+    /// Image `LaunchImage`.
+    static let launchImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchImage")
     /// Image `alarm-add-icon`.
     static let alarmAddIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "alarm-add-icon")
     /// Image `alarm-voice-play`.
@@ -572,6 +582,8 @@ struct R: Rswift.Validatable {
     static let commonBackIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "common-back-icon")
     /// Image `common-icon-close`.
     static let commonIconClose = Rswift.ImageResource(bundle: R.hostingBundle, name: "common-icon-close")
+    /// Image `confused`.
+    static let confused = Rswift.ImageResource(bundle: R.hostingBundle, name: "confused")
     /// Image `momiji`.
     static let momiji = Rswift.ImageResource(bundle: R.hostingBundle, name: "momiji")
     /// Image `normal`.
@@ -622,6 +634,13 @@ struct R: Rswift.Validatable {
     static let tutorialCharaListScreenShot = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-chara-list-screen-shot")
     /// Image `tutorial-normal`.
     static let tutorialNormal = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-normal")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "LaunchImage", bundle: ..., traitCollection: ...)`
+    static func launchImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.launchImage, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "alarm-add-icon", bundle: ..., traitCollection: ...)`
@@ -676,6 +695,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "common-icon-close", bundle: ..., traitCollection: ...)`
     static func commonIconClose(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.commonIconClose, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "confused", bundle: ..., traitCollection: ...)`
+    static func confused(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.confused, compatibleWith: traitCollection)
     }
     #endif
 
