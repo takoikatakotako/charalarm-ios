@@ -2,9 +2,7 @@ import SwiftUI
 
 struct RootView: View {
     @StateObject var viewState: RootViewState
-//    @EnvironmentObject var appState: CharalarmAppState
-//    @State var remoteConfig: RemoteConfig!
-//    
+
     var body: some View {
         ZStack {
             if viewState.type == .loading {
@@ -20,7 +18,7 @@ struct RootView: View {
             } else if viewState.type == .calling {
                 CallingView(viewState: CallingViewState(charaID: viewState.charaID, charaName: viewState.charaName, callUUID: viewState.callUUID))
             } else if viewState.type == .error {
-                ErrorView()
+                ErrorView(viewState: ErrorViewState())
             }
         }
         .onAppear {
