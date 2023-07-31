@@ -4,7 +4,19 @@ struct ErrorView: View {
     @StateObject var viewState: ErrorViewState
 
     var body: some View {
-        Text("Sorry Unknown Error...")
+        VStack {
+            Image(R.image.sdSad.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200)
+            Text("Sorry Unknown Error...")
+
+            Button {
+                viewState.reset()
+            } label: {
+                Text("Reset")
+            }
+        }
     }
 }
 
