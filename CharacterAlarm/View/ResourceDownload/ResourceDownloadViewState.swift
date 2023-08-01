@@ -4,6 +4,7 @@ class ResourceDownloadViewState: ObservableObject {
     private let charaID: String
     private let apiRepository = APIRepository()
     private let fileRepository = FileRepository()
+    private let userDefaultsRepository = UserDefaultsRepository()
     private let localCharaResourceUseCase = LocalCharaResourceUseCase()
     
     @Published var mainMessage: String = "リソースをダウンロードしています"
@@ -20,14 +21,6 @@ class ResourceDownloadViewState: ObservableObject {
             do {
                 let chara = try await apiRepository.fetchCharacter(charaID: charaID)
                 for (index, resource) in chara.resources.enumerated() {
-//                    guard let fileURL = resource.fileURL else {
-//                        // TODO: エラーハンドリング
-//                        mainMessage = "ダウンロードに失敗しました"
-//                        progressMessage = ""
-//                        showDismissButton = true
-//                        return
-//                    }
-
                     let progressPercent = Int(round(Float(index + 1) / Float(chara.resources.count) * 100))
                     progressMessage = "\(progressPercent)%"
                     
@@ -45,14 +38,15 @@ class ResourceDownloadViewState: ObservableObject {
                 progressMessage = "100%"
                 showDismissButton = true
 
-                
-                
-                // 
-                
-                
+
                 // ここでキャラクターを設定する
+                userDefaultsRepository.setCharaDomain(charaDomain: charaID)
                 
-                
+                // キャラアップデート
+                let userInfo: [String: Any] = [
+                    NSNotification.setCharaUserInfoKeyCharaID: charaID
+                ]
+                NotificationCenter.default.post(name: NSNotification.setChara, object: self, userInfo: userInfo)
             } catch {
                 
                 mainMessage = "ダウンロードに失敗しました"

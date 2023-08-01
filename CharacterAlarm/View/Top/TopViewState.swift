@@ -44,14 +44,14 @@ class TopViewState: ObservableObject {
             }
         }
         
-        guard let charaDomain = userDefaultsRepository.getCharaID() else {
+        guard let charaID = userDefaultsRepository.getCharaID() else {
             DispatchQueue.main.async {
                 self.alert = .failedToGetCharacterSelectionInformation
             }
             return
         }
         
-        guard let resource = try? localCharaResourceUseCase.loadCharaResource(charaID: charaDomain) else {
+        guard let resource = try? localCharaResourceUseCase.loadCharaResource(charaID: charaID) else {
             DispatchQueue.main.async {
                 self.alert = .failedToGetCharactersResources
             }
@@ -62,7 +62,7 @@ class TopViewState: ObservableObject {
             return
         }
         
-        setCharaImage(charaDomain: charaDomain, resource: resource, key: key)
+        setCharaImage(charaDomain: charaID, resource: resource, key: key)
     }
     
     func newsButtonTapped() {
@@ -122,7 +122,28 @@ class TopViewState: ObservableObject {
     //        }
     //    }
     
-    func setChara() {
+    func updateChara(charaID: String?) {
+        guard let charaID = charaID else {
+            DispatchQueue.main.async {
+                self.alert = .failedToGetCharacterSelectionInformation
+            }
+            return
+        }
+        
+        
+        guard let resource = try? localCharaResourceUseCase.loadCharaResource(charaID: charaID) else {
+            DispatchQueue.main.async {
+                self.alert = .failedToGetCharactersResources
+            }
+            return
+        }
+        
+        guard let key = resource.expressions.keys.randomElement() else {
+            return
+        }
+        
+        setCharaImage(charaDomain: charaID, resource: resource, key: key)
+        
         //        guard let charaDomain = userDefaultsRepository.getCharaDomain() else {
         //            DispatchQueue.main.async {
         //                self.alert = .failedToGetCharacterSelectionInformation
