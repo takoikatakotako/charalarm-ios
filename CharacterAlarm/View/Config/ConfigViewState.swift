@@ -11,7 +11,8 @@ class ConfigViewState: ObservableObject {
     private let userDefaultsRepository = UserDefaultsRepository()
     private let appUseCase = AppUseCase()
     private let apiRepository = APIRepository()
-
+    private let authUseCase = AuthUseCase()
+    
     var versionString: String {
         return getVersion()
     }
@@ -29,19 +30,7 @@ class ConfigViewState: ObservableObject {
         }
         UIApplication.shared.open(url)
     }
-    
-    func fetchCharacter() {
-//        Task { @MainActor in
-//            do {
-//                // let chara = try await charaRepository.fetchCharacter(charaID: charaDomain)
-//                self.character = character
-//            } catch {
-//                self.alertMessage = "キャラクター情報の取得に失敗しました。"
-//                self.showingAlert = true
-//            }
-//        }
-    }
-    
+
     func withdraw() {
         guard let userID = keychainRepository.getUserID(),
             let authToken = keychainRepository.getAuthToken() else {
@@ -52,20 +41,11 @@ class ConfigViewState: ObservableObject {
         
         Task { @MainActor in
             do {
-                try await apiRepository.postUserWithdraw(userID: userID, authToken: authToken)
-                try keychainRepository.setUserID(userID: nil)
-                try keychainRepository.setAuthToken(authToken: nil)
-                userDefaultsRepository.setDefaultCharaDomain()
-                userDefaultsRepository.setDefaultCharaName()
-                
-                NotificationCenter.default.post(name: NSNotification.didReset, object: self, userInfo: nil)
+                try await authUseCase.withdraw(userID: userID, authToken: authToken)
             } catch {
-                try! keychainRepository.setUserID(userID: nil)
-                try! keychainRepository.setAuthToken(authToken: nil)
-                userDefaultsRepository.setDefaultCharaDomain()
-                userDefaultsRepository.setDefaultCharaName()
-                fatalError("Fource Reset")
+                authUseCase.reset()
             }
+            NotificationCenter.default.post(name: NSNotification.didReset, object: self, userInfo: nil)
         }
     }
     

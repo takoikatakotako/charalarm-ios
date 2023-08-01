@@ -4,7 +4,7 @@ import SDWebImageSwiftUI
 struct ConfigView: View {
     @StateObject var viewState: ConfigViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -81,20 +81,16 @@ struct ConfigView: View {
                 AdmobBannerView(adUnitID: environmentVariable.admobConfigUnitID)
             }
             .navigationBarTitle(R.string.localizable.configConfig(), displayMode: .inline)
-            .navigationBarItems(leading:
-                                    Button(action: {
-                                        presentationMode.wrappedValue.dismiss()
-                                    }) {
-                                        Image(R.image.commonIconClose.name)
-                                            .renderingMode(.template)
-                                            .foregroundColor(Color( R.color.charalarmDefaultGray.name))
-                                    }
+            .navigationBarItems(
+                leading:
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(R.image.commonIconClose.name)
+                            .renderingMode(.template)
+                            .foregroundColor(Color( R.color.charalarmDefaultGray.name))
+                    }
             )
-        }.onAppear {
-            viewState.fetchCharacter()
-        }
-        .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-            viewState.fetchCharacter()
         }
         .alert(isPresented: $viewState.showingAlert) {
             Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
