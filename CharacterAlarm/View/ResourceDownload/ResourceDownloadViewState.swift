@@ -11,7 +11,6 @@ class ResourceDownloadViewState: ObservableObject {
     @Published var progressMessage: String = ""
     @Published var showDismissButton = false
     
-    
     init(charaID: String) {
         self.charaID = charaID
     }
@@ -38,17 +37,13 @@ class ResourceDownloadViewState: ObservableObject {
                 progressMessage = "100%"
                 showDismissButton = true
 
-
-                // ここでキャラクターを設定する
+                // キャラを更新する
                 userDefaultsRepository.setCharaDomain(charaDomain: charaID)
-                
-                // キャラアップデート
                 let userInfo: [String: Any] = [
                     NSNotification.setCharaUserInfoKeyCharaID: charaID
                 ]
                 NotificationCenter.default.post(name: NSNotification.setChara, object: self, userInfo: userInfo)
             } catch {
-                
                 mainMessage = "ダウンロードに失敗しました"
                 showDismissButton = true
 
