@@ -86,12 +86,12 @@ struct TopView: View {
             }
         }
         .edgesIgnoringSafeArea([.top, .bottom])
-        .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { _ in
-            viewState.setChara()
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.setChara)) { notification in
+            let charaID: String? = notification.userInfo?[NSNotification.setCharaUserInfoKeyCharaID] as? String
+            viewState.updateChara(charaID: charaID)
         }
         .onAppear {
             viewState.onAppear()
-            viewState.setChara()
             adDelegate.load()
         }
         .alert(item: $viewState.alert) { item in

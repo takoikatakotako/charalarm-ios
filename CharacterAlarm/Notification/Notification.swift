@@ -7,6 +7,10 @@ extension NSNotification {
     static let answerCall = NSNotification.Name("answerCall")
     static let endCall = NSNotification.Name("endCall")
 
+    // setChara
+    static let setCharaUserInfoKeyCharaID = "charaID"
+    
+    // answerCall
     static let answerCallUserInfoKeyCharaID = "charaID"
     static let answerCallUserInfoKeyCharaName = "charaName"
     static let answerCallUserInfoKeyCallUUID = "callUUID"
