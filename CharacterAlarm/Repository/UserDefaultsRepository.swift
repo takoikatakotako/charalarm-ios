@@ -53,6 +53,5 @@ struct UserDefaultsRepository: UserDefaultsRepositoryProtocol {
     
     func setDefaultCharaName() {
         UserDefaults.standard.set(CHARA_NAME, forKey: DEFAULT_CHARA_DOMAIN)
-
     }
 }
