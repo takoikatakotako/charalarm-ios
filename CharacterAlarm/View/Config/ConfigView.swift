@@ -16,6 +16,13 @@ struct ConfigView: View {
                         }
                     }
                     
+                    Section(header: Text("プレミアムプラン")) {
+                        NavigationLink(destination: SubscriptionView(viewState: SubscriptionViewState())) {
+                            Text("プレミアムプランについて")
+                                .foregroundColor(Color(R.color.textColor.name))
+                        }
+                    }
+                    
                     Section(header: Text(R.string.localizable.configOther())) {
                         Button(action: {
                             viewState.openUrlString(string: OfficialTwitterUrlString)
@@ -70,7 +77,7 @@ struct ConfigView: View {
                                 title: Text(R.string.localizable.configReset()),
                                 message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),
                                 primaryButton: .default(Text(R.string.localizable.commonCancel())) {
-                                    print("リセットをキャンセルしました。")
+                                    // ResetCancel
                                 }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
                                     viewState.withdraw()
                                 })
