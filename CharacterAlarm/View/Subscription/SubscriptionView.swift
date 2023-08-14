@@ -4,52 +4,69 @@ import StoreKit
 struct SubscriptionView: View {
     @StateObject var viewState: SubscriptionViewState
     var body: some View {
-        ScrollView {
-            VStack {
-                Text("ここにすごいアイキャッチ画像")
-                
-                VStack {
-                    Text("特典１: 設定アラーム数アップ")
-                    // Image("")
-                    Text("フリープランでは設定できるアラームは1つだけですが、アラームを10個まで設定することができます")
-                }
-                
-                VStack {
-                    Text("特典2: 広告表示なし")
-                    // Image("")
-                    Text("アプリ内の広告が全て非表示になります")
-                }
-                
-                VStack {
-                    Text("いつでもキャンセルOK")
-                    Text("はじめの２週間無料")
-                    Text(viewState.priceMessage)
+        ZStack {
+            ScrollView {
+                VStack(spacing: 20) {
+                    Text("Charalarmのサブスクリプションプランに\nアップデートすることでいくつかの機能が解放されます！！")
+                    
+                    SubscriptionCardView(
+                        title: "特典１: アラーム数上限アップ",
+                        systemImageName: "calendar",
+                        description: "アラームを10個まで設定することができます"
+                    )
+                    
+                    SubscriptionCardView(
+                        title: "特典2: 広告表示なし",
+                        systemImageName: "nosign",
+                        description: "アプリ内の広告が全て非表示になります"
+                    )
+
+                    Button {
+                        viewState.upgradeButtonTapped()
+                    } label: {
+                        VStack(spacing: 8) {
+                            Text("プレミアムプランにアップデート")
+                                .font(Font.system(size: 20).bold())
+                            Text(viewState.priceMessage)
+                                .font(Font.system(size: 16).bold())
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.gray, lineWidth: 1)
+                                .shadow(color: Color.black, radius: 16, x: 0, y: 0)
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    
+                    HStack {
+                        Button {
+                            
+                        } label: {
+                            Text("利用規約")
+                        }
+                        Button {
+                            
+                        } label: {
+                            Text("プライバシーポリシー")
+                        }
+                    }
                     
                     Button {
                         
                     } label: {
-                        Text("課金してクレメンス")
+                        Text("解約方法について")
                     }
                 }
-                
-                HStack {
-                    Button {
-                        
-                    } label: {
-                        Text("利用規約")
-                    }
-                    Button {
-                        
-                    } label: {
-                        Text("プライバシーポリシー")
-                    }
-                }
-                
-                Button {
-                    
-                } label: {
-                    Text("解約方法について")
-                }
+                .padding()
+            }
+            
+            if viewState.enableDisplayLock {
+                Text("XXXXXXXX")
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(minHeight: 0, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.6))
             }
         }
         .onAppear {

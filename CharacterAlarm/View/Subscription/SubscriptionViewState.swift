@@ -2,6 +2,7 @@ import StoreKit
 
 class SubscriptionViewState: ObservableObject {
     @Published var product: Product?
+    @Published var enableDisplayLock: Bool = false
     @Published var showingAlert: Bool = false
     @Published var alertMessage: String?
     
@@ -17,16 +18,11 @@ class SubscriptionViewState: ObservableObject {
     func onAppear() {
         Task {
             do {
-                guard let product = try await fetchProducts() else {
-                    alertMessage = "不明なエラーです"
-                    showingAlert = true
-                    return
-                }
+                let product = try await fetchProducts()
                 self.product = product
             } catch {
-                alertMessage = "不明なエラーです"
+                alertMessage = "サブスクリプションの情報を取得できませんでした"
                 showingAlert = true
-               //  view.showErrorAlert(title: "", message: R.string.localizable.subscriptionFailToGetProductInfo())
             }
         }
     }
@@ -35,21 +31,24 @@ class SubscriptionViewState: ObservableObject {
     @MainActor
     func upgradeButtonTapped() {
         guard let product = self.product else {
-            // view.showErrorAlert(title: "", message: R.string.localizable.subscriptionFailToGetProductInfo())
+            alertMessage = "サブスクリプションの情報を取得できませんでした"
+            showingAlert = true
             return
         }
         
         Task {
-            // view.showFullScreenIndicator()
+           enableDisplayLock = true
             do {
-                let transaction = try await purchase(product: product)
+                // let transaction = try await purchase(product: product)
                 // model.enablePrivilege()
-                await transaction.finish()
-                // view.hideFullScreenIndicator()
-                // view.showErrorAlert(title: "", message: R.string.localizable.subscriptionCompletToPurchase())
+                // await transaction.finish()
+//                enableDisplayLock = false
+//                alertMessage = "プレミアムプランへのアップデートありがとうございました"
+//                showingAlert = true
             } catch {
-                // view.hideFullScreenIndicator()
-                // view.showErrorAlert(title: "", message: R.string.localizable.subscriptionInteruptPurchase())
+                enableDisplayLock = false
+                alertMessage = "プレミアムプランへのアップデートに失敗しました"
+                showingAlert = true
             }
         }
     }
