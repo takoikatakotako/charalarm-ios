@@ -4,7 +4,7 @@ import SDWebImageSwiftUI
 struct ConfigView: View {
     @StateObject var viewState: ConfigViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -17,7 +17,9 @@ struct ConfigView: View {
                     }
                     
                     Section(header: Text("プレミアムプラン")) {
-                        NavigationLink(destination: SubscriptionView(viewState: SubscriptionViewState())) {
+                        Button {
+                            viewState.subscriptionButtonTapped()
+                        } label: {
                             Text("プレミアムプランについて")
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
@@ -99,6 +101,9 @@ struct ConfigView: View {
                     }
             )
         }
+        .fullScreenCover(isPresented: $viewState.showingSubscriptionSheet, content: {
+            SubscriptionView(viewState: SubscriptionViewState())
+        })
         .alert(isPresented: $viewState.showingAlert) {
             Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
         }

@@ -39,7 +39,7 @@ class SubscriptionViewState: ObservableObject {
         Task {
            enableDisplayLock = true
             do {
-                // let transaction = try await purchase(product: product)
+                 let transaction = try await purchase(product: product)
                 // model.enablePrivilege()
                 // await transaction.finish()
 //                enableDisplayLock = false

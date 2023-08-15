@@ -6,7 +6,8 @@ class ConfigViewState: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showingResetAlert = false
-
+    @Published var showingSubscriptionSheet = false
+    
     private let keychainRepository: KeychainRepository = KeychainRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
     private let appUseCase = AppUseCase()
@@ -24,19 +25,27 @@ class ConfigViewState: ObservableObject {
         return characterDomain
     }
     
+    func subscriptionButtonTapped() {
+        showingSubscriptionSheet = true
+    }
+    
+    func resetButtonTapped() {
+        showingResetAlert = true
+    }
+    
     func openUrlString(string: String) {
         guard let url = URL(string: string) else {
             return
         }
         UIApplication.shared.open(url)
     }
-
+    
     func withdraw() {
         guard let userID = keychainRepository.getUserID(),
-            let authToken = keychainRepository.getAuthToken() else {
+              let authToken = keychainRepository.getAuthToken() else {
             self.alertMessage = "不明なエラーです（UserDefaultsに匿名ユーザー名とかがない）"
-                self.showingAlert = true
-                return
+            self.showingAlert = true
+            return
         }
         
         Task { @MainActor in
@@ -49,10 +58,6 @@ class ConfigViewState: ObservableObject {
         }
     }
     
-    func resetButtonTapped() {
-        showingResetAlert = true
-    }
-        
     private func getVersion() -> String {
         return "\(appUseCase.appVersion)(\(appUseCase.appBuild))"
     }

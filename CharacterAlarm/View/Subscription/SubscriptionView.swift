@@ -2,10 +2,25 @@ import SwiftUI
 import StoreKit
 
 struct SubscriptionView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewState: SubscriptionViewState
     var body: some View {
         ZStack {
             ScrollView {
+                HStack {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.horizontal, 20)
+
+                    Spacer()
+                }
+                
                 VStack(spacing: 20) {
                     Text("Charalarmのサブスクリプションプランに\nアップデートすることでいくつかの機能が解放されます！！")
                     
@@ -20,7 +35,7 @@ struct SubscriptionView: View {
                         systemImageName: "nosign",
                         description: "アプリ内の広告が全て非表示になります"
                     )
-
+                    
                     Button {
                         viewState.upgradeButtonTapped()
                     } label: {
@@ -63,7 +78,13 @@ struct SubscriptionView: View {
             }
             
             if viewState.enableDisplayLock {
-                Text("XXXXXXXX")
+                VStack {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .padding()
+                        .tint(Color.white)
+                        .scaleEffect(3.0)
+                }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(minHeight: 0, maxHeight: .infinity)
                     .background(Color.black.opacity(0.6))
@@ -88,10 +109,8 @@ struct SubscriptionView: View {
 
 struct PremiunPlanDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            SubscriptionView(viewState: SubscriptionViewState())
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("プレミアムプラン")
-        }
+        SubscriptionView(viewState: SubscriptionViewState())
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("プレミアムプラン")
     }
 }
