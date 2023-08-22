@@ -7,6 +7,7 @@ struct UserInfo: Identifiable, Hashable {
     let userID: UUID
     let authToken: String
     let platform: String
+    let premiumPlan: Bool
     let iOSPlatformInfo: UserInfoIOSPlatformInfo
 }
 

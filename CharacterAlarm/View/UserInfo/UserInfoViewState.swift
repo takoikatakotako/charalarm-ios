@@ -18,6 +18,13 @@ class UserInfoViewState: ObservableObject {
         return keychainRepository.getUserID() ?? "Not Found..."
     }
     
+    var premiumPlan: String {
+        guard let premiumPlan = userInfo?.premiumPlan else {
+            return "Loading"
+        }
+        return premiumPlan ? "有効" : "無効"
+    }
+    
     var authToken: String {
         if let authToken = keychainRepository.getAuthToken() {
             // セキュリティのために全て表示しない

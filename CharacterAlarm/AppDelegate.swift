@@ -6,6 +6,7 @@ import PushKit
 import CallKit
 import AVKit
 import GoogleMobileAds
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         environmentVariable.admobAlarmListUnitID = admobAlarmListUnitID
         environmentVariable.admobConfigUnitID = admobConfigUnitID
                 
+        // 課金周りの監視
+        observeTransactionUpdates()
+        
         // プッシュ通知を要求
         UIApplication.shared.registerForRemoteNotifications()
 
@@ -65,6 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        Task {
+            await updateSubscriptionStatus()
+        }
     }
 }
 
@@ -130,5 +142,49 @@ extension AppDelegate: CXProviderDelegate {
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         action.fulfill()
         model.endCall()
+    }
+}
+
+// 課金関係
+extension AppDelegate {
+    private func observeTransactionUpdates() {
+        Task(priority: .background) {
+            for await verificationResult in Transaction.updates {
+                guard case .verified(let transaction) = verificationResult else {
+                    continue
+                }
+
+                if transaction.revocationDate != nil {
+                    // 払い戻しされてるので特典削除
+                    model.setEnablePremiumPlan(enable: false)
+                } else if let expirationDate = transaction.expirationDate,
+                          Date() < expirationDate // 有効期限内
+                          && !transaction.isUpgraded // アップグレードされていない
+                {
+                    // 有効なサブスクリプションなのでproductIdに対応した特典を有効にする
+                    model.setEnablePremiumPlan(enable: true)
+                }
+
+                await transaction.finish()
+            }
+        }
+    }
+    
+    private func updateSubscriptionStatus() async {
+        var validSubscription: Transaction?
+        for await verificationResult in Transaction.currentEntitlements {
+            if case .verified(let transaction) = verificationResult,
+               transaction.productType == .autoRenewable && !transaction.isUpgraded {
+                validSubscription = transaction
+            }
+        }
+
+        if validSubscription?.productID != nil {
+            // 特典を付与
+            model.setEnablePremiumPlan(enable: true)
+        } else {
+            // 特典を削除
+            model.setEnablePremiumPlan(enable: false)
+        }
     }
 }

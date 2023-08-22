@@ -16,6 +16,13 @@ struct UserInfoView: View {
                     .textSelection(.enabled)
             }
             
+            VStack(alignment: .leading) {
+                Text("PremiumPlan")
+                    .font(Font.body.bold())
+                
+                Text(viewState.premiumPlan)
+                    .textSelection(.enabled)
+            }
             
             if viewState.showHidenInfos {
                 VStack(alignment: .leading) {

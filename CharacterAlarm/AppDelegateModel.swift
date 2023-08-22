@@ -92,4 +92,19 @@ class AppDelegateModel {
     func endCall() {
         NotificationCenter.default.post(name: NSNotification.endCall, object: self, userInfo: nil)
     }
+    
+    func setEnablePremiumPlan(enable: Bool) {
+        guard let userID = keychainRepository.getUserID(), let authToken = keychainRepository.getAuthToken() else {
+            return
+        }
+        
+        Task { @MainActor in
+            do {
+                let requestBody = UserUpdatePremiumPlanRequest(enablePremiumPlan: enable)
+                try await apiRepository.postUserUpdatePremium(userID: userID, authToken: authToken, requestBody: requestBody)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }

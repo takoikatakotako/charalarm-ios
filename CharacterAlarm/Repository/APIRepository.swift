@@ -41,14 +41,15 @@ extension APIRepository {
             userID: userInfoResponse.userID,
             authToken: userInfoResponse.authToken,
             platform: userInfoResponse.platform,
+            premiumPlan: userInfoResponse.premiumPlan,
             iOSPlatformInfo: iOSPlatformInfo)
     }
     
-    func postUserUpdatePremium(userID: String, authToken: String) async throws {
+    func postUserUpdatePremium(userID: String, authToken: String, requestBody: UserUpdatePremiumPlanRequest) async throws {
         let path = "/user/update-premium"
         let url = URL(string: environmentVariable.apiEndpoint + path)!
         let requestHeader: [String: String] = APIHeader.createAuthorizationRequestHeader(userID: userID, authToken: authToken)
-        let requestBody: Encodable? = nil
+        let requestBody: Encodable? = requestBody
         let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
     

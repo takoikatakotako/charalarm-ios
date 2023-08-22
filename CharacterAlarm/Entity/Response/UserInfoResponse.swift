@@ -4,6 +4,7 @@ struct UserInfoResponse: Response {
     let userID: UUID
     let authToken: String
     let platform: String
+    let premiumPlan: Bool
     let iOSPlatformInfo: UserInfoIOSPlatformInfoResponse
 }
 
