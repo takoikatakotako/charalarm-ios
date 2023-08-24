@@ -6,6 +6,9 @@ class SubscriptionViewState: ObservableObject {
     @Published var showingAlert: Bool = false
     @Published var alertMessage: String?
     
+    private let apiRepository = APIRepository()
+    private let userDefaultsRepository = UserDefaultsRepository()
+    
     var priceMessage: String {
         if let product = product, let period = product.subscription?.subscriptionPeriod {
             return "\(product.displayPrice) / \(period.unit)"
@@ -37,14 +40,12 @@ class SubscriptionViewState: ObservableObject {
         }
         
         Task {
-           enableDisplayLock = true
+            enableDisplayLock = true
             do {
-                 let transaction = try await purchase(product: product)
-                // model.enablePrivilege()
-                // await transaction.finish()
-//                enableDisplayLock = false
-//                alertMessage = "プレミアムプランへのアップデートありがとうございました"
-//                showingAlert = true
+                let transaction = try await purchase(product: product)
+                userDefaultsRepository.setEnablePremiumPlan(enable: true)
+                await transaction.finish()
+                enableDisplayLock = false
             } catch {
                 enableDisplayLock = false
                 alertMessage = "プレミアムプランへのアップデートに失敗しました"
@@ -74,7 +75,7 @@ class SubscriptionViewState: ObservableObject {
         } catch {
             throw SubscribeError.otherError
         }
-
+        
         // VerificationResultの取得
         let verificationResult: VerificationResult<Transaction>
         switch purchaseResult {
@@ -87,7 +88,7 @@ class SubscriptionViewState: ObservableObject {
         @unknown default:
             throw SubscribeError.otherError
         }
-
+        
         // Transactionの取得
         switch verificationResult {
         case .verified(let transaction):

@@ -7,12 +7,14 @@ class AppDelegateModel {
     private var player = AVPlayer()
     private let apiRepository: APIRepository
     private let keychainRepository: KeychainRepository
+    private let userDefaultsRepository: UserDefaultsRepository
     var pushToken: String?
     var voipPushToken: String?
     
     init(apiRepository: APIRepository, keychainRepository: KeychainRepository) {
         self.apiRepository = APIRepository()
         self.keychainRepository = KeychainRepository()
+        self.userDefaultsRepository = UserDefaultsRepository()
     }
     
     func setCharaName(charaName: String) {
@@ -100,6 +102,7 @@ class AppDelegateModel {
         
         Task { @MainActor in
             do {
+                userDefaultsRepository.setEnablePremiumPlan(enable: enable)
                 let requestBody = UserUpdatePremiumPlanRequest(enablePremiumPlan: enable)
                 try await apiRepository.postUserUpdatePremium(userID: userID, authToken: authToken, requestBody: requestBody)
             } catch {
