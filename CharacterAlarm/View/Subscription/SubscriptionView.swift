@@ -55,6 +55,12 @@ struct SubscriptionView: View {
                     }
                     .buttonStyle(.plain)
                     
+                    Button {
+                        viewState.restore()
+                    } label: {
+                        Text("購入を復元")
+                    }
+                    
                     HStack {
                         Button {
                             

@@ -30,7 +30,6 @@ class SubscriptionViewState: ObservableObject {
         }
     }
     
-    
     @MainActor
     func upgradeButtonTapped() {
         guard let product = self.product else {
@@ -49,6 +48,41 @@ class SubscriptionViewState: ObservableObject {
             } catch {
                 enableDisplayLock = false
                 alertMessage = "プレミアムプランへのアップデートに失敗しました"
+                showingAlert = true
+            }
+        }
+    }
+    
+    func restore() {
+        Task { @MainActor in
+            enableDisplayLock = true
+
+            do {
+                try await AppStore.sync()
+                
+                var validSubscription: Transaction?
+                for await verificationResult in Transaction.currentEntitlements {
+                    if case .verified(let transaction) = verificationResult,
+                       transaction.productType == .autoRenewable && !transaction.isUpgraded {
+                        validSubscription = transaction
+                    }
+                }
+                
+                guard validSubscription?.productID == nil else {
+                    // リストア対象じゃない場合
+                    enableDisplayLock = false
+                    alertMessage = "購入履歴が見つかりませんでした"
+                    showingAlert = true
+                    return
+                }
+
+                // 特典を付与
+                userDefaultsRepository.setEnablePremiumPlan(enable: true)
+                alertMessage = "復元に成功しました"
+                showingAlert = true
+            } catch {
+                enableDisplayLock = false
+                alertMessage = "復元に失敗しました"
                 showingAlert = true
             }
         }
