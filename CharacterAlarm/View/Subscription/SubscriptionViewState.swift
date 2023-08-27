@@ -17,9 +17,8 @@ class SubscriptionViewState: ObservableObject {
         }
     }
     
-    @MainActor
     func onAppear() {
-        Task {
+        Task { @MainActor in
             do {
                 let product = try await fetchProducts()
                 self.product = product
@@ -38,7 +37,7 @@ class SubscriptionViewState: ObservableObject {
             return
         }
         
-        Task {
+        Task { @MainActor in
             enableDisplayLock = true
             do {
                 let transaction = try await purchase(product: product)

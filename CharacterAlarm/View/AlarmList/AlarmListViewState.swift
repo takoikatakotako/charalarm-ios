@@ -8,10 +8,17 @@ class AlarmListViewState: ObservableObject {
     
     private let apiRepository = APIRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
-    
+    private let userDefaultsRepository: UserDefaultsRepository = UserDefaultsRepository()
+
     func addAlarmButtonTapped() {
-        if alarms.count < 3 {
+        if alarms.isEmpty {
             sheet = .alarmDetailForCreate
+        } else if 0 < alarms.count && alarms.count <= 10 {
+            if userDefaultsRepository.getEnablePremiumPlan() {
+                sheet = .alarmDetailForCreate
+            } else {
+                alert = .error(UUID(), "サブスクに加入すると作れるようになるよというメッセージを表示")
+            }
         } else {
             alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())
         }
