@@ -69,6 +69,8 @@
 "config-version-info" = "Version Info";
 "config-license" = "License";
 "config-reset" = "Reset";
+"config-premium-plan" = "PremiumPlan";
+"config-about-premium-plan" = "About premium plan";
 "config-are-you-sure-you-want-to-reset-the-app" = "Are you sure you want to reset the app?";
 
 // News

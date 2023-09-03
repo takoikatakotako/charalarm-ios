@@ -16,11 +16,11 @@ struct ConfigView: View {
                         }
                     }
                     
-                    Section(header: Text("プレミアムプラン")) {
+                    Section(header: Text(R.string.localizable.configPremiumPlan())) {
                         Button {
                             viewState.subscriptionButtonTapped()
                         } label: {
-                            Text("プレミアムプランについて")
+                            Text(R.string.localizable.configAboutPremiumPlan())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }

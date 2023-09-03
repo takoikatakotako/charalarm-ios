@@ -964,12 +964,16 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 97 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 99 localization keys.
     struct localizable {
       /// en translation: Abou Cancellation Method
       ///
       /// Locales: ja, en
       static let subscriptionAboutCancellationMethod = Rswift.StringResource(key: "subscription-about-cancellation-method", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: About premium plan
+      ///
+      /// Locales: ja, en
+      static let configAboutPremiumPlan = Rswift.StringResource(key: "config-about-premium-plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Add Alarm
       ///
       /// Locales: ja, en
@@ -1222,6 +1226,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let updateRequirdPleaseInstallTheLatestVersion = Rswift.StringResource(key: "update-requird-please-install-the-latest-version", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: PremiumPlan
+      ///
+      /// Locales: ja, en
+      static let configPremiumPlan = Rswift.StringResource(key: "config-premium-plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Privacy Policy
       ///
       /// Locales: ja, en
@@ -1368,6 +1376,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("subscription-about-cancellation-method", bundle: bundle, comment: "")
+      }
+
+      /// en translation: About premium plan
+      ///
+      /// Locales: ja, en
+      static func configAboutPremiumPlan(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("config-about-premium-plan", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "config-about-premium-plan"
+        }
+
+        return NSLocalizedString("config-about-premium-plan", bundle: bundle, comment: "")
       }
 
       /// en translation: Add Alarm
@@ -2313,6 +2336,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("update-requird-please-install-the-latest-version", bundle: bundle, comment: "")
+      }
+
+      /// en translation: PremiumPlan
+      ///
+      /// Locales: ja, en
+      static func configPremiumPlan(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("config-premium-plan", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "config-premium-plan"
+        }
+
+        return NSLocalizedString("config-premium-plan", bundle: bundle, comment: "")
       }
 
       /// en translation: Privacy Policy

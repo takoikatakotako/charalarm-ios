@@ -69,6 +69,8 @@
 "config-version-info" = "バージョン情報";
 "config-license" = "ライセンス";
 "config-reset" = "リセット";
+"config-premium-plan" = "プレミアムプラン";
+"config-about-premium-plan" = "プレミアムプランについて";
 "config-are-you-sure-you-want-to-reset-the-app" = "アプリをリセットしてよろしいですか？";
 
 // News
