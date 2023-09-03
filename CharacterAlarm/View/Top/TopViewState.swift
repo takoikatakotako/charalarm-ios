@@ -37,28 +37,6 @@ class TopViewState: ObservableObject {
     var audioPlayer: AVAudioPlayer?
     
     func onAppear() {
-        
-        let keychainRepository = KeychainRepository()
-        let apiRepository = APIRepository()
-        
-        
-        guard let userID = keychainRepository.getUserID(), let authToken = keychainRepository.getAuthToken() else {
-            return
-        }
-        
-        Task { @MainActor in
-            do {
-                let requestBody = UserUpdatePremiumPlanRequest(enablePremiumPlan: true)
-                try await apiRepository.postUserUpdatePremium(userID: userID, authToken: authToken, requestBody: requestBody)
-            } catch {
-                print(error)
-            }
-        }
-        
-        
-        
-        
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             guard granted else { return }
             DispatchQueue.main.async {
