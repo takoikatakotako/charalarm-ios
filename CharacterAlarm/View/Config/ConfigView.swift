@@ -34,14 +34,14 @@ struct ConfigView: View {
                         }
                         
                         Button(action: {
-                            viewState.openUrlString(string: ContactAboutAppUrlString)
+                            viewState.openInquiry()
                         }) {
                             Text(R.string.localizable.configInquiresAboutTheApp())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                         
                         Button(action: {
-                            viewState.openUrlString(string: ContactAbountAddCharacterUrlString)
+                            viewState.openCharacterAdditionRequest()
                         }) {
                             Text(R.string.localizable.configInquiresAddingCharacters())
                                 .foregroundColor(Color(R.color.textColor.name))

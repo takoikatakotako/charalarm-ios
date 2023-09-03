@@ -13,6 +13,7 @@ class ConfigViewState: ObservableObject {
     private let appUseCase = AppUseCase()
     private let apiRepository = APIRepository()
     private let authUseCase = AuthUseCase()
+    private let openURLRepository = OpenURLRepository()
     
     var versionString: String {
         return getVersion()
@@ -55,6 +56,20 @@ class ConfigViewState: ObservableObject {
                 authUseCase.reset()
             }
             NotificationCenter.default.post(name: NSNotification.didReset, object: self, userInfo: nil)
+        }
+    }
+    
+    func openInquiry() {
+        let url = openURLRepository.inqueryURL
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func openCharacterAdditionRequest() {
+        let url = openURLRepository.characterAdditionRequestURL
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
         }
     }
     

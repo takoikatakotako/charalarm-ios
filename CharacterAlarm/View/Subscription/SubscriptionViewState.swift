@@ -8,6 +8,7 @@ class SubscriptionViewState: ObservableObject {
     
     private let apiRepository = APIRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
+    private let openURLRepository = OpenURLRepository()
     
     var priceMessage: String {
         if let product = product, let period = product.subscription?.subscriptionPeriod {
@@ -84,6 +85,27 @@ class SubscriptionViewState: ObservableObject {
                 alertMessage = R.string.localizable.errorFailedToSubscriptionRestore()
                 showingAlert = true
             }
+        }
+    }
+    
+    func openTeams() {
+        let url = openURLRepository.terms
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func openPrivacyPolicy() {
+        let url = openURLRepository.privacyPolicy
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func openAboutCancel() {
+        let url = openURLRepository.privacyPolicy
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
         }
     }
     

@@ -63,22 +63,22 @@ struct SubscriptionView: View {
                     
                     HStack {
                         Button {
-                            
+                            viewState.openTeams()
                         } label: {
                             Text(R.string.localizable.commonTerms())
                         }
                         Button {
-                            
+                            viewState.openPrivacyPolicy()
                         } label: {
                             Text(R.string.localizable.commonPrivacy())
                         }
                     }
-                    
-                    Button {
-                        
-                    } label: {
-                        Text(R.string.localizable.subscriptionAboutCancellationMethod())
-                    }
+//                    
+//                    Button {
+//                        viewState.openAboutCancel()
+//                    } label: {
+//                        Text(R.string.localizable.subscriptionAboutCancellationMethod())
+//                    }
                 }
                 .padding()
             }
