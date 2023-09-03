@@ -964,7 +964,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 92 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 97 localization keys.
     struct localizable {
       /// en translation: Abou Cancellation Method
       ///
@@ -1050,6 +1050,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let commonFailedToConnectWithTheServer = Rswift.StringResource(key: "common-failed-to-connect-with-the-server.", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Faile to Find Purcase History
+      ///
+      /// Locales: ja, en
+      static let errorFailedToFindPurchaseHistory = Rswift.StringResource(key: "error-failed-to-find-purchase-history", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Faile to subscription restore
+      ///
+      /// Locales: ja, en
+      static let errorFailedToSubscriptionRestore = Rswift.StringResource(key: "error-failed-to-subscription-restore", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Failed to Update Premium Plan
+      ///
+      /// Locales: ja, en
+      static let errorFailedToUpdatePremiumPlan = Rswift.StringResource(key: "error-failed-to-update-premium-plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to create an alarm.
       ///
       /// Locales: ja, en
@@ -1062,6 +1074,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let alarmFailedToEditTheAlarm = Rswift.StringResource(key: "alarm-failed-to-edit-the-alarm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Failed to get subscription info
+      ///
+      /// Locales: ja, en
+      static let errorFailedToGetSubscriptionInfo = Rswift.StringResource(key: "error-failed-to-get-subscription-info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Failed to get the alarm list.
       ///
       /// Locales: ja, en
@@ -1234,6 +1250,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let subscriptionMessage = Rswift.StringResource(key: "subscription-message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Sucsbription restore success!
+      ///
+      /// Locales: ja, en
+      static let subscriptionRestoreSuccess = Rswift.StringResource(key: "subscription-restore-success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Sun
       ///
       /// Locales: ja, en
@@ -1650,6 +1670,51 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("common-failed-to-connect-with-the-server.", bundle: bundle, comment: "")
       }
 
+      /// en translation: Faile to Find Purcase History
+      ///
+      /// Locales: ja, en
+      static func errorFailedToFindPurchaseHistory(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-find-purchase-history", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-find-purchase-history"
+        }
+
+        return NSLocalizedString("error-failed-to-find-purchase-history", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Faile to subscription restore
+      ///
+      /// Locales: ja, en
+      static func errorFailedToSubscriptionRestore(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-subscription-restore", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-subscription-restore"
+        }
+
+        return NSLocalizedString("error-failed-to-subscription-restore", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Failed to Update Premium Plan
+      ///
+      /// Locales: ja, en
+      static func errorFailedToUpdatePremiumPlan(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-update-premium-plan", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-update-premium-plan"
+        }
+
+        return NSLocalizedString("error-failed-to-update-premium-plan", bundle: bundle, comment: "")
+      }
+
       /// en translation: Failed to create an alarm.
       ///
       /// Locales: ja, en
@@ -1693,6 +1758,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("alarm-failed-to-edit-the-alarm", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Failed to get subscription info
+      ///
+      /// Locales: ja, en
+      static func errorFailedToGetSubscriptionInfo(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error-failed-to-get-subscription-info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error-failed-to-get-subscription-info"
+        }
+
+        return NSLocalizedString("error-failed-to-get-subscription-info", bundle: bundle, comment: "")
       }
 
       /// en translation: Failed to get the alarm list.
@@ -2338,6 +2418,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("subscription-message", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Sucsbription restore success!
+      ///
+      /// Locales: ja, en
+      static func subscriptionRestoreSuccess(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("subscription-restore-success", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "subscription-restore-success"
+        }
+
+        return NSLocalizedString("subscription-restore-success", bundle: bundle, comment: "")
       }
 
       /// en translation: Sun

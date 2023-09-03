@@ -23,7 +23,7 @@ class SubscriptionViewState: ObservableObject {
                 let product = try await fetchProducts()
                 self.product = product
             } catch {
-                alertMessage = "サブスクリプションの情報を取得できませんでした"
+                alertMessage = R.string.localizable.errorFailedToGetSubscriptionInfo()
                 showingAlert = true
             }
         }
@@ -32,7 +32,7 @@ class SubscriptionViewState: ObservableObject {
     @MainActor
     func upgradeButtonTapped() {
         guard let product = self.product else {
-            alertMessage = "サブスクリプションの情報を取得できませんでした"
+            alertMessage = R.string.localizable.errorFailedToGetSubscriptionInfo()
             showingAlert = true
             return
         }
@@ -46,7 +46,7 @@ class SubscriptionViewState: ObservableObject {
                 enableDisplayLock = false
             } catch {
                 enableDisplayLock = false
-                alertMessage = "プレミアムプランへのアップデートに失敗しました"
+                alertMessage = R.string.localizable.errorFailedToUpdatePremiumPlan()
                 showingAlert = true
             }
         }
@@ -70,18 +70,18 @@ class SubscriptionViewState: ObservableObject {
                 guard validSubscription?.productID == nil else {
                     // リストア対象じゃない場合
                     enableDisplayLock = false
-                    alertMessage = "購入履歴が見つかりませんでした"
+                    alertMessage = R.string.localizable.errorFailedToFindPurchaseHistory()
                     showingAlert = true
                     return
                 }
 
                 // 特典を付与
                 userDefaultsRepository.setEnablePremiumPlan(enable: true)
-                alertMessage = "復元に成功しました"
+                alertMessage = R.string.localizable.subscriptionRestoreSuccess()
                 showingAlert = true
             } catch {
                 enableDisplayLock = false
-                alertMessage = "復元に失敗しました"
+                alertMessage = R.string.localizable.errorFailedToSubscriptionRestore()
                 showingAlert = true
             }
         }

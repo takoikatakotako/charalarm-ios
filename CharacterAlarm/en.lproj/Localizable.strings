@@ -97,6 +97,7 @@
 "subscription-update-premium-plan" = "Update to premium plan";
 "subscription-restore" = "Restore";
 "subscription-about-cancellation-method" = "Abou Cancellation Method";
+"subscription-restore-success" = "Sucsbription restore success!";
 
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";
@@ -114,6 +115,10 @@
 "error-failed-to-get-character-selection-information" = "Failed to get the character selection information";
 "error-failed-to-get-characters-resources" = "Failed to get the character's resources";
 "error-failed-to-set-character-image" = "Failed to set character image";
+"error-failed-to-get-subscription-info" = "Failed to get subscription info";
+"error-failed-to-update-premium-plan" = "Failed to Update Premium Plan";
+"error-failed-to-find-purchase-history" = "Faile to Find Purcase History";
+"error-failed-to-subscription-restore" = "Faile to subscription restore";
 "error-this-feature-is-not-available-in-your-region" = "This feature is not available in your region";
 
 

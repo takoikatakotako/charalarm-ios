@@ -97,6 +97,7 @@
 "subscription-update-premium-plan" = "プレミアムプランにアップデート";
 "subscription-restore" = "購入を復元";
 "subscription-about-cancellation-method" = "解約方法について";
+"subscription-restore-success" = "サブスクリプションの復元に成功しました";
 
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
@@ -114,6 +115,9 @@
 "error-failed-to-get-character-selection-information" = "キャラクターの選択情報の取得に失敗しました";
 "error-failed-to-get-characters-resources" = "キャラクターのリソースを取得に失敗しました";
 "error-failed-to-set-character-image" = "キャラクターの画像を設定できませんでした";
+"error-failed-to-get-subscription-info" = "サブスクリプションの情報を取得できませんでした";
+"error-failed-to-update-premium-plan" = "プレミアムプランへのアップデートに失敗しました";
+"error-failed-to-find-purchase-history" = "購入履歴が見つかりませんでした";
+"error-failed-to-subscription-restore" = "サブスクリプションのリストアに失敗しました";
 "error-this-feature-is-not-available-in-your-region" = "この機能はお住まいの地域ではご利用いただけません。";
-
 
