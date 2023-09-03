@@ -88,12 +88,24 @@
 "day-of-week-friday" = "金";
 "day-of-week-saturday" = "土";
 
+// Subscription
+"subscription-message" = "Charalarmのサブスクリプションプランに\nアップデートすることでいくつかの機能が解放されます！！";
+"subscription-benefit1-title" = "特典１: アラーム数上限アップ";
+"subscription-benefit1-description" = "アラームを10個まで設定することができます";
+"subscription-benefit2-title" = "特典2: 広告表示なし";
+"subscription-benefit2-description" = "アプリ内の広告が全て非表示になります";
+"subscription-update-premium-plan" = "プレミアムプランにアップデート";
+"subscription-restore" = "購入を復元";
+"subscription-about-cancellation-method" = "解約方法について";
+
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
 "common-next" = "次へ";
 "common-close" = "閉じる";
 "common-cancel" = "キャンセル";
 "common-save" = "保存";
+"common-terms" = "利用規約";
+"common-privacy" = "プライバシーポリシー";
 
 // Error
 "error-an-unknown-error-has-occurred" = "不明なエラーが発生しました。";

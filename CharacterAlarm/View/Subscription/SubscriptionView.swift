@@ -22,25 +22,25 @@ struct SubscriptionView: View {
                 }
                 
                 VStack(spacing: 20) {
-                    Text("Charalarmのサブスクリプションプランに\nアップデートすることでいくつかの機能が解放されます！！")
+                    Text(R.string.localizable.subscriptionMessage())
                     
                     SubscriptionCardView(
-                        title: "特典１: アラーム数上限アップ",
+                        title: R.string.localizable.subscriptionBenefit1Title(),
                         systemImageName: "calendar",
-                        description: "アラームを10個まで設定することができます"
+                        description: R.string.localizable.subscriptionBenefit1Description()
                     )
                     
                     SubscriptionCardView(
-                        title: "特典2: 広告表示なし",
+                        title: R.string.localizable.subscriptionBenefit2Title(),
                         systemImageName: "nosign",
-                        description: "アプリ内の広告が全て非表示になります"
+                        description: R.string.localizable.subscriptionBenefit2Description()
                     )
                     
                     Button {
                         viewState.upgradeButtonTapped()
                     } label: {
                         VStack(spacing: 8) {
-                            Text("プレミアムプランにアップデート")
+                            Text(R.string.localizable.subscriptionUpdatePremiumPlan())
                                 .font(Font.system(size: 20).bold())
                             Text(viewState.priceMessage)
                                 .font(Font.system(size: 16).bold())
@@ -58,26 +58,26 @@ struct SubscriptionView: View {
                     Button {
                         viewState.restore()
                     } label: {
-                        Text("購入を復元")
+                        Text(R.string.localizable.subscriptionRestore())
                     }
                     
                     HStack {
                         Button {
                             
                         } label: {
-                            Text("利用規約")
+                            Text(R.string.localizable.commonTerms())
                         }
                         Button {
                             
                         } label: {
-                            Text("プライバシーポリシー")
+                            Text(R.string.localizable.commonPrivacy())
                         }
                     }
                     
                     Button {
                         
                     } label: {
-                        Text("解約方法について")
+                        Text(R.string.localizable.subscriptionAboutCancellationMethod())
                     }
                 }
                 .padding()
@@ -104,7 +104,7 @@ struct SubscriptionView: View {
             isPresented: $viewState.showingAlert,
             presenting: viewState.alertMessage
         ) { entity in
-            Button(entity) {
+            Button(R.string.localizable.commonClose()) {
                 print(entity)
             }
         } message: { entity in
