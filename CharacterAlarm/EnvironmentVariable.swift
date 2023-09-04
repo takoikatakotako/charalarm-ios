@@ -10,6 +10,9 @@ struct EnvironmentVariable {
     // AdmobのユニットID、AppDelegateで取得
     var admobAlarmListUnitID: String = ""
     var admobConfigUnitID: String = ""
+    
+    // サブスクリプションのProductID
+    var subscriptionProductID: String = ""
 }
 
 var environmentVariable = EnvironmentVariable()

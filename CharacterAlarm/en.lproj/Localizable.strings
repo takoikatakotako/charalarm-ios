@@ -49,6 +49,7 @@
 "alarm-failed-to-edit-the-alarm" = "Failed to edit the alarm.";
 "alarm-you-can-create-up-to-three-alarms" = "You can create up to three alarms.";
 "alarm-failed-to-get-the-alarm-list" = "Failed to get the alarm list.";
+"alarm-list-too-much" = "To create two or more alarms, you need to register for a premium plan.";
 
 // Character
 "character-character-list" = "Character List";

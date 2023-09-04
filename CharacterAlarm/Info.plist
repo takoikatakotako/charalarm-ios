@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUBSCRIPTION_PRODUCT_ID</key>
+	<string>${SUBSCRIPTION_PRODUCT_ID}</string>
 	<key>ADMOB_ALARM_LIST</key>
 	<string>${ADMOB_ALARM_LIST}</string>
 	<key>ADMOB_CONFIG</key>

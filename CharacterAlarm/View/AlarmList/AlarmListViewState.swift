@@ -10,6 +10,14 @@ class AlarmListViewState: ObservableObject {
     private let keychainRepository: KeychainRepository = KeychainRepository()
     private let userDefaultsRepository: UserDefaultsRepository = UserDefaultsRepository()
 
+    var isShowingADs: Bool {
+        if userDefaultsRepository.getEnablePremiumPlan() {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     func addAlarmButtonTapped() {
         if alarms.isEmpty {
             sheet = .alarmDetailForCreate
@@ -17,7 +25,7 @@ class AlarmListViewState: ObservableObject {
             if userDefaultsRepository.getEnablePremiumPlan() {
                 sheet = .alarmDetailForCreate
             } else {
-                alert = .error(UUID(), "サブスクに加入すると作れるようになるよというメッセージを表示")
+                alert = .error(UUID(), R.string.localizable.alarmListTooMuch())
             }
         } else {
             alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())

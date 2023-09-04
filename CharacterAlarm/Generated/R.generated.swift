@@ -964,7 +964,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 99 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 100 localization keys.
     struct localizable {
       /// en translation: Abou Cancellation Method
       ///
@@ -1290,6 +1290,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let dayOfWeekThursday = Rswift.StringResource(key: "day-of-week-thursday", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: To create two or more alarms, you need to register for a premium plan.
+      ///
+      /// Locales: ja, en
+      static let alarmListTooMuch = Rswift.StringResource(key: "alarm-list-too-much", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Tue
       ///
       /// Locales: ja, en
@@ -2576,6 +2580,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("day-of-week-thursday", bundle: bundle, comment: "")
+      }
+
+      /// en translation: To create two or more alarms, you need to register for a premium plan.
+      ///
+      /// Locales: ja, en
+      static func alarmListTooMuch(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alarm-list-too-much", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "alarm-list-too-much"
+        }
+
+        return NSLocalizedString("alarm-list-too-much", bundle: bundle, comment: "")
       }
 
       /// en translation: Tue

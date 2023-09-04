@@ -15,6 +15,14 @@ class ConfigViewState: ObservableObject {
     private let authUseCase = AuthUseCase()
     private let openURLRepository = OpenURLRepository()
     
+    var isShowingADs: Bool {
+        if userDefaultsRepository.getEnablePremiumPlan() {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     var versionString: String {
         return getVersion()
     }

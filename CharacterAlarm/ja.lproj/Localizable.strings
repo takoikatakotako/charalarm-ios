@@ -48,7 +48,8 @@
 "alarm-failed-to-create-an-alarm" = "アラームの作成に失敗しました。";
 "alarm-failed-to-edit-the-alarm" = "アラームの編集に失敗しました。";
 "alarm-you-can-create-up-to-three-alarms" = "アラームは最大3つまで作成できます。";
-"alarm-failed-to-get-the-alarm-list" =  "アラーム一覧の取得に失敗しました。";
+"alarm-failed-to-get-the-alarm-list" = "アラーム一覧の取得に失敗しました。";
+"alarm-list-too-much" = "2つ以上アラームを作るにはプレミアムプランに登録する必要があります。";
 
 // Character
 "character-character-list" = "キャラクター一覧";

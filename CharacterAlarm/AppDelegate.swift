@@ -35,7 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         environmentVariable.admobAlarmListUnitID = admobAlarmListUnitID
         environmentVariable.admobConfigUnitID = admobConfigUnitID
-                
+        
+        // サブスクのIDを取得
+        guard let subscriptionProductID = Bundle.main.infoDictionary?["SUBSCRIPTION_PRODUCT_ID"] as? String else {
+            fatalError("SubscriptionProductIDが見つかりません")
+        }
+        environmentVariable.subscriptionProductID = subscriptionProductID
+        
         // 課金周りの監視
         observeTransactionUpdates()
         
