@@ -19,29 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the Google Mobile Ads SDK.
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
-        // APIのエンドポイントを取得
-        guard let apiEndpoint = Bundle.main.infoDictionary?["API_ENDPOINT"] as? String,
-              let resourceEndpoint = Bundle.main.infoDictionary?["RESOURCE_ENDPOINT"] as? String
-        else {
-            fatalError("API_ENDPOINTが見つかりません")
-        }
-        environmentVariable.apiEndpoint = apiEndpoint
-        environmentVariable.resourceEndpoint = resourceEndpoint
-        
-        // AdmobのユニットIDを取得
-        guard let admobAlarmListUnitID = Bundle.main.infoDictionary?["ADMOB_ALARM_LIST"] as? String,
-              let admobConfigUnitID = Bundle.main.infoDictionary?["ADMOB_CONFIG"] as? String else {
-            fatalError("AdmobのUnitIdが見つかりません")
-        }
-        environmentVariable.admobAlarmListUnitID = admobAlarmListUnitID
-        environmentVariable.admobConfigUnitID = admobConfigUnitID
-        
-        // サブスクのIDを取得
-        guard let subscriptionProductID = Bundle.main.infoDictionary?["SUBSCRIPTION_PRODUCT_ID"] as? String else {
-            fatalError("SubscriptionProductIDが見つかりません")
-        }
-        environmentVariable.subscriptionProductID = subscriptionProductID
-        
         // 課金周りの監視
         observeTransactionUpdates()
         

@@ -11,11 +11,11 @@ struct CharaUseCase: CharaUseCaseProtcol {
     private let userDefaultsRepository = UserDefaultsRepository()
     
     func getSelfIntroductionUrlString(charaID: String) -> String {
-        return "\(environmentVariable.resourceEndpoint)/\(charaID)/self-introduction.caf"
+        return "\(EnvironmentVariableConfig.resourceEndpoint)/\(charaID)/self-introduction.caf"
     }
     
     func getCharaThumbnailUrlString(charaID: String) -> String {
-        return "\(environmentVariable.resourceEndpoint)/\(charaID)/thumbnail.png"
+        return "\(EnvironmentVariableConfig.resourceEndpoint)/\(charaID)/thumbnail.png"
     }
     
     func isExistDefaultCharaResources() -> Bool {
@@ -52,10 +52,6 @@ struct CharaUseCase: CharaUseCaseProtcol {
         // 保存する
         for expression in localCharaResource.expressions {
             for imageFileName in expression.value.imageFileNames {
-                
-                
-                
-                                
                 guard let imageFileURL = Bundle.main.url(forResource: imageFileName, withExtension: "", subdirectory: "Resource/com.charalarm.yui"),
                       let imageData = try? Data(contentsOf: imageFileURL) else {
                     // TODO: エラーハンドリング

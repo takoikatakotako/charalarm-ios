@@ -70,6 +70,15 @@ struct UserInfoView: View {
                     Text(viewState.voipPushToken ?? "empty")
                         .textSelection(.enabled)
                 }
+                
+                VStack(alignment: .leading) {
+                    Text("PremiumPlan@UserDefaults")
+                        .font(Font.body.bold())
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(viewState.premiumPlanAtUserDefaults)
+                        .textSelection(.enabled)
+                }
             }
             
             Spacer()
