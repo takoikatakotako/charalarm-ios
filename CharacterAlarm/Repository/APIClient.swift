@@ -16,9 +16,6 @@ struct APIClient {
         return data
     }
     
-    
-    
-    
     func request<ResponseType: Decodable>(url: URL, httpMethod: HttpMethod, requestHeader: [String: String], requestBody: Encodable?) async throws -> ResponseType {
         
         var urlRequest = URLRequest(url: url)
@@ -37,7 +34,7 @@ struct APIClient {
         }
                 
         guard urlResponse.statusCode == 200 else {
-            if let response = try? JSONDecoder().decode(MessageResponse.self, from: data) {
+            if let _ = try? JSONDecoder().decode(MessageResponse.self, from: data) {
                 throw CharalarmError.clientError
             }
             throw CharalarmError.clientError

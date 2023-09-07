@@ -4,7 +4,7 @@ import SDWebImageSwiftUI
 struct ConfigView: View {
     @StateObject var viewState: ConfigViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -12,6 +12,15 @@ struct ConfigView: View {
                     Section(header: Text(R.string.localizable.configUserInfo())) {
                         NavigationLink(destination: UserInfoView(viewState: UserInfoViewState())) {
                             Text(R.string.localizable.configUserInfo())
+                                .foregroundColor(Color(R.color.textColor.name))
+                        }
+                    }
+                    
+                    Section(header: Text(R.string.localizable.configPremiumPlan())) {
+                        Button {
+                            viewState.subscriptionButtonTapped()
+                        } label: {
+                            Text(R.string.localizable.configAboutPremiumPlan())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
@@ -25,14 +34,14 @@ struct ConfigView: View {
                         }
                         
                         Button(action: {
-                            viewState.openUrlString(string: ContactAboutAppUrlString)
+                            viewState.openInquiry()
                         }) {
                             Text(R.string.localizable.configInquiresAboutTheApp())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                         
                         Button(action: {
-                            viewState.openUrlString(string: ContactAbountAddCharacterUrlString)
+                            viewState.openCharacterAdditionRequest()
                         }) {
                             Text(R.string.localizable.configInquiresAddingCharacters())
                                 .foregroundColor(Color(R.color.textColor.name))
@@ -70,7 +79,7 @@ struct ConfigView: View {
                                 title: Text(R.string.localizable.configReset()),
                                 message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),
                                 primaryButton: .default(Text(R.string.localizable.commonCancel())) {
-                                    print("リセットをキャンセルしました。")
+                                    // ResetCancel
                                 }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
                                     viewState.withdraw()
                                 })
@@ -78,7 +87,9 @@ struct ConfigView: View {
                     }
                 }.listStyle(GroupedListStyle())
                 
-                AdmobBannerView(adUnitID: environmentVariable.admobConfigUnitID)
+                if viewState.isShowingADs {
+                    AdmobBannerView(adUnitID: EnvironmentVariableConfig.admobConfigUnitID)
+                }
             }
             .navigationBarTitle(R.string.localizable.configConfig(), displayMode: .inline)
             .navigationBarItems(
@@ -92,6 +103,9 @@ struct ConfigView: View {
                     }
             )
         }
+        .fullScreenCover(isPresented: $viewState.showingSubscriptionSheet, content: {
+            SubscriptionView(viewState: SubscriptionViewState())
+        })
         .alert(isPresented: $viewState.showingAlert) {
             Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
         }

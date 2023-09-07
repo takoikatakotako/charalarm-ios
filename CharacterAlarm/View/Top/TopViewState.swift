@@ -45,16 +45,12 @@ class TopViewState: ObservableObject {
         }
         
         guard let charaID = userDefaultsRepository.getCharaID() else {
-            DispatchQueue.main.async {
-                self.alert = .failedToGetCharacterSelectionInformation
-            }
+            self.alert = .failedToGetCharacterSelectionInformation
             return
         }
         
         guard let resource = try? localCharaResourceUseCase.loadCharaResource(charaID: charaID) else {
-            DispatchQueue.main.async {
-                self.alert = .failedToGetCharactersResources
-            }
+            self.alert = .failedToGetCharactersResources
             return
         }
         
@@ -87,16 +83,12 @@ class TopViewState: ObservableObject {
     
     func tapped() {
         guard let charaDomain = userDefaultsRepository.getCharaID() else {
-            DispatchQueue.main.async {
-                self.alert = .failedToGetCharacterSelectionInformation
-            }
+            self.alert = .failedToGetCharacterSelectionInformation
             return
         }
         
         guard let resource = try? localCharaResourceUseCase.loadCharaResource(charaID: charaDomain) else {
-            DispatchQueue.main.async {
-                self.alert = .failedToGetCharactersResources
-            }
+            self.alert = .failedToGetCharactersResources
             return
         }
         

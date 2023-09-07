@@ -16,6 +16,13 @@ struct UserInfoView: View {
                     .textSelection(.enabled)
             }
             
+            VStack(alignment: .leading) {
+                Text("PremiumPlan")
+                    .font(Font.body.bold())
+                
+                Text(viewState.premiumPlan)
+                    .textSelection(.enabled)
+            }
             
             if viewState.showHidenInfos {
                 VStack(alignment: .leading) {
@@ -61,6 +68,15 @@ struct UserInfoView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
                     Text(viewState.voipPushToken ?? "empty")
+                        .textSelection(.enabled)
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("PremiumPlan@UserDefaults")
+                        .font(Font.body.bold())
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(viewState.premiumPlanAtUserDefaults)
                         .textSelection(.enabled)
                 }
             }

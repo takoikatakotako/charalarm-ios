@@ -20,9 +20,11 @@ class AdmobRewardedHandler: NSObject, ObservableObject {
             return
         }
         
-        if let root = UIApplication.shared.windows.first?.rootViewController {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        if let root = window?.rootViewController {
             rewardedAd.present(fromRootViewController: root) {
-                
             }
         }
     }
