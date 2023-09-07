@@ -14,8 +14,7 @@
 "tutorial-did-you-get-a-call" = "Did you get a call?";
 "tutorial-you-can-set-multiple-alarms" = "You can set multiple alarms by specifying the time and day of the week.";
 "tutorial-customize-your-ads" = "Customize your ads!";
-"tutorial-charalarm-development-is-supported-by-advertising-revenue" = "
-The operation and development of Charalarm is supported by advertising revenue. \ nPlease allow us to use the information necessary to display the appropriate advertisement";
+"tutorial-charalarm-development-is-supported-by-advertising-revenue" = "The operation and development of Charalarm is supported by advertising revenue. \ nPlease allow us to use the information necessary to display the appropriate advertisement";
 "tutorial-do-not-allow-use-of-infomation" = "Do not allow the use of information";
 "tutorial-go-to-home-screen" = "Go to home screen";
 "tutorial-finally-please-allow-push-notificaion" = "Finally, please allow push notifications, such as to announce the addition of new characters.";
@@ -50,6 +49,7 @@ The operation and development of Charalarm is supported by advertising revenue. 
 "alarm-failed-to-edit-the-alarm" = "Failed to edit the alarm.";
 "alarm-you-can-create-up-to-three-alarms" = "You can create up to three alarms.";
 "alarm-failed-to-get-the-alarm-list" = "Failed to get the alarm list.";
+"alarm-list-too-much" = "To create two or more alarms, you need to register for a premium plan.";
 
 // Character
 "character-character-list" = "Character List";
@@ -70,6 +70,8 @@ The operation and development of Charalarm is supported by advertising revenue. 
 "config-version-info" = "Version Info";
 "config-license" = "License";
 "config-reset" = "Reset";
+"config-premium-plan" = "PremiumPlan";
+"config-about-premium-plan" = "About premium plan";
 "config-are-you-sure-you-want-to-reset-the-app" = "Are you sure you want to reset the app?";
 
 // News
@@ -89,12 +91,25 @@ The operation and development of Charalarm is supported by advertising revenue. 
 "day-of-week-friday" = "Fri";
 "day-of-week-saturday" = "Sat";
 
+// Subscription
+"subscription-message" = "Some features will be unlocked \nby updating to Charalarm's subscription plan! !";
+"subscription-benefit1-title" = "Benefit 1: Upper limit on number of alarms increased";
+"subscription-benefit1-description" = "You can set up to 10 alarms";
+"subscription-benefit2-title" = "Benefit 2: No ads";
+"subscription-benefit2-description" = "Benefit 2: No ads";
+"subscription-update-premium-plan" = "Update to premium plan";
+"subscription-restore" = "Restore";
+"subscription-about-cancellation-method" = "Abou Cancellation Method";
+"subscription-restore-success" = "Sucsbription restore success!";
+
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";
 "common-next" = "Next";
 "common-close" = "Close";
 "common-cancel" = "Cancel";
 "common-save" = "Save";
+"common-terms" = "Terms of Service";
+"common-privacy" = "Privacy Policy";
 
 // Error
 "error-an-unknown-error-has-occurred" = "An unknown error has occurred.";
@@ -103,6 +118,10 @@ The operation and development of Charalarm is supported by advertising revenue. 
 "error-failed-to-get-character-selection-information" = "Failed to get the character selection information";
 "error-failed-to-get-characters-resources" = "Failed to get the character's resources";
 "error-failed-to-set-character-image" = "Failed to set character image";
+"error-failed-to-get-subscription-info" = "Failed to get subscription info";
+"error-failed-to-update-premium-plan" = "Failed to Update Premium Plan";
+"error-failed-to-find-purchase-history" = "Faile to Find Purcase History";
+"error-failed-to-subscription-restore" = "Faile to subscription restore";
 "error-this-feature-is-not-available-in-your-region" = "This feature is not available in your region";
 
 

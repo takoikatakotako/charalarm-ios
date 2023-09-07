@@ -20,12 +20,7 @@ struct CharaListView: View {
                 VStack {
                     Spacer()
                     Button(action: {
-                        guard let url = URL(string: ContactAbountAddCharacterUrlString) else {
-                            return
-                        }
-                        if UIApplication.shared.canOpenURL(url) {
-                            UIApplication.shared.open(url)
-                        }
+                        viewState.characterAddRequestTapped()
                     }) {
                         CharacterListBanner()
                             .padding(.horizontal, 16)

@@ -9,13 +9,21 @@ class UserInfoViewState: ObservableObject {
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     private let apiRepository = APIRepository()
     private let keychainRepository = KeychainRepository()
-    
+    private let userDefaultsRepository = UserDefaultsRepository()
+
     var showHidenInfos: Bool {
         return tapCount > 4
     }
     
     var userID: String {
         return keychainRepository.getUserID() ?? "Not Found..."
+    }
+    
+    var premiumPlan: String {
+        guard let premiumPlan = userInfo?.premiumPlan else {
+            return "Loading"
+        }
+        return premiumPlan ? "有効" : "無効"
     }
     
     var authToken: String {
@@ -33,6 +41,10 @@ class UserInfoViewState: ObservableObject {
     
     var voipPushToken: String? {
         return appDelegate?.model.voipPushToken
+    }
+    
+    var premiumPlanAtUserDefaults: String {
+        return userDefaultsRepository.getEnablePremiumPlan() ? "有効" : "無効"
     }
     
     func fetchUserInfo() {

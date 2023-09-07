@@ -27,7 +27,9 @@ struct AlarmListView: View {
                     }
                 }
 
-                AdmobBannerView(adUnitID: environmentVariable.admobAlarmListUnitID)
+                if viewState.isShowingADs {
+                    AdmobBannerView(adUnitID: EnvironmentVariableConfig.admobAlarmListUnitID)
+                }
             }
             .onAppear {
                 viewState.fetchAlarms()
