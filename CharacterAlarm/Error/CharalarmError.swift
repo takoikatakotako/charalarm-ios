@@ -7,7 +7,7 @@ enum CharalarmError: Error {
     case encode
 }
 
-extension CharalarmError:LocalizedError{
+extension CharalarmError: LocalizedError{
     var errorDescription:String?{
         switch self {
         case .clientError:

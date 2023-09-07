@@ -8,10 +8,25 @@ class AlarmListViewState: ObservableObject {
     
     private let apiRepository = APIRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
+    private let userDefaultsRepository: UserDefaultsRepository = UserDefaultsRepository()
+
+    var isShowingADs: Bool {
+        if userDefaultsRepository.getEnablePremiumPlan() {
+            return false
+        } else {
+            return true
+        }
+    }
     
     func addAlarmButtonTapped() {
-        if alarms.count < 3 {
+        if alarms.isEmpty {
             sheet = .alarmDetailForCreate
+        } else if 0 < alarms.count && alarms.count <= 10 {
+            if userDefaultsRepository.getEnablePremiumPlan() {
+                sheet = .alarmDetailForCreate
+            } else {
+                alert = .error(UUID(), R.string.localizable.alarmListTooMuch())
+            }
         } else {
             alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())
         }

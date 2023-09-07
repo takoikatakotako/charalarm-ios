@@ -64,7 +64,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.0.1
+        MARKETING_VERSION: 3.1.0
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Develop
@@ -76,6 +76,7 @@ targets:
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
+          SUBSCRIPTION_PRODUCT_ID: charalarm.development.monthly.subscription
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.charalarm.sandbox.swiswiswift.com
@@ -83,6 +84,7 @@ targets:
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
+          SUBSCRIPTION_PRODUCT_ID: charalarm.development.monthly.subscription
     dependencies:
       - package: R.swift.Library
         product: Rswift
@@ -98,6 +100,7 @@ targets:
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
+      - sdk: StoreKit.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -122,7 +125,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.0.1
+        MARKETING_VERSION: 3.1.0
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
@@ -134,6 +137,7 @@ targets:
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
+          SUBSCRIPTION_PRODUCT_ID: charalarm.staging.monthly.subscription
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.charalarm.swiswiswift.com
@@ -141,6 +145,7 @@ targets:
           GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
+          SUBSCRIPTION_PRODUCT_ID: charalarm.staging.monthly.subscription
     dependencies:
       - package: R.swift.Library
         product: Rswift
@@ -156,6 +161,7 @@ targets:
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
+      - sdk: StoreKit.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -188,6 +194,7 @@ targets:
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
+      - sdk: StoreKit.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -201,7 +208,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.0.1
+        MARKETING_VERSION: 3.1.0
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production
@@ -213,6 +220,7 @@ targets:
           GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
           ADMOB_CONFIG: ca-app-pub-5587141252700968/1355204268
+          SUBSCRIPTION_PRODUCT_ID: charalarm.production.monthly.subscription
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api2.charalarm.com
@@ -220,6 +228,7 @@ targets:
           GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
           ADMOB_CONFIG: ca-app-pub-5587141252700968/1355204268
+          SUBSCRIPTION_PRODUCT_ID: charalarm.production.monthly.subscription
   CharacterAlarmTests:
     type: bundle.unit-test
     platform: iOS

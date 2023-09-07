@@ -68,7 +68,7 @@ struct CharaProfileView: View {
         .onAppear {
             viewState.fetchCharacter()
         }
-        .alert(isPresented: self.$viewState.showSelectAlert) {
+        .alert(isPresented: $viewState.showSelectAlert) {
             Alert(
                 title: Text(R.string.localizable.profileCharacterSelection()),
                 message: Text(R.string.localizable.profileWantToCallThisCharacter()),
