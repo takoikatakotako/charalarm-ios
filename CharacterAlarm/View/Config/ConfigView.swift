@@ -49,6 +49,7 @@ struct ConfigView: View {
                     }
                     
                     Section(header: Text(R.string.localizable.configApplicationInfo())) {
+                        // バージョン情報
                         HStack {
                             Text(R.string.localizable.configVersionInfo())
                                 .foregroundColor(Color(R.color.textColor.name))
@@ -56,6 +57,15 @@ struct ConfigView: View {
                             Text(viewState.versionString)
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
+                        
+                        // ライセンス
+                        NavigationLink {
+                            Text("ああああ")
+                        } label: {
+                            Text("ライセンス")
+                        }
+                        
+                        // その他
                         Button {
                             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                                 return
