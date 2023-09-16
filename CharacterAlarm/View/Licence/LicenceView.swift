@@ -2,7 +2,18 @@ import SwiftUI
 
 struct LicenceView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Section(header: Text("キャラクター")) {
+                Text("ずんだもん")
+            }
+            
+            Section(header: Text("ソフトウェア")) {
+                Text("ずんだもん")
+            }
+            
+            
+        }
+        .listStyle(GroupedListStyle())
     }
 }
 

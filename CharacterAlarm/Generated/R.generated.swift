@@ -964,7 +964,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 100 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 101 localization keys.
     struct localizable {
       /// en translation: Abou Cancellation Method
       ///
@@ -1206,6 +1206,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let configOther = Rswift.StringResource(key: "config-other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Other App Setting
+      ///
+      /// Locales: ja, en
+      static let configOtherAppSetting = Rswift.StringResource(key: "config-other-app-setting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: PR
       ///
       /// Locales: ja, en
@@ -2265,6 +2269,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("config-other", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Other App Setting
+      ///
+      /// Locales: ja, en
+      static func configOtherAppSetting(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("config-other-app-setting", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "config-other-app-setting"
+        }
+
+        return NSLocalizedString("config-other-app-setting", bundle: bundle, comment: "")
       }
 
       /// en translation: PR

@@ -63,6 +63,7 @@
 "config-config" = "設定";
 "config-user-info" = "ユーザー情報";
 "config-other" = "その他";
+"config-other-app-setting" = "その他アプリ設定";
 "config-official-twitter" = "公式Twitter";
 "config-application-info" = "アプリケーション情報";
 "config-inquires-about-the-app" = "アプリについてのお問い合わせ";

@@ -60,9 +60,9 @@ struct ConfigView: View {
                         
                         // ライセンス
                         NavigationLink {
-                            Text("ああああ")
+                            LicenceView()
                         } label: {
-                            Text("ライセンス")
+                            Text(R.string.localizable.configLicense())
                         }
                         
                         // その他
@@ -72,7 +72,7 @@ struct ConfigView: View {
                             }
                             UIApplication.shared.open(settingsUrl, completionHandler: nil)
                         } label: {
-                            Text(R.string.localizable.configOther())
+                            Text(R.string.localizable.configOtherAppSetting())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
