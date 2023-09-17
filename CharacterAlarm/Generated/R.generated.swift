@@ -964,7 +964,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 101 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 104 localization keys.
     struct localizable {
       /// en translation: Abou Cancellation Method
       ///
@@ -1010,6 +1010,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let commonCancel = Rswift.StringResource(key: "common-cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Character
+      ///
+      /// Locales: ja, en
+      static let licenseCharacter = Rswift.StringResource(key: "license-character", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Character List
       ///
       /// Locales: ja, en
@@ -1258,6 +1262,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let commonSave = Rswift.StringResource(key: "common-save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Software
+      ///
+      /// Locales: ja, en
+      static let licenseSoftware = Rswift.StringResource(key: "license-software", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Some features will be unlocked  by updating to Charalarm's subscription plan! !
       ///
       /// Locales: ja, en
@@ -1354,6 +1362,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let profileYes = Rswift.StringResource(key: "profile-yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: You can check the license of the library used in the iOS app from the app settings screen.
+      ///
+      /// Locales: ja, en
+      static let licenseOther = Rswift.StringResource(key: "license-other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: You can create up to three alarms.
       ///
       /// Locales: ja, en
@@ -1534,6 +1546,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("common-cancel", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Character
+      ///
+      /// Locales: ja, en
+      static func licenseCharacter(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("license-character", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "license-character"
+        }
+
+        return NSLocalizedString("license-character", bundle: bundle, comment: "")
       }
 
       /// en translation: Character List
@@ -2466,6 +2493,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("common-save", bundle: bundle, comment: "")
       }
 
+      /// en translation: Software
+      ///
+      /// Locales: ja, en
+      static func licenseSoftware(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("license-software", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "license-software"
+        }
+
+        return NSLocalizedString("license-software", bundle: bundle, comment: "")
+      }
+
       /// en translation: Some features will be unlocked  by updating to Charalarm's subscription plan! !
       ///
       /// Locales: ja, en
@@ -2824,6 +2866,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("profile-yes", bundle: bundle, comment: "")
+      }
+
+      /// en translation: You can check the license of the library used in the iOS app from the app settings screen.
+      ///
+      /// Locales: ja, en
+      static func licenseOther(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("license-other", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "license-other"
+        }
+
+        return NSLocalizedString("license-other", bundle: bundle, comment: "")
       }
 
       /// en translation: You can create up to three alarms.

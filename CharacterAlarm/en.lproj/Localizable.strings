@@ -103,6 +103,11 @@
 "subscription-about-cancellation-method" = "Abou Cancellation Method";
 "subscription-restore-success" = "Sucsbription restore success!";
 
+// License
+"license-character" = "Character";
+"license-software" = "Software";
+"license-other" = "You can check the license of the library used in the iOS app from the app settings screen.";
+
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";
 "common-next" = "Next";
