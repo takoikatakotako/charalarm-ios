@@ -964,7 +964,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 104 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 105 localization keys.
     struct localizable {
       /// en translation: Abou Cancellation Method
       ///
@@ -1210,6 +1210,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ja, en
       static let configOther = Rswift.StringResource(key: "config-other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      /// en translation: Other
+      ///
+      /// Locales: ja, en
+      static let licenseOther = Rswift.StringResource(key: "license-other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: Other App Setting
       ///
       /// Locales: ja, en
@@ -1365,7 +1369,7 @@ struct R: Rswift.Validatable {
       /// en translation: You can check the license of the library used in the iOS app from the app settings screen.
       ///
       /// Locales: ja, en
-      static let licenseOther = Rswift.StringResource(key: "license-other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
+      static let licenseOtherDescription = Rswift.StringResource(key: "license-other-description", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ja", "en"], comment: nil)
       /// en translation: You can create up to three alarms.
       ///
       /// Locales: ja, en
@@ -2298,6 +2302,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("config-other", bundle: bundle, comment: "")
       }
 
+      /// en translation: Other
+      ///
+      /// Locales: ja, en
+      static func licenseOther(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("license-other", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "license-other"
+        }
+
+        return NSLocalizedString("license-other", bundle: bundle, comment: "")
+      }
+
       /// en translation: Other App Setting
       ///
       /// Locales: ja, en
@@ -2871,16 +2890,16 @@ struct R: Rswift.Validatable {
       /// en translation: You can check the license of the library used in the iOS app from the app settings screen.
       ///
       /// Locales: ja, en
-      static func licenseOther(preferredLanguages: [String]? = nil) -> String {
+      static func licenseOtherDescription(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("license-other", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("license-other-description", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "license-other"
+          return "license-other-description"
         }
 
-        return NSLocalizedString("license-other", bundle: bundle, comment: "")
+        return NSLocalizedString("license-other-description", bundle: bundle, comment: "")
       }
 
       /// en translation: You can create up to three alarms.

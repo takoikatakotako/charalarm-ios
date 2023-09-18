@@ -106,7 +106,8 @@
 // License
 "license-character" = "Character";
 "license-software" = "Software";
-"license-other" = "You can check the license of the library used in the iOS app from the app settings screen.";
+"license-other" = "Other";
+"license-other-description" = "You can check the license of the library used in the iOS app from the app settings screen.";
 
 // Common
 "common-failed-to-connect-with-the-server." = "Faild to connect with ther server. Please wait a while and try later.";

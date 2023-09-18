@@ -60,7 +60,7 @@ struct ConfigView: View {
                         
                         // ライセンス
                         NavigationLink {
-                            LicenceView()
+                            LicenceView(viewState: LicenceViewState())
                         } label: {
                             Text(R.string.localizable.configLicense())
                         }
@@ -95,7 +95,12 @@ struct ConfigView: View {
                                 })
                         }
                     }
-                }.listStyle(GroupedListStyle())
+                    
+                    // 広告とリセットせるが被ってしまうのでパディング追加のため
+                    // もっと良い方法があれば修正したい
+                    Section("") {}
+                }
+                .listStyle(GroupedListStyle())
                 
                 if viewState.isShowingADs {
                     AdmobBannerView(adUnitID: EnvironmentVariableConfig.admobConfigUnitID)

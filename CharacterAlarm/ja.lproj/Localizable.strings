@@ -106,7 +106,8 @@
 // License
 "license-character" = "キャラクター";
 "license-software" = "ソフトウェア";
-"license-other" = "iOSアプリに使用しているライブラリのライセンスはアプリの設定画面から確認できます";
+"license-other" = "その他";
+"license-other-description" = "iOSアプリに使用しているライブラリのライセンスはアプリの設定画面から確認できます";
 
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
