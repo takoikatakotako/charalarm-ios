@@ -23,3 +23,8 @@ let CharalarmTermsURLForJapanese = "https://charalarm.com/docs/teams/"
 // プライバシーポリシー
 let CharalarmPrivacyPolicyURLForJapanese = "https://charalarm.com/docs/privacy/"
 
+// 東北ずん子・ずんだもんプロジェクト
+let ZunZunProjectURLString = "https://zunko.jp/"
+
+// VoiceVox
+let VoiceVoxURLString = "https://voicevox.hiroshiba.jp/"

@@ -4,11 +4,19 @@ struct LicenceView: View {
     var body: some View {
         List {
             Section(header: Text(R.string.localizable.licenseCharacter())) {
-                Text("ずんだもん")
+                Button {
+                    print(ZunZunProjectURLString)
+                } label: {
+                    Text("ずんだもん")
+                }
             }
             
             Section(header: Text(R.string.localizable.licenseSoftware())) {
-                Text("VOICEVOX")
+                Button {
+                    print(VoiceVoxURLString)
+                } label: {
+                    Text("VOICEVOX")
+                }
             }
             
             Section(header: Text("その他")) {
