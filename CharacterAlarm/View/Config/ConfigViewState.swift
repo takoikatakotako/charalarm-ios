@@ -38,6 +38,13 @@ class ConfigViewState: ObservableObject {
         showingSubscriptionSheet = true
     }
     
+    func openAppSetting() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        UIApplication.shared.open(settingsUrl, completionHandler: nil)
+    }
+    
     func resetButtonTapped() {
         showingResetAlert = true
     }
@@ -48,7 +55,7 @@ class ConfigViewState: ObservableObject {
         }
         UIApplication.shared.open(url)
     }
-    
+        
     func withdraw() {
         guard let userID = keychainRepository.getUserID(),
               let authToken = keychainRepository.getAuthToken() else {

@@ -49,6 +49,7 @@ struct ConfigView: View {
                     }
                     
                     Section(header: Text(R.string.localizable.configApplicationInfo())) {
+                        // バージョン情報
                         HStack {
                             Text(R.string.localizable.configVersionInfo())
                                 .foregroundColor(Color(R.color.textColor.name))
@@ -56,13 +57,22 @@ struct ConfigView: View {
                             Text(viewState.versionString)
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
+                        
+                        // ライセンス
+                        NavigationLink {
+                            LicenceView(viewState: LicenceViewState())
+                        } label: {
+                            Text(R.string.localizable.configLicense())
+                        }
+                        
+                        // その他
                         Button {
                             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                                 return
                             }
                             UIApplication.shared.open(settingsUrl, completionHandler: nil)
                         } label: {
-                            Text(R.string.localizable.configOther())
+                            Text(R.string.localizable.configOtherAppSetting())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
@@ -85,7 +95,12 @@ struct ConfigView: View {
                                 })
                         }
                     }
-                }.listStyle(GroupedListStyle())
+                    
+                    // 広告とリセットせるが被ってしまうのでパディング追加のため
+                    // もっと良い方法があれば修正したい
+                    Section("") {}
+                }
+                .listStyle(GroupedListStyle())
                 
                 if viewState.isShowingADs {
                     AdmobBannerView(adUnitID: EnvironmentVariableConfig.admobConfigUnitID)
