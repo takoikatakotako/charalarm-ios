@@ -1,6 +1,6 @@
 import SwiftUI
 
-class CharacterListViewModel: ObservableObject {
+class CharacterListViewState: ObservableObject {
     @Published var charaList: [Chara] = []
     @Published var showingAlert = false
     @Published var alertMessage = ""
@@ -12,6 +12,7 @@ class CharacterListViewModel: ObservableObject {
             do {
                 self.charaList = try await apiRepository.getCharaList()
             } catch {
+                print(error)
                 alertMessage = R.string.localizable.characterFailedToGetTheCharacter()
                 self.showingAlert = true
             }
