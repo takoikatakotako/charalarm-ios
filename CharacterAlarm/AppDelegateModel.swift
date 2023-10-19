@@ -5,7 +5,9 @@ class AppDelegateModel {
     private(set) var charaName: String = ""
     private(set) var voiceFileURL: String = ""
     private var player = AVPlayer()
+    private var audioPlayer = AVAudioPlayer()
     private let apiRepository: APIRepository
+    private let fileRepository: FileRepository
     private let keychainRepository: KeychainRepository
     private let userDefaultsRepository: UserDefaultsRepository
     var pushToken: String?
@@ -13,6 +15,7 @@ class AppDelegateModel {
     
     init(apiRepository: APIRepository, keychainRepository: KeychainRepository) {
         self.apiRepository = APIRepository()
+        self.fileRepository = FileRepository()
         self.keychainRepository = KeychainRepository()
         self.userDefaultsRepository = UserDefaultsRepository()
     }
@@ -73,13 +76,34 @@ class AppDelegateModel {
     
     // VoIP Pushを受信
     func receiveVoipPush() {
-        if let url = URL(string: voiceFileURL) {
-            let playerItem = AVPlayerItem(url: url)
-            player = AVPlayer(playerItem: playerItem)
-            player.play()
-        } else {
-            // TODO: ここで再生できない時の処理
+        guard let url = URL(string: voiceFileURL) else {
+            // エラーだよメッセージを流す
+            return
         }
+        
+        // 準備中の音を再生
+        
+        Task { @MainActor in
+            do {
+                let fileData = try await fileRepository.downloadFile(url: url)
+                
+                // 準備中の音を停止
+                AVPlayer(url: url)
+                
+                audioPlayer = try AVAudioPlayer(data: fileData)
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+
+            } catch {
+                // エラーだよメッセージを流す
+
+            }
+        }
+        
+        
+//        let playerItem = AVPlayerItem(url: url)
+//        player = AVPlayer(playerItem: playerItem)
+//        player.play()
     }
     
     func answerCall(callUUID: UUID) {
