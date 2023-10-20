@@ -4,7 +4,6 @@ import AVKit
 class AppDelegateModel {
     private(set) var charaName: String = ""
     private(set) var voiceFileURL: String = ""
-    private var player = AVPlayer()
     private var audioPlayer = AVAudioPlayer()
     private let apiRepository: APIRepository
     private let fileRepository: FileRepository
@@ -88,22 +87,14 @@ class AppDelegateModel {
                 let fileData = try await fileRepository.downloadFile(url: url)
                 
                 // 準備中の音を停止
-                AVPlayer(url: url)
-                
                 audioPlayer = try AVAudioPlayer(data: fileData)
                 audioPlayer.prepareToPlay()
                 audioPlayer.play()
 
             } catch {
                 // エラーだよメッセージを流す
-
             }
         }
-        
-        
-//        let playerItem = AVPlayerItem(url: url)
-//        player = AVPlayer(playerItem: playerItem)
-//        player.play()
     }
     
     func answerCall(callUUID: UUID) {
