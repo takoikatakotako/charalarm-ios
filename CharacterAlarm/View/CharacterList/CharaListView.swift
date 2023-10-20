@@ -3,7 +3,7 @@ import UIKit
 import SDWebImageSwiftUI
 
 struct CharaListView: View {
-    @StateObject var viewState: CharacterListViewModel
+    @StateObject var viewState: CharacterListViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -49,10 +49,10 @@ struct CharaListView: View {
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CharaListView(viewState: CharacterListViewModel())
+            CharaListView(viewState: CharacterListViewState())
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             
-            CharaListView(viewState: CharacterListViewModel())
+            CharaListView(viewState: CharacterListViewState())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }
