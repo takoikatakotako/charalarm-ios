@@ -67,6 +67,9 @@ struct AlarmDetailView: View {
             .onAppear {
                 viewState.onAppear()
             }
+            .onDisappear {
+                viewState.onDisappear()
+            }
             .navigationBarItems(
                 leading: CloseBarButton() {
                     presentationMode.wrappedValue.dismiss()

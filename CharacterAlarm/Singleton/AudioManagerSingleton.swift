@@ -12,4 +12,8 @@ class AudioManagerSingleton {
         avPlayer = AVPlayer(playerItem: playerItem)
         avPlayer?.play()
     }
+    
+    func pauseAudio() {
+        avPlayer?.pause()
+    }
 }

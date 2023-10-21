@@ -19,7 +19,7 @@ class AlarmDetailVoiceListState: ObservableObject {
         playVoice(url: randomCharaCall.voiceFileURL)
     }
     
-    func playAndSelectVoice(charaCall: CharaCall) {
+    func playVoice(charaCall: CharaCall) {
         playVoice(url: charaCall.voiceFileURL)
     }
     

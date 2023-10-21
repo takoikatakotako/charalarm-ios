@@ -64,6 +64,10 @@ class AlarmDetailViewState: ObservableObject {
         }
     }
     
+    func onDisappear() {
+        AudioManagerSingleton.shared.pauseAudio()
+    }
+    
     func createOrEditAlarm() {
         switch type {
         case .create:
