@@ -63,6 +63,7 @@
 "config-config" = "設定";
 "config-user-info" = "ユーザー情報";
 "config-other" = "その他";
+"config-other-app-setting" = "その他アプリ設定";
 "config-official-twitter" = "公式Twitter";
 "config-application-info" = "アプリケーション情報";
 "config-inquires-about-the-app" = "アプリについてのお問い合わせ";
@@ -101,6 +102,12 @@
 "subscription-restore" = "購入を復元";
 "subscription-about-cancellation-method" = "解約方法について";
 "subscription-restore-success" = "サブスクリプションの復元に成功しました";
+
+// License
+"license-character" = "キャラクター";
+"license-software" = "ソフトウェア";
+"license-other" = "その他";
+"license-other-description" = "iOSアプリに使用しているライブラリのライセンスはアプリの設定画面から確認できます";
 
 // Common
 "common-failed-to-connect-with-the-server." = "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。";
