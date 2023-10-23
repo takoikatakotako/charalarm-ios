@@ -25,4 +25,19 @@ struct EnvironmentVariableConfig {
     static var subscriptionProductID: String {
         return Bundle.main.infoDictionary?["SUBSCRIPTION_PRODUCT_ID"] as? String ?? ""
     }
+    
+    // Datadog Client Token
+    static var datadogClientToken: String {
+        return Bundle.main.infoDictionary?["DATADOG_CLIENT_TOKEN"] as? String ?? ""
+    }
+    
+    // Datadog Log Environment
+    static var datadogLogENV: String {
+        return Bundle.main.infoDictionary?["DATADOG_LOG_ENV"] as? String ?? ""
+    }
+    
+    // Datadog Log Service
+    static var datadogLogService: String {
+        return Bundle.main.infoDictionary?["DATADOG_LOG_SERVICE"] as? String ?? ""
+    }
 }

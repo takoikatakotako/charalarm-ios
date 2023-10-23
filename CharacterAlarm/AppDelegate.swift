@@ -41,12 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Datadogのロガーを設定する
-        
         Datadog.initialize(
             with: Datadog.Configuration(
-                clientToken: "<client token>",
-                env: "<environment>",
-                service: "<service name>"
+                clientToken: EnvironmentVariableConfig.datadogClientToken,
+                env: EnvironmentVariableConfig.datadogLogENV,
+                service: EnvironmentVariableConfig.datadogLogService,
             ),
             trackingConsent: .granted
         )

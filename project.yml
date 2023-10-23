@@ -80,6 +80,9 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
           SUBSCRIPTION_PRODUCT_ID: charalarm.development.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub4382695cba78515684cc88a5cfbcdc1e
+          DATADOG_LOG_ENV: charalarm-development
+          DATADOG_LOG_SERVICE: charalarm-development
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.charalarm.sandbox.swiswiswift.com
@@ -88,26 +91,29 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
           SUBSCRIPTION_PRODUCT_ID: charalarm.development.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub4382695cba78515684cc88a5cfbcdc1e
+          DATADOG_LOG_ENV: charalarm-development
+          DATADOG_LOG_SERVICE: charalarm-development
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
-      - package: SDWebImageSwiftUI
-        product: SDWebImageSwiftUI
-      - package: KeychainAccess
-        product: KeychainAccess
+      - sdk: StoreKit.framework
+      - package: Datadog
+        product: DatadogCore
+      - package: Datadog
+        product: DatadogLogs
       - package: Firebase
         product: FirebaseAnalytics
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-      - package: Datadog
-        product: DatadogCore
-      - package: Datadog
-        product: DatadogLogs
-      - sdk: StoreKit.framework
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: R.swift.Library
+        product: Rswift
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -154,21 +160,25 @@ targets:
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
           SUBSCRIPTION_PRODUCT_ID: charalarm.staging.monthly.subscription
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
-      - package: SDWebImageSwiftUI
-        product: SDWebImageSwiftUI
-      - package: KeychainAccess
-        product: KeychainAccess
+      - sdk: StoreKit.framework
+      - package: Datadog
+        product: DatadogCore
+      - package: Datadog
+        product: DatadogLogs
       - package: Firebase
         product: FirebaseAnalytics
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-      - sdk: StoreKit.framework
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: R.swift.Library
+        product: Rswift
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -187,21 +197,25 @@ targets:
         type: folder
       - path: Config/Production
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
-      - package: SDWebImageSwiftUI
-        product: SDWebImageSwiftUI
-      - package: KeychainAccess
-        product: KeychainAccess
+      - sdk: StoreKit.framework
+      - package: Datadog
+        product: DatadogCore
+      - package: Datadog
+        product: DatadogLogs
       - package: Firebase
         product: FirebaseAnalytics
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-      - sdk: StoreKit.framework
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: R.swift.Library
+        product: Rswift
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
