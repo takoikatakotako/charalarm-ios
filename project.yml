@@ -17,6 +17,9 @@ packages:
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
     from: 9.6.0
+  Datadog:
+    url: https://github.com/Datadog/dd-sdk-ios.git
+    from: 2.4.0
 
 schemes:
   Develop:
@@ -100,6 +103,10 @@ targets:
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
+      - package: Datadog
+        product: DatadogCore
+      - package: Datadog
+        product: DatadogLogs
       - sdk: StoreKit.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh

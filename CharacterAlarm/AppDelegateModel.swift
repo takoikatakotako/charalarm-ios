@@ -42,14 +42,14 @@ class AppDelegateModel {
                 let pushTokenRequest = PushTokenRequest(pushToken: token)
                 try await apiRepository.postPushTokenAddPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
-                Logger.sendError(error: error)
+                CharalarmLogger.sendError(error: error)
             }
         }
     }
     
     // ViIPPushトークンを取得できなかった場合
     func failToRregisterPushToken(error: Error) {
-        Logger.sendError(error: error)
+        CharalarmLogger.sendError(error: error)
     }
     
     
@@ -68,7 +68,7 @@ class AppDelegateModel {
                 let pushTokenRequest = PushTokenRequest(pushToken: token)
                 try await apiRepository.postPushTokenAddVoIPPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
-                Logger.sendError(error: error)
+                CharalarmLogger.sendError(error: error)
             }
         }
     }

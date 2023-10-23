@@ -59,7 +59,7 @@ class AlarmDetailViewState: ObservableObject {
                 }
             } catch {
                 // TODO: キャラクター情報の取得に失敗しました的なアラートを表示
-                Logger.sendError(error: error)
+                CharalarmLogger.sendError(error: error)
             }
         }
     }

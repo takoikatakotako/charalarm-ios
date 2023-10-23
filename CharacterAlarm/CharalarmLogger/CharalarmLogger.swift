@@ -1,6 +1,26 @@
 import Foundation
+import DatadogCore
+import DatadogLogs
 
-struct Logger {
+struct CharalarmLogger {
+    
+    private static func xxxxxx(message: String) {
+        let logger = Logger.create(
+            with: Logger.Configuration(
+                name: "<logger name>",
+                networkInfoEnabled: true,
+                remoteLogThreshold: .info,
+                consoleLogFormat: .shortWith(prefix: "[iOS App] ")
+            )
+        )
+        
+    }
+    
+    
+    
+    
+    
+    
     static func sendLog(message: String) {
         let url = URL(string: "https://http-intake.logs.datadoghq.com/v1/input")!
         var request = URLRequest(url: url)
