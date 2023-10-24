@@ -26,7 +26,7 @@ class CallingViewState: ObservableObject {
         let transaction = CXTransaction(action: endCallAction)        
         controller.request(transaction) { error in
             if let error = error {
-                CharalarmLogger.sendError(error: error)
+                CharalarmLogger.critical("end call error", error: error)
             }
         }
     }

@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             with: Datadog.Configuration(
                 clientToken: EnvironmentVariableConfig.datadogClientToken,
                 env: EnvironmentVariableConfig.datadogLogENV,
-                service: EnvironmentVariableConfig.datadogLogService,
+                service: EnvironmentVariableConfig.datadogLogService
             ),
             trackingConsent: .granted
         )

@@ -42,14 +42,14 @@ class AppDelegateModel {
                 let pushTokenRequest = PushTokenRequest(pushToken: token)
                 try await apiRepository.postPushTokenAddPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
-                CharalarmLogger.sendError(error: error)
+                CharalarmLogger.error("Failed to register push token, file: \(#file), line: \(#line)", error: error)
             }
         }
     }
     
-    // ViIPPushトークンを取得できなかった場合
+    // VoIPPushトークンを取得できなかった場合
     func failToRregisterPushToken(error: Error) {
-        CharalarmLogger.sendError(error: error)
+        CharalarmLogger.error("Failed to get VoIP token, file: \(#file), line: \(#line)", error: error)
     }
     
     
@@ -68,7 +68,7 @@ class AppDelegateModel {
                 let pushTokenRequest = PushTokenRequest(pushToken: token)
                 try await apiRepository.postPushTokenAddVoIPPushToken(userID:userID, authToken: authToken, pushToken: pushTokenRequest)
             } catch {
-                CharalarmLogger.sendError(error: error)
+                CharalarmLogger.error("Failed to register VoIP push token, file: \(#file), line: \(#line)", error: error)
             }
         }
     }

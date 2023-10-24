@@ -3,72 +3,46 @@ import DatadogCore
 import DatadogLogs
 
 struct CharalarmLogger {
+    static func debug(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
+        log(level: .debug, message: message, error: error, attributes: attributes)
+    }
     
-    private static func xxxxxx(message: String) {
+    static func info(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
+        log(level: .info, message: message, error: error, attributes: attributes)
+    }
+    
+    static func error(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
+        log(level: .error, message: message, error: error, attributes: attributes)
+    }
+    
+    static func critical(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
+        log(level: .critical, message: message, error: error, attributes: attributes)
+    }
+    
+    private static func log(level: LogLevel, message: String, error: Error? = nil, attributes: [String: String]? = nil) {
         let logger = Logger.create(
             with: Logger.Configuration(
-                name: "<logger name>",
+                name: "charalarm",
                 networkInfoEnabled: true,
                 remoteLogThreshold: .info,
                 consoleLogFormat: .shortWith(prefix: "[iOS App] ")
             )
         )
         
-    }
-    
-    
-    
-    
-    
-    
-    static func sendLog(message: String) {
-        let url = URL(string: "https://http-intake.logs.datadoghq.com/v1/input")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = ["DD-API-KEY": "e82a46be5b8f7aa6ac41e8ec4cb4eec2", "Content-Type": "application/json"]
-        
-        struct DatadogInfo: Codable {
-            let host: String
-            let source: String
-            let service: String
-            let status: String
-            let message: String
+        switch level {
+        case .debug:
+            logger.debug(message, error: error, attributes: attributes)
+        case .info:
+            logger.info(message, error: error, attributes: attributes)
+        case .notice:
+            logger.notice(message, error: error, attributes: attributes)
+        case .warn:
+            logger.warn(message, error: error, attributes: attributes)
+        case .error:
+            logger.error(message, error: error, attributes: attributes)
+        case .critical:
+            logger.critical(message, error: error, attributes: attributes)
         }
-  
-        let info = DatadogInfo(host: "charalarm-ios", source: "iOS", service: "iOS", status: "Info", message: message)
-        request.httpBody = try! JSONEncoder().encode(info)
-        let task = URLSession.shared.dataTask(with: request) { _, _, _ in }
-        task.resume()
-    }
-    
-    static func sendError(error: Error) {
-        xxxxx(message: error.localizedDescription)
-    }
-    
-    static private func xxxxx(message: String) {
-        let url = URL(string: "https://http-intake.logs.datadoghq.com/v1/input")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = ["DD-API-KEY": "e82a46be5b8f7aa6ac41e8ec4cb4eec2", "Content-Type": "application/json"]
-        
-        struct DatadogInfo: Codable {
-            let host: String
-            let source: String
-            let service: String
-            let status: String
-            let message: String
-        }
-  
-        let info = DatadogInfo(host: "charalarm-ios", source: "iOS", service: "iOS", status: "Info", message: message)
-        request.httpBody = try! JSONEncoder().encode(info)
-        let task = URLSession.shared.dataTask(with: request) { _, _, _ in }
-        task.resume()
-    }
-    
-    static func printWithTitle(title: String, content: Any) {
-        print("================= \(title) =================")
-        print(content)
-        print("==================================")
     }
 }
 

@@ -59,7 +59,7 @@ class AlarmDetailViewState: ObservableObject {
                 }
             } catch {
                 // TODO: キャラクター情報の取得に失敗しました的なアラートを表示
-                CharalarmLogger.sendError(error: error)
+                CharalarmLogger.error("failed to fetch character info, file: \(#file), line: \(#line)", error: error)
             }
         }
     }

@@ -7,7 +7,7 @@ class AdmobRewardedHandler: NSObject, ObservableObject {
     func load() {
         GADRewardedAd.load(withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: nil) { ad, error in
             if let error = error {
-                CharalarmLogger.sendError(error: error)
+                CharalarmLogger.error("Failed to load AD, file: \(#file), line: \(#line)", error: error)
                 return
             }
             self.rewardedAd = ad
@@ -33,7 +33,7 @@ class AdmobRewardedHandler: NSObject, ObservableObject {
 extension AdmobRewardedHandler: GADFullScreenContentDelegate {
     /// Tells the delegate that the ad failed to present full screen content.
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-        CharalarmLogger.sendError(error: error)
+        CharalarmLogger.error("didFailToPresentFullScreenContentWithError, file: \(#file), line: \(#line)", error: error)
     }
     
     // Called when an ad is dismissed
