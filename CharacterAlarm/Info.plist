@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SUBSCRIPTION_PRODUCT_ID</key>
-	<string>${SUBSCRIPTION_PRODUCT_ID}</string>
 	<key>ADMOB_ALARM_LIST</key>
 	<string>${ADMOB_ALARM_LIST}</string>
 	<key>ADMOB_CONFIG</key>
@@ -26,6 +24,12 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>DATADOG_CLIENT_TOKEN</key>
+	<string>${DATADOG_CLIENT_TOKEN}</string>
+	<key>DATADOG_LOG_ENV</key>
+	<string>${DATADOG_LOG_ENV}</string>
+	<key>DATADOG_LOG_SERVICE</key>
+	<string>${DATADOG_LOG_SERVICE}</string>
 	<key>GADApplicationIdentifier</key>
 	<string>${GAD_APPLICATION_IDENTIFER}</string>
 	<key>GADIsAdManagerApp</key>
@@ -192,6 +196,8 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
+	<key>SUBSCRIPTION_PRODUCT_ID</key>
+	<string>${SUBSCRIPTION_PRODUCT_ID}</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
