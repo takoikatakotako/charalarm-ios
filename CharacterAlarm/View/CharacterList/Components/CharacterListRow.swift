@@ -13,7 +13,7 @@ struct CharacterListRow: View {
                         .resizable()
             }
             .frame(width: 80, height: 80)
-            .animation(.easeInOut(duration: 0.5))
+            .animation(.easeInOut, value: 0.5)
             .transition(.fade)
             .scaledToFill()
             
