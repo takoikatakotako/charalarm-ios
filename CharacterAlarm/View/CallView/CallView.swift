@@ -17,7 +17,7 @@ struct CallView: View {
                         Image(R.image.characterPlaceholder.name)
                             .resizable()
                 }
-                .animation(.easeInOut(duration: 0.5))
+                    .animation(.easeInOut, value: 0.5)
                 .transition(.fade)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                 .scaledToFill()

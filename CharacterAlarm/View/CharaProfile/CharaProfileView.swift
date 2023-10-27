@@ -16,7 +16,7 @@ struct CharaProfileView: View {
                             Image(R.image.characterPlaceholder.name)
                                 .resizable()
                         }
-                        .animation(.easeInOut(duration: 0.5))
+                        .animation(.easeInOut, value: 0.5)
                         .transition(.fade)
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
