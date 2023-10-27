@@ -17,6 +17,9 @@ packages:
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
     from: 9.6.0
+  Datadog:
+    url: https://github.com/Datadog/dd-sdk-ios.git
+    from: 2.4.0
 
 schemes:
   Develop:
@@ -64,7 +67,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.1.1
+        MARKETING_VERSION: 3.1.2
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Develop
@@ -77,6 +80,9 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
           SUBSCRIPTION_PRODUCT_ID: charalarm.development.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub2bd816c3d9d7157b4e1fd5febf77951f
+          DATADOG_LOG_ENV: charalarm-development
+          DATADOG_LOG_SERVICE: charalarm-development
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.charalarm.sandbox.swiswiswift.com
@@ -85,22 +91,29 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
           SUBSCRIPTION_PRODUCT_ID: charalarm.development.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub2bd816c3d9d7157b4e1fd5febf77951f
+          DATADOG_LOG_ENV: charalarm-development
+          DATADOG_LOG_SERVICE: charalarm-development
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
-      - package: SDWebImageSwiftUI
-        product: SDWebImageSwiftUI
-      - package: KeychainAccess
-        product: KeychainAccess
+      - sdk: StoreKit.framework
+      - package: Datadog
+        product: DatadogCore
+      - package: Datadog
+        product: DatadogLogs
       - package: Firebase
         product: FirebaseAnalytics
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-      - sdk: StoreKit.framework
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: R.swift.Library
+        product: Rswift
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -125,7 +138,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.1.1
+        MARKETING_VERSION: 3.1.2
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
@@ -138,6 +151,9 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
           SUBSCRIPTION_PRODUCT_ID: charalarm.staging.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub8e7e9ddd556eb859180ccad19517dd5c
+          DATADOG_LOG_ENV: charalarm-staging
+          DATADOG_LOG_SERVICE: charalarm-staging
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api.charalarm.swiswiswift.com
@@ -146,22 +162,29 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
           SUBSCRIPTION_PRODUCT_ID: charalarm.staging.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub8e7e9ddd556eb859180ccad19517dd5c
+          DATADOG_LOG_ENV: charalarm-staging
+          DATADOG_LOG_SERVICE: charalarm-staging
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
-      - package: SDWebImageSwiftUI
-        product: SDWebImageSwiftUI
-      - package: KeychainAccess
-        product: KeychainAccess
+      - sdk: StoreKit.framework
+      - package: Datadog
+        product: DatadogCore
+      - package: Datadog
+        product: DatadogLogs
       - package: Firebase
         product: FirebaseAnalytics
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-      - sdk: StoreKit.framework
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: R.swift.Library
+        product: Rswift
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -180,21 +203,25 @@ targets:
         type: folder
       - path: Config/Production
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
-      - package: SDWebImageSwiftUI
-        product: SDWebImageSwiftUI
-      - package: KeychainAccess
-        product: KeychainAccess
+      - sdk: StoreKit.framework
+      - package: Datadog
+        product: DatadogCore
+      - package: Datadog
+        product: DatadogLogs
       - package: Firebase
         product: FirebaseAnalytics
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
         product: FirebaseRemoteConfig
-      - sdk: StoreKit.framework
+      - package: KeychainAccess
+        product: KeychainAccess
+      - package: R.swift.Library
+        product: Rswift
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -208,7 +235,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.1.1
+        MARKETING_VERSION: 3.1.2
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production
@@ -221,6 +248,9 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
           ADMOB_CONFIG: ca-app-pub-5587141252700968/1355204268
           SUBSCRIPTION_PRODUCT_ID: charalarm.production.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub746809c11c5291884508b5936605a3bf
+          DATADOG_LOG_ENV: charalarm-production
+          DATADOG_LOG_SERVICE: charalarm-production
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
           API_ENDPOINT: https://api2.charalarm.com
@@ -229,6 +259,9 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
           ADMOB_CONFIG: ca-app-pub-5587141252700968/1355204268
           SUBSCRIPTION_PRODUCT_ID: charalarm.production.monthly.subscription
+          DATADOG_CLIENT_TOKEN: pub746809c11c5291884508b5936605a3bf
+          DATADOG_LOG_ENV: charalarm-production
+          DATADOG_LOG_SERVICE: charalarm-production
   CharacterAlarmTests:
     type: bundle.unit-test
     platform: iOS

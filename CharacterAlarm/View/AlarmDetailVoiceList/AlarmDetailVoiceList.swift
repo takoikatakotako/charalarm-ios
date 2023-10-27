@@ -25,8 +25,8 @@ struct AlarmDetailVoiceList: View {
                 // 指定して選択する
                 ForEach(viewState.chara.calls, id: \.voiceFileURL) { charaCall in
                     Button {
-                        viewState.playAndSelectVoice(charaCall: charaCall)
-                        delegate.selectCharaAndCall(chara: viewState.chara, charaCall: viewState.selectedCharaCall)
+                        viewState.playVoice(charaCall: charaCall)
+                        delegate.selectCharaAndCall(chara: viewState.chara, charaCall: charaCall)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         HStack {
