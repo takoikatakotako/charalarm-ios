@@ -67,7 +67,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.1.2
+        MARKETING_VERSION: 3.1.3
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Develop
@@ -138,7 +138,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.1.2
+        MARKETING_VERSION: 3.1.3
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
@@ -235,14 +235,14 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.1.2
+        MARKETING_VERSION: 3.1.3
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production
       configs:
         Debug:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmDebug.entitlements
-          API_ENDPOINT: https://api2.charalarm.com
+          API_ENDPOINT: https://api.charalarm.com
           RESOURCE_ENDPOINT: https://resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
@@ -253,7 +253,7 @@ targets:
           DATADOG_LOG_SERVICE: charalarm-production
         Release:
           CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
-          API_ENDPOINT: https://api2.charalarm.com
+          API_ENDPOINT: https://api.charalarm.com
           RESOURCE_ENDPOINT: https://resource.charalarm.com
           GAD_APPLICATION_IDENTIFER: ca-app-pub-5587141252700968~9053558907
           ADMOB_ALARM_LIST: ca-app-pub-5587141252700968/8220227024
