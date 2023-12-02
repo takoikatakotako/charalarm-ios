@@ -18,7 +18,7 @@ struct LicenceView: View {
                 Button {
                     viewState.openZunZunProject()
                 } label: {
-                    Text("VOICEVOX")
+                    Text("VOICEVOX:ずんだもん")
                 }
                 .buttonStyle(.plain)
             }
