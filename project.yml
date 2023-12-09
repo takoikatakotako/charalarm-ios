@@ -5,9 +5,6 @@ options:
   postGenCommand: bundle exec pod install
 
 packages:
-  R.swift.Library:
-    url: https://github.com/mac-cain13/R.swift.Library
-    from: 5.4.0
   SDWebImageSwiftUI:
     url: https://github.com/SDWebImage/SDWebImageSwiftUI
     from: 2.2.1
@@ -20,6 +17,9 @@ packages:
   Datadog:
     url: https://github.com/Datadog/dd-sdk-ios.git
     from: 2.4.0
+  Rswift:
+    url: https://github.com/mac-cain13/R.swift
+    from: 7.4.0
 
 schemes:
   Develop:
@@ -110,16 +110,19 @@ targets:
         product: FirebaseRemoteConfig
       - package: KeychainAccess
         product: KeychainAccess
-      - package: R.swift.Library
-        product: Rswift
       - package: SDWebImageSwiftUI
         product: SDWebImageSwiftUI
-    preBuildScripts:
-      - script: ./Scripts/BuildPhases/rswift.sh
-        name: R.swift
-        basedOnDependencyAnalysis: false
-        outputFiles:
-          - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
+      - package: Rswift
+        product: RswiftLibrary
+    buildToolPlugins:
+      - plugin: RswiftGenerateInternalResources
+        package: Rswift
+    # preBuildScripts:
+    #   - script: ./Scripts/BuildPhases/rswift.sh
+    #     name: R.swift
+    #     basedOnDependencyAnalysis: false
+    #     outputFiles:
+    #       - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
   CharalarmStaging:
     type: application
     platform: iOS
@@ -181,16 +184,19 @@ targets:
         product: FirebaseRemoteConfig
       - package: KeychainAccess
         product: KeychainAccess
-      - package: R.swift.Library
-        product: Rswift
       - package: SDWebImageSwiftUI
         product: SDWebImageSwiftUI
-    preBuildScripts:
-      - script: ./Scripts/BuildPhases/rswift.sh
-        name: R.swift
-        basedOnDependencyAnalysis: false
-        outputFiles:
-          - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
+      - package: Rswift
+        product: RswiftLibrary
+    buildToolPlugins:
+      - plugin: RswiftGenerateInternalResources
+        package: Rswift
+    # preBuildScripts:
+    #   - script: ./Scripts/BuildPhases/rswift.sh
+    #     name: R.swift
+    #     basedOnDependencyAnalysis: false
+    #     outputFiles:
+    #       - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
   CharalarmProduction:
     type: application
     platform: iOS
@@ -218,16 +224,19 @@ targets:
         product: FirebaseRemoteConfig
       - package: KeychainAccess
         product: KeychainAccess
-      - package: R.swift.Library
-        product: Rswift
       - package: SDWebImageSwiftUI
         product: SDWebImageSwiftUI
-    preBuildScripts:
-      - script: ./Scripts/BuildPhases/rswift.sh
-        name: R.swift
-        basedOnDependencyAnalysis: false
-        outputFiles:
-          - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
+      - package: Rswift
+        product: RswiftLibrary
+    buildToolPlugins:
+      - plugin: RswiftGenerateInternalResources
+        package: Rswift
+    # preBuildScripts:
+    #   - script: ./Scripts/BuildPhases/rswift.sh
+    #     name: R.swift
+    #     basedOnDependencyAnalysis: false
+    #     outputFiles:
+    #       - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
