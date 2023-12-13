@@ -2,7 +2,6 @@ name: CharacterAlarm
 options:
   deploymentTarget:
     iOS: 15.0
-  # postGenCommand: bundle exec pod install
 
 packages:
   SDWebImageSwiftUI:
@@ -23,7 +22,6 @@ packages:
   GoogleMobileAds:
     url: https://github.com/googleads/swift-package-manager-google-mobile-ads
     from: 10.14.0
-# 
 
 schemes:
   Develop:
@@ -127,12 +125,6 @@ targets:
     buildToolPlugins:
       - plugin: RswiftGenerateInternalResources
         package: Rswift
-    # preBuildScripts:
-    #   - script: ./Scripts/BuildPhases/rswift.sh
-    #     name: R.swift
-    #     basedOnDependencyAnalysis: false
-    #     outputFiles:
-    #       - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
   CharalarmStaging:
     type: application
     platform: iOS
@@ -245,12 +237,6 @@ targets:
     buildToolPlugins:
       - plugin: RswiftGenerateInternalResources
         package: Rswift
-    # preBuildScripts:
-    #   - script: ./Scripts/BuildPhases/rswift.sh
-    #     name: R.swift
-    #     basedOnDependencyAnalysis: false
-    #     outputFiles:
-    #       - $SRCROOT/CharacterAlarm/Generated/R.generated.swift
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: CharacterAlarm/CharacterAlarmRelease.entitlements
