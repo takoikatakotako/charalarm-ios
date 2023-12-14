@@ -5,11 +5,11 @@ class SubscriptionViewState: ObservableObject {
     @Published var enableDisplayLock: Bool = false
     @Published var showingAlert: Bool = false
     @Published var alertMessage: String?
-    
+
     private let apiRepository = APIRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
     private let openURLRepository = OpenURLRepository()
-    
+
     var priceMessage: String {
         if let product = product, let period = product.subscription?.subscriptionPeriod {
             return "\(product.displayPrice) / \(period.unit)"
@@ -17,7 +17,7 @@ class SubscriptionViewState: ObservableObject {
             return "-- / --"
         }
     }
-    
+
     func onAppear() {
         Task { @MainActor in
             do {
@@ -29,7 +29,7 @@ class SubscriptionViewState: ObservableObject {
             }
         }
     }
-    
+
     @MainActor
     func upgradeButtonTapped() {
         guard let product = self.product else {
@@ -37,7 +37,7 @@ class SubscriptionViewState: ObservableObject {
             showingAlert = true
             return
         }
-        
+
         Task { @MainActor in
             enableDisplayLock = true
             do {
@@ -52,14 +52,14 @@ class SubscriptionViewState: ObservableObject {
             }
         }
     }
-    
+
     func restore() {
         Task { @MainActor in
             enableDisplayLock = true
 
             do {
                 try await AppStore.sync()
-                
+
                 var validSubscription: Transaction?
                 for await verificationResult in Transaction.currentEntitlements {
                     if case .verified(let transaction) = verificationResult,
@@ -67,7 +67,7 @@ class SubscriptionViewState: ObservableObject {
                         validSubscription = transaction
                     }
                 }
-                
+
                 guard validSubscription?.productID == nil else {
                     // リストア対象じゃない場合
                     enableDisplayLock = false
@@ -87,28 +87,28 @@ class SubscriptionViewState: ObservableObject {
             }
         }
     }
-    
+
     func openTeams() {
         let url = openURLRepository.terms
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
     }
-    
+
     func openPrivacyPolicy() {
         let url = openURLRepository.privacyPolicy
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
     }
-    
+
     func openAboutCancel() {
         let url = openURLRepository.privacyPolicy
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
     }
-    
+
     private func fetchProducts() async throws -> Product? {
         let productIdList = [EnvironmentVariableConfig.subscriptionProductID]
         let products: [Product] = try await Product.products(for: productIdList)
@@ -117,8 +117,8 @@ class SubscriptionViewState: ObservableObject {
         }
         return product
     }
-    
-    private func purchase(product: Product) async throws -> Transaction  {
+
+    private func purchase(product: Product) async throws -> Transaction {
         // Product.PurchaseResultの取得
         let purchaseResult: Product.PurchaseResult
         do {
@@ -130,7 +130,7 @@ class SubscriptionViewState: ObservableObject {
         } catch {
             throw SubscribeError.otherError
         }
-        
+
         // VerificationResultの取得
         let verificationResult: VerificationResult<Transaction>
         switch purchaseResult {
@@ -143,7 +143,7 @@ class SubscriptionViewState: ObservableObject {
         @unknown default:
             throw SubscribeError.otherError
         }
-        
+
         // Transactionの取得
         switch verificationResult {
         case .verified(let transaction):

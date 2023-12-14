@@ -5,7 +5,7 @@ class UserInfoViewState: ObservableObject {
     @Published private var tapCount: Int = 0
     @Published var userInfo: UserInfo?
     @Published var alert: UserInfoAlertItem?
-    
+
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     private let apiRepository = APIRepository()
     private let keychainRepository = KeychainRepository()
@@ -14,18 +14,18 @@ class UserInfoViewState: ObservableObject {
     var showHidenInfos: Bool {
         return tapCount > 4
     }
-    
+
     var userID: String {
         return keychainRepository.getUserID() ?? "Not Found..."
     }
-    
+
     var premiumPlan: String {
         guard let premiumPlan = userInfo?.premiumPlan else {
             return "Loading"
         }
         return premiumPlan ? "有効" : "無効"
     }
-    
+
     var authToken: String {
         if let authToken = keychainRepository.getAuthToken() {
             // セキュリティのために全て表示しない
@@ -34,19 +34,19 @@ class UserInfoViewState: ObservableObject {
             return "Not Found..."
         }
     }
-    
+
     var pushToken: String? {
         return appDelegate?.model.pushToken
     }
-    
+
     var voipPushToken: String? {
         return appDelegate?.model.voipPushToken
     }
-    
+
     var premiumPlanAtUserDefaults: String {
         return userDefaultsRepository.getEnablePremiumPlan() ? "有効" : "無効"
     }
-    
+
     func fetchUserInfo() {
         Task { @MainActor in
             guard let userID = keychainRepository.getUserID(),
@@ -54,7 +54,7 @@ class UserInfoViewState: ObservableObject {
                 alert = UserInfoAlertItem(message: "認証情報の取得に失敗しました")
                 return
             }
-            
+
             do {
                 userInfo = try await apiRepository.postUserInfo(userID: userID, authToken: authToken)
             } catch {
@@ -62,9 +62,8 @@ class UserInfoViewState: ObservableObject {
             }
         }
     }
-    
+
     func tapHidenButton() {
         tapCount += 1
     }
 }
-

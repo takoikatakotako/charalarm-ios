@@ -4,7 +4,7 @@ struct AlarmDetailVoiceList: View {
     let delegate: AlarmDetailVoiceListDelegate
     @StateObject var viewState: AlarmDetailVoiceListState
     @Environment(\.presentationMode) private var presentationMode
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -21,7 +21,7 @@ struct AlarmDetailVoiceList: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(PlainButtonStyle())
-                
+
                 // 指定して選択する
                 ForEach(viewState.chara.calls, id: \.voiceFileURL) { charaCall in
                     Button {
@@ -46,6 +46,5 @@ struct AlarmDetailVoiceList: View {
 }
 
 struct MockAlarmVoiceListViewDelegate: AlarmDetailVoiceListDelegate {
-    func selectCharaAndCall(chara: Chara, charaCall: CharaCall?) {}    
+    func selectCharaAndCall(chara: Chara, charaCall: CharaCall?) {}
 }
-

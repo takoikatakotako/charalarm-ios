@@ -3,10 +3,10 @@ import SwiftUI
 struct NewsListView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: NewsListViewModel()) var viewModel: NewsListViewModel
-    
+
     var body: some View {
         NavigationView {
-            List (viewModel.newsList) { news in
+            List(viewModel.newsList) { news in
                 Button {
                     guard let url = URL(string: news.url) else {
                         return

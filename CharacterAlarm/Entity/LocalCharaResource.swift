@@ -4,7 +4,7 @@ struct LocalCharaResource: Codable {
     let charaID: String
     let updatedAt: String
     var expressions: [String: CharaLocalExpression]
-    
+
     init(chara: Chara) {
         self.charaID = chara.charaID
         self.updatedAt = chara.updatedAt
@@ -17,11 +17,10 @@ struct LocalCharaResource: Codable {
     }
 }
 
-
 struct CharaLocalExpression: Codable {
     let imageFileNames: [String]
     let voiceFileNames: [String]
-    
+
     init(charaExpression: CharaExpression) {
         self.imageFileNames = charaExpression.imageFileURLs.map({ url in
             url.lastPathComponent
@@ -31,5 +30,3 @@ struct CharaLocalExpression: Codable {
         })
     }
 }
-
-

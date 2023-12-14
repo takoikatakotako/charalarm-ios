@@ -8,7 +8,7 @@ struct SubscriptionCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
-            
+
             HStack {
                 Spacer()
                 Image(systemName: systemImageName)
@@ -19,7 +19,7 @@ struct SubscriptionCardView: View {
             }
             .padding(.vertical, 24)
             .background(Color(R.color.charalarmDefaultGray.name))
-            
+
             Text(description)
         }
         .padding()

@@ -9,7 +9,6 @@ struct ResourceDownloadView: View {
             Text(viewState.mainMessage)
             Text(viewState.progressMessage)
 
-            
             if viewState.showDismissButton {
                 Button {
                     presentationMode.wrappedValue.dismiss()
@@ -24,8 +23,8 @@ struct ResourceDownloadView: View {
     }
 }
 
-//struct ResourceDownloadView_Previews: PreviewProvider {
+// struct ResourceDownloadView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ResourceDownloadView(viewState: <#ResourceDownloadViewState#>)
 //    }
-//}
+// }

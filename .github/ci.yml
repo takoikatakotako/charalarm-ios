@@ -12,3 +12,11 @@ jobs:
     steps:
     # チェックアウト
     - uses: actions/checkout@v4
+
+    # swiftlintのインストール
+    - name: Install Bundler
+      run: gem install bundler -v 2.1.4
+
+    # Bundlerで管理しているライブラリのインストール
+    - name: Install Bundler Library
+      run: bundle _2.1.4_ install --path vendor/bundle

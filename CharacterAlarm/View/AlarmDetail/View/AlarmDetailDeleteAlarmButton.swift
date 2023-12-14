@@ -27,14 +27,14 @@ struct AlarmDetailDeleteAlarmButton: View {
 }
 
 struct AlarmDetailDeleteAlarmButton_Previews: PreviewProvider {
-    
+
     struct PreviewWrapper: View, AlarmDetailDeleteAlarmDelegate {
         var body: some View {
             AlarmDetailDeleteAlarmButton(delegate: self, alarmId: UUID())
         }
         func deleteAlarm(alarmId: UUID) {}
     }
-    
+
     static var previews: some View {
         PreviewWrapper()
     }

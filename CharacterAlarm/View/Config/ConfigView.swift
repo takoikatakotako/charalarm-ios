@@ -15,7 +15,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(header: Text(R.string.localizable.configPremiumPlan())) {
                         Button {
                             viewState.subscriptionButtonTapped()
@@ -24,7 +24,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(header: Text(R.string.localizable.configOther())) {
                         Button(action: {
                             viewState.openUrlString(string: OfficialTwitterUrlString)
@@ -32,14 +32,14 @@ struct ConfigView: View {
                             Text(R.string.localizable.configOfficialTwitter())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        
+
                         Button(action: {
                             viewState.openInquiry()
                         }) {
                             Text(R.string.localizable.configInquiresAboutTheApp())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        
+
                         Button(action: {
                             viewState.openCharacterAdditionRequest()
                         }) {
@@ -47,7 +47,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(header: Text(R.string.localizable.configApplicationInfo())) {
                         // バージョン情報
                         HStack {
@@ -57,14 +57,14 @@ struct ConfigView: View {
                             Text(viewState.versionString)
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        
+
                         // ライセンス
                         NavigationLink {
                             LicenceView(viewState: LicenceViewState())
                         } label: {
                             Text(R.string.localizable.configLicense())
                         }
-                        
+
                         // その他
                         Button {
                             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
@@ -76,7 +76,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(header: Text(R.string.localizable.configReset())) {
                         Button(action: {
                             viewState.resetButtonTapped()
@@ -95,13 +95,13 @@ struct ConfigView: View {
                                 })
                         }
                     }
-                    
+
                     // 広告とリセットせるが被ってしまうのでパディング追加のため
                     // もっと良い方法があれば修正したい
                     Section("") {}
                 }
                 .listStyle(GroupedListStyle())
-                
+
                 if viewState.isShowingADs {
                     AdmobBannerView(adUnitID: EnvironmentVariableConfig.admobConfigUnitID)
                 }

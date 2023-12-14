@@ -7,7 +7,7 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
     @Published var creatingAccount = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    
+
     private let userID = UUID()
     private let authToken = UUID()
     private let keychainRepository: KeychainRepository = KeychainRepository()
@@ -19,18 +19,18 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
         }
         UIApplication.shared.open(url)
     }
-    
+
     func signUp() {
         guard !creatingAccount else {
             return
         }
-        
+
         creatingAccount = true
-        
+
         let delegate = UIApplication.shared.delegate as? AppDelegate
         let optionalPushToken = delegate?.model.pushToken
         let optionalVoIPPushToken = delegate?.model.voipPushToken
-        
+
         Task { @MainActor in
             // ここでユーザー登録してトークンを設定する
             do {
@@ -40,19 +40,19 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
                 // Set KeyChain
                 try keychainRepository.setUserID(userID: userID)
                 try keychainRepository.setAuthToken(authToken: authToken)
-                
+
                 // Set Push Token
                 if let token = optionalPushToken {
                     let pushToken = PushTokenRequest(pushToken: token)
                     try await apiRepository.postPushTokenAddPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: pushToken)
                 }
-    
+
                 // Set VoIP Push Token
                 if let token = optionalVoIPPushToken {
                     let voipPushToken = PushTokenRequest(pushToken: token)
                     try await apiRepository.postPushTokenAddVoIPPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: voipPushToken)
                 }
-                
+
                 accountCreated = true
             } catch {
                 alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
@@ -61,7 +61,7 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
             creatingAccount = false
         }
     }
-    
+
     private func trackingAuthorizationNotDetermined() -> Bool {
         switch ATTrackingManager.trackingAuthorizationStatus {
         case .authorized:

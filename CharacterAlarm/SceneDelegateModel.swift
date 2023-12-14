@@ -5,7 +5,7 @@ class SceneDelegateModel {
     private let fileRepository: FileRepositoryProtcol
     private let userDefaultsRepository: UserDefaultsRepositoryProtocol
     private let authUseCase: AppUseCaseProtcol
-    
+
     init(
         fileRepository: FileRepositoryProtcol = FileRepository(),
         userDefaultsRepository: UserDefaultsRepositoryProtocol = UserDefaultsRepository(),
@@ -15,7 +15,7 @@ class SceneDelegateModel {
         self.userDefaultsRepository = userDefaultsRepository
         self.authUseCase = authUseCase
     }
-    
+
     func registerDefaults() {
         userDefaultsRepository.registerDefaults()
     }

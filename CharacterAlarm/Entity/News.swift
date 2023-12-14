@@ -10,7 +10,7 @@ struct News: Decodable, Identifiable {
     let title: String
     let description: String
     let registeredAt: Date
-    
+
     private enum CodingKeys: String, CodingKey {
         case newsId
         case siteName

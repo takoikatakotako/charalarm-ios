@@ -27,9 +27,9 @@ struct AlarmDetailTimeDeffarenceSelecter: View {
         TimeDifference(city: "北京", timeDifference: 8),
         TimeDifference(city: "台北", timeDifference: 8),
         TimeDifference(city: "東京", timeDifference: 9),
-        TimeDifference(city: "ソウル", timeDifference: 9),
+        TimeDifference(city: "ソウル", timeDifference: 9)
     ]
-    
+
     var body: some View {
         List(cityList) { city in
             Button {
@@ -45,7 +45,6 @@ struct AlarmDetailTimeDeffarenceSelecter: View {
     }
 }
 
-
 struct TimeDifference: Identifiable {
     var id: String {
         return city
@@ -55,7 +54,7 @@ struct TimeDifference: Identifiable {
         let op: String = (timeDifference >= 0) ? "+" : "-"
         return "GMT \(op) \(abs(timeDifference))"
     }
-    
+
     let city: String
     let timeDifference: Decimal
 }

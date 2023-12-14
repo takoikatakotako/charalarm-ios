@@ -3,7 +3,7 @@ import SwiftUI
 struct AlarmDetailWeekdayButton: View {
     @Binding var enable: Bool
     let title: String
-    
+
     var body: some View {
         Button(action: {
             enable.toggle()
@@ -28,12 +28,12 @@ struct AlarmDetailWeekdayButton_Previews: PreviewProvider {
             AlarmDetailWeekdayButton(enable: .constant(true), title: R.string.localizable.dayOfWeekMonday())
         }
     }
-    
+
     struct PreviewWrapperOff: View {
         var body: some View {
             AlarmDetailWeekdayButton(enable: .constant(false), title: R.string.localizable.dayOfWeekMonday())        }
     }
-    
+
     static var previews: some View {
         Group {
             PreviewWrapperOn()

@@ -5,7 +5,7 @@ import SDWebImageSwiftUI
 struct CharaProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewState: CharaProfileViewState
-    
+
     var body: some View {
         GeometryReader { geometory in
             ZStack {
@@ -61,7 +61,7 @@ struct CharaProfileView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(
             leading:
-                BackBarButton() {
+                BackBarButton {
                     presentationMode.wrappedValue.dismiss()
                 }
         )
@@ -101,7 +101,7 @@ struct ProfileView_Previews: PreviewProvider {
             CharaProfileView(viewState: CharaProfileViewState(charaID: "com.example.xxx"))
         }
     }
-    
+
     static var previews: some View {
         PreviewWrapper()
     }

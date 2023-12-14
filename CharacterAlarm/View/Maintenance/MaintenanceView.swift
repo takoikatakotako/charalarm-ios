@@ -11,7 +11,7 @@ struct MaintenanceView: View {
                 Text("メンテナンスの状況はTwitterでお知らせしています。")
             }
             .padding()
-            
+
             Button(action: {
                 if let url = URL(string: OfficialTwitterUrlString) {
                     UIApplication.shared.open(url)

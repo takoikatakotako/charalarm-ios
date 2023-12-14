@@ -20,22 +20,22 @@ struct SubscriptionView: View {
 
                     Spacer()
                 }
-                
+
                 VStack(spacing: 20) {
                     Text(R.string.localizable.subscriptionMessage())
-                    
+
                     SubscriptionCardView(
                         title: R.string.localizable.subscriptionBenefit1Title(),
                         systemImageName: "calendar",
                         description: R.string.localizable.subscriptionBenefit1Description()
                     )
-                    
+
                     SubscriptionCardView(
                         title: R.string.localizable.subscriptionBenefit2Title(),
                         systemImageName: "nosign",
                         description: R.string.localizable.subscriptionBenefit2Description()
                     )
-                    
+
                     Button {
                         viewState.upgradeButtonTapped()
                     } label: {
@@ -54,13 +54,13 @@ struct SubscriptionView: View {
                         )
                     }
                     .buttonStyle(.plain)
-                    
+
                     Button {
                         viewState.restore()
                     } label: {
                         Text(R.string.localizable.subscriptionRestore())
                     }
-                    
+
                     HStack {
                         Button {
                             viewState.openTeams()
@@ -82,7 +82,7 @@ struct SubscriptionView: View {
                 }
                 .padding()
             }
-            
+
             if viewState.enableDisplayLock {
                 VStack {
                     ProgressView()
