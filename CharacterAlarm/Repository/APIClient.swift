@@ -34,7 +34,7 @@ struct APIClient {
         }
 
         guard urlResponse.statusCode == 200 else {
-            if let _ = try? JSONDecoder().decode(MessageResponse.self, from: data) {
+            if (try? JSONDecoder().decode(MessageResponse.self, from: data)) == nil {
                 throw CharalarmError.clientError
             }
             throw CharalarmError.clientError
