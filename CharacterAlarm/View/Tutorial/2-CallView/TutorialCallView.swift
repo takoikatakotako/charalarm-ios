@@ -13,7 +13,7 @@ struct TutorialCallView: View {
                     .padding(.top, 60)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
-            
+
             if viewModel.isCalling {
                 VStack {
                     Text("井上結衣")
@@ -32,9 +32,9 @@ struct TutorialCallView: View {
                                     .cornerRadius(32)
                             }
                         }
-                        
+
                         Spacer()
-                        
+
                         VStack {
                             Button(action: {
                                 viewModel.callButtonTapped()
@@ -54,7 +54,7 @@ struct TutorialCallView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 .background(Color(R.color.charalarmDefaultGray.name))
             }
-            
+
             if viewModel.showingNextButton {
                 NavigationLink(
                     destination: TutorialThirdView(),
@@ -82,7 +82,7 @@ struct TutorialSecondView_Previews: PreviewProvider {
         Group {
             TutorialCallView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-            
+
             TutorialCallView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

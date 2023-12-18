@@ -10,7 +10,7 @@ class LicenceViewState: ObservableObject {
             UIApplication.shared.open(url)
         }
     }
-    
+
     func openVoiceVox() {
         guard let url = URL(string: VoiceVoxURLString) else {
             return

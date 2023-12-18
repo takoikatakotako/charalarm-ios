@@ -13,38 +13,38 @@ class CharaProfileViewState: ObservableObject {
     @Published var progressMessage = ""
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    
+
     private var numberOfResource: Int = 0
     private var numberOfDownloadedReosurce: Int = 0
     private let apiRepository = APIRepository()
     private let resourceHandler = CharaUseCase()
     private let fileRepository = FileRepository()
-    
+
     enum ResourceType: String {
         case image = "image"
         case voice = "voice"
     }
-    
+
     struct ResourceInfo {
         let type: ResourceType
         let name: String
     }
-    
+
     var resourceInfos: [ResourceInfo] = []
-    
+
     var charaThumbnailUrlString: String {
         return resourceHandler.getCharaThumbnailUrlString(charaID: charaID)
     }
-    
+
     init(charaID: String) {
         self.charaID = charaID
     }
-    
+
     init(chara: Chara) {
         charaID = chara.charaID
         self.chara = chara
     }
-    
+
     func fetchCharacter() {
         Task { @MainActor in
             do {
@@ -56,23 +56,22 @@ class CharaProfileViewState: ObservableObject {
             }
         }
     }
-    
+
     func cancel() {
         resourceInfos = []
         downloadError = false
         showingResourceDownloadView = false
     }
-    
+
     func close() {
         resourceInfos = []
         downloadError = false
         showingResourceDownloadView = false
     }
-    
+
     func selectCharacter() {
         Task { @MainActor in
-            
-            
+
             showingResourceDownloadView = true
 
 //            guard let chara = chara else {
@@ -81,10 +80,6 @@ class CharaProfileViewState: ObservableObject {
 //            }
 //
 
-            
-            
-            
-            
 //            let result = try await ResourceStore.downloadResourceJson(charaDomain: charaDomain)
 //            switch result {
 //            case let .success(resource):
@@ -113,7 +108,7 @@ class CharaProfileViewState: ObservableObject {
 //            showingDownloadingModal = true
         }
     }
-    
+
     func downloadResource() {
 //        guard let resourceInfo = resourceInfos.first else {
 //            self.numberOfDownloadedReosurce = 0
@@ -124,7 +119,7 @@ class CharaProfileViewState: ObservableObject {
 //            }
 //            return
 //        }
-        
+
 //        ResourceStore.downloadResource(charaDomain: charaDomain, directory: resourceInfo.type.rawValue, fileName: resourceInfo.name) {[weak self] result in
 //            switch result {
 //            case .success(_):
@@ -146,7 +141,7 @@ class CharaProfileViewState: ObservableObject {
 //            }
 //        }
     }
-    
+
     func setCharacter() {
 //        guard
 //            let charaDomain = character?.charaDomain,

@@ -6,19 +6,19 @@ struct CharalarmLogger {
     static func debug(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
         log(level: .debug, message: message, error: error, attributes: attributes)
     }
-    
+
     static func info(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
         log(level: .info, message: message, error: error, attributes: attributes)
     }
-    
+
     static func error(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
         log(level: .error, message: message, error: error, attributes: attributes)
     }
-    
+
     static func critical(_ message: String, error: Error? = nil, attributes: [String: String]? = nil) {
         log(level: .critical, message: message, error: error, attributes: attributes)
     }
-    
+
     private static func log(level: LogLevel, message: String, error: Error? = nil, attributes: [String: String]? = nil) {
         let logger = Logger.create(
             with: Logger.Configuration(
@@ -28,7 +28,7 @@ struct CharalarmLogger {
                 consoleLogFormat: .shortWith(prefix: "[iOS App] ")
             )
         )
-        
+
         switch level {
         case .debug:
             logger.debug(message, error: error, attributes: attributes)
@@ -45,4 +45,3 @@ struct CharalarmLogger {
         }
     }
 }
-

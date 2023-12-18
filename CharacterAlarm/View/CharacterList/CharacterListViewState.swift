@@ -6,7 +6,7 @@ class CharacterListViewState: ObservableObject {
     @Published var alertMessage = ""
     let apiRepository: APIRepository = APIRepository()
     let openURLRepository: OpenURLRepository = OpenURLRepository()
-    
+
     func fetchCharacters() {
         Task { @MainActor in
             do {
@@ -18,7 +18,7 @@ class CharacterListViewState: ObservableObject {
             }
         }
     }
-    
+
     func characterAddRequestTapped() {
         let url = openURLRepository.characterAdditionRequestURL
         if UIApplication.shared.canOpenURL(url) {

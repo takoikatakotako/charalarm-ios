@@ -2,9 +2,9 @@ import AVFoundation
 
 class AudioManagerSingleton {
     static let shared = AudioManagerSingleton()
-    
+
     private init() {}
-    
+
     private var avPlayer: AVPlayer?
 
     func playAudio(url: URL) {
@@ -12,7 +12,7 @@ class AudioManagerSingleton {
         avPlayer = AVPlayer(playerItem: playerItem)
         avPlayer?.play()
     }
-    
+
     func pauseAudio() {
         avPlayer?.pause()
     }

@@ -15,19 +15,18 @@ class ResourceTests: XCTestCase {
 
         let fileUrl = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/com.charalarm.yui")!
         let data = try! Data(contentsOf: fileUrl)
-        
+
         do {
             let resource: Resource = try JSONDecoder().decode(Resource.self, from: data)
         } catch {
             print(error)
         }
-        
+
 //        if let resource: Resource = try? JSONDecoder().decode(Resource.self, from: data) {
 //
 //        } else {
 //            XCTFail()
 //        }
     }
-
 
 }

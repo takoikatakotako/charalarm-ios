@@ -14,12 +14,12 @@ class AdmobRewardedHandler: NSObject, ObservableObject {
             self.rewardedAd?.fullScreenContentDelegate = self
         }
     }
-    
+
     func showAd() {
         guard let rewardedAd = rewardedAd else {
             return
         }
-        
+
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
         let window = windowScene?.windows.first
@@ -35,14 +35,14 @@ extension AdmobRewardedHandler: GADFullScreenContentDelegate {
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         CharalarmLogger.error("didFailToPresentFullScreenContentWithError, file: \(#file), line: \(#line)", error: error)
     }
-    
+
     // Called when an ad is dismissed
 //    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
 //
 //    }
-    
+
     // Called when an ad is dismissed
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        
+
     }
 }

@@ -13,7 +13,7 @@ struct LicenceView: View {
                 }
                 .buttonStyle(.plain)
             }
-            
+
             Section(header: Text(R.string.localizable.licenseSoftware())) {
                 Button {
                     viewState.openZunZunProject()
@@ -22,7 +22,7 @@ struct LicenceView: View {
                 }
                 .buttonStyle(.plain)
             }
-            
+
             Section(header: Text(R.string.localizable.licenseOther())) {
                 Text(R.string.localizable.licenseOtherDescription())
             }

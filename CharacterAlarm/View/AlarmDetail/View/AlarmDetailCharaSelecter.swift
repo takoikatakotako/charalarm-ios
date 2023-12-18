@@ -10,13 +10,13 @@ struct AlarmDetailCharaSelecter: View {
     var delegate: AlarmDetailCharaSelecterDelegate
     @Binding var selectedChara: Chara?
     @Binding var charas: [Chara]
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("キャラクター")
                 .font(Font.system(size: 16).bold())
             ScrollView(.horizontal, showsIndicators: false) {
-               
+
                 if charas.isEmpty {
                     Text("Loading")
                         .frame(height: 64)
@@ -35,8 +35,7 @@ struct AlarmDetailCharaSelecter: View {
                                 .background(Color(UIColor.lightGray))
                                 .cornerRadius(10)
                         }
-                        
-                        
+
                         Button {
                             delegate.setRandomChara()
                         } label: {
@@ -48,8 +47,7 @@ struct AlarmDetailCharaSelecter: View {
                                 .cornerRadius(10)
                                 .padding(.top, 8)
                         }
-                        
-                        
+
                         ForEach(charas) { chara in
                             Button {
                                 delegate.showVoiceList(chara: chara)
@@ -69,7 +67,7 @@ struct AlarmDetailCharaSelecter: View {
     }
 }
 
-//struct AlarmDetailCharaSelecter_Previews: PreviewProvider {
+// struct AlarmDetailCharaSelecter_Previews: PreviewProvider {
 //    struct PreviewWrapper: View, AlarmDetailCharaSelecterDelegate {
 //        @State var selectedChara: Character?
 //        @State var charas: [Character] = [Character.mock()]
@@ -86,4 +84,4 @@ struct AlarmDetailCharaSelecter: View {
 //        PreviewWrapper()
 //            .previewLayout(.sizeThatFits)
 //    }
-//}
+// }

@@ -15,7 +15,7 @@ class AlarmListRowModel: ObservableObject {
             self.delegate?.updateAlarmEnable(alarmId: alarmId, isEnable: enable)
         }
     }
-    
+
     init (alarmID: UUID, enable: Bool, delegate: AlarmListRowDelegate) {
         self.enable = enable
         self.alarmID = alarmID
@@ -26,20 +26,20 @@ class AlarmListRowModel: ObservableObject {
 struct AlarmListRow: View {
     @ObservedObject var alarmListModel: AlarmListRowModel
     let alarm: Alarm
-    
+
     init(delegate: AlarmListRowDelegate, alarm: Alarm) {
         self.alarm = alarm
         self.alarmListModel = AlarmListRowModel(alarmID: alarm.alarmID, enable: alarm.enable, delegate: delegate)
     }
-    
+
     var backgroundColor: Color {
         return alarm.enable ? Color(R.color.alarmCardBackgroundGreen.name) : Color(R.color.charalarmDefaultGray.name)
     }
-    
+
     var toggleThumbColor: Color {
         return alarm.enable ? Color(R.color.alarmCardBackgroundGreen.name) : Color(R.color.charalarmDefaultGray.name)
     }
-    
+
     var dayOfWeeksString: String {
         var text = ""
         text += alarm.sunday ? "\(R.string.localizable.dayOfWeekSunday()) " : ""
@@ -51,7 +51,7 @@ struct AlarmListRow: View {
         text += alarm.saturday ? "\(R.string.localizable.dayOfWeekSaturday()) " : ""
         return text
     }
-    
+
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
@@ -68,7 +68,7 @@ struct AlarmListRow: View {
             .fixedSize(horizontal: true, vertical: false)
             .foregroundColor(Color.white)
             .padding(.leading, 16)
-            
+
             HStack {
                 Spacer()
                 Toggle(isOn: $alarmListModel.enable) {
@@ -91,13 +91,12 @@ struct ColoredToggleStyle: ToggleStyle {
     var onColor = Color(UIColor.green)
     var offColor = Color(UIColor.systemGray5)
     var thumbColor = Color.white
-    
+
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
             Text(label)
             Spacer()
-            Button(action: { configuration.isOn.toggle() } )
-            {
+            Button(action: { configuration.isOn.toggle() }) {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
                     .fill(configuration.isOn ? onColor : offColor)
                     .frame(width: 50, height: 29)
@@ -117,7 +116,7 @@ struct ColoredToggleStyle: ToggleStyle {
 
 struct MockAlarmListRowDelegate: AlarmListRowDelegate {
     func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
-        
+
     }
 }
 
@@ -145,23 +144,22 @@ struct AlarmListRow_Previews: PreviewProvider {
                 saturday: true
             )
         }
-        
+
         var body: some View {
             AlarmListRow(delegate: MockAlarmListRowDelegate(), alarm: alarm)
         }
     }
-    
-    
+
     static var previews: some View {
         Group {
             PreviewWrapper()
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
                 .previewDisplayName("iPhone X")
-            
+
             PreviewWrapper(name: "長い長いモーニングコール。長い長いモーニングコール。")
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
                 .previewDisplayName("iPhone X")
-            
+
             PreviewWrapper()
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
                 .previewDisplayName("iPhone 8")
