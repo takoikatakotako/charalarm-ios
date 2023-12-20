@@ -13,7 +13,7 @@ class ResourceTests: XCTestCase {
 
     func testGetResource() {
 
-        let fileUrl = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/com.charalarm.yui")!
+        let fileUrl = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/jp.zunko.zundamon")!
         let data = try! Data(contentsOf: fileUrl)
 
         do {
