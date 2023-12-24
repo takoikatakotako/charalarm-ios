@@ -5,7 +5,7 @@ struct ErrorView: View {
 
     var body: some View {
         VStack {
-            Image(R.image.sdSad.name)
+            Image(R.image.zundamonSad.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)

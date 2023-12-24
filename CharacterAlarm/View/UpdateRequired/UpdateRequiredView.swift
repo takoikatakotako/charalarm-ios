@@ -12,7 +12,7 @@ struct UpdateRequiredView: View {
             }
             .padding()
 
-            Image(R.image.sdNormal.name)
+            Image(R.image.zundamonNormal.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)

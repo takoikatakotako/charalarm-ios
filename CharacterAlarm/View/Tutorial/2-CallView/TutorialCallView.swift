@@ -7,7 +7,7 @@ struct TutorialCallView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 Spacer()
-                Image(R.image.tutorialNormal.name)
+                Image(R.image.zundamonSmile.name)
                     .resizable()
                     .scaledToFit()
                     .padding(.top, 60)
@@ -16,7 +16,7 @@ struct TutorialCallView: View {
 
             if viewModel.isCalling {
                 VStack {
-                    Text("井上結衣")
+                    Text("ずんだもん")
                         .foregroundColor(Color.white)
                         .font(Font.system(size: 48))
                         .padding(.top, 156)
