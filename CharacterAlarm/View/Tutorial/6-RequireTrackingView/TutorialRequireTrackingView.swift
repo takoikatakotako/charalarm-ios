@@ -14,7 +14,7 @@ struct TutorialRequireTrackingView: View {
                 .font(Font.system(size: 18))
                 .padding(.horizontal, 12)
 
-            Image(R.image.sdNormal.name)
+            Image(R.image.zundamonNormal.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)

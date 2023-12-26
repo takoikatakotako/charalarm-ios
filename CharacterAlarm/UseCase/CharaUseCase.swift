@@ -10,6 +10,8 @@ struct CharaUseCase: CharaUseCaseProtcol {
     private let fileRepository = FileRepository()
     private let userDefaultsRepository = UserDefaultsRepository()
 
+    private let defaultsCharaID = "jp.zunko.zundamon"
+
     func getSelfIntroductionUrlString(charaID: String) -> String {
         return "\(EnvironmentVariableConfig.resourceEndpoint)/\(charaID)/self-introduction.caf"
     }
@@ -20,17 +22,17 @@ struct CharaUseCase: CharaUseCaseProtcol {
 
     func isExistDefaultCharaResources() -> Bool {
         do {
-            let resourceData = try fileRepository.loadData(directoryName: "com.charalarm.yui", fileName: "resource.json")
+            let resourceData = try fileRepository.loadData(directoryName: defaultsCharaID, fileName: "resource.json")
             let localCharaResource: LocalCharaResource = try JSONDecoder().decode(LocalCharaResource.self, from: resourceData)
 
             for expression in localCharaResource.expressions {
                 for imageFileName in expression.value.imageFileNames {
-                    guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: imageFileName) else {
+                    guard try fileRepository.isExistFile(directoryName: defaultsCharaID, fileName: imageFileName) else {
                         return false
                     }
                 }
                 for voiceFileName in expression.value.voiceFileNames {
-                    guard try fileRepository.isExistFile(directoryName: "com.charalarm.yui", fileName: voiceFileName) else {
+                    guard try fileRepository.isExistFile(directoryName: defaultsCharaID, fileName: voiceFileName) else {
                         return false
                     }
                 }
@@ -42,7 +44,7 @@ struct CharaUseCase: CharaUseCaseProtcol {
     }
 
     func copyToDefaultCharaDirectory() throws {
-        guard let resourceFileURL = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/com.charalarm.yui"),
+        guard let resourceFileURL = Bundle.main.url(forResource: "resource", withExtension: "json", subdirectory: "Resource/\(defaultsCharaID)"),
               let resourceData = try? Data(contentsOf: resourceFileURL),
               let localCharaResource: LocalCharaResource = try? JSONDecoder().decode(LocalCharaResource.self, from: resourceData) else {
             // TODO: エラー
@@ -52,25 +54,25 @@ struct CharaUseCase: CharaUseCaseProtcol {
         // 保存する
         for expression in localCharaResource.expressions {
             for imageFileName in expression.value.imageFileNames {
-                guard let imageFileURL = Bundle.main.url(forResource: imageFileName, withExtension: "", subdirectory: "Resource/com.charalarm.yui"),
+                guard let imageFileURL = Bundle.main.url(forResource: imageFileName, withExtension: "", subdirectory: "Resource/\(defaultsCharaID)"),
                       let imageData = try? Data(contentsOf: imageFileURL) else {
                     // TODO: エラーハンドリング
                     return
                 }
-                try fileRepository.saveFile(directoryName: "com.charalarm.yui", fileName: imageFileName, data: imageData)
+                try fileRepository.saveFile(directoryName: defaultsCharaID, fileName: imageFileName, data: imageData)
             }
 
             for voiceFileName in expression.value.voiceFileNames {
-                guard let voiceFileURL = Bundle.main.url(forResource: voiceFileName, withExtension: "", subdirectory: "Resource/com.charalarm.yui"),
+                guard let voiceFileURL = Bundle.main.url(forResource: voiceFileName, withExtension: "", subdirectory: "Resource/\(defaultsCharaID)"),
                       let voiceData = try? Data(contentsOf: voiceFileURL) else {
                     // TODO: エラーハンドリング
                     return
                 }
-                try fileRepository.saveFile(directoryName: "com.charalarm.yui", fileName: voiceFileName, data: voiceData)
+                try fileRepository.saveFile(directoryName: defaultsCharaID, fileName: voiceFileName, data: voiceData)
             }
         }
 
-        try fileRepository.saveFile(directoryName: "com.charalarm.yui", fileName: "resource.json", data: resourceData)
+        try fileRepository.saveFile(directoryName: defaultsCharaID, fileName: "resource.json", data: resourceData)
     }
 
     func loadLocalCharaReesource() throws -> LocalCharaResource {
@@ -84,7 +86,7 @@ struct CharaUseCase: CharaUseCaseProtcol {
     }
 
     func fetchAndDownloadCharaResource() async throws {
-        let charaID = userDefaultsRepository.getCharaID() ?? "com.charalarm.yui"
+        let charaID = userDefaultsRepository.getCharaID() ?? defaultsCharaID
         let chara = try await apiRepository.fetchCharacter(charaID: charaID)
         let localCharaResource: LocalCharaResource = LocalCharaResource(chara: chara)
         let data = try JSONEncoder().encode(localCharaResource)

@@ -23,8 +23,8 @@ class TutorialCallViewModel: ObservableObject {
             self.isCalling = false
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            guard let voice = NSDataAsset(name: "com_swiswiswift_inoue_yui_alarm_0") else {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            guard let voice = NSDataAsset(name: "jp_zunko_zundamon_call") else {
                 return
             }
             self.voiceAudioPlayer = try? AVAudioPlayer(data: voice.data)

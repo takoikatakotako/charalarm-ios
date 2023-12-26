@@ -1,0 +1,26 @@
+{
+  "charaID" : "com.charalarm.yui",
+  "updatedAt": "2023-06-14",
+  "expressions" : {
+    "normal" : {
+      "voiceFileNames" : [
+        "tap-11.caf",
+        "tap-12.caf",
+        "tap-13.caf",
+        "tap-14.caf",
+        "tap-15.caf",
+        "tap-16.caf",
+        "tap-17.caf",
+        "tap-18.caf",
+        "tap-19.caf",
+        "tap-20.caf"
+      ],
+      "imageFileNames" : [
+        "normal-0.png",
+        "smile-0.png",
+        "woo-0.png",
+        "woo-1.png"
+      ]
+    }
+  }
+}

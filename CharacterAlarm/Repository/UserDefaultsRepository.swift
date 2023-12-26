@@ -19,8 +19,8 @@ struct UserDefaultsRepository: UserDefaultsRepositoryProtocol {
     private let KEY_ENABLE_PREMIUM_PLAN = "ENABLE_PREMIUM_PLAN"
 
     // Defaults
-    private let DEFAULT_CHARA_DOMAIN = "com.charalarm.yui"
-    private let DEFAULT_CHARA_NAME = "井上結衣"
+    private let DEFAULT_CHARA_DOMAIN = "jp.zunko.zundamon"
+    private let DEFAULT_CHARA_NAME = "ずんだもん"
 
     // UserDefaults の初期値を設定する
     func registerDefaults() {

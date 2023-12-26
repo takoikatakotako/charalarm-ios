@@ -12,7 +12,7 @@ struct TutorialFinallyView: View {
                 .padding(.horizontal, 12)
                 .padding(.top, 128)
 
-            Image(R.image.sdSmile.name)
+            Image(R.image.zundamonSmile.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)

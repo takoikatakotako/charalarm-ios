@@ -98,7 +98,7 @@ class AppDelegateModel {
 
     func answerCall(callUUID: UUID) {
         let userInfo: [String: Any] = [
-            NSNotification.answerCallUserInfoKeyCharaID: "com.charalarm.yui",
+            NSNotification.answerCallUserInfoKeyCharaID: "jp.zunko.zundamon",
             NSNotification.answerCallUserInfoKeyCharaName: charaName,
             NSNotification.answerCallUserInfoKeyCallUUID: callUUID
         ]
