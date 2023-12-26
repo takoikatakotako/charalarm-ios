@@ -11,7 +11,7 @@ struct CharaUseCase: CharaUseCaseProtcol {
     private let userDefaultsRepository = UserDefaultsRepository()
 
     private let defaultsCharaID = "jp.zunko.zundamon"
-    
+
     func getSelfIntroductionUrlString(charaID: String) -> String {
         return "\(EnvironmentVariableConfig.resourceEndpoint)/\(charaID)/self-introduction.caf"
     }
