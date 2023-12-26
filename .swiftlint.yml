@@ -8,7 +8,6 @@ disabled_rules:
   - statement_position
   - type_name
   - function_body_length
-  - type_body_length
   - unneeded_break_in_switch
   - nesting
   - todo
