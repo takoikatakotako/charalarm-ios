@@ -13,23 +13,23 @@ struct Chara: Identifiable, Hashable, Equatable {
         expressions = charaResponse.expressions.mapValues { CharaExpression(imageFileURLs: $0.imageFileURLs, voiceFileURLs: $0.voiceFileURLs) }
         calls = charaResponse.calls.map { CharaCall(message: $0.message, voiceFileURL: $0.voiceFileURL)}
     }
-    
+
     var id: String {
         return charaID
     }
-    
+
     var thumbnailUrlString: String {
         return "\(EnvironmentVariableConfig.resourceEndpoint)/\(charaID)/thumbnail.png"
     }
-    
+
     var selfIntroductionUrlString: String {
         return "\(EnvironmentVariableConfig.resourceEndpoint)/\(charaID)/self-introduction.caf"
     }
-    
+
     static func charaDomainToThmbnailUrlString(charaDomain: String) -> String {
         return "\(String(describing: EnvironmentVariableConfig.resourceEndpoint))/\(charaDomain)/thumbnail.png"
     }
-    
+
     let charaID: String
     let enable: Bool
     let createdAt: String

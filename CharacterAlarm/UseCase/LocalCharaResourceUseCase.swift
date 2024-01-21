@@ -2,8 +2,7 @@ import Foundation
 
 struct LocalCharaResourceUseCase {
     private let fileRepository = FileRepository()
-    
-    
+
     func saveCharaResource(charaID: String, localCharaResource: LocalCharaResource) throws {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted

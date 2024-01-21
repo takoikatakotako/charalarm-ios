@@ -5,7 +5,7 @@ class AlarmListViewState: ObservableObject {
     @Published var sheet: AlarmListViewSheetItem?
     @Published var alert: AlarmListViewAlertItem?
     @Published var showingIndicator: Bool = true
-    
+
     private let apiRepository = APIRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
     private let userDefaultsRepository: UserDefaultsRepository = UserDefaultsRepository()
@@ -17,7 +17,7 @@ class AlarmListViewState: ObservableObject {
             return true
         }
     }
-    
+
     func addAlarmButtonTapped() {
         if alarms.isEmpty {
             sheet = .alarmDetailForCreate
@@ -31,7 +31,7 @@ class AlarmListViewState: ObservableObject {
             alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())
         }
     }
-    
+
     func createNewAlarm() -> Alarm {
         let alarmID = UUID()
         let date = Date()
@@ -41,7 +41,7 @@ class AlarmListViewState: ObservableObject {
         let minute = calendar.component(.minute, from: date)
         let timeDifference = Decimal(TimeZone.current.secondsFromGMT(for: date) / 60 / 60)
         let enable = true
-        
+
         return Alarm(
             alarmID: alarmID,
             type: .IOS_VOIP_PUSH_NOTIFICATION,
@@ -62,7 +62,7 @@ class AlarmListViewState: ObservableObject {
             saturday: true
         )
     }
-    
+
     func fetchAlarms() {
         Task { @MainActor in
             showingIndicator = true
@@ -71,7 +71,7 @@ class AlarmListViewState: ObservableObject {
                     alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
                 return
             }
-            
+
             do {
                 let alarms = try await apiRepository.fetchAlarms(userID: userID, authToken: authToken)
                 self.showingIndicator = false
@@ -81,14 +81,14 @@ class AlarmListViewState: ObservableObject {
             }
         }
     }
-    
+
     func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
         guard let userID = keychainRepository.getUserID(),
               let authToken = keychainRepository.getAuthToken() else {
             alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
             return
         }
-        
+
         guard let index = alarms.firstIndex(where: { $0.alarmID == alarmId }) else {
             return
         }
@@ -98,13 +98,13 @@ class AlarmListViewState: ObservableObject {
         Task { @MainActor in
             do {
                 let requestBody = AlarmEditRequest(alarm: alarm.toAlarmRequest(userID: UUID(uuidString: userID)!))
-                try await apiRepository.editAlarm(userID:userID, authToken: authToken, requestBody: requestBody)
+                try await apiRepository.editAlarm(userID: userID, authToken: authToken, requestBody: requestBody)
             } catch {
                 alert = .error(UUID(), R.string.localizable.alarmFailedToEditTheAlarm())
             }
         }
     }
-    
+
     func editAlarm(alarm: Alarm) {
         sheet = .alarmDetailForEdit(alarm)
     }

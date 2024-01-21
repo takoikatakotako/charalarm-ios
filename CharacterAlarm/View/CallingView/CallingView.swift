@@ -6,19 +6,19 @@ struct CallingView: View {
         ZStack {
             Color.gray
                 .edgesIgnoringSafeArea(.all)
-            
+
             VStack {
                 Spacer()
-                
+
                 Text("Calling...")
                     .font(Font.system(size: 40).bold())
                     .foregroundColor(.white)
-                
+
                 Spacer()
-                
+
                 Button(action: {
                     viewState.endCall()
-                }){
+                }) {
                     Image(systemName: "phone.fill.arrow.down.left")
                         .resizable()
                         .foregroundColor(Color.white)
@@ -37,7 +37,7 @@ struct CallingView: View {
 struct CallingView_Previews: PreviewProvider {
     static var previews: some View {
         CallingView(viewState: CallingViewState(charaID: nil, charaName: nil, callUUID: nil))
-        
+
         CallingView(viewState: CallingViewState(charaID: nil, charaName: "井上結衣", callUUID: nil))
     }
 }

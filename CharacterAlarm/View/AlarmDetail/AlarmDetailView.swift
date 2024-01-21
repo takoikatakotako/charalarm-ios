@@ -4,7 +4,7 @@ import SDWebImageSwiftUI
 struct AlarmDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewState: AlarmDetailViewState
-    
+
     private var title: String {
         switch viewState.type {
         case .create:
@@ -13,14 +13,14 @@ struct AlarmDetailView: View {
             return R.string.localizable.alarmEditAlarm()
         }
     }
-    
+
     var body: some View {
         NavigationView {
             ZStack {
                 ScrollView {
                     VStack(alignment: .center) {
                         AlarmDetailTimePickerTemp(hour: $viewState.alarm.hour, minute: $viewState.alarm.minute)
-                        
+
                         HStack {
                             Spacer()
                             Button {
@@ -31,35 +31,34 @@ struct AlarmDetailView: View {
                         }
                         .padding(.horizontal, 16)
                         .padding(.bottom, 16)
-                        
+
                         AlarmDetailWeekdaySelecter(alarm: $viewState.alarm)
-                        
+
                         VStack(alignment: .leading) {
                             TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewState.alarm.name)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         .padding(.horizontal, 16)
                         .padding(.vertical, 16)
-                        
+
                         AlarmDetailCharaSelecter(delegate: self, selectedChara: $viewState.selectedChara, charas: $viewState.characters)
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
-                        
+
                         AlarmDetailVoiceText(fileMessage: viewState.selectedCharaCall?.message ?? "ランダム")
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
-                        
-                        
+
                         if viewState.type == .edit {
                             AlarmDetailDeleteAlarmButton(delegate: self, alarmId: viewState.alarm.alarmID)
                         }
                     }
                 }
-                
+
                 if viewState.showingIndicator {
                     CharalarmActivityIndicator()
                 }
-                
+
             }
             .onReceive(viewState.dismissRequest) { _ in
                 presentationMode.wrappedValue.dismiss()
@@ -71,7 +70,7 @@ struct AlarmDetailView: View {
                 viewState.onDisappear()
             }
             .navigationBarItems(
-                leading: CloseBarButton() {
+                leading: CloseBarButton {
                     presentationMode.wrappedValue.dismiss()
                 },
                 trailing:
@@ -97,7 +96,7 @@ struct AlarmDetailView: View {
             }
             .navigationBarHidden(false)
             .navigationBarTitle(title, displayMode: .inline)
-        }        
+        }
     }
 }
 
@@ -105,7 +104,7 @@ extension AlarmDetailView: AlarmDetailCharaSelecterDelegate {
     func setRandomChara() {
         viewState.setRandomChara()
     }
-    
+
     func showVoiceList(chara: Chara) {
         viewState.showVoiceList(chara: chara)
     }
@@ -123,9 +122,8 @@ extension AlarmDetailView: AlarmDetailDeleteAlarmDelegate {
     }
 }
 
-
-//struct AlarmDetailView_Previews: PreviewProvider {
+// struct AlarmDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        AlarmDetailView(alarm: Alarm2(id: "2", hour: "1", minute: "3"))
 //    }
-//}
+// }

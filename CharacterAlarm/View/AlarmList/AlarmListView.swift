@@ -3,7 +3,7 @@ import GoogleMobileAds
 
 struct AlarmListView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     @StateObject var viewState: AlarmListViewState = AlarmListViewState()
 
     var body: some View {
@@ -15,13 +15,13 @@ struct AlarmListView: View {
                             ForEach(viewState.alarms) { alarm in
                                 Button(action: {
                                     viewState.editAlarm(alarm: alarm)
-                                }){
+                                }) {
                                     AlarmListRow(delegate: self, alarm: alarm)
                                 }
                             }
                         }
                     }
-                    
+
                     if viewState.showingIndicator {
                         CharalarmActivityIndicator()
                     }
@@ -56,7 +56,7 @@ struct AlarmListView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(
-                leading: CloseBarButton() {
+                leading: CloseBarButton {
                     presentationMode.wrappedValue.dismiss()
                 },
                 trailing:
@@ -77,7 +77,6 @@ extension AlarmListView: AlarmListRowDelegate {
         viewState.updateAlarmEnable(alarmId: alarmId, isEnable: isEnable)
     }
 }
-
 
 struct AlarmListView_Previews: PreviewProvider {
     static var previews: some View {

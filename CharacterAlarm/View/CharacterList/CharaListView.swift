@@ -5,7 +5,7 @@ import SDWebImageSwiftUI
 struct CharaListView: View {
     @StateObject var viewState: CharacterListViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -16,7 +16,7 @@ struct CharaListView: View {
                             .clipped()
                     }
                 }
-                
+
                 VStack {
                     Spacer()
                     Button(action: {
@@ -38,7 +38,7 @@ struct CharaListView: View {
             .navigationBarTitle(R.string.localizable.characterCharacterList(), displayMode: .inline)
             .navigationBarItems(
                 leading:
-                    CloseBarButton() {
+                    CloseBarButton {
                         presentationMode.wrappedValue.dismiss()
                     }
             )
@@ -51,7 +51,7 @@ struct CharacterList_Previews: PreviewProvider {
         Group {
             CharaListView(viewState: CharacterListViewState())
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-            
+
             CharaListView(viewState: CharacterListViewState())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

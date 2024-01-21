@@ -4,36 +4,36 @@ import AppTrackingTransparency
 
 struct TutorialAcceptPrivacyPolicyView: View {
     @StateObject var viewModel = TutorialAcceptPrivacyPolicyViewModel()
-    
+
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 12) {
                 Spacer()
-                
+
                 Text(R.string.localizable.tutorialPleaseAcceptThePrivacyPolicy())
                     .font(Font.system(size: 20))
                     .padding(.horizontal, 12)
-                
+
                 Button(action: {
                     viewModel.openPrivacyPolicy()
                 }) {
                     Text(R.string.localizable.tutorialOpenThePrivacyPolicy())
                         .font(Font.system(size: 20))
                 }
-                
-                Image(R.image.sdNormal.name)
+
+                Image(R.image.zundamonNormal.name)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 300)
                 Spacer()
-                
+
                 NavigationLink(
                     destination: TutorialRequireTrackingView(),
                     isActive: $viewModel.accountCreated,
                     label: {
                         EmptyView()
                     })
-                
+
                 Button(action: {
                     viewModel.signUp()
                 }, label: {
@@ -42,7 +42,7 @@ struct TutorialAcceptPrivacyPolicyView: View {
                 })
                 .padding(.bottom, 28)
             }
-            
+
             if viewModel.creatingAccount {
                 ProgressView()
                     .scaleEffect(2.4, anchor: .center)
@@ -65,7 +65,7 @@ struct TutorialAcceptPrivacyPolicyView_Previews: PreviewProvider {
         Group {
             TutorialAcceptPrivacyPolicyView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-            
+
             TutorialAcceptPrivacyPolicyView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

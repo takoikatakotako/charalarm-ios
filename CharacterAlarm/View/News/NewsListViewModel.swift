@@ -5,7 +5,7 @@ class NewsListViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     // let newsRepository: NewsRepository = NewsRepository()
-    
+
     func fetchNews() {
         Task { @MainActor in
             do {

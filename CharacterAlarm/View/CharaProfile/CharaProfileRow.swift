@@ -18,7 +18,7 @@ struct CharaProfileRow: View {
                     .fixedSize(horizontal: false, vertical: true)
                 Divider()
             }
-            
+
             if let url = url {
                 Button(action: {
                     if UIApplication.shared.canOpenURL(url) {
@@ -44,7 +44,7 @@ struct ProfileRow_Previews: PreviewProvider {
         Group {
             CharaProfileRow(title: "名前", text: "井上結衣", url: URL(string: "https://swiswiswift.com/")!)
                 .previewLayout(.sizeThatFits)
-            
+
             CharaProfileRow(title: "プロフィール", text: "長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。長い長いプロフィール。", url: nil)
                 .previewLayout(.sizeThatFits)
         }

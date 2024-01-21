@@ -6,20 +6,20 @@ struct TutorialIntroductionView: View {
             Spacer()
             Text(R.string.localizable.tutorialWelcomeToCharalarm())
                 .font(Font.system(size: 20))
-            
+
             Text(R.string.localizable.tutorialThisIsAnApp())
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
-            
+
             Text(R.string.localizable.tutorialLetUsTryItNow())
                 .font(Font.system(size: 20))
-            
-            Image(R.image.sdNormal.name)
+
+            Image(R.image.zundamonNormal.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
             Spacer()
-            
+
             NavigationLink(
                 destination: TutorialCallView(),
                 label: {
@@ -40,7 +40,7 @@ struct TutorialFirstView_Previews: PreviewProvider {
         Group {
             TutorialIntroductionView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-            
+
             TutorialIntroductionView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }

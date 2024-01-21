@@ -7,8 +7,8 @@ enum CharalarmError: Error {
     case encode
 }
 
-extension CharalarmError: LocalizedError{
-    var errorDescription:String?{
+extension CharalarmError: LocalizedError {
+    var errorDescription: String? {
         switch self {
         case .clientError:
             return "クライアントエラー。ネットワークを確認してください"

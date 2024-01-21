@@ -9,25 +9,25 @@ struct TutorialRequireTrackingView: View {
             Spacer()
             Text(R.string.localizable.tutorialCustomizeYourAds())
                 .font(Font.system(size: 18).bold())
-            
+
             Text(R.string.localizable.tutorialCharalarmDevelopmentIsSupportedByAdvertisingRevenue())
                 .font(Font.system(size: 18))
                 .padding(.horizontal, 12)
-            
-            Image(R.image.sdNormal.name)
+
+            Image(R.image.zundamonNormal.name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
-            
+
             NavigationLink(
                 destination: TutorialFinallyView(),
                 isActive: $goNextView,
                 label: {
                     EmptyView()
                 })
-            
+
             Spacer()
-            
+
             Button(action: {
                 requestTrackingAuthorization()
             }, label: {
@@ -40,7 +40,7 @@ struct TutorialRequireTrackingView: View {
         .navigationTitle("")
         .navigationBarHidden(true)
     }
-    
+
     func requestTrackingAuthorization() {
         ATTrackingManager.requestTrackingAuthorization { _ in
             goNextView = true

@@ -5,9 +5,9 @@ import SDWebImageSwiftUI
 // TODO: モックであるようなことが伝わる名前にする
 struct CallView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     @StateObject var viewState: CallViewState
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -21,17 +21,17 @@ struct CallView: View {
                 .transition(.fade)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                 .scaledToFill()
-                
+
                 Text(viewState.charaName)
                     .font(Font.system(size: 40))
                     .foregroundColor(Color.black)
                     .padding(.top, 40)
                 Spacer()
-                
+
                 Button(action: {
                     viewState.fadeOut()
                     presentationMode.wrappedValue.dismiss()
-                }){
+                }) {
                     Image(systemName: "phone.fill.arrow.down.left")
                         .resizable()
                         .foregroundColor(Color.white)
@@ -41,8 +41,7 @@ struct CallView: View {
                 .background(Color(R.color.callRed.name))
                     .cornerRadius(40)
             }                    .padding(.bottom, 60)
-            
-            
+
             if viewState.overlay {
                 VStack {
                     Text(viewState.charaName)
@@ -50,13 +49,13 @@ struct CallView: View {
                         .foregroundColor(Color.white)
                         .padding(.top, 100)
                     Spacer()
-                    
+
                     HStack(spacing: 160) {
                         Button(action: {
                             viewState.fadeOut()
                             presentationMode.wrappedValue.dismiss()
-                        }){
-                            
+                        }) {
+
                             Image(systemName: "phone.fill.arrow.down.left")
                                 .resizable()
                                 .foregroundColor(Color.white)
@@ -65,14 +64,13 @@ struct CallView: View {
                         .frame(width: 80, height: 80)
                         .background(Color(R.color.callRed.name))
                         .cornerRadius(40)
-                        
-                        
+
                         Button(action: {
                             viewState.call()
                             withAnimation {
                                 viewState.overlay = false
                             }
-                        }){
+                        }) {
                             Image(systemName: "phone.fill")
                                 .resizable()
                                 .foregroundColor(Color.white)
@@ -81,7 +79,7 @@ struct CallView: View {
                         .frame(width: 80, height: 80)
                         .background(Color(R.color.callGreen.name))
                         .cornerRadius(40)
-                        
+
                     }
                     .padding(.bottom, 60)
                 }

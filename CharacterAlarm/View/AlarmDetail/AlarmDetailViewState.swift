@@ -12,17 +12,17 @@ class AlarmDetailViewState: ObservableObject {
     @Published var selectedCharaCall: CharaCall?
     @Published var showingIndicator: Bool = false
     @Published var dismiss: Bool = false
-    
+
     var dismissRequest: AnyPublisher<Void, Never> {
         dismissSubject.eraseToAnyPublisher()
     }
     private let dismissSubject = PassthroughSubject<Void, Never>()
-    
+
     let type: AlarmDetailViewTyep
 //    private let alarmRepository: AlarmRepository = AlarmRepository()
     private let apiRepository = APIRepository()
     private let keychainRepository: KeychainRepository = KeychainRepository()
-    
+
     var timeDefferenceString: String {
         if alarm.timeDifference >= 0 {
             return "GMT+\(abs(alarm.timeDifference))"
@@ -30,28 +30,28 @@ class AlarmDetailViewState: ObservableObject {
             return "GMT-\(abs(alarm.timeDifference))"
         }
     }
-    
+
     var alarmTimeString: String {
         return "\(String(format: "%02d", alarm.hour)):\(String(format: "%02d", alarm.minute))(GMT+\("9"))"
     }
-    
+
     init(alarm: Alarm, type: AlarmDetailViewTyep) {
         self.alarm = alarm
         self.type = type
     }
-    
+
     func onAppear() {
         Task { @MainActor in
             do {
                 // キャラクター一覧取得
                 let characters = try await apiRepository.getCharaList()
                 self.characters = characters
-                
+
                 // 現在のキャラを取得
                 if alarm.charaID.isNotEmpty {
                     let chara = try await apiRepository.fetchCharacter(charaID: alarm.charaID)
                     self.selectedChara = chara
-                    
+
                     // CharaCallを設定
                     self.selectedCharaCall = chara.calls.first { charaCall in
                         charaCall.voiceFileURL.lastPathComponent == alarm.voiceFileName
@@ -63,11 +63,11 @@ class AlarmDetailViewState: ObservableObject {
             }
         }
     }
-    
+
     func onDisappear() {
         AudioManagerSingleton.shared.pauseAudio()
     }
-    
+
     func createOrEditAlarm() {
         switch type {
         case .create:
@@ -102,7 +102,7 @@ class AlarmDetailViewState: ObservableObject {
         selectedChara = nil
         selectedCharaCall = nil
     }
-    
+
     func setCharaAndCharaCall(chara: Chara, charaCall: CharaCall?) {
         alarm.charaID = chara.charaID
         alarm.charaName = chara.name
@@ -110,19 +110,19 @@ class AlarmDetailViewState: ObservableObject {
         selectedChara = chara
         selectedCharaCall = charaCall
     }
-        
+
     func showVoiceList(chara: Chara) {
         sheet = .voiceList(chara)
     }
-    
+
     func updateAlarmName(name: String) {
         alarm.name = name
     }
-    
+
     func updateAlarmHour(hour: Int) {
         alarm.hour = hour
     }
-    
+
     func updateAlarmMinute(minute: Int) {
         alarm.minute = minute
     }
@@ -130,7 +130,7 @@ class AlarmDetailViewState: ObservableObject {
     func timeDirrerenceTapped() {
         sheet = .timeDeffarenceList
     }
-    
+
     private func createAlarm() {
         guard let userID = keychainRepository.getUserID(),
               let authToken = keychainRepository.getAuthToken() else {
@@ -152,7 +152,7 @@ class AlarmDetailViewState: ObservableObject {
             }
         }
     }
-    
+
     private func editAlarm() {
         guard let userID = keychainRepository.getUserID(),
               let authToken = keychainRepository.getAuthToken() else {

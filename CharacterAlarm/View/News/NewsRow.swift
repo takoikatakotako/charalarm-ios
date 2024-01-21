@@ -2,13 +2,13 @@ import SwiftUI
 
 struct NewsRow: View {
     let news: News
-    
+
     private var registerdAtString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.string(from: news.registeredAt)
     }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -36,7 +36,7 @@ struct NewsRow_Previews: PreviewProvider {
             NewsRow(news: news)
         }
     }
-    
+
     static var previews: some View {
         PreviewWrapper()
     }
