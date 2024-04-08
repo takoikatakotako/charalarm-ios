@@ -22,9 +22,6 @@ packages:
   GoogleMobileAds:
     url: https://github.com/googleads/swift-package-manager-google-mobile-ads
     from: 11.2.0
-  GoogleMobileAds:
-    url: https://github.com/googleads/swift-package-manager-google-user-messaging-platform
-    from: 2.3.0
 
 schemes:
   Develop:
