@@ -57,7 +57,8 @@
 "config-config" = "設定";
 "config-user-info" = "ユーザー情報";
 "config-other" = "その他";
-"config-official-twitter" = "公式Twitter";
+"config-official-discord" = "公式Discordアカウント";
+"config-official-twitter" = "開発者のXアカウント";
 "config-application-info" = "アプリケーション情報";
 "config-inquires-about-the-app" = "アプリについてのお問い合わせ";
 "config-inquires-adding-characters" = "キャラクター追加のお問い合わせ";

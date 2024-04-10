@@ -27,23 +27,21 @@ struct ConfigView: View {
 
                     Section(header: Text(R.string.localizable.configOther())) {
                         Button(action: {
+                            viewState.openUrlString(string: OfficialDiscordUrlString)
+                        }) {
+                            Text(R.string.localizable.configOfficialDiscord())
+                                .foregroundColor(Color(R.color.textColor.name))
+                        }
+                        
+                        Button(action: {
                             viewState.openUrlString(string: OfficialTwitterUrlString)
                         }) {
                             Text(R.string.localizable.configOfficialTwitter())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
 
-                        Button(action: {
-                            viewState.openInquiry()
-                        }) {
-                            Text(R.string.localizable.configInquiresAboutTheApp())
-                                .foregroundColor(Color(R.color.textColor.name))
-                        }
-
-                        Button(action: {
-                            viewState.openCharacterAdditionRequest()
-                        }) {
-                            Text(R.string.localizable.configInquiresAddingCharacters())
+                        NavigationLink(destination: ContactView(viewState: ContactViewState())) {
+                            Text("お問い合わせ")
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
