@@ -4,10 +4,20 @@ struct ContactView: View {
     @StateObject var viewState: ContactViewState
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                TextEditor(text: $viewState.text)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 300)
+                    .border(Color.black)
+
+            }
+        }
     }
 }
 
 #Preview {
-    ContactView(viewState: ContactViewState())
+    NavigationView {
+        ContactView(viewState: ContactViewState())
+    }
 }
