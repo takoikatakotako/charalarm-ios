@@ -1,7 +1,7 @@
 name: CharacterAlarm
 options:
   deploymentTarget:
-    iOS: 15.0
+    iOS: 16.0
 
 packages:
   SDWebImageSwiftUI:
@@ -54,7 +54,6 @@ targets:
   CharalarmDevelop:
     type: application
     platform: iOS
-    deploymentTarget: "15.0"
     sources:
       - path: CharacterAlarm
         excludes:
@@ -128,7 +127,6 @@ targets:
   CharalarmStaging:
     type: application
     platform: iOS
-    deploymentTarget: "15.0"
     sources:
       - path: CharacterAlarm
         excludes:
@@ -208,7 +206,6 @@ targets:
   CharalarmProduction:
     type: application
     platform: iOS
-    deploymentTarget: "15.0"
     sources:
       - path: CharacterAlarm
         excludes:

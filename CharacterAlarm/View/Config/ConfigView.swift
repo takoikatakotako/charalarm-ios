@@ -6,7 +6,7 @@ struct ConfigView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack(alignment: .bottom) {
                 List {
                     Section(header: Text(R.string.localizable.configUserInfo())) {
