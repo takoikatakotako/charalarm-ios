@@ -4,19 +4,27 @@ import SDWebImageSwiftUI
 struct ConfigView: View {
     @StateObject var viewState: ConfigViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
                 List {
-                    Section(header: Text(R.string.localizable.configUserInfo())) {
+                    Section(
+                        header:
+                            Text(R.string.localizable.configUserInfo())
+                            .foregroundStyle(Color(.appMainText))
+                    ) {
                         NavigationLink(destination: UserInfoView(viewState: UserInfoViewState())) {
                             Text(R.string.localizable.configUserInfo())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-
-                    Section(header: Text(R.string.localizable.configPremiumPlan())) {
+                    
+                    Section(
+                        header:
+                            Text(R.string.localizable.configPremiumPlan())
+                            .foregroundStyle(Color(.appMainText))
+                    ) {
                         Button {
                             viewState.subscriptionButtonTapped()
                         } label: {
@@ -24,8 +32,24 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-
-                    Section(header: Text(R.string.localizable.configOther())) {
+                    
+                    
+                    Section(
+                        header:
+                            Text("お問い合わせ")
+                            .foregroundColor(Color(R.color.textColor.name))
+                    ) {
+                        NavigationLink(destination: ContactView(viewState: ContactViewState())) {
+                            Text("お問い合わせ")
+                                .foregroundColor(Color(R.color.textColor.name))
+                        }
+                    }
+                    
+                    Section(
+                        header:
+                            Text("開発者情報")
+                            .foregroundColor(Color(R.color.textColor.name))
+                    ) {
                         Button(action: {
                             viewState.openUrlString(string: OfficialDiscordUrlString)
                         }) {
@@ -39,14 +63,13 @@ struct ConfigView: View {
                             Text(R.string.localizable.configOfficialTwitter())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-
-                        NavigationLink(destination: ContactView(viewState: ContactViewState())) {
-                            Text("お問い合わせ")
-                                .foregroundColor(Color(R.color.textColor.name))
-                        }
                     }
-
-                    Section(header: Text(R.string.localizable.configApplicationInfo())) {
+                    
+                    Section(
+                        header:
+                            Text(R.string.localizable.configApplicationInfo())
+                            .foregroundColor(Color(R.color.textColor.name))
+                    ) {
                         // バージョン情報
                         HStack {
                             Text(R.string.localizable.configVersionInfo())
@@ -55,14 +78,14 @@ struct ConfigView: View {
                             Text(viewState.versionString)
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-
+                        
                         // ライセンス
                         NavigationLink {
                             LicenceView(viewState: LicenceViewState())
                         } label: {
                             Text(R.string.localizable.configLicense())
                         }
-
+                        
                         // その他
                         Button {
                             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
@@ -74,8 +97,12 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-
-                    Section(header: Text(R.string.localizable.configReset())) {
+                    
+                    Section(
+                        header:
+                            Text(R.string.localizable.configReset())
+                            .foregroundStyle(Color(.appMainText))
+                    ) {
                         Button(action: {
                             viewState.resetButtonTapped()
                         }) {
@@ -93,28 +120,44 @@ struct ConfigView: View {
                                 })
                         }
                     }
-
+                    
                     // 広告とリセットせるが被ってしまうのでパディング追加のため
                     // もっと良い方法があれば修正したい
                     Section("") {}
                 }
                 .listStyle(GroupedListStyle())
-
+                .background(Color(.appBackground))
+                .scrollContentBackground(.hidden)
+                
                 if viewState.isShowingADs {
                     AdmobBannerView(adUnitID: EnvironmentVariableConfig.admobConfigUnitID)
                 }
             }
-            .navigationBarTitle(R.string.localizable.configConfig(), displayMode: .inline)
+            .toolbar(.visible, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(Color(.appMain), for: .navigationBar)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden()
             .navigationBarItems(
                 leading:
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
-                        Image(R.image.commonIconClose.name)
-                            .renderingMode(.template)
-                            .foregroundColor(Color( R.color.charalarmDefaultGray.name))
+                        Image(systemName: "xmark")
+                            .font(.system(size: 18, weight: .semibold))
+                            .padding(.top, 4)
+                            .padding(.trailing, 4)
+                            .padding(.bottom, 4)
+                            .foregroundStyle(Color.white)
                     }
             )
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(R.string.localizable.configConfig())
+                        .foregroundStyle(Color.white)
+                        .font(.system(size: 18, weight: .semibold))
+                }
+            }
         }
         .fullScreenCover(isPresented: $viewState.showingSubscriptionSheet, content: {
             SubscriptionView(viewState: SubscriptionViewState())
