@@ -4,14 +4,26 @@ import UIKit
 import SwiftUI
 
 class ContactViewState: ObservableObject {
-    let discordRepository = DiscordRepository()
+    private let discordRepository = DiscordRepository()
+    private let keychainRepository = KeychainRepository()
     
-    @Published var email: String = "This is some editable text..."
-    @Published var text: String = "This is some editable text..."
+    @Published var id: String = ""
+    @Published var email: String = ""
+    @Published var message: String = ""
 
     
+    func onAppear() {
+        id = keychainRepository.getUserID() ?? "???"
+    }
+    
     func sendMessage() {
-        let request = DiscordRequest(content: "Hello")
+        var content = ""
+        content += "id: \(id)\n"
+        content += "email: \(email)\n"
+        content += "message: \(message)\n"
+
+        let request = DiscordRequest(content: content)
+        
         
         Task {
             do {

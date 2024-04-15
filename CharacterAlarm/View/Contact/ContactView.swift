@@ -11,7 +11,7 @@ struct ContactView: View {
                     Text("ユーザーID")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(Color(.appMainText))
-                    Text("89ba061-d8b8-4290-9b9c-0bd401b250ec")
+                    Text(viewState.id)
                         .font(.system(size: 16, weight: .regular))
                         .foregroundStyle(Color(.appMainText))
                 }
@@ -20,7 +20,7 @@ struct ContactView: View {
                     Text("メールアドレス")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(Color(.appMainText))
-                    TextField("メールアドレス", text: $viewState.email)
+                    TextField("", text: $viewState.email)
                         .font(.system(size: 16, weight: .regular))
                         .foregroundStyle(Color(.appMainText))
                         .padding(8)
@@ -34,7 +34,7 @@ struct ContactView: View {
                         .foregroundStyle(Color(.appMainText))
                     
                     ZStack {
-                        TextEditor(text: $viewState.text)
+                        TextEditor(text: $viewState.message)
                             .font(.system(size: 16, weight: .regular))
                             .foregroundStyle(Color(.appMainText))
                             .frame(minWidth: 0, maxWidth: .infinity)
@@ -80,6 +80,9 @@ struct ContactView: View {
                     }
                 }
         )
+        .onAppear {
+            viewState.onAppear()
+        }
     }
 }
 
