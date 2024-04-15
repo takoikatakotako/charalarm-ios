@@ -6,6 +6,7 @@ import SwiftUI
 class ContactViewState: ObservableObject {
     let discordRepository = DiscordRepository()
     
+    @Published var email: String = "This is some editable text..."
     @Published var text: String = "This is some editable text..."
 
     

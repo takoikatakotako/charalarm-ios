@@ -17,6 +17,18 @@ struct ContactView: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 8) {
+                    Text("メールアドレス")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(Color(.appMainText))
+                    TextField("メールアドレス", text: $viewState.email)
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundStyle(Color(.appMainText))
+                        .padding(8)
+                        .background(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
+                
+                VStack(alignment: .leading, spacing: 8) {
                     Text("お問い合わせ内容")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(Color(.appMainText))
