@@ -59,7 +59,7 @@ struct ContactView: View {
             trailing:
                 HStack {
                     Button(action: {
-                        print("XXXX")
+                        viewState.sendMessage()
                     }) {
                         Text("送信")
                             .font(.system(size: 18, weight: .semibold))
