@@ -3,8 +3,11 @@ import Foundation
 // PrivacyPolicyのURL
 let PrivacyPolicyUrlString = "https://charalarm.com/privacy/index.html"
 
-// CharterAlarm公式Twitter
-let OfficialTwitterUrlString: String = "https://twitter.com/charalarm"
+// Discordの招待URL
+let OfficialDiscordUrlString: String = "https://discord.gg/UvdsyBTA"
+
+// 開発者のXアカウント
+let OfficialTwitterUrlString: String = "https://twitter.com/takoikatakotako"
 
 // CharalrmのアプストアのURL
 let CharalarmAppStoreUrlString: String = "https://apps.apple.com/jp/app/charalarm-%E3%82%AD%E3%83%A3%E3%83%A9%E3%83%BC%E3%83%A0/id1296641818"
