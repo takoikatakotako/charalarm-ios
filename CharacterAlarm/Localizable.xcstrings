@@ -1,0 +1,1185 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "alarm-add-alarm" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラーム追加"
+          }
+        }
+      }
+    },
+    "alarm-alarm-name" : {
+      "comment" : "Alarm",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラーム名"
+          }
+        }
+      }
+    },
+    "alarm-delete-alarm" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラーム削除"
+          }
+        }
+      }
+    },
+    "alarm-edit-alarm" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラーム編集"
+          }
+        }
+      }
+    },
+    "alarm-failed-to-create-an-alarm" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラームの作成に失敗しました。"
+          }
+        }
+      }
+    },
+    "alarm-failed-to-edit-the-alarm" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラームの編集に失敗しました。"
+          }
+        }
+      }
+    },
+    "alarm-failed-to-get-the-alarm-list" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラーム一覧の取得に失敗しました。"
+          }
+        }
+      }
+    },
+    "alarm-list-too-much" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2つ以上アラームを作るにはプレミアムプランに登録する必要があります。"
+          }
+        }
+      }
+    },
+    "alarm-new-alarm" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいアラーム"
+          }
+        }
+      }
+    },
+    "alarm-please-enter-the-alarm-name" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラーム名を入力してください"
+          }
+        }
+      }
+    },
+    "alarm-you-can-create-up-to-three-alarms" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラームは最大3つまで作成できます。"
+          }
+        }
+      }
+    },
+    "character-character-list" : {
+      "comment" : "Character",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター一覧"
+          }
+        }
+      }
+    },
+    "character-failed-to-get-the-character" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターの取得に失敗しました。"
+          }
+        }
+      }
+    },
+    "character-illustration" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "イラスト"
+          }
+        }
+      }
+    },
+    "character-pr" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PR"
+          }
+        }
+      }
+    },
+    "character-voice" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CV"
+          }
+        }
+      }
+    },
+    "character-want-to-publish-your-character" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！"
+          }
+        }
+      }
+    },
+    "common-cancel" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        }
+      }
+    },
+    "common-close" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
+        }
+      }
+    },
+    "common-failed-to-connect-with-the-server." : {
+      "comment" : "Common",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。"
+          }
+        }
+      }
+    },
+    "common-next" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次へ"
+          }
+        }
+      }
+    },
+    "common-privacy" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシー"
+          }
+        }
+      }
+    },
+    "common-save" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "common-terms" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "利用規約"
+          }
+        }
+      }
+    },
+    "config-about-premium-plan" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプランについて"
+          }
+        }
+      }
+    },
+    "config-application-info" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリケーション情報"
+          }
+        }
+      }
+    },
+    "config-are-you-sure-you-want-to-reset-the-app" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリをリセットしてよろしいですか？"
+          }
+        }
+      }
+    },
+    "config-config" : {
+      "comment" : "Config",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
+        }
+      }
+    },
+    "config-inquires-about-the-app" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリについてのお問い合わせ"
+          }
+        }
+      }
+    },
+    "config-inquires-adding-characters" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター追加のお問い合わせ"
+          }
+        }
+      }
+    },
+    "config-license" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライセンス"
+          }
+        }
+      }
+    },
+    "config-official-discord" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Official Discord"
+          }
+        }
+      }
+    },
+    "config-official-twitter" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開発者のXアカウント"
+          }
+        }
+      }
+    },
+    "config-other" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他"
+          }
+        }
+      }
+    },
+    "config-other-app-setting" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他アプリ設定"
+          }
+        }
+      }
+    },
+    "config-premium-plan" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプラン"
+          }
+        }
+      }
+    },
+    "config-reset" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット"
+          }
+        }
+      }
+    },
+    "config-user-info" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー情報"
+          }
+        }
+      }
+    },
+    "config-version-info" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン情報"
+          }
+        }
+      }
+    },
+    "day-of-week-friday" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金"
+          }
+        }
+      }
+    },
+    "day-of-week-monday" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月"
+          }
+        }
+      }
+    },
+    "day-of-week-saturday" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土"
+          }
+        }
+      }
+    },
+    "day-of-week-sunday" : {
+      "comment" : "DayOfWeek",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日"
+          }
+        }
+      }
+    },
+    "day-of-week-thursday" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "木"
+          }
+        }
+      }
+    },
+    "day-of-week-tuesday" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火"
+          }
+        }
+      }
+    },
+    "day-of-week-wednesday" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
+          }
+        }
+      }
+    },
+    "error-an-unknown-error-has-occurred" : {
+      "comment" : "Error",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不明なエラーが発生しました。"
+          }
+        }
+      }
+    },
+    "error-failed-to-find-purchase-history" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入履歴が見つかりませんでした"
+          }
+        }
+      }
+    },
+    "error-failed-to-get-authentication-information" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "認証情報の取得に失敗しました。"
+          }
+        }
+      }
+    },
+    "error-failed-to-get-character-information" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターの情報の取得に失敗しました"
+          }
+        }
+      }
+    },
+    "error-failed-to-get-character-selection-information" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターの選択情報の取得に失敗しました"
+          }
+        }
+      }
+    },
+    "error-failed-to-get-characters-resources" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターのリソースを取得に失敗しました"
+          }
+        }
+      }
+    },
+    "error-failed-to-get-subscription-info" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションの情報を取得できませんでした"
+          }
+        }
+      }
+    },
+    "error-failed-to-set-character-image" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターの画像を設定できませんでした"
+          }
+        }
+      }
+    },
+    "error-failed-to-subscription-restore" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションのリストアに失敗しました"
+          }
+        }
+      }
+    },
+    "error-failed-to-update-premium-plan" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプランへのアップデートに失敗しました"
+          }
+        }
+      }
+    },
+    "error-this-feature-is-not-available-in-your-region" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この機能はお住まいの地域ではご利用いただけません。"
+          }
+        }
+      }
+    },
+    "license-character" : {
+      "comment" : "License",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター"
+          }
+        }
+      }
+    },
+    "license-other" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他"
+          }
+        }
+      }
+    },
+    "license-other-description" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOSアプリに使用しているライブラリのライセンスはアプリの設定画面から確認できます"
+          }
+        }
+      }
+    },
+    "license-software" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ソフトウェア"
+          }
+        }
+      }
+    },
+    "news-failed-to-get-the-news" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ニュースの取得に失敗しました。"
+          }
+        }
+      }
+    },
+    "news-news" : {
+      "comment" : "News",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ニュース"
+          }
+        }
+      }
+    },
+    "profile-character-selection" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター選択"
+          }
+        }
+      }
+    },
+    "profile-downloading-resources" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リソースをダウンロードしています"
+          }
+        }
+      }
+    },
+    "profile-failed-to-download-resources" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リソースのダウンロードに失敗しました"
+          }
+        }
+      }
+    },
+    "profile-failed-to-get-the-character-information" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター情報の取得に失敗しました。"
+          }
+        }
+      }
+    },
+    "profile-failed-to-get-the-resource-of-the-character" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターのリソースの取得に失敗しました。"
+          }
+        }
+      }
+    },
+    "profile-illustration" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "イラスト"
+          }
+        }
+      }
+    },
+    "profile-name" : {
+      "comment" : "Profile",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前"
+          }
+        }
+      }
+    },
+    "profile-profile" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プロフィール"
+          }
+        }
+      }
+    },
+    "profile-voice" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CV"
+          }
+        }
+      }
+    },
+    "profile-want-to-call-this-character" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このキャラクターに電話してもらいたいですか？"
+          }
+        }
+      }
+    },
+    "profile-yes" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "はい!!"
+          }
+        }
+      }
+    },
+    "subscription-about-cancellation-method" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解約方法について"
+          }
+        }
+      }
+    },
+    "subscription-benefit1-description" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラームを10個まで設定することができます"
+          }
+        }
+      }
+    },
+    "subscription-benefit1-title" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特典１: アラーム数上限アップ"
+          }
+        }
+      }
+    },
+    "subscription-benefit2-description" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ内の広告が全て非表示になります"
+          }
+        }
+      }
+    },
+    "subscription-benefit2-title" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特典2: 広告表示なし"
+          }
+        }
+      }
+    },
+    "subscription-message" : {
+      "comment" : "Subscription",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charalarmのサブスクリプションプランに\nアップデートすることでいくつかの機能が解放されます！！"
+          }
+        }
+      }
+    },
+    "subscription-restore" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入を復元"
+          }
+        }
+      }
+    },
+    "subscription-restore-success" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションの復元に成功しました"
+          }
+        }
+      }
+    },
+    "subscription-update-premium-plan" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプランにアップデート"
+          }
+        }
+      }
+    },
+    "tutorial-agree-with-the-privacy-policy" : {
+      "comment" : "Tutorial",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシーに同意する"
+          }
+        }
+      }
+    },
+    "tutorial-charalarm-development-is-supported-by-advertising-revenue" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charalarmの運営、開発は広告の収益により支えられています。\n適切な広告が表示されるために必要な情報の利用を許可をお願いします。"
+          }
+        }
+      }
+    },
+    "tutorial-customize-your-ads" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタマイズした広告を表示"
+          }
+        }
+      }
+    },
+    "tutorial-did-you-get-a-call" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無事に電話がかかってきましたか？"
+          }
+        }
+      }
+    },
+    "tutorial-do-not-allow-use-of-infomation" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "情報の利用を許可しない"
+          }
+        }
+      }
+    },
+    "tutorial-failed-to-save-user-information" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー情報の保存に設定に失敗しました。"
+          }
+        }
+      }
+    },
+    "tutorial-finally-please-allow-push-notificaion" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。"
+          }
+        }
+      }
+    },
+    "tutorial-get-a-call" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "電話をしてもらう"
+          }
+        }
+      }
+    },
+    "tutorial-go-to-home-screen" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム画面へ"
+          }
+        }
+      }
+    },
+    "tutorial-let-us-try-it-now" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "さっそく試してみましょう！"
+          }
+        }
+      }
+    },
+    "tutorial-open-the-privacy-policy" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシーを開く"
+          }
+        }
+      }
+    },
+    "tutorial-please-accept-the-privacy-policy" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシーへの同意をお願いします。"
+          }
+        }
+      }
+    },
+    "tutorial-please-choose-your-favorite-character" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好きなキャラクターを選んでみてください。"
+          }
+        }
+      }
+    },
+    "tutorial-this-is-an-app" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリは設定した時間にキャラクターが電話をしてくれるアプリです。"
+          }
+        }
+      }
+    },
+    "tutorial-welcome-to-charalarm" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラームにようこそ！"
+          }
+        }
+      }
+    },
+    "tutorial-you-can-see-the-characters" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター一覧から着信を受けられるキャラクターを見ることができます。"
+          }
+        }
+      }
+    },
+    "tutorial-you-can-set-multiple-alarms" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラームは時間や曜日を指定して複数セットすることができます。"
+          }
+        }
+      }
+    },
+    "update-requird-open-app-store" : {
+      "comment" : "UpdateRequired",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Storeを開く"
+          }
+        }
+      }
+    },
+    "update-requird-please-install-the-latest-version" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ストアから最新版のアプリのインストールをお願いします。"
+          }
+        }
+      }
+    },
+    "update-requird-the-app-needs-to-be-updated" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのアップデートが必要です。"
+          }
+        }
+      }
+    },
+    "update-requird-update-requird" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アップデートが必要です"
+          }
+        }
+      }
+    },
+    "user-info-user-info" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー情報"
+          }
+        }
+      }
+    },
+    "user-info-user-name" : {
+      "comment" : "UserInfoView",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー名"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
