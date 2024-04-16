@@ -6,18 +6,18 @@ import SwiftUI
 class ContactViewState: ObservableObject {
     private let discordRepository = DiscordRepository()
     private let keychainRepository = KeychainRepository()
-    
+
     @Published var id: String = ""
     @Published var email: String = ""
     @Published var message: String = ""
-    
+
     @Published var showingAlert: Bool = false
     @Published var alertEntity: AlertEntity?
 
     func onAppear() {
         id = keychainRepository.getUserID() ?? ""
     }
-    
+
     func sendMessage() {
         guard 20 < message.count else {
             alertEntity = AlertEntity(title: "エラー", message: "sdfsdfs", actionText: "とじる")
@@ -31,7 +31,7 @@ class ContactViewState: ObservableObject {
         content += "**Message:**\n\(message)\n"
 
         let request = DiscordRequest(content: content)
-        
+
         Task { @MainActor in
             do {
                 try await discordRepository.sendMessageForContact(requestBody: request)

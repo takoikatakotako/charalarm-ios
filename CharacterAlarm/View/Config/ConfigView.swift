@@ -4,7 +4,7 @@ import SDWebImageSwiftUI
 struct ConfigView: View {
     @StateObject var viewState: ConfigViewState
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
@@ -19,7 +19,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(
                         header:
                             Text(R.string.localizable.configPremiumPlan())
@@ -32,8 +32,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
-                    
+
                     Section(
                         header:
                             Text("お問い合わせ")
@@ -44,7 +43,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(
                         header:
                             Text("開発者情報")
@@ -56,7 +55,7 @@ struct ConfigView: View {
                             Text(R.string.localizable.configOfficialDiscord())
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        
+
                         Button(action: {
                             viewState.openUrlString(string: OfficialTwitterUrlString)
                         }) {
@@ -64,7 +63,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(
                         header:
                             Text(R.string.localizable.configApplicationInfo())
@@ -78,14 +77,14 @@ struct ConfigView: View {
                             Text(viewState.versionString)
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
-                        
+
                         // ライセンス
                         NavigationLink {
                             LicenceView(viewState: LicenceViewState())
                         } label: {
                             Text(R.string.localizable.configLicense())
                         }
-                        
+
                         // その他
                         Button {
                             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
@@ -97,7 +96,7 @@ struct ConfigView: View {
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
-                    
+
                     Section(
                         header:
                             Text(R.string.localizable.configReset())
@@ -120,7 +119,7 @@ struct ConfigView: View {
                                 })
                         }
                     }
-                    
+
                     // 広告とリセットせるが被ってしまうのでパディング追加のため
                     // もっと良い方法があれば修正したい
                     Section("") {}
@@ -128,7 +127,7 @@ struct ConfigView: View {
                 .listStyle(GroupedListStyle())
                 .background(Color(.appBackground))
                 .scrollContentBackground(.hidden)
-                
+
                 if viewState.isShowingADs {
                     AdmobBannerView(adUnitID: EnvironmentVariableConfig.admobConfigUnitID)
                 }
