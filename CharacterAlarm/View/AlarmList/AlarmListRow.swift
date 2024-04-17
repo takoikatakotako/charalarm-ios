@@ -42,13 +42,13 @@ struct AlarmListRow: View {
 
     var dayOfWeeksString: String {
         var text = ""
-        text += alarm.sunday ? "\(R.string.localizable.dayOfWeekSunday()) " : ""
-        text += alarm.monday ? "\(R.string.localizable.dayOfWeekMonday()) " : ""
-        text += alarm.tuesday ? "\(R.string.localizable.dayOfWeekTuesday()) " : ""
-        text += alarm.wednesday ? "\(R.string.localizable.dayOfWeekWednesday()) " : ""
-        text += alarm.thursday ? "\(R.string.localizable.dayOfWeekThursday()) " : ""
-        text += alarm.friday ? "\(R.string.localizable.dayOfWeekFriday()) " : ""
-        text += alarm.saturday ? "\(R.string.localizable.dayOfWeekSaturday()) " : ""
+        text += alarm.sunday ? "\(String(localized: "day-of-week-sunday")) " : ""
+        text += alarm.monday ? "\(String(localized: "day-of-week-monday")) " : ""
+        text += alarm.tuesday ? "\(String(localized: "day-of-week-tuesday")) " : ""
+        text += alarm.wednesday ? "\(String(localized: "day-of-week-wednesday")) " : ""
+        text += alarm.thursday ? "\(String(localized: "day-of-week-thursday")) " : ""
+        text += alarm.friday ? "\(String(localized: "day-of-week-friday")) " : ""
+        text += alarm.saturday ? "\(String(localized: "day-of-week-saturday")) " : ""
         return text
     }
 

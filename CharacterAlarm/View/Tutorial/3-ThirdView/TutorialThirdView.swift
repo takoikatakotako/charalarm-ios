@@ -11,7 +11,7 @@ struct TutorialThirdView: View {
                 .frame(width: 320, height: 400)
                 .padding(.bottom, 36)
 
-            Text(R.string.localizable.tutorialDidYouGetACall())
+            Text(String(localized: "tutorial-did-you-get-a-call"))
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
 

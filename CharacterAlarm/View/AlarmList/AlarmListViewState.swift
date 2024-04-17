@@ -25,17 +25,17 @@ class AlarmListViewState: ObservableObject {
             if userDefaultsRepository.getEnablePremiumPlan() {
                 sheet = .alarmDetailForCreate
             } else {
-                alert = .error(UUID(), R.string.localizable.alarmListTooMuch())
+                alert = .error(UUID(), String(localized: "alarm-list-too-much"))
             }
         } else {
-            alert = .error(UUID(), R.string.localizable.alarmYouCanCreateUpToThreeAlarms())
+            alert = .error(UUID(), String(localized: "alarm-you-can-create-up-to-three-alarms"))
         }
     }
 
     func createNewAlarm() -> Alarm {
         let alarmID = UUID()
         let date = Date()
-        let name = R.string.localizable.alarmNewAlarm()
+        let name = String(localized: "alarm-new-alarm")
         let calendar = Calendar(identifier: .gregorian)
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
@@ -68,7 +68,7 @@ class AlarmListViewState: ObservableObject {
             showingIndicator = true
             guard let userID = keychainRepository.getUserID(),
                   let authToken = keychainRepository.getAuthToken() else {
-                    alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
+                    alert = .error(UUID(), String(localized: "error-failed-to-get-authentication-information"))
                 return
             }
 
@@ -77,7 +77,7 @@ class AlarmListViewState: ObservableObject {
                 self.showingIndicator = false
                 self.alarms = alarms.map { $0.toAlarm() }
             } catch {
-                self.alert = .error(UUID(), R.string.localizable.alarmFailedToGetTheAlarmList())
+                self.alert = .error(UUID(), String(localized: "alarm-failed-to-get-the-alarm-list"))
             }
         }
     }
@@ -85,7 +85,7 @@ class AlarmListViewState: ObservableObject {
     func updateAlarmEnable(alarmId: UUID, isEnable: Bool) {
         guard let userID = keychainRepository.getUserID(),
               let authToken = keychainRepository.getAuthToken() else {
-            alert = .error(UUID(), R.string.localizable.errorFailedToGetAuthenticationInformation())
+            alert = .error(UUID(), String(localized: "error-failed-to-get-authentication-information"))
             return
         }
 
@@ -100,7 +100,7 @@ class AlarmListViewState: ObservableObject {
                 let requestBody = AlarmEditRequest(alarm: alarm.toAlarmRequest(userID: UUID(uuidString: userID)!))
                 try await apiRepository.editAlarm(userID: userID, authToken: authToken, requestBody: requestBody)
             } catch {
-                alert = .error(UUID(), R.string.localizable.alarmFailedToEditTheAlarm())
+                alert = .error(UUID(), String(localized: "alarm-failed-to-edit-the-alarm"))
             }
         }
     }

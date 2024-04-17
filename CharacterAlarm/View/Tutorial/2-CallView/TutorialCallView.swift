@@ -59,7 +59,7 @@ struct TutorialCallView: View {
                 NavigationLink(
                     destination: TutorialThirdView(),
                     label: {
-                        TutorialButtonContent(text: R.string.localizable.commonNext())
+                        TutorialButtonContent(text: String(localized: "commo-next"))
                             .padding(.horizontal, 16)
                     })
                     .padding(.bottom, 28)
