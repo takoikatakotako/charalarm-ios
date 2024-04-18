@@ -55,7 +55,7 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
 
                 accountCreated = true
             } catch {
-                alertMessage = R.string.localizable.tutorialFailedToSaveUserInformation()
+                alertMessage = String(localized: "tutorial-failed-to-save-user-information")
                 showingAlert = true
             }
             creatingAccount = false

@@ -7,7 +7,8 @@ struct TutorialRequireTrackingView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
             Spacer()
-            Text(R.string.localizable.tutorialCustomizeYourAds())
+            
+            Text(String(localized: "tutorial-customize-your-ads"))
                 .font(Font.system(size: 18).bold())
 
             Text(R.string.localizable.tutorialCharalarmDevelopmentIsSupportedByAdvertisingRevenue())

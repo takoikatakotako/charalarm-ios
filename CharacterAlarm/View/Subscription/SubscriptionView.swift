@@ -22,25 +22,26 @@ struct SubscriptionView: View {
                 }
 
                 VStack(spacing: 20) {
-                    Text(R.string.localizable.subscriptionMessage())
+                    
+                    Text(String(localized: "subscription-message"))
 
                     SubscriptionCardView(
-                        title: R.string.localizable.subscriptionBenefit1Title(),
+                        title: String(localized: "subscription-benefit1-title"),
                         systemImageName: "calendar",
-                        description: R.string.localizable.subscriptionBenefit1Description()
+                        description: String(localized: "subscription-benefit1-description")
                     )
 
                     SubscriptionCardView(
-                        title: R.string.localizable.subscriptionBenefit2Title(),
+                        title: String(localized: "subscription-benefit2-title"),
                         systemImageName: "nosign",
-                        description: R.string.localizable.subscriptionBenefit2Description()
+                        description: String(localized: "subscription-benefit2-description")
                     )
 
                     Button {
                         viewState.upgradeButtonTapped()
                     } label: {
                         VStack(spacing: 8) {
-                            Text(R.string.localizable.subscriptionUpdatePremiumPlan())
+                            Text(String(localized: "subscription-update-premium-plan"))
                                 .font(Font.system(size: 20).bold())
                             Text(viewState.priceMessage)
                                 .font(Font.system(size: 16).bold())
@@ -58,19 +59,19 @@ struct SubscriptionView: View {
                     Button {
                         viewState.restore()
                     } label: {
-                        Text(R.string.localizable.subscriptionRestore())
+                        Text(String(localized: "subscription-restore"))
                     }
 
                     HStack {
                         Button {
                             viewState.openTeams()
                         } label: {
-                            Text(R.string.localizable.commonTerms())
+                            Text(String(localized: "common-terms"))
                         }
                         Button {
                             viewState.openPrivacyPolicy()
                         } label: {
-                            Text(R.string.localizable.commonPrivacy())
+                            Text(String(localized: "common-privacy"))
                         }
                     }
 //                    
@@ -104,7 +105,7 @@ struct SubscriptionView: View {
             isPresented: $viewState.showingAlert,
             presenting: viewState.alertMessage
         ) { entity in
-            Button(R.string.localizable.commonClose()) {
+            Button(String(localized: "common-close")) {
                 print(entity)
             }
         } message: { entity in
