@@ -4,7 +4,7 @@ struct CharacterListBanner: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             VStack {
-                Text(R.string.localizable.characterPr())
+                Text(String(localized: "character-pr"))
                     .foregroundColor(Color.white)
                     .font(.system(size: 14))
                     .frame(width: 36, height: 20)

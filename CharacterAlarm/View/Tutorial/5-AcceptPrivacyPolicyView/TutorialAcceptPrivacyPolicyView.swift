@@ -38,7 +38,7 @@ struct TutorialAcceptPrivacyPolicyView: View {
                     viewModel.signUp()
                 }, label: {
                     
-                    TutorialButtonContent(text: String(localized: "tutorial-agree-with-the-privacy-policy")))
+                    TutorialButtonContent(text: String(localized: "tutorial-agree-with-the-privacy-policy"))
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)

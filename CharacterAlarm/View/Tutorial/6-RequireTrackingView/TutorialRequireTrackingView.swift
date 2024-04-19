@@ -11,7 +11,7 @@ struct TutorialRequireTrackingView: View {
             Text(String(localized: "tutorial-customize-your-ads"))
                 .font(Font.system(size: 18).bold())
 
-            Text(R.string.localizable.tutorialCharalarmDevelopmentIsSupportedByAdvertisingRevenue())
+            Text(String(localized: "tutorial-charalarm-dvelopment-is-supported-by-advertising-revenue"))
                 .font(Font.system(size: 18))
                 .padding(.horizontal, 12)
 
@@ -32,7 +32,7 @@ struct TutorialRequireTrackingView: View {
             Button(action: {
                 requestTrackingAuthorization()
             }, label: {
-                TutorialButtonContent(text: R.string.localizable.commonNext())
+                TutorialButtonContent(text: String(localized: "common-next"))
                     .padding(.horizontal, 16)
             })
             .padding(.bottom, 28)
