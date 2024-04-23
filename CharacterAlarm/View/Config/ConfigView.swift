@@ -11,24 +11,24 @@ struct ConfigView: View {
                 List {
                     Section(
                         header:
-                            Text(R.string.localizable.configUserInfo())
+                            Text(String(localized: "config-user-info"))
                             .foregroundStyle(Color(.appMainText))
                     ) {
                         NavigationLink(destination: UserInfoView(viewState: UserInfoViewState())) {
-                            Text(R.string.localizable.configUserInfo())
+                            Text(String(localized: "config-user-info"))
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
 
                     Section(
                         header:
-                            Text(R.string.localizable.configPremiumPlan())
+                            Text(String(localized: "config-premium-plan"))
                             .foregroundStyle(Color(.appMainText))
                     ) {
                         Button {
                             viewState.subscriptionButtonTapped()
                         } label: {
-                            Text(R.string.localizable.configAboutPremiumPlan())
+                            Text(String(localized: "config-about-premium-plan"))
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
@@ -52,26 +52,26 @@ struct ConfigView: View {
                         Button(action: {
                             viewState.openUrlString(string: OfficialDiscordUrlString)
                         }) {
-                            Text(R.string.localizable.configOfficialDiscord())
+                            Text(String(localized: "config-official-discord"))
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
 
                         Button(action: {
                             viewState.openUrlString(string: OfficialTwitterUrlString)
                         }) {
-                            Text(R.string.localizable.configOfficialTwitter())
+                            Text(String(localized: "config-official-twitter"))
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
 
                     Section(
                         header:
-                            Text(R.string.localizable.configApplicationInfo())
+                            Text(String(localized: "config-application-info"))
                             .foregroundColor(Color(R.color.textColor.name))
                     ) {
                         // バージョン情報
                         HStack {
-                            Text(R.string.localizable.configVersionInfo())
+                            Text(String(localized: "config-versionInfo"))
                                 .foregroundColor(Color(R.color.textColor.name))
                             Spacer()
                             Text(viewState.versionString)
@@ -82,7 +82,7 @@ struct ConfigView: View {
                         NavigationLink {
                             LicenceView(viewState: LicenceViewState())
                         } label: {
-                            Text(R.string.localizable.configLicense())
+                            Text(String(localized: "config-license"))
                         }
 
                         // その他
@@ -92,29 +92,29 @@ struct ConfigView: View {
                             }
                             UIApplication.shared.open(settingsUrl, completionHandler: nil)
                         } label: {
-                            Text(R.string.localizable.configOtherAppSetting())
+                            Text(String(localized: "config-other-app-setting"))
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }
 
                     Section(
                         header:
-                            Text(R.string.localizable.configReset())
+                            Text(String(localized: "config-reset"))
                             .foregroundStyle(Color(.appMainText))
                     ) {
                         Button(action: {
                             viewState.resetButtonTapped()
                         }) {
-                            Text(R.string.localizable.configReset())
+                            Text(String(localized: "config-reset"))
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                         .alert(isPresented: $viewState.showingResetAlert) {
                             Alert(
-                                title: Text(R.string.localizable.configReset()),
-                                message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),
-                                primaryButton: .default(Text(R.string.localizable.commonCancel())) {
+                                title: Text(String(localized: "config-reset")),
+                                message: Text(String(localized: "config-are-you-sure-you-want-to-reset-the-app")),
+                                primaryButton: .default(Text(String(localized: "common-cancel"))) {
                                     // ResetCancel
-                                }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
+                                }, secondaryButton: .destructive(Text(String(localized: "common-reset"))) {
                                     viewState.withdraw()
                                 })
                         }
@@ -152,7 +152,7 @@ struct ConfigView: View {
             )
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text(R.string.localizable.configConfig())
+                    Text(String(localized: "config-config"))
                         .foregroundStyle(Color.white)
                         .font(.system(size: 18, weight: .semibold))
                 }
@@ -162,7 +162,7 @@ struct ConfigView: View {
             SubscriptionView(viewState: SubscriptionViewState())
         })
         .alert(isPresented: $viewState.showingAlert) {
-            Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            Alert(title: Text(""), message: Text(viewState.alertMessage), dismissButton: .default(Text(String(localized: "common-close"))))
         }
     }
 }

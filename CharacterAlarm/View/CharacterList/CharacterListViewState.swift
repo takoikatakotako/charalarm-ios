@@ -13,7 +13,7 @@ class CharacterListViewState: ObservableObject {
                 self.charaList = try await apiRepository.getCharaList()
             } catch {
                 print(error)
-                alertMessage = R.string.localizable.characterFailedToGetTheCharacter()
+                alertMessage = String(localized: "character-failed-to-get-the-character")
                 self.showingAlert = true
             }
         }

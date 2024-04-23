@@ -21,8 +21,8 @@ struct CharaProfileView: View {
                         .frame(width: geometory.size.width, height: geometory.size.width)
                         .scaledToFill()
 
-                    CharaProfileRow(title: R.string.localizable.profileName(), text: viewState.chara?.name ?? "", url: nil)
-                    CharaProfileRow(title: R.string.localizable.profileProfile(), text: viewState.chara?.description ?? "", url: nil)
+                    CharaProfileRow(title: String(localized: "profile-name"), text: viewState.chara?.name ?? "", url: nil)
+                    CharaProfileRow(title: String(localized: "profile-profile"), text: viewState.chara?.description ?? "", url: nil)
 
                     if let profiles = viewState.chara?.profiles {
                         ForEach(profiles, id: \.hashValue) { profile in
@@ -70,10 +70,10 @@ struct CharaProfileView: View {
         }
         .alert(isPresented: $viewState.showSelectAlert) {
             Alert(
-                title: Text(R.string.localizable.profileCharacterSelection()),
-                message: Text(R.string.localizable.profileWantToCallThisCharacter()),
-                primaryButton: .default(Text(R.string.localizable.commonClose())) {
-                }, secondaryButton: .default(Text(R.string.localizable.profileYes())) {
+                title: Text(String(localized: "profile-character-selection")),
+                message: Text(String(localized: "profile-want-to-call-this-character")),
+                primaryButton: .default(Text(String(localized: "common-close"))) {
+                }, secondaryButton: .default(Text(String(localized: "profile-yes"))) {
                     viewState.selectCharacter()
                 })
         }

@@ -7,12 +7,12 @@ struct TutorialFinallyView: View {
 
             Spacer()
 
-            Text(R.string.localizable.tutorialFinallyPleaseAllowPushNotificaion())
+            Text(String(localized: "tutorial-finally-please-allow-push-notificaion"))
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
                 .padding(.top, 128)
 
-            Image(R.image.zundamonSmile.name)
+            Image(.zundamonSmile)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
@@ -21,7 +21,7 @@ struct TutorialFinallyView: View {
             Button(action: {
                 NotificationCenter.default.post(name: NSNotification.doneTutorial, object: self, userInfo: nil)
             }) {
-                TutorialButtonContent(text: R.string.localizable.tutorialGoToHomeScreen())
+                TutorialButtonContent(text: String(localized: "tutorial-go-to-home-screen"))
                     .padding(.horizontal, 16)
             }
             .padding(.bottom, 28)

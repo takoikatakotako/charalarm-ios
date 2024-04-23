@@ -18,7 +18,7 @@ struct NewsListView: View {
                     NewsRow(news: news)
                 }
             }
-            .navigationBarTitle(R.string.localizable.newsNews(), displayMode: .inline)
+            .navigationBarTitle(String(localized: "news-news"), displayMode: .inline)
             .navigationBarItems(leading:
                                     Button(action: {
                                         presentationMode.wrappedValue.dismiss()
@@ -31,7 +31,7 @@ struct NewsListView: View {
         }.onAppear {
             viewModel.fetchNews()
         }.alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(R.string.localizable.commonClose())))
+            Alert(title: Text(""), message: Text(viewModel.alertMessage), dismissButton: .default(Text(String(localized: "common-close"))))
         }
     }
 }

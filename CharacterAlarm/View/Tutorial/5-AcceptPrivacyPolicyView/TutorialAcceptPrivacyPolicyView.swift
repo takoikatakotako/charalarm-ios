@@ -10,18 +10,18 @@ struct TutorialAcceptPrivacyPolicyView: View {
             VStack(alignment: .center, spacing: 12) {
                 Spacer()
 
-                Text(R.string.localizable.tutorialPleaseAcceptThePrivacyPolicy())
+                Text(String(localized: "tutorial-please-accept-the-privacy-policy"))
                     .font(Font.system(size: 20))
                     .padding(.horizontal, 12)
 
                 Button(action: {
                     viewModel.openPrivacyPolicy()
                 }) {
-                    Text(R.string.localizable.tutorialOpenThePrivacyPolicy())
+                    Text(String(localized: "tutorial-open-the-privacy-policy"))
                         .font(Font.system(size: 20))
                 }
 
-                Image(R.image.zundamonNormal.name)
+                Image(.zundamonNormal)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 300)
@@ -37,7 +37,8 @@ struct TutorialAcceptPrivacyPolicyView: View {
                 Button(action: {
                     viewModel.signUp()
                 }, label: {
-                    TutorialButtonContent(text: R.string.localizable.tutorialAgreeWithThePrivacyPolicy())
+
+                    TutorialButtonContent(text: String(localized: "tutorial-agree-with-the-privacy-policy"))
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)

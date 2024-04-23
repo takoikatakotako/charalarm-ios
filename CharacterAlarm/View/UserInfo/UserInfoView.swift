@@ -9,7 +9,7 @@ struct UserInfoView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading) {
-                Text(R.string.localizable.userInfoUserName())
+                Text(String(localized: "user-info-user-name"))
                     .font(Font.body.bold())
 
                 Text(viewState.userID)
@@ -97,7 +97,7 @@ struct UserInfoView: View {
             Alert(title: Text("Error"), message: Text(item.message), dismissButton: .default(Text("Close")))
         })
         .padding()
-        .navigationBarTitle(R.string.localizable.userInfoUserInfo(), displayMode: .inline)
+        .navigationBarTitle(String(localized: "user-info-user-nfo"), displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(
             leading:

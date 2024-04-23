@@ -13,7 +13,7 @@ struct ResourceDownloadView: View {
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Text(R.string.localizable.commonClose())
+                    Text(String(localized: "common-close"))
                 }
             }
         }
