@@ -22,7 +22,7 @@ struct SubscriptionView: View {
                 }
 
                 VStack(spacing: 20) {
-                    
+
                     Text(String(localized: "subscription-message"))
 
                     SubscriptionCardView(

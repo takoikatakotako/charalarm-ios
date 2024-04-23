@@ -13,7 +13,7 @@ struct TutorialCharaListView: View {
                 .padding(.bottom, 36)
 
             Spacer()
-            
+
             Text(String(localized: "tutorial-you-can-see-the-characters"))
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)

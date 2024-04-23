@@ -11,11 +11,11 @@ struct ConfigView: View {
                 List {
                     Section(
                         header:
-                            Text(String(localized:"config-user-info"))
+                            Text(String(localized: "config-user-info"))
                             .foregroundStyle(Color(.appMainText))
                     ) {
                         NavigationLink(destination: UserInfoView(viewState: UserInfoViewState())) {
-                            Text(String(localized:"config-user-info"))
+                            Text(String(localized: "config-user-info"))
                                 .foregroundColor(Color(R.color.textColor.name))
                         }
                     }

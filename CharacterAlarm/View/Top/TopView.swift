@@ -8,14 +8,14 @@ import GoogleMobileAds
 struct TopView: View {
     @StateObject var viewState = TopViewState()
     @StateObject var adDelegate = AdmobRewardedHandler()
-    
+
     var body: some View {
         ZStack {
             Image(R.image.background.name)
                 .resizable()
                 .scaledToFill()
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            
+
             VStack(spacing: 0) {
                 Image(uiImage: viewState.charaImage)
                     .resizable()
@@ -23,19 +23,19 @@ struct TopView: View {
                     .scaledToFit()
                     .padding(.top, 60)
             }
-            
+
             Button(action: {
                 viewState.tapped()
             }) {
                 Text("")
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
-            
+
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     HStack {
                         Spacer()
-                        
+
                         Button(action: {
                             viewState.newsButtonTapped()
                         }) {
@@ -47,12 +47,12 @@ struct TopView: View {
                     .frame(height: 140)
                     .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear]), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1)))
                 }
-                
+
                 Spacer()
-                
+
                 VStack(spacing: 8) {
                     TopTimeView()
-                    
+
                     HStack {
                         Spacer()
                         Button(action: {
@@ -60,23 +60,23 @@ struct TopView: View {
                         }) {
                             TopButtonContent(imageName: R.image.topPerson.name)
                         }
-                        
+
                         Spacer()
-                        
+
                         Button(action: {
                             viewState.alarmButtonTapped()
                         }) {
                             TopButtonContent(imageName: R.image.topAlarm.name)
                         }
-                        
+
                         Spacer()
-                        
+
                         Button(action: {
                             viewState.configButtonTapped()
                         }) {
                             TopButtonContent(imageName: R.image.topConfig.name)
                         }
-                        
+
                         Spacer()
                     }
                     .padding(.bottom, 32)
