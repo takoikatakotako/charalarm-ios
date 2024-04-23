@@ -111,10 +111,10 @@ struct ConfigView: View {
                         .alert(isPresented: $viewState.showingResetAlert) {
                             Alert(
                                 title: Text(String(localized: "config-reset")),
-                                message: Text(R.string.localizable.configAreYouSureYouWantToResetTheApp()),
-                                primaryButton: .default(Text(R.string.localizable.commonCancel())) {
+                                message: Text(String(localized: "config-are-you-sure-you-want-to-reset-the-app")),
+                                primaryButton: .default(Text(String(localized: "common-cancel"))) {
                                     // ResetCancel
-                                }, secondaryButton: .destructive(Text(R.string.localizable.configReset())) {
+                                }, secondaryButton: .destructive(Text(String(localized: "common-reset"))) {
                                     viewState.withdraw()
                                 })
                         }

@@ -1,8 +1,42 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    ":" : {
+
+    },
+    "?" : {
+
+    },
+    "%@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
+          }
+        }
+      }
+    },
+    "%@:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@:%2$@"
+          }
+        }
+      }
+    },
+    "%@のボイス" : {
+
+    },
+    "aaa" : {
+
+    },
     "alarm-add-alarm" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -14,7 +48,7 @@
     },
     "alarm-alarm-name" : {
       "comment" : "Alarm",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -25,7 +59,6 @@
       }
     },
     "alarm-delete-alarm" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -36,7 +69,6 @@
       }
     },
     "alarm-edit-alarm" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -47,7 +79,7 @@
       }
     },
     "alarm-failed-to-create-an-alarm" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -58,7 +90,6 @@
       }
     },
     "alarm-failed-to-edit-the-alarm" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -69,7 +100,6 @@
       }
     },
     "alarm-failed-to-get-the-alarm-list" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -80,7 +110,6 @@
       }
     },
     "alarm-list-too-much" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -91,7 +120,6 @@
       }
     },
     "alarm-new-alarm" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -102,7 +130,6 @@
       }
     },
     "alarm-please-enter-the-alarm-name" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -113,7 +140,6 @@
       }
     },
     "alarm-you-can-create-up-to-three-alarms" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -123,9 +149,14 @@
         }
       }
     },
+    "AuthToken" : {
+
+    },
+    "Calling..." : {
+
+    },
     "character-character-list" : {
       "comment" : "Character",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -136,7 +167,6 @@
       }
     },
     "character-failed-to-get-the-character" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -147,7 +177,7 @@
       }
     },
     "character-illustration" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -158,7 +188,6 @@
       }
     },
     "character-pr" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -169,7 +198,7 @@
       }
     },
     "character-voice" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -180,7 +209,6 @@
       }
     },
     "character-want-to-publish-your-character" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -190,8 +218,13 @@
         }
       }
     },
+    "Close" : {
+
+    },
+    "commo-next" : {
+
+    },
     "common-cancel" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -202,7 +235,6 @@
       }
     },
     "common-close" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -214,7 +246,7 @@
     },
     "common-failed-to-connect-with-the-server." : {
       "comment" : "Common",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -225,7 +257,6 @@
       }
     },
     "common-next" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -236,7 +267,6 @@
       }
     },
     "common-privacy" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -246,8 +276,10 @@
         }
       }
     },
+    "common-reset" : {
+
+    },
     "common-save" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -258,7 +290,6 @@
       }
     },
     "common-terms" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -269,7 +300,6 @@
       }
     },
     "config-about-premium-plan" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -280,7 +310,6 @@
       }
     },
     "config-application-info" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -291,7 +320,6 @@
       }
     },
     "config-are-you-sure-you-want-to-reset-the-app" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -303,7 +331,6 @@
     },
     "config-config" : {
       "comment" : "Config",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -314,7 +341,7 @@
       }
     },
     "config-inquires-about-the-app" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -325,7 +352,7 @@
       }
     },
     "config-inquires-adding-characters" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -336,7 +363,6 @@
       }
     },
     "config-license" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -347,7 +373,6 @@
       }
     },
     "config-official-discord" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -358,7 +383,6 @@
       }
     },
     "config-official-twitter" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -369,7 +393,7 @@
       }
     },
     "config-other" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -380,7 +404,6 @@
       }
     },
     "config-other-app-setting" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -391,7 +414,6 @@
       }
     },
     "config-premium-plan" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -402,7 +424,6 @@
       }
     },
     "config-reset" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -413,7 +434,6 @@
       }
     },
     "config-user-info" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -424,7 +444,7 @@
       }
     },
     "config-version-info" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -434,8 +454,10 @@
         }
       }
     },
+    "config-versionInfo" : {
+
+    },
     "day-of-week-friday" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -446,7 +468,6 @@
       }
     },
     "day-of-week-monday" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -457,7 +478,6 @@
       }
     },
     "day-of-week-saturday" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -469,7 +489,6 @@
     },
     "day-of-week-sunday" : {
       "comment" : "DayOfWeek",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -480,7 +499,6 @@
       }
     },
     "day-of-week-thursday" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -491,7 +509,6 @@
       }
     },
     "day-of-week-tuesday" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -502,7 +519,6 @@
       }
     },
     "day-of-week-wednesday" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -512,9 +528,12 @@
         }
       }
     },
+    "Error" : {
+
+    },
     "error-an-unknown-error-has-occurred" : {
       "comment" : "Error",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -525,7 +544,6 @@
       }
     },
     "error-failed-to-find-purchase-history" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -536,7 +554,6 @@
       }
     },
     "error-failed-to-get-authentication-information" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -547,7 +564,6 @@
       }
     },
     "error-failed-to-get-character-information" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -558,7 +574,6 @@
       }
     },
     "error-failed-to-get-character-selection-information" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -569,7 +584,6 @@
       }
     },
     "error-failed-to-get-characters-resources" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -580,7 +594,6 @@
       }
     },
     "error-failed-to-get-subscription-info" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -591,7 +604,6 @@
       }
     },
     "error-failed-to-set-character-image" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -602,7 +614,6 @@
       }
     },
     "error-failed-to-subscription-restore" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -613,7 +624,6 @@
       }
     },
     "error-failed-to-update-premium-plan" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -624,7 +634,6 @@
       }
     },
     "error-this-feature-is-not-available-in-your-region" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -636,7 +645,6 @@
     },
     "license-character" : {
       "comment" : "License",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -647,7 +655,6 @@
       }
     },
     "license-other" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -658,7 +665,6 @@
       }
     },
     "license-other-description" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -669,7 +675,6 @@
       }
     },
     "license-software" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -678,6 +683,9 @@
           }
         }
       }
+    },
+    "Loading" : {
+
     },
     "news-failed-to-get-the-news" : {
       "extractionState" : "migrated",
@@ -692,7 +700,6 @@
     },
     "news-news" : {
       "comment" : "News",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -702,8 +709,13 @@
         }
       }
     },
+    "PremiumPlan" : {
+
+    },
+    "PremiumPlan@UserDefaults" : {
+
+    },
     "profile-character-selection" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -714,7 +726,7 @@
       }
     },
     "profile-downloading-resources" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -725,7 +737,7 @@
       }
     },
     "profile-failed-to-download-resources" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -736,7 +748,6 @@
       }
     },
     "profile-failed-to-get-the-character-information" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -747,7 +758,7 @@
       }
     },
     "profile-failed-to-get-the-resource-of-the-character" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -758,7 +769,7 @@
       }
     },
     "profile-illustration" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -770,7 +781,6 @@
     },
     "profile-name" : {
       "comment" : "Profile",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -781,7 +791,6 @@
       }
     },
     "profile-profile" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -792,7 +801,7 @@
       }
     },
     "profile-voice" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -803,7 +812,6 @@
       }
     },
     "profile-want-to-call-this-character" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -814,7 +822,6 @@
       }
     },
     "profile-yes" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -824,8 +831,20 @@
         }
       }
     },
+    "PushToken" : {
+
+    },
+    "PushTokenEndpoint" : {
+
+    },
+    "Reset" : {
+
+    },
+    "Sorry Unknown Error..." : {
+
+    },
     "subscription-about-cancellation-method" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -836,7 +855,6 @@
       }
     },
     "subscription-benefit1-description" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -847,7 +865,6 @@
       }
     },
     "subscription-benefit1-title" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -858,7 +875,6 @@
       }
     },
     "subscription-benefit2-description" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -869,7 +885,6 @@
       }
     },
     "subscription-benefit2-title" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -881,7 +896,6 @@
     },
     "subscription-message" : {
       "comment" : "Subscription",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -892,7 +906,6 @@
       }
     },
     "subscription-restore" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -903,7 +916,6 @@
       }
     },
     "subscription-restore-success" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -914,7 +926,6 @@
       }
     },
     "subscription-update-premium-plan" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -926,7 +937,6 @@
     },
     "tutorial-agree-with-the-privacy-policy" : {
       "comment" : "Tutorial",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -937,7 +947,7 @@
       }
     },
     "tutorial-charalarm-development-is-supported-by-advertising-revenue" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -947,8 +957,10 @@
         }
       }
     },
+    "tutorial-charalarm-dvelopment-is-supported-by-advertising-revenue" : {
+
+    },
     "tutorial-customize-your-ads" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -959,7 +971,6 @@
       }
     },
     "tutorial-did-you-get-a-call" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -970,7 +981,7 @@
       }
     },
     "tutorial-do-not-allow-use-of-infomation" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -981,7 +992,6 @@
       }
     },
     "tutorial-failed-to-save-user-information" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -992,7 +1002,6 @@
       }
     },
     "tutorial-finally-please-allow-push-notificaion" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1003,7 +1012,6 @@
       }
     },
     "tutorial-get-a-call" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1014,7 +1022,6 @@
       }
     },
     "tutorial-go-to-home-screen" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1025,7 +1032,6 @@
       }
     },
     "tutorial-let-us-try-it-now" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1036,7 +1042,6 @@
       }
     },
     "tutorial-open-the-privacy-policy" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1047,7 +1052,6 @@
       }
     },
     "tutorial-please-accept-the-privacy-policy" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1058,7 +1062,6 @@
       }
     },
     "tutorial-please-choose-your-favorite-character" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1069,7 +1072,6 @@
       }
     },
     "tutorial-this-is-an-app" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1080,7 +1082,6 @@
       }
     },
     "tutorial-welcome-to-charalarm" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1091,7 +1092,6 @@
       }
     },
     "tutorial-you-can-see-the-characters" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1102,7 +1102,6 @@
       }
     },
     "tutorial-you-can-set-multiple-alarms" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1114,7 +1113,6 @@
     },
     "update-requird-open-app-store" : {
       "comment" : "UpdateRequired",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1125,7 +1123,6 @@
       }
     },
     "update-requird-please-install-the-latest-version" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1136,7 +1133,7 @@
       }
     },
     "update-requird-the-app-needs-to-be-updated" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1147,7 +1144,6 @@
       }
     },
     "update-requird-update-requird" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1158,7 +1154,7 @@
       }
     },
     "user-info-user-info" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1170,7 +1166,6 @@
     },
     "user-info-user-name" : {
       "comment" : "UserInfoView",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1179,6 +1174,69 @@
           }
         }
       }
+    },
+    "user-info-user-nfo" : {
+
+    },
+    "VOICEVOX:ずんだもん" : {
+
+    },
+    "VoIPPushToken" : {
+
+    },
+    "VoIPPushTokenEndpoint" : {
+
+    },
+    "お問い合わせ" : {
+
+    },
+    "お問い合わせ内容" : {
+
+    },
+    "キャラームのTwitterを開く" : {
+
+    },
+    "キャラクター" : {
+
+    },
+    "ずんだもん" : {
+
+    },
+    "プレミアムプラン" : {
+
+    },
+    "ボイス" : {
+
+    },
+    "メールアドレス" : {
+
+    },
+    "メンテナンスの状況はTwitterでお知らせしています。" : {
+
+    },
+    "メンテナンス中です" : {
+
+    },
+    "メンテナンス終了までお待ちください。" : {
+
+    },
+    "ユーザーID" : {
+
+    },
+    "ランダム" : {
+
+    },
+    "動画見てください！" : {
+
+    },
+    "送信" : {
+
+    },
+    "閉じる" : {
+
+    },
+    "開発者情報" : {
+
     }
   },
   "version" : "1.0"

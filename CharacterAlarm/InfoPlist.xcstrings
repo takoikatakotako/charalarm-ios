@@ -3,7 +3,7 @@
   "strings" : {
     "CFBundleDisplayName" : {
       "comment" : "Japanese",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -13,8 +13,20 @@
         }
       }
     },
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Charalarm"
+          }
+        }
+      }
+    },
     "NSUserTrackingUsageDescription" : {
-      "extractionState" : "migrated",
+      "comment" : "Privacy - Tracking Usage Description",
       "localizations" : {
         "en" : {
           "stringUnit" : {
