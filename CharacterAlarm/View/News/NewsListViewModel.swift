@@ -12,7 +12,7 @@ class NewsListViewModel: ObservableObject {
                 // let news = try await newsRepository.fetchNews()
                 // self.newsList = news
             } catch {
-                self.alertMessage = R.string.localizable.newsFailedToGetTheNews()
+                self.alertMessage = String(localized: "news-failed-to-get-the-news")
                 self.showingAlert = true
             }
         }
