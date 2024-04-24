@@ -15,7 +15,9 @@ class ContactViewState: ObservableObject {
     @Published var alertEntity: AlertEntity?
 
     func onAppear() {
-        id = keychainRepository.getUserID() ?? ""
+        Task { @MainActor in
+            id = keychainRepository.getUserID() ?? ""
+        }
     }
 
     func sendMessage() {
