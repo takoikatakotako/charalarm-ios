@@ -41,7 +41,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラーム追加"
+            "value" : "Add Alarm"
           }
         }
       }
@@ -53,7 +53,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラーム名"
+            "value" : "Alarm Name"
           }
         }
       }
@@ -63,7 +63,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラーム削除"
+            "value" : "Delete Alarm"
           }
         }
       }
@@ -84,7 +84,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラームの作成に失敗しました。"
+            "value" : "Failed to create an alarm."
           }
         }
       }
@@ -94,7 +94,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラームの編集に失敗しました。"
+            "value" : "Failed to edit the alarm."
           }
         }
       }
@@ -104,7 +104,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラーム一覧の取得に失敗しました。"
+            "value" : "Failed to get the alarm list."
           }
         }
       }
@@ -134,7 +134,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラーム名を入力してください"
+            "value" : "Please enter the alarm name"
           }
         }
       }
@@ -144,7 +144,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラームは最大3つまで作成できます。"
+            "value" : "You can create up to three alarms."
           }
         }
       }
@@ -161,7 +161,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "キャラクター一覧"
+            "value" : "Character List"
           }
         }
       }
@@ -171,7 +171,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "キャラクターの取得に失敗しました。"
+            "value" : "Failed to get the character."
           }
         }
       }
@@ -182,7 +182,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "イラスト"
+            "value" : "Illustration"
           }
         }
       }
@@ -203,7 +203,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "CV"
+            "value" : "Voice"
           }
         }
       }
@@ -213,7 +213,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！"
+            "value" : "Want to publish your character\\n with this app?\\n Click here for details!!"
           }
         }
       }
