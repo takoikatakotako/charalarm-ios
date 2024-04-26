@@ -229,7 +229,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "キャンセル"
+            "value" : "Cancel"
           }
         }
       }
@@ -239,19 +239,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "閉じる"
+            "value" : "Close"
           }
         }
       }
     },
-    "common-failed-to-connect-with-the-server." : {
+    "common-failed-to-connect-with-the-server" : {
       "comment" : "Common",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。"
+            "value" : "Faild to connect with ther server. Please wait a while and try later"
           }
         }
       }
@@ -261,7 +261,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "次へ"
+            "value" : "Next"
           }
         }
       }
@@ -284,7 +284,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "保存"
+            "value" : "Save"
           }
         }
       }
@@ -314,7 +314,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリケーション情報"
+            "value" : "Application Info"
           }
         }
       }
@@ -324,7 +324,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリをリセットしてよろしいですか？"
+            "value" : "Are you sure you want to reset the app?"
           }
         }
       }
@@ -335,7 +335,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "設定"
+            "value" : "Config"
           }
         }
       }
@@ -346,7 +346,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリについてのお問い合わせ"
+            "value" : "Inquiries about the app"
           }
         }
       }
@@ -357,7 +357,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "キャラクター追加のお問い合わせ"
+            "value" : "Inquiries about adding characters"
           }
         }
       }
@@ -367,7 +367,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ライセンス"
+            "value" : "License"
           }
         }
       }
@@ -387,7 +387,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "開発者のXアカウント"
+            "value" : "Official Twitter"
           }
         }
       }
@@ -398,7 +398,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "その他"
+            "value" : "Other"
           }
         }
       }
@@ -428,7 +428,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "リセット"
+            "value" : "Reset"
           }
         }
       }
@@ -438,7 +438,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ユーザー情報"
+            "value" : "User Info"
           }
         }
       }
@@ -449,7 +449,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "バージョン情報"
+            "value" : "Version Info"
           }
         }
       }
@@ -462,7 +462,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "金"
+            "value" : "Fri"
           }
         }
       }
@@ -472,7 +472,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "月"
+            "value" : "Mon"
           }
         }
       }
@@ -482,7 +482,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "土"
+            "value" : "Sat"
           }
         }
       }
@@ -493,7 +493,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "日"
+            "value" : "Sun"
           }
         }
       }
@@ -503,7 +503,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "木"
+            "value" : "Thu"
           }
         }
       }
@@ -513,7 +513,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "火"
+            "value" : "Tue"
           }
         }
       }
@@ -523,7 +523,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "水"
+            "value" : "Wed"
           }
         }
       }
@@ -541,7 +541,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不明なエラーが発生しました。"
+            "value" : "An unknown error has occurred."
           }
         }
       }
@@ -602,6 +602,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "サブスクリプションの情報を取得できませんでした"
+          }
+        }
+      }
+    },
+    "error-failed-to-get-the-authentication-information" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to get the authentication information"
           }
         }
       }
@@ -696,7 +707,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ニュースの取得に失敗しました。"
+            "value" : "Failed to get the news."
           }
         }
       }
@@ -707,7 +718,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ニュース"
+            "value" : "News"
           }
         }
       }
@@ -946,6 +957,12 @@
             "state" : "translated",
             "value" : "I agree with the privacy policy"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシーに同意する"
+          }
         }
       }
     },
@@ -1000,6 +1017,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Failed to save user information."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー情報の保存に設定に失敗しました。"
           }
         }
       }
@@ -1162,7 +1185,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ユーザー情報"
+            "value" : "User Info"
           }
         }
       }
@@ -1173,7 +1196,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ユーザー名"
+            "value" : "User Name"
           }
         }
       }
