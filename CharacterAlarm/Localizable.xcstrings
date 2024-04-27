@@ -736,6 +736,12 @@
             "state" : "translated",
             "value" : "Character selection"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター選択"
+          }
         }
       }
     },
@@ -746,6 +752,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Downloading resources"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リソースをダウンロードしています"
           }
         }
       }
@@ -758,6 +770,12 @@
             "state" : "translated",
             "value" : "Failed to download resources"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リソースのダウンロードに失敗しました"
+          }
         }
       }
     },
@@ -767,6 +785,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Failed to get the character information."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター情報の取得に失敗しました。"
           }
         }
       }
@@ -779,6 +803,12 @@
             "state" : "translated",
             "value" : "Failed to get the resource of the character."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターのリソースの取得に失敗しました。"
+          }
         }
       }
     },
@@ -789,6 +819,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Illustration"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "イラスト"
           }
         }
       }
@@ -801,6 +837,12 @@
             "state" : "translated",
             "value" : "Name"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前"
+          }
         }
       }
     },
@@ -810,6 +852,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profile"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プロフィール"
           }
         }
       }
@@ -822,6 +870,12 @@
             "state" : "translated",
             "value" : "Voice"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CV"
+          }
         }
       }
     },
@@ -832,12 +886,24 @@
             "state" : "translated",
             "value" : "Want to call this character?"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このキャラクターに電話してもらいたいですか？"
+          }
         }
       }
     },
     "profile-yes" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "はい!!"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "はい!!"
@@ -997,6 +1063,12 @@
             "state" : "translated",
             "value" : "Did you get a call?"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無事に電話がかかってきましたか？"
+          }
         }
       }
     },
@@ -1034,6 +1106,12 @@
             "state" : "translated",
             "value" : "Finally, please allow push notifications, such as to announce the addition of new characters."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。"
+          }
         }
       }
     },
@@ -1043,6 +1121,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get a call"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "電話をしてもらう"
           }
         }
       }
@@ -1054,6 +1138,12 @@
             "state" : "translated",
             "value" : "Go to home screen"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム画面へ"
+          }
         }
       }
     },
@@ -1063,6 +1153,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Let's try it now!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "さっそく試してみてなのだ！"
           }
         }
       }
@@ -1074,6 +1170,12 @@
             "state" : "translated",
             "value" : "Open the privacy policy"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシーを開く"
+          }
         }
       }
     },
@@ -1083,6 +1185,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Please accept the privacy policy"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシーへの同意をお願いします。"
           }
         }
       }
@@ -1094,6 +1202,12 @@
             "state" : "translated",
             "value" : "Please choose your favorite character."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好きなキャラクターを選んでみてください。"
+          }
         }
       }
     },
@@ -1103,6 +1217,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This app is an app that the character calls at the time you set."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリは設定した時間にキャラクターが電話をしてくれるアプリなのだ。"
           }
         }
       }
@@ -1114,6 +1234,12 @@
             "state" : "translated",
             "value" : "Welcome to Charalarm!!"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラームにようこそ！"
+          }
         }
       }
     },
@@ -1124,6 +1250,12 @@
             "state" : "translated",
             "value" : "You can see the characters that can receive incoming calls from the character list."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター一覧から着信を受けられるキャラクターを見ることができます。"
+          }
         }
       }
     },
@@ -1133,6 +1265,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can set multiple alarms by specifying the time and day of the week."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラームは時間や曜日を指定して複数セットすることができます。"
           }
         }
       }
@@ -1145,6 +1283,12 @@
             "state" : "translated",
             "value" : "Open App Store"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Storeを開く"
+          }
         }
       }
     },
@@ -1154,6 +1298,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Please install the latest version of the app from the store."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ストアから最新版のアプリのインストールをお願いします。"
           }
         }
       }
@@ -1166,6 +1316,12 @@
             "state" : "translated",
             "value" : "The app needs to be updated."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのアップデートが必要です。"
+          }
         }
       }
     },
@@ -1175,6 +1331,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update Requird"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アップデートが必要です"
           }
         }
       }
