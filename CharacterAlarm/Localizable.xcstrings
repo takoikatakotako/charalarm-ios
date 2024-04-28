@@ -41,6 +41,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Add Alarm"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アラーム追加"
           }
         }
@@ -53,6 +59,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Alarm Name"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アラーム名"
           }
         }
@@ -61,6 +73,12 @@
     "alarm-delete-alarm" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Alarm"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "アラーム削除"
@@ -84,6 +102,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Failed to create an alarm."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アラームの作成に失敗しました。"
           }
         }
@@ -94,6 +118,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Failed to edit the alarm."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アラームの編集に失敗しました。"
           }
         }
@@ -102,6 +132,12 @@
     "alarm-failed-to-get-the-alarm-list" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to get the alarm list."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "アラーム一覧の取得に失敗しました。"
@@ -134,6 +170,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Please enter the alarm name"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アラーム名を入力してください"
           }
         }
@@ -142,6 +184,12 @@
     "alarm-you-can-create-up-to-three-alarms" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can create up to three alarms."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "アラームは最大3つまで作成できます。"
@@ -161,6 +209,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Character List"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "キャラクター一覧"
           }
         }
@@ -169,6 +223,12 @@
     "character-failed-to-get-the-character" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to get the character."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャラクターの取得に失敗しました。"
@@ -180,6 +240,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Illustration"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "イラスト"
@@ -194,6 +260,12 @@
             "state" : "translated",
             "value" : "PR"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PR"
+          }
         }
       }
     },
@@ -201,6 +273,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voice"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "CV"
@@ -213,7 +291,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "あなたのキャラクターを\nこのアプリで公開してみませんか？\n詳しくはこちら！！"
+            "value" : "Want to publish your character\\n with this app?\\n Click here for details!!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたのキャラクターを\\nこのアプリで公開してみませんか？\\n詳しくはこちら！！"
           }
         }
       }
@@ -229,6 +313,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "キャンセル"
           }
         }
@@ -239,16 +329,28 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Close"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "閉じる"
           }
         }
       }
     },
-    "common-failed-to-connect-with-the-server." : {
+    "common-failed-to-connect-with-the-server" : {
       "comment" : "Common",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faild to connect with ther server. Please wait a while and try later"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "サーバーとの通信に失敗しました。時間をあけて後ほどお試しください。"
@@ -259,6 +361,12 @@
     "common-next" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "次へ"
@@ -282,6 +390,12 @@
     "common-save" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存"
@@ -314,6 +428,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Application Info"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アプリケーション情報"
           }
         }
@@ -322,6 +442,12 @@
     "config-are-you-sure-you-want-to-reset-the-app" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to reset the app?"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "アプリをリセットしてよろしいですか？"
@@ -335,6 +461,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Config"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "設定"
           }
         }
@@ -344,6 +476,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inquiries about the app"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "アプリについてのお問い合わせ"
@@ -357,6 +495,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Inquiries about adding characters"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "キャラクター追加のお問い合わせ"
           }
         }
@@ -365,6 +509,12 @@
     "config-license" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ライセンス"
@@ -379,12 +529,24 @@
             "state" : "translated",
             "value" : "Official Discord"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "公式Discordアカウント"
+          }
         }
       }
     },
     "config-official-twitter" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Official Twitter"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "開発者のXアカウント"
@@ -396,6 +558,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "その他"
@@ -428,6 +596,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Reset"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "リセット"
           }
         }
@@ -436,6 +610,12 @@
     "config-user-info" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Info"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ユーザー情報"
@@ -447,6 +627,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version Info"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "バージョン情報"
@@ -462,6 +648,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Fri"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "金"
           }
         }
@@ -472,6 +664,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Mon"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "月"
           }
         }
@@ -480,6 +678,12 @@
     "day-of-week-saturday" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sat"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "土"
@@ -493,6 +697,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Sun"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "日"
           }
         }
@@ -501,6 +711,12 @@
     "day-of-week-thursday" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thu"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "木"
@@ -513,6 +729,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Tue"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "火"
           }
         }
@@ -523,10 +745,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Wed"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "水"
           }
         }
       }
+    },
+    "empty" : {
+
     },
     "Error" : {
 
@@ -536,6 +767,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error has occurred."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "不明なエラーが発生しました。"
@@ -599,6 +836,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "サブスクリプションの情報を取得できませんでした"
+          }
+        }
+      }
+    },
+    "error-failed-to-get-the-authentication-information" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to get the authentication information"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "認証情報の取得に失敗しました。"
           }
         }
       }
@@ -693,6 +947,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Failed to get the news."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "ニュースの取得に失敗しました。"
           }
         }
@@ -702,6 +962,12 @@
       "comment" : "News",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "News"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ニュース"
@@ -720,6 +986,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Character selection"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "キャラクター選択"
           }
         }
@@ -729,6 +1001,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading resources"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "リソースをダウンロードしています"
@@ -742,6 +1020,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Failed to download resources"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "リソースのダウンロードに失敗しました"
           }
         }
@@ -750,6 +1034,12 @@
     "profile-failed-to-get-the-character-information" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to get the character information."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャラクター情報の取得に失敗しました。"
@@ -763,6 +1053,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Failed to get the resource of the character."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "キャラクターのリソースの取得に失敗しました。"
           }
         }
@@ -772,6 +1068,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Illustration"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "イラスト"
@@ -785,6 +1087,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "名前"
           }
         }
@@ -793,6 +1101,12 @@
     "profile-profile" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "プロフィール"
@@ -806,6 +1120,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Voice"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "CV"
           }
         }
@@ -816,6 +1136,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Want to call this character?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "このキャラクターに電話してもらいたいですか？"
           }
         }
@@ -824,6 +1150,12 @@
     "profile-yes" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "はい!!"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "はい!!"
@@ -941,6 +1273,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "I agree with the privacy policy"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "プライバシーポリシーに同意する"
           }
         }
@@ -975,6 +1313,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Did you get a call?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "無事に電話がかかってきましたか？"
           }
         }
@@ -996,6 +1340,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Failed to save user information."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "ユーザー情報の保存に設定に失敗しました。"
           }
         }
@@ -1004,6 +1354,12 @@
     "tutorial-finally-please-allow-push-notificaion" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finally, please allow push notifications, such as to announce the addition of new characters."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "最後に新しいキャラクターの追加のお知らせのなどのため、プッシュ通知の許可をお願いします。"
@@ -1016,6 +1372,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Get a call"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "電話をしてもらう"
           }
         }
@@ -1024,6 +1386,12 @@
     "tutorial-go-to-home-screen" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to home screen"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ホーム画面へ"
@@ -1036,7 +1404,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "さっそく試してみましょう！"
+            "value" : "Let's try it now!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "さっそく試してみてなのだ！"
           }
         }
       }
@@ -1044,6 +1418,12 @@
     "tutorial-open-the-privacy-policy" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open the privacy policy"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "プライバシーポリシーを開く"
@@ -1056,6 +1436,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Please accept the privacy policy"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "プライバシーポリシーへの同意をお願いします。"
           }
         }
@@ -1064,6 +1450,12 @@
     "tutorial-please-choose-your-favorite-character" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please choose your favorite character."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "好きなキャラクターを選んでみてください。"
@@ -1076,7 +1468,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "このアプリは設定した時間にキャラクターが電話をしてくれるアプリです。"
+            "value" : "This app is an app that the character calls at the time you set."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリは設定した時間にキャラクターが電話をしてくれるアプリなのだ。"
           }
         }
       }
@@ -1084,6 +1482,12 @@
     "tutorial-welcome-to-charalarm" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to Charalarm!!"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャラームにようこそ！"
@@ -1096,6 +1500,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "You can see the characters that can receive incoming calls from the character list."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "キャラクター一覧から着信を受けられるキャラクターを見ることができます。"
           }
         }
@@ -1104,6 +1514,12 @@
     "tutorial-you-can-set-multiple-alarms" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can set multiple alarms by specifying the time and day of the week."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "アラームは時間や曜日を指定して複数セットすることができます。"
@@ -1117,6 +1533,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Open App Store"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "App Storeを開く"
           }
         }
@@ -1125,6 +1547,12 @@
     "update-requird-please-install-the-latest-version" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please install the latest version of the app from the store."
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ストアから最新版のアプリのインストールをお願いします。"
@@ -1138,6 +1566,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "The app needs to be updated."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アプリのアップデートが必要です。"
           }
         }
@@ -1146,6 +1580,12 @@
     "update-requird-update-requird" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update Requird"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "アップデートが必要です"
@@ -1159,6 +1599,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "User Info"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "ユーザー情報"
           }
         }
@@ -1168,6 +1614,12 @@
       "comment" : "UserInfoView",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Name"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ユーザー名"
