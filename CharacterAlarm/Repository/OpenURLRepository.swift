@@ -3,7 +3,7 @@ import Foundation
 struct OpenURLRepository {
 
     var inqueryURL: URL {
-        if let lanuageCode = Locale.current.languageCode, lanuageCode == "ja" {
+        if let lanuageCode = Locale.current.language.languageCode?.identifier, lanuageCode == "ja" {
             return URL(string: CharalarmInqueryURLForJapanese)!
         } else {
             return URL(string: CharalarmInqueryURLForEnglish)!
@@ -11,7 +11,7 @@ struct OpenURLRepository {
     }
 
     var characterAdditionRequestURL: URL {
-        if let lanuageCode = Locale.current.languageCode, lanuageCode == "ja" {
+        if let lanuageCode = Locale.current.language.languageCode?.identifier, lanuageCode == "ja" {
             return URL(string: CharalarmCharacterAdditionRequestURLForJapanese)!
         } else {
             return URL(string: CharalarmCharacterAdditionRequestURLForEnglish)!

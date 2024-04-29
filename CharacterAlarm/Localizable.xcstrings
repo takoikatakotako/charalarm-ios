@@ -91,7 +91,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アラーム編集"
+            "value" : "Edit Alarm"
           }
         }
       }
@@ -420,6 +420,12 @@
             "state" : "translated",
             "value" : "プレミアムプランについて"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプランについて"
+          }
         }
       }
     },
@@ -584,6 +590,12 @@
     "config-premium-plan" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプラン"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "プレミアムプラン"
@@ -942,7 +954,7 @@
 
     },
     "news-failed-to-get-the-news" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {

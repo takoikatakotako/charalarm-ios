@@ -22,7 +22,7 @@ class ContactViewState: ObservableObject {
 
     func sendMessage() {
         guard 20 < message.count else {
-            alertEntity = AlertEntity(title: "エラー", message: "sdfsdfs", actionText: "とじる")
+            alertEntity = AlertEntity(title: "エラー", message: "20文字以上入力してください", actionText: "とじる")
             showingAlert = true
             return
         }
@@ -37,7 +37,7 @@ class ContactViewState: ObservableObject {
         Task { @MainActor in
             do {
                 try await discordRepository.sendMessageForContact(requestBody: request)
-                alertEntity = AlertEntity(title: "エラー", message: "送信が完了しました。", actionText: "とじる")
+                alertEntity = AlertEntity(title: "", message: "送信が完了しました。", actionText: "とじる")
                 showingAlert = true
             } catch {
                 alertEntity = AlertEntity(title: "エラー", message: "送信に失敗しました。時間を空けて再度お試しください。", actionText: "とじる")
