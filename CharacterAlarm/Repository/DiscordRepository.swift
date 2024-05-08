@@ -6,6 +6,6 @@ struct DiscordRepository {
         let url = URL(string: "https://discord.com" + path)!
         let requestHeader: [String: String] = APIHeader.defaultHeader
         let requestBody: Encodable? = requestBody
-        let _: MessageResponse = try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
+        try await APIClient().request(url: url, httpMethod: .post, requestHeader: requestHeader, requestBody: requestBody)
     }
 }

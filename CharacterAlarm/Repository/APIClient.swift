@@ -33,7 +33,7 @@ struct APIClient {
             throw CharalarmError.clientError
         }
 
-        guard urlResponse.statusCode == 200 else {
+        guard (200 ... 299) ~= urlResponse.statusCode else {
             if (try? JSONDecoder().decode(MessageResponse.self, from: data)) == nil {
                 throw CharalarmError.clientError
             }
@@ -45,5 +45,23 @@ struct APIClient {
         let response = try decoder.decode(ResponseType.self, from: data)
         return response
     }
+    
+    // レスポンスが不要の場合
+    func request(url: URL, httpMethod: HttpMethod, requestHeader: [String: String], requestBody: Encodable?) async throws {
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.rawValue
+        urlRequest.allHTTPHeaderFields = requestHeader
+        if let requestBody = requestBody, let httpBody = try? JSONEncoder().encode(requestBody) {
+            urlRequest.httpBody = httpBody
+        }
 
+        let (_, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+        guard let urlResponse = urlResponse as? HTTPURLResponse else {
+            throw CharalarmError.clientError
+        }
+
+        guard (200 ... 299) ~= urlResponse.statusCode else {
+            throw CharalarmError.clientError
+        }
+    }
 }

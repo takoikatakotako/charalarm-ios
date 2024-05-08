@@ -2,6 +2,9 @@ name: CharacterAlarm
 options:
   deploymentTarget:
     iOS: 16.0
+settings:
+  base:
+    MARKETING_VERSION: 3.3.0
 
 packages:
   SDWebImageSwiftUI:
@@ -68,7 +71,6 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.2.1
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Develop
@@ -141,7 +143,6 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.2.1
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
@@ -245,7 +246,6 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
         INFOPLIST_FILE: CharacterAlarm/Info.plist
-        MARKETING_VERSION: 3.2.1
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production

@@ -11,7 +11,7 @@ struct TutorialRequireTrackingView: View {
             Text(String(localized: "tutorial-customize-your-ads"))
                 .font(Font.system(size: 18).bold())
 
-            Text(String(localized: "tutorial-charalarm-dvelopment-is-supported-by-advertising-revenue"))
+            Text(String(localized: "tutorial-charalarm-development-is-supported-by-advertising-revenue"))
                 .font(Font.system(size: 18))
                 .padding(.horizontal, 12)
 

@@ -12,8 +12,8 @@ struct CharacterListBanner: View {
             }
             HStack {
                 Spacer()
-                Text(String(localized: "character-want-to-publish-your-character"))
-                    .multilineTextAlignment(.center)
+                Text(String(localized: "character-request"))
+                    .multilineTextAlignment(.leading)
                     .font(.system(size: 14))
                     .foregroundColor(Color(R.color.brownColor.name))
                     .padding(.horizontal, 44)
