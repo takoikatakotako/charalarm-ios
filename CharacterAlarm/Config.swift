@@ -4,7 +4,7 @@ import Foundation
 let PrivacyPolicyUrlString = "https://charalarm.com/privacy/index.html"
 
 // Discordの招待URL
-let OfficialDiscordUrlString: String = "https://discord.gg/UvdsyBTA"
+let OfficialDiscordUrlString: String = "https://discord.gg/ac9XvTURCw"
 
 // 開発者のXアカウント
 let OfficialTwitterUrlString: String = "https://twitter.com/takoikatakotako"

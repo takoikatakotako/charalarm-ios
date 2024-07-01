@@ -22,9 +22,9 @@ packages:
   Rswift:
     url: https://github.com/mac-cain13/R.swift
     from: 7.4.0
-  GoogleMobileAds:
-    url: https://github.com/googleads/swift-package-manager-google-mobile-ads
-    from: 11.2.0
+  # GoogleMobileAds:
+  #   url: https://github.com/googleads/swift-package-manager-google-mobile-ads
+  #   from: 11.2.0
 
 schemes:
   Develop:
