@@ -45,7 +45,7 @@ struct APIClient {
         let response = try decoder.decode(ResponseType.self, from: data)
         return response
     }
-    
+
     // レスポンスが不要の場合
     func request(url: URL, httpMethod: HttpMethod, requestHeader: [String: String], requestBody: Encodable?) async throws {
         var urlRequest = URLRequest(url: url)
