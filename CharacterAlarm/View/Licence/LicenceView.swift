@@ -5,7 +5,7 @@ struct LicenceView: View {
 
     var body: some View {
         List {
-            Section(header: Text(R.string.localizable.licenseCharacter())) {
+            Section(header: Text(String(localized: "license-character"))) {
                 Button {
                     viewState.openZunZunProject()
                 } label: {
@@ -14,7 +14,7 @@ struct LicenceView: View {
                 .buttonStyle(.plain)
             }
 
-            Section(header: Text(R.string.localizable.licenseSoftware())) {
+            Section(header: Text(String(localized: "license-software"))) {
                 Button {
                     viewState.openZunZunProject()
                 } label: {
@@ -23,8 +23,8 @@ struct LicenceView: View {
                 .buttonStyle(.plain)
             }
 
-            Section(header: Text(R.string.localizable.licenseOther())) {
-                Text(R.string.localizable.licenseOtherDescription())
+            Section(header: Text(String(localized: "license-other"))) {
+                Text(String(localized: "license-other-description"))
             }
         }
         .listStyle(GroupedListStyle())

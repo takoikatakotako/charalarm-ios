@@ -14,11 +14,11 @@ struct TutorialCharaListView: View {
 
             Spacer()
 
-            Text(R.string.localizable.tutorialYouCanSeeTheCharacters())
+            Text(String(localized: "tutorial-you-can-see-the-characters"))
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
 
-            Text(R.string.localizable.tutorialPleaseChooseYourFavoriteCharacter())
+            Text(String(localized: "tutorial-please-choose-your-favorite-character"))
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
 
@@ -27,7 +27,7 @@ struct TutorialCharaListView: View {
             NavigationLink(
                 destination: TutorialAcceptPrivacyPolicyView(),
                 label: {
-                    TutorialButtonContent(text: R.string.localizable.commonNext())
+                    TutorialButtonContent(text: String(localized: "common-next"))
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)

@@ -3,12 +3,12 @@ import SwiftUI
 struct UpdateRequiredView: View {
     var body: some View {
         VStack(spacing: 12) {
-            Text(R.string.localizable.updateRequirdUpdateRequird())
+            Text(String(localized: "update-requird-update-requird"))
                 .font(Font.system(size: 28))
                 .padding()
             VStack(alignment: .leading) {
-                Text(R.string.localizable.updateRequirdUpdateRequird())
-                Text(R.string.localizable.updateRequirdPleaseInstallTheLatestVersion())
+                Text(String(localized: "update-requird-update-requird"))
+                Text(String(localized: "update-requird-please-install-the-latest-version"))
             }
             .padding()
 
@@ -22,7 +22,7 @@ struct UpdateRequiredView: View {
                     UIApplication.shared.open(url)
                 }
             }) {
-                Text(R.string.localizable.updateRequirdOpenAppStore())
+                Text(String(localized: "update-requird-open-app-store"))
                     .font(Font.system(size: 20))
             }
             .padding()

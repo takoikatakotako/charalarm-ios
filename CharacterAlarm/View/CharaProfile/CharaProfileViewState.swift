@@ -51,7 +51,7 @@ class CharaProfileViewState: ObservableObject {
                 let chara = try await apiRepository.fetchCharacter(charaID: charaID)
                 self.chara = chara
             } catch {
-                alertMessage = R.string.localizable.profileFailedToGetTheCharacterInformation()
+                alertMessage = String(localized: "profile-failed-to-get-the-character-information")
                 showingAlert = true
             }
         }

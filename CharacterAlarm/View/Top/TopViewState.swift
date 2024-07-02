@@ -69,7 +69,7 @@ class TopViewState: ObservableObject {
     }
 
     func alarmButtonTapped() {
-        guard Locale.current.regionCode != "CN" else {
+        guard Locale.current.region?.identifier != "CN" else {
             alert = .thisFeatureIsNotAvailableInYourRegion
             return
         }

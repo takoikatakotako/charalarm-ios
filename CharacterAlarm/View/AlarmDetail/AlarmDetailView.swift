@@ -8,9 +8,9 @@ struct AlarmDetailView: View {
     private var title: String {
         switch viewState.type {
         case .create:
-            return R.string.localizable.alarmAddAlarm()
+            return String(localized: "alarm-add-alarm")
         case .edit:
-            return R.string.localizable.alarmEditAlarm()
+            return String(localized: "alarm-edit-alarm")
         }
     }
 
@@ -35,7 +35,7 @@ struct AlarmDetailView: View {
                         AlarmDetailWeekdaySelecter(alarm: $viewState.alarm)
 
                         VStack(alignment: .leading) {
-                            TextField(R.string.localizable.alarmPleaseEnterTheAlarmName(), text: $viewState.alarm.name)
+                            TextField(String(localized: "alarm-please-enter-the-alarm-name"), text: $viewState.alarm.name)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         .padding(.horizontal, 16)
@@ -78,7 +78,7 @@ struct AlarmDetailView: View {
                         Button(action: {
                             viewState.createOrEditAlarm()
                         }) {
-                            Text(R.string.localizable.commonSave())
+                            Text(String(localized: "common-save"))
                                 .foregroundColor(Color(R.color.charalarmDefaultGreen.name))
                         }
                     }

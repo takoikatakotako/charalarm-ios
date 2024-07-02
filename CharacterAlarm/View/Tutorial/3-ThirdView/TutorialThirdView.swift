@@ -5,17 +5,17 @@ struct TutorialThirdView: View {
         VStack(alignment: .center, spacing: 12) {
             Spacer()
 
-            Image(R.image.tutorialAlarmScreenShot.name)
+            Image(.tutorialAlarmScreenShot)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 320, height: 400)
                 .padding(.bottom, 36)
 
-            Text(R.string.localizable.tutorialDidYouGetACall())
+            Text(String(localized: "tutorial-did-you-get-a-call"))
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
 
-            Text(R.string.localizable.tutorialYouCanSetMultipleAlarms())
+            Text(String(localized: "tutorial-you-can-set-multiple-alarms"))
                 .font(Font.system(size: 20))
                 .padding(.horizontal, 12)
 
@@ -24,7 +24,7 @@ struct TutorialThirdView: View {
             NavigationLink(
                 destination: TutorialCharaListView(),
                 label: {
-                    TutorialButtonContent(text: R.string.localizable.commonNext())
+                    TutorialButtonContent(text: String(localized: "common-next"))
                         .padding(.horizontal, 16)
                 })
                 .padding(.bottom, 28)

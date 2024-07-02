@@ -24,7 +24,7 @@ class SubscriptionViewState: ObservableObject {
                 let product = try await fetchProducts()
                 self.product = product
             } catch {
-                alertMessage = R.string.localizable.errorFailedToGetSubscriptionInfo()
+                alertMessage = String(localized: "error-failed-to-get-subscription-info")
                 showingAlert = true
             }
         }
@@ -33,7 +33,7 @@ class SubscriptionViewState: ObservableObject {
     @MainActor
     func upgradeButtonTapped() {
         guard let product = self.product else {
-            alertMessage = R.string.localizable.errorFailedToGetSubscriptionInfo()
+            alertMessage = String(localized: "error-failed-to-get-subscription-info")
             showingAlert = true
             return
         }
@@ -47,7 +47,7 @@ class SubscriptionViewState: ObservableObject {
                 enableDisplayLock = false
             } catch {
                 enableDisplayLock = false
-                alertMessage = R.string.localizable.errorFailedToUpdatePremiumPlan()
+                alertMessage = String(localized: "error-failed-to-update-premium-plan")
                 showingAlert = true
             }
         }
@@ -71,18 +71,18 @@ class SubscriptionViewState: ObservableObject {
                 guard validSubscription?.productID == nil else {
                     // リストア対象じゃない場合
                     enableDisplayLock = false
-                    alertMessage = R.string.localizable.errorFailedToFindPurchaseHistory()
+                    alertMessage = String(localized: "error-failed-to-find-purchase-history")
                     showingAlert = true
                     return
                 }
 
                 // 特典を付与
                 userDefaultsRepository.setEnablePremiumPlan(enable: true)
-                alertMessage = R.string.localizable.subscriptionRestoreSuccess()
+                alertMessage = String(localized: "subscription-restore-success")
                 showingAlert = true
             } catch {
                 enableDisplayLock = false
-                alertMessage = R.string.localizable.errorFailedToSubscriptionRestore()
+                alertMessage = String(localized: "error-failed-to-subscription-restore")
                 showingAlert = true
             }
         }

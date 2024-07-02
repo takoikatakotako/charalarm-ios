@@ -25,13 +25,13 @@ struct AlarmDetailWeekdayButton: View {
 struct AlarmDetailWeekdayButton_Previews: PreviewProvider {
     struct PreviewWrapperOn: View {
         var body: some View {
-            AlarmDetailWeekdayButton(enable: .constant(true), title: R.string.localizable.dayOfWeekMonday())
+            AlarmDetailWeekdayButton(enable: .constant(true), title: String(localized: "day-of-week-monday"))
         }
     }
 
     struct PreviewWrapperOff: View {
         var body: some View {
-            AlarmDetailWeekdayButton(enable: .constant(false), title: R.string.localizable.dayOfWeekMonday())        }
+            AlarmDetailWeekdayButton(enable: .constant(false), title: String(localized: "day-of-week-monday"))        }
     }
 
     static var previews: some View {

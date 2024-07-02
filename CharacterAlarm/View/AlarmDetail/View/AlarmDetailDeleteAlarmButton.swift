@@ -13,7 +13,7 @@ struct AlarmDetailDeleteAlarmButton: View {
             Button(action: {
                 delegate.deleteAlarm(alarmId: alarmId)
             }) {
-                Text(R.string.localizable.alarmDeleteAlarm())
+                Text(String(localized: "alarm-delete-alarm"))
                     .foregroundColor(Color.white)
                     .font(Font.system(size: 16).bold())
                     .frame(height: 46)
