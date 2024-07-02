@@ -11,6 +11,7 @@ class ContactViewState: ObservableObject {
     @Published var email: String = ""
     @Published var message: String = ""
 
+    @Published var showingIndicator: Bool = false
     @Published var showingAlert: Bool = false
     @Published var alertEntity: AlertEntity?
 
@@ -21,8 +22,8 @@ class ContactViewState: ObservableObject {
     }
 
     func sendMessage() {
-        guard 20 < message.count else {
-            alertEntity = AlertEntity(title: "エラー", message: "sdfsdfs", actionText: "とじる")
+        guard 10 < message.count else {
+            alertEntity = AlertEntity(title: "エラー", message: "10文字以上入力してください", actionText: "とじる")
             showingAlert = true
             return
         }
@@ -35,14 +36,16 @@ class ContactViewState: ObservableObject {
         let request = DiscordRequest(content: content)
 
         Task { @MainActor in
+            showingIndicator = true
             do {
                 try await discordRepository.sendMessageForContact(requestBody: request)
-                alertEntity = AlertEntity(title: "エラー", message: "送信が完了しました。", actionText: "とじる")
+                alertEntity = AlertEntity(title: "", message: "送信が完了しました。", actionText: "とじる")
                 showingAlert = true
             } catch {
                 alertEntity = AlertEntity(title: "エラー", message: "送信に失敗しました。時間を空けて再度お試しください。", actionText: "とじる")
                 showingAlert = true
             }
+            showingIndicator = false
         }
     }
 }

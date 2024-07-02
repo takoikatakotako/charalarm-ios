@@ -91,6 +91,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Edit Alarm"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "アラーム編集"
           }
         }
@@ -152,12 +158,24 @@
             "state" : "translated",
             "value" : "2つ以上アラームを作るにはプレミアムプランに登録する必要があります。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2つ以上アラームを作るにはプレミアムプランに登録する必要があります。"
+          }
         }
       }
     },
     "alarm-new-alarm" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいアラーム"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "新しいアラーム"
@@ -198,10 +216,24 @@
       }
     },
     "AuthToken" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AuthToken"
+          }
+        }
+      }
     },
     "Calling..." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calling..."
+          }
+        }
+      }
     },
     "character-character-list" : {
       "comment" : "Character",
@@ -269,6 +301,23 @@
         }
       }
     },
+    "character-request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please request your favorite character. Contact Us! !"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "好きなキャラクターのリクエストをしてください。お問い合わせはこちら！！"
+          }
+        }
+      }
+    },
     "character-voice" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -286,27 +335,25 @@
         }
       }
     },
-    "character-want-to-publish-your-character" : {
+    "Close" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Want to publish your character\\n with this app?\\n Click here for details!!"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "あなたのキャラクターを\\nこのアプリで公開してみませんか？\\n詳しくはこちら！！"
+            "value" : "とじる"
           }
         }
       }
     },
-    "Close" : {
-
-    },
     "commo-next" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "つぎ"
+          }
+        }
+      }
     },
     "common-cancel" : {
       "localizations" : {
@@ -381,11 +428,24 @@
             "state" : "translated",
             "value" : "プライバシーポリシー"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシー"
+          }
         }
       }
     },
     "common-reset" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット"
+          }
+        }
+      }
     },
     "common-save" : {
       "localizations" : {
@@ -410,12 +470,24 @@
             "state" : "translated",
             "value" : "利用規約"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "利用規約"
+          }
         }
       }
     },
     "config-about-premium-plan" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプランについて"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "プレミアムプランについて"
@@ -578,12 +650,24 @@
             "state" : "translated",
             "value" : "その他アプリ設定"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他アプリ設定"
+          }
         }
       }
     },
     "config-premium-plan" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプラン"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "プレミアムプラン"
@@ -639,9 +723,6 @@
           }
         }
       }
-    },
-    "config-versionInfo" : {
-
     },
     "day-of-week-friday" : {
       "localizations" : {
@@ -760,7 +841,14 @@
 
     },
     "Error" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
+          }
+        }
+      }
     },
     "error-an-unknown-error-has-occurred" : {
       "comment" : "Error",
@@ -787,12 +875,24 @@
             "state" : "translated",
             "value" : "購入履歴が見つかりませんでした"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入履歴が見つかりませんでした"
+          }
         }
       }
     },
     "error-failed-to-get-authentication-information" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "認証情報の取得に失敗しました。"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "認証情報の取得に失敗しました。"
@@ -807,12 +907,24 @@
             "state" : "translated",
             "value" : "キャラクターの情報の取得に失敗しました"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターの情報の取得に失敗しました"
+          }
         }
       }
     },
     "error-failed-to-get-character-selection-information" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターの選択情報の取得に失敗しました"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャラクターの選択情報の取得に失敗しました"
@@ -827,12 +939,24 @@
             "state" : "translated",
             "value" : "キャラクターのリソースを取得に失敗しました"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターのリソースを取得に失敗しました"
+          }
         }
       }
     },
     "error-failed-to-get-subscription-info" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションの情報を取得できませんでした"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "サブスクリプションの情報を取得できませんでした"
@@ -864,12 +988,24 @@
             "state" : "translated",
             "value" : "キャラクターの画像を設定できませんでした"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクターの画像を設定できませんでした"
+          }
         }
       }
     },
     "error-failed-to-subscription-restore" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションのリストアに失敗しました"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "サブスクリプションのリストアに失敗しました"
@@ -884,6 +1020,12 @@
             "state" : "translated",
             "value" : "プレミアムプランへのアップデートに失敗しました"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプランへのアップデートに失敗しました"
+          }
         }
       }
     },
@@ -894,13 +1036,28 @@
             "state" : "translated",
             "value" : "この機能はお住まいの地域ではご利用いただけません。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この機能はお住まいの地域ではご利用いただけません。"
+          }
         }
       }
+    },
+    "Key" : {
+      "extractionState" : "manual"
     },
     "license-character" : {
       "comment" : "License",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャラクター"
@@ -915,12 +1072,24 @@
             "state" : "translated",
             "value" : "その他"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他"
+          }
         }
       }
     },
     "license-other-description" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOSアプリに使用しているライブラリのライセンスはアプリの設定画面から確認できます"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "iOSアプリに使用しているライブラリのライセンスはアプリの設定画面から確認できます"
@@ -935,14 +1104,27 @@
             "state" : "translated",
             "value" : "ソフトウェア"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ソフトウェア"
+          }
         }
       }
     },
     "Loading" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading"
+          }
+        }
+      }
     },
     "news-failed-to-get-the-news" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -976,10 +1158,24 @@
       }
     },
     "PremiumPlan" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PremiumPlan"
+          }
+        }
+      }
     },
     "PremiumPlan@UserDefaults" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PremiumPlan@UserDefaults"
+          }
+        }
+      }
     },
     "profile-character-selection" : {
       "localizations" : {
@@ -1170,7 +1366,14 @@
 
     },
     "Reset" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット"
+          }
+        }
+      }
     },
     "Sorry Unknown Error..." : {
 
@@ -1179,6 +1382,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解約方法について"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "解約方法について"
@@ -1193,12 +1402,24 @@
             "state" : "translated",
             "value" : "アラームを10個まで設定することができます"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アラームを10個まで設定することができます"
+          }
         }
       }
     },
     "subscription-benefit1-title" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特典１: アラーム数上限アップ"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "特典１: アラーム数上限アップ"
@@ -1213,12 +1434,24 @@
             "state" : "translated",
             "value" : "アプリ内の広告が全て非表示になります"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ内の広告が全て非表示になります"
+          }
         }
       }
     },
     "subscription-benefit2-title" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特典2: 広告表示なし"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "特典2: 広告表示なし"
@@ -1234,12 +1467,24 @@
             "state" : "translated",
             "value" : "Charalarmのサブスクリプションプランに\nアップデートすることでいくつかの機能が解放されます！！"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charalarmのサブスクリプションプランに\nアップデートすることでいくつかの機能が解放されます！！"
+          }
         }
       }
     },
     "subscription-restore" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入を復元"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "購入を復元"
@@ -1254,12 +1499,24 @@
             "state" : "translated",
             "value" : "サブスクリプションの復元に成功しました"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションの復元に成功しました"
+          }
         }
       }
     },
     "subscription-update-premium-plan" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレミアムプランにアップデート"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "プレミアムプランにアップデート"
@@ -1292,15 +1549,24 @@
             "state" : "translated",
             "value" : "Charalarmの運営、開発は広告の収益により支えられています。\n適切な広告が表示されるために必要な情報の利用を許可をお願いします。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charalarmの運営、開発は広告の収益により支えられています。\n適切な広告が表示されるために必要な情報の利用を許可をお願いします。"
+          }
         }
       }
-    },
-    "tutorial-charalarm-dvelopment-is-supported-by-advertising-revenue" : {
-
     },
     "tutorial-customize-your-ads" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタマイズした広告を表示"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "カスタマイズした広告を表示"
@@ -1328,6 +1594,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "情報の利用を許可しない"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "情報の利用を許可しない"

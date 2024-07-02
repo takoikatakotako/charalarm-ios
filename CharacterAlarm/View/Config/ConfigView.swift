@@ -71,7 +71,7 @@ struct ConfigView: View {
                     ) {
                         // バージョン情報
                         HStack {
-                            Text(String(localized: "config-versionInfo"))
+                            Text(String(localized: "config-version-info"))
                                 .foregroundColor(Color(R.color.textColor.name))
                             Spacer()
                             Text(viewState.versionString)
