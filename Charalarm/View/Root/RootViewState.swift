@@ -1,5 +1,6 @@
 import UIKit
 import SwiftUI
+import FirebaseAuth
 
 class RootViewState: ObservableObject {
     @Published var type: RootViewType = .loading
@@ -39,6 +40,9 @@ class RootViewState: ObservableObject {
                     }
                     return
                 }
+                
+                // Firebaseログイン
+                let result = try await Auth.auth().signInAnonymously()
 
                 // UserDefaults に初期値を入れる
                 userDefaultsRepository.registerDefaults()
@@ -69,6 +73,7 @@ class RootViewState: ObservableObject {
                     }
                 }
             } catch {
+                print(error)
                 withAnimation(.linear(duration: 1)) {
                     type = .error
                 }
