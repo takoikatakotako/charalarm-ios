@@ -22,6 +22,9 @@ class RootViewState: ObservableObject {
                 guard type == .loading else {
                     return
                 }
+                
+                // TODO: ネットワークチェック
+                
 
                 // メンテナンス中か確認
                 let isMaintenance = try await apiRepository.fetchMaintenance()

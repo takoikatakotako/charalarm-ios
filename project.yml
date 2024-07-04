@@ -117,6 +117,8 @@ targets:
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
+        product: FirebaseStore
+      - package: Firebase
         product: FirebaseRemoteConfig
       - package: KeychainAccess
         product: KeychainAccess
