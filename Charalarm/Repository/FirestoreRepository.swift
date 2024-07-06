@@ -1,11 +1,15 @@
 import Foundation
+import FirebaseFirestore
 
 struct FirestoreRepository {
-    private let appCollection = "appInfo"
+    private let appCollection = "app"
     
     
     // #######################################
     // # App Collection
     // #######################################
-    func get
+//    func getAppInfo() async throws -> App {
+//        let db = Firestore.firestore()
+//        try await db.collection(appCollection).document
+//    }
 }

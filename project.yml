@@ -117,7 +117,7 @@ targets:
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
-        product: FirebaseStore
+        product: FirebaseFirestore
       - package: Firebase
         product: FirebaseRemoteConfig
       - package: KeychainAccess
@@ -189,6 +189,8 @@ targets:
       - package: Firebase
         product: FirebaseCrashlytics
       - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
         product: FirebaseRemoteConfig
       - package: KeychainAccess
         product: KeychainAccess
@@ -231,6 +233,8 @@ targets:
         product: FirebaseAuth
       - package: Firebase
         product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
       - package: Firebase
         product: FirebaseRemoteConfig
       - package: KeychainAccess

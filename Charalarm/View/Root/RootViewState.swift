@@ -24,7 +24,6 @@ class RootViewState: ObservableObject {
                 }
                 
                 // TODO: ネットワークチェック
-                
 
                 // メンテナンス中か確認
                 let isMaintenance = try await apiRepository.fetchMaintenance()
@@ -45,8 +44,8 @@ class RootViewState: ObservableObject {
                 }
                 
                 // Firebaseログイン
-                let result = try await Auth.auth().signInAnonymously()
-
+                try await Auth.auth().signInAnonymously()                
+                
                 // UserDefaults に初期値を入れる
                 userDefaultsRepository.registerDefaults()
 

@@ -1,4 +1,4 @@
-## app
+## appInfo
 
 ### isMaintenance
 メンテナンス中か否か
