@@ -27,39 +27,39 @@ class TutorialAcceptPrivacyPolicyViewModel: ObservableObject {
 
         creatingAccount = true
 
-//        let delegate = UIApplication.shared.delegate as? AppDelegate
-//        let optionalPushToken = delegate?.model.pushToken
-//        let optionalVoIPPushToken = delegate?.model.voipPushToken
-//
-//        Task { @MainActor in
-//            // ここでユーザー登録してトークンを設定する
-//            do {
-//                // SignUp
-//                try await apiRepository.postUserSignup(request: UserSignUpRequest(userID: userID.uuidString, authToken: authToken.uuidString, platform: "iOS"))
-//
-//                // Set KeyChain
-//                try keychainRepository.setUserID(userID: userID)
-//                try keychainRepository.setAuthToken(authToken: authToken)
-//
-//                // Set Push Token
-//                if let token = optionalPushToken {
-//                    let pushToken = PushTokenRequest(pushToken: token)
-//                    try await apiRepository.postPushTokenAddPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: pushToken)
-//                }
-//
-//                // Set VoIP Push Token
-//                if let token = optionalVoIPPushToken {
-//                    let voipPushToken = PushTokenRequest(pushToken: token)
-//                    try await apiRepository.postPushTokenAddVoIPPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: voipPushToken)
-//                }
-//
-//                accountCreated = true
-//            } catch {
-//                alertMessage = String(localized: "tutorial-failed-to-save-user-information")
-//                showingAlert = true
-//            }
-//            creatingAccount = false
-//        }
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        let optionalPushToken = delegate?.model.pushToken
+        let optionalVoIPPushToken = delegate?.model.voipPushToken
+
+        Task { @MainActor in
+            // ここでユーザー登録してトークンを設定する
+            do {
+                // SignUp
+                try await apiRepository.postUserSignup(request: UserSignUpRequest(userID: userID.uuidString, authToken: authToken.uuidString, platform: "iOS"))
+
+                // Set KeyChain
+                try keychainRepository.setUserID(userID: userID)
+                try keychainRepository.setAuthToken(authToken: authToken)
+
+                // Set Push Token
+                if let token = optionalPushToken {
+                    let pushToken = PushTokenRequest(pushToken: token)
+                    try await apiRepository.postPushTokenAddPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: pushToken)
+                }
+
+                // Set VoIP Push Token
+                if let token = optionalVoIPPushToken {
+                    let voipPushToken = PushTokenRequest(pushToken: token)
+                    try await apiRepository.postPushTokenAddVoIPPushToken(userID: userID.uuidString, authToken: authToken.uuidString, pushToken: voipPushToken)
+                }
+
+                accountCreated = true
+            } catch {
+                alertMessage = String(localized: "tutorial-failed-to-save-user-information")
+                showingAlert = true
+            }
+            creatingAccount = false
+        }
     }
 
     private func trackingAuthorizationNotDetermined() -> Bool {

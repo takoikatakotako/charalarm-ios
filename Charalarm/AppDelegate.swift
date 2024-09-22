@@ -169,7 +169,7 @@ extension AppDelegate {
     }
 
     private func updateSubscriptionStatus() async {
-        var validSubscription: Transaction?
+        var validSubscription: StoreKit.Transaction?
         for await verificationResult in Transaction.currentEntitlements {
             if case .verified(let transaction) = verificationResult,
                transaction.productType == .autoRenewable && !transaction.isUpgraded {
