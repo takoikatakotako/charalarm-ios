@@ -22,7 +22,7 @@ class RootViewState: ObservableObject {
                 guard type == .loading else {
                     return
                 }
-                
+
                 // TODO: ネットワークチェック
 
                 // メンテナンス中か確認
@@ -42,10 +42,10 @@ class RootViewState: ObservableObject {
                     }
                     return
                 }
-                
+
                 // Firebaseログイン
-                try await Auth.auth().signInAnonymously()                
-                
+                try await Auth.auth().signInAnonymously()
+
                 // UserDefaults に初期値を入れる
                 userDefaultsRepository.registerDefaults()
 

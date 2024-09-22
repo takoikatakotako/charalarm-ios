@@ -26,7 +26,7 @@ class AppDelegateModel {
     func setVoiceFileURL(voiceFileURL: String) {
         self.voiceFileURL = voiceFileURL
     }
-    
+
     func registerDefaults() {
         userDefaultsRepository.registerDefaults()
     }

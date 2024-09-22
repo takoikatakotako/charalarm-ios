@@ -3,8 +3,7 @@ import FirebaseFirestore
 
 struct FirestoreRepository {
     private let appCollection = "app"
-    
-    
+
     // #######################################
     // # App Collection
     // #######################################

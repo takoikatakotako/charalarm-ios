@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // 課金周りの監視
         observeTransactionUpdates()
-        
+
         //
         model.registerDefaults()
 
@@ -157,8 +157,7 @@ extension AppDelegate {
                     model.setEnablePremiumPlan(enable: false)
                 } else if let expirationDate = transaction.expirationDate,
                           Date() < expirationDate // 有効期限内
-                          && !transaction.isUpgraded // アップグレードされていない
-                {
+                          && !transaction.isUpgraded {
                     // 有効なサブスクリプションなのでproductIdに対応した特典を有効にする
                     model.setEnablePremiumPlan(enable: true)
                 }

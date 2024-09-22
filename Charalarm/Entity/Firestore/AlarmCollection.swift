@@ -1,7 +1,7 @@
-//import Foundation
-//import FirebaseFirestore
+// import Foundation
+// import FirebaseFirestore
 //
-//struct AlarmCollection: Hashable {
+// struct AlarmCollection: Hashable {
 //    let id: String
 //    let userId: String
 //    let type: String
@@ -41,11 +41,11 @@
 //        self.iosVoIPPushToken = iosVoIPPushToken
 //        self.iosVoIPPushTokenEndpoint = iosVoIPPushTokenEndpoint
 //    }
-//}
+// }
 //
 //
 //
-//{
+// {
 //  "alarmID":"{UUID}",
 //  "userID":"{UUID}",
 //  "alarmType":"{VOICE_CALL_ALARM or NEWS_CALL_ALARM or CALENDER_CALL_ALARM}",
@@ -64,4 +64,4 @@
 //  "thursday":"{Bool}",
 //  "friday":"{Bool}",
 //  "saturday":"{Bool}"
-//}
+// }

@@ -7,7 +7,7 @@ struct UserCollection: Hashable {
     let iosPushTokenEndpoint: String
     let iosVoIPPushToken: String
     let iosVoIPPushTokenEndpoint: String
-    
+
     init(document: QueryDocumentSnapshot) throws {
         let data = document.data()
         guard
@@ -18,7 +18,7 @@ struct UserCollection: Hashable {
         else {
             throw CharalarmError.clientError
         }
-        
+
         self.id = document.documentID
         self.iosPushToken = iosPushToken
         self.iosPushTokenEndpoint = iosPushTokenEndpoint
@@ -27,11 +27,10 @@ struct UserCollection: Hashable {
     }
 }
 
-
 //
 //
 //
-//{
+// {
 //  "userID":"{UUID}",
 //  "authToken":"{UUID}",
 //  "iosVoIPPushTokens":{
@@ -42,4 +41,4 @@ struct UserCollection: Hashable {
 //    "token":"{iOSのVoIPプッシュ通知のトークン}",
 //    "snsEndpointArn":"{iOSのVoIPプッシュ通知のPlatformApplicationのエンドポイント}"
 //  }
-//}
+// }
